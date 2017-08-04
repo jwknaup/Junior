@@ -4,13 +4,14 @@
 syms v(t);
 maxJumpHeight = 0;
 %from 1 cm to 2.5m (takes awhile)
-for moment_arm = linspace(0.01, 2.5, 100)
+for moment_arm = linspace(.5, 1.5, 20)%1.02m moment arm gives 1.447m extra height
+    gear_ratio = 1;
     %omega
     w = v/moment_arm/cosd(45);
     %maximum torque for 2 motors
-    Tmax = 0.4943*2;
+    Tmax = 0.4943*2/gear_ratio;
     %max angular velocity in rad/s
-    wmax = 100*2*pi()/60;
+    wmax = 100*2*pi()/60*gear_ratio;
     %mass of leg with motors
     mass = .021;
 
