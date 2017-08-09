@@ -1,21 +1,23 @@
 
 %% Velo DifEq
 
+syms theta(t);
 syms v(t);
 moment_arm = 1.01;
-w = v/moment_arm/cosd(45);
+w = v/moment_arm/cos(theta);
+%ode1 = diff(theta, t) == w
 Tmax = 0.4943*2;
 wmax = 100*2*pi()/60;
 mass = .021;
 
 T = Tmax - w * Tmax/wmax;
-F = T/moment_arm / cosd(45) - 9.81*mass;
-initialForce = Tmax/moment_arm/cosd(45) - 9.81*mass
+F = T/moment_arm / cos(theta) - 9.81*mass;
+%initialForce = vpa(Tmax/moment_arm/cos(THETA) - 9.81*mass)
 a = F/mass;
 
-ode = diff(v,t) == a
+ode2 = diff(v,t) == a
 cond = v(0) == 0;
-velocity = dsolve(ode, cond)
+velocity = dsolve(ode2, cond)
 RPM = velocity/moment_arm/cosd(45)*60/6.28318;
 fplot(RPM, [0 .1])
 
