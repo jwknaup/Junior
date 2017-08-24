@@ -3,7 +3,6 @@ clear
 clc
  
 global Tmax wmax mass moment_arm gear_ratio;
-
 maxJumpHeight = 0;
 loops1 = 20;
 loops2 = 50;
