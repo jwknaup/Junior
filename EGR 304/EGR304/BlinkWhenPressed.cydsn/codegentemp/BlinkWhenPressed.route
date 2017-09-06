@@ -1,0 +1,7 @@
+net ClockBlock_HFClk
+	term   ":m0s8clockblockcell.hfclk"
+	switch ":m0s8clockblockcell.hfclk==>:ioport2_clock_io_mux.hfclk"
+	switch ":ioport2_clock_io_mux.clk_in==>:ioport2_clock_io_mux.clk_in_limit"
+	switch ":ioport2_clock_io_mux.clk_in_limit==>:ioport2:pin7.in_clock"
+	term   ":ioport2:pin7.in_clock"
+end ClockBlock_HFClk
