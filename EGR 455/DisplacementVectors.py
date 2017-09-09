@@ -6,7 +6,7 @@ a2 = 1
 a3 = 1
 a4 = 1
 #angles in degrees
-theta1=10.0 
+theta1 = 10.0 
 theta2 = 70.0
 #convert to rad
 theta1=theta1/180.0*np.pi
