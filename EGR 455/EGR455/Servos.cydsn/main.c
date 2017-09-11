@@ -32,15 +32,16 @@ int main(void)
 
     for(;;)
     {
-        pwm1_WriteCompare1(theta1(0)); //servo 1 full clockwise
+        pwm1_WriteCompare1(theta1(45)); //servo 1 full clockwise
+        pwm1_WriteCompare2(theta2(45)); //servo 2 full clockwise
         CyDelay(2000);
-        pwm1_WriteCompare1(theta1(180)); //servo 1 full ccw
-        CyDelay(2000);
-      
-        pwm1_WriteCompare2(theta2(-90)); //servo 2 full clockwise
-        CyDelay(2000);
-        pwm1_WriteCompare2(theta2(90)); //servo 2 full ccw
-        CyDelay(2000);
+       
+//        pwm1_WriteCompare1(theta1(180)); //servo 1 full ccw
+//        CyDelay(2000);
+//      
+//        CyDelay(2000);
+//        pwm1_WriteCompare2(theta2(90)); //servo 2 full ccw
+//        CyDelay(2000);
     }
 }
 

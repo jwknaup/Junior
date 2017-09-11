@@ -1,13 +1,13 @@
 import numpy as np
 
 #lengths
-a1 = 1
-a2 = 1
-a3 = 1
-a4 = 1
+a1 = 5
+a2 = 6
+a3 = 5.5
+a4 = 5.5
 #angles in degrees
-theta1 = 10.0 
-theta2 = 70.0
+theta1 = 45.0 
+theta2 = 45.0
 #convert to rad
 theta1=theta1/180.0*np.pi
 theta2 = theta2/180.0*np.pi
@@ -34,7 +34,7 @@ H0_1 = np.concatenate((H0_1,[[0,0,0,1]]),0)
 #print(np.matrix(H0_1))
 print("\n")
 
-H1_2 = np.concatenate((R1_2,d1_2,1))
+H1_2 = np.concatenate((R1_2,d1_2),1)
 H1_2 = np.concatenate((H1_2,[[0,0,0,1]]))
 
 H0_2 = np.dot(H0_1,H1_2)
