@@ -18,7 +18,7 @@ int theta1(float angle){
     return compare;
 }
 int theta2(float angle){
-    int max_comp = 7000, min_comp = 2100, max_angle=90, min_angle=-90;
+    int max_comp = 6750, min_comp = 2050, max_angle=90, min_angle=-90;
     int compare;
     compare = (max_comp-min_comp)/(max_angle-min_angle)*(angle-min_angle) + min_comp;
     return compare;
