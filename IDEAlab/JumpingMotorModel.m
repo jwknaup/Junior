@@ -9,23 +9,25 @@ gear_ratio = 3;
 Tmax =0.4943*2/gear_ratio; 
 wmax = gear_ratio*100*2*pi()/60;
 moment_arm = .187;
-mass = .02;%.019 + .04*moment_arm;
+mass = .0713557594%.019 + .04*moment_arm
 
 start_angle = 5*pi/180;
 end_angle = 85*pi/180;
 
-tFinal = moment_arm/gear_ratio + .15;
+tFinal = 1.6*moment_arm/gear_ratio + .15;
 tspan = [0,tFinal];
 x0 = [0; start_angle];
 options = odeset('MaxStep', tFinal*.01);
 [time, x] = ode45(@odes, tspan, x0, options);
 velocity = x(:, 1);
 angle = x(:, 2);
+%acceleration = diff(velocity)./diff(time);
 indexAngle = find(end_angle-angle < .1, 1);
 v1= velocity(indexAngle);
 scatter(time, velocity)
 hold on
 scatter(time, angle)
+%scatter(time(1:length(time)-1), acceleration)
 hold off
 
 h1 = sin(end_angle)*moment_arm*2;

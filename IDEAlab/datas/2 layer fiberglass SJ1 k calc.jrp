@@ -1,0 +1,47 @@
+﻿New Table( "2 layer fiberglass deflection",
+	Add Rows( 9 ),
+	New Column( "length (m)",
+		Numeric,
+		"Continuous",
+		Format( "Best", 12 ),
+		Set Values( [0.05, 0.05, 0.05, 0.05, 0.05, 0.07, 0.07, 0.07, 0.07] )
+	),
+	New Column( "force (N)",
+		Numeric,
+		"Continuous",
+		Format( "Best", 12 ),
+		Set Selected,
+		Set Values( [0.2, 0.3, 0.38, 0.48, 0.58, 0.2, 0.26, 0.32, 0.38] )
+	),
+	New Column( "deflection (m)",
+		Numeric,
+		"Continuous",
+		Format( "Best", 12 ),
+		Set Values( [0.018, 0.02, 0.025, 0.03, 0.035, 0.037, 0.043, 0.049, 0.06] )
+	),
+	New Column( "thickness (m)",
+		Numeric,
+		"Continuous",
+		Format( "Best", 12 ),
+		Set Values(
+			[0.0012, 0.0012, 0.0012, 0.0012, 0.0012, 0.0012, 0.0012, 0.0012, 0.0012]
+		)
+	)
+);
+Bivariate(
+	Y( :Name( "force (N)" ) ),
+	X( :Name( "deflection (m)" ) ),
+	Fit Where( :Name( "length (m)" ) == 0.05, Fit Line( {Line Color( "Blue" )} ) ),
+	Fit Where(
+		:Name( "length (m)" ) == 0.07,
+		Fit Line( {Line Color( {252, 11, 11} )} )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"Bivar Plot",
+			FrameBox,
+			{DispatchSeg( Line Seg( 1 ), {Line Color( "Blue" )} )}
+		)
+	)
+);
