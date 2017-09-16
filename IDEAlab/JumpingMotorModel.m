@@ -28,6 +28,10 @@ scatter(time, velocity)
 hold on
 scatter(time, angle)
 %scatter(time(1:length(time)-1), acceleration)
+legend('velocity', 'angle');
+xlabel('time (s)');
+ylabel('v (m/s), angle (rad)');
+title('jump .0714 kg');
 hold off
 
 h1 = sin(end_angle)*moment_arm*2;
@@ -45,7 +49,7 @@ K2 = 0;
 %solve for h2
 finalHeight = vpa(solve(K1+U1 == K2+U2))
 
-
+jumpHeight = finalHeight - moment_arm*2
 
 function dxdt = odes(t, x)
     global Tmax wmax mass moment_arm;
