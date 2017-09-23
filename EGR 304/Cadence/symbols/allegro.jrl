@@ -1,0 +1,145 @@
+\t (00:00:02) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
+\t (00:00:02)     Journal start - Fri Sep 22 20:26:47 2017
+\t (00:00:02)         Host=JACOB-Y50 User=Jacob Pid=11932 CPUs=8
+\t (00:00:02) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe
+\t (00:00:02) 
+\t (00:00:04) Opening existing design...
+\d (00:00:04) Design opened: C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/LM324AN.dra
+\i (00:00:04) trapsize 8
+\i (00:00:04) trapsize 6
+\i (00:00:04) trapsize 6
+\i (00:00:05) generaledit 
+\i (00:00:07) new 
+\i (00:00:42) newdrawfillin "2piinheader.dra" "Package Symbol (Wizard)"
+\t (00:00:42) Starting new design...
+\i (00:00:42) trapsize 14
+\i (00:00:43) trapsize 14
+\i (00:00:43) package symbol wizard 
+\i (00:00:43) generaledit 
+   (00:00:51) Loading cmds.cxt 
+   (00:00:51) Loading axlcore.cxt 
+\i (00:00:51) setwindow form.sym_wizard
+\i (00:00:51) FORM sym_wizard rca_th YES 
+\i (00:00:51) FORM sym_wizard rca_smd YES 
+\i (00:00:52) FORM sym_wizard rca_th YES 
+\i (00:00:54) FORM sym_wizard wiz_next  
+\i (00:00:56) FORM sym_wizard load_template  
+\t (00:00:56) Opening existing design...
+\i (00:00:57) fillin yes 
+\t (00:00:57) Grids are drawn 200, 200 apart for enhanced viewability.
+\i (00:00:57) setwindow pcb
+\i (00:00:57) trapsize 248
+\d (00:00:57) Design opened: C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols/template/sym_template.dra
+\i (00:00:59) setwindow form.sym_wizard
+\i (00:00:59) FORM sym_wizard wiz_next  
+\i (00:01:05) FORM sym_wizard ref_des J* 
+\i (00:01:08) FORM sym_wizard pack_units Inch 
+\i (00:01:09) FORM sym_wizard wiz_next  
+\i (00:01:22) FORM sym_wizard th_discrete_e1 0.100 
+\i (00:01:39) FORM sym_wizard th_discrete_width 0.010 
+\i (00:01:43) FORM sym_wizard th_discrete_len 0.010 
+\i (00:01:43) FORM sym_wizard wiz_next  
+\i (00:01:45) FORM sym_wizard default_pad_browse  
+\i (00:01:53) fillin "Pad70cir40d_Jk"
+\i (00:01:54) FORM sym_wizard wiz_next  
+\i (00:01:56) FORM sym_wizard wiz_next  
+\i (00:01:57) FORM sym_wizard wiz_finish  
+\t (00:01:57) Grids are drawn 0.200, 0.200 apart for enhanced viewability.
+\i (00:01:57) setwindow pcb
+\i (00:01:57) trapsize 248
+\t (00:01:57) Performing DRC...
+\t (00:01:57) No DRC errors detected.
+\w (00:01:57) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\i (00:01:57) trapsize 248
+\e (00:01:57) ERROR(SPMHA1-70): Pin is outside of the extents.
+   (00:01:57) *Error* axlDBGetPad: argument #1 should be any user-defined (other) type (type template = "ogg") - nil
+\i (00:02:15) setwindow form.sym_wizard
+\i (00:02:15) FORM sym_wizard wiz_back  
+\i (00:02:15) FORM sym_wizard wiz_back  
+\i (00:02:16) FORM sym_wizard wiz_back  
+\i (00:02:25) FORM sym_wizard th_discrete_len 0.090 
+\i (00:02:28) FORM sym_wizard th_discrete_width 0.090 
+\i (00:02:30) FORM sym_wizard wiz_next  
+\i (00:02:30) FORM sym_wizard wiz_next  
+\i (00:02:31) FORM sym_wizard wiz_next  
+\i (00:02:32) FORM sym_wizard wiz_finish  
+\w (00:02:32) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\i (00:02:32) setwindow pcb
+\i (00:02:32) trapsize 248
+\i (00:02:32) trapsize 248
+\i (00:02:32) trapsize 32
+\i (00:02:32) trapsize 3
+\i (00:02:32) trapsize 3
+\t (00:02:32) Performing DRC...
+\t (00:02:32) No DRC errors detected.
+\t (00:02:32) Creating package symbol 'C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/2piinheader.psm'.
+\t (00:02:32) Starting Create symbol...
+\e (00:02:32) ERROR(SPMHGE-268): create_sym had errors, use Viewlog to review the log file.
+\e (00:02:32) ERROR(SPMHGE-7): Error(s) occurred, check logfile.
+\i (00:02:32) generaledit 
+\i (00:02:59) setwindow text
+close
+\i (00:03:02) new 
+\e (00:03:02) Do you want to save the changes you made to C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/2piinheader.dra?
+\i (00:03:03) fillin no 
+\i (00:03:24) newdrawfillin "2pinheader.dra" "Package Symbol (Wizard)"
+\t (00:03:24) Starting new design...
+\i (00:03:24) trapsize 3
+\i (00:03:24) trapsize 3
+\i (00:03:24) package symbol wizard 
+\i (00:03:24) generaledit 
+\i (00:03:27) setwindow form.sym_wizard
+\i (00:03:27) FORM sym_wizard rca_th YES 
+\i (00:03:27) FORM sym_wizard dip YES 
+\i (00:03:30) FORM sym_wizard bga YES 
+\i (00:03:30) FORM sym_wizard rca_th YES 
+\i (00:03:31) FORM sym_wizard rca_smd YES 
+\i (00:03:32) FORM sym_wizard sip YES 
+\i (00:03:32) FORM sym_wizard zip YES 
+\i (00:03:33) FORM sym_wizard sip YES 
+\i (00:03:34) FORM sym_wizard rca_smd YES 
+\i (00:03:35) FORM sym_wizard sip YES 
+\i (00:03:40) FORM sym_wizard wiz_next  
+\i (00:03:42) FORM sym_wizard load_template  
+\t (00:03:42) Opening existing design...
+\i (00:03:43) fillin yes 
+\t (00:03:43) Grids are drawn 200, 200 apart for enhanced viewability.
+\i (00:03:43) setwindow pcb
+\i (00:03:43) trapsize 248
+\d (00:03:43) Design opened: C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols/template/sym_template.dra
+\i (00:03:45) setwindow form.sym_wizard
+\i (00:03:45) FORM sym_wizard wiz_next  
+\i (00:03:47) FORM sym_wizard ref_des J* 
+\i (00:03:49) FORM sym_wizard pack_units Inch 
+\i (00:03:54) FORM sym_wizard pack_precision 4 
+\i (00:03:54) FORM sym_wizard wiz_next  
+\i (00:04:22) FORM sym_wizard sip_pin_count 2 
+\i (00:04:33) FORM sym_wizard sip_len 0.2200 
+\i (00:04:33) FORM sym_wizard wiz_next  
+\i (00:04:35) FORM sym_wizard default_pad_browse  
+\i (00:04:45) fillin "Pad70cir40d_Jk"
+\i (00:04:46) FORM sym_wizard wiz_next  
+\i (00:04:47) FORM sym_wizard wiz_next  
+\i (00:04:48) FORM sym_wizard wiz_finish  
+\t (00:04:48) Grids are drawn 0.2000, 0.2000 apart for enhanced viewability.
+\i (00:04:48) setwindow pcb
+\i (00:04:48) trapsize 2477
+\t (00:04:48) Performing DRC...
+\t (00:04:48) No DRC errors detected.
+\i (00:04:48) trapsize 2477
+\i (00:04:48) trapsize 2477
+\i (00:04:48) trapsize 322
+\i (00:04:48) trapsize 42
+\w (00:04:48) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\i (00:04:48) trapsize 4
+\t (00:04:48) Performing DRC...
+\t (00:04:48) No DRC errors detected.
+\t (00:04:48) Creating package symbol 'C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/2pinheader.psm'.
+\t (00:04:48) Starting Create symbol...
+\i (00:04:49) generaledit 
+\i (00:04:56) save 
+\i (00:04:57) fillin yes 
+\t (00:04:58) Symbol '2pinheader.psm' created.
+\i (00:04:58) generaledit 
+\i (00:05:00) exit 
+\t (00:05:00)     Journal end - Fri Sep 22 20:31:45 2017
