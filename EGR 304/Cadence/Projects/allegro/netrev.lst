@@ -1,0 +1,121 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Allegro Netrev Import Logic                                      )
+(                                                                     )
+(    Drawing          : PPSENSOR.brd                                  )
+(    Software Version : 16.6-2015S062                                 )
+(    Date/Time        : Wed Oct 04 10:14:40 2017                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+------ Directives ------------
+
+Ripup etch:                  No
+Ripup delete first segment:  No
+Ripup retain bondwire:       No
+Ripup symbols:               Always
+Missing symbol has error:    No
+DRC update:                  Yes
+Schematic directory:         'C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 304\CADENCE\PROJECTS\allegro'
+Design Directory:            '.'
+Old design name:             'C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/PPSENSOR.brd'
+New design name:             'C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/PPSENSOR.brd'
+
+CmdLine: netrev.exe -y 1 -n -u -i C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 304\CADENCE\PROJECTS\allegro C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 304\CADENCE\PROJECTS\allegro\PPSENSOR.brd C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 304\CADENCE\PROJECTS\allegro\PPSENSOR.brd
+
+------ Preparing to read pst files ------
+
+Starting to read C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/pstchip.dat 
+   Finished reading C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/pstchip.dat (00:00:00.04)
+Starting to read C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/pstxprt.dat 
+   Finished reading C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/pstxprt.dat (00:00:00.00)
+Starting to read C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/pstxnet.dat 
+   Finished reading C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/pstxnet.dat (00:00:00.00)
+
+------ Oversights/Warnings/Errors ------
+
+
+#1   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
+
+WARNING(SPMHNI-194): Symbol 'CAPACITOR' used by RefDes C1 for device 'CAP NP_CAPACITOR_0.1UF' not found in PSMPATH or must be "dbdoctor"ed.
+
+#2   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
+
+WARNING(SPMHNI-194): Symbol '2PINHEADER' used by RefDes J1 for device 'CON2_2PINHEADER_CON2' not found in PSMPATH or must be "dbdoctor"ed.
+
+#3   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
+
+WARNING(SPMHNI-194): Symbol 'RESISTOR' used by RefDes R1 for device 'R_RESISTOR_500' not found in PSMPATH or must be "dbdoctor"ed.
+
+#4   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
+
+WARNING(SPMHNI-194): Symbol 'RESISTOR' used by RefDes R3 for device 'RESISTOR_RESISTOR_1K' not found in PSMPATH or must be "dbdoctor"ed.
+
+#5   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
+
+WARNING(SPMHNI-194): Symbol '2PINHEADER' used by RefDes U1 for device 'FLEXSENSOR_5_2PINHEADER_FLEXSEN' not found in PSMPATH or must be "dbdoctor"ed.
+
+#6   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
+
+WARNING(SPMHNI-194): Symbol 'LM324AN' used by RefDes U3 for device 'LM324_LM324AN_LM324' not found in PSMPATH or must be "dbdoctor"ed.
+
+#7   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
+
+WARNING(SPMHNI-194): Symbol 'PSOC4BLE' used by RefDes U4 for device 'PSOC 4 BLE_PSOC4BLE_PSOC 4 BLE' not found in PSMPATH or must be "dbdoctor"ed.
+
+
+Note: SECTION property definition created
+
+------ Library Paths ------
+MODULEPATH =  . 
+           C:/Cadence/SPB_16.6/share/local/pcb/modules 
+
+PSMPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_16.6/share/local/pcb/symbols 
+           C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_16.6/share/pcb/allegrolib/symbols 
+
+PADPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_16.6/share/local/pcb/padstacks 
+           C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_16.6/share/pcb/allegrolib/symbols 
+
+
+------ Summary Statistics ------
+
+
+netrev run on Oct 4 10:14:40 2017
+   DESIGN NAME : 'PPSENSOR'
+   PACKAGING ON Aug  3 2015 18:16:55
+
+   COMPILE 'logic'
+   CHECK_PIN_NAMES OFF
+   CROSS_REFERENCE OFF
+   FEEDBACK OFF
+   INCREMENTAL OFF
+   INTERFACE_TYPE PHYSICAL
+   MAX_ERRORS 500
+   MERGE_MINIMUM 5
+   NET_NAME_CHARS '#%&()*+-./:=>?@[]^_`|'
+   NET_NAME_LENGTH 24
+   OVERSIGHTS ON
+   REPLACE_CHECK OFF
+   SINGLE_NODE_NETS ON
+   SPLIT_MINIMUM 0
+   SUPPRESS   20
+   WARNINGS ON
+
+ No error detected
+ No oversight detected
+  7 warnings detected
+
+cpu time      0:00:27
+elapsed time  0:00:00
+

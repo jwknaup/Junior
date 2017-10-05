@@ -1,145 +1,1239 @@
-\t (00:00:02) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
-\t (00:00:02)     Journal start - Fri Sep 22 20:26:47 2017
-\t (00:00:02)         Host=JACOB-Y50 User=Jacob Pid=11932 CPUs=8
-\t (00:00:02) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe
-\t (00:00:02) 
-\t (00:00:04) Opening existing design...
-\d (00:00:04) Design opened: C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/LM324AN.dra
-\i (00:00:04) trapsize 8
-\i (00:00:04) trapsize 6
-\i (00:00:04) trapsize 6
-\i (00:00:05) generaledit 
-\i (00:00:07) new 
-\i (00:00:42) newdrawfillin "2piinheader.dra" "Package Symbol (Wizard)"
-\t (00:00:42) Starting new design...
-\i (00:00:42) trapsize 14
-\i (00:00:43) trapsize 14
-\i (00:00:43) package symbol wizard 
-\i (00:00:43) generaledit 
-   (00:00:51) Loading cmds.cxt 
-   (00:00:51) Loading axlcore.cxt 
-\i (00:00:51) setwindow form.sym_wizard
-\i (00:00:51) FORM sym_wizard rca_th YES 
-\i (00:00:51) FORM sym_wizard rca_smd YES 
-\i (00:00:52) FORM sym_wizard rca_th YES 
-\i (00:00:54) FORM sym_wizard wiz_next  
-\i (00:00:56) FORM sym_wizard load_template  
-\t (00:00:56) Opening existing design...
-\i (00:00:57) fillin yes 
-\t (00:00:57) Grids are drawn 200, 200 apart for enhanced viewability.
-\i (00:00:57) setwindow pcb
-\i (00:00:57) trapsize 248
-\d (00:00:57) Design opened: C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols/template/sym_template.dra
-\i (00:00:59) setwindow form.sym_wizard
-\i (00:00:59) FORM sym_wizard wiz_next  
-\i (00:01:05) FORM sym_wizard ref_des J* 
-\i (00:01:08) FORM sym_wizard pack_units Inch 
-\i (00:01:09) FORM sym_wizard wiz_next  
-\i (00:01:22) FORM sym_wizard th_discrete_e1 0.100 
-\i (00:01:39) FORM sym_wizard th_discrete_width 0.010 
-\i (00:01:43) FORM sym_wizard th_discrete_len 0.010 
-\i (00:01:43) FORM sym_wizard wiz_next  
-\i (00:01:45) FORM sym_wizard default_pad_browse  
-\i (00:01:53) fillin "Pad70cir40d_Jk"
-\i (00:01:54) FORM sym_wizard wiz_next  
-\i (00:01:56) FORM sym_wizard wiz_next  
-\i (00:01:57) FORM sym_wizard wiz_finish  
-\t (00:01:57) Grids are drawn 0.200, 0.200 apart for enhanced viewability.
-\i (00:01:57) setwindow pcb
-\i (00:01:57) trapsize 248
-\t (00:01:57) Performing DRC...
-\t (00:01:57) No DRC errors detected.
-\w (00:01:57) WARNING(SPMHUT-48): Scaled value has been rounded off.
-\i (00:01:57) trapsize 248
-\e (00:01:57) ERROR(SPMHA1-70): Pin is outside of the extents.
-   (00:01:57) *Error* axlDBGetPad: argument #1 should be any user-defined (other) type (type template = "ogg") - nil
-\i (00:02:15) setwindow form.sym_wizard
-\i (00:02:15) FORM sym_wizard wiz_back  
-\i (00:02:15) FORM sym_wizard wiz_back  
-\i (00:02:16) FORM sym_wizard wiz_back  
-\i (00:02:25) FORM sym_wizard th_discrete_len 0.090 
-\i (00:02:28) FORM sym_wizard th_discrete_width 0.090 
-\i (00:02:30) FORM sym_wizard wiz_next  
-\i (00:02:30) FORM sym_wizard wiz_next  
-\i (00:02:31) FORM sym_wizard wiz_next  
-\i (00:02:32) FORM sym_wizard wiz_finish  
-\w (00:02:32) WARNING(SPMHUT-48): Scaled value has been rounded off.
-\i (00:02:32) setwindow pcb
-\i (00:02:32) trapsize 248
-\i (00:02:32) trapsize 248
-\i (00:02:32) trapsize 32
-\i (00:02:32) trapsize 3
-\i (00:02:32) trapsize 3
-\t (00:02:32) Performing DRC...
-\t (00:02:32) No DRC errors detected.
-\t (00:02:32) Creating package symbol 'C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/2piinheader.psm'.
-\t (00:02:32) Starting Create symbol...
-\e (00:02:32) ERROR(SPMHGE-268): create_sym had errors, use Viewlog to review the log file.
-\e (00:02:32) ERROR(SPMHGE-7): Error(s) occurred, check logfile.
-\i (00:02:32) generaledit 
-\i (00:02:59) setwindow text
-close
-\i (00:03:02) new 
-\e (00:03:02) Do you want to save the changes you made to C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/2piinheader.dra?
-\i (00:03:03) fillin no 
-\i (00:03:24) newdrawfillin "2pinheader.dra" "Package Symbol (Wizard)"
-\t (00:03:24) Starting new design...
-\i (00:03:24) trapsize 3
-\i (00:03:24) trapsize 3
-\i (00:03:24) package symbol wizard 
-\i (00:03:24) generaledit 
-\i (00:03:27) setwindow form.sym_wizard
-\i (00:03:27) FORM sym_wizard rca_th YES 
-\i (00:03:27) FORM sym_wizard dip YES 
-\i (00:03:30) FORM sym_wizard bga YES 
-\i (00:03:30) FORM sym_wizard rca_th YES 
-\i (00:03:31) FORM sym_wizard rca_smd YES 
-\i (00:03:32) FORM sym_wizard sip YES 
-\i (00:03:32) FORM sym_wizard zip YES 
-\i (00:03:33) FORM sym_wizard sip YES 
-\i (00:03:34) FORM sym_wizard rca_smd YES 
-\i (00:03:35) FORM sym_wizard sip YES 
-\i (00:03:40) FORM sym_wizard wiz_next  
-\i (00:03:42) FORM sym_wizard load_template  
-\t (00:03:42) Opening existing design...
-\i (00:03:43) fillin yes 
-\t (00:03:43) Grids are drawn 200, 200 apart for enhanced viewability.
-\i (00:03:43) setwindow pcb
-\i (00:03:43) trapsize 248
-\d (00:03:43) Design opened: C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols/template/sym_template.dra
-\i (00:03:45) setwindow form.sym_wizard
-\i (00:03:45) FORM sym_wizard wiz_next  
-\i (00:03:47) FORM sym_wizard ref_des J* 
-\i (00:03:49) FORM sym_wizard pack_units Inch 
-\i (00:03:54) FORM sym_wizard pack_precision 4 
-\i (00:03:54) FORM sym_wizard wiz_next  
-\i (00:04:22) FORM sym_wizard sip_pin_count 2 
-\i (00:04:33) FORM sym_wizard sip_len 0.2200 
-\i (00:04:33) FORM sym_wizard wiz_next  
-\i (00:04:35) FORM sym_wizard default_pad_browse  
-\i (00:04:45) fillin "Pad70cir40d_Jk"
-\i (00:04:46) FORM sym_wizard wiz_next  
-\i (00:04:47) FORM sym_wizard wiz_next  
-\i (00:04:48) FORM sym_wizard wiz_finish  
-\t (00:04:48) Grids are drawn 0.2000, 0.2000 apart for enhanced viewability.
-\i (00:04:48) setwindow pcb
-\i (00:04:48) trapsize 2477
-\t (00:04:48) Performing DRC...
-\t (00:04:48) No DRC errors detected.
-\i (00:04:48) trapsize 2477
-\i (00:04:48) trapsize 2477
-\i (00:04:48) trapsize 322
-\i (00:04:48) trapsize 42
-\w (00:04:48) WARNING(SPMHUT-48): Scaled value has been rounded off.
-\i (00:04:48) trapsize 4
-\t (00:04:48) Performing DRC...
-\t (00:04:48) No DRC errors detected.
-\t (00:04:48) Creating package symbol 'C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/2pinheader.psm'.
-\t (00:04:48) Starting Create symbol...
-\i (00:04:49) generaledit 
-\i (00:04:56) save 
-\i (00:04:57) fillin yes 
-\t (00:04:58) Symbol '2pinheader.psm' created.
-\i (00:04:58) generaledit 
-\i (00:05:00) exit 
-\t (00:05:00)     Journal end - Fri Sep 22 20:31:45 2017
+\t (00:00:08) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
+\t (00:00:08)     Journal start - Wed Oct 04 14:00:53 2017
+\t (00:00:08)         Host=JACOB-Y50 User=Jacob Pid=12248 CPUs=8
+\t (00:00:08) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe
+\t (00:00:08) 
+\t (00:00:10) Opening existing design...
+\d (00:00:10) Design opened: C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/2pinheader.dra
+\i (00:00:10) trapsize 5
+\i (00:00:11) trapsize 4
+\i (00:00:11) trapsize 4
+\i (00:00:11) generaledit 
+\i (00:00:16) open 
+\i (00:00:42) fillin "psoc4ble.psm"
+\t (00:00:43) Opening existing design...
+\i (00:00:48) fillin yes 
+\e (00:00:48) This design is a padstack or symbol database which is not supported by this editor.
+\i (00:00:52) fillin confirm
+\t (00:00:52) Starting new design...
+\i (00:00:52) trapsize 1189
+\i (00:00:52) trapsize 1144
+\i (00:00:52) trapsize 1189
+\i (00:00:52) trapsize 1189
+\i (00:01:12) fillin "2pinheader.psm"
+\t (00:01:12) Opening existing design...
+\i (00:01:14) fillin yes 
+\e (00:01:14) This design is a padstack or symbol database which is not supported by this editor.
+\i (00:01:15) fillin confirm
+\t (00:01:15) Starting new design...
+\i (00:01:15) trapsize 1189
+\i (00:01:22) fillin "2piinheader.dra"
+\t (00:01:22) Opening existing design...
+\i (00:01:22) trapsize 3
+\i (00:01:23) trapsize 3
+\d (00:01:23) Design opened: C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/2piinheader.dra
+\i (00:01:23) generaledit 
+\i (00:01:25) open 
+\e (00:01:25) Do you want to save the changes you made to 2piinheader.dra?
+\i (00:01:27) fillin no 
+\i (00:01:58) fillin "PSOC4BLEv2.dra"
+\t (00:01:58) Opening existing design...
+\i (00:01:58) trapsize 4
+\d (00:01:58) Design opened: C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/PSOC4BLEv2.dra
+\i (00:01:58) generaledit 
+\i (00:02:05) add pin 
+\i (00:02:15) setwindow form.mini
+\i (00:02:15) FORM mini pad_browse  
+\i (00:02:18) fillin "Relay_Llb_Pad20_1"
+\w (00:02:18) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\t (00:02:18) Using 'RELAY_LLB_PAD20_1.pad'.
+\i (00:02:21) FORM mini pad_browse  
+\i (00:02:29) fillin "Pad70cir40d_Jk"
+\w (00:02:29) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\t (00:02:29) Using 'PAD70CIR40D_JK.pad'.
+\i (00:02:29) setwindow pcb
+\i (00:02:29) pick grid 226 87
+\t (00:02:29) last pick:  200 100
+\t (00:02:29) Using 'PAD70CIR40D_JK.pad'.
+\i (00:02:31) Esc 
+\w (00:02:31) WARNING(SPMHA1-314): Illegal event.
+\i (00:02:31) Esc 
+\w (00:02:31) WARNING(SPMHA1-314): Illegal event.
+\i (00:02:33) pick grid 299 50
+\t (00:02:33) last pick:  300 100
+\t (00:02:33) Using 'PAD70CIR40D_JK.pad'.
+\i (00:02:35) prepopup 243 -118
+\i (00:02:38) cancel 
+\t (00:02:38) Exiting from Add Pin.
+\i (00:02:38) generaledit 
+\i (00:02:48) add pin 
+\i (00:02:53) setwindow form.mini
+\i (00:02:53) FORM mini pad_browse  
+\i (00:03:29) fillin "Pad70cir40d_Jk"
+\w (00:03:29) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\t (00:03:29) Using 'PAD70CIR40D_JK.pad'.
+\i (00:04:03) FORM mini x_count 2 
+\i (00:04:07) FORM mini x_spacing 100 
+\i (00:04:10) FORM mini x_direction Left 
+\i (00:04:14) FORM mini y_count 10 
+\i (00:04:18) FORM mini y_spacing 100 
+\i (00:04:20) FORM mini y_direction Up 
+\i (00:04:26) setwindow pcb
+\i (00:04:26) pick grid 71 50
+\t (00:04:26) last pick:  100 100
+\t (00:04:26) Using 'PAD70CIR40D_JK.pad'.
+\e (00:04:26) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:04:39) setwindow form.mini
+\i (00:04:39) FORM mini x_direction Right 
+\i (00:04:40) FORM mini y_direction Down 
+\i (00:04:42) setwindow pcb
+\i (00:04:42) pick grid 64 52
+\t (00:04:42) last pick:  100 100
+\t (00:04:42) Using 'PAD70CIR40D_JK.pad'.
+\e (00:04:42) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:04:52) setwindow form.mini
+\i (00:04:52) FORM mini y_count 1 
+\i (00:04:54) FORM mini x_count 1 
+\i (00:04:55) setwindow pcb
+\i (00:04:55) pick grid 95 140
+\t (00:04:55) last pick:  100 100
+\t (00:04:55) Using 'PAD70CIR40D_JK.pad'.
+\i (00:05:02) pick grid 245 126
+\t (00:05:02) last pick:  200 100
+\t (00:05:02) Using 'PAD70CIR40D_JK.pad'.
+\i (00:05:16) pick grid 225 179
+\t (00:05:16) last pick:  200 200
+\t (00:05:16) Using 'PAD70CIR40D_JK.pad'.
+\i (00:05:18) undo 
+\t (00:05:18) Exiting from Add Pin.
+\i (00:05:18) generaledit 
+\i (00:05:19) undo 
+\i (00:05:19) generaledit 
+\i (00:05:23) pick grid 196 255
+\t (00:05:23) last pick:  200 300
+\i (00:05:24) pick grid 209 192
+\t (00:05:24) last pick:  200 200
+\e (00:05:24) Command not found: Del
+\i (00:05:26) pick grid 209 192
+\t (00:05:26) last pick:  200 200
+\i (00:05:27) prepopup 225 176
+\i (00:05:28) pick grid 273 201
+\t (00:05:28) last pick:  300 200
+\i (00:05:29) pick grid 232 204
+\t (00:05:29) last pick:  200 200
+\e (00:05:30) Command not found: Del
+\i (00:05:30) prepopup 232 204
+\i (00:05:40) pop dyn_option_select @:@Delete 
+\i (00:05:40) delete 
+\i (00:05:40) generaledit 
+\i (00:05:47) save 
+\i (00:05:49) fillin yes 
+\e (00:05:49) ERROR(SPMHGE-7): Error(s) occurred, check logfile.
+\i (00:05:49) generaledit 
+\i (00:05:58) setwindow text
+\i (00:05:58) close 
+\t (00:10:10) Performing autosave...
+\t (00:10:10) Autosave successful
+\i (00:11:41) setwindow pcb
+\i (00:11:41) zoom out 1 
+\i (00:11:41) setwindow pcb
+\i (00:11:41) zoom out 102 -1
+\i (00:11:41) trapsize 4
+\i (00:11:41) zoom out 1 
+\i (00:11:41) setwindow pcb
+\i (00:11:41) zoom out 102 -1
+\i (00:11:41) trapsize 4
+\i (00:11:41) zoom out 1 
+\i (00:11:41) setwindow pcb
+\i (00:11:41) zoom out 102 -1
+\i (00:11:41) trapsize 4
+\i (00:11:41) zoom out 1 
+\i (00:11:41) setwindow pcb
+\i (00:11:41) zoom out 102 -1
+\i (00:11:41) trapsize 4
+\i (00:11:41) zoom out 1 
+\i (00:11:41) setwindow pcb
+\i (00:11:41) zoom out 102 -1
+\i (00:11:41) trapsize 4
+\i (00:11:41) zoom out 1 
+\i (00:11:41) setwindow pcb
+\i (00:11:41) zoom out 102 -1
+\i (00:11:41) trapsize 4
+\i (00:11:41) zoom out 1 
+\i (00:11:41) setwindow pcb
+\i (00:11:41) zoom out 102 -1
+\i (00:11:41) trapsize 4
+\i (00:11:41) zoom out 1 
+\i (00:11:41) setwindow pcb
+\i (00:11:41) zoom out 102 -1
+\i (00:11:41) trapsize 4
+\i (00:11:42) zoom out 1 
+\i (00:11:42) setwindow pcb
+\i (00:11:42) zoom out 102 -1
+\i (00:11:42) trapsize 4
+\i (00:11:42) zoom out 1 
+\i (00:11:42) setwindow pcb
+\i (00:11:42) zoom out 102 -1
+\i (00:11:42) trapsize 4
+\i (00:11:54) zoom out 1 
+\i (00:11:54) setwindow pcb
+\i (00:11:54) zoom out 307 -31
+\i (00:11:54) trapsize 4
+\i (00:11:54) zoom in 1 
+\i (00:11:54) setwindow pcb
+\i (00:11:54) zoom in 307 -31
+\i (00:11:54) trapsize 2
+\i (00:11:54) zoom in 1 
+\i (00:11:54) setwindow pcb
+\i (00:11:54) zoom in 284 -30
+\i (00:11:54) trapsize 1
+\i (00:11:54) zoom out 1 
+\i (00:11:54) setwindow pcb
+\i (00:11:54) zoom out 284 -30
+\i (00:11:54) trapsize 2
+\i (00:11:54) zoom out 1 
+\i (00:11:54) setwindow pcb
+\i (00:11:54) zoom out 284 -30
+\i (00:11:54) trapsize 4
+\i (00:11:54) zoom out 1 
+\i (00:11:54) setwindow pcb
+\i (00:11:54) zoom out 307 -31
+\i (00:11:54) trapsize 4
+\i (00:11:56) pick grid 105 100
+\t (00:11:56) last pick:  100 100
+\i (00:11:57) pick grid 190 96
+\t (00:11:57) last pick:  200 100
+\i (00:11:58) prepopup 190 96
+\i (00:12:00) pop dyn_option_select @:@Delete 
+\i (00:12:00) delete 
+\i (00:12:00) generaledit 
+\i (00:12:01) pick grid 90 124
+\t (00:12:01) last pick:  100 100
+\i (00:12:01) prepopup 90 124
+\i (00:12:03) pop dyn_option_select @:@Delete 
+\i (00:12:03) delete 
+\i (00:12:03) generaledit 
+\i (00:12:13) add pin 
+\t (00:12:13) Using 'PAD70CIR40D_JK.pad'.
+\i (00:12:18) pick grid 150 76
+\t (00:12:18) last pick:  200 100
+\t (00:12:18) Using 'PAD70CIR40D_JK.pad'.
+\i (00:12:22) Esc 
+\w (00:12:22) WARNING(SPMHA1-314): Illegal event.
+\i (00:12:23) Esc 
+\w (00:12:23) WARNING(SPMHA1-314): Illegal event.
+\i (00:12:27) pick grid 161 139
+\t (00:12:27) last pick:  200 100
+\t (00:12:27) Using 'PAD70CIR40D_JK.pad'.
+\i (00:12:31) generaledit 
+\t (00:12:31) Exiting from Add Pin.
+\i (00:12:33) pick grid 215 110
+\t (00:12:33) last pick:  200 100
+\i (00:12:33) prepopup 215 110
+\i (00:12:35) pop dyn_option_select @:@Delete 
+\i (00:12:35) delete 
+\i (00:12:35) generaledit 
+\i (00:12:36) prepopup 201 106
+\i (00:12:37) pop dyn_option_select '@:@Add connect' 
+\i (00:12:37) add connect 
+\w (00:12:37) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\t (00:12:37) Pick first element.
+\t (00:12:37) last pick:  200 100
+\i (00:12:39) prepopup 191 116
+\i (00:12:45) pick grid 177 116
+\t (00:12:45) last pick:  175 125
+\t (00:12:45) No DRC errors detected.
+\i (00:12:45) prepopup 177 116
+\i (00:12:46) pick grid 118 50
+\t (00:12:46) last pick:  125 50
+\t (00:12:46) No DRC errors detected.
+\t (00:12:46) last pick:  125 49
+\i (00:12:47) Esc 
+\i (00:12:49) pick grid 13 104
+\t (00:12:49) last pick:  25 100
+\t (00:12:49) No DRC errors detected.
+\t (00:12:49) last pick:  25 99
+\i (00:12:52) generaledit 
+\i (00:12:54) pick grid 58 66
+\t (00:12:54) last pick:  50 75
+\e (00:12:55) Command not found: Del
+\i (00:12:55) pick grid 58 66
+\t (00:12:55) last pick:  50 75
+\i (00:12:56) prepopup 58 66
+\i (00:12:57) pop dyn_option_select @:@Delete 
+\i (00:12:57) delete 
+\i (00:12:57) generaledit 
+\i (00:12:58) pick grid 109 35
+\t (00:12:58) last pick:  100 25
+\i (00:13:00) drag_start grid 85 102
+\i (00:13:01) drag_stop 299 -19
+\i (00:13:02) prepopup 177 -28
+\i (00:13:04) prepopup 201 71
+\i (00:13:06) pop dyn_option_select @:@Delete 
+\i (00:13:06) delete 
+\i (00:13:06) generaledit 
+\i (00:13:08) drag_start grid 154 141
+\i (00:13:08) drag_stop 246 51
+\i (00:13:09) pick grid 176 124
+\t (00:13:09) last pick:  175 125
+\i (00:13:10) pick grid 176 121
+\t (00:13:10) last pick:  175 125
+\i (00:13:12) drag_start grid 158 144
+\i (00:13:12) drag_stop 272 12
+\i (00:13:14) prepopup 177 121
+\i (00:13:16) pop dyn_option_select @:@Delete 
+\i (00:13:16) delete 
+\i (00:13:16) generaledit 
+\i (00:13:21) add pin 
+\t (00:13:21) Using 'PAD70CIR40D_JK.pad'.
+\i (00:13:27) setwindow form.mini
+\i (00:13:27) FORM mini next_pin_number 1 
+\i (00:13:56) setwindow pcb
+\i (00:13:56) define grid 
+\t (00:13:56) Spacing fields allow simple equations to aid calculations; prefix with =
+\i (00:14:04) setwindow form.grid
+\i (00:14:04) FORM grid done  
+\i (00:14:16) setwindow pcb
+\i (00:14:16) pick grid 99 63
+\t (00:14:16) last pick:  100 75
+\t (00:14:16) Using 'PAD70CIR40D_JK.pad'.
+\i (00:14:22) generaledit 
+\t (00:14:22) Exiting from Add Pin.
+\i (00:14:24) pick grid 103 91
+\t (00:14:24) last pick:  100 100
+\i (00:14:25) drag_start grid 105 82
+\i (00:14:26) drag_stop 103 113
+\i (00:14:27) prepopup 116 53
+\i (00:14:28) pop dyn_option_select @:@Delete 
+\i (00:14:28) delete 
+\i (00:14:28) generaledit 
+\i (00:14:42) add pin 
+\t (00:14:42) Using 'PAD70CIR40D_JK.pad'.
+\i (00:14:55) setwindow form.mini
+\i (00:14:55) FORM mini x_count 2 
+\i (00:15:05) setwindow pcb
+\i (00:15:05) pick grid 129 88
+\t (00:15:05) last pick:  125 100
+\t (00:15:05) Using 'PAD70CIR40D_JK.pad'.
+\i (00:15:09) Esc 
+\w (00:15:09) WARNING(SPMHA1-314): Illegal event.
+\i (00:15:11) generaledit 
+\t (00:15:11) Exiting from Add Pin.
+\i (00:15:12) pick grid 151 122
+\t (00:15:12) last pick:  150 125
+\i (00:15:13) pick grid ext 224 92
+\t (00:15:13) last pick:  225 100
+\i (00:15:14) prepopup 218 66
+\i (00:15:15) pop dyn_option_select @:@Delete 
+\i (00:15:15) delete 
+\i (00:15:15) generaledit 
+\i (00:15:21) add pin 
+\t (00:15:21) Using 'PAD70CIR40D_JK.pad'.
+\i (00:15:27) setwindow form.mini
+\i (00:15:27) FORM mini y_count 5 
+\i (00:15:32) FORM mini y_direction Up 
+\i (00:15:36) setwindow pcb
+\i (00:15:36) pick grid 63 63
+\t (00:15:36) last pick:  75 75
+\t (00:15:36) Using 'PAD70CIR40D_JK.pad'.
+\e (00:15:36) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:16:15) setwindow form.mini
+\i (00:16:15) FORM mini y_direction Down 
+\i (00:16:21) setwindow pcb
+\i (00:16:21) pick grid 63 79
+\t (00:16:21) last pick:  75 75
+\t (00:16:21) Using 'PAD70CIR40D_JK.pad'.
+\e (00:16:21) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:16:24) pick grid 63 209
+\t (00:16:24) last pick:  75 200
+\t (00:16:24) Using 'PAD70CIR40D_JK.pad'.
+\i (00:16:36) generaledit 
+\t (00:16:36) Exiting from Add Pin.
+\i (00:16:37) drag_start grid -19 269
+\i (00:16:37) drag_stop 276 -214
+\i (00:16:38) prepopup 186 -195
+\i (00:16:40) pop dyn_option_select @:@Delete 
+\i (00:16:40) delete 
+\i (00:16:40) generaledit 
+\i (00:16:44) add pin 
+\t (00:16:44) Using 'PAD70CIR40D_JK.pad'.
+\i (00:16:45) fix 
+\t (00:16:45) Exiting from Add Pin.
+\t (00:16:45) Adjust find filter then select an element or group of elements.
+\i (00:16:47) add pin 
+\t (00:16:47) Using 'PAD70CIR40D_JK.pad'.
+\i (00:16:54) setwindow form.mini
+\i (00:16:54) FORM mini y_count 10 
+\i (00:16:55) FORM mini x_direction Left 
+\i (00:16:58) FORM mini y_direction Up 
+\i (00:17:04) FORM mini next_pin_number 1 
+\i (00:17:06) setwindow pcb
+\i (00:17:06) pick grid 59 39
+\t (00:17:06) last pick:  50 50
+\t (00:17:06) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:06) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:06) pick grid 77 172
+\t (00:17:06) last pick:  75 175
+\t (00:17:07) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:07) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:08) pick grid 73 264
+\t (00:17:08) last pick:  75 275
+\t (00:17:08) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:08) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:09) pick grid 72 -217
+\t (00:17:09) last pick:  75 -225
+\t (00:17:09) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:09) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:11) pick grid 63 -305
+\t (00:17:11) last pick:  75 -300
+\t (00:17:11) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:11) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:11) zoom out 1 
+\i (00:17:11) setwindow pcb
+\i (00:17:11) zoom out 86 -303
+\i (00:17:11) trapsize 4
+\i (00:17:11) zoom out 1 
+\i (00:17:11) setwindow pcb
+\i (00:17:11) zoom out 86 -303
+\i (00:17:11) trapsize 4
+\i (00:17:11) zoom out 1 
+\i (00:17:11) setwindow pcb
+\i (00:17:11) zoom out 86 -303
+\i (00:17:11) trapsize 4
+\i (00:17:11) zoom out 1 
+\i (00:17:11) setwindow pcb
+\i (00:17:11) zoom out 86 -303
+\i (00:17:11) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:12) zoom out 1 
+\i (00:17:12) setwindow pcb
+\i (00:17:12) zoom out 86 -303
+\i (00:17:12) trapsize 4
+\i (00:17:13) pick grid 86 -313
+\t (00:17:13) last pick:  75 -325
+\t (00:17:13) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:13) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:15) pick grid 83 -162
+\t (00:17:15) last pick:  75 -150
+\t (00:17:15) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:15) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:18) pick grid 74 313
+\t (00:17:18) last pick:  75 325
+\t (00:17:18) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:18) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:20) pick grid 291 143
+\t (00:17:20) last pick:  300 150
+\t (00:17:20) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:20) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:21) pick grid -142 120
+\t (00:17:21) last pick:  -150 125
+\t (00:17:21) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:21) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:24) pick grid -122 -312
+\t (00:17:24) last pick:  -125 -300
+\t (00:17:24) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:24) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:26) pick grid -154 313
+\t (00:17:26) last pick:  -150 325
+\t (00:17:26) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:26) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:27) zoom out 1 
+\i (00:17:27) setwindow pcb
+\i (00:17:27) zoom out -79 63
+\i (00:17:27) trapsize 4
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -79 63
+\i (00:17:28) trapsize 2
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -79 64
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -79 64
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -79 64
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -78 65
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -78 65
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -80 66
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -82 67
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -84 68
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -86 69
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -88 70
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -90 71
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -92 72
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -94 73
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -96 74
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -98 75
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -100 76
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -102 77
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -104 78
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -106 79
+\i (00:17:28) trapsize 1
+\i (00:17:28) zoom in 1 
+\i (00:17:28) setwindow pcb
+\i (00:17:28) zoom in -108 80
+\i (00:17:28) trapsize 1
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -110 81
+\i (00:17:29) trapsize 1
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -111 80
+\i (00:17:29) trapsize 1
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -111 81
+\i (00:17:29) trapsize 1
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -110 81
+\i (00:17:29) trapsize 2
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -110 80
+\i (00:17:29) trapsize 3
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -111 81
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:29) zoom out 1 
+\i (00:17:29) setwindow pcb
+\i (00:17:29) zoom out -79 63
+\i (00:17:29) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:30) zoom out 1 
+\i (00:17:30) setwindow pcb
+\i (00:17:30) zoom out -79 63
+\i (00:17:30) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:31) zoom out 1 
+\i (00:17:31) setwindow pcb
+\i (00:17:31) zoom out -79 63
+\i (00:17:31) trapsize 4
+\i (00:17:34) setwindow worldview
+\i (00:17:34) trapsize 4
+\i (00:17:35) trapsize 3
+\i (00:17:36) trapsize 1
+\i (00:17:37) trapsize 1
+\i (00:17:40) trapsize 1
+\i (00:17:42) trapsize 7
+\t (00:17:44) last pick:  83 -640
+\w (00:17:44) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:45) last pick:  86 -763
+\w (00:17:45) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:46) last pick:  88 -791
+\w (00:17:46) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:47) last pick:  -115 -771
+\w (00:17:47) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:48) last pick:  -261 -788
+\w (00:17:48) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\i (00:17:50) setwindow pcb
+\i (00:17:50) pick grid -236 -238
+\t (00:17:50) last pick:  -225 -250
+\t (00:17:50) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:50) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:52) pick grid -227 270
+\t (00:17:52) last pick:  -225 275
+\t (00:17:52) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:52) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:53) pick grid 197 108
+\t (00:17:53) last pick:  200 100
+\t (00:17:53) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:53) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\t (00:17:53) last pick:  613 214
+\w (00:17:53) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:54) last pick:  782 -42
+\w (00:17:54) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:55) last pick:  728 -438
+\w (00:17:55) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:55) last pick:  885 -668
+\w (00:17:55) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:56) last pick:  857 -739
+\w (00:17:56) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:57) last pick:  558 -662
+\w (00:17:57) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\t (00:17:58) last pick:  160 -538
+\w (00:17:58) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\i (00:17:59) pick grid 214 -4
+\t (00:17:59) last pick:  225 0
+\t (00:17:59) Using 'PAD70CIR40D_JK.pad'.
+\e (00:17:59) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:17:59) pick grid 112 291
+\t (00:17:59) last pick:  100 300
+\t (00:18:00) Using 'PAD70CIR40D_JK.pad'.
+\e (00:18:00) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:18:00) pick grid dbl 112 301
+\t (00:18:00) last pick:  100 300
+\t (00:18:00) Using 'PAD70CIR40D_JK.pad'.
+\e (00:18:00) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in 197 144
+\i (00:18:00) trapsize 4
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -34 153
+\i (00:18:00) trapsize 2
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -34 153
+\i (00:18:00) trapsize 1
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -33 154
+\i (00:18:00) trapsize 1
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -33 154
+\i (00:18:00) trapsize 1
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -33 154
+\i (00:18:00) trapsize 1
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -33 154
+\i (00:18:00) trapsize 1
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -34 157
+\i (00:18:00) trapsize 1
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -36 160
+\i (00:18:00) trapsize 1
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -38 163
+\i (00:18:00) trapsize 1
+\i (00:18:00) zoom in 1 
+\i (00:18:00) setwindow pcb
+\i (00:18:00) zoom in -40 166
+\i (00:18:00) trapsize 1
+\i (00:18:01) zoom in 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom in -42 169
+\i (00:18:01) trapsize 1
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -44 172
+\i (00:18:01) trapsize 1
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -43 171
+\i (00:18:01) trapsize 1
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -43 171
+\i (00:18:01) trapsize 1
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -43 172
+\i (00:18:01) trapsize 2
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -43 173
+\i (00:18:01) trapsize 3
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -42 173
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:01) zoom out 1 
+\i (00:18:01) setwindow pcb
+\i (00:18:01) zoom out -1 224
+\i (00:18:01) trapsize 4
+\i (00:18:02) zoom out 1 
+\i (00:18:02) setwindow pcb
+\i (00:18:02) zoom out -1 224
+\i (00:18:02) trapsize 4
+\i (00:18:02) zoom out 1 
+\i (00:18:02) setwindow pcb
+\i (00:18:02) zoom out -1 224
+\i (00:18:02) trapsize 4
+\i (00:18:02) zoom out 1 
+\i (00:18:02) setwindow pcb
+\i (00:18:02) zoom out -1 224
+\i (00:18:02) trapsize 4
+\i (00:18:02) zoom out 1 
+\i (00:18:02) setwindow pcb
+\i (00:18:02) zoom out -1 224
+\i (00:18:02) trapsize 4
+\i (00:18:02) zoom out 1 
+\i (00:18:02) setwindow pcb
+\i (00:18:02) zoom out -1 224
+\i (00:18:02) trapsize 4
+\i (00:18:02) zoom out 1 
+\i (00:18:02) setwindow pcb
+\i (00:18:02) zoom out -1 224
+\i (00:18:02) trapsize 4
+\i (00:18:02) zoom out 1 
+\i (00:18:02) setwindow pcb
+\i (00:18:02) zoom out -1 224
+\i (00:18:02) trapsize 4
+\i (00:18:02) zoom out 1 
+\i (00:18:02) setwindow pcb
+\i (00:18:02) zoom out -1 224
+\i (00:18:02) trapsize 4
+\i (00:18:05) setwindow worldview
+\i (00:18:05) trapsize 1
+\i (00:18:07) trapsize 1
+\i (00:18:08) trapsize 8
+\t (00:19:27) last pick:  -244 -607
+\w (00:19:27) WARNING(SPMHUT-40): Pick is outside the extent of the drawing ... pick again.
+\i (00:19:28) setwindow pcb
+\i (00:19:28) pick grid -251 -186
+\t (00:19:28) last pick:  -250 -175
+\t (00:19:28) Using 'PAD70CIR40D_JK.pad'.
+\e (00:19:28) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:19:31) pick grid -246 313
+\t (00:19:31) last pick:  -250 325
+\t (00:19:31) Using 'PAD70CIR40D_JK.pad'.
+\e (00:19:31) ERROR(SPMHAP-22): Pin will extend outside of extents.
+\i (00:19:32) roam x -96 
+\i (00:19:32) roam x -96 
+\i (00:19:32) roam x -96 
+\i (00:19:32) roam x -96 
+\i (00:19:33) roam x 96 
+\i (00:19:39) Esc 
+\w (00:19:39) WARNING(SPMHA1-314): Illegal event.
+\i (00:19:40) prepopup 458 116
+\i (00:19:42) oops 
+\t (00:19:42) last pick:  -250 -175
+\t (00:19:42) Using 'PAD70CIR40D_JK.pad'.
+\i (00:19:43) prepopup 297 -8
+\i (00:19:45) cancel 
+\t (00:19:45) Exiting from Add Pin.
+\i (00:19:45) generaledit 
+\i (00:19:46) drag_start grid 105 -182
+\i (00:19:46) drag_stop 632 -178
+\i (00:19:47) drag_start grid -84 114
+\i (00:19:48) drag_stop -265 -221
+\i (00:19:49) zoom in 1 
+\i (00:19:49) setwindow pcb
+\i (00:19:49) zoom in -178 -205
+\i (00:19:49) trapsize 4
+\i (00:19:49) zoom in 1 
+\i (00:19:49) setwindow pcb
+\i (00:19:49) zoom in -222 38
+\i (00:19:49) trapsize 2
+\i (00:19:49) zoom in 1 
+\i (00:19:49) setwindow pcb
+\i (00:19:49) zoom in -221 38
+\i (00:19:49) trapsize 1
+\i (00:19:49) zoom out 1 
+\i (00:19:49) setwindow pcb
+\i (00:19:49) zoom out -221 38
+\i (00:19:49) trapsize 2
+\i (00:19:49) zoom out 1 
+\i (00:19:49) setwindow pcb
+\i (00:19:49) zoom out -221 38
+\i (00:19:49) trapsize 4
+\i (00:19:49) zoom out 1 
+\i (00:19:49) setwindow pcb
+\i (00:19:49) zoom out -220 52
+\i (00:19:49) trapsize 4
+\i (00:19:49) zoom out 1 
+\i (00:19:49) setwindow pcb
+\i (00:19:49) zoom out -220 52
+\i (00:19:49) trapsize 4
+\i (00:19:49) zoom out 1 
+\i (00:19:49) setwindow pcb
+\i (00:19:49) zoom out -220 52
+\i (00:19:49) trapsize 4
+\i (00:19:49) zoom out 1 
+\i (00:19:49) setwindow pcb
+\i (00:19:49) zoom out -220 52
+\i (00:19:49) trapsize 4
+\i (00:19:50) zoom in 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom in -220 52
+\i (00:19:50) trapsize 2
+\i (00:19:50) zoom in 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom in -220 52
+\i (00:19:50) trapsize 1
+\i (00:19:50) zoom in 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom in -220 52
+\i (00:19:50) trapsize 1
+\i (00:19:50) zoom in 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom in -219 52
+\i (00:19:50) trapsize 1
+\i (00:19:50) zoom in 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom in -219 53
+\i (00:19:50) trapsize 1
+\i (00:19:50) zoom out 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom out -219 53
+\i (00:19:50) trapsize 1
+\i (00:19:50) zoom out 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom out -218 53
+\i (00:19:50) trapsize 1
+\i (00:19:50) zoom out 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom out -219 54
+\i (00:19:50) trapsize 1
+\i (00:19:50) zoom out 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom out -219 55
+\i (00:19:50) trapsize 2
+\i (00:19:50) zoom out 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom out -220 55
+\i (00:19:50) trapsize 4
+\i (00:19:50) zoom out 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom out -220 52
+\i (00:19:50) trapsize 4
+\i (00:19:50) zoom out 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom out -220 52
+\i (00:19:50) trapsize 4
+\i (00:19:50) zoom out 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom out -220 52
+\i (00:19:50) trapsize 4
+\i (00:19:50) zoom out 1 
+\i (00:19:50) setwindow pcb
+\i (00:19:50) zoom out -220 52
+\i (00:19:50) trapsize 4
+\i (00:19:51) roam x -96 
+\i (00:19:51) roam x -96 
+\i (00:19:51) roam x -96 
+\i (00:19:56) drag_start grid -38 74
+\i (00:19:56) drag_stop 63 73
+\i (00:20:00) zoom out 
+\i (00:20:00) setwindow pcb
+\i (00:20:00) zoom out 102 -1
+\i (00:20:00) trapsize 4
+\i (00:20:02) pick grid -2 3
+\t (00:20:02) last pick:  0 0
+\i (00:20:02) pick grid -2 3
+\t (00:20:02) last pick:  0 0
+\i (00:20:03) pick grid -2 3
+\t (00:20:03) last pick:  0 0
+\i (00:20:05) zoom out 
+\i (00:20:05) setwindow pcb
+\i (00:20:05) zoom out 102 -1
+\i (00:20:05) trapsize 4
+\i (00:20:06) zoom out 
+\i (00:20:06) setwindow pcb
+\i (00:20:06) zoom out 102 -1
+\i (00:20:06) trapsize 4
+\i (00:20:06) zoom out 
+\i (00:20:06) setwindow pcb
+\i (00:20:06) zoom out 102 -1
+\i (00:20:06) trapsize 4
+\i (00:20:06) zoom out 
+\i (00:20:06) setwindow pcb
+\i (00:20:06) zoom out 102 -1
+\i (00:20:06) trapsize 4
+\w (00:20:10) Save Pending
+\i (01:37:47) pick grid -237 -190
+\t (01:37:47) last pick:  -225 -200
+\i (03:00:40) exit 
+\e (03:00:40) Do you want to save the changes you made to C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/PSOC4BLEv2.dra?
+\i (03:00:42) fillin yes 
+\e (03:00:44) ERROR(SPMHGE-7): Error(s) occurred, check logfile.
+\t (03:00:44)     Journal end - Wed Oct 04 17:01:28 2017

@@ -1,0 +1,137 @@
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   1  |
+|------------------------------------------------------------------------------|
+|  PPSENSOR.brd                                                                |
+|                                                    Wed Oct 04 10:08:07 2017  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  +5V          pins ADDED TO this new net
+                                 C1.1           C2.2           C3.1           
+                                 J1.1           U1.1           U2.1           
+                                 U3.4           U4.2           U4.22          
+                                 U4.43          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  A0           pins ADDED TO this new net
+                                 R1.2           U3.1           U4.19          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  A1           pins ADDED TO this new net
+                                 R2.2           U3.7           U4.20          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  GND          pins ADDED TO this new net
+                                 C1.2           C2.1           C3.2           
+                                 J1.2           R3.2           R4.2           
+                                 U3.11          U4.4           U4.21          
+                                 U4.44          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N04951       pins ADDED TO this new net
+                                 R3.1           U1.2           U3.3           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N04995       pins ADDED TO this new net
+                                 R4.1           U2.2           U3.5           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N06521       pins ADDED TO this new net
+                                 R1.1           U3.2           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N09660       pins ADDED TO this new net
+                                 R2.1           U3.6           
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   2  |
+|------------------------------------------------------------------------------|
+|  PPSENSOR.brd                                                                |
+|                                                    Wed Oct 04 10:08:07 2017  |
+|------------------------------------------------------------------------------|
+| COMPONENT DEFINITION added to design                                         |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    device type                                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ CAP NP_CAPACITOR_0.1UF
+ CON2_2PINHEADER_CON2
+ FLEXSENSOR_5_2PINHEADER_FLEXSEN
+ LM324_LM324AN_LM324
+ PSOC 4 BLE_PSOC4BLE_PSOC 4 BLE
+ RESISTOR_RESISTOR_1K
+ R_RESISTOR_500
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   3  |
+|------------------------------------------------------------------------------|
+|  PPSENSOR.brd                                                                |
+|                                                    Wed Oct 04 10:08:07 2017  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ C1                  CAP NP_CAPACITOR_0.1UF 
+ C2                  CAP NP_CAPACITOR_0.1UF 
+ C3                  CAP NP_CAPACITOR_0.1UF 
+ J1                  CON2_2PINHEADER_CON2  
+ R1                  R_RESISTOR_500        
+ R2                  R_RESISTOR_500        
+ R3                  RESISTOR_RESISTOR_1K  
+ R4                  RESISTOR_RESISTOR_1K  
+ U1                  FLEXSENSOR_5_2PINHEADER_FLEXSEN 
+ U2                  FLEXSENSOR_5_2PINHEADER_FLEXSEN 
+ U3                  LM324_LM324AN_LM324   
+ U4                  PSOC 4 BLE_PSOC4BLE_PSOC 4 BLE 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   4  |
+|------------------------------------------------------------------------------|
+|  PPSENSOR.brd                                                                |
+|                                                    Wed Oct 04 10:08:07 2017  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ C1.2                           PRIM_FILE      .\pstchip.dat
+ C1.2                           SECTION        
+ C2.2                           PRIM_FILE      .\pstchip.dat
+ C2.2                           SECTION        
+ C3.2                           PRIM_FILE      .\pstchip.dat
+ C3.2                           SECTION        
+ J1.2                           PRIM_FILE      .\pstchip.dat
+ J1.2                           SECTION        
+ R1.2                           PRIM_FILE      .\pstchip.dat
+ R1.2                           SECTION        
+ R2.2                           PRIM_FILE      .\pstchip.dat
+ R2.2                           SECTION        
+ R3.2                           PRIM_FILE      .\pstchip.dat
+ R3.2                           SECTION        
+ R4.2                           PRIM_FILE      .\pstchip.dat
+ R4.2                           SECTION        
+ U1.2                           PRIM_FILE      .\pstchip.dat
+ U1.2                           SECTION        
+ U2.2                           PRIM_FILE      .\pstchip.dat
+ U2.2                           SECTION        
+ U3.3                           PRIM_FILE      .\pstchip.dat
+ U3.3                           SECTION        A
+ U3.5                           PRIM_FILE      .\pstchip.dat
+ U3.5                           SECTION        B
+ U4.13                          PRIM_FILE      .\pstchip.dat
+ U4.13                          SECTION        
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   5  |
+|------------------------------------------------------------------------------|
+|  PPSENSOR.brd                                                                |
+|                                                    Wed Oct 04 10:08:07 2017  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|------------------------------------------------------------------------------|
+|       Nets changed          :      36                                        |
+|       Comp definitions added:       7                                        |
+|       Components added      :      12                                        |
+|       Slot property added   :      26                                        |
+|                                                                              |
+|   Total ECO changes reported:      81                                        |
+|------------------------------------------------------------------------------|

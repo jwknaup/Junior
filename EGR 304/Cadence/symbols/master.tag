@@ -1,1 +1,1 @@
-2pinheader.dra
+PSOC4BLEv2.dra
