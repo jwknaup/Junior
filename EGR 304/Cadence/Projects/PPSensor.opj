@@ -205,7 +205,8 @@
       (Path "Design Resources" ".\ppsensor.dsn" "SCHEMATIC1")
       (Path "Design Resources" "Library")
       (Path "Design Resources" "Library" ".\mylibrary.olb")
-      (Path "Outputs"))
+      (Path "Outputs")
+      (Select "Design Resources" ".\ppsensor.dsn" "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -213,27 +214,27 @@
         (Placement "44 0 1 -1 -1 -8 -31 0 200 0 412"))
       (Tab 0))
     (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 52 698 52 503")
+        (Scroll "108 24")
+        (Zoom "118")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 304\CADENCE\PROJECTS\PPSENSOR.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))
+    (Doc
       (Type "COrPartDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 78 1714 78 538")
         (PackageScroll "0 0")
         (PackageZoom "1")
         (PartPackage "Part")
-        (Scroll "783 0")
-        (Zoom "144"))
+        (Scroll "461 0")
+        (Zoom "288"))
       (Path
          "C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 304\CADENCE\PROJECTS\MYLIBRARY.OLB")
-      (Package "PSoC 4 BLE"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 52 698 52 503")
-        (Scroll "216 0")
-        (Zoom "118")
-        (Occurrence "/"))
-      (Path
-         "C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 304\CADENCE\PROJECTS\PPSENSOR.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "PAGE1")))
+      (Package "PSoC 4 BLE")))
   (MPSSessionName "Jacob")
   (ISPCBBASICLICENSE "false"))

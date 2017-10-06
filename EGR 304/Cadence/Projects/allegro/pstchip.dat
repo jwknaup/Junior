@@ -1,5 +1,5 @@
 FILE_TYPE=LIBRARY_PARTS;
-{ Using PSTWRITER 16.6.0 d001Oct-04-2017 at 10:14:40}
+{ Using PSTWRITER 16.6.0 d001Oct-05-2017 at 12:20:59}
 primitive 'CAP NP_CAPACITOR_0.1UF';
   pin
     '1':
@@ -99,7 +99,7 @@ primitive 'LM324_LM324AN_LM324';
     VALUE='LM324';
   end_body;
 end_primitive;
-primitive 'PSOC 4 BLE_PSOC4BLE_PSOC 4 BLE';
+primitive 'PSOC 4 BLE_PSOC4BLEV2_PSOC 4 BL';
   pin
     'P1.6':
       PIN_NUMBER='(1)';
@@ -308,7 +308,7 @@ primitive 'PSOC 4 BLE_PSOC4BLE_PSOC 4 BLE';
   end_pin;
   body
     PART_NAME='PSoC 4 BLE';
-    JEDEC_TYPE='PSOC4BLE';
+    JEDEC_TYPE='PSOC4BLEv2';
     VALUE='PSoC 4 BLE';
   end_body;
 end_primitive;
