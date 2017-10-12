@@ -3,6 +3,8 @@ import cv2
 
 cap=cv2.VideoCapture(1)
 
+cm2pixel = #cm/640.0
+
 while(1):
     _,frame=cap.read()
 
@@ -38,6 +40,8 @@ while(1):
     totalTotal = np.sum(np.sum(bw))
     columnLocation = total/totalTotal
 
+    xLocation = columnLocation*cm2pixel
+
     rowSums=np.matrix(np.sum(bw,1))
     row_numbers=np.transpose(np.matrix(np.arange(480)))
     rowMult = np.multiply(rowSums,row_numbers)
@@ -45,7 +49,9 @@ while(1):
     totalTotal = np.sum(np.sum(bw))
     rowLocation = total/totalTotal
 
-    print(columnLocation, rowLocation)
+    yLocation=rowLocation*cm2pixel
+
+    print(xLocation, rowLocation)
  
     k=cv2.waitKey(5)
     if k==27:
