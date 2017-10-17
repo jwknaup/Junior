@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="484" version="1.1" width="1116" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#00ff" height="280" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="376" x="270" y="14"/>
+<rect fill="#ffffff" height="280" rx="16" ry="16" stroke="#000000" stroke-width="1" width="376" x="270" y="14"/>
+<rect fill="#ffffff" height="278" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="374" x="271" y="15"/>
+<text font-family="Dialog" font-size="12" x="425" y="28">
+User Awake</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="270" x2="645" y1="38" y2="38"/>
+<rect fill="#00ff" height="280" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="408" x="694" y="14"/>
+<rect fill="#ffffff" height="280" rx="16" ry="16" stroke="#000000" stroke-width="1" width="408" x="694" y="14"/>
+<rect fill="#ffffff" height="278" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="406" x="695" y="15"/>
+<text font-family="Dialog" font-size="12" x="858" y="28">
+User Sleeping</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="694" x2="1101" y1="38" y2="38"/>
+<rect fill="#00ff" height="62" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="158" x="14" y="142"/>
+<rect fill="#ffffff" height="62" rx="16" ry="16" stroke="#000000" stroke-width="1" width="158" x="14" y="142"/>
+<rect fill="#ffffff" height="60" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="156" x="15" y="143"/>
+<text font-family="Dialog" font-size="12" x="61" y="156">
+Initialization</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="14" x2="171" y1="166" y2="166"/>
+<text font-family="Dialog" font-size="12" x="16" y="179">
+do /BLE COM</text>
+<ellipse cx="30" cy="46" fill="#000000" rx="8.0" ry="8.0" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="30,54 30,142" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="23" x2="30" y1="130" y2="142"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="37" x2="30" y1="130" y2="142"/>
+<text font-family="Dialog" font-size="12" x="42" y="112">
+PSoC started</text>
+<polyline fill="none" points="171,174 270,174" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="258" x2="270" y1="181" y2="174"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="258" x2="270" y1="167" y2="174"/>
+<text font-family="Dialog" font-size="12" x="182" y="169">
+BLE initialized</text>
+<polyline fill="none" points="447,94 726,94" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="714" x2="726" y1="101" y2="94"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="714" x2="726" y1="87" y2="94"/>
+<text font-family="Dialog" font-size="12" x="509" y="87">
+Pressure detected</text>
+<rect fill="#00ff" height="46" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="186" x="886" y="54"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#000000" stroke-width="1" width="186" x="886" y="54"/>
+<rect fill="#ffffff" height="44" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="184" x="887" y="55"/>
+<text font-family="Dialog" font-size="12" x="892" y="68">
+Communicate with Smartphone</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="886" x2="1071" y1="78" y2="78"/>
+<rect fill="#00ff" height="48" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="132" x="838" y="358"/>
+<rect fill="#ffffff" height="48" rx="16" ry="16" stroke="#000000" stroke-width="1" width="132" x="838" y="358"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="130" x="839" y="359"/>
+<text font-family="Dialog" font-size="12" x="888" y="372">
+Alarm</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="838" x2="969" y1="382" y2="382"/>
+<text font-family="Dialog" font-size="12" x="840" y="395">
+do /run buzzer &amp; motor</text>
+<polyline fill="none" points="934,227 934,358" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="927" x2="934" y1="346" y2="358"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="941" x2="934" y1="346" y2="358"/>
+<text font-family="Dialog" font-size="12" x="936" y="283">
+Time to wake up</text>
+<rect fill="#00ff" height="46" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="102" x="926" y="182"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#000000" stroke-width="1" width="102" x="926" y="182"/>
+<rect fill="#ffffff" height="44" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="100" x="927" y="183"/>
+<text font-family="Dialog" font-size="12" x="946" y="196">
+Check time</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="926" x2="1027" y1="206" y2="206"/>
+<polyline fill="none" points="966,99 966,182" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="959" x2="966" y1="170" y2="182"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="973" x2="966" y1="170" y2="182"/>
+<text font-family="Dialog" font-size="12" x="967" y="151">
+Information received</text>
+<rect fill="#00ff" height="46" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="70" x="742" y="190"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#000000" stroke-width="1" width="70" x="742" y="190"/>
+<rect fill="#ffffff" height="44" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="68" x="743" y="191"/>
+<text font-family="Dialog" font-size="12" x="765" y="204">
+Wait</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="742" x2="811" y1="214" y2="214"/>
+<polyline fill="none" points="926,203 811,203" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="823" x2="811" y1="196" y2="203"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="823" x2="811" y1="210" y2="203"/>
+<text font-family="Dialog" font-size="12" x="815" y="236">
+Not time to wake up</text>
+<rect fill="#00ff" height="46" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="132" x="526" y="358"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#000000" stroke-width="1" width="132" x="526" y="358"/>
+<rect fill="#ffffff" height="44" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="130" x="527" y="359"/>
+<text font-family="Dialog" font-size="12" x="562" y="372">
+Stop Alarm</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="526" x2="657" y1="382" y2="382"/>
+<text font-family="Dialog" font-size="12" x="528" y="395">
+do /stop buzzer &amp; motor</text>
+<polyline fill="none" points="526,382 418,382" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="430" x2="418" y1="375" y2="382"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="430" x2="418" y1="389" y2="382"/>
+<text font-family="Dialog" font-size="12" x="439" y="375">
+Alarm stopped</text>
+<polyline fill="none" points="977,390 1038,390 1038,470 902,470 902,405" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="909" x2="902" y1="417" y2="405"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="895" x2="902" y1="417" y2="405"/>
+<text font-family="Dialog" font-size="12" x="917" y="460">
+Pressure detected</text>
+<rect fill="#00ff" height="46" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="106" x="726" y="62"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#000000" stroke-width="1" width="106" x="726" y="62"/>
+<rect fill="#ffffff" height="44" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="104" x="727" y="63"/>
+<text font-family="Dialog" font-size="12" x="732" y="76">
+Record Pressure</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="726" x2="831" y1="86" y2="86"/>
+<polyline fill="none" points="798,190 798,107" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="805" x2="798" y1="119" y2="107"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="791" x2="798" y1="119" y2="107"/>
+<text font-family="Dialog" font-size="12" x="720" y="144">
+Time elapsed</text>
+<polyline fill="none" points="831,77 886,77" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="874" x2="886" y1="84" y2="77"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="874" x2="886" y1="70" y2="77"/>
+<text font-family="Dialog" font-size="12" x="826" y="129">
+Pressure read</text>
+<polyline fill="none" points="838,382 657,382" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="669" x2="657" y1="375" y2="382"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="669" x2="657" y1="389" y2="382"/>
+<text font-family="Dialog" font-size="12" x="689" y="377">
+No pressure detected</text>
+<rect fill="#00ff" height="46" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="122" x="326" y="70"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#000000" stroke-width="1" width="122" x="326" y="70"/>
+<rect fill="#ffffff" height="44" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="120" x="327" y="71"/>
+<text font-family="Dialog" font-size="12" x="342" y="84">
+Check Pressure</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="326" x2="447" y1="94" y2="94"/>
+<rect fill="#00ff" height="48" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="217" x="422" y="174"/>
+<rect fill="#ffffff" height="48" rx="16" ry="16" stroke="#000000" stroke-width="1" width="217" x="422" y="174"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="215" x="423" y="175"/>
+<text font-family="Dialog" font-size="12" x="428" y="188">
+Check for Message from Smartphone</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="422" x2="638" y1="198" y2="198"/>
+<rect fill="#00ff" height="46" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="189" x="230" y="358"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#000000" stroke-width="1" width="189" x="230" y="358"/>
+<rect fill="#ffffff" height="44" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="187" x="231" y="359"/>
+<text font-family="Dialog" font-size="12" x="236" y="372">
+Send Sleep Data to Smartphone</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="230" x2="418" y1="382" y2="382"/>
+<text font-family="Dialog" font-size="12" x="232" y="395">
+do /BLE COM</text>
+<polyline fill="none" points="422,198 406,198 406,115" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="413" x2="406" y1="127" y2="115"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="399" x2="406" y1="127" y2="115"/>
+<text font-family="Dialog" font-size="12" x="411" y="169">
+No message received</text>
+<polyline fill="none" points="334,358 334,293" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="341" x2="334" y1="305" y2="293"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="327" x2="334" y1="305" y2="293"/>
+<text font-family="Dialog" font-size="12" x="187" y="339">
+Sleep tracking data sent</text>
+<ellipse cx="286" cy="70" fill="#000000" rx="8.0" ry="8.0" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="286,78 286,110 326,110" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="314" x2="326" y1="117" y2="110"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="314" x2="326" y1="103" y2="110"/>
+<polyline fill="none" points="447,110 614,110 614,174" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="607" x2="614" y1="162" y2="174"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="621" x2="614" y1="162" y2="174"/>
+<text font-family="Dialog" font-size="12" x="480" y="133">
+No pressure detected</text>
+<rect fill="#00ff" height="46" rx="16" ry="16" stroke="#00ff" stroke-width="1" width="118" x="286" y="222"/>
+<rect fill="#ffffff" height="46" rx="16" ry="16" stroke="#000000" stroke-width="1" width="118" x="286" y="222"/>
+<rect fill="#ffffff" height="44" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="116" x="287" y="223"/>
+<text font-family="Dialog" font-size="12" x="292" y="236">
+Update Alarm Time</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="286" x2="403" y1="246" y2="246"/>
+<polyline fill="none" points="550,221 550,254 403,254" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="415" x2="403" y1="247" y2="254"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="415" x2="403" y1="261" y2="254"/>
+<text font-family="Dialog" font-size="12" x="443" y="249">
+Message received</text>
+<polyline fill="none" points="358,222 358,115" stroke="#333399" stroke-width="1"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="365" x2="358" y1="127" y2="115"/>
+<line fill="#333399" stroke="#333399" stroke-width="1" x1="351" x2="358" y1="127" y2="115"/>
+<text font-family="Dialog" font-size="12" x="304" y="205">
+Alarm set</text>
+</svg>
