@@ -1,0 +1,158 @@
+--------------- Build Started: 10/23/2017 16:13:47 Project: MotorControl, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\Jacob\AppData\Local\Cypress Semiconductor\PSoC Creator\4.1" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Jacob\Documents\Junior\EGR 455\EGR455\MotorControl.cydsn\MotorControl.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\Jacob\Documents\Junior\EGR 455\EGR455\MotorControl.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_0 is unconnected.
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_0\PSoC5\ADC_SAR_SEQ_v2_0.cysch (Signal: vdac_ref)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_0\PSoC5\ADC_SAR_SEQ_v2_0.cysch (Shape_798)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_0\PSoC5\ADC_SAR_SEQ_v2_0.cysch (Shape_885)
+HDL Generation...
+Synthesis...
+Tech Mapping...
+Analog Placement...
+Info: apr.M0002: Analog signal "Net_16" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_18" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_19" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_21" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_23" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_24" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_26" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_28" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_29" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_31" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_33" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_34" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_36" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_38" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_39" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_41" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_43" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_44" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_46" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_48" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_49" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_51" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_53" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_54" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_56" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_58" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_59" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_61" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_63" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_64" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_66" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_68" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_69" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_71" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_73" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_74" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_76" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_78" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_79" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_81" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_83" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_84" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_86" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_88" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_89" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_91" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_93" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_94" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_95" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_96" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_97" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_98" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_99" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_100" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_101" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_102" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_103" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_104" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_105" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_106" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_107" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_108" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_109" is connected to one terminal only. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 49% done. (App=cydsfit)
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+main.c: In function 'main':
+main.c:19:9: warning: unused variable 'compare' [-Wunused-variable]
+     int compare;
+         ^
+main.c:18:24: warning: unused variable 'rpm' [-Wunused-variable]
+     float cpr = 814.0, rpm;
+                        ^
+main.c:18:11: warning: unused variable 'cpr' [-Wunused-variable]
+     float cpr = 814.0, rpm;
+           ^
+main.c:17:14: warning: unused variable 'deg' [-Wunused-variable]
+     int rot, deg;
+              ^
+main.c:17:9: warning: unused variable 'rot' [-Wunused-variable]
+     int rot, deg;
+         ^
+main.c:16:25: warning: unused variable 'dCount' [-Wunused-variable]
+     int count1, count2, dCount;
+                         ^
+main.c:16:17: warning: unused variable 'count2' [-Wunused-variable]
+     int count1, count2, dCount;
+                 ^
+main.c:16:9: warning: unused variable 'count1' [-Wunused-variable]
+     int count1, count2, dCount;
+         ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/switch1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\switch1.c -o .\CortexM3\ARM_GCC_541\Debug\switch1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Cm3Start.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyDmac.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyFlash.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyLib.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyLib.c -o .\CortexM3\ARM_GCC_541\Debug\CyLib.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyPm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyPm.c -o .\CortexM3\ARM_GCC_541\Debug\cyPm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CySpc.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CySpc.c -o .\CortexM3\ARM_GCC_541\Debug\CySpc.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyutils.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyutils.c -o .\CortexM3\ARM_GCC_541\Debug\cyutils.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/lcd.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\lcd.c -o .\CortexM3\ARM_GCC_541\Debug\lcd.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/lcd_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\lcd_PM.c -o .\CortexM3\ARM_GCC_541\Debug\lcd_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/lcd_LCDPort.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\lcd_LCDPort.c -o .\CortexM3\ARM_GCC_541\Debug\lcd_LCDPort.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/enc.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\enc.c -o .\CortexM3\ARM_GCC_541\Debug\enc.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/enc_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\enc_INT.c -o .\CortexM3\ARM_GCC_541\Debug\enc_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/enc_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\enc_PM.c -o .\CortexM3\ARM_GCC_541\Debug\enc_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/C1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\C1.c -o .\CortexM3\ARM_GCC_541\Debug\C1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/C2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\C2.c -o .\CortexM3\ARM_GCC_541\Debug\C2.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Clock_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Clock_1.c -o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/enc_isr.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\enc_isr.c -o .\CortexM3\ARM_GCC_541\Debug\enc_isr.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/enc_Cnt16.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\enc_Cnt16.c -o .\CortexM3\ARM_GCC_541\Debug\enc_Cnt16.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/enc_Cnt16_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\enc_Cnt16_PM.c -o .\CortexM3\ARM_GCC_541\Debug\enc_Cnt16_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc.c -o .\CortexM3\ARM_GCC_541\Debug\adc.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc_PM.c -o .\CortexM3\ARM_GCC_541\Debug\adc_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc_INT.c -o .\CortexM3\ARM_GCC_541\Debug\adc_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/pot.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\pot.c -o .\CortexM3\ARM_GCC_541\Debug\pot.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc_SAR.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc_SAR.c -o .\CortexM3\ARM_GCC_541\Debug\adc_SAR.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc_SAR_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc_SAR_INT.c -o .\CortexM3\ARM_GCC_541\Debug\adc_SAR_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc_SAR_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc_SAR_PM.c -o .\CortexM3\ARM_GCC_541\Debug\adc_SAR_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc_IntClock.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc_IntClock.c -o .\CortexM3\ARM_GCC_541\Debug\adc_IntClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc_TempBuf_dma.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc_TempBuf_dma.c -o .\CortexM3\ARM_GCC_541\Debug\adc_TempBuf_dma.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc_FinalBuf_dma.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc_FinalBuf_dma.c -o .\CortexM3\ARM_GCC_541\Debug\adc_FinalBuf_dma.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/adc_IRQ.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\adc_IRQ.c -o .\CortexM3\ARM_GCC_541\Debug\adc_IRQ.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/pwm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\pwm.c -o .\CortexM3\ARM_GCC_541\Debug\pwm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/pwm_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\pwm_PM.c -o .\CortexM3\ARM_GCC_541\Debug\pwm_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Clock_2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Clock_2.c -o .\CortexM3\ARM_GCC_541\Debug\Clock_2.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/motora.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\motora.c -o .\CortexM3\ARM_GCC_541\Debug\motora.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/motorb.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\motorb.c -o .\CortexM3\ARM_GCC_541\Debug\motorb.o
+arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC5\CyBootAsmGnu.s
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\MotorControl.a .\CortexM3\ARM_GCC_541\Debug\switch1.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\lcd.o .\CortexM3\ARM_GCC_541\Debug\lcd_PM.o .\CortexM3\ARM_GCC_541\Debug\lcd_LCDPort.o .\CortexM3\ARM_GCC_541\Debug\enc.o .\CortexM3\ARM_GCC_541\Debug\enc_INT.o .\CortexM3\ARM_GCC_541\Debug\enc_PM.o .\CortexM3\ARM_GCC_541\Debug\C1.o .\CortexM3\ARM_GCC_541\Debug\C2.o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o .\CortexM3\ARM_GCC_541\Debug\enc_isr.o .\CortexM3\ARM_GCC_541\Debug\enc_Cnt16.o .\CortexM3\ARM_GCC_541\Debug\enc_Cnt16_PM.o .\CortexM3\ARM_GCC_541\Debug\adc.o .\CortexM3\ARM_GCC_541\Debug\adc_PM.o .\CortexM3\ARM_GCC_541\Debug\adc_INT.o .\CortexM3\ARM_GCC_541\Debug\pot.o .\CortexM3\ARM_GCC_541\Debug\adc_SAR.o .\CortexM3\ARM_GCC_541\Debug\adc_SAR_INT.o .\CortexM3\ARM_GCC_541\Debug\adc_SAR_PM.o .\CortexM3\ARM_GCC_541\Debug\adc_IntClock.o .\CortexM3\ARM_GCC_541\Debug\adc_TempBuf_dma.o .\CortexM3\ARM_GCC_541\Debug\adc_FinalBuf_dma.o .\CortexM3\ARM_GCC_541\Debug\adc_IRQ.o .\CortexM3\ARM_GCC_541\Debug\pwm.o .\CortexM3\ARM_GCC_541\Debug\pwm_PM.o .\CortexM3\ARM_GCC_541\Debug\Clock_2.o .\CortexM3\ARM_GCC_541\Debug\motora.o .\CortexM3\ARM_GCC_541\Debug\motorb.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\MotorControl.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\Jacob\Documents\Junior\EGR 455\EGR455\MotorControl.cydsn\CortexM3\ARM_GCC_541\Debug\MotorControl.elf" .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\MotorControl.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/MotorControl.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "C:\Users\Jacob\Documents\Junior\EGR 455\EGR455\MotorControl.cydsn\CortexM3\ARM_GCC_541\Debug\MotorControl.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+cyelftool.exe -S "C:\Users\Jacob\Documents\Junior\EGR 455\EGR455\MotorControl.cydsn\CortexM3\ARM_GCC_541\Debug\MotorControl.elf"
+Flash used: 4046 of 262144 bytes (1.5 %).
+SRAM used: 2577 of 65536 bytes (3.9 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 10/23/2017 16:14:09 ---------------

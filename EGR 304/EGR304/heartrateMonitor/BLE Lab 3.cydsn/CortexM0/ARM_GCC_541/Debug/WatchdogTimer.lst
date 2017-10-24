@@ -1,0 +1,1652 @@
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"WatchdogTimer.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.bss
+  20              		.align	2
+  21              	watchdogTimestamp:
+  22 0000 00000000 		.space	4
+  23              		.section	.text.WatchdogTimer_Isr,"ax",%progbits
+  24              		.align	2
+  25              		.global	WatchdogTimer_Isr
+  26              		.code	16
+  27              		.thumb_func
+  28              		.type	WatchdogTimer_Isr, %function
+  29              	WatchdogTimer_Isr:
+  30              	.LFB35:
+  31              		.file 1 "WatchdogTimer.c"
+   1:WatchdogTimer.c **** /*****************************************************************************
+   2:WatchdogTimer.c **** * File Name: WatchdogTimer.c
+   3:WatchdogTimer.c **** *
+   4:WatchdogTimer.c **** * Version: 1.0
+   5:WatchdogTimer.c **** *
+   6:WatchdogTimer.c **** * Description:
+   7:WatchdogTimer.c **** * This file defines the watchdog timer functionality for this lab session in 
+   8:WatchdogTimer.c **** * the PSoC 4 BLE Lab 3.
+   9:WatchdogTimer.c **** *
+  10:WatchdogTimer.c **** * Hardware Dependency:
+  11:WatchdogTimer.c **** * CY8CKIT-042 BLE Pioneer Kit
+  12:WatchdogTimer.c **** *
+  13:WatchdogTimer.c **** ******************************************************************************
+  14:WatchdogTimer.c **** * Copyright (2014), Cypress Semiconductor Corporation.
+  15:WatchdogTimer.c **** ******************************************************************************
+  16:WatchdogTimer.c **** * This software is owned by Cypress Semiconductor Corporation (Cypress) and is
+  17:WatchdogTimer.c **** * protected by and subject to worldwide patent protection (United States and
+  18:WatchdogTimer.c **** * foreign), United States copyright laws and international treaty provisions.
+  19:WatchdogTimer.c **** * Cypress hereby grants to licensee a personal, non-exclusive, non-transferable
+  20:WatchdogTimer.c **** * license to copy, use, modify, create derivative works of, and compile the
+  21:WatchdogTimer.c **** * Cypress Source Code and derivative works for the sole purpose of creating
+  22:WatchdogTimer.c **** * custom software in support of licensee product to be used only in conjunction
+  23:WatchdogTimer.c **** * with a Cypress integrated circuit as specified in the applicable agreement.
+  24:WatchdogTimer.c **** * Any reproduction, modification, translation, compilation, or representation of
+  25:WatchdogTimer.c **** * this software except as specified above is prohibited without the express
+  26:WatchdogTimer.c **** * written permission of Cypress.
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 2
+
+
+  27:WatchdogTimer.c **** *
+  28:WatchdogTimer.c **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH
+  29:WatchdogTimer.c **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  30:WatchdogTimer.c **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  31:WatchdogTimer.c **** * Cypress reserves the right to make changes without further notice to the
+  32:WatchdogTimer.c **** * materials described herein. Cypress does not assume any liability arising out
+  33:WatchdogTimer.c **** * of the application or use of any product or circuit described herein. Cypress
+  34:WatchdogTimer.c **** * does not authorize its products for use as critical components in life-support
+  35:WatchdogTimer.c **** * systems where a malfunction or failure may reasonably be expected to result in
+  36:WatchdogTimer.c **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  37:WatchdogTimer.c **** * support systems application implies that the manufacturer assumes all risk of
+  38:WatchdogTimer.c **** * such use and in doing so indemnifies Cypress against all charges. Use may be
+  39:WatchdogTimer.c **** * limited by and subject to the applicable Cypress software license agreement.
+  40:WatchdogTimer.c **** *****************************************************************************/
+  41:WatchdogTimer.c **** 
+  42:WatchdogTimer.c **** 
+  43:WatchdogTimer.c **** /*****************************************************************************
+  44:WatchdogTimer.c **** * Included headers
+  45:WatchdogTimer.c **** *****************************************************************************/
+  46:WatchdogTimer.c **** #include <project.h>
+  47:WatchdogTimer.c **** 
+  48:WatchdogTimer.c **** 
+  49:WatchdogTimer.c **** /*****************************************************************************
+  50:WatchdogTimer.c **** * Macros and constants
+  51:WatchdogTimer.c **** *****************************************************************************/
+  52:WatchdogTimer.c **** #define WDT_PERIOD_MS               (10)
+  53:WatchdogTimer.c **** #define WDT_TICKS_PER_MS            (32)
+  54:WatchdogTimer.c **** #define WDT_TICKS                   (WDT_PERIOD_MS * WDT_TICKS_PER_MS)
+  55:WatchdogTimer.c **** #define WDT_INTERRUPT_NUM           (8)
+  56:WatchdogTimer.c **** 
+  57:WatchdogTimer.c **** 
+  58:WatchdogTimer.c **** /*****************************************************************************
+  59:WatchdogTimer.c **** * Static variables
+  60:WatchdogTimer.c **** *****************************************************************************/
+  61:WatchdogTimer.c **** static uint32 watchdogTimestamp = 0;
+  62:WatchdogTimer.c **** 
+  63:WatchdogTimer.c **** 
+  64:WatchdogTimer.c **** /*****************************************************************************
+  65:WatchdogTimer.c **** * Public function definitions
+  66:WatchdogTimer.c **** *****************************************************************************/
+  67:WatchdogTimer.c **** 
+  68:WatchdogTimer.c **** /*****************************************************************************
+  69:WatchdogTimer.c **** * Function Name: WatchdogTimer_Isr
+  70:WatchdogTimer.c **** ******************************************************************************
+  71:WatchdogTimer.c **** * Summary:
+  72:WatchdogTimer.c **** * Interrupt service routine for the watchdog timer.
+  73:WatchdogTimer.c **** *
+  74:WatchdogTimer.c **** * Parameters:
+  75:WatchdogTimer.c **** * None
+  76:WatchdogTimer.c **** *
+  77:WatchdogTimer.c **** * Return:
+  78:WatchdogTimer.c **** * None
+  79:WatchdogTimer.c **** *
+  80:WatchdogTimer.c **** * Theory:
+  81:WatchdogTimer.c **** * The ISR increments the system timestamp by the watchdog timer period. It 
+  82:WatchdogTimer.c **** * then clears the WDT interrupt.
+  83:WatchdogTimer.c **** *
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 3
+
+
+  84:WatchdogTimer.c **** * Side Effects:
+  85:WatchdogTimer.c **** * None
+  86:WatchdogTimer.c **** *
+  87:WatchdogTimer.c **** *****************************************************************************/
+  88:WatchdogTimer.c **** CY_ISR(WatchdogTimer_Isr)
+  89:WatchdogTimer.c **** {
+  32              		.loc 1 89 0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 1, uses_anonymous_args = 0
+  36 0000 80B5     		push	{r7, lr}
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 7, -8
+  39              		.cfi_offset 14, -4
+  40 0002 00AF     		add	r7, sp, #0
+  41              		.cfi_def_cfa_register 7
+  90:WatchdogTimer.c ****     /* Update the system timestamp - the watchdog period time has elapsed
+  91:WatchdogTimer.c ****      * since the last interrupt.
+  92:WatchdogTimer.c ****      */
+  93:WatchdogTimer.c ****     watchdogTimestamp += WDT_PERIOD_MS;
+  42              		.loc 1 93 0
+  43 0004 054B     		ldr	r3, .L2
+  44 0006 1B68     		ldr	r3, [r3]
+  45 0008 0A33     		adds	r3, r3, #10
+  46 000a 1A00     		movs	r2, r3
+  47 000c 034B     		ldr	r3, .L2
+  48 000e 1A60     		str	r2, [r3]
+  94:WatchdogTimer.c ****     
+  95:WatchdogTimer.c ****     /* Clear WDT interrupt */
+  96:WatchdogTimer.c ****     CySysWdtClearInterrupt(CY_SYS_WDT_COUNTER0_INT);
+  49              		.loc 1 96 0
+  50 0010 0420     		movs	r0, #4
+  51 0012 FFF7FEFF 		bl	CySysWdtClearInterrupt
+  97:WatchdogTimer.c **** }
+  52              		.loc 1 97 0
+  53 0016 C046     		nop
+  54 0018 BD46     		mov	sp, r7
+  55              		@ sp needed
+  56 001a 80BD     		pop	{r7, pc}
+  57              	.L3:
+  58              		.align	2
+  59              	.L2:
+  60 001c 00000000 		.word	watchdogTimestamp
+  61              		.cfi_endproc
+  62              	.LFE35:
+  63              		.size	WatchdogTimer_Isr, .-WatchdogTimer_Isr
+  64              		.section	.text.WatchdogTimer_Start,"ax",%progbits
+  65              		.align	2
+  66              		.global	WatchdogTimer_Start
+  67              		.code	16
+  68              		.thumb_func
+  69              		.type	WatchdogTimer_Start, %function
+  70              	WatchdogTimer_Start:
+  71              	.LFB36:
+  98:WatchdogTimer.c **** 
+  99:WatchdogTimer.c **** 
+ 100:WatchdogTimer.c **** /*****************************************************************************
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 4
+
+
+ 101:WatchdogTimer.c **** * Function Name: WatchdogTimer_Start
+ 102:WatchdogTimer.c **** ******************************************************************************
+ 103:WatchdogTimer.c **** * Summary:
+ 104:WatchdogTimer.c **** * Starts the watchdog timer WDT0 to be used as the system timer. Define a 
+ 105:WatchdogTimer.c **** * system timestamp variable to be updated on every watchdog interrupt.
+ 106:WatchdogTimer.c **** *
+ 107:WatchdogTimer.c **** * Parameters:
+ 108:WatchdogTimer.c **** * None
+ 109:WatchdogTimer.c **** *
+ 110:WatchdogTimer.c **** * Return:
+ 111:WatchdogTimer.c **** * None
+ 112:WatchdogTimer.c **** *
+ 113:WatchdogTimer.c **** * Theory:
+ 114:WatchdogTimer.c **** * The function uses the watchdog timer WDT0 of the chip. It configures the 
+ 115:WatchdogTimer.c **** * timer to fire an interrupt upon match. The periodic interrupt updates the 
+ 116:WatchdogTimer.c **** * system timestamp variable which is used to keep track of the system activity.
+ 117:WatchdogTimer.c **** * The timer is configured for clear on match i.e. the WDT counter is reset to
+ 118:WatchdogTimer.c **** * zero upon a match event. The timer is continuously run.
+ 119:WatchdogTimer.c **** *
+ 120:WatchdogTimer.c **** * To change the watchdog timer settings, the function needs to unlock the 
+ 121:WatchdogTimer.c **** * WDT first, and then lock it after the modification is complete.
+ 122:WatchdogTimer.c **** *
+ 123:WatchdogTimer.c **** * Side Effects:
+ 124:WatchdogTimer.c **** * None
+ 125:WatchdogTimer.c **** *
+ 126:WatchdogTimer.c **** *****************************************************************************/
+ 127:WatchdogTimer.c **** void WatchdogTimer_Start(void)
+ 128:WatchdogTimer.c **** {
+  72              		.loc 1 128 0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 1, uses_anonymous_args = 0
+  76 0000 80B5     		push	{r7, lr}
+  77              		.cfi_def_cfa_offset 8
+  78              		.cfi_offset 7, -8
+  79              		.cfi_offset 14, -4
+  80 0002 00AF     		add	r7, sp, #0
+  81              		.cfi_def_cfa_register 7
+ 129:WatchdogTimer.c ****     /* Set the WDT ISR */
+ 130:WatchdogTimer.c ****     CyIntSetVector(WDT_INTERRUPT_NUM, &WatchdogTimer_Isr);
+  82              		.loc 1 130 0
+  83 0004 0F4B     		ldr	r3, .L5
+  84 0006 1900     		movs	r1, r3
+  85 0008 0820     		movs	r0, #8
+  86 000a FFF7FEFF 		bl	CyIntSetVector
+ 131:WatchdogTimer.c ****     
+ 132:WatchdogTimer.c ****     /* Unlock the sytem watchdog timer to be able to change settings */
+ 133:WatchdogTimer.c **** 	CySysWdtUnlock();
+  87              		.loc 1 133 0
+  88 000e FFF7FEFF 		bl	CySysWdtUnlock
+ 134:WatchdogTimer.c ****     
+ 135:WatchdogTimer.c ****     /* Configure the watchdog timer 0 (WDT0) to fire an interrupt upon match 
+ 136:WatchdogTimer.c ****      * i.e. when the count register value equals the match register value.
+ 137:WatchdogTimer.c ****      */
+ 138:WatchdogTimer.c ****     CySysWdtWriteMode(0, CY_SYS_WDT_MODE_INT);
+  89              		.loc 1 138 0
+  90 0012 0121     		movs	r1, #1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 5
+
+
+  91 0014 0020     		movs	r0, #0
+  92 0016 FFF7FEFF 		bl	CySysWdtSetMode
+ 139:WatchdogTimer.c ****     
+ 140:WatchdogTimer.c ****     /* WDT0 counter to be cleared upon a match event and then begin again.
+ 141:WatchdogTimer.c ****      * The timer is to be run continuously.
+ 142:WatchdogTimer.c ****      */
+ 143:WatchdogTimer.c **** 	CySysWdtWriteClearOnMatch(0, 1);
+  93              		.loc 1 143 0
+  94 001a 0121     		movs	r1, #1
+  95 001c 0020     		movs	r0, #0
+  96 001e FFF7FEFF 		bl	CySysWdtSetClearOnMatch
+ 144:WatchdogTimer.c ****     
+ 145:WatchdogTimer.c ****     /* Set the value of the match register. Since the count starts from zero, 
+ 146:WatchdogTimer.c ****      * the actual value is the (intended - 1). 
+ 147:WatchdogTimer.c ****      * The match register value set here is for 10 ms interval. This is 
+ 148:WatchdogTimer.c ****      * because we want to run a main loop of 10 ms with a scan happening at 
+ 149:WatchdogTimer.c ****      * the beginning of the loop and stay in deep sleep for the rest of the
+ 150:WatchdogTimer.c ****      * time. With a scan happening every 10 ms, we can properly detect a 
+ 151:WatchdogTimer.c ****      * heart rate without missing a beat.
+ 152:WatchdogTimer.c ****      */
+ 153:WatchdogTimer.c ****     CySysWdtWriteMatch(0, WDT_TICKS - 1);
+  97              		.loc 1 153 0
+  98 0022 4023     		movs	r3, #64
+  99 0024 FF33     		adds	r3, r3, #255
+ 100 0026 1900     		movs	r1, r3
+ 101 0028 0020     		movs	r0, #0
+ 102 002a FFF7FEFF 		bl	CySysWdtSetMatch
+ 154:WatchdogTimer.c ****     
+ 155:WatchdogTimer.c ****     /* Enable the WDT0 */
+ 156:WatchdogTimer.c ****     CySysWdtEnable(CY_SYS_WDT_COUNTER0_MASK);
+ 103              		.loc 1 156 0
+ 104 002e 0120     		movs	r0, #1
+ 105 0030 FFF7FEFF 		bl	CySysWdtEnable
+ 157:WatchdogTimer.c ****     
+ 158:WatchdogTimer.c ****     /* Enable interrupt */
+ 159:WatchdogTimer.c ****     CyIntEnable(WDT_INTERRUPT_NUM);
+ 106              		.loc 1 159 0
+ 107 0034 0820     		movs	r0, #8
+ 108 0036 FFF7FEFF 		bl	CyIntEnable
+ 160:WatchdogTimer.c ****     
+ 161:WatchdogTimer.c ****     /* Lock the watchdog timer to prevent future modification */
+ 162:WatchdogTimer.c **** 	CySysWdtLock();
+ 109              		.loc 1 162 0
+ 110 003a FFF7FEFF 		bl	CySysWdtLock
+ 163:WatchdogTimer.c **** }
+ 111              		.loc 1 163 0
+ 112 003e C046     		nop
+ 113 0040 BD46     		mov	sp, r7
+ 114              		@ sp needed
+ 115 0042 80BD     		pop	{r7, pc}
+ 116              	.L6:
+ 117              		.align	2
+ 118              	.L5:
+ 119 0044 00000000 		.word	WatchdogTimer_Isr
+ 120              		.cfi_endproc
+ 121              	.LFE36:
+ 122              		.size	WatchdogTimer_Start, .-WatchdogTimer_Start
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 6
+
+
+ 123              		.section	.text.WatchdogTimer_GetTimestamp,"ax",%progbits
+ 124              		.align	2
+ 125              		.global	WatchdogTimer_GetTimestamp
+ 126              		.code	16
+ 127              		.thumb_func
+ 128              		.type	WatchdogTimer_GetTimestamp, %function
+ 129              	WatchdogTimer_GetTimestamp:
+ 130              	.LFB37:
+ 164:WatchdogTimer.c **** 
+ 165:WatchdogTimer.c **** 
+ 166:WatchdogTimer.c **** /*****************************************************************************
+ 167:WatchdogTimer.c **** * Function Name: WatchdogTimer_GetTimestamp
+ 168:WatchdogTimer.c **** ******************************************************************************
+ 169:WatchdogTimer.c **** * Summary:
+ 170:WatchdogTimer.c **** * Returns the system timestamp value.
+ 171:WatchdogTimer.c **** *
+ 172:WatchdogTimer.c **** * Parameters:
+ 173:WatchdogTimer.c **** * None
+ 174:WatchdogTimer.c **** *
+ 175:WatchdogTimer.c **** * Return:
+ 176:WatchdogTimer.c **** * uint32: Current system timestamp 
+ 177:WatchdogTimer.c **** *
+ 178:WatchdogTimer.c **** * Theory:
+ 179:WatchdogTimer.c **** * The function returns the watchdog timestamp.
+ 180:WatchdogTimer.c **** *
+ 181:WatchdogTimer.c **** * Side Effects:
+ 182:WatchdogTimer.c **** * None
+ 183:WatchdogTimer.c **** *
+ 184:WatchdogTimer.c **** *****************************************************************************/
+ 185:WatchdogTimer.c **** uint32 WatchdogTimer_GetTimestamp(void)
+ 186:WatchdogTimer.c **** {
+ 131              		.loc 1 186 0
+ 132              		.cfi_startproc
+ 133              		@ args = 0, pretend = 0, frame = 0
+ 134              		@ frame_needed = 1, uses_anonymous_args = 0
+ 135 0000 80B5     		push	{r7, lr}
+ 136              		.cfi_def_cfa_offset 8
+ 137              		.cfi_offset 7, -8
+ 138              		.cfi_offset 14, -4
+ 139 0002 00AF     		add	r7, sp, #0
+ 140              		.cfi_def_cfa_register 7
+ 187:WatchdogTimer.c ****     return watchdogTimestamp;
+ 141              		.loc 1 187 0
+ 142 0004 024B     		ldr	r3, .L9
+ 143 0006 1B68     		ldr	r3, [r3]
+ 188:WatchdogTimer.c **** }
+ 144              		.loc 1 188 0
+ 145 0008 1800     		movs	r0, r3
+ 146 000a BD46     		mov	sp, r7
+ 147              		@ sp needed
+ 148 000c 80BD     		pop	{r7, pc}
+ 149              	.L10:
+ 150 000e C046     		.align	2
+ 151              	.L9:
+ 152 0010 00000000 		.word	watchdogTimestamp
+ 153              		.cfi_endproc
+ 154              	.LFE37:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 7
+
+
+ 155              		.size	WatchdogTimer_GetTimestamp, .-WatchdogTimer_GetTimestamp
+ 156              		.text
+ 157              	.Letext0:
+ 158              		.file 2 "Generated_Source\\PSoC4/BLE_Stack.h"
+ 159              		.file 3 "Generated_Source\\PSoC4/BLE_hrs.h"
+ 160              		.file 4 "Generated_Source\\PSoC4/BLE_dis.h"
+ 161              		.file 5 "Generated_Source\\PSoC4/cytypes.h"
+ 162              		.section	.debug_info,"",%progbits
+ 163              	.Ldebug_info0:
+ 164 0000 0B030000 		.4byte	0x30b
+ 165 0004 0400     		.2byte	0x4
+ 166 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 167 000a 04       		.byte	0x4
+ 168 000b 01       		.uleb128 0x1
+ 169 000c AB040000 		.4byte	.LASF102
+ 170 0010 0C       		.byte	0xc
+ 171 0011 5E040000 		.4byte	.LASF103
+ 172 0015 7A030000 		.4byte	.LASF104
+ 173 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 174 001d 00000000 		.4byte	0
+ 175 0021 00000000 		.4byte	.Ldebug_line0
+ 176 0025 02       		.uleb128 0x2
+ 177 0026 01       		.byte	0x1
+ 178 0027 06       		.byte	0x6
+ 179 0028 30060000 		.4byte	.LASF0
+ 180 002c 02       		.uleb128 0x2
+ 181 002d 01       		.byte	0x1
+ 182 002e 08       		.byte	0x8
+ 183 002f D6050000 		.4byte	.LASF1
+ 184 0033 02       		.uleb128 0x2
+ 185 0034 02       		.byte	0x2
+ 186 0035 05       		.byte	0x5
+ 187 0036 A7000000 		.4byte	.LASF2
+ 188 003a 02       		.uleb128 0x2
+ 189 003b 02       		.byte	0x2
+ 190 003c 07       		.byte	0x7
+ 191 003d 63070000 		.4byte	.LASF3
+ 192 0041 02       		.uleb128 0x2
+ 193 0042 04       		.byte	0x4
+ 194 0043 05       		.byte	0x5
+ 195 0044 CA030000 		.4byte	.LASF4
+ 196 0048 02       		.uleb128 0x2
+ 197 0049 04       		.byte	0x4
+ 198 004a 07       		.byte	0x7
+ 199 004b C1060000 		.4byte	.LASF5
+ 200 004f 02       		.uleb128 0x2
+ 201 0050 08       		.byte	0x8
+ 202 0051 05       		.byte	0x5
+ 203 0052 40010000 		.4byte	.LASF6
+ 204 0056 02       		.uleb128 0x2
+ 205 0057 08       		.byte	0x8
+ 206 0058 07       		.byte	0x7
+ 207 0059 42030000 		.4byte	.LASF7
+ 208 005d 03       		.uleb128 0x3
+ 209 005e 04       		.byte	0x4
+ 210 005f 05       		.byte	0x5
+ 211 0060 696E7400 		.ascii	"int\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 8
+
+
+ 212 0064 02       		.uleb128 0x2
+ 213 0065 04       		.byte	0x4
+ 214 0066 07       		.byte	0x7
+ 215 0067 99060000 		.4byte	.LASF8
+ 216 006b 04       		.uleb128 0x4
+ 217 006c 54080000 		.4byte	.LASF105
+ 218 0070 05       		.byte	0x5
+ 219 0071 D401     		.2byte	0x1d4
+ 220 0073 48000000 		.4byte	0x48
+ 221 0077 02       		.uleb128 0x2
+ 222 0078 04       		.byte	0x4
+ 223 0079 04       		.byte	0x4
+ 224 007a D9020000 		.4byte	.LASF9
+ 225 007e 02       		.uleb128 0x2
+ 226 007f 08       		.byte	0x8
+ 227 0080 04       		.byte	0x4
+ 228 0081 9C080000 		.4byte	.LASF10
+ 229 0085 02       		.uleb128 0x2
+ 230 0086 01       		.byte	0x1
+ 231 0087 08       		.byte	0x8
+ 232 0088 DE070000 		.4byte	.LASF11
+ 233 008c 02       		.uleb128 0x2
+ 234 008d 08       		.byte	0x8
+ 235 008e 04       		.byte	0x4
+ 236 008f A4050000 		.4byte	.LASF12
+ 237 0093 02       		.uleb128 0x2
+ 238 0094 04       		.byte	0x4
+ 239 0095 07       		.byte	0x7
+ 240 0096 E9000000 		.4byte	.LASF13
+ 241 009a 05       		.uleb128 0x5
+ 242 009b 01       		.byte	0x1
+ 243 009c 2C000000 		.4byte	0x2c
+ 244 00a0 02       		.byte	0x2
+ 245 00a1 4D01     		.2byte	0x14d
+ 246 00a3 58020000 		.4byte	0x258
+ 247 00a7 06       		.uleb128 0x6
+ 248 00a8 83020000 		.4byte	.LASF14
+ 249 00ac 00       		.byte	0
+ 250 00ad 06       		.uleb128 0x6
+ 251 00ae B9010000 		.4byte	.LASF15
+ 252 00b2 01       		.byte	0x1
+ 253 00b3 06       		.uleb128 0x6
+ 254 00b4 570A0000 		.4byte	.LASF16
+ 255 00b8 02       		.byte	0x2
+ 256 00b9 06       		.uleb128 0x6
+ 257 00ba 20090000 		.4byte	.LASF17
+ 258 00be 03       		.byte	0x3
+ 259 00bf 06       		.uleb128 0x6
+ 260 00c0 83010000 		.4byte	.LASF18
+ 261 00c4 04       		.byte	0x4
+ 262 00c5 06       		.uleb128 0x6
+ 263 00c6 42040000 		.4byte	.LASF19
+ 264 00ca 05       		.byte	0x5
+ 265 00cb 06       		.uleb128 0x6
+ 266 00cc 50000000 		.4byte	.LASF20
+ 267 00d0 06       		.byte	0x6
+ 268 00d1 06       		.uleb128 0x6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 9
+
+
+ 269 00d2 90090000 		.4byte	.LASF21
+ 270 00d6 20       		.byte	0x20
+ 271 00d7 06       		.uleb128 0x6
+ 272 00d8 D3060000 		.4byte	.LASF22
+ 273 00dc 21       		.byte	0x21
+ 274 00dd 06       		.uleb128 0x6
+ 275 00de 00000000 		.4byte	.LASF23
+ 276 00e2 22       		.byte	0x22
+ 277 00e3 06       		.uleb128 0x6
+ 278 00e4 85040000 		.4byte	.LASF24
+ 279 00e8 23       		.byte	0x23
+ 280 00e9 06       		.uleb128 0x6
+ 281 00ea 7D060000 		.4byte	.LASF25
+ 282 00ee 24       		.byte	0x24
+ 283 00ef 06       		.uleb128 0x6
+ 284 00f0 B1000000 		.4byte	.LASF26
+ 285 00f4 25       		.byte	0x25
+ 286 00f5 06       		.uleb128 0x6
+ 287 00f6 F8080000 		.4byte	.LASF27
+ 288 00fa 26       		.byte	0x26
+ 289 00fb 06       		.uleb128 0x6
+ 290 00fc F4030000 		.4byte	.LASF28
+ 291 0100 27       		.byte	0x27
+ 292 0101 06       		.uleb128 0x6
+ 293 0102 420B0000 		.4byte	.LASF29
+ 294 0106 28       		.byte	0x28
+ 295 0107 06       		.uleb128 0x6
+ 296 0108 0B070000 		.4byte	.LASF30
+ 297 010c 29       		.byte	0x29
+ 298 010d 06       		.uleb128 0x6
+ 299 010e 8E070000 		.4byte	.LASF31
+ 300 0112 2A       		.byte	0x2a
+ 301 0113 06       		.uleb128 0x6
+ 302 0114 8D0A0000 		.4byte	.LASF32
+ 303 0118 2B       		.byte	0x2b
+ 304 0119 06       		.uleb128 0x6
+ 305 011a 1F020000 		.4byte	.LASF33
+ 306 011e 2C       		.byte	0x2c
+ 307 011f 06       		.uleb128 0x6
+ 308 0120 F8020000 		.4byte	.LASF34
+ 309 0124 2D       		.byte	0x2d
+ 310 0125 06       		.uleb128 0x6
+ 311 0126 83000000 		.4byte	.LASF35
+ 312 012a 2E       		.byte	0x2e
+ 313 012b 06       		.uleb128 0x6
+ 314 012c AE0B0000 		.4byte	.LASF36
+ 315 0130 2F       		.byte	0x2f
+ 316 0131 06       		.uleb128 0x6
+ 317 0132 07010000 		.4byte	.LASF37
+ 318 0136 30       		.byte	0x30
+ 319 0137 06       		.uleb128 0x6
+ 320 0138 80050000 		.4byte	.LASF38
+ 321 013c 31       		.byte	0x31
+ 322 013d 06       		.uleb128 0x6
+ 323 013e 21030000 		.4byte	.LASF39
+ 324 0142 32       		.byte	0x32
+ 325 0143 06       		.uleb128 0x6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 10
+
+
+ 326 0144 B7070000 		.4byte	.LASF40
+ 327 0148 33       		.byte	0x33
+ 328 0149 06       		.uleb128 0x6
+ 329 014a 28070000 		.4byte	.LASF41
+ 330 014e 34       		.byte	0x34
+ 331 014f 06       		.uleb128 0x6
+ 332 0150 DB080000 		.4byte	.LASF42
+ 333 0154 35       		.byte	0x35
+ 334 0155 06       		.uleb128 0x6
+ 335 0156 59030000 		.4byte	.LASF43
+ 336 015a 36       		.byte	0x36
+ 337 015b 06       		.uleb128 0x6
+ 338 015c CC010000 		.4byte	.LASF44
+ 339 0160 37       		.byte	0x37
+ 340 0161 06       		.uleb128 0x6
+ 341 0162 69000000 		.4byte	.LASF45
+ 342 0166 40       		.byte	0x40
+ 343 0167 06       		.uleb128 0x6
+ 344 0168 A6060000 		.4byte	.LASF46
+ 345 016c 41       		.byte	0x41
+ 346 016d 06       		.uleb128 0x6
+ 347 016e CB000000 		.4byte	.LASF47
+ 348 0172 42       		.byte	0x42
+ 349 0173 06       		.uleb128 0x6
+ 350 0174 01020000 		.4byte	.LASF48
+ 351 0178 43       		.byte	0x43
+ 352 0179 06       		.uleb128 0x6
+ 353 017a 0E0A0000 		.4byte	.LASF49
+ 354 017e 44       		.byte	0x44
+ 355 017f 06       		.uleb128 0x6
+ 356 0180 D0090000 		.4byte	.LASF50
+ 357 0184 45       		.byte	0x45
+ 358 0185 06       		.uleb128 0x6
+ 359 0186 98010000 		.4byte	.LASF51
+ 360 018a 46       		.byte	0x46
+ 361 018b 06       		.uleb128 0x6
+ 362 018c E30A0000 		.4byte	.LASF52
+ 363 0190 47       		.byte	0x47
+ 364 0191 06       		.uleb128 0x6
+ 365 0192 56060000 		.4byte	.LASF53
+ 366 0196 48       		.byte	0x48
+ 367 0197 06       		.uleb128 0x6
+ 368 0198 DF020000 		.4byte	.LASF54
+ 369 019c 49       		.byte	0x49
+ 370 019d 06       		.uleb128 0x6
+ 371 019e 17080000 		.4byte	.LASF55
+ 372 01a2 4A       		.byte	0x4a
+ 373 01a3 06       		.uleb128 0x6
+ 374 01a4 43020000 		.4byte	.LASF56
+ 375 01a8 4B       		.byte	0x4b
+ 376 01a9 06       		.uleb128 0x6
+ 377 01aa 3C060000 		.4byte	.LASF57
+ 378 01ae 4C       		.byte	0x4c
+ 379 01af 06       		.uleb128 0x6
+ 380 01b0 36000000 		.4byte	.LASF58
+ 381 01b4 4D       		.byte	0x4d
+ 382 01b5 06       		.uleb128 0x6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 11
+
+
+ 383 01b6 65010000 		.4byte	.LASF59
+ 384 01ba 4E       		.byte	0x4e
+ 385 01bb 06       		.uleb128 0x6
+ 386 01bc E4050000 		.4byte	.LASF60
+ 387 01c0 4F       		.byte	0x4f
+ 388 01c1 06       		.uleb128 0x6
+ 389 01c2 230B0000 		.4byte	.LASF61
+ 390 01c6 50       		.byte	0x50
+ 391 01c7 06       		.uleb128 0x6
+ 392 01c8 35080000 		.4byte	.LASF62
+ 393 01cc 51       		.byte	0x51
+ 394 01cd 06       		.uleb128 0x6
+ 395 01ce 21040000 		.4byte	.LASF63
+ 396 01d2 52       		.byte	0x52
+ 397 01d3 06       		.uleb128 0x6
+ 398 01d4 D3030000 		.4byte	.LASF64
+ 399 01d8 53       		.byte	0x53
+ 400 01d9 06       		.uleb128 0x6
+ 401 01da 62020000 		.4byte	.LASF65
+ 402 01de 54       		.byte	0x54
+ 403 01df 06       		.uleb128 0x6
+ 404 01e0 640B0000 		.4byte	.LASF66
+ 405 01e4 55       		.byte	0x55
+ 406 01e5 06       		.uleb128 0x6
+ 407 01e6 010B0000 		.4byte	.LASF67
+ 408 01ea 56       		.byte	0x56
+ 409 01eb 06       		.uleb128 0x6
+ 410 01ec BA0A0000 		.4byte	.LASF68
+ 411 01f0 57       		.byte	0x57
+ 412 01f1 06       		.uleb128 0x6
+ 413 01f2 40070000 		.4byte	.LASF69
+ 414 01f6 58       		.byte	0x58
+ 415 01f7 06       		.uleb128 0x6
+ 416 01f8 B0050000 		.4byte	.LASF70
+ 417 01fc 70       		.byte	0x70
+ 418 01fd 06       		.uleb128 0x6
+ 419 01fe 58090000 		.4byte	.LASF71
+ 420 0202 71       		.byte	0x71
+ 421 0203 06       		.uleb128 0x6
+ 422 0204 E3070000 		.4byte	.LASF72
+ 423 0208 72       		.byte	0x72
+ 424 0209 06       		.uleb128 0x6
+ 425 020a 9A020000 		.4byte	.LASF73
+ 426 020e 73       		.byte	0x73
+ 427 020f 06       		.uleb128 0x6
+ 428 0210 47050000 		.4byte	.LASF74
+ 429 0214 74       		.byte	0x74
+ 430 0215 06       		.uleb128 0x6
+ 431 0216 EA060000 		.4byte	.LASF75
+ 432 021a 75       		.byte	0x75
+ 433 021b 06       		.uleb128 0x6
+ 434 021c B8020000 		.4byte	.LASF76
+ 435 0220 76       		.byte	0x76
+ 436 0221 06       		.uleb128 0x6
+ 437 0222 39090000 		.4byte	.LASF77
+ 438 0226 77       		.byte	0x77
+ 439 0227 06       		.uleb128 0x6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 12
+
+
+ 440 0228 79080000 		.4byte	.LASF78
+ 441 022c 78       		.byte	0x78
+ 442 022d 06       		.uleb128 0x6
+ 443 022e A3080000 		.4byte	.LASF79
+ 444 0232 79       		.byte	0x79
+ 445 0233 06       		.uleb128 0x6
+ 446 0234 690A0000 		.4byte	.LASF80
+ 447 0238 7A       		.byte	0x7a
+ 448 0239 06       		.uleb128 0x6
+ 449 023a 5B080000 		.4byte	.LASF81
+ 450 023e FA       		.byte	0xfa
+ 451 023f 06       		.uleb128 0x6
+ 452 0240 03060000 		.4byte	.LASF82
+ 453 0244 FB       		.byte	0xfb
+ 454 0245 06       		.uleb128 0x6
+ 455 0246 880B0000 		.4byte	.LASF83
+ 456 024a FC       		.byte	0xfc
+ 457 024b 06       		.uleb128 0x6
+ 458 024c 76070000 		.4byte	.LASF84
+ 459 0250 FD       		.byte	0xfd
+ 460 0251 06       		.uleb128 0x6
+ 461 0252 AC0A0000 		.4byte	.LASF85
+ 462 0256 FF       		.byte	0xff
+ 463 0257 00       		.byte	0
+ 464 0258 07       		.uleb128 0x7
+ 465 0259 01       		.byte	0x1
+ 466 025a 2C000000 		.4byte	0x2c
+ 467 025e 03       		.byte	0x3
+ 468 025f 28       		.byte	0x28
+ 469 0260 7D020000 		.4byte	0x27d
+ 470 0264 06       		.uleb128 0x6
+ 471 0265 39050000 		.4byte	.LASF86
+ 472 0269 00       		.byte	0
+ 473 026a 06       		.uleb128 0x6
+ 474 026b 13040000 		.4byte	.LASF87
+ 475 026f 01       		.byte	0x1
+ 476 0270 06       		.uleb128 0x6
+ 477 0271 22060000 		.4byte	.LASF88
+ 478 0275 02       		.byte	0x2
+ 479 0276 06       		.uleb128 0x6
+ 480 0277 F2000000 		.4byte	.LASF89
+ 481 027b 03       		.byte	0x3
+ 482 027c 00       		.byte	0
+ 483 027d 07       		.uleb128 0x7
+ 484 027e 01       		.byte	0x1
+ 485 027f 2C000000 		.4byte	0x2c
+ 486 0283 04       		.byte	0x4
+ 487 0284 22       		.byte	0x22
+ 488 0285 C6020000 		.4byte	0x2c6
+ 489 0289 06       		.uleb128 0x6
+ 490 028a B4090000 		.4byte	.LASF90
+ 491 028e 00       		.byte	0
+ 492 028f 06       		.uleb128 0x6
+ 493 0290 6E040000 		.4byte	.LASF91
+ 494 0294 01       		.byte	0x1
+ 495 0295 06       		.uleb128 0x6
+ 496 0296 28010000 		.4byte	.LASF92
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 13
+
+
+ 497 029a 02       		.byte	0x2
+ 498 029b 06       		.uleb128 0x6
+ 499 029c 400A0000 		.4byte	.LASF93
+ 500 02a0 03       		.byte	0x3
+ 501 02a1 06       		.uleb128 0x6
+ 502 02a2 F7090000 		.4byte	.LASF94
+ 503 02a6 04       		.byte	0x4
+ 504 02a7 06       		.uleb128 0x6
+ 505 02a8 4E010000 		.4byte	.LASF95
+ 506 02ac 05       		.byte	0x5
+ 507 02ad 06       		.uleb128 0x6
+ 508 02ae 9A0B0000 		.4byte	.LASF96
+ 509 02b2 06       		.byte	0x6
+ 510 02b3 06       		.uleb128 0x6
+ 511 02b4 FF070000 		.4byte	.LASF97
+ 512 02b8 07       		.byte	0x7
+ 513 02b9 06       		.uleb128 0x6
+ 514 02ba D70B0000 		.4byte	.LASF98
+ 515 02be 08       		.byte	0x8
+ 516 02bf 06       		.uleb128 0x6
+ 517 02c0 C6080000 		.4byte	.LASF99
+ 518 02c4 09       		.byte	0x9
+ 519 02c5 00       		.byte	0
+ 520 02c6 08       		.uleb128 0x8
+ 521 02c7 24000000 		.4byte	.LASF100
+ 522 02cb 01       		.byte	0x1
+ 523 02cc 58       		.byte	0x58
+ 524 02cd 00000000 		.4byte	.LFB35
+ 525 02d1 20000000 		.4byte	.LFE35-.LFB35
+ 526 02d5 01       		.uleb128 0x1
+ 527 02d6 9C       		.byte	0x9c
+ 528 02d7 08       		.uleb128 0x8
+ 529 02d8 2C0A0000 		.4byte	.LASF101
+ 530 02dc 01       		.byte	0x1
+ 531 02dd 7F       		.byte	0x7f
+ 532 02de 00000000 		.4byte	.LFB36
+ 533 02e2 48000000 		.4byte	.LFE36-.LFB36
+ 534 02e6 01       		.uleb128 0x1
+ 535 02e7 9C       		.byte	0x9c
+ 536 02e8 09       		.uleb128 0x9
+ 537 02e9 65050000 		.4byte	.LASF106
+ 538 02ed 01       		.byte	0x1
+ 539 02ee B9       		.byte	0xb9
+ 540 02ef 6B000000 		.4byte	0x6b
+ 541 02f3 00000000 		.4byte	.LFB37
+ 542 02f7 14000000 		.4byte	.LFE37-.LFB37
+ 543 02fb 01       		.uleb128 0x1
+ 544 02fc 9C       		.byte	0x9c
+ 545 02fd 0A       		.uleb128 0xa
+ 546 02fe 7E090000 		.4byte	.LASF107
+ 547 0302 01       		.byte	0x1
+ 548 0303 3D       		.byte	0x3d
+ 549 0304 6B000000 		.4byte	0x6b
+ 550 0308 05       		.uleb128 0x5
+ 551 0309 03       		.byte	0x3
+ 552 030a 00000000 		.4byte	watchdogTimestamp
+ 553 030e 00       		.byte	0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 14
+
+
+ 554              		.section	.debug_abbrev,"",%progbits
+ 555              	.Ldebug_abbrev0:
+ 556 0000 01       		.uleb128 0x1
+ 557 0001 11       		.uleb128 0x11
+ 558 0002 01       		.byte	0x1
+ 559 0003 25       		.uleb128 0x25
+ 560 0004 0E       		.uleb128 0xe
+ 561 0005 13       		.uleb128 0x13
+ 562 0006 0B       		.uleb128 0xb
+ 563 0007 03       		.uleb128 0x3
+ 564 0008 0E       		.uleb128 0xe
+ 565 0009 1B       		.uleb128 0x1b
+ 566 000a 0E       		.uleb128 0xe
+ 567 000b 55       		.uleb128 0x55
+ 568 000c 17       		.uleb128 0x17
+ 569 000d 11       		.uleb128 0x11
+ 570 000e 01       		.uleb128 0x1
+ 571 000f 10       		.uleb128 0x10
+ 572 0010 17       		.uleb128 0x17
+ 573 0011 00       		.byte	0
+ 574 0012 00       		.byte	0
+ 575 0013 02       		.uleb128 0x2
+ 576 0014 24       		.uleb128 0x24
+ 577 0015 00       		.byte	0
+ 578 0016 0B       		.uleb128 0xb
+ 579 0017 0B       		.uleb128 0xb
+ 580 0018 3E       		.uleb128 0x3e
+ 581 0019 0B       		.uleb128 0xb
+ 582 001a 03       		.uleb128 0x3
+ 583 001b 0E       		.uleb128 0xe
+ 584 001c 00       		.byte	0
+ 585 001d 00       		.byte	0
+ 586 001e 03       		.uleb128 0x3
+ 587 001f 24       		.uleb128 0x24
+ 588 0020 00       		.byte	0
+ 589 0021 0B       		.uleb128 0xb
+ 590 0022 0B       		.uleb128 0xb
+ 591 0023 3E       		.uleb128 0x3e
+ 592 0024 0B       		.uleb128 0xb
+ 593 0025 03       		.uleb128 0x3
+ 594 0026 08       		.uleb128 0x8
+ 595 0027 00       		.byte	0
+ 596 0028 00       		.byte	0
+ 597 0029 04       		.uleb128 0x4
+ 598 002a 16       		.uleb128 0x16
+ 599 002b 00       		.byte	0
+ 600 002c 03       		.uleb128 0x3
+ 601 002d 0E       		.uleb128 0xe
+ 602 002e 3A       		.uleb128 0x3a
+ 603 002f 0B       		.uleb128 0xb
+ 604 0030 3B       		.uleb128 0x3b
+ 605 0031 05       		.uleb128 0x5
+ 606 0032 49       		.uleb128 0x49
+ 607 0033 13       		.uleb128 0x13
+ 608 0034 00       		.byte	0
+ 609 0035 00       		.byte	0
+ 610 0036 05       		.uleb128 0x5
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 15
+
+
+ 611 0037 04       		.uleb128 0x4
+ 612 0038 01       		.byte	0x1
+ 613 0039 0B       		.uleb128 0xb
+ 614 003a 0B       		.uleb128 0xb
+ 615 003b 49       		.uleb128 0x49
+ 616 003c 13       		.uleb128 0x13
+ 617 003d 3A       		.uleb128 0x3a
+ 618 003e 0B       		.uleb128 0xb
+ 619 003f 3B       		.uleb128 0x3b
+ 620 0040 05       		.uleb128 0x5
+ 621 0041 01       		.uleb128 0x1
+ 622 0042 13       		.uleb128 0x13
+ 623 0043 00       		.byte	0
+ 624 0044 00       		.byte	0
+ 625 0045 06       		.uleb128 0x6
+ 626 0046 28       		.uleb128 0x28
+ 627 0047 00       		.byte	0
+ 628 0048 03       		.uleb128 0x3
+ 629 0049 0E       		.uleb128 0xe
+ 630 004a 1C       		.uleb128 0x1c
+ 631 004b 0B       		.uleb128 0xb
+ 632 004c 00       		.byte	0
+ 633 004d 00       		.byte	0
+ 634 004e 07       		.uleb128 0x7
+ 635 004f 04       		.uleb128 0x4
+ 636 0050 01       		.byte	0x1
+ 637 0051 0B       		.uleb128 0xb
+ 638 0052 0B       		.uleb128 0xb
+ 639 0053 49       		.uleb128 0x49
+ 640 0054 13       		.uleb128 0x13
+ 641 0055 3A       		.uleb128 0x3a
+ 642 0056 0B       		.uleb128 0xb
+ 643 0057 3B       		.uleb128 0x3b
+ 644 0058 0B       		.uleb128 0xb
+ 645 0059 01       		.uleb128 0x1
+ 646 005a 13       		.uleb128 0x13
+ 647 005b 00       		.byte	0
+ 648 005c 00       		.byte	0
+ 649 005d 08       		.uleb128 0x8
+ 650 005e 2E       		.uleb128 0x2e
+ 651 005f 00       		.byte	0
+ 652 0060 3F       		.uleb128 0x3f
+ 653 0061 19       		.uleb128 0x19
+ 654 0062 03       		.uleb128 0x3
+ 655 0063 0E       		.uleb128 0xe
+ 656 0064 3A       		.uleb128 0x3a
+ 657 0065 0B       		.uleb128 0xb
+ 658 0066 3B       		.uleb128 0x3b
+ 659 0067 0B       		.uleb128 0xb
+ 660 0068 27       		.uleb128 0x27
+ 661 0069 19       		.uleb128 0x19
+ 662 006a 11       		.uleb128 0x11
+ 663 006b 01       		.uleb128 0x1
+ 664 006c 12       		.uleb128 0x12
+ 665 006d 06       		.uleb128 0x6
+ 666 006e 40       		.uleb128 0x40
+ 667 006f 18       		.uleb128 0x18
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 16
+
+
+ 668 0070 9642     		.uleb128 0x2116
+ 669 0072 19       		.uleb128 0x19
+ 670 0073 00       		.byte	0
+ 671 0074 00       		.byte	0
+ 672 0075 09       		.uleb128 0x9
+ 673 0076 2E       		.uleb128 0x2e
+ 674 0077 00       		.byte	0
+ 675 0078 3F       		.uleb128 0x3f
+ 676 0079 19       		.uleb128 0x19
+ 677 007a 03       		.uleb128 0x3
+ 678 007b 0E       		.uleb128 0xe
+ 679 007c 3A       		.uleb128 0x3a
+ 680 007d 0B       		.uleb128 0xb
+ 681 007e 3B       		.uleb128 0x3b
+ 682 007f 0B       		.uleb128 0xb
+ 683 0080 27       		.uleb128 0x27
+ 684 0081 19       		.uleb128 0x19
+ 685 0082 49       		.uleb128 0x49
+ 686 0083 13       		.uleb128 0x13
+ 687 0084 11       		.uleb128 0x11
+ 688 0085 01       		.uleb128 0x1
+ 689 0086 12       		.uleb128 0x12
+ 690 0087 06       		.uleb128 0x6
+ 691 0088 40       		.uleb128 0x40
+ 692 0089 18       		.uleb128 0x18
+ 693 008a 9742     		.uleb128 0x2117
+ 694 008c 19       		.uleb128 0x19
+ 695 008d 00       		.byte	0
+ 696 008e 00       		.byte	0
+ 697 008f 0A       		.uleb128 0xa
+ 698 0090 34       		.uleb128 0x34
+ 699 0091 00       		.byte	0
+ 700 0092 03       		.uleb128 0x3
+ 701 0093 0E       		.uleb128 0xe
+ 702 0094 3A       		.uleb128 0x3a
+ 703 0095 0B       		.uleb128 0xb
+ 704 0096 3B       		.uleb128 0x3b
+ 705 0097 0B       		.uleb128 0xb
+ 706 0098 49       		.uleb128 0x49
+ 707 0099 13       		.uleb128 0x13
+ 708 009a 02       		.uleb128 0x2
+ 709 009b 18       		.uleb128 0x18
+ 710 009c 00       		.byte	0
+ 711 009d 00       		.byte	0
+ 712 009e 00       		.byte	0
+ 713              		.section	.debug_aranges,"",%progbits
+ 714 0000 2C000000 		.4byte	0x2c
+ 715 0004 0200     		.2byte	0x2
+ 716 0006 00000000 		.4byte	.Ldebug_info0
+ 717 000a 04       		.byte	0x4
+ 718 000b 00       		.byte	0
+ 719 000c 0000     		.2byte	0
+ 720 000e 0000     		.2byte	0
+ 721 0010 00000000 		.4byte	.LFB35
+ 722 0014 20000000 		.4byte	.LFE35-.LFB35
+ 723 0018 00000000 		.4byte	.LFB36
+ 724 001c 48000000 		.4byte	.LFE36-.LFB36
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 17
+
+
+ 725 0020 00000000 		.4byte	.LFB37
+ 726 0024 14000000 		.4byte	.LFE37-.LFB37
+ 727 0028 00000000 		.4byte	0
+ 728 002c 00000000 		.4byte	0
+ 729              		.section	.debug_ranges,"",%progbits
+ 730              	.Ldebug_ranges0:
+ 731 0000 00000000 		.4byte	.LFB35
+ 732 0004 20000000 		.4byte	.LFE35
+ 733 0008 00000000 		.4byte	.LFB36
+ 734 000c 48000000 		.4byte	.LFE36
+ 735 0010 00000000 		.4byte	.LFB37
+ 736 0014 14000000 		.4byte	.LFE37
+ 737 0018 00000000 		.4byte	0
+ 738 001c 00000000 		.4byte	0
+ 739              		.section	.debug_line,"",%progbits
+ 740              	.Ldebug_line0:
+ 741 0000 B9000000 		.section	.debug_str,"MS",%progbits,1
+ 741      02007300 
+ 741      00000201 
+ 741      FB0E0D00 
+ 741      01010101 
+ 742              	.LASF23:
+ 743 0000 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 743      455F4556 
+ 743      545F4741 
+ 743      505F5041 
+ 743      53534B45 
+ 744              	.LASF100:
+ 745 0024 57617463 		.ascii	"WatchdogTimer_Isr\000"
+ 745      68646F67 
+ 745      54696D65 
+ 745      725F4973 
+ 745      7200
+ 746              	.LASF58:
+ 747 0036 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
+ 747      455F4556 
+ 747      545F4741 
+ 747      5454435F 
+ 747      57524954 
+ 748              	.LASF20:
+ 749 0050 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
+ 749      455F4556 
+ 749      545F4D45 
+ 749      4D4F5259 
+ 749      5F524551 
+ 750              	.LASF45:
+ 751 0069 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
+ 751      455F4556 
+ 751      545F4741 
+ 751      5454435F 
+ 751      4552524F 
+ 752              	.LASF35:
+ 753 0083 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ 753      455F4556 
+ 753      545F4741 
+ 753      505F4B45 
+ 753      59505245 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 18
+
+
+ 754              	.LASF2:
+ 755 00a7 73686F72 		.ascii	"short int\000"
+ 755      7420696E 
+ 755      7400
+ 756              	.LASF26:
+ 757 00b1 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
+ 757      455F4556 
+ 757      545F4741 
+ 757      505F4155 
+ 757      54485F46 
+ 758              	.LASF47:
+ 759 00cb 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 759      455F4556 
+ 759      545F4741 
+ 759      54545F44 
+ 759      4953434F 
+ 760              	.LASF13:
+ 761 00e9 73697A65 		.ascii	"sizetype\000"
+ 761      74797065 
+ 761      00
+ 762              	.LASF89:
+ 763 00f2 4359424C 		.ascii	"CYBLE_HRS_CHAR_COUNT\000"
+ 763      455F4852 
+ 763      535F4348 
+ 763      41525F43 
+ 763      4F554E54 
+ 764              	.LASF37:
+ 765 0107 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
+ 765      455F4556 
+ 765      545F4741 
+ 765      505F4441 
+ 765      54415F4C 
+ 766              	.LASF92:
+ 767 0128 4359424C 		.ascii	"CYBLE_DIS_SERIAL_NUMBER\000"
+ 767      455F4449 
+ 767      535F5345 
+ 767      5249414C 
+ 767      5F4E554D 
+ 768              	.LASF6:
+ 769 0140 6C6F6E67 		.ascii	"long long int\000"
+ 769      206C6F6E 
+ 769      6720696E 
+ 769      7400
+ 770              	.LASF95:
+ 771 014e 4359424C 		.ascii	"CYBLE_DIS_SOFTWARE_REV\000"
+ 771      455F4449 
+ 771      535F534F 
+ 771      46545741 
+ 771      52455F52 
+ 772              	.LASF59:
+ 773 0165 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 773      455F4556 
+ 773      545F4741 
+ 773      5454535F 
+ 773      57524954 
+ 774              	.LASF18:
+ 775 0183 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 19
+
+
+ 775      455F4556 
+ 775      545F4843 
+ 775      495F5354 
+ 775      41545553 
+ 776              	.LASF51:
+ 777 0198 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 777      455F4556 
+ 777      545F4741 
+ 777      5454435F 
+ 777      52454144 
+ 778              	.LASF15:
+ 779 01b9 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
+ 779      455F4556 
+ 779      545F5354 
+ 779      41434B5F 
+ 779      4F4E00
+ 780              	.LASF44:
+ 781 01cc 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
+ 781      455F4556 
+ 781      545F4741 
+ 781      505F534D 
+ 781      505F4C4F 
+ 782 01ff 4500     		.ascii	"E\000"
+ 783              	.LASF48:
+ 784 0201 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
+ 784      455F4556 
+ 784      545F4741 
+ 784      5454535F 
+ 784      58434E48 
+ 785              	.LASF33:
+ 786 021f 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
+ 786      455F4556 
+ 786      545F4741 
+ 786      505F4B45 
+ 786      59494E46 
+ 787              	.LASF56:
+ 788 0243 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
+ 788      455F4556 
+ 788      545F4741 
+ 788      5454435F 
+ 788      52454144 
+ 789              	.LASF65:
+ 790 0262 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
+ 790      455F4556 
+ 790      545F4741 
+ 790      5454535F 
+ 790      48414E44 
+ 791              	.LASF14:
+ 792 0283 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 792      455F4556 
+ 792      545F484F 
+ 792      53545F49 
+ 792      4E56414C 
+ 793              	.LASF73:
+ 794 029a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
+ 794      455F4556 
+ 794      545F4C32 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 20
+
+
+ 794      4341505F 
+ 794      43424643 
+ 795              	.LASF76:
+ 796 02b8 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
+ 796      455F4556 
+ 796      545F4C32 
+ 796      4341505F 
+ 796      43424643 
+ 797              	.LASF9:
+ 798 02d9 666C6F61 		.ascii	"float\000"
+ 798      7400
+ 799              	.LASF54:
+ 800 02df 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
+ 800      455F4556 
+ 800      545F4741 
+ 800      5454435F 
+ 800      52454144 
+ 801              	.LASF34:
+ 802 02f8 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
+ 802      455F4556 
+ 802      545F4741 
+ 802      505F4E55 
+ 802      4D455249 
+ 803              	.LASF39:
+ 804 0321 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
+ 804      455F4556 
+ 804      545F4741 
+ 804      50435F44 
+ 804      49524543 
+ 805              	.LASF7:
+ 806 0342 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 806      206C6F6E 
+ 806      6720756E 
+ 806      7369676E 
+ 806      65642069 
+ 807              	.LASF43:
+ 808 0359 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
+ 808      455F4556 
+ 808      545F4741 
+ 808      505F4155 
+ 808      54485F52 
+ 809              	.LASF104:
+ 810 037a 433A5C55 		.ascii	"C:\\Users\\Jacob\\Documents\\Junior\\EGR 304\\EGR30"
+ 810      73657273 
+ 810      5C4A6163 
+ 810      6F625C44 
+ 810      6F63756D 
+ 811 03a7 345C6865 		.ascii	"4\\heartrateMonitor\\BLE Lab 3.cydsn\000"
+ 811      61727472 
+ 811      6174654D 
+ 811      6F6E6974 
+ 811      6F725C42 
+ 812              	.LASF4:
+ 813 03ca 6C6F6E67 		.ascii	"long int\000"
+ 813      20696E74 
+ 813      00
+ 814              	.LASF64:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 21
+
+
+ 815 03d3 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
+ 815      455F4556 
+ 815      545F4741 
+ 815      5454435F 
+ 815      48414E44 
+ 816              	.LASF28:
+ 817 03f4 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 817      455F4556 
+ 817      545F4741 
+ 817      505F4445 
+ 817      56494345 
+ 818              	.LASF87:
+ 819 0413 4359424C 		.ascii	"CYBLE_HRS_BSL\000"
+ 819      455F4852 
+ 819      535F4253 
+ 819      4C00
+ 820              	.LASF63:
+ 821 0421 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
+ 821      455F4556 
+ 821      545F4741 
+ 821      5454435F 
+ 821      48414E44 
+ 822              	.LASF19:
+ 823 0442 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
+ 823      455F4556 
+ 823      545F5354 
+ 823      41434B5F 
+ 823      42555359 
+ 824              	.LASF103:
+ 825 045e 57617463 		.ascii	"WatchdogTimer.c\000"
+ 825      68646F67 
+ 825      54696D65 
+ 825      722E6300 
+ 826              	.LASF91:
+ 827 046e 4359424C 		.ascii	"CYBLE_DIS_MODEL_NUMBER\000"
+ 827      455F4449 
+ 827      535F4D4F 
+ 827      44454C5F 
+ 827      4E554D42 
+ 828              	.LASF24:
+ 829 0485 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 829      455F4556 
+ 829      545F4741 
+ 829      505F5041 
+ 829      53534B45 
+ 830              	.LASF102:
+ 831 04ab 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 831      43313120 
+ 831      352E342E 
+ 831      31203230 
+ 831      31363036 
+ 832 04de 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 832      20726576 
+ 832      6973696F 
+ 832      6E203233 
+ 832      37373135 
+ 833 0511 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 22
+
+
+ 833      66756E63 
+ 833      74696F6E 
+ 833      2D736563 
+ 833      74696F6E 
+ 834              	.LASF86:
+ 835 0539 4359424C 		.ascii	"CYBLE_HRS_HRM\000"
+ 835      455F4852 
+ 835      535F4852 
+ 835      4D00
+ 836              	.LASF74:
+ 837 0547 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
+ 837      455F4556 
+ 837      545F4C32 
+ 837      4341505F 
+ 837      43424643 
+ 838              	.LASF106:
+ 839 0565 57617463 		.ascii	"WatchdogTimer_GetTimestamp\000"
+ 839      68646F67 
+ 839      54696D65 
+ 839      725F4765 
+ 839      7454696D 
+ 840              	.LASF38:
+ 841 0580 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
+ 841      455F4556 
+ 841      545F4741 
+ 841      505F454E 
+ 841      48414E43 
+ 842              	.LASF12:
+ 843 05a4 6C6F6E67 		.ascii	"long double\000"
+ 843      20646F75 
+ 843      626C6500 
+ 844              	.LASF70:
+ 845 05b0 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
+ 845      455F4556 
+ 845      545F4C32 
+ 845      4341505F 
+ 845      434F4E4E 
+ 846              	.LASF1:
+ 847 05d6 756E7369 		.ascii	"unsigned char\000"
+ 847      676E6564 
+ 847      20636861 
+ 847      7200
+ 848              	.LASF60:
+ 849 05e4 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
+ 849      455F4556 
+ 849      545F4741 
+ 849      5454535F 
+ 849      50524550 
+ 850              	.LASF82:
+ 851 0603 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 851      455F4556 
+ 851      545F4C45 
+ 851      5F50494E 
+ 851      475F4155 
+ 852              	.LASF88:
+ 853 0622 4359424C 		.ascii	"CYBLE_HRS_CPT\000"
+ 853      455F4852 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 23
+
+
+ 853      535F4350 
+ 853      5400
+ 854              	.LASF0:
+ 855 0630 7369676E 		.ascii	"signed char\000"
+ 855      65642063 
+ 855      68617200 
+ 856              	.LASF57:
+ 857 063c 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 857      455F4556 
+ 857      545F4741 
+ 857      5454535F 
+ 857      57524954 
+ 858              	.LASF53:
+ 859 0656 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
+ 859      455F4556 
+ 859      545F4741 
+ 859      5454435F 
+ 859      46494E44 
+ 860              	.LASF25:
+ 861 067d 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
+ 861      455F4556 
+ 861      545F4741 
+ 861      505F4155 
+ 861      54485F43 
+ 862              	.LASF8:
+ 863 0699 756E7369 		.ascii	"unsigned int\000"
+ 863      676E6564 
+ 863      20696E74 
+ 863      00
+ 864              	.LASF46:
+ 865 06a6 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ 865      455F4556 
+ 865      545F4741 
+ 865      54545F43 
+ 865      4F4E4E45 
+ 866              	.LASF5:
+ 867 06c1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 867      20756E73 
+ 867      69676E65 
+ 867      6420696E 
+ 867      7400
+ 868              	.LASF22:
+ 869 06d3 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 869      455F4556 
+ 869      545F4741 
+ 869      505F4155 
+ 869      54485F52 
+ 870              	.LASF75:
+ 871 06ea 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 871      455F4556 
+ 871      545F4C32 
+ 871      4341505F 
+ 871      43424643 
+ 872              	.LASF30:
+ 873 070b 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
+ 873      455F4556 
+ 873      545F4741 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 24
+
+
+ 873      505F454E 
+ 873      43525950 
+ 874              	.LASF41:
+ 875 0728 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
+ 875      455F4556 
+ 875      545F4741 
+ 875      505F434F 
+ 875      4E4E5F45 
+ 876              	.LASF69:
+ 877 0740 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
+ 877      455F4556 
+ 877      545F4741 
+ 877      5454435F 
+ 877      4C4F4E47 
+ 878              	.LASF3:
+ 879 0763 73686F72 		.ascii	"short unsigned int\000"
+ 879      7420756E 
+ 879      7369676E 
+ 879      65642069 
+ 879      6E7400
+ 880              	.LASF84:
+ 881 0776 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
+ 881      455F4556 
+ 881      545F464C 
+ 881      4153485F 
+ 881      434F5252 
+ 882              	.LASF31:
+ 883 078e 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
+ 883      455F4556 
+ 883      545F4741 
+ 883      505F434F 
+ 883      4E4E4543 
+ 884              	.LASF40:
+ 885 07b7 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
+ 885      455F4556 
+ 885      545F4741 
+ 885      505F534D 
+ 885      505F4E45 
+ 886              	.LASF11:
+ 887 07de 63686172 		.ascii	"char\000"
+ 887      00
+ 888              	.LASF72:
+ 889 07e3 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 889      455F4556 
+ 889      545F4C32 
+ 889      4341505F 
+ 889      434F4D4D 
+ 890              	.LASF97:
+ 891 07ff 4359424C 		.ascii	"CYBLE_DIS_REG_CERT_DATA\000"
+ 891      455F4449 
+ 891      535F5245 
+ 891      475F4345 
+ 891      52545F44 
+ 892              	.LASF55:
+ 893 0817 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
+ 893      455F4556 
+ 893      545F4741 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 25
+
+
+ 893      5454435F 
+ 893      52454144 
+ 894              	.LASF62:
+ 895 0835 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
+ 895      455F4556 
+ 895      545F4741 
+ 895      5454435F 
+ 895      45584543 
+ 896              	.LASF105:
+ 897 0854 75696E74 		.ascii	"uint32\000"
+ 897      333200
+ 898              	.LASF81:
+ 899 085b 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 899      455F4556 
+ 899      545F5045 
+ 899      4E44494E 
+ 899      475F464C 
+ 900              	.LASF78:
+ 901 0879 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
+ 901      455F4556 
+ 901      545F4C32 
+ 901      4341505F 
+ 901      43424643 
+ 902              	.LASF10:
+ 903 089c 646F7562 		.ascii	"double\000"
+ 903      6C6500
+ 904              	.LASF79:
+ 905 08a3 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 905      455F4556 
+ 905      545F4C32 
+ 905      4341505F 
+ 905      43424643 
+ 906              	.LASF99:
+ 907 08c6 4359424C 		.ascii	"CYBLE_DIS_CHAR_COUNT\000"
+ 907      455F4449 
+ 907      535F4348 
+ 907      41525F43 
+ 907      4F554E54 
+ 908              	.LASF42:
+ 909 08db 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
+ 909      455F4556 
+ 909      545F4741 
+ 909      505F5343 
+ 909      414E5F52 
+ 910              	.LASF27:
+ 911 08f8 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 911      455F4556 
+ 911      545F4741 
+ 911      50505F41 
+ 911      44564552 
+ 912              	.LASF17:
+ 913 0920 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 913      455F4556 
+ 913      545F4841 
+ 913      52445741 
+ 913      52455F45 
+ 914              	.LASF77:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 26
+
+
+ 915 0939 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
+ 915      455F4556 
+ 915      545F4C32 
+ 915      4341505F 
+ 915      43424643 
+ 916              	.LASF71:
+ 917 0958 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
+ 917      455F4556 
+ 917      545F4C32 
+ 917      4341505F 
+ 917      434F4E4E 
+ 918              	.LASF107:
+ 919 097e 77617463 		.ascii	"watchdogTimestamp\000"
+ 919      68646F67 
+ 919      54696D65 
+ 919      7374616D 
+ 919      7000
+ 920              	.LASF21:
+ 921 0990 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 921      455F4556 
+ 921      545F4741 
+ 921      50435F53 
+ 921      43414E5F 
+ 922              	.LASF90:
+ 923 09b4 4359424C 		.ascii	"CYBLE_DIS_MANUFACTURER_NAME\000"
+ 923      455F4449 
+ 923      535F4D41 
+ 923      4E554641 
+ 923      43545552 
+ 924              	.LASF50:
+ 925 09d0 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 925      455F4556 
+ 925      545F4741 
+ 925      5454435F 
+ 925      52454144 
+ 926              	.LASF94:
+ 927 09f7 4359424C 		.ascii	"CYBLE_DIS_FIRMWARE_REV\000"
+ 927      455F4449 
+ 927      535F4649 
+ 927      524D5741 
+ 927      52455F52 
+ 928              	.LASF49:
+ 929 0a0e 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 929      455F4556 
+ 929      545F4741 
+ 929      5454435F 
+ 929      5843484E 
+ 930              	.LASF101:
+ 931 0a2c 57617463 		.ascii	"WatchdogTimer_Start\000"
+ 931      68646F67 
+ 931      54696D65 
+ 931      725F5374 
+ 931      61727400 
+ 932              	.LASF93:
+ 933 0a40 4359424C 		.ascii	"CYBLE_DIS_HARDWARE_REV\000"
+ 933      455F4449 
+ 933      535F4841 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 27
+
+
+ 933      52445741 
+ 933      52455F52 
+ 934              	.LASF16:
+ 935 0a57 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
+ 935      455F4556 
+ 935      545F5449 
+ 935      4D454F55 
+ 935      5400
+ 936              	.LASF80:
+ 937 0a69 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 937      455F4556 
+ 937      545F4C32 
+ 937      4341505F 
+ 937      43424643 
+ 938              	.LASF32:
+ 939 0a8d 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
+ 939      455F4556 
+ 939      545F4741 
+ 939      50435F53 
+ 939      43414E5F 
+ 940              	.LASF85:
+ 941 0aac 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
+ 941      455F4556 
+ 941      545F4D41 
+ 941      5800
+ 942              	.LASF68:
+ 943 0aba 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 943      455F4556 
+ 943      545F4741 
+ 943      5454535F 
+ 943      52454144 
+ 944              	.LASF52:
+ 945 0ae3 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
+ 945      455F4556 
+ 945      545F4741 
+ 945      5454435F 
+ 945      46494E44 
+ 946              	.LASF67:
+ 947 0b01 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 947      455F4556 
+ 947      545F4741 
+ 947      5454435F 
+ 947      53544F50 
+ 948              	.LASF61:
+ 949 0b23 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
+ 949      455F4556 
+ 949      545F4741 
+ 949      5454535F 
+ 949      45584543 
+ 950              	.LASF29:
+ 951 0b42 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
+ 951      455F4556 
+ 951      545F4741 
+ 951      505F4445 
+ 951      56494345 
+ 952              	.LASF66:
+ 953 0b64 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cchurvY3.s 			page 28
+
+
+ 953      455F4556 
+ 953      545F4741 
+ 953      5454535F 
+ 953      44415441 
+ 954              	.LASF83:
+ 955 0b88 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
+ 955      455F4556 
+ 955      545F4843 
+ 955      495F504B 
+ 955      5400
+ 956              	.LASF96:
+ 957 0b9a 4359424C 		.ascii	"CYBLE_DIS_SYSTEM_ID\000"
+ 957      455F4449 
+ 957      535F5359 
+ 957      5354454D 
+ 957      5F494400 
+ 958              	.LASF36:
+ 959 0bae 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
+ 959      455F4556 
+ 959      545F4741 
+ 959      505F4F4F 
+ 959      425F4745 
+ 960              	.LASF98:
+ 961 0bd7 4359424C 		.ascii	"CYBLE_DIS_PNP_ID\000"
+ 961      455F4449 
+ 961      535F504E 
+ 961      505F4944 
+ 961      00
+ 962              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

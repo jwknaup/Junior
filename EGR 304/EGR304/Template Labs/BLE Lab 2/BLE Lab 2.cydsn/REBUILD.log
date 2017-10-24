@@ -1,0 +1,7 @@
+--------------- Rebuild Started: 10/23/2017 09:40:15 Project: BLE Lab 2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+Deleting file ".\BLE Lab 2.rpt"
+cydsfit.exe -.appdatapath "C:\Users\Jacob\AppData\Local\Cypress Semiconductor\PSoC Creator\4.1" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\Template Labs\BLE Lab 2\BLE Lab 2.cydsn\BLE Lab 2.cyprj" -d CY8C4247LQI-BL483 -s "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\Template Labs\BLE Lab 2\BLE Lab 2.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0059: error: Error in component: cy_boot. The cy_boot_v4_20 component (cy_boot) is not compatible with the selected device. Please check the component datasheet for details on updating to a compatible component.
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Rebuild Failed: 10/23/2017 09:40:18 ---------------

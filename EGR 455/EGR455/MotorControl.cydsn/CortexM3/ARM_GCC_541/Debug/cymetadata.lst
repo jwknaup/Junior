@@ -1,0 +1,2666 @@
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 2052
+  28              	cy_meta_configecc:
+  29 0000 04       		.byte	4
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 01       		.byte	1
+  34 0005 5B       		.byte	91
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 02       		.byte	2
+  38 0009 64       		.byte	100
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 65       		.byte	101
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 01       		.byte	1
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 01       		.byte	1
+  50 0015 03       		.byte	3
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 06       		.byte	6
+  54 0019 05       		.byte	5
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 08       		.byte	8
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 2
+
+
+  58 001d 06       		.byte	6
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 26       		.byte	38
+  62 0021 07       		.byte	7
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 51       		.byte	81
+  66 0025 08       		.byte	8
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 3C       		.byte	60
+  70 0029 09       		.byte	9
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 24       		.byte	36
+  74 002d 0A       		.byte	10
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 48       		.byte	72
+  78 0031 0B       		.byte	11
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 20       		.byte	32
+  82 0035 0C       		.byte	12
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 38       		.byte	56
+  86 0039 0D       		.byte	13
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 44       		.byte	68
+  90 003d 0E       		.byte	14
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 32       		.byte	50
+  94 0041 0F       		.byte	15
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 08       		.byte	8
+  98 0045 14       		.byte	20
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 27       		.byte	39
+ 102 0049 15       		.byte	21
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 08       		.byte	8
+ 106 004d 16       		.byte	22
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 28       		.byte	40
+ 110 0051 17       		.byte	23
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 3F       		.byte	63
+ 114 0055 18       		.byte	24
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 33       		.byte	51
+ 118 0059 19       		.byte	25
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 4C       		.byte	76
+ 122 005d 1A       		.byte	26
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 3F       		.byte	63
+ 126 0061 1B       		.byte	27
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 0C       		.byte	12
+ 130 0065 40       		.byte	64
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 07       		.byte	7
+ 134 0069 41       		.byte	65
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 03       		.byte	3
+ 138 006d 42       		.byte	66
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 01       		.byte	1
+ 142 0071 43       		.byte	67
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 02       		.byte	2
+ 146 0075 44       		.byte	68
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 05       		.byte	5
+ 150 0079 45       		.byte	69
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 01       		.byte	1
+ 154 007d 46       		.byte	70
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 01       		.byte	1
+ 158 0081 47       		.byte	71
+ 159 0082 01       		.byte	1
+ 160 0083 40       		.byte	64
+ 161 0084 03       		.byte	3
+ 162 0085 48       		.byte	72
+ 163 0086 01       		.byte	1
+ 164 0087 40       		.byte	64
+ 165 0088 03       		.byte	3
+ 166 0089 49       		.byte	73
+ 167 008a 01       		.byte	1
+ 168 008b 40       		.byte	64
+ 169 008c 0C       		.byte	12
+ 170 008d 4C       		.byte	76
+ 171 008e 01       		.byte	1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 07       		.byte	7
+ 174 0091 4D       		.byte	77
+ 175 0092 01       		.byte	1
+ 176 0093 40       		.byte	64
+ 177 0094 09       		.byte	9
+ 178 0095 50       		.byte	80
+ 179 0096 01       		.byte	1
+ 180 0097 40       		.byte	64
+ 181 0098 02       		.byte	2
+ 182 0099 51       		.byte	81
+ 183 009a 01       		.byte	1
+ 184 009b 40       		.byte	64
+ 185 009c 00       		.byte	0
+ 186 009d 80       		.byte	-128
+ 187 009e 01       		.byte	1
+ 188 009f 80       		.byte	-128
+ 189 00a0 08       		.byte	8
+ 190 00a1 10       		.byte	16
+ 191 00a2 09       		.byte	9
+ 192 00a3 04       		.byte	4
+ 193 00a4 2F       		.byte	47
+ 194 00a5 84       		.byte	-124
+ 195 00a6 89       		.byte	-119
+ 196 00a7 6F       		.byte	111
+ 197 00a8 8E       		.byte	-114
+ 198 00a9 0F       		.byte	15
+ 199 00aa 89       		.byte	-119
+ 200 00ab 0F       		.byte	15
+ 201 00ac E6       		.byte	-26
+ 202 00ad 48       		.byte	72
+ 203 00ae EA       		.byte	-22
+ 204 00af 01       		.byte	1
+ 205 00b0 83       		.byte	-125
+ 206 00b1 40       		.byte	64
+ 207 00b2 8F       		.byte	-113
+ 208 00b3 03       		.byte	3
+ 209 00b4 93       		.byte	-109
+ 210 00b5 20       		.byte	32
+ 211 00b6 B3       		.byte	-77
+ 212 00b7 10       		.byte	16
+ 213 00b8 E6       		.byte	-26
+ 214 00b9 01       		.byte	1
+ 215 00ba E8       		.byte	-24
+ 216 00bb 04       		.byte	4
+ 217 00bc 58       		.byte	88
+ 218 00bd 04       		.byte	4
+ 219 00be 59       		.byte	89
+ 220 00bf 04       		.byte	4
+ 221 00c0 5C       		.byte	92
+ 222 00c1 22       		.byte	34
+ 223 00c2 5F       		.byte	95
+ 224 00c3 01       		.byte	1
+ 225 00c4 D8       		.byte	-40
+ 226 00c5 04       		.byte	4
+ 227 00c6 D9       		.byte	-39
+ 228 00c7 04       		.byte	4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 5
+
+
+ 229 00c8 DC       		.byte	-36
+ 230 00c9 22       		.byte	34
+ 231 00ca DF       		.byte	-33
+ 232 00cb 01       		.byte	1
+ 233 00cc 01       		.byte	1
+ 234 00cd 08       		.byte	8
+ 235 00ce 03       		.byte	3
+ 236 00cf 40       		.byte	64
+ 237 00d0 05       		.byte	5
+ 238 00d1 08       		.byte	8
+ 239 00d2 06       		.byte	6
+ 240 00d3 02       		.byte	2
+ 241 00d4 08       		.byte	8
+ 242 00d5 21       		.byte	33
+ 243 00d6 0B       		.byte	11
+ 244 00d7 31       		.byte	49
+ 245 00d8 0C       		.byte	12
+ 246 00d9 01       		.byte	1
+ 247 00da 0F       		.byte	15
+ 248 00db 90       		.byte	-112
+ 249 00dc 13       		.byte	19
+ 250 00dd 02       		.byte	2
+ 251 00de 14       		.byte	20
+ 252 00df 60       		.byte	96
+ 253 00e0 15       		.byte	21
+ 254 00e1 40       		.byte	64
+ 255 00e2 17       		.byte	23
+ 256 00e3 42       		.byte	66
+ 257 00e4 28       		.byte	40
+ 258 00e5 60       		.byte	96
+ 259 00e6 29       		.byte	41
+ 260 00e7 40       		.byte	64
+ 261 00e8 2D       		.byte	45
+ 262 00e9 48       		.byte	72
+ 263 00ea 2E       		.byte	46
+ 264 00eb 02       		.byte	2
+ 265 00ec 30       		.byte	48
+ 266 00ed 01       		.byte	1
+ 267 00ee 33       		.byte	51
+ 268 00ef 40       		.byte	64
+ 269 00f0 34       		.byte	52
+ 270 00f1 60       		.byte	96
+ 271 00f2 3A       		.byte	58
+ 272 00f3 02       		.byte	2
+ 273 00f4 3B       		.byte	59
+ 274 00f5 21       		.byte	33
+ 275 00f6 3F       		.byte	63
+ 276 00f7 90       		.byte	-112
+ 277 00f8 85       		.byte	-123
+ 278 00f9 48       		.byte	72
+ 279 00fa 93       		.byte	-109
+ 280 00fb 21       		.byte	33
+ 281 00fc 98       		.byte	-104
+ 282 00fd 20       		.byte	32
+ 283 00fe 9B       		.byte	-101
+ 284 00ff 42       		.byte	66
+ 285 0100 A3       		.byte	-93
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 6
+
+
+ 286 0101 40       		.byte	64
+ 287 0102 A8       		.byte	-88
+ 288 0103 20       		.byte	32
+ 289 0104 AB       		.byte	-85
+ 290 0105 40       		.byte	64
+ 291 0106 C0       		.byte	-64
+ 292 0107 AC       		.byte	-84
+ 293 0108 C2       		.byte	-62
+ 294 0109 3F       		.byte	63
+ 295 010a C4       		.byte	-60
+ 296 010b B8       		.byte	-72
+ 297 010c CA       		.byte	-54
+ 298 010d DB       		.byte	-37
+ 299 010e CC       		.byte	-52
+ 300 010f 39       		.byte	57
+ 301 0110 CE       		.byte	-50
+ 302 0111 35       		.byte	53
+ 303 0112 E6       		.byte	-26
+ 304 0113 08       		.byte	8
+ 305 0114 EA       		.byte	-22
+ 306 0115 04       		.byte	4
+ 307 0116 EE       		.byte	-18
+ 308 0117 04       		.byte	4
+ 309 0118 18       		.byte	24
+ 310 0119 02       		.byte	2
+ 311 011a 2E       		.byte	46
+ 312 011b 03       		.byte	3
+ 313 011c 34       		.byte	52
+ 314 011d 01       		.byte	1
+ 315 011e 36       		.byte	54
+ 316 011f 02       		.byte	2
+ 317 0120 3E       		.byte	62
+ 318 0121 40       		.byte	64
+ 319 0122 40       		.byte	64
+ 320 0123 56       		.byte	86
+ 321 0124 41       		.byte	65
+ 322 0125 01       		.byte	1
+ 323 0126 49       		.byte	73
+ 324 0127 FF       		.byte	-1
+ 325 0128 4A       		.byte	74
+ 326 0129 FF       		.byte	-1
+ 327 012a 4B       		.byte	75
+ 328 012b FF       		.byte	-1
+ 329 012c 4D       		.byte	77
+ 330 012d A0       		.byte	-96
+ 331 012e 4F       		.byte	79
+ 332 012f 01       		.byte	1
+ 333 0130 50       		.byte	80
+ 334 0131 18       		.byte	24
+ 335 0132 58       		.byte	88
+ 336 0133 04       		.byte	4
+ 337 0134 59       		.byte	89
+ 338 0135 04       		.byte	4
+ 339 0136 5A       		.byte	90
+ 340 0137 04       		.byte	4
+ 341 0138 5C       		.byte	92
+ 342 0139 20       		.byte	32
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 7
+
+
+ 343 013a 5F       		.byte	95
+ 344 013b 01       		.byte	1
+ 345 013c 60       		.byte	96
+ 346 013d 40       		.byte	64
+ 347 013e 62       		.byte	98
+ 348 013f 80       		.byte	-128
+ 349 0140 64       		.byte	100
+ 350 0141 40       		.byte	64
+ 351 0142 65       		.byte	101
+ 352 0143 40       		.byte	64
+ 353 0144 66       		.byte	102
+ 354 0145 80       		.byte	-128
+ 355 0146 68       		.byte	104
+ 356 0147 40       		.byte	64
+ 357 0148 6A       		.byte	106
+ 358 0149 80       		.byte	-128
+ 359 014a 6C       		.byte	108
+ 360 014b 40       		.byte	64
+ 361 014c 6D       		.byte	109
+ 362 014d 20       		.byte	32
+ 363 014e 6E       		.byte	110
+ 364 014f 80       		.byte	-128
+ 365 0150 84       		.byte	-124
+ 366 0151 08       		.byte	8
+ 367 0152 88       		.byte	-120
+ 368 0153 01       		.byte	1
+ 369 0154 89       		.byte	-119
+ 370 0155 05       		.byte	5
+ 371 0156 93       		.byte	-109
+ 372 0157 08       		.byte	8
+ 373 0158 9B       		.byte	-101
+ 374 0159 02       		.byte	2
+ 375 015a 9D       		.byte	-99
+ 376 015b 08       		.byte	8
+ 377 015c A3       		.byte	-93
+ 378 015d 05       		.byte	5
+ 379 015e A4       		.byte	-92
+ 380 015f 03       		.byte	3
+ 381 0160 A6       		.byte	-90
+ 382 0161 08       		.byte	8
+ 383 0162 AC       		.byte	-84
+ 384 0163 03       		.byte	3
+ 385 0164 AD       		.byte	-83
+ 386 0165 01       		.byte	1
+ 387 0166 AE       		.byte	-82
+ 388 0167 04       		.byte	4
+ 389 0168 AF       		.byte	-81
+ 390 0169 04       		.byte	4
+ 391 016a B0       		.byte	-80
+ 392 016b 02       		.byte	2
+ 393 016c B1       		.byte	-79
+ 394 016d 08       		.byte	8
+ 395 016e B2       		.byte	-78
+ 396 016f 08       		.byte	8
+ 397 0170 B3       		.byte	-77
+ 398 0171 01       		.byte	1
+ 399 0172 B4       		.byte	-76
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 8
+
+
+ 400 0173 01       		.byte	1
+ 401 0174 B5       		.byte	-75
+ 402 0175 02       		.byte	2
+ 403 0176 B6       		.byte	-74
+ 404 0177 04       		.byte	4
+ 405 0178 B7       		.byte	-73
+ 406 0179 04       		.byte	4
+ 407 017a B8       		.byte	-72
+ 408 017b 22       		.byte	34
+ 409 017c BE       		.byte	-66
+ 410 017d 14       		.byte	20
+ 411 017e BF       		.byte	-65
+ 412 017f 45       		.byte	69
+ 413 0180 C0       		.byte	-64
+ 414 0181 52       		.byte	82
+ 415 0182 C1       		.byte	-63
+ 416 0183 01       		.byte	1
+ 417 0184 C5       		.byte	-59
+ 418 0185 03       		.byte	3
+ 419 0186 C6       		.byte	-58
+ 420 0187 C4       		.byte	-60
+ 421 0188 C7       		.byte	-57
+ 422 0189 2E       		.byte	46
+ 423 018a C8       		.byte	-56
+ 424 018b 3D       		.byte	61
+ 425 018c C9       		.byte	-55
+ 426 018d FF       		.byte	-1
+ 427 018e CA       		.byte	-54
+ 428 018f FF       		.byte	-1
+ 429 0190 CB       		.byte	-53
+ 430 0191 FF       		.byte	-1
+ 431 0192 CD       		.byte	-51
+ 432 0193 AF       		.byte	-81
+ 433 0194 CE       		.byte	-50
+ 434 0195 07       		.byte	7
+ 435 0196 CF       		.byte	-49
+ 436 0197 01       		.byte	1
+ 437 0198 D0       		.byte	-48
+ 438 0199 18       		.byte	24
+ 439 019a D4       		.byte	-44
+ 440 019b 0F       		.byte	15
+ 441 019c D8       		.byte	-40
+ 442 019d 04       		.byte	4
+ 443 019e D9       		.byte	-39
+ 444 019f 04       		.byte	4
+ 445 01a0 DA       		.byte	-38
+ 446 01a1 04       		.byte	4
+ 447 01a2 DB       		.byte	-37
+ 448 01a3 04       		.byte	4
+ 449 01a4 DF       		.byte	-33
+ 450 01a5 05       		.byte	5
+ 451 01a6 E0       		.byte	-32
+ 452 01a7 40       		.byte	64
+ 453 01a8 E2       		.byte	-30
+ 454 01a9 80       		.byte	-128
+ 455 01aa E4       		.byte	-28
+ 456 01ab 40       		.byte	64
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 9
+
+
+ 457 01ac E5       		.byte	-27
+ 458 01ad 40       		.byte	64
+ 459 01ae E6       		.byte	-26
+ 460 01af 80       		.byte	-128
+ 461 01b0 E8       		.byte	-24
+ 462 01b1 40       		.byte	64
+ 463 01b2 EA       		.byte	-22
+ 464 01b3 80       		.byte	-128
+ 465 01b4 EC       		.byte	-20
+ 466 01b5 40       		.byte	64
+ 467 01b6 ED       		.byte	-19
+ 468 01b7 20       		.byte	32
+ 469 01b8 EE       		.byte	-18
+ 470 01b9 80       		.byte	-128
+ 471 01ba 00       		.byte	0
+ 472 01bb 18       		.byte	24
+ 473 01bc 01       		.byte	1
+ 474 01bd 10       		.byte	16
+ 475 01be 0E       		.byte	14
+ 476 01bf 08       		.byte	8
+ 477 01c0 10       		.byte	16
+ 478 01c1 22       		.byte	34
+ 479 01c2 15       		.byte	21
+ 480 01c3 80       		.byte	-128
+ 481 01c4 18       		.byte	24
+ 482 01c5 04       		.byte	4
+ 483 01c6 19       		.byte	25
+ 484 01c7 05       		.byte	5
+ 485 01c8 1B       		.byte	27
+ 486 01c9 90       		.byte	-112
+ 487 01ca 1D       		.byte	29
+ 488 01cb 40       		.byte	64
+ 489 01cc 1E       		.byte	30
+ 490 01cd 08       		.byte	8
+ 491 01ce 1F       		.byte	31
+ 492 01cf 10       		.byte	16
+ 493 01d0 20       		.byte	32
+ 494 01d1 08       		.byte	8
+ 495 01d2 22       		.byte	34
+ 496 01d3 41       		.byte	65
+ 497 01d4 23       		.byte	35
+ 498 01d5 20       		.byte	32
+ 499 01d6 28       		.byte	40
+ 500 01d7 01       		.byte	1
+ 501 01d8 29       		.byte	41
+ 502 01d9 01       		.byte	1
+ 503 01da 2C       		.byte	44
+ 504 01db 08       		.byte	8
+ 505 01dc 2D       		.byte	45
+ 506 01dd 40       		.byte	64
+ 507 01de 30       		.byte	48
+ 508 01df 22       		.byte	34
+ 509 01e0 33       		.byte	51
+ 510 01e1 80       		.byte	-128
+ 511 01e2 36       		.byte	54
+ 512 01e3 A0       		.byte	-96
+ 513 01e4 3B       		.byte	59
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 10
+
+
+ 514 01e5 20       		.byte	32
+ 515 01e6 3C       		.byte	60
+ 516 01e7 80       		.byte	-128
+ 517 01e8 3D       		.byte	61
+ 518 01e9 0A       		.byte	10
+ 519 01ea 40       		.byte	64
+ 520 01eb 04       		.byte	4
+ 521 01ec 43       		.byte	67
+ 522 01ed 40       		.byte	64
+ 523 01ee 44       		.byte	68
+ 524 01ef 01       		.byte	1
+ 525 01f0 47       		.byte	71
+ 526 01f1 40       		.byte	64
+ 527 01f2 48       		.byte	72
+ 528 01f3 20       		.byte	32
+ 529 01f4 49       		.byte	73
+ 530 01f5 80       		.byte	-128
+ 531 01f6 4D       		.byte	77
+ 532 01f7 80       		.byte	-128
+ 533 01f8 4F       		.byte	79
+ 534 01f9 20       		.byte	32
+ 535 01fa 50       		.byte	80
+ 536 01fb 02       		.byte	2
+ 537 01fc 51       		.byte	81
+ 538 01fd 49       		.byte	73
+ 539 01fe 52       		.byte	82
+ 540 01ff 10       		.byte	16
+ 541 0200 59       		.byte	89
+ 542 0201 64       		.byte	100
+ 543 0202 5A       		.byte	90
+ 544 0203 02       		.byte	2
+ 545 0204 61       		.byte	97
+ 546 0205 08       		.byte	8
+ 547 0206 62       		.byte	98
+ 548 0207 10       		.byte	16
+ 549 0208 79       		.byte	121
+ 550 0209 10       		.byte	16
+ 551 020a 86       		.byte	-122
+ 552 020b 80       		.byte	-128
+ 553 020c 89       		.byte	-119
+ 554 020d 21       		.byte	33
+ 555 020e 91       		.byte	-111
+ 556 020f 40       		.byte	64
+ 557 0210 A0       		.byte	-96
+ 558 0211 48       		.byte	72
+ 559 0212 A1       		.byte	-95
+ 560 0213 05       		.byte	5
+ 561 0214 A2       		.byte	-94
+ 562 0215 A0       		.byte	-96
+ 563 0216 A6       		.byte	-90
+ 564 0217 02       		.byte	2
+ 565 0218 A9       		.byte	-87
+ 566 0219 01       		.byte	1
+ 567 021a AA       		.byte	-86
+ 568 021b 04       		.byte	4
+ 569 021c C0       		.byte	-64
+ 570 021d 06       		.byte	6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 11
+
+
+ 571 021e C2       		.byte	-62
+ 572 021f 40       		.byte	64
+ 573 0220 C4       		.byte	-60
+ 574 0221 85       		.byte	-123
+ 575 0222 CA       		.byte	-54
+ 576 0223 39       		.byte	57
+ 577 0224 CC       		.byte	-52
+ 578 0225 3D       		.byte	61
+ 579 0226 CE       		.byte	-50
+ 580 0227 D4       		.byte	-44
+ 581 0228 D0       		.byte	-48
+ 582 0229 1C       		.byte	28
+ 583 022a D2       		.byte	-46
+ 584 022b 38       		.byte	56
+ 585 022c D6       		.byte	-42
+ 586 022d 0F       		.byte	15
+ 587 022e D8       		.byte	-40
+ 588 022f 06       		.byte	6
+ 589 0230 DE       		.byte	-34
+ 590 0231 04       		.byte	4
+ 591 0232 58       		.byte	88
+ 592 0233 04       		.byte	4
+ 593 0234 59       		.byte	89
+ 594 0235 04       		.byte	4
+ 595 0236 5C       		.byte	92
+ 596 0237 22       		.byte	34
+ 597 0238 5F       		.byte	95
+ 598 0239 01       		.byte	1
+ 599 023a 82       		.byte	-126
+ 600 023b 04       		.byte	4
+ 601 023c 84       		.byte	-124
+ 602 023d 40       		.byte	64
+ 603 023e 86       		.byte	-122
+ 604 023f 80       		.byte	-128
+ 605 0240 87       		.byte	-121
+ 606 0241 02       		.byte	2
+ 607 0242 88       		.byte	-120
+ 608 0243 01       		.byte	1
+ 609 0244 8C       		.byte	-116
+ 610 0245 02       		.byte	2
+ 611 0246 90       		.byte	-112
+ 612 0247 80       		.byte	-128
+ 613 0248 92       		.byte	-110
+ 614 0249 40       		.byte	64
+ 615 024a 96       		.byte	-106
+ 616 024b 02       		.byte	2
+ 617 024c 9A       		.byte	-102
+ 618 024d 08       		.byte	8
+ 619 024e 9C       		.byte	-100
+ 620 024f 10       		.byte	16
+ 621 0250 9E       		.byte	-98
+ 622 0251 20       		.byte	32
+ 623 0252 A0       		.byte	-96
+ 624 0253 04       		.byte	4
+ 625 0254 A4       		.byte	-92
+ 626 0255 20       		.byte	32
+ 627 0256 A6       		.byte	-90
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 12
+
+
+ 628 0257 10       		.byte	16
+ 629 0258 A7       		.byte	-89
+ 630 0259 04       		.byte	4
+ 631 025a A8       		.byte	-88
+ 632 025b 08       		.byte	8
+ 633 025c AE       		.byte	-82
+ 634 025d 01       		.byte	1
+ 635 025e AF       		.byte	-81
+ 636 025f 01       		.byte	1
+ 637 0260 B1       		.byte	-79
+ 638 0261 04       		.byte	4
+ 639 0262 B3       		.byte	-77
+ 640 0263 02       		.byte	2
+ 641 0264 B5       		.byte	-75
+ 642 0265 01       		.byte	1
+ 643 0266 B6       		.byte	-74
+ 644 0267 FF       		.byte	-1
+ 645 0268 BE       		.byte	-66
+ 646 0269 40       		.byte	64
+ 647 026a D6       		.byte	-42
+ 648 026b 02       		.byte	2
+ 649 026c D7       		.byte	-41
+ 650 026d 39       		.byte	57
+ 651 026e D8       		.byte	-40
+ 652 026f 04       		.byte	4
+ 653 0270 D9       		.byte	-39
+ 654 0271 04       		.byte	4
+ 655 0272 DB       		.byte	-37
+ 656 0273 0C       		.byte	12
+ 657 0274 DC       		.byte	-36
+ 658 0275 20       		.byte	32
+ 659 0276 DD       		.byte	-35
+ 660 0277 20       		.byte	32
+ 661 0278 DF       		.byte	-33
+ 662 0279 01       		.byte	1
+ 663 027a 00       		.byte	0
+ 664 027b 80       		.byte	-128
+ 665 027c 02       		.byte	2
+ 666 027d A0       		.byte	-96
+ 667 027e 04       		.byte	4
+ 668 027f 08       		.byte	8
+ 669 0280 05       		.byte	5
+ 670 0281 01       		.byte	1
+ 671 0282 07       		.byte	7
+ 672 0283 09       		.byte	9
+ 673 0284 09       		.byte	9
+ 674 0285 09       		.byte	9
+ 675 0286 0C       		.byte	12
+ 676 0287 08       		.byte	8
+ 677 0288 0D       		.byte	13
+ 678 0289 08       		.byte	8
+ 679 028a 0E       		.byte	14
+ 680 028b 4A       		.byte	74
+ 681 028c 11       		.byte	17
+ 682 028d 48       		.byte	72
+ 683 028e 14       		.byte	20
+ 684 028f 02       		.byte	2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 13
+
+
+ 685 0290 15       		.byte	21
+ 686 0291 45       		.byte	69
+ 687 0292 16       		.byte	22
+ 688 0293 80       		.byte	-128
+ 689 0294 17       		.byte	23
+ 690 0295 14       		.byte	20
+ 691 0296 1E       		.byte	30
+ 692 0297 01       		.byte	1
+ 693 0298 24       		.byte	36
+ 694 0299 08       		.byte	8
+ 695 029a 25       		.byte	37
+ 696 029b 07       		.byte	7
+ 697 029c 26       		.byte	38
+ 698 029d 2D       		.byte	45
+ 699 029e 28       		.byte	40
+ 700 029f 02       		.byte	2
+ 701 02a0 29       		.byte	41
+ 702 02a1 01       		.byte	1
+ 703 02a2 2B       		.byte	43
+ 704 02a3 08       		.byte	8
+ 705 02a4 2C       		.byte	44
+ 706 02a5 88       		.byte	-120
+ 707 02a6 2D       		.byte	45
+ 708 02a7 04       		.byte	4
+ 709 02a8 2E       		.byte	46
+ 710 02a9 40       		.byte	64
+ 711 02aa 30       		.byte	48
+ 712 02ab 80       		.byte	-128
+ 713 02ac 31       		.byte	49
+ 714 02ad 02       		.byte	2
+ 715 02ae 32       		.byte	50
+ 716 02af A8       		.byte	-88
+ 717 02b0 34       		.byte	52
+ 718 02b1 02       		.byte	2
+ 719 02b2 36       		.byte	54
+ 720 02b3 24       		.byte	36
+ 721 02b4 3C       		.byte	60
+ 722 02b5 80       		.byte	-128
+ 723 02b6 3D       		.byte	61
+ 724 02b7 02       		.byte	2
+ 725 02b8 3E       		.byte	62
+ 726 02b9 04       		.byte	4
+ 727 02ba 5E       		.byte	94
+ 728 02bb 20       		.byte	32
+ 729 02bc 65       		.byte	101
+ 730 02bd 04       		.byte	4
+ 731 02be 6D       		.byte	109
+ 732 02bf 01       		.byte	1
+ 733 02c0 6E       		.byte	110
+ 734 02c1 44       		.byte	68
+ 735 02c2 6F       		.byte	111
+ 736 02c3 14       		.byte	20
+ 737 02c4 76       		.byte	118
+ 738 02c5 0A       		.byte	10
+ 739 02c6 77       		.byte	119
+ 740 02c7 09       		.byte	9
+ 741 02c8 7F       		.byte	127
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 14
+
+
+ 742 02c9 02       		.byte	2
+ 743 02ca 80       		.byte	-128
+ 744 02cb 84       		.byte	-124
+ 745 02cc 8D       		.byte	-115
+ 746 02cd 08       		.byte	8
+ 747 02ce 8E       		.byte	-114
+ 748 02cf 01       		.byte	1
+ 749 02d0 94       		.byte	-108
+ 750 02d1 08       		.byte	8
+ 751 02d2 96       		.byte	-106
+ 752 02d3 01       		.byte	1
+ 753 02d4 98       		.byte	-104
+ 754 02d5 02       		.byte	2
+ 755 02d6 99       		.byte	-103
+ 756 02d7 05       		.byte	5
+ 757 02d8 9C       		.byte	-100
+ 758 02d9 80       		.byte	-128
+ 759 02da 9E       		.byte	-98
+ 760 02db 8A       		.byte	-118
+ 761 02dc 9F       		.byte	-97
+ 762 02dd 10       		.byte	16
+ 763 02de A0       		.byte	-96
+ 764 02df 40       		.byte	64
+ 765 02e0 A1       		.byte	-95
+ 766 02e1 08       		.byte	8
+ 767 02e2 A2       		.byte	-94
+ 768 02e3 90       		.byte	-112
+ 769 02e4 A3       		.byte	-93
+ 770 02e5 0A       		.byte	10
+ 771 02e6 A5       		.byte	-91
+ 772 02e7 02       		.byte	2
+ 773 02e8 A6       		.byte	-90
+ 774 02e9 27       		.byte	39
+ 775 02ea A9       		.byte	-87
+ 776 02eb 80       		.byte	-128
+ 777 02ec B0       		.byte	-80
+ 778 02ed 02       		.byte	2
+ 779 02ee B1       		.byte	-79
+ 780 02ef 14       		.byte	20
+ 781 02f0 B2       		.byte	-78
+ 782 02f1 80       		.byte	-128
+ 783 02f2 C0       		.byte	-64
+ 784 02f3 FD       		.byte	-3
+ 785 02f4 C2       		.byte	-62
+ 786 02f5 FC       		.byte	-4
+ 787 02f6 C4       		.byte	-60
+ 788 02f7 F5       		.byte	-11
+ 789 02f8 CA       		.byte	-54
+ 790 02f9 FD       		.byte	-3
+ 791 02fa CC       		.byte	-52
+ 792 02fb EF       		.byte	-17
+ 793 02fc CE       		.byte	-50
+ 794 02fd D0       		.byte	-48
+ 795 02fe D6       		.byte	-42
+ 796 02ff 20       		.byte	32
+ 797 0300 D8       		.byte	-40
+ 798 0301 40       		.byte	64
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 15
+
+
+ 799 0302 DE       		.byte	-34
+ 800 0303 10       		.byte	16
+ 801 0304 E2       		.byte	-30
+ 802 0305 10       		.byte	16
+ 803 0306 E6       		.byte	-26
+ 804 0307 10       		.byte	16
+ 805 0308 EA       		.byte	-22
+ 806 0309 20       		.byte	32
+ 807 030a 02       		.byte	2
+ 808 030b 01       		.byte	1
+ 809 030c 03       		.byte	3
+ 810 030d 02       		.byte	2
+ 811 030e 05       		.byte	5
+ 812 030f 01       		.byte	1
+ 813 0310 0A       		.byte	10
+ 814 0311 02       		.byte	2
+ 815 0312 0D       		.byte	13
+ 816 0313 04       		.byte	4
+ 817 0314 15       		.byte	21
+ 818 0315 08       		.byte	8
+ 819 0316 1B       		.byte	27
+ 820 0317 08       		.byte	8
+ 821 0318 23       		.byte	35
+ 822 0319 10       		.byte	16
+ 823 031a 27       		.byte	39
+ 824 031b 01       		.byte	1
+ 825 031c 29       		.byte	41
+ 826 031d 02       		.byte	2
+ 827 031e 2E       		.byte	46
+ 828 031f 04       		.byte	4
+ 829 0320 2F       		.byte	47
+ 830 0321 04       		.byte	4
+ 831 0322 30       		.byte	48
+ 832 0323 01       		.byte	1
+ 833 0324 32       		.byte	50
+ 834 0325 04       		.byte	4
+ 835 0326 36       		.byte	54
+ 836 0327 02       		.byte	2
+ 837 0328 37       		.byte	55
+ 838 0329 1F       		.byte	31
+ 839 032a 39       		.byte	57
+ 840 032b 80       		.byte	-128
+ 841 032c 3F       		.byte	63
+ 842 032d 40       		.byte	64
+ 843 032e 54       		.byte	84
+ 844 032f 01       		.byte	1
+ 845 0330 58       		.byte	88
+ 846 0331 04       		.byte	4
+ 847 0332 59       		.byte	89
+ 848 0333 04       		.byte	4
+ 849 0334 5B       		.byte	91
+ 850 0335 0C       		.byte	12
+ 851 0336 5C       		.byte	92
+ 852 0337 22       		.byte	34
+ 853 0338 5D       		.byte	93
+ 854 0339 20       		.byte	32
+ 855 033a 5F       		.byte	95
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 16
+
+
+ 856 033b 01       		.byte	1
+ 857 033c D6       		.byte	-42
+ 858 033d 08       		.byte	8
+ 859 033e D8       		.byte	-40
+ 860 033f 04       		.byte	4
+ 861 0340 D9       		.byte	-39
+ 862 0341 04       		.byte	4
+ 863 0342 DB       		.byte	-37
+ 864 0343 04       		.byte	4
+ 865 0344 DC       		.byte	-36
+ 866 0345 22       		.byte	34
+ 867 0346 DD       		.byte	-35
+ 868 0347 90       		.byte	-112
+ 869 0348 DF       		.byte	-33
+ 870 0349 01       		.byte	1
+ 871 034a 00       		.byte	0
+ 872 034b 81       		.byte	-127
+ 873 034c 02       		.byte	2
+ 874 034d 20       		.byte	32
+ 875 034e 04       		.byte	4
+ 876 034f 08       		.byte	8
+ 877 0350 06       		.byte	6
+ 878 0351 88       		.byte	-120
+ 879 0352 09       		.byte	9
+ 880 0353 0A       		.byte	10
+ 881 0354 0D       		.byte	13
+ 882 0355 08       		.byte	8
+ 883 0356 0E       		.byte	14
+ 884 0357 8A       		.byte	-118
+ 885 0358 10       		.byte	16
+ 886 0359 04       		.byte	4
+ 887 035a 12       		.byte	18
+ 888 035b 80       		.byte	-128
+ 889 035c 14       		.byte	20
+ 890 035d 40       		.byte	64
+ 891 035e 15       		.byte	21
+ 892 035f 04       		.byte	4
+ 893 0360 16       		.byte	22
+ 894 0361 02       		.byte	2
+ 895 0362 1C       		.byte	28
+ 896 0363 81       		.byte	-127
+ 897 0364 1D       		.byte	29
+ 898 0365 09       		.byte	9
+ 899 0366 1F       		.byte	31
+ 900 0367 0C       		.byte	12
+ 901 0368 24       		.byte	36
+ 902 0369 02       		.byte	2
+ 903 036a 26       		.byte	38
+ 904 036b C0       		.byte	-64
+ 905 036c 28       		.byte	40
+ 906 036d 42       		.byte	66
+ 907 036e 29       		.byte	41
+ 908 036f 01       		.byte	1
+ 909 0370 2E       		.byte	46
+ 910 0371 89       		.byte	-119
+ 911 0372 2F       		.byte	47
+ 912 0373 08       		.byte	8
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 17
+
+
+ 913 0374 30       		.byte	48
+ 914 0375 04       		.byte	4
+ 915 0376 31       		.byte	49
+ 916 0377 02       		.byte	2
+ 917 0378 32       		.byte	50
+ 918 0379 20       		.byte	32
+ 919 037a 34       		.byte	52
+ 920 037b 84       		.byte	-124
+ 921 037c 36       		.byte	54
+ 922 037d 05       		.byte	5
+ 923 037e 37       		.byte	55
+ 924 037f 10       		.byte	16
+ 925 0380 38       		.byte	56
+ 926 0381 02       		.byte	2
+ 927 0382 3B       		.byte	59
+ 928 0383 08       		.byte	8
+ 929 0384 3C       		.byte	60
+ 930 0385 80       		.byte	-128
+ 931 0386 3D       		.byte	61
+ 932 0387 14       		.byte	20
+ 933 0388 3E       		.byte	62
+ 934 0389 02       		.byte	2
+ 935 038a 59       		.byte	89
+ 936 038b 80       		.byte	-128
+ 937 038c 5C       		.byte	92
+ 938 038d 03       		.byte	3
+ 939 038e 5E       		.byte	94
+ 940 038f 40       		.byte	64
+ 941 0390 63       		.byte	99
+ 942 0391 02       		.byte	2
+ 943 0392 7F       		.byte	127
+ 944 0393 02       		.byte	2
+ 945 0394 89       		.byte	-119
+ 946 0395 10       		.byte	16
+ 947 0396 92       		.byte	-110
+ 948 0397 40       		.byte	64
+ 949 0398 95       		.byte	-107
+ 950 0399 20       		.byte	32
+ 951 039a 99       		.byte	-103
+ 952 039b 04       		.byte	4
+ 953 039c A2       		.byte	-94
+ 954 039d 10       		.byte	16
+ 955 039e A3       		.byte	-93
+ 956 039f 02       		.byte	2
+ 957 03a0 A6       		.byte	-90
+ 958 03a1 02       		.byte	2
+ 959 03a2 A7       		.byte	-89
+ 960 03a3 01       		.byte	1
+ 961 03a4 AA       		.byte	-86
+ 962 03a5 02       		.byte	2
+ 963 03a6 B0       		.byte	-80
+ 964 03a7 84       		.byte	-124
+ 965 03a8 C0       		.byte	-64
+ 966 03a9 7D       		.byte	125
+ 967 03aa C2       		.byte	-62
+ 968 03ab FC       		.byte	-4
+ 969 03ac C4       		.byte	-60
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 18
+
+
+ 970 03ad BA       		.byte	-70
+ 971 03ae CA       		.byte	-54
+ 972 03af F9       		.byte	-7
+ 973 03b0 CC       		.byte	-52
+ 974 03b1 F7       		.byte	-9
+ 975 03b2 CE       		.byte	-50
+ 976 03b3 F3       		.byte	-13
+ 977 03b4 D6       		.byte	-42
+ 978 03b5 18       		.byte	24
+ 979 03b6 D8       		.byte	-40
+ 980 03b7 08       		.byte	8
+ 981 03b8 DE       		.byte	-34
+ 982 03b9 10       		.byte	16
+ 983 03ba 07       		.byte	7
+ 984 03bb 08       		.byte	8
+ 985 03bc 0B       		.byte	11
+ 986 03bd 07       		.byte	7
+ 987 03be 0E       		.byte	14
+ 988 03bf 04       		.byte	4
+ 989 03c0 11       		.byte	17
+ 990 03c1 04       		.byte	4
+ 991 03c2 12       		.byte	18
+ 992 03c3 08       		.byte	8
+ 993 03c4 14       		.byte	20
+ 994 03c5 01       		.byte	1
+ 995 03c6 1A       		.byte	26
+ 996 03c7 07       		.byte	7
+ 997 03c8 23       		.byte	35
+ 998 03c9 09       		.byte	9
+ 999 03ca 30       		.byte	48
+ 1000 03cb 08       		.byte	8
+ 1001 03cc 31       		.byte	49
+ 1002 03cd 02       		.byte	2
+ 1003 03ce 32       		.byte	50
+ 1004 03cf 02       		.byte	2
+ 1005 03d0 33       		.byte	51
+ 1006 03d1 08       		.byte	8
+ 1007 03d2 34       		.byte	52
+ 1008 03d3 01       		.byte	1
+ 1009 03d4 35       		.byte	53
+ 1010 03d5 04       		.byte	4
+ 1011 03d6 36       		.byte	54
+ 1012 03d7 04       		.byte	4
+ 1013 03d8 37       		.byte	55
+ 1014 03d9 01       		.byte	1
+ 1015 03da 3F       		.byte	63
+ 1016 03db 04       		.byte	4
+ 1017 03dc 40       		.byte	64
+ 1018 03dd 40       		.byte	64
+ 1019 03de 41       		.byte	65
+ 1020 03df 06       		.byte	6
+ 1021 03e0 45       		.byte	69
+ 1022 03e1 D5       		.byte	-43
+ 1023 03e2 46       		.byte	70
+ 1024 03e3 10       		.byte	16
+ 1025 03e4 47       		.byte	71
+ 1026 03e5 02       		.byte	2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 19
+
+
+ 1027 03e6 48       		.byte	72
+ 1028 03e7 1B       		.byte	27
+ 1029 03e8 49       		.byte	73
+ 1030 03e9 FF       		.byte	-1
+ 1031 03ea 4A       		.byte	74
+ 1032 03eb FF       		.byte	-1
+ 1033 03ec 4B       		.byte	75
+ 1034 03ed FF       		.byte	-1
+ 1035 03ee 4D       		.byte	77
+ 1036 03ef A0       		.byte	-96
+ 1037 03f0 4F       		.byte	79
+ 1038 03f1 04       		.byte	4
+ 1039 03f2 50       		.byte	80
+ 1040 03f3 18       		.byte	24
+ 1041 03f4 52       		.byte	82
+ 1042 03f5 80       		.byte	-128
+ 1043 03f6 54       		.byte	84
+ 1044 03f7 07       		.byte	7
+ 1045 03f8 58       		.byte	88
+ 1046 03f9 04       		.byte	4
+ 1047 03fa 59       		.byte	89
+ 1048 03fb 04       		.byte	4
+ 1049 03fc 5A       		.byte	90
+ 1050 03fd 04       		.byte	4
+ 1051 03fe 5B       		.byte	91
+ 1052 03ff 04       		.byte	4
+ 1053 0400 5C       		.byte	92
+ 1054 0401 11       		.byte	17
+ 1055 0402 5D       		.byte	93
+ 1056 0403 11       		.byte	17
+ 1057 0404 5F       		.byte	95
+ 1058 0405 01       		.byte	1
+ 1059 0406 60       		.byte	96
+ 1060 0407 40       		.byte	64
+ 1061 0408 62       		.byte	98
+ 1062 0409 C0       		.byte	-64
+ 1063 040a 64       		.byte	100
+ 1064 040b 40       		.byte	64
+ 1065 040c 65       		.byte	101
+ 1066 040d 40       		.byte	64
+ 1067 040e 66       		.byte	102
+ 1068 040f C0       		.byte	-64
+ 1069 0410 68       		.byte	104
+ 1070 0411 C0       		.byte	-64
+ 1071 0412 6A       		.byte	106
+ 1072 0413 C0       		.byte	-64
+ 1073 0414 6C       		.byte	108
+ 1074 0415 C0       		.byte	-64
+ 1075 0416 6E       		.byte	110
+ 1076 0417 C0       		.byte	-64
+ 1077 0418 92       		.byte	-110
+ 1078 0419 01       		.byte	1
+ 1079 041a 98       		.byte	-104
+ 1080 041b 04       		.byte	4
+ 1081 041c 9D       		.byte	-99
+ 1082 041d 01       		.byte	1
+ 1083 041e 9E       		.byte	-98
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 20
+
+
+ 1084 041f 02       		.byte	2
+ 1085 0420 A4       		.byte	-92
+ 1086 0421 04       		.byte	4
+ 1087 0422 A8       		.byte	-88
+ 1088 0423 01       		.byte	1
+ 1089 0424 AF       		.byte	-81
+ 1090 0425 03       		.byte	3
+ 1091 0426 B0       		.byte	-80
+ 1092 0427 03       		.byte	3
+ 1093 0428 B2       		.byte	-78
+ 1094 0429 04       		.byte	4
+ 1095 042a B3       		.byte	-77
+ 1096 042b 01       		.byte	1
+ 1097 042c B7       		.byte	-73
+ 1098 042d 02       		.byte	2
+ 1099 042e B8       		.byte	-72
+ 1100 042f 08       		.byte	8
+ 1101 0430 BE       		.byte	-66
+ 1102 0431 04       		.byte	4
+ 1103 0432 D2       		.byte	-46
+ 1104 0433 03       		.byte	3
+ 1105 0434 D3       		.byte	-45
+ 1106 0435 02       		.byte	2
+ 1107 0436 D8       		.byte	-40
+ 1108 0437 04       		.byte	4
+ 1109 0438 D9       		.byte	-39
+ 1110 0439 0C       		.byte	12
+ 1111 043a DB       		.byte	-37
+ 1112 043b 04       		.byte	4
+ 1113 043c DC       		.byte	-36
+ 1114 043d 29       		.byte	41
+ 1115 043e DD       		.byte	-35
+ 1116 043f 20       		.byte	32
+ 1117 0440 DF       		.byte	-33
+ 1118 0441 01       		.byte	1
+ 1119 0442 00       		.byte	0
+ 1120 0443 40       		.byte	64
+ 1121 0444 0A       		.byte	10
+ 1122 0445 10       		.byte	16
+ 1123 0446 0B       		.byte	11
+ 1124 0447 48       		.byte	72
+ 1125 0448 0D       		.byte	13
+ 1126 0449 10       		.byte	16
+ 1127 044a 0E       		.byte	14
+ 1128 044b 80       		.byte	-128
+ 1129 044c 0F       		.byte	15
+ 1130 044d 02       		.byte	2
+ 1131 044e 17       		.byte	23
+ 1132 044f 24       		.byte	36
+ 1133 0450 18       		.byte	24
+ 1134 0451 40       		.byte	64
+ 1135 0452 19       		.byte	25
+ 1136 0453 12       		.byte	18
+ 1137 0454 1A       		.byte	26
+ 1138 0455 10       		.byte	16
+ 1139 0456 1B       		.byte	27
+ 1140 0457 80       		.byte	-128
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 21
+
+
+ 1141 0458 1D       		.byte	29
+ 1142 0459 04       		.byte	4
+ 1143 045a 1E       		.byte	30
+ 1144 045b 80       		.byte	-128
+ 1145 045c 1F       		.byte	31
+ 1146 045d 01       		.byte	1
+ 1147 045e 20       		.byte	32
+ 1148 045f 08       		.byte	8
+ 1149 0460 21       		.byte	33
+ 1150 0461 82       		.byte	-126
+ 1151 0462 22       		.byte	34
+ 1152 0463 04       		.byte	4
+ 1153 0464 26       		.byte	38
+ 1154 0465 88       		.byte	-120
+ 1155 0466 27       		.byte	39
+ 1156 0467 20       		.byte	32
+ 1157 0468 29       		.byte	41
+ 1158 0469 02       		.byte	2
+ 1159 046a 2F       		.byte	47
+ 1160 046b 01       		.byte	1
+ 1161 046c 31       		.byte	49
+ 1162 046d 02       		.byte	2
+ 1163 046e 36       		.byte	54
+ 1164 046f 80       		.byte	-128
+ 1165 0470 38       		.byte	56
+ 1166 0471 28       		.byte	40
+ 1167 0472 40       		.byte	64
+ 1168 0473 40       		.byte	64
+ 1169 0474 48       		.byte	72
+ 1170 0475 08       		.byte	8
+ 1171 0476 49       		.byte	73
+ 1172 0477 01       		.byte	1
+ 1173 0478 4B       		.byte	75
+ 1174 0479 08       		.byte	8
+ 1175 047a 50       		.byte	80
+ 1176 047b 1C       		.byte	28
+ 1177 047c 58       		.byte	88
+ 1178 047d 80       		.byte	-128
+ 1179 047e 59       		.byte	89
+ 1180 047f 11       		.byte	17
+ 1181 0480 5A       		.byte	90
+ 1182 0481 08       		.byte	8
+ 1183 0482 6E       		.byte	110
+ 1184 0483 20       		.byte	32
+ 1185 0484 6F       		.byte	111
+ 1186 0485 06       		.byte	6
+ 1187 0486 73       		.byte	115
+ 1188 0487 40       		.byte	64
+ 1189 0488 7F       		.byte	127
+ 1190 0489 02       		.byte	2
+ 1191 048a 87       		.byte	-121
+ 1192 048b 80       		.byte	-128
+ 1193 048c 8D       		.byte	-115
+ 1194 048d 80       		.byte	-128
+ 1195 048e 8E       		.byte	-114
+ 1196 048f 48       		.byte	72
+ 1197 0490 C0       		.byte	-64
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 22
+
+
+ 1198 0491 01       		.byte	1
+ 1199 0492 C2       		.byte	-62
+ 1200 0493 DE       		.byte	-34
+ 1201 0494 C4       		.byte	-60
+ 1202 0495 60       		.byte	96
+ 1203 0496 CA       		.byte	-54
+ 1204 0497 11       		.byte	17
+ 1205 0498 CC       		.byte	-52
+ 1206 0499 11       		.byte	17
+ 1207 049a CE       		.byte	-50
+ 1208 049b 06       		.byte	6
+ 1209 049c D0       		.byte	-48
+ 1210 049d 01       		.byte	1
+ 1211 049e D2       		.byte	-46
+ 1212 049f 04       		.byte	4
+ 1213 04a0 D6       		.byte	-42
+ 1214 04a1 0F       		.byte	15
+ 1215 04a2 DE       		.byte	-34
+ 1216 04a3 10       		.byte	16
+ 1217 04a4 E6       		.byte	-26
+ 1218 04a5 40       		.byte	64
+ 1219 04a6 58       		.byte	88
+ 1220 04a7 04       		.byte	4
+ 1221 04a8 59       		.byte	89
+ 1222 04a9 04       		.byte	4
+ 1223 04aa 5C       		.byte	92
+ 1224 04ab 22       		.byte	34
+ 1225 04ac 5F       		.byte	95
+ 1226 04ad 01       		.byte	1
+ 1227 04ae D8       		.byte	-40
+ 1228 04af 04       		.byte	4
+ 1229 04b0 D9       		.byte	-39
+ 1230 04b1 04       		.byte	4
+ 1231 04b2 DC       		.byte	-36
+ 1232 04b3 22       		.byte	34
+ 1233 04b4 DF       		.byte	-33
+ 1234 04b5 01       		.byte	1
+ 1235 04b6 01       		.byte	1
+ 1236 04b7 08       		.byte	8
+ 1237 04b8 03       		.byte	3
+ 1238 04b9 40       		.byte	64
+ 1239 04ba 05       		.byte	5
+ 1240 04bb 88       		.byte	-120
+ 1241 04bc 06       		.byte	6
+ 1242 04bd 01       		.byte	1
+ 1243 04be 07       		.byte	7
+ 1244 04bf 02       		.byte	2
+ 1245 04c0 08       		.byte	8
+ 1246 04c1 20       		.byte	32
+ 1247 04c2 0B       		.byte	11
+ 1248 04c3 31       		.byte	49
+ 1249 04c4 0F       		.byte	15
+ 1250 04c5 91       		.byte	-111
+ 1251 04c6 11       		.byte	17
+ 1252 04c7 80       		.byte	-128
+ 1253 04c8 13       		.byte	19
+ 1254 04c9 02       		.byte	2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 23
+
+
+ 1255 04ca 14       		.byte	20
+ 1256 04cb 20       		.byte	32
+ 1257 04cc 17       		.byte	23
+ 1258 04cd 40       		.byte	64
+ 1259 04ce 28       		.byte	40
+ 1260 04cf 20       		.byte	32
+ 1261 04d0 2A       		.byte	42
+ 1262 04d1 81       		.byte	-127
+ 1263 04d2 2C       		.byte	44
+ 1264 04d3 10       		.byte	16
+ 1265 04d4 2D       		.byte	45
+ 1266 04d5 08       		.byte	8
+ 1267 04d6 2F       		.byte	47
+ 1268 04d7 81       		.byte	-127
+ 1269 04d8 30       		.byte	48
+ 1270 04d9 10       		.byte	16
+ 1271 04da 33       		.byte	51
+ 1272 04db C0       		.byte	-64
+ 1273 04dc 34       		.byte	52
+ 1274 04dd 20       		.byte	32
+ 1275 04de 35       		.byte	53
+ 1276 04df 80       		.byte	-128
+ 1277 04e0 3B       		.byte	59
+ 1278 04e1 23       		.byte	35
+ 1279 04e2 3D       		.byte	61
+ 1280 04e3 80       		.byte	-128
+ 1281 04e4 3E       		.byte	62
+ 1282 04e5 80       		.byte	-128
+ 1283 04e6 3F       		.byte	63
+ 1284 04e7 90       		.byte	-112
+ 1285 04e8 93       		.byte	-109
+ 1286 04e9 21       		.byte	33
+ 1287 04ea 98       		.byte	-104
+ 1288 04eb 20       		.byte	32
+ 1289 04ec 99       		.byte	-103
+ 1290 04ed 08       		.byte	8
+ 1291 04ee 9B       		.byte	-101
+ 1292 04ef 42       		.byte	66
+ 1293 04f0 9E       		.byte	-98
+ 1294 04f1 01       		.byte	1
+ 1295 04f2 A3       		.byte	-93
+ 1296 04f3 40       		.byte	64
+ 1297 04f4 C0       		.byte	-64
+ 1298 04f5 AC       		.byte	-84
+ 1299 04f6 C2       		.byte	-62
+ 1300 04f7 B7       		.byte	-73
+ 1301 04f8 C4       		.byte	-60
+ 1302 04f9 A9       		.byte	-87
+ 1303 04fa CA       		.byte	-54
+ 1304 04fb DB       		.byte	-37
+ 1305 04fc CC       		.byte	-52
+ 1306 04fd 3C       		.byte	60
+ 1307 04fe CE       		.byte	-50
+ 1308 04ff 35       		.byte	53
+ 1309 0500 EC       		.byte	-20
+ 1310 0501 20       		.byte	32
+ 1311 0502 EE       		.byte	-18
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 24
+
+
+ 1312 0503 04       		.byte	4
+ 1313 0504 58       		.byte	88
+ 1314 0505 04       		.byte	4
+ 1315 0506 59       		.byte	89
+ 1316 0507 04       		.byte	4
+ 1317 0508 5C       		.byte	92
+ 1318 0509 22       		.byte	34
+ 1319 050a 5F       		.byte	95
+ 1320 050b 01       		.byte	1
+ 1321 050c D8       		.byte	-40
+ 1322 050d 04       		.byte	4
+ 1323 050e D9       		.byte	-39
+ 1324 050f 04       		.byte	4
+ 1325 0510 DC       		.byte	-36
+ 1326 0511 22       		.byte	34
+ 1327 0512 DF       		.byte	-33
+ 1328 0513 01       		.byte	1
+ 1329 0514 01       		.byte	1
+ 1330 0515 08       		.byte	8
+ 1331 0516 03       		.byte	3
+ 1332 0517 40       		.byte	64
+ 1333 0518 05       		.byte	5
+ 1334 0519 28       		.byte	40
+ 1335 051a 07       		.byte	7
+ 1336 051b 02       		.byte	2
+ 1337 051c 08       		.byte	8
+ 1338 051d 20       		.byte	32
+ 1339 051e 0B       		.byte	11
+ 1340 051f 21       		.byte	33
+ 1341 0520 0F       		.byte	15
+ 1342 0521 81       		.byte	-127
+ 1343 0522 11       		.byte	17
+ 1344 0523 80       		.byte	-128
+ 1345 0524 12       		.byte	18
+ 1346 0525 80       		.byte	-128
+ 1347 0526 13       		.byte	19
+ 1348 0527 02       		.byte	2
+ 1349 0528 14       		.byte	20
+ 1350 0529 20       		.byte	32
+ 1351 052a 15       		.byte	21
+ 1352 052b 40       		.byte	64
+ 1353 052c 17       		.byte	23
+ 1354 052d 40       		.byte	64
+ 1355 052e 28       		.byte	40
+ 1356 052f 20       		.byte	32
+ 1357 0530 2A       		.byte	42
+ 1358 0531 81       		.byte	-127
+ 1359 0532 2C       		.byte	44
+ 1360 0533 10       		.byte	16
+ 1361 0534 2D       		.byte	45
+ 1362 0535 48       		.byte	72
+ 1363 0536 2E       		.byte	46
+ 1364 0537 02       		.byte	2
+ 1365 0538 30       		.byte	48
+ 1366 0539 10       		.byte	16
+ 1367 053a 33       		.byte	51
+ 1368 053b 40       		.byte	64
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 25
+
+
+ 1369 053c 34       		.byte	52
+ 1370 053d 20       		.byte	32
+ 1371 053e 36       		.byte	54
+ 1372 053f 80       		.byte	-128
+ 1373 0540 3B       		.byte	59
+ 1374 0541 31       		.byte	49
+ 1375 0542 3D       		.byte	61
+ 1376 0543 80       		.byte	-128
+ 1377 0544 3E       		.byte	62
+ 1378 0545 80       		.byte	-128
+ 1379 0546 3F       		.byte	63
+ 1380 0547 90       		.byte	-112
+ 1381 0548 49       		.byte	73
+ 1382 0549 20       		.byte	32
+ 1383 054a 4B       		.byte	75
+ 1384 054b 20       		.byte	32
+ 1385 054c 93       		.byte	-109
+ 1386 054d 21       		.byte	33
+ 1387 054e 98       		.byte	-104
+ 1388 054f 20       		.byte	32
+ 1389 0550 99       		.byte	-103
+ 1390 0551 08       		.byte	8
+ 1391 0552 9A       		.byte	-102
+ 1392 0553 02       		.byte	2
+ 1393 0554 9B       		.byte	-101
+ 1394 0555 42       		.byte	66
+ 1395 0556 A3       		.byte	-93
+ 1396 0557 40       		.byte	64
+ 1397 0558 C0       		.byte	-64
+ 1398 0559 EC       		.byte	-20
+ 1399 055a C2       		.byte	-62
+ 1400 055b 97       		.byte	-105
+ 1401 055c C4       		.byte	-60
+ 1402 055d A9       		.byte	-87
+ 1403 055e CA       		.byte	-54
+ 1404 055f DB       		.byte	-37
+ 1405 0560 CC       		.byte	-52
+ 1406 0561 3C       		.byte	60
+ 1407 0562 CE       		.byte	-50
+ 1408 0563 35       		.byte	53
+ 1409 0564 01       		.byte	1
+ 1410 0565 01       		.byte	1
+ 1411 0566 04       		.byte	4
+ 1412 0567 9E       		.byte	-98
+ 1413 0568 05       		.byte	5
+ 1414 0569 01       		.byte	1
+ 1415 056a 06       		.byte	6
+ 1416 056b 60       		.byte	96
+ 1417 056c 08       		.byte	8
+ 1418 056d 73       		.byte	115
+ 1419 056e 0D       		.byte	13
+ 1420 056f 01       		.byte	1
+ 1421 0570 10       		.byte	16
+ 1422 0571 30       		.byte	48
+ 1423 0572 12       		.byte	18
+ 1424 0573 C9       		.byte	-55
+ 1425 0574 14       		.byte	20
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 26
+
+
+ 1426 0575 94       		.byte	-108
+ 1427 0576 16       		.byte	22
+ 1428 0577 60       		.byte	96
+ 1429 0578 18       		.byte	24
+ 1430 0579 FD       		.byte	-3
+ 1431 057a 19       		.byte	25
+ 1432 057b 01       		.byte	1
+ 1433 057c 1A       		.byte	26
+ 1434 057d 02       		.byte	2
+ 1435 057e 1F       		.byte	31
+ 1436 057f 01       		.byte	1
+ 1437 0580 20       		.byte	32
+ 1438 0581 CF       		.byte	-49
+ 1439 0582 22       		.byte	34
+ 1440 0583 30       		.byte	48
+ 1441 0584 29       		.byte	41
+ 1442 0585 01       		.byte	1
+ 1443 0586 2D       		.byte	45
+ 1444 0587 01       		.byte	1
+ 1445 0588 2E       		.byte	46
+ 1446 0589 0F       		.byte	15
+ 1447 058a 34       		.byte	52
+ 1448 058b FF       		.byte	-1
+ 1449 058c 35       		.byte	53
+ 1450 058d 01       		.byte	1
+ 1451 058e 3E       		.byte	62
+ 1452 058f 10       		.byte	16
+ 1453 0590 58       		.byte	88
+ 1454 0591 04       		.byte	4
+ 1455 0592 59       		.byte	89
+ 1456 0593 04       		.byte	4
+ 1457 0594 5C       		.byte	92
+ 1458 0595 20       		.byte	32
+ 1459 0596 5F       		.byte	95
+ 1460 0597 01       		.byte	1
+ 1461 0598 81       		.byte	-127
+ 1462 0599 A3       		.byte	-93
+ 1463 059a 83       		.byte	-125
+ 1464 059b 5C       		.byte	92
+ 1465 059c 84       		.byte	-124
+ 1466 059d 64       		.byte	100
+ 1467 059e 85       		.byte	-123
+ 1468 059f C5       		.byte	-59
+ 1469 05a0 87       		.byte	-121
+ 1470 05a1 3A       		.byte	58
+ 1471 05a2 88       		.byte	-120
+ 1472 05a3 54       		.byte	84
+ 1473 05a4 89       		.byte	-119
+ 1474 05a5 7F       		.byte	127
+ 1475 05a6 8E       		.byte	-114
+ 1476 05a7 03       		.byte	3
+ 1477 05a8 8F       		.byte	-113
+ 1478 05a9 01       		.byte	1
+ 1479 05aa 91       		.byte	-111
+ 1480 05ab 96       		.byte	-106
+ 1481 05ac 92       		.byte	-110
+ 1482 05ad 04       		.byte	4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 27
+
+
+ 1483 05ae 93       		.byte	-109
+ 1484 05af 68       		.byte	104
+ 1485 05b0 94       		.byte	-108
+ 1486 05b1 30       		.byte	48
+ 1487 05b2 95       		.byte	-107
+ 1488 05b3 0E       		.byte	14
+ 1489 05b4 97       		.byte	-105
+ 1490 05b5 F0       		.byte	-16
+ 1491 05b6 98       		.byte	-104
+ 1492 05b7 02       		.byte	2
+ 1493 05b8 9E       		.byte	-98
+ 1494 05b9 08       		.byte	8
+ 1495 05ba A0       		.byte	-96
+ 1496 05bb 64       		.byte	100
+ 1497 05bc A8       		.byte	-88
+ 1498 05bd 04       		.byte	4
+ 1499 05be A9       		.byte	-87
+ 1500 05bf FE       		.byte	-2
+ 1501 05c0 AB       		.byte	-85
+ 1502 05c1 01       		.byte	1
+ 1503 05c2 AE       		.byte	-82
+ 1504 05c3 02       		.byte	2
+ 1505 05c4 B0       		.byte	-80
+ 1506 05c5 0C       		.byte	12
+ 1507 05c6 B2       		.byte	-78
+ 1508 05c7 70       		.byte	112
+ 1509 05c8 B4       		.byte	-76
+ 1510 05c9 01       		.byte	1
+ 1511 05ca B6       		.byte	-74
+ 1512 05cb 02       		.byte	2
+ 1513 05cc B7       		.byte	-73
+ 1514 05cd FF       		.byte	-1
+ 1515 05ce B8       		.byte	-72
+ 1516 05cf 08       		.byte	8
+ 1517 05d0 BE       		.byte	-66
+ 1518 05d1 40       		.byte	64
+ 1519 05d2 BF       		.byte	-65
+ 1520 05d3 40       		.byte	64
+ 1521 05d4 D2       		.byte	-46
+ 1522 05d5 80       		.byte	-128
+ 1523 05d6 D4       		.byte	-44
+ 1524 05d7 0F       		.byte	15
+ 1525 05d8 D6       		.byte	-42
+ 1526 05d9 04       		.byte	4
+ 1527 05da D8       		.byte	-40
+ 1528 05db 04       		.byte	4
+ 1529 05dc D9       		.byte	-39
+ 1530 05dd 04       		.byte	4
+ 1531 05de DB       		.byte	-37
+ 1532 05df 04       		.byte	4
+ 1533 05e0 DF       		.byte	-33
+ 1534 05e1 01       		.byte	1
+ 1535 05e2 00       		.byte	0
+ 1536 05e3 44       		.byte	68
+ 1537 05e4 03       		.byte	3
+ 1538 05e5 08       		.byte	8
+ 1539 05e6 04       		.byte	4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 28
+
+
+ 1540 05e7 14       		.byte	20
+ 1541 05e8 09       		.byte	9
+ 1542 05e9 80       		.byte	-128
+ 1543 05ea 0A       		.byte	10
+ 1544 05eb 68       		.byte	104
+ 1545 05ec 0C       		.byte	12
+ 1546 05ed 04       		.byte	4
+ 1547 05ee 0E       		.byte	14
+ 1548 05ef 60       		.byte	96
+ 1549 05f0 0F       		.byte	15
+ 1550 05f1 08       		.byte	8
+ 1551 05f2 10       		.byte	16
+ 1552 05f3 46       		.byte	70
+ 1553 05f4 14       		.byte	20
+ 1554 05f5 40       		.byte	64
+ 1555 05f6 15       		.byte	21
+ 1556 05f7 02       		.byte	2
+ 1557 05f8 17       		.byte	23
+ 1558 05f9 40       		.byte	64
+ 1559 05fa 18       		.byte	24
+ 1560 05fb 50       		.byte	80
+ 1561 05fc 19       		.byte	25
+ 1562 05fd 88       		.byte	-120
+ 1563 05fe 1A       		.byte	26
+ 1564 05ff 28       		.byte	40
+ 1565 0600 1E       		.byte	30
+ 1566 0601 04       		.byte	4
+ 1567 0602 21       		.byte	33
+ 1568 0603 80       		.byte	-128
+ 1569 0604 27       		.byte	39
+ 1570 0605 04       		.byte	4
+ 1571 0606 2B       		.byte	43
+ 1572 0607 04       		.byte	4
+ 1573 0608 2C       		.byte	44
+ 1574 0609 08       		.byte	8
+ 1575 060a 2D       		.byte	45
+ 1576 060b 40       		.byte	64
+ 1577 060c 31       		.byte	49
+ 1578 060d 05       		.byte	5
+ 1579 060e 36       		.byte	54
+ 1580 060f A0       		.byte	-96
+ 1581 0610 38       		.byte	56
+ 1582 0611 54       		.byte	84
+ 1583 0612 39       		.byte	57
+ 1584 0613 02       		.byte	2
+ 1585 0614 3C       		.byte	60
+ 1586 0615 80       		.byte	-128
+ 1587 0616 3D       		.byte	61
+ 1588 0617 0A       		.byte	10
+ 1589 0618 58       		.byte	88
+ 1590 0619 02       		.byte	2
+ 1591 061a 59       		.byte	89
+ 1592 061b 08       		.byte	8
+ 1593 061c 5A       		.byte	90
+ 1594 061d 80       		.byte	-128
+ 1595 061e 5B       		.byte	91
+ 1596 061f 20       		.byte	32
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 29
+
+
+ 1597 0620 62       		.byte	98
+ 1598 0621 02       		.byte	2
+ 1599 0622 70       		.byte	112
+ 1600 0623 02       		.byte	2
+ 1601 0624 91       		.byte	-111
+ 1602 0625 40       		.byte	64
+ 1603 0626 92       		.byte	-110
+ 1604 0627 80       		.byte	-128
+ 1605 0628 94       		.byte	-108
+ 1606 0629 10       		.byte	16
+ 1607 062a 9B       		.byte	-101
+ 1608 062b 20       		.byte	32
+ 1609 062c 9D       		.byte	-99
+ 1610 062d 80       		.byte	-128
+ 1611 062e 9F       		.byte	-97
+ 1612 062f 40       		.byte	64
+ 1613 0630 A0       		.byte	-96
+ 1614 0631 48       		.byte	72
+ 1615 0632 A1       		.byte	-95
+ 1616 0633 05       		.byte	5
+ 1617 0634 A2       		.byte	-94
+ 1618 0635 A0       		.byte	-96
+ 1619 0636 A6       		.byte	-90
+ 1620 0637 02       		.byte	2
+ 1621 0638 C0       		.byte	-64
+ 1622 0639 67       		.byte	103
+ 1623 063a C2       		.byte	-62
+ 1624 063b 7F       		.byte	127
+ 1625 063c C4       		.byte	-60
+ 1626 063d 9B       		.byte	-101
+ 1627 063e CA       		.byte	-54
+ 1628 063f 34       		.byte	52
+ 1629 0640 CC       		.byte	-52
+ 1630 0641 33       		.byte	51
+ 1631 0642 CE       		.byte	-50
+ 1632 0643 DF       		.byte	-33
+ 1633 0644 D6       		.byte	-42
+ 1634 0645 0F       		.byte	15
+ 1635 0646 D8       		.byte	-40
+ 1636 0647 01       		.byte	1
+ 1637 0648 00       		.byte	0
+ 1638 0649 01       		.byte	1
+ 1639 064a 02       		.byte	2
+ 1640 064b 06       		.byte	6
+ 1641 064c 04       		.byte	4
+ 1642 064d A0       		.byte	-96
+ 1643 064e 06       		.byte	6
+ 1644 064f 50       		.byte	80
+ 1645 0650 07       		.byte	7
+ 1646 0651 10       		.byte	16
+ 1647 0652 08       		.byte	8
+ 1648 0653 F0       		.byte	-16
+ 1649 0654 0C       		.byte	12
+ 1650 0655 52       		.byte	82
+ 1651 0656 0E       		.byte	14
+ 1652 0657 A1       		.byte	-95
+ 1653 0658 10       		.byte	16
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 30
+
+
+ 1654 0659 C0       		.byte	-64
+ 1655 065a 11       		.byte	17
+ 1656 065b 0C       		.byte	12
+ 1657 065c 12       		.byte	18
+ 1658 065d 30       		.byte	48
+ 1659 065e 13       		.byte	19
+ 1660 065f 02       		.byte	2
+ 1661 0660 14       		.byte	20
+ 1662 0661 30       		.byte	48
+ 1663 0662 16       		.byte	22
+ 1664 0663 C0       		.byte	-64
+ 1665 0664 17       		.byte	23
+ 1666 0665 0F       		.byte	15
+ 1667 0666 18       		.byte	24
+ 1668 0667 01       		.byte	1
+ 1669 0668 19       		.byte	25
+ 1670 0669 0C       		.byte	12
+ 1671 066a 1A       		.byte	26
+ 1672 066b 02       		.byte	2
+ 1673 066c 1B       		.byte	27
+ 1674 066d 01       		.byte	1
+ 1675 066e 20       		.byte	32
+ 1676 066f 01       		.byte	1
+ 1677 0670 21       		.byte	33
+ 1678 0671 08       		.byte	8
+ 1679 0672 22       		.byte	34
+ 1680 0673 0A       		.byte	10
+ 1681 0674 23       		.byte	35
+ 1682 0675 01       		.byte	1
+ 1683 0676 24       		.byte	36
+ 1684 0677 70       		.byte	112
+ 1685 0678 25       		.byte	37
+ 1686 0679 07       		.byte	7
+ 1687 067a 29       		.byte	41
+ 1688 067b 0B       		.byte	11
+ 1689 067c 2B       		.byte	43
+ 1690 067d 04       		.byte	4
+ 1691 067e 30       		.byte	48
+ 1692 067f 03       		.byte	3
+ 1693 0680 31       		.byte	49
+ 1694 0681 0F       		.byte	15
+ 1695 0682 32       		.byte	50
+ 1696 0683 F0       		.byte	-16
+ 1697 0684 34       		.byte	52
+ 1698 0685 04       		.byte	4
+ 1699 0686 36       		.byte	54
+ 1700 0687 08       		.byte	8
+ 1701 0688 37       		.byte	55
+ 1702 0689 10       		.byte	16
+ 1703 068a 3A       		.byte	58
+ 1704 068b 02       		.byte	2
+ 1705 068c 58       		.byte	88
+ 1706 068d 04       		.byte	4
+ 1707 068e 59       		.byte	89
+ 1708 068f 04       		.byte	4
+ 1709 0690 5F       		.byte	95
+ 1710 0691 01       		.byte	1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 31
+
+
+ 1711 0692 82       		.byte	-126
+ 1712 0693 3C       		.byte	60
+ 1713 0694 83       		.byte	-125
+ 1714 0695 40       		.byte	64
+ 1715 0696 84       		.byte	-124
+ 1716 0697 01       		.byte	1
+ 1717 0698 86       		.byte	-122
+ 1718 0699 02       		.byte	2
+ 1719 069a 87       		.byte	-121
+ 1720 069b 08       		.byte	8
+ 1721 069c 88       		.byte	-120
+ 1722 069d 2C       		.byte	44
+ 1723 069e 8A       		.byte	-118
+ 1724 069f 10       		.byte	16
+ 1725 06a0 8B       		.byte	-117
+ 1726 06a1 20       		.byte	32
+ 1727 06a2 8F       		.byte	-113
+ 1728 06a3 04       		.byte	4
+ 1729 06a4 90       		.byte	-112
+ 1730 06a5 01       		.byte	1
+ 1731 06a6 92       		.byte	-110
+ 1732 06a7 02       		.byte	2
+ 1733 06a8 93       		.byte	-109
+ 1734 06a9 07       		.byte	7
+ 1735 06aa 94       		.byte	-108
+ 1736 06ab 22       		.byte	34
+ 1737 06ac 95       		.byte	-107
+ 1738 06ad 01       		.byte	1
+ 1739 06ae 96       		.byte	-106
+ 1740 06af 05       		.byte	5
+ 1741 06b0 97       		.byte	-105
+ 1742 06b1 02       		.byte	2
+ 1743 06b2 98       		.byte	-104
+ 1744 06b3 30       		.byte	48
+ 1745 06b4 99       		.byte	-103
+ 1746 06b5 01       		.byte	1
+ 1747 06b6 9A       		.byte	-102
+ 1748 06b7 08       		.byte	8
+ 1749 06b8 9B       		.byte	-101
+ 1750 06b9 02       		.byte	2
+ 1751 06ba 9F       		.byte	-97
+ 1752 06bb 10       		.byte	16
+ 1753 06bc A0       		.byte	-96
+ 1754 06bd 30       		.byte	48
+ 1755 06be A2       		.byte	-94
+ 1756 06bf 04       		.byte	4
+ 1757 06c0 A4       		.byte	-92
+ 1758 06c1 01       		.byte	1
+ 1759 06c2 A5       		.byte	-91
+ 1760 06c3 07       		.byte	7
+ 1761 06c4 A6       		.byte	-90
+ 1762 06c5 02       		.byte	2
+ 1763 06c6 A8       		.byte	-88
+ 1764 06c7 1C       		.byte	28
+ 1765 06c8 A9       		.byte	-87
+ 1766 06c9 07       		.byte	7
+ 1767 06ca AD       		.byte	-83
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 32
+
+
+ 1768 06cb 04       		.byte	4
+ 1769 06cc B1       		.byte	-79
+ 1770 06cd 0F       		.byte	15
+ 1771 06ce B2       		.byte	-78
+ 1772 06cf 03       		.byte	3
+ 1773 06d0 B3       		.byte	-77
+ 1774 06d1 10       		.byte	16
+ 1775 06d2 B4       		.byte	-76
+ 1776 06d3 3C       		.byte	60
+ 1777 06d4 B5       		.byte	-75
+ 1778 06d5 40       		.byte	64
+ 1779 06d6 B7       		.byte	-73
+ 1780 06d7 20       		.byte	32
+ 1781 06d8 BA       		.byte	-70
+ 1782 06d9 08       		.byte	8
+ 1783 06da D8       		.byte	-40
+ 1784 06db 04       		.byte	4
+ 1785 06dc D9       		.byte	-39
+ 1786 06dd 04       		.byte	4
+ 1787 06de DF       		.byte	-33
+ 1788 06df 01       		.byte	1
+ 1789 06e0 00       		.byte	0
+ 1790 06e1 44       		.byte	68
+ 1791 06e2 03       		.byte	3
+ 1792 06e3 88       		.byte	-120
+ 1793 06e4 04       		.byte	4
+ 1794 06e5 20       		.byte	32
+ 1795 06e6 05       		.byte	5
+ 1796 06e7 01       		.byte	1
+ 1797 06e8 07       		.byte	7
+ 1798 06e9 20       		.byte	32
+ 1799 06ea 09       		.byte	9
+ 1800 06eb 0A       		.byte	10
+ 1801 06ec 0A       		.byte	10
+ 1802 06ed 08       		.byte	8
+ 1803 06ee 0E       		.byte	14
+ 1804 06ef A8       		.byte	-88
+ 1805 06f0 10       		.byte	16
+ 1806 06f1 10       		.byte	16
+ 1807 06f2 13       		.byte	19
+ 1808 06f3 01       		.byte	1
+ 1809 06f4 15       		.byte	21
+ 1810 06f5 02       		.byte	2
+ 1811 06f6 16       		.byte	22
+ 1812 06f7 08       		.byte	8
+ 1813 06f8 17       		.byte	23
+ 1814 06f9 08       		.byte	8
+ 1815 06fa 18       		.byte	24
+ 1816 06fb 60       		.byte	96
+ 1817 06fc 19       		.byte	25
+ 1818 06fd 01       		.byte	1
+ 1819 06fe 1A       		.byte	26
+ 1820 06ff 48       		.byte	72
+ 1821 0700 1B       		.byte	27
+ 1822 0701 8C       		.byte	-116
+ 1823 0702 1C       		.byte	28
+ 1824 0703 04       		.byte	4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 33
+
+
+ 1825 0704 1D       		.byte	29
+ 1826 0705 1C       		.byte	28
+ 1827 0706 1E       		.byte	30
+ 1828 0707 28       		.byte	40
+ 1829 0708 21       		.byte	33
+ 1830 0709 03       		.byte	3
+ 1831 070a 23       		.byte	35
+ 1832 070b 41       		.byte	65
+ 1833 070c 25       		.byte	37
+ 1834 070d 10       		.byte	16
+ 1835 070e 26       		.byte	38
+ 1836 070f C2       		.byte	-62
+ 1837 0710 27       		.byte	39
+ 1838 0711 68       		.byte	104
+ 1839 0712 28       		.byte	40
+ 1840 0713 10       		.byte	16
+ 1841 0714 29       		.byte	41
+ 1842 0715 09       		.byte	9
+ 1843 0716 2B       		.byte	43
+ 1844 0717 04       		.byte	4
+ 1845 0718 2D       		.byte	45
+ 1846 0719 08       		.byte	8
+ 1847 071a 2E       		.byte	46
+ 1848 071b 48       		.byte	72
+ 1849 071c 2F       		.byte	47
+ 1850 071d 08       		.byte	8
+ 1851 071e 31       		.byte	49
+ 1852 071f 16       		.byte	22
+ 1853 0720 35       		.byte	53
+ 1854 0721 14       		.byte	20
+ 1855 0722 36       		.byte	54
+ 1856 0723 82       		.byte	-126
+ 1857 0724 39       		.byte	57
+ 1858 0725 04       		.byte	4
+ 1859 0726 3D       		.byte	61
+ 1860 0727 20       		.byte	32
+ 1861 0728 3E       		.byte	62
+ 1862 0729 04       		.byte	4
+ 1863 072a 3F       		.byte	63
+ 1864 072b 42       		.byte	66
+ 1865 072c 80       		.byte	-128
+ 1866 072d 02       		.byte	2
+ 1867 072e 83       		.byte	-125
+ 1868 072f 08       		.byte	8
+ 1869 0730 85       		.byte	-123
+ 1870 0731 04       		.byte	4
+ 1871 0732 87       		.byte	-121
+ 1872 0733 01       		.byte	1
+ 1873 0734 92       		.byte	-110
+ 1874 0735 04       		.byte	4
+ 1875 0736 94       		.byte	-108
+ 1876 0737 04       		.byte	4
+ 1877 0738 95       		.byte	-107
+ 1878 0739 02       		.byte	2
+ 1879 073a 96       		.byte	-106
+ 1880 073b 40       		.byte	64
+ 1881 073c 99       		.byte	-103
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 34
+
+
+ 1882 073d 08       		.byte	8
+ 1883 073e 9C       		.byte	-100
+ 1884 073f 02       		.byte	2
+ 1885 0740 9D       		.byte	-99
+ 1886 0741 05       		.byte	5
+ 1887 0742 9F       		.byte	-97
+ 1888 0743 40       		.byte	64
+ 1889 0744 A6       		.byte	-90
+ 1890 0745 10       		.byte	16
+ 1891 0746 A7       		.byte	-89
+ 1892 0747 0C       		.byte	12
+ 1893 0748 AB       		.byte	-85
+ 1894 0749 04       		.byte	4
+ 1895 074a C0       		.byte	-64
+ 1896 074b 7F       		.byte	127
+ 1897 074c C2       		.byte	-62
+ 1898 074d 7E       		.byte	126
+ 1899 074e C4       		.byte	-60
+ 1900 074f 7C       		.byte	124
+ 1901 0750 CA       		.byte	-54
+ 1902 0751 77       		.byte	119
+ 1903 0752 CC       		.byte	-52
+ 1904 0753 F7       		.byte	-9
+ 1905 0754 CE       		.byte	-50
+ 1906 0755 F2       		.byte	-14
+ 1907 0756 E6       		.byte	-26
+ 1908 0757 0A       		.byte	10
+ 1909 0758 E8       		.byte	-24
+ 1910 0759 01       		.byte	1
+ 1911 075a EC       		.byte	-20
+ 1912 075b 20       		.byte	32
+ 1913 075c EE       		.byte	-18
+ 1914 075d 04       		.byte	4
+ 1915 075e 13       		.byte	19
+ 1916 075f 08       		.byte	8
+ 1917 0760 16       		.byte	22
+ 1918 0761 80       		.byte	-128
+ 1919 0762 30       		.byte	48
+ 1920 0763 80       		.byte	-128
+ 1921 0764 37       		.byte	55
+ 1922 0765 80       		.byte	-128
+ 1923 0766 3B       		.byte	59
+ 1924 0767 02       		.byte	2
+ 1925 0768 3E       		.byte	62
+ 1926 0769 80       		.byte	-128
+ 1927 076a 87       		.byte	-121
+ 1928 076b 04       		.byte	4
+ 1929 076c 8C       		.byte	-116
+ 1930 076d 80       		.byte	-128
+ 1931 076e C4       		.byte	-60
+ 1932 076f 30       		.byte	48
+ 1933 0770 CC       		.byte	-52
+ 1934 0771 30       		.byte	48
+ 1935 0772 CE       		.byte	-50
+ 1936 0773 60       		.byte	96
+ 1937 0774 E6       		.byte	-26
+ 1938 0775 10       		.byte	16
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 35
+
+
+ 1939 0776 67       		.byte	103
+ 1940 0777 08       		.byte	8
+ 1941 0778 93       		.byte	-109
+ 1942 0779 08       		.byte	8
+ 1943 077a 97       		.byte	-105
+ 1944 077b 02       		.byte	2
+ 1945 077c 9B       		.byte	-101
+ 1946 077d 08       		.byte	8
+ 1947 077e AB       		.byte	-85
+ 1948 077f 80       		.byte	-128
+ 1949 0780 D8       		.byte	-40
+ 1950 0781 80       		.byte	-128
+ 1951 0782 EA       		.byte	-22
+ 1952 0783 80       		.byte	-128
+ 1953 0784 97       		.byte	-105
+ 1954 0785 02       		.byte	2
+ 1955 0786 AB       		.byte	-85
+ 1956 0787 08       		.byte	8
+ 1957 0788 E8       		.byte	-24
+ 1958 0789 20       		.byte	32
+ 1959 078a 97       		.byte	-105
+ 1960 078b 02       		.byte	2
+ 1961 078c 8E       		.byte	-114
+ 1962 078d 40       		.byte	64
+ 1963 078e E0       		.byte	-32
+ 1964 078f 08       		.byte	8
+ 1965 0790 23       		.byte	35
+ 1966 0791 80       		.byte	-128
+ 1967 0792 8B       		.byte	-117
+ 1968 0793 80       		.byte	-128
+ 1969 0794 92       		.byte	-110
+ 1970 0795 80       		.byte	-128
+ 1971 0796 C8       		.byte	-56
+ 1972 0797 02       		.byte	2
+ 1973 0798 E6       		.byte	-26
+ 1974 0799 04       		.byte	4
+ 1975 079a 92       		.byte	-110
+ 1976 079b 80       		.byte	-128
+ 1977 079c 92       		.byte	-110
+ 1978 079d 80       		.byte	-128
+ 1979 079e 25       		.byte	37
+ 1980 079f 02       		.byte	2
+ 1981 07a0 97       		.byte	-105
+ 1982 07a1 02       		.byte	2
+ 1983 07a2 C8       		.byte	-56
+ 1984 07a3 80       		.byte	-128
+ 1985 07a4 AB       		.byte	-85
+ 1986 07a5 01       		.byte	1
+ 1987 07a6 B1       		.byte	-79
+ 1988 07a7 02       		.byte	2
+ 1989 07a8 EE       		.byte	-18
+ 1990 07a9 20       		.byte	32
+ 1991 07aa 08       		.byte	8
+ 1992 07ab 20       		.byte	32
+ 1993 07ac 0E       		.byte	14
+ 1994 07ad 80       		.byte	-128
+ 1995 07ae 1F       		.byte	31
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 36
+
+
+ 1996 07af 80       		.byte	-128
+ 1997 07b0 34       		.byte	52
+ 1998 07b1 01       		.byte	1
+ 1999 07b2 5A       		.byte	90
+ 2000 07b3 80       		.byte	-128
+ 2001 07b4 5F       		.byte	95
+ 2002 07b5 01       		.byte	1
+ 2003 07b6 92       		.byte	-110
+ 2004 07b7 80       		.byte	-128
+ 2005 07b8 C2       		.byte	-62
+ 2006 07b9 06       		.byte	6
+ 2007 07ba C6       		.byte	-58
+ 2008 07bb 01       		.byte	1
+ 2009 07bc CC       		.byte	-52
+ 2010 07bd 01       		.byte	1
+ 2011 07be D4       		.byte	-44
+ 2012 07bf 01       		.byte	1
+ 2013 07c0 D6       		.byte	-42
+ 2014 07c1 01       		.byte	1
+ 2015 07c2 84       		.byte	-124
+ 2016 07c3 20       		.byte	32
+ 2017 07c4 86       		.byte	-122
+ 2018 07c5 40       		.byte	64
+ 2019 07c6 98       		.byte	-104
+ 2020 07c7 20       		.byte	32
+ 2021 07c8 A2       		.byte	-94
+ 2022 07c9 40       		.byte	64
+ 2023 07ca AB       		.byte	-85
+ 2024 07cb 81       		.byte	-127
+ 2025 07cc B0       		.byte	-80
+ 2026 07cd 01       		.byte	1
+ 2027 07ce EC       		.byte	-20
+ 2028 07cf 04       		.byte	4
+ 2029 07d0 00       		.byte	0
+ 2030 07d1 07       		.byte	7
+ 2031 07d2 01       		.byte	1
+ 2032 07d3 01       		.byte	1
+ 2033 07d4 0A       		.byte	10
+ 2034 07d5 04       		.byte	4
+ 2035 07d6 0C       		.byte	12
+ 2036 07d7 05       		.byte	5
+ 2037 07d8 0E       		.byte	14
+ 2038 07d9 06       		.byte	6
+ 2039 07da 0F       		.byte	15
+ 2040 07db 01       		.byte	1
+ 2041 07dc 10       		.byte	16
+ 2042 07dd 05       		.byte	5
+ 2043 07de 1A       		.byte	26
+ 2044 07df 04       		.byte	4
+ 2045 07e0 1C       		.byte	28
+ 2046 07e1 05       		.byte	5
+ 2047 07e2 00       		.byte	0
+ 2048 07e3 0F       		.byte	15
+ 2049 07e4 10       		.byte	16
+ 2050 07e5 0A       		.byte	10
+ 2051 07e6 00       		.byte	0
+ 2052 07e7 00       		.byte	0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 37
+
+
+ 2053 07e8 00       		.byte	0
+ 2054 07e9 80       		.byte	-128
+ 2055 07ea 80       		.byte	-128
+ 2056 07eb 00       		.byte	0
+ 2057 07ec 80       		.byte	-128
+ 2058 07ed 00       		.byte	0
+ 2059 07ee 00       		.byte	0
+ 2060 07ef 00       		.byte	0
+ 2061 07f0 E0       		.byte	-32
+ 2062 07f1 8F       		.byte	-113
+ 2063 07f2 0F       		.byte	15
+ 2064 07f3 00       		.byte	0
+ 2065 07f4 04       		.byte	4
+ 2066 07f5 10       		.byte	16
+ 2067 07f6 10       		.byte	16
+ 2068 07f7 00       		.byte	0
+ 2069 07f8 00       		.byte	0
+ 2070 07f9 7F       		.byte	127
+ 2071 07fa 7F       		.byte	127
+ 2072 07fb 00       		.byte	0
+ 2073 07fc 00       		.byte	0
+ 2074 07fd 00       		.byte	0
+ 2075 07fe 00       		.byte	0
+ 2076 07ff 00       		.byte	0
+ 2077 0800 00       		.byte	0
+ 2078 0801 01       		.byte	1
+ 2079 0802 00       		.byte	0
+ 2080 0803 00       		.byte	0
+ 2081              		.section	.cywolatch,"a",%progbits
+ 2082              		.align	2
+ 2083              		.type	cy_meta_wonvl, %object
+ 2084              		.size	cy_meta_wonvl, 4
+ 2085              	cy_meta_wonvl:
+ 2086 0000 BC       		.byte	-68
+ 2087 0001 90       		.byte	-112
+ 2088 0002 AC       		.byte	-84
+ 2089 0003 AF       		.byte	-81
+ 2090              		.section	.cycustnvl,"a",%progbits
+ 2091              		.align	2
+ 2092              		.type	cy_meta_custnvl, %object
+ 2093              		.size	cy_meta_custnvl, 4
+ 2094              	cy_meta_custnvl:
+ 2095 0000 00       		.byte	0
+ 2096 0001 00       		.byte	0
+ 2097 0002 40       		.byte	64
+ 2098 0003 05       		.byte	5
+ 2099              		.section	.cymeta,"a",%progbits
+ 2100              		.align	2
+ 2101              		.type	cy_metadata, %object
+ 2102              		.size	cy_metadata, 12
+ 2103              	cy_metadata:
+ 2104 0000 00       		.byte	0
+ 2105 0001 01       		.byte	1
+ 2106 0002 2E       		.byte	46
+ 2107 0003 16       		.byte	22
+ 2108 0004 10       		.byte	16
+ 2109 0005 69       		.byte	105
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 38
+
+
+ 2110 0006 00       		.byte	0
+ 2111 0007 01       		.byte	1
+ 2112 0008 00       		.byte	0
+ 2113 0009 00       		.byte	0
+ 2114 000a 00       		.byte	0
+ 2115 000b 00       		.byte	0
+ 2116              		.section	.cyflashprotect,"a",%progbits
+ 2117              		.align	2
+ 2118              		.type	cy_meta_flashprotect, %object
+ 2119              		.size	cy_meta_flashprotect, 256
+ 2120              	cy_meta_flashprotect:
+ 2121 0000 00000000 		.space	256
+ 2121      00000000 
+ 2121      00000000 
+ 2121      00000000 
+ 2121      00000000 
+ 2122              		.text
+ 2123              	.Letext0:
+ 2124              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2125              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2126              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 2127              		.section	.debug_info,"",%progbits
+ 2128              	.Ldebug_info0:
+ 2129 0000 35010000 		.4byte	0x135
+ 2130 0004 0400     		.2byte	0x4
+ 2131 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 2132 000a 04       		.byte	0x4
+ 2133 000b 01       		.uleb128 0x1
+ 2134 000c 24000000 		.4byte	.LASF17
+ 2135 0010 0C       		.byte	0xc
+ 2136 0011 C0010000 		.4byte	.LASF18
+ 2137 0015 7E010000 		.4byte	.LASF19
+ 2138 0019 00000000 		.4byte	.Ldebug_line0
+ 2139 001d 02       		.uleb128 0x2
+ 2140 001e 01       		.byte	0x1
+ 2141 001f 06       		.byte	0x6
+ 2142 0020 72010000 		.4byte	.LASF0
+ 2143 0024 03       		.uleb128 0x3
+ 2144 0025 00000000 		.4byte	.LASF9
+ 2145 0029 01       		.byte	0x1
+ 2146 002a 1D       		.byte	0x1d
+ 2147 002b 2F000000 		.4byte	0x2f
+ 2148 002f 02       		.uleb128 0x2
+ 2149 0030 01       		.byte	0x1
+ 2150 0031 08       		.byte	0x8
+ 2151 0032 16000000 		.4byte	.LASF1
+ 2152 0036 02       		.uleb128 0x2
+ 2153 0037 02       		.byte	0x2
+ 2154 0038 05       		.byte	0x5
+ 2155 0039 5F010000 		.4byte	.LASF2
+ 2156 003d 02       		.uleb128 0x2
+ 2157 003e 02       		.byte	0x2
+ 2158 003f 07       		.byte	0x7
+ 2159 0040 C4000000 		.4byte	.LASF3
+ 2160 0044 02       		.uleb128 0x2
+ 2161 0045 04       		.byte	0x4
+ 2162 0046 05       		.byte	0x5
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 39
+
+
+ 2163 0047 69010000 		.4byte	.LASF4
+ 2164 004b 02       		.uleb128 0x2
+ 2165 004c 04       		.byte	0x4
+ 2166 004d 07       		.byte	0x7
+ 2167 004e B2000000 		.4byte	.LASF5
+ 2168 0052 02       		.uleb128 0x2
+ 2169 0053 08       		.byte	0x8
+ 2170 0054 05       		.byte	0x5
+ 2171 0055 51010000 		.4byte	.LASF6
+ 2172 0059 02       		.uleb128 0x2
+ 2173 005a 08       		.byte	0x8
+ 2174 005b 07       		.byte	0x7
+ 2175 005c 06010000 		.4byte	.LASF7
+ 2176 0060 04       		.uleb128 0x4
+ 2177 0061 04       		.byte	0x4
+ 2178 0062 05       		.byte	0x5
+ 2179 0063 696E7400 		.ascii	"int\000"
+ 2180 0067 02       		.uleb128 0x2
+ 2181 0068 04       		.byte	0x4
+ 2182 0069 07       		.byte	0x7
+ 2183 006a F9000000 		.4byte	.LASF8
+ 2184 006e 03       		.uleb128 0x3
+ 2185 006f 1D010000 		.4byte	.LASF10
+ 2186 0073 02       		.byte	0x2
+ 2187 0074 18       		.byte	0x18
+ 2188 0075 24000000 		.4byte	0x24
+ 2189 0079 05       		.uleb128 0x5
+ 2190 007a 91000000 		.4byte	0x91
+ 2191 007e 8A000000 		.4byte	0x8a
+ 2192 0082 06       		.uleb128 0x6
+ 2193 0083 8A000000 		.4byte	0x8a
+ 2194 0087 0308     		.2byte	0x803
+ 2195 0089 00       		.byte	0
+ 2196 008a 02       		.uleb128 0x2
+ 2197 008b 04       		.byte	0x4
+ 2198 008c 07       		.byte	0x7
+ 2199 008d 48010000 		.4byte	.LASF11
+ 2200 0091 07       		.uleb128 0x7
+ 2201 0092 6E000000 		.4byte	0x6e
+ 2202 0096 08       		.uleb128 0x8
+ 2203 0097 E7000000 		.4byte	.LASF12
+ 2204 009b 03       		.byte	0x3
+ 2205 009c 1F       		.byte	0x1f
+ 2206 009d A7000000 		.4byte	0xa7
+ 2207 00a1 05       		.uleb128 0x5
+ 2208 00a2 03       		.byte	0x3
+ 2209 00a3 00000000 		.4byte	cy_meta_configecc
+ 2210 00a7 07       		.uleb128 0x7
+ 2211 00a8 79000000 		.4byte	0x79
+ 2212 00ac 05       		.uleb128 0x5
+ 2213 00ad 91000000 		.4byte	0x91
+ 2214 00b1 BC000000 		.4byte	0xbc
+ 2215 00b5 09       		.uleb128 0x9
+ 2216 00b6 8A000000 		.4byte	0x8a
+ 2217 00ba 03       		.byte	0x3
+ 2218 00bb 00       		.byte	0
+ 2219 00bc 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 40
+
+
+ 2220 00bd D7000000 		.4byte	.LASF13
+ 2221 00c1 03       		.byte	0x3
+ 2222 00c2 2D01     		.2byte	0x12d
+ 2223 00c4 CE000000 		.4byte	0xce
+ 2224 00c8 05       		.uleb128 0x5
+ 2225 00c9 03       		.byte	0x3
+ 2226 00ca 00000000 		.4byte	cy_meta_custnvl
+ 2227 00ce 07       		.uleb128 0x7
+ 2228 00cf AC000000 		.4byte	0xac
+ 2229 00d3 0A       		.uleb128 0xa
+ 2230 00d4 3A010000 		.4byte	.LASF14
+ 2231 00d8 03       		.byte	0x3
+ 2232 00d9 3B01     		.2byte	0x13b
+ 2233 00db E5000000 		.4byte	0xe5
+ 2234 00df 05       		.uleb128 0x5
+ 2235 00e0 03       		.byte	0x3
+ 2236 00e1 00000000 		.4byte	cy_meta_wonvl
+ 2237 00e5 07       		.uleb128 0x7
+ 2238 00e6 AC000000 		.4byte	0xac
+ 2239 00ea 05       		.uleb128 0x5
+ 2240 00eb 91000000 		.4byte	0x91
+ 2241 00ef FA000000 		.4byte	0xfa
+ 2242 00f3 09       		.uleb128 0x9
+ 2243 00f4 8A000000 		.4byte	0x8a
+ 2244 00f8 FF       		.byte	0xff
+ 2245 00f9 00       		.byte	0
+ 2246 00fa 0A       		.uleb128 0xa
+ 2247 00fb 25010000 		.4byte	.LASF15
+ 2248 00ff 03       		.byte	0x3
+ 2249 0100 4901     		.2byte	0x149
+ 2250 0102 0C010000 		.4byte	0x10c
+ 2251 0106 05       		.uleb128 0x5
+ 2252 0107 03       		.byte	0x3
+ 2253 0108 00000000 		.4byte	cy_meta_flashprotect
+ 2254 010c 07       		.uleb128 0x7
+ 2255 010d EA000000 		.4byte	0xea
+ 2256 0111 05       		.uleb128 0x5
+ 2257 0112 91000000 		.4byte	0x91
+ 2258 0116 21010000 		.4byte	0x121
+ 2259 011a 09       		.uleb128 0x9
+ 2260 011b 8A000000 		.4byte	0x8a
+ 2261 011f 0B       		.byte	0xb
+ 2262 0120 00       		.byte	0
+ 2263 0121 0A       		.uleb128 0xa
+ 2264 0122 0A000000 		.4byte	.LASF16
+ 2265 0126 03       		.byte	0x3
+ 2266 0127 7601     		.2byte	0x176
+ 2267 0129 33010000 		.4byte	0x133
+ 2268 012d 05       		.uleb128 0x5
+ 2269 012e 03       		.byte	0x3
+ 2270 012f 00000000 		.4byte	cy_metadata
+ 2271 0133 07       		.uleb128 0x7
+ 2272 0134 11010000 		.4byte	0x111
+ 2273 0138 00       		.byte	0
+ 2274              		.section	.debug_abbrev,"",%progbits
+ 2275              	.Ldebug_abbrev0:
+ 2276 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 41
+
+
+ 2277 0001 11       		.uleb128 0x11
+ 2278 0002 01       		.byte	0x1
+ 2279 0003 25       		.uleb128 0x25
+ 2280 0004 0E       		.uleb128 0xe
+ 2281 0005 13       		.uleb128 0x13
+ 2282 0006 0B       		.uleb128 0xb
+ 2283 0007 03       		.uleb128 0x3
+ 2284 0008 0E       		.uleb128 0xe
+ 2285 0009 1B       		.uleb128 0x1b
+ 2286 000a 0E       		.uleb128 0xe
+ 2287 000b 10       		.uleb128 0x10
+ 2288 000c 17       		.uleb128 0x17
+ 2289 000d 00       		.byte	0
+ 2290 000e 00       		.byte	0
+ 2291 000f 02       		.uleb128 0x2
+ 2292 0010 24       		.uleb128 0x24
+ 2293 0011 00       		.byte	0
+ 2294 0012 0B       		.uleb128 0xb
+ 2295 0013 0B       		.uleb128 0xb
+ 2296 0014 3E       		.uleb128 0x3e
+ 2297 0015 0B       		.uleb128 0xb
+ 2298 0016 03       		.uleb128 0x3
+ 2299 0017 0E       		.uleb128 0xe
+ 2300 0018 00       		.byte	0
+ 2301 0019 00       		.byte	0
+ 2302 001a 03       		.uleb128 0x3
+ 2303 001b 16       		.uleb128 0x16
+ 2304 001c 00       		.byte	0
+ 2305 001d 03       		.uleb128 0x3
+ 2306 001e 0E       		.uleb128 0xe
+ 2307 001f 3A       		.uleb128 0x3a
+ 2308 0020 0B       		.uleb128 0xb
+ 2309 0021 3B       		.uleb128 0x3b
+ 2310 0022 0B       		.uleb128 0xb
+ 2311 0023 49       		.uleb128 0x49
+ 2312 0024 13       		.uleb128 0x13
+ 2313 0025 00       		.byte	0
+ 2314 0026 00       		.byte	0
+ 2315 0027 04       		.uleb128 0x4
+ 2316 0028 24       		.uleb128 0x24
+ 2317 0029 00       		.byte	0
+ 2318 002a 0B       		.uleb128 0xb
+ 2319 002b 0B       		.uleb128 0xb
+ 2320 002c 3E       		.uleb128 0x3e
+ 2321 002d 0B       		.uleb128 0xb
+ 2322 002e 03       		.uleb128 0x3
+ 2323 002f 08       		.uleb128 0x8
+ 2324 0030 00       		.byte	0
+ 2325 0031 00       		.byte	0
+ 2326 0032 05       		.uleb128 0x5
+ 2327 0033 01       		.uleb128 0x1
+ 2328 0034 01       		.byte	0x1
+ 2329 0035 49       		.uleb128 0x49
+ 2330 0036 13       		.uleb128 0x13
+ 2331 0037 01       		.uleb128 0x1
+ 2332 0038 13       		.uleb128 0x13
+ 2333 0039 00       		.byte	0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 42
+
+
+ 2334 003a 00       		.byte	0
+ 2335 003b 06       		.uleb128 0x6
+ 2336 003c 21       		.uleb128 0x21
+ 2337 003d 00       		.byte	0
+ 2338 003e 49       		.uleb128 0x49
+ 2339 003f 13       		.uleb128 0x13
+ 2340 0040 2F       		.uleb128 0x2f
+ 2341 0041 05       		.uleb128 0x5
+ 2342 0042 00       		.byte	0
+ 2343 0043 00       		.byte	0
+ 2344 0044 07       		.uleb128 0x7
+ 2345 0045 26       		.uleb128 0x26
+ 2346 0046 00       		.byte	0
+ 2347 0047 49       		.uleb128 0x49
+ 2348 0048 13       		.uleb128 0x13
+ 2349 0049 00       		.byte	0
+ 2350 004a 00       		.byte	0
+ 2351 004b 08       		.uleb128 0x8
+ 2352 004c 34       		.uleb128 0x34
+ 2353 004d 00       		.byte	0
+ 2354 004e 03       		.uleb128 0x3
+ 2355 004f 0E       		.uleb128 0xe
+ 2356 0050 3A       		.uleb128 0x3a
+ 2357 0051 0B       		.uleb128 0xb
+ 2358 0052 3B       		.uleb128 0x3b
+ 2359 0053 0B       		.uleb128 0xb
+ 2360 0054 49       		.uleb128 0x49
+ 2361 0055 13       		.uleb128 0x13
+ 2362 0056 3F       		.uleb128 0x3f
+ 2363 0057 19       		.uleb128 0x19
+ 2364 0058 02       		.uleb128 0x2
+ 2365 0059 18       		.uleb128 0x18
+ 2366 005a 00       		.byte	0
+ 2367 005b 00       		.byte	0
+ 2368 005c 09       		.uleb128 0x9
+ 2369 005d 21       		.uleb128 0x21
+ 2370 005e 00       		.byte	0
+ 2371 005f 49       		.uleb128 0x49
+ 2372 0060 13       		.uleb128 0x13
+ 2373 0061 2F       		.uleb128 0x2f
+ 2374 0062 0B       		.uleb128 0xb
+ 2375 0063 00       		.byte	0
+ 2376 0064 00       		.byte	0
+ 2377 0065 0A       		.uleb128 0xa
+ 2378 0066 34       		.uleb128 0x34
+ 2379 0067 00       		.byte	0
+ 2380 0068 03       		.uleb128 0x3
+ 2381 0069 0E       		.uleb128 0xe
+ 2382 006a 3A       		.uleb128 0x3a
+ 2383 006b 0B       		.uleb128 0xb
+ 2384 006c 3B       		.uleb128 0x3b
+ 2385 006d 05       		.uleb128 0x5
+ 2386 006e 49       		.uleb128 0x49
+ 2387 006f 13       		.uleb128 0x13
+ 2388 0070 3F       		.uleb128 0x3f
+ 2389 0071 19       		.uleb128 0x19
+ 2390 0072 02       		.uleb128 0x2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 43
+
+
+ 2391 0073 18       		.uleb128 0x18
+ 2392 0074 00       		.byte	0
+ 2393 0075 00       		.byte	0
+ 2394 0076 00       		.byte	0
+ 2395              		.section	.debug_aranges,"",%progbits
+ 2396 0000 14000000 		.4byte	0x14
+ 2397 0004 0200     		.2byte	0x2
+ 2398 0006 00000000 		.4byte	.Ldebug_info0
+ 2399 000a 04       		.byte	0x4
+ 2400 000b 00       		.byte	0
+ 2401 000c 0000     		.2byte	0
+ 2402 000e 0000     		.2byte	0
+ 2403 0010 00000000 		.4byte	0
+ 2404 0014 00000000 		.4byte	0
+ 2405              		.section	.debug_line,"",%progbits
+ 2406              	.Ldebug_line0:
+ 2407 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 2407      02003701 
+ 2407      00000201 
+ 2407      FB0E0D00 
+ 2407      01010101 
+ 2408              	.LASF9:
+ 2409 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 2409      6E74385F 
+ 2409      7400
+ 2410              	.LASF16:
+ 2411 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 2411      65746164 
+ 2411      61746100 
+ 2412              	.LASF1:
+ 2413 0016 756E7369 		.ascii	"unsigned char\000"
+ 2413      676E6564 
+ 2413      20636861 
+ 2413      7200
+ 2414              	.LASF17:
+ 2415 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2415      43313120 
+ 2415      352E342E 
+ 2415      31203230 
+ 2415      31363036 
+ 2416 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2416      20726576 
+ 2416      6973696F 
+ 2416      6E203233 
+ 2416      37373135 
+ 2417 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2417      66756E63 
+ 2417      74696F6E 
+ 2417      2D736563 
+ 2417      74696F6E 
+ 2418              	.LASF5:
+ 2419 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2419      20756E73 
+ 2419      69676E65 
+ 2419      6420696E 
+ 2419      7400
+ 2420              	.LASF3:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 44
+
+
+ 2421 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 2421      7420756E 
+ 2421      7369676E 
+ 2421      65642069 
+ 2421      6E7400
+ 2422              	.LASF13:
+ 2423 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 2423      6574615F 
+ 2423      63757374 
+ 2423      6E766C00 
+ 2424              	.LASF12:
+ 2425 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 2425      6574615F 
+ 2425      636F6E66 
+ 2425      69676563 
+ 2425      6300
+ 2426              	.LASF8:
+ 2427 00f9 756E7369 		.ascii	"unsigned int\000"
+ 2427      676E6564 
+ 2427      20696E74 
+ 2427      00
+ 2428              	.LASF7:
+ 2429 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2429      206C6F6E 
+ 2429      6720756E 
+ 2429      7369676E 
+ 2429      65642069 
+ 2430              	.LASF10:
+ 2431 011d 75696E74 		.ascii	"uint8_t\000"
+ 2431      385F7400 
+ 2432              	.LASF15:
+ 2433 0125 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 2433      6574615F 
+ 2433      666C6173 
+ 2433      6870726F 
+ 2433      74656374 
+ 2434              	.LASF14:
+ 2435 013a 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 2435      6574615F 
+ 2435      776F6E76 
+ 2435      6C00
+ 2436              	.LASF11:
+ 2437 0148 73697A65 		.ascii	"sizetype\000"
+ 2437      74797065 
+ 2437      00
+ 2438              	.LASF6:
+ 2439 0151 6C6F6E67 		.ascii	"long long int\000"
+ 2439      206C6F6E 
+ 2439      6720696E 
+ 2439      7400
+ 2440              	.LASF2:
+ 2441 015f 73686F72 		.ascii	"short int\000"
+ 2441      7420696E 
+ 2441      7400
+ 2442              	.LASF4:
+ 2443 0169 6C6F6E67 		.ascii	"long int\000"
+ 2443      20696E74 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccLfrgiw.s 			page 45
+
+
+ 2443      00
+ 2444              	.LASF0:
+ 2445 0172 7369676E 		.ascii	"signed char\000"
+ 2445      65642063 
+ 2445      68617200 
+ 2446              	.LASF19:
+ 2447 017e 433A5C55 		.ascii	"C:\\Users\\Jacob\\Documents\\Junior\\EGR 455\\EGR45"
+ 2447      73657273 
+ 2447      5C4A6163 
+ 2447      6F625C44 
+ 2447      6F63756D 
+ 2448 01ab 355C4D6F 		.ascii	"5\\MotorControl.cydsn\000"
+ 2448      746F7243 
+ 2448      6F6E7472 
+ 2448      6F6C2E63 
+ 2448      7964736E 
+ 2449              	.LASF18:
+ 2450 01c0 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 2450      72617465 
+ 2450      645F536F 
+ 2450      75726365 
+ 2450      5C50536F 
+ 2451              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,2917 @@
+--
+--	Conversion of MotorControl.v to vh2:
+--
+--	Cypress Semiconductor - WARP Version 6.3 IR 41
+--	Mon Oct 23 16:13:51 2017
+--
+
+USE cypress.cypress.all;
+USE cypress.rtlpkg.all;
+ENTITY top_RTL IS
+ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
+END top_RTL;
+--------------------------------------------------------
+ARCHITECTURE R_T_L OF top_RTL IS
+SIGNAL tmpOE__switch1_net_0 : bit;
+SIGNAL zero : bit;
+SIGNAL Net_1 : bit;
+SIGNAL tmpIO_0__switch1_net_0 : bit;
+TERMINAL tmpSIOVREF__switch1_net_0 : bit;
+SIGNAL one : bit;
+SIGNAL tmpINTERRUPT_0__switch1_net_0 : bit;
+SIGNAL \lcd:tmpOE__LCDPort_net_6\ : bit;
+SIGNAL \lcd:tmpOE__LCDPort_net_5\ : bit;
+SIGNAL \lcd:tmpOE__LCDPort_net_4\ : bit;
+SIGNAL \lcd:tmpOE__LCDPort_net_3\ : bit;
+SIGNAL \lcd:tmpOE__LCDPort_net_2\ : bit;
+SIGNAL \lcd:tmpOE__LCDPort_net_1\ : bit;
+SIGNAL \lcd:tmpOE__LCDPort_net_0\ : bit;
+SIGNAL \lcd:tmpFB_6__LCDPort_net_6\ : bit;
+SIGNAL \lcd:tmpFB_6__LCDPort_net_5\ : bit;
+SIGNAL \lcd:tmpFB_6__LCDPort_net_4\ : bit;
+SIGNAL \lcd:tmpFB_6__LCDPort_net_3\ : bit;
+SIGNAL \lcd:tmpFB_6__LCDPort_net_2\ : bit;
+SIGNAL \lcd:tmpFB_6__LCDPort_net_1\ : bit;
+SIGNAL \lcd:tmpFB_6__LCDPort_net_0\ : bit;
+SIGNAL \lcd:tmpIO_6__LCDPort_net_6\ : bit;
+SIGNAL \lcd:tmpIO_6__LCDPort_net_5\ : bit;
+SIGNAL \lcd:tmpIO_6__LCDPort_net_4\ : bit;
+SIGNAL \lcd:tmpIO_6__LCDPort_net_3\ : bit;
+SIGNAL \lcd:tmpIO_6__LCDPort_net_2\ : bit;
+SIGNAL \lcd:tmpIO_6__LCDPort_net_1\ : bit;
+SIGNAL \lcd:tmpIO_6__LCDPort_net_0\ : bit;
+TERMINAL \lcd:tmpSIOVREF__LCDPort_net_0\ : bit;
+SIGNAL \lcd:tmpINTERRUPT_0__LCDPort_net_0\ : bit;
+SIGNAL Net_6 : bit;
+SIGNAL \enc:Net_1129\ : bit;
+SIGNAL \enc:Cnt16:Net_43\ : bit;
+SIGNAL \enc:Net_1275\ : bit;
+SIGNAL \enc:Cnt16:Net_49\ : bit;
+SIGNAL \enc:Cnt16:Net_82\ : bit;
+SIGNAL \enc:Cnt16:Net_89\ : bit;
+SIGNAL \enc:Net_1251\ : bit;
+SIGNAL \enc:Cnt16:Net_95\ : bit;
+SIGNAL \enc:Cnt16:Net_91\ : bit;
+SIGNAL \enc:Cnt16:Net_102\ : bit;
+SIGNAL Net_5 : bit;
+SIGNAL \enc:Cnt16:CounterUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:ctrl_cmod_2\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:ctrl_cmod_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:ctrl_cmod_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:ctrl_capmode_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:ctrl_capmode_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:Clk_Ctl_i\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:control_7\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:control_6\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:control_5\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:control_4\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:control_3\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:control_2\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:control_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:control_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:ctrl_enable\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:prevCapture\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:capt_rising\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:capt_falling\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:capt_either_edge\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:hwCapture\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:reload\ : bit;
+SIGNAL \enc:Net_1260\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:reload_tc\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:final_enable\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:counter_enable\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:status_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:cmp_out_status\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:status_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:per_zero\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:status_2\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:overflow_status\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:status_3\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:underflow_status\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:status_4\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:status_5\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:fifo_full\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:status_6\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:fifo_nempty\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:overflow\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:per_FF\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:underflow\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:overflow_reg_i\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:underflow_reg_i\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:tc_i\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:tc_reg_i\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:cmp_out_i\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:cmp_equal\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:prevCompare\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:cmp_out_reg_i\ : bit;
+SIGNAL \enc:Net_1264\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:count_stored_i\ : bit;
+SIGNAL \enc:Net_1203\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:count_enable\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:dp_dir\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:cs_addr_2\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:cs_addr_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:cs_addr_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:nc16\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:nc17\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:nc1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:nc10\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:nc2\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:nc3\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:z1_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:so_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:nc30\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:nc31\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f1_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f1_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f1_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f1_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:carry\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:sh_right\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:sh_left\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:msb\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_eq_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_eq_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_lt_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_lt_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_zero_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_zero_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_ff_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_ff_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cap_1\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cap_0\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cfb\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:per_equal\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:nc43\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:cmp_less\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:z1_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:so_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f1_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f1_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f1_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f1_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Cnt16:CounterUDB:sC16:counterdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \enc:Cnt16:CounterUDB:sC16:counterdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \enc:Net_1290\ : bit;
+SIGNAL \enc:bQuadDec:sync_clock\ : bit;
+SIGNAL Net_2 : bit;
+SIGNAL \enc:bQuadDec:quad_A_delayed_0\ : bit;
+SIGNAL \enc:bQuadDec:quad_A_delayed_1\ : bit;
+SIGNAL \enc:bQuadDec:quad_A_delayed_2\ : bit;
+SIGNAL \enc:bQuadDec:A_j\ : bit;
+SIGNAL \enc:bQuadDec:A_k\ : bit;
+SIGNAL \enc:bQuadDec:quad_A_filt\ : bit;
+SIGNAL Net_3 : bit;
+SIGNAL \enc:bQuadDec:quad_B_delayed_0\ : bit;
+SIGNAL \enc:bQuadDec:quad_B_delayed_1\ : bit;
+SIGNAL \enc:bQuadDec:quad_B_delayed_2\ : bit;
+SIGNAL \enc:bQuadDec:B_j\ : bit;
+SIGNAL \enc:bQuadDec:B_k\ : bit;
+SIGNAL \enc:bQuadDec:quad_B_filt\ : bit;
+SIGNAL \enc:bQuadDec:index_filt\ : bit;
+SIGNAL \enc:Net_1232\ : bit;
+SIGNAL \enc:bQuadDec:state_2\ : bit;
+SIGNAL \enc:bQuadDec:error\ : bit;
+SIGNAL \enc:bQuadDec:state_3\ : bit;
+SIGNAL \enc:bQuadDec:state_1\ : bit;
+SIGNAL \enc:bQuadDec:state_0\ : bit;
+SIGNAL \enc:bQuadDec:status_0\ : bit;
+SIGNAL \enc:Net_530\ : bit;
+SIGNAL \enc:bQuadDec:status_1\ : bit;
+SIGNAL \enc:Net_611\ : bit;
+SIGNAL \enc:bQuadDec:status_2\ : bit;
+SIGNAL \enc:bQuadDec:status_3\ : bit;
+SIGNAL \enc:bQuadDec:status_4\ : bit;
+SIGNAL \enc:bQuadDec:status_5\ : bit;
+SIGNAL \enc:bQuadDec:status_6\ : bit;
+SIGNAL \enc:Net_1151\ : bit;
+SIGNAL \enc:Net_1248\ : bit;
+SIGNAL \enc:Net_1229\ : bit;
+SIGNAL \enc:Net_1272\ : bit;
+SIGNAL \enc:Net_1287\ : bit;
+SIGNAL tmpOE__C1_net_0 : bit;
+SIGNAL tmpIO_0__C1_net_0 : bit;
+TERMINAL tmpSIOVREF__C1_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__C1_net_0 : bit;
+SIGNAL tmpOE__C2_net_0 : bit;
+SIGNAL tmpIO_0__C2_net_0 : bit;
+TERMINAL tmpSIOVREF__C2_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__C2_net_0 : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_enable\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_is_active\ : bit;
+ATTRIBUTE soft of \adc:AMuxHw_2_Decoder_is_active\:SIGNAL IS '1';
+SIGNAL \adc:cmp_vv_vv_MODGEN_1\ : bit;
+SIGNAL \adc:clock\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_5\ : bit;
+SIGNAL \adc:ch_addr_5\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_4\ : bit;
+SIGNAL \adc:ch_addr_4\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_3\ : bit;
+SIGNAL \adc:ch_addr_3\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_2\ : bit;
+SIGNAL \adc:ch_addr_2\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_1\ : bit;
+SIGNAL \adc:ch_addr_1\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_0\ : bit;
+SIGNAL \adc:ch_addr_0\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_0\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_1\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_2\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_3\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_4\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_5\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_6\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_7\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_8\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_9\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_10\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_11\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_12\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_13\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_14\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_15\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_16\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_17\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_18\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_19\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_20\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_21\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_22\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_23\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_24\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_25\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_26\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_27\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_28\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_29\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_30\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_31\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_32\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_33\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_34\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_35\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_36\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_37\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_38\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_39\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_40\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_41\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_42\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_43\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_44\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_45\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_46\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_47\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_48\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_49\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_50\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_51\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_52\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_53\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_54\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_55\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_56\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_57\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_58\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_59\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_60\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_61\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_62\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_63\ : bit;
+TERMINAL Net_109 : bit;
+TERMINAL Net_108 : bit;
+TERMINAL Net_107 : bit;
+TERMINAL Net_106 : bit;
+TERMINAL Net_105 : bit;
+TERMINAL Net_104 : bit;
+TERMINAL Net_103 : bit;
+TERMINAL Net_102 : bit;
+TERMINAL Net_101 : bit;
+TERMINAL Net_100 : bit;
+TERMINAL Net_99 : bit;
+TERMINAL Net_98 : bit;
+TERMINAL Net_97 : bit;
+TERMINAL Net_96 : bit;
+TERMINAL Net_95 : bit;
+TERMINAL Net_94 : bit;
+TERMINAL Net_93 : bit;
+TERMINAL Net_91 : bit;
+TERMINAL Net_89 : bit;
+TERMINAL Net_88 : bit;
+TERMINAL Net_86 : bit;
+TERMINAL Net_84 : bit;
+TERMINAL Net_83 : bit;
+TERMINAL Net_81 : bit;
+TERMINAL Net_79 : bit;
+TERMINAL Net_78 : bit;
+TERMINAL Net_76 : bit;
+TERMINAL Net_74 : bit;
+TERMINAL Net_73 : bit;
+TERMINAL Net_71 : bit;
+TERMINAL Net_69 : bit;
+TERMINAL Net_68 : bit;
+TERMINAL Net_66 : bit;
+TERMINAL Net_64 : bit;
+TERMINAL Net_63 : bit;
+TERMINAL Net_61 : bit;
+TERMINAL Net_59 : bit;
+TERMINAL Net_58 : bit;
+TERMINAL Net_56 : bit;
+TERMINAL Net_54 : bit;
+TERMINAL Net_53 : bit;
+TERMINAL Net_51 : bit;
+TERMINAL Net_49 : bit;
+TERMINAL Net_48 : bit;
+TERMINAL Net_46 : bit;
+TERMINAL Net_44 : bit;
+TERMINAL Net_43 : bit;
+TERMINAL Net_41 : bit;
+TERMINAL Net_39 : bit;
+TERMINAL Net_38 : bit;
+TERMINAL Net_36 : bit;
+TERMINAL Net_34 : bit;
+TERMINAL Net_33 : bit;
+TERMINAL Net_31 : bit;
+TERMINAL Net_29 : bit;
+TERMINAL Net_28 : bit;
+TERMINAL Net_26 : bit;
+TERMINAL Net_24 : bit;
+TERMINAL Net_23 : bit;
+TERMINAL Net_21 : bit;
+TERMINAL Net_19 : bit;
+TERMINAL Net_18 : bit;
+TERMINAL Net_16 : bit;
+TERMINAL Net_15 : bit;
+TERMINAL \adc:V_single\ : bit;
+TERMINAL \adc:SAR:Net_248\ : bit;
+TERMINAL \adc:SAR:Net_235\ : bit;
+SIGNAL \adc:SAR:vp_ctl_0\ : bit;
+SIGNAL \adc:SAR:vp_ctl_2\ : bit;
+SIGNAL \adc:SAR:vn_ctl_1\ : bit;
+SIGNAL \adc:SAR:vn_ctl_3\ : bit;
+SIGNAL \adc:SAR:vp_ctl_1\ : bit;
+SIGNAL \adc:SAR:vp_ctl_3\ : bit;
+SIGNAL \adc:SAR:vn_ctl_0\ : bit;
+SIGNAL \adc:SAR:vn_ctl_2\ : bit;
+SIGNAL \adc:SAR:Net_188\ : bit;
+TERMINAL \adc:Net_2803\ : bit;
+TERMINAL \adc:SAR:Net_126\ : bit;
+TERMINAL \adc:SAR:Net_215\ : bit;
+TERMINAL \adc:SAR:Net_257\ : bit;
+SIGNAL \adc:SAR:soc\ : bit;
+SIGNAL \adc:SAR:Net_252\ : bit;
+SIGNAL Net_13 : bit;
+SIGNAL \adc:SAR:Net_207_11\ : bit;
+SIGNAL \adc:SAR:Net_207_10\ : bit;
+SIGNAL \adc:SAR:Net_207_9\ : bit;
+SIGNAL \adc:SAR:Net_207_8\ : bit;
+SIGNAL \adc:SAR:Net_207_7\ : bit;
+SIGNAL \adc:SAR:Net_207_6\ : bit;
+SIGNAL \adc:SAR:Net_207_5\ : bit;
+SIGNAL \adc:SAR:Net_207_4\ : bit;
+SIGNAL \adc:SAR:Net_207_3\ : bit;
+SIGNAL \adc:SAR:Net_207_2\ : bit;
+SIGNAL \adc:SAR:Net_207_1\ : bit;
+SIGNAL \adc:SAR:Net_207_0\ : bit;
+SIGNAL \adc:Net_3830\ : bit;
+TERMINAL \adc:SAR:Net_209\ : bit;
+TERMINAL \adc:SAR:Net_149\ : bit;
+TERMINAL \adc:SAR:Net_255\ : bit;
+TERMINAL \adc:SAR:Net_368\ : bit;
+SIGNAL \adc:SAR:Net_221\ : bit;
+SIGNAL \adc:SAR:Net_381\ : bit;
+SIGNAL \adc:SAR:Net_376\ : bit;
+SIGNAL \adc:bSAR_SEQ:enable\ : bit;
+SIGNAL \adc:bSAR_SEQ:control_0\ : bit;
+SIGNAL \adc:bSAR_SEQ:load_period\ : bit;
+SIGNAL \adc:bSAR_SEQ:control_1\ : bit;
+SIGNAL \adc:bSAR_SEQ:sw_soc\ : bit;
+SIGNAL \adc:bSAR_SEQ:control_2\ : bit;
+SIGNAL \adc:bSAR_SEQ:clk_fin\ : bit;
+SIGNAL \adc:bSAR_SEQ:clk_ctrl\ : bit;
+SIGNAL \adc:bSAR_SEQ:count_5\ : bit;
+SIGNAL \adc:bSAR_SEQ:count_4\ : bit;
+SIGNAL \adc:bSAR_SEQ:count_3\ : bit;
+SIGNAL \adc:bSAR_SEQ:count_2\ : bit;
+SIGNAL \adc:bSAR_SEQ:count_1\ : bit;
+SIGNAL \adc:bSAR_SEQ:count_0\ : bit;
+SIGNAL \adc:bSAR_SEQ:status_7\ : bit;
+SIGNAL \adc:bSAR_SEQ:status_6\ : bit;
+SIGNAL \adc:bSAR_SEQ:status_5\ : bit;
+SIGNAL \adc:bSAR_SEQ:status_4\ : bit;
+SIGNAL \adc:bSAR_SEQ:status_3\ : bit;
+SIGNAL \adc:bSAR_SEQ:status_2\ : bit;
+SIGNAL \adc:bSAR_SEQ:status_1\ : bit;
+SIGNAL \adc:bSAR_SEQ:status_0\ : bit;
+SIGNAL \adc:bSAR_SEQ:nrq_edge_detect_reg\ : bit;
+SIGNAL \adc:bSAR_SEQ:cnt_enable\ : bit;
+SIGNAL \adc:Net_3710\ : bit;
+SIGNAL \adc:bSAR_SEQ:bus_clk_nrq_reg\ : bit;
+SIGNAL \adc:Net_3935\ : bit;
+SIGNAL \adc:bSAR_SEQ:nrq_reg\ : bit;
+SIGNAL \adc:bSAR_SEQ:nrq_edge_detect\ : bit;
+SIGNAL Net_14 : bit;
+SIGNAL \adc:soc_out\ : bit;
+SIGNAL \adc:bSAR_SEQ:control_7\ : bit;
+SIGNAL \adc:bSAR_SEQ:control_6\ : bit;
+SIGNAL \adc:bSAR_SEQ:control_5\ : bit;
+SIGNAL \adc:bSAR_SEQ:control_4\ : bit;
+SIGNAL \adc:bSAR_SEQ:control_3\ : bit;
+SIGNAL \adc:bSAR_SEQ:count_6\ : bit;
+SIGNAL \adc:bSAR_SEQ:cnt_tc\ : bit;
+SIGNAL \adc:Net_3874\ : bit;
+SIGNAL \adc:Net_3698\ : bit;
+SIGNAL \adc:nrq\ : bit;
+SIGNAL \adc:Net_3905\ : bit;
+SIGNAL \adc:Net_3867\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newa_5\ : bit;
+SIGNAL \adc:MODIN1_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newa_4\ : bit;
+SIGNAL \adc:MODIN1_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newa_3\ : bit;
+SIGNAL \adc:MODIN1_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newa_2\ : bit;
+SIGNAL \adc:MODIN1_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newa_1\ : bit;
+SIGNAL \adc:MODIN1_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newa_0\ : bit;
+SIGNAL \adc:MODIN1_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newb_5\ : bit;
+SIGNAL \adc:MODIN2_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newb_4\ : bit;
+SIGNAL \adc:MODIN2_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newb_3\ : bit;
+SIGNAL \adc:MODIN2_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newb_2\ : bit;
+SIGNAL \adc:MODIN2_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newb_1\ : bit;
+SIGNAL \adc:MODIN2_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:newb_0\ : bit;
+SIGNAL \adc:MODIN2_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:dataa_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:dataa_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:dataa_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:dataa_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:dataa_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:dataa_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:datab_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:datab_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:datab_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:datab_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:datab_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:datab_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:a_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:a_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:a_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:a_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:a_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:a_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:b_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:b_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:b_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:b_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:b_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:b_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:xnor_array_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:xnor_array_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:xnor_array_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:xnor_array_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:xnor_array_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:xnor_array_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:aeqb_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:eq_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:eq_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:eq_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:eq_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:eq_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:eq_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:eqi_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:aeqb_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:albi_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:agbi_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:lt_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:gt_3\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:lt_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:gt_4\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:lt_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:gt_5\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:lti_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:gti_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:albi_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:agbi_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:lt_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:gt_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:lt_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:gt_1\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:lt_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:gt_2\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:lti_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:gti_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:albi_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:gx:u0:agbi_0\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:xeq\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:xneq\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:xlt\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:xlte\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:xgt\ : bit;
+SIGNAL \adc:MODULE_1:g1:a0:xgte\ : bit;
+SIGNAL \adc:MODULE_1:lt\ : bit;
+ATTRIBUTE port_state_att of \adc:MODULE_1:lt\:SIGNAL IS 2;
+SIGNAL \adc:MODULE_1:gt\ : bit;
+ATTRIBUTE port_state_att of \adc:MODULE_1:gt\:SIGNAL IS 2;
+SIGNAL \adc:MODULE_1:gte\ : bit;
+ATTRIBUTE port_state_att of \adc:MODULE_1:gte\:SIGNAL IS 2;
+SIGNAL \adc:MODULE_1:lte\ : bit;
+ATTRIBUTE port_state_att of \adc:MODULE_1:lte\:SIGNAL IS 2;
+SIGNAL \adc:MODULE_1:neq\ : bit;
+ATTRIBUTE port_state_att of \adc:MODULE_1:neq\:SIGNAL IS 2;
+SIGNAL tmpOE__pot_net_0 : bit;
+SIGNAL tmpFB_0__pot_net_0 : bit;
+SIGNAL tmpIO_0__pot_net_0 : bit;
+TERMINAL tmpSIOVREF__pot_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__pot_net_0 : bit;
+SIGNAL tmpOE__motora_net_0 : bit;
+SIGNAL Net_182 : bit;
+SIGNAL tmpFB_0__motora_net_0 : bit;
+SIGNAL tmpIO_0__motora_net_0 : bit;
+TERMINAL tmpSIOVREF__motora_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__motora_net_0 : bit;
+SIGNAL \pwm:PWMUDB:km_run\ : bit;
+SIGNAL \pwm:PWMUDB:min_kill_reg\ : bit;
+SIGNAL Net_168 : bit;
+SIGNAL \pwm:PWMUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \pwm:PWMUDB:control_7\ : bit;
+SIGNAL \pwm:PWMUDB:control_6\ : bit;
+SIGNAL \pwm:PWMUDB:control_5\ : bit;
+SIGNAL \pwm:PWMUDB:control_4\ : bit;
+SIGNAL \pwm:PWMUDB:control_3\ : bit;
+SIGNAL \pwm:PWMUDB:control_2\ : bit;
+SIGNAL \pwm:PWMUDB:control_1\ : bit;
+SIGNAL \pwm:PWMUDB:control_0\ : bit;
+SIGNAL \pwm:PWMUDB:ctrl_enable\ : bit;
+SIGNAL \pwm:PWMUDB:ctrl_cmpmode2_2\ : bit;
+SIGNAL \pwm:PWMUDB:ctrl_cmpmode2_1\ : bit;
+SIGNAL \pwm:PWMUDB:ctrl_cmpmode2_0\ : bit;
+SIGNAL \pwm:PWMUDB:ctrl_cmpmode1_2\ : bit;
+SIGNAL \pwm:PWMUDB:ctrl_cmpmode1_1\ : bit;
+SIGNAL \pwm:PWMUDB:ctrl_cmpmode1_0\ : bit;
+SIGNAL \pwm:PWMUDB:prevCapture\ : bit;
+SIGNAL \pwm:PWMUDB:capt_rising\ : bit;
+SIGNAL \pwm:PWMUDB:capt_falling\ : bit;
+SIGNAL \pwm:PWMUDB:hwCapture\ : bit;
+SIGNAL \pwm:PWMUDB:hwEnable\ : bit;
+SIGNAL \pwm:PWMUDB:trig_last\ : bit;
+SIGNAL \pwm:PWMUDB:trig_rise\ : bit;
+SIGNAL \pwm:PWMUDB:trig_fall\ : bit;
+SIGNAL \pwm:PWMUDB:trig_out\ : bit;
+SIGNAL \pwm:PWMUDB:runmode_enable\ : bit;
+SIGNAL \pwm:PWMUDB:runmode_enable\\R\ : bit;
+SIGNAL Net_127 : bit;
+SIGNAL \pwm:PWMUDB:runmode_enable\\S\ : bit;
+SIGNAL \pwm:PWMUDB:final_enable\ : bit;
+SIGNAL \pwm:PWMUDB:sc_kill_tmp\ : bit;
+SIGNAL \pwm:PWMUDB:tc_i\ : bit;
+SIGNAL \pwm:PWMUDB:ltch_kill_reg\ : bit;
+SIGNAL \pwm:PWMUDB:ltch_kill_reg\\R\ : bit;
+SIGNAL \pwm:PWMUDB:ltch_kill_reg\\S\ : bit;
+SIGNAL \pwm:PWMUDB:min_kill_reg\\R\ : bit;
+SIGNAL \pwm:PWMUDB:min_kill_reg\\S\ : bit;
+SIGNAL \pwm:PWMUDB:sc_kill\ : bit;
+SIGNAL \pwm:PWMUDB:min_kill\ : bit;
+SIGNAL \pwm:PWMUDB:final_kill\ : bit;
+SIGNAL \pwm:PWMUDB:km_tc\ : bit;
+SIGNAL \pwm:PWMUDB:db_tc\ : bit;
+SIGNAL \pwm:PWMUDB:dith_count_1\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_1\ : bit;
+SIGNAL \pwm:PWMUDB:dith_count_0\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_0\ : bit;
+SIGNAL \pwm:PWMUDB:dith_count_1\\R\ : bit;
+SIGNAL \pwm:PWMUDB:dith_count_1\\S\ : bit;
+SIGNAL \pwm:PWMUDB:dith_count_0\\R\ : bit;
+SIGNAL \pwm:PWMUDB:dith_count_0\\S\ : bit;
+SIGNAL \pwm:PWMUDB:dith_sel\ : bit;
+SIGNAL \pwm:PWMUDB:status_6\ : bit;
+SIGNAL \pwm:PWMUDB:status_5\ : bit;
+SIGNAL \pwm:PWMUDB:status_4\ : bit;
+SIGNAL \pwm:PWMUDB:status_3\ : bit;
+SIGNAL \pwm:PWMUDB:status_2\ : bit;
+SIGNAL \pwm:PWMUDB:status_1\ : bit;
+SIGNAL \pwm:PWMUDB:status_0\ : bit;
+SIGNAL \pwm:Net_55\ : bit;
+SIGNAL \pwm:PWMUDB:prevCompare1\ : bit;
+SIGNAL \pwm:PWMUDB:cmp1\ : bit;
+SIGNAL \pwm:PWMUDB:cmp1_status\ : bit;
+SIGNAL \pwm:PWMUDB:prevCompare2\ : bit;
+SIGNAL \pwm:PWMUDB:cmp2\ : bit;
+SIGNAL \pwm:PWMUDB:cmp2_status\ : bit;
+SIGNAL \pwm:PWMUDB:cmp1_status_reg\ : bit;
+SIGNAL \pwm:PWMUDB:cmp2_status_reg\ : bit;
+SIGNAL \pwm:PWMUDB:final_kill_reg\ : bit;
+SIGNAL \pwm:PWMUDB:cmp1_status_reg\\R\ : bit;
+SIGNAL \pwm:PWMUDB:cmp1_status_reg\\S\ : bit;
+SIGNAL \pwm:PWMUDB:cmp2_status_reg\\R\ : bit;
+SIGNAL \pwm:PWMUDB:cmp2_status_reg\\S\ : bit;
+SIGNAL \pwm:PWMUDB:final_kill_reg\\R\ : bit;
+SIGNAL \pwm:PWMUDB:final_kill_reg\\S\ : bit;
+SIGNAL \pwm:PWMUDB:fifo_full\ : bit;
+SIGNAL \pwm:PWMUDB:cs_addr_2\ : bit;
+SIGNAL \pwm:PWMUDB:cs_addr_1\ : bit;
+SIGNAL \pwm:PWMUDB:cs_addr_0\ : bit;
+SIGNAL \pwm:PWMUDB:final_capture\ : bit;
+SIGNAL \pwm:PWMUDB:cmp1_eq\ : bit;
+SIGNAL \pwm:PWMUDB:cmp1_less\ : bit;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:ff0\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:ff0\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:cmp2_eq\ : bit;
+SIGNAL \pwm:PWMUDB:cmp2_less\ : bit;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:z1\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:z1\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:ff1\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:ff1\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:ov_msb\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:ov_msb\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:co_msb\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:co_msb\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:cmsb\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:cmsb\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:so\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:so\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:f0_bus_stat\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:f0_bus_stat\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:f0_blk_stat\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:f0_blk_stat\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:fifo_nempty\ : bit;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:ce0_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:ce0_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:cl0_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:cl0_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:z0_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:z0_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:ff0_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:ff0_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:ce1_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:ce1_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:cl1_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:cl1_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:z1_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:z1_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:ff1_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:ff1_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:ov_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:ov_msb_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:co_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:co_msb_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:cmsb_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:cmsb_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:so_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:so_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:f0_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:f0_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:f0_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:f0_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:f1_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:f1_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:sP8:pwmdp:f1_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \pwm:PWMUDB:sP8:pwmdp:f1_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \pwm:PWMUDB:compare1\ : bit;
+SIGNAL \pwm:PWMUDB:compare2\ : bit;
+SIGNAL \pwm:PWMUDB:pwm_i_reg\ : bit;
+SIGNAL \pwm:PWMUDB:pwm_i\ : bit;
+SIGNAL \pwm:PWMUDB:pwm1_i_reg\ : bit;
+SIGNAL \pwm:PWMUDB:pwm1_i\ : bit;
+SIGNAL \pwm:PWMUDB:pwm2_i_reg\ : bit;
+SIGNAL \pwm:PWMUDB:pwm2_i\ : bit;
+SIGNAL \pwm:PWMUDB:tc_i_reg\ : bit;
+SIGNAL \pwm:Net_101\ : bit;
+SIGNAL \pwm:Net_96\ : bit;
+SIGNAL Net_172 : bit;
+SIGNAL \pwm:PWMUDB:pwm_temp\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_31\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_30\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_29\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_28\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_27\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_26\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_25\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_24\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_23\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_22\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_21\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_20\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_19\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_18\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_17\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_16\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_15\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_14\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_13\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_12\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_11\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_10\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_9\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_8\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_7\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_6\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_5\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_4\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_3\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_2\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_1\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:b_0\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_31\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_30\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_29\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_28\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_27\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_26\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_25\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_24\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_23\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_22\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_21\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_20\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_19\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_18\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_17\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_16\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_15\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_14\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_13\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_12\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_11\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_10\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_9\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_8\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_7\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_6\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_5\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_4\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_3\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_2\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_1\ : bit;
+SIGNAL \pwm:PWMUDB:MODIN3_1\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:a_0\ : bit;
+SIGNAL \pwm:PWMUDB:MODIN3_0\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_31\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_30\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_29\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_28\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_27\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_26\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_25\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_24\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_23\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_22\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_21\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_20\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_19\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_18\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_17\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_16\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_15\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_14\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_13\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_12\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_11\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_10\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_9\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_8\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_7\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_6\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_5\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_4\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_3\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_2\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_1\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:b_0\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_31\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_31\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_30\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_30\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_29\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_29\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_28\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_28\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_27\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_27\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_26\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_26\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_25\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_25\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_24\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_24\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_23\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_23\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_22\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_22\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_21\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_21\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_20\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_20\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_19\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_19\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_18\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_18\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_17\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_17\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_16\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_16\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_15\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_15\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_14\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_14\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_13\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_13\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_12\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_12\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_11\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_11\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_10\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_10\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_9\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_9\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_8\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_8\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_7\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_7\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_6\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_6\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_5\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_5\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_4\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_4\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_3\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_3\ : bit;
+SIGNAL \pwm:PWMUDB:add_vi_vv_MODGEN_2_2\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_2\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_1\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:s_0\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_31\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_30\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_29\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_28\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_27\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_26\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_25\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_24\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_24\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_23\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_22\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_21\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_20\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_19\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_18\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_17\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_16\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_16\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_15\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_14\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_13\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_12\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_11\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_10\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_9\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_8\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_8\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_7\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_6\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_5\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_4\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_3\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
+SIGNAL \pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_188 : bit;
+SIGNAL Net_173 : bit;
+SIGNAL Net_170 : bit;
+SIGNAL \pwm:Net_113\ : bit;
+SIGNAL \pwm:Net_107\ : bit;
+SIGNAL \pwm:Net_114\ : bit;
+SIGNAL tmpOE__motorb_net_0 : bit;
+SIGNAL tmpFB_0__motorb_net_0 : bit;
+SIGNAL tmpIO_0__motorb_net_0 : bit;
+TERMINAL tmpSIOVREF__motorb_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__motorb_net_0 : bit;
+SIGNAL \enc:Net_1251\\D\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:prevCapture\\D\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:overflow_reg_i\\D\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:underflow_reg_i\\D\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:tc_reg_i\\D\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:prevCompare\\D\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:cmp_out_reg_i\\D\ : bit;
+SIGNAL \enc:Cnt16:CounterUDB:count_stored_i\\D\ : bit;
+SIGNAL \enc:Net_1203\\D\ : bit;
+SIGNAL \enc:bQuadDec:quad_A_filt\\D\ : bit;
+SIGNAL \enc:bQuadDec:quad_B_filt\\D\ : bit;
+SIGNAL \enc:bQuadDec:state_2\\D\ : bit;
+SIGNAL \enc:bQuadDec:state_3\\D\ : bit;
+SIGNAL \enc:bQuadDec:state_1\\D\ : bit;
+SIGNAL \enc:bQuadDec:state_0\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_5\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_4\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_3\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_2\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_1\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_old_id_0\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_0\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_1\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_2\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_3\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_4\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_5\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_6\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_7\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_8\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_9\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_10\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_11\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_12\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_13\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_14\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_15\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_16\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_17\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_18\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_19\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_20\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_21\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_22\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_23\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_24\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_25\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_26\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_27\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_28\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_29\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_30\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_31\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_32\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_33\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_34\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_35\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_36\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_37\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_38\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_39\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_40\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_41\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_42\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_43\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_44\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_45\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_46\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_47\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_48\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_49\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_50\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_51\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_52\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_53\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_54\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_55\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_56\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_57\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_58\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_59\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_60\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_61\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_62\\D\ : bit;
+SIGNAL \adc:AMuxHw_2_Decoder_one_hot_63\\D\ : bit;
+SIGNAL \adc:bSAR_SEQ:nrq_edge_detect_reg\\D\ : bit;
+SIGNAL \adc:bSAR_SEQ:bus_clk_nrq_reg\\D\ : bit;
+SIGNAL \adc:bSAR_SEQ:nrq_reg\\D\ : bit;
+SIGNAL \pwm:PWMUDB:min_kill_reg\\D\ : bit;
+SIGNAL \pwm:PWMUDB:prevCapture\\D\ : bit;
+SIGNAL \pwm:PWMUDB:trig_last\\D\ : bit;
+SIGNAL \pwm:PWMUDB:runmode_enable\\D\ : bit;
+SIGNAL \pwm:PWMUDB:sc_kill_tmp\\D\ : bit;
+SIGNAL \pwm:PWMUDB:ltch_kill_reg\\D\ : bit;
+SIGNAL \pwm:PWMUDB:dith_count_1\\D\ : bit;
+SIGNAL \pwm:PWMUDB:dith_count_0\\D\ : bit;
+SIGNAL \pwm:PWMUDB:prevCompare1\\D\ : bit;
+SIGNAL \pwm:PWMUDB:prevCompare2\\D\ : bit;
+SIGNAL \pwm:PWMUDB:cmp1_status_reg\\D\ : bit;
+SIGNAL \pwm:PWMUDB:cmp2_status_reg\\D\ : bit;
+SIGNAL \pwm:PWMUDB:final_kill_reg\\D\ : bit;
+SIGNAL \pwm:PWMUDB:pwm_i_reg\\D\ : bit;
+SIGNAL \pwm:PWMUDB:pwm1_i_reg\\D\ : bit;
+SIGNAL \pwm:PWMUDB:pwm2_i_reg\\D\ : bit;
+SIGNAL \pwm:PWMUDB:tc_i_reg\\D\ : bit;
+BEGIN
+
+zero <=  ('0') ;
+
+tmpOE__switch1_net_0 <=  ('1') ;
+
+\enc:Cnt16:CounterUDB:reload\ <= (\enc:Cnt16:CounterUDB:overflow\
+	OR \enc:Cnt16:CounterUDB:status_1\
+	OR \enc:Net_1260\);
+
+\enc:Cnt16:CounterUDB:status_0\ <= ((not \enc:Cnt16:CounterUDB:prevCompare\ and \enc:Cnt16:CounterUDB:cmp_out_i\));
+
+\enc:Cnt16:CounterUDB:status_2\ <= ((not \enc:Cnt16:CounterUDB:overflow_reg_i\ and \enc:Cnt16:CounterUDB:overflow\));
+
+\enc:Cnt16:CounterUDB:status_3\ <= ((not \enc:Cnt16:CounterUDB:underflow_reg_i\ and \enc:Cnt16:CounterUDB:status_1\));
+
+\enc:Cnt16:CounterUDB:count_enable\ <= ((not \enc:Cnt16:CounterUDB:count_stored_i\ and \enc:Cnt16:CounterUDB:control_7\ and \enc:Net_1203\));
+
+\enc:Cnt16:CounterUDB:reload_tc\ <= (\enc:Cnt16:CounterUDB:status_1\
+	OR \enc:Cnt16:CounterUDB:overflow\);
+
+\enc:bQuadDec:quad_A_filt\\D\ <= ((\enc:bQuadDec:quad_A_delayed_0\ and \enc:bQuadDec:quad_A_delayed_1\ and \enc:bQuadDec:quad_A_delayed_2\)
+	OR (\enc:bQuadDec:quad_A_delayed_2\ and \enc:bQuadDec:quad_A_filt\)
+	OR (\enc:bQuadDec:quad_A_delayed_1\ and \enc:bQuadDec:quad_A_filt\)
+	OR (\enc:bQuadDec:quad_A_delayed_0\ and \enc:bQuadDec:quad_A_filt\));
+
+\enc:bQuadDec:quad_B_filt\\D\ <= ((\enc:bQuadDec:quad_B_delayed_0\ and \enc:bQuadDec:quad_B_delayed_1\ and \enc:bQuadDec:quad_B_delayed_2\)
+	OR (\enc:bQuadDec:quad_B_delayed_2\ and \enc:bQuadDec:quad_B_filt\)
+	OR (\enc:bQuadDec:quad_B_delayed_1\ and \enc:bQuadDec:quad_B_filt\)
+	OR (\enc:bQuadDec:quad_B_delayed_0\ and \enc:bQuadDec:quad_B_filt\));
+
+\enc:bQuadDec:state_3\\D\ <= ((not \enc:Net_1260\ and not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_B_filt\ and \enc:bQuadDec:state_1\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and \enc:bQuadDec:state_1\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:quad_B_filt\));
+
+\enc:bQuadDec:state_2\\D\ <= ((\enc:bQuadDec:error\ and \enc:bQuadDec:state_0\)
+	OR (\enc:Net_1260\ and \enc:bQuadDec:state_0\)
+	OR (\enc:bQuadDec:error\ and \enc:bQuadDec:state_1\)
+	OR (\enc:Net_1260\ and \enc:bQuadDec:state_1\)
+	OR (\enc:Net_1260\ and \enc:bQuadDec:error\));
+
+\enc:bQuadDec:state_1\\D\ <= ((not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_A_filt\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:error\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:error\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:quad_B_filt\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:error\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:state_1\));
+
+\enc:bQuadDec:state_0\\D\ <= ((not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_B_filt\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_B_filt\ and \enc:bQuadDec:error\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:error\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:quad_B_filt\ and \enc:bQuadDec:state_1\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:error\ and \enc:bQuadDec:quad_B_filt\ and \enc:bQuadDec:state_0\));
+
+\enc:Net_1251\\D\ <= ((not \enc:Net_1260\ and not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:state_1\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:state_1\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:quad_B_filt\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:Net_1251\ and \enc:bQuadDec:error\)
+	OR (not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_B_filt\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:error\ and \enc:Net_1251\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and \enc:Net_1251\ and \enc:bQuadDec:state_1\)
+	OR (not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:Net_1251\ and \enc:bQuadDec:quad_B_filt\)
+	OR (not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:Net_1251\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_0\ and \enc:Net_1251\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and \enc:Net_1251\ and \enc:bQuadDec:quad_B_filt\));
+
+\enc:Net_1203\\D\ <= ((not \enc:Net_1260\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:Net_1203\ and \enc:bQuadDec:error\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:state_1\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:error\ and \enc:bQuadDec:quad_B_filt\ and \enc:bQuadDec:state_1\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:state_1\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:quad_B_filt\ and \enc:bQuadDec:state_1\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:Net_1260\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and \enc:bQuadDec:quad_A_filt\ and \enc:bQuadDec:quad_B_filt\ and \enc:bQuadDec:state_0\)
+	OR (not \enc:bQuadDec:quad_B_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_A_filt\)
+	OR (not \enc:bQuadDec:quad_A_filt\ and not \enc:bQuadDec:error\ and not \enc:bQuadDec:state_1\ and not \enc:bQuadDec:state_0\ and \enc:bQuadDec:quad_B_filt\));
+
+\enc:Net_530\ <= ((not \enc:Net_1264\ and \enc:Net_1275\ and \enc:Net_1251\));
+
+\enc:Net_611\ <= ((not \enc:Net_1251\ and not \enc:Net_1264\ and \enc:Net_1275\));
+
+\adc:AMuxHw_2_Decoder_is_active\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_0\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (\adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_0\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\));
+
+\adc:AMuxHw_2_Decoder_one_hot_1\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_2\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_3\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_4\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_2\));
+
+\adc:AMuxHw_2_Decoder_one_hot_5\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_6\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_7\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_8\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_3\));
+
+\adc:AMuxHw_2_Decoder_one_hot_9\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_10\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_11\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_12\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\));
+
+\adc:AMuxHw_2_Decoder_one_hot_13\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_14\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_15\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_16\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\));
+
+\adc:AMuxHw_2_Decoder_one_hot_17\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_18\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_19\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_20\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_2\));
+
+\adc:AMuxHw_2_Decoder_one_hot_21\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_22\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_23\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_24\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\));
+
+\adc:AMuxHw_2_Decoder_one_hot_25\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_26\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_27\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_28\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\));
+
+\adc:AMuxHw_2_Decoder_one_hot_29\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_30\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_31\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_32\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\));
+
+\adc:AMuxHw_2_Decoder_one_hot_33\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_34\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_35\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_36\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_2\));
+
+\adc:AMuxHw_2_Decoder_one_hot_37\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_38\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_39\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_40\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_3\));
+
+\adc:AMuxHw_2_Decoder_one_hot_41\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_42\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_43\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_44\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\));
+
+\adc:AMuxHw_2_Decoder_one_hot_45\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_46\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_47\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_48\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\));
+
+\adc:AMuxHw_2_Decoder_one_hot_49\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_50\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_51\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_52\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_2\));
+
+\adc:AMuxHw_2_Decoder_one_hot_53\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_54\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_3\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_55\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_56\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\));
+
+\adc:AMuxHw_2_Decoder_one_hot_57\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_58\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_59\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_60\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\));
+
+\adc:AMuxHw_2_Decoder_one_hot_61\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:AMuxHw_2_Decoder_one_hot_62\\D\ <= ((not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\));
+
+\adc:AMuxHw_2_Decoder_one_hot_63\\D\ <= ((\adc:AMuxHw_2_Decoder_is_active\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\));
+
+\adc:bSAR_SEQ:cnt_enable\ <= (\adc:bSAR_SEQ:load_period\
+	OR Net_13);
+
+\adc:bSAR_SEQ:bus_clk_nrq_reg\\D\ <= ((not Net_14 and \adc:bSAR_SEQ:bus_clk_nrq_reg\)
+	OR \adc:Net_3935\);
+
+\adc:bSAR_SEQ:nrq_edge_detect\ <= ((not \adc:bSAR_SEQ:nrq_reg\ and \adc:bSAR_SEQ:bus_clk_nrq_reg\));
+
+\adc:MODULE_1:g1:a0:gx:u0:lt_5\ <= ((not \adc:ch_addr_5\ and not \adc:ch_addr_4\ and not \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_3\)
+	OR (not \adc:ch_addr_4\ and not \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_3\)
+	OR (not \adc:ch_addr_5\ and not \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\)
+	OR (not \adc:ch_addr_3\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:AMuxHw_2_Decoder_old_id_3\)
+	OR (not \adc:ch_addr_5\ and not \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_4\)
+	OR (not \adc:ch_addr_4\ and \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:AMuxHw_2_Decoder_old_id_4\)
+	OR (not \adc:ch_addr_5\ and \adc:AMuxHw_2_Decoder_old_id_5\));
+
+\adc:MODULE_1:g1:a0:gx:u0:gt_5\ <= ((not \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_5\ and \adc:ch_addr_4\ and \adc:ch_addr_3\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_4\ and \adc:ch_addr_3\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_5\ and \adc:ch_addr_3\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and not \adc:AMuxHw_2_Decoder_old_id_3\ and \adc:ch_addr_3\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_5\ and \adc:ch_addr_4\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and not \adc:AMuxHw_2_Decoder_old_id_4\ and \adc:ch_addr_4\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_5\ and \adc:ch_addr_5\));
+
+\adc:MODULE_1:g1:a0:gx:u0:lt_2\ <= ((not \adc:ch_addr_2\ and not \adc:ch_addr_1\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_0\)
+	OR (not \adc:ch_addr_1\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_0\)
+	OR (not \adc:ch_addr_2\ and not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\)
+	OR (not \adc:ch_addr_0\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:AMuxHw_2_Decoder_old_id_0\)
+	OR (not \adc:ch_addr_2\ and not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_1\)
+	OR (not \adc:ch_addr_1\ and \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:AMuxHw_2_Decoder_old_id_1\)
+	OR (not \adc:ch_addr_2\ and \adc:AMuxHw_2_Decoder_old_id_2\));
+
+\adc:MODULE_1:g1:a0:gx:u0:gt_2\ <= ((not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_2\ and \adc:ch_addr_1\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_1\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_2\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and not \adc:AMuxHw_2_Decoder_old_id_0\ and \adc:ch_addr_0\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_2\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_2\ and not \adc:AMuxHw_2_Decoder_old_id_1\ and \adc:ch_addr_1\)
+	OR (not \adc:AMuxHw_2_Decoder_old_id_2\ and \adc:ch_addr_2\));
+
+\pwm:PWMUDB:sc_kill_tmp\\D\ <= (not \pwm:PWMUDB:tc_i\);
+
+\pwm:PWMUDB:dith_count_1\\D\ <= ((not \pwm:PWMUDB:dith_count_1\ and \pwm:PWMUDB:tc_i\ and \pwm:PWMUDB:dith_count_0\)
+	OR (not \pwm:PWMUDB:dith_count_0\ and \pwm:PWMUDB:dith_count_1\)
+	OR (not \pwm:PWMUDB:tc_i\ and \pwm:PWMUDB:dith_count_1\));
+
+\pwm:PWMUDB:dith_count_0\\D\ <= ((not \pwm:PWMUDB:dith_count_0\ and \pwm:PWMUDB:tc_i\)
+	OR (not \pwm:PWMUDB:tc_i\ and \pwm:PWMUDB:dith_count_0\));
+
+\pwm:PWMUDB:cmp1_status\ <= ((not \pwm:PWMUDB:prevCompare1\ and \pwm:PWMUDB:cmp1_less\));
+
+\pwm:PWMUDB:cmp2_status\ <= ((not \pwm:PWMUDB:prevCompare2\ and \pwm:PWMUDB:cmp2_less\));
+
+\pwm:PWMUDB:status_2\ <= ((\pwm:PWMUDB:runmode_enable\ and \pwm:PWMUDB:tc_i\));
+
+\pwm:PWMUDB:pwm1_i\ <= ((\pwm:PWMUDB:runmode_enable\ and \pwm:PWMUDB:cmp1_less\));
+
+\pwm:PWMUDB:pwm2_i\ <= ((\pwm:PWMUDB:runmode_enable\ and \pwm:PWMUDB:cmp2_less\));
+
+switch1:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba",
+		drive_mode=>"011",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__switch1_net_0),
+		y=>(zero),
+		fb=>Net_1,
+		analog=>(open),
+		io=>(tmpIO_0__switch1_net_0),
+		siovref=>(tmpSIOVREF__switch1_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__switch1_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__switch1_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__switch1_net_0);
+\lcd:LCDPort\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"9e4a4b20-afbc-4e7a-ae76-a312519f9480/ed092b9b-d398-4703-be89-cebf998501f6",
+		drive_mode=>"110110110110110110110",
+		ibuf_enabled=>"1111111",
+		init_dr_st=>"0000000",
+		input_sync=>"1111111",
+		input_clk_en=>'0',
+		input_sync_mode=>"0000000",
+		intr_mode=>"00000000000000",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>",,,,,,",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0000000",
+		output_sync=>"0000000",
+		output_clk_en=>'0',
+		output_mode=>"0000000",
+		output_reset=>'0',
+		output_clock_mode=>"0000000",
+		oe_sync=>"0000000",
+		oe_conn=>"0000000",
+		oe_reset=>'0',
+		pin_aliases=>",,,,,,",
+		pin_mode=>"OOOOOOO",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1111111",
+		sio_ibuf=>"00000000",
+		sio_info=>"00000000000000",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0000000",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10101010101010",
+		width=>7,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0000000",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0000000",
+		ovt_slew_control=>"00000000000000",
+		ovt_hyst_trim=>"0000000",
+		input_buffer_sel=>"00000000000000")
+	PORT MAP(oe=>(tmpOE__switch1_net_0, tmpOE__switch1_net_0, tmpOE__switch1_net_0, tmpOE__switch1_net_0,
+			tmpOE__switch1_net_0, tmpOE__switch1_net_0, tmpOE__switch1_net_0),
+		y=>(zero, zero, zero, zero,
+			zero, zero, zero),
+		fb=>(\lcd:tmpFB_6__LCDPort_net_6\, \lcd:tmpFB_6__LCDPort_net_5\, \lcd:tmpFB_6__LCDPort_net_4\, \lcd:tmpFB_6__LCDPort_net_3\,
+			\lcd:tmpFB_6__LCDPort_net_2\, \lcd:tmpFB_6__LCDPort_net_1\, \lcd:tmpFB_6__LCDPort_net_0\),
+		analog=>(open, open, open, open,
+			open, open, open),
+		io=>(\lcd:tmpIO_6__LCDPort_net_6\, \lcd:tmpIO_6__LCDPort_net_5\, \lcd:tmpIO_6__LCDPort_net_4\, \lcd:tmpIO_6__LCDPort_net_3\,
+			\lcd:tmpIO_6__LCDPort_net_2\, \lcd:tmpIO_6__LCDPort_net_1\, \lcd:tmpIO_6__LCDPort_net_0\),
+		siovref=>(\lcd:tmpSIOVREF__LCDPort_net_0\),
+		annotation=>(open, open, open, open,
+			open, open, open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__switch1_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__switch1_net_0,
+		out_reset=>zero,
+		interrupt=>\lcd:tmpINTERRUPT_0__LCDPort_net_0\);
+\enc:isr\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_6);
+\enc:Cnt16:CounterUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_5,
+		enable=>tmpOE__switch1_net_0,
+		clock_out=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\);
+\enc:Cnt16:CounterUDB:sCTRLReg:cy_psoc3_udb_Ctl_Clk_Sync\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_5,
+		enable=>tmpOE__switch1_net_0,
+		clock_out=>\enc:Cnt16:CounterUDB:Clk_Ctl_i\);
+\enc:Cnt16:CounterUDB:sCTRLReg:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\enc:Cnt16:CounterUDB:Clk_Ctl_i\,
+		control=>(\enc:Cnt16:CounterUDB:control_7\, \enc:Cnt16:CounterUDB:control_6\, \enc:Cnt16:CounterUDB:control_5\, \enc:Cnt16:CounterUDB:control_4\,
+			\enc:Cnt16:CounterUDB:control_3\, \enc:Cnt16:CounterUDB:control_2\, \enc:Cnt16:CounterUDB:control_1\, \enc:Cnt16:CounterUDB:control_0\));
+\enc:Cnt16:CounterUDB:sSTSReg:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0011111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>\enc:Net_1260\,
+		clock=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		status=>(\enc:Cnt16:CounterUDB:status_6\, \enc:Cnt16:CounterUDB:status_5\, zero, \enc:Cnt16:CounterUDB:status_3\,
+			\enc:Cnt16:CounterUDB:status_2\, \enc:Cnt16:CounterUDB:status_1\, \enc:Cnt16:CounterUDB:status_0\),
+		interrupt=>\enc:Cnt16:Net_43\);
+\enc:Cnt16:CounterUDB:sC16:counterdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001000000001000000010000000000000010000000000000000100000000000000100000000010000001000000000000001000000011111111000000001111111111111111101000000000000000000001000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\enc:Net_1251\, \enc:Cnt16:CounterUDB:count_enable\, \enc:Cnt16:CounterUDB:reload\),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\enc:Cnt16:CounterUDB:nc16\,
+		cl0=>\enc:Cnt16:CounterUDB:nc17\,
+		z0=>\enc:Cnt16:CounterUDB:nc1\,
+		ff0=>\enc:Cnt16:CounterUDB:nc10\,
+		ce1=>\enc:Cnt16:CounterUDB:nc2\,
+		cl1=>\enc:Cnt16:CounterUDB:nc3\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>\enc:Cnt16:CounterUDB:nc30\,
+		f0_blk_stat=>\enc:Cnt16:CounterUDB:nc31\,
+		f1_bus_stat=>open,
+		f1_blk_stat=>open,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>\enc:Cnt16:CounterUDB:sC16:counterdp:carry\,
+		sir=>zero,
+		sor=>open,
+		sil=>\enc:Cnt16:CounterUDB:sC16:counterdp:sh_right\,
+		sol=>\enc:Cnt16:CounterUDB:sC16:counterdp:sh_left\,
+		msbi=>\enc:Cnt16:CounterUDB:sC16:counterdp:msb\,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cmp_eq_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_eq_0\),
+		cli=>(zero, zero),
+		clo=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cmp_lt_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_lt_0\),
+		zi=>(zero, zero),
+		zo=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cmp_zero_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_zero_0\),
+		fi=>(zero, zero),
+		fo=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cmp_ff_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_ff_0\),
+		capi=>(zero, zero),
+		capo=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cap_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cap_0\),
+		cfbi=>zero,
+		cfbo=>\enc:Cnt16:CounterUDB:sC16:counterdp:cfb\,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\enc:Cnt16:CounterUDB:sC16:counterdp:u1\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001000000001000000010000000000000010000000000000000100000000000000100000000010000001000000000000001000000011111111000000001111111111111111101011110000000000000001000001110000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\enc:Net_1251\, \enc:Cnt16:CounterUDB:count_enable\, \enc:Cnt16:CounterUDB:reload\),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\enc:Cnt16:CounterUDB:per_equal\,
+		cl0=>\enc:Cnt16:CounterUDB:nc43\,
+		z0=>\enc:Cnt16:CounterUDB:status_1\,
+		ff0=>\enc:Cnt16:CounterUDB:overflow\,
+		ce1=>\enc:Cnt16:CounterUDB:cmp_out_i\,
+		cl1=>\enc:Cnt16:CounterUDB:cmp_less\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>\enc:Cnt16:CounterUDB:status_6\,
+		f0_blk_stat=>\enc:Cnt16:CounterUDB:status_5\,
+		f1_bus_stat=>open,
+		f1_blk_stat=>open,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>\enc:Cnt16:CounterUDB:sC16:counterdp:carry\,
+		co=>open,
+		sir=>\enc:Cnt16:CounterUDB:sC16:counterdp:sh_left\,
+		sor=>\enc:Cnt16:CounterUDB:sC16:counterdp:sh_right\,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>\enc:Cnt16:CounterUDB:sC16:counterdp:msb\,
+		cei=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cmp_eq_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_eq_0\),
+		ceo=>open,
+		cli=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cmp_lt_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_lt_0\),
+		clo=>open,
+		zi=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cmp_zero_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_zero_0\),
+		zo=>open,
+		fi=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cmp_ff_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cmp_ff_0\),
+		fo=>open,
+		capi=>(\enc:Cnt16:CounterUDB:sC16:counterdp:cap_1\, \enc:Cnt16:CounterUDB:sC16:counterdp:cap_0\),
+		capo=>open,
+		cfbi=>\enc:Cnt16:CounterUDB:sC16:counterdp:cfb\,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\enc:bQuadDec:CtrlClkEn\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_5,
+		enable=>tmpOE__switch1_net_0,
+		clock_out=>\enc:bQuadDec:sync_clock\);
+\enc:bQuadDec:genblk1:DelayA1\:cy_dff
+	PORT MAP(d=>Net_2,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:quad_A_delayed_0\);
+\enc:bQuadDec:genblk1:DelayA2\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:quad_A_delayed_0\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:quad_A_delayed_1\);
+\enc:bQuadDec:genblk1:DelayA3\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:quad_A_delayed_1\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:quad_A_delayed_2\);
+\enc:bQuadDec:genblk1:DelayB1\:cy_dff
+	PORT MAP(d=>Net_3,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:quad_B_delayed_0\);
+\enc:bQuadDec:genblk1:DelayB2\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:quad_B_delayed_0\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:quad_B_delayed_1\);
+\enc:bQuadDec:genblk1:DelayB3\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:quad_B_delayed_1\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:quad_B_delayed_2\);
+\enc:bQuadDec:Stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0001111",
+		cy_int_mask=>"0001111")
+	PORT MAP(reset=>zero,
+		clock=>\enc:bQuadDec:sync_clock\,
+		status=>(zero, zero, zero, \enc:bQuadDec:error\,
+			\enc:Net_1260\, \enc:Net_611\, \enc:Net_530\),
+		interrupt=>Net_6);
+C1:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"1c7878f4-f0ec-4859-81c2-9aa524a3660c",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__switch1_net_0),
+		y=>(zero),
+		fb=>Net_2,
+		analog=>(open),
+		io=>(tmpIO_0__C1_net_0),
+		siovref=>(tmpSIOVREF__C1_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__switch1_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__switch1_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__C1_net_0);
+C2:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"94d4706b-cff7-4de9-89cb-6f3c94c6831a",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__switch1_net_0),
+		y=>(zero),
+		fb=>Net_3,
+		analog=>(open),
+		io=>(tmpIO_0__C2_net_0),
+		siovref=>(tmpSIOVREF__C2_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__switch1_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__switch1_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__C2_net_0);
+Clock_1:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"ad5ea2d2-bed8-4a97-953b-a01a2f1c1eac",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"83333333.3333333",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_5,
+		dig_domain_out=>open);
+\adc:AMuxHw_2\:cy_psoc3_amux_v1_0
+	GENERIC MAP(cy_registers=>"",
+		muxin_width=>64,
+		hw_control=>'1',
+		one_active=>'1',
+		init_mux_sel=>"0000000000000000000000000000000000000000000000000000000000000000",
+		api_type=>2,
+		connect_mode=>1)
+	PORT MAP(muxin=>(Net_109, Net_108, Net_107, Net_106,
+			Net_105, Net_104, Net_103, Net_102,
+			Net_101, Net_100, Net_99, Net_98,
+			Net_97, Net_96, Net_95, Net_94,
+			Net_93, Net_91, Net_89, Net_88,
+			Net_86, Net_84, Net_83, Net_81,
+			Net_79, Net_78, Net_76, Net_74,
+			Net_73, Net_71, Net_69, Net_68,
+			Net_66, Net_64, Net_63, Net_61,
+			Net_59, Net_58, Net_56, Net_54,
+			Net_53, Net_51, Net_49, Net_48,
+			Net_46, Net_44, Net_43, Net_41,
+			Net_39, Net_38, Net_36, Net_34,
+			Net_33, Net_31, Net_29, Net_28,
+			Net_26, Net_24, Net_23, Net_21,
+			Net_19, Net_18, Net_16, Net_15),
+		hw_ctrl_en=>(\adc:AMuxHw_2_Decoder_one_hot_63\, \adc:AMuxHw_2_Decoder_one_hot_62\, \adc:AMuxHw_2_Decoder_one_hot_61\, \adc:AMuxHw_2_Decoder_one_hot_60\,
+			\adc:AMuxHw_2_Decoder_one_hot_59\, \adc:AMuxHw_2_Decoder_one_hot_58\, \adc:AMuxHw_2_Decoder_one_hot_57\, \adc:AMuxHw_2_Decoder_one_hot_56\,
+			\adc:AMuxHw_2_Decoder_one_hot_55\, \adc:AMuxHw_2_Decoder_one_hot_54\, \adc:AMuxHw_2_Decoder_one_hot_53\, \adc:AMuxHw_2_Decoder_one_hot_52\,
+			\adc:AMuxHw_2_Decoder_one_hot_51\, \adc:AMuxHw_2_Decoder_one_hot_50\, \adc:AMuxHw_2_Decoder_one_hot_49\, \adc:AMuxHw_2_Decoder_one_hot_48\,
+			\adc:AMuxHw_2_Decoder_one_hot_47\, \adc:AMuxHw_2_Decoder_one_hot_46\, \adc:AMuxHw_2_Decoder_one_hot_45\, \adc:AMuxHw_2_Decoder_one_hot_44\,
+			\adc:AMuxHw_2_Decoder_one_hot_43\, \adc:AMuxHw_2_Decoder_one_hot_42\, \adc:AMuxHw_2_Decoder_one_hot_41\, \adc:AMuxHw_2_Decoder_one_hot_40\,
+			\adc:AMuxHw_2_Decoder_one_hot_39\, \adc:AMuxHw_2_Decoder_one_hot_38\, \adc:AMuxHw_2_Decoder_one_hot_37\, \adc:AMuxHw_2_Decoder_one_hot_36\,
+			\adc:AMuxHw_2_Decoder_one_hot_35\, \adc:AMuxHw_2_Decoder_one_hot_34\, \adc:AMuxHw_2_Decoder_one_hot_33\, \adc:AMuxHw_2_Decoder_one_hot_32\,
+			\adc:AMuxHw_2_Decoder_one_hot_31\, \adc:AMuxHw_2_Decoder_one_hot_30\, \adc:AMuxHw_2_Decoder_one_hot_29\, \adc:AMuxHw_2_Decoder_one_hot_28\,
+			\adc:AMuxHw_2_Decoder_one_hot_27\, \adc:AMuxHw_2_Decoder_one_hot_26\, \adc:AMuxHw_2_Decoder_one_hot_25\, \adc:AMuxHw_2_Decoder_one_hot_24\,
+			\adc:AMuxHw_2_Decoder_one_hot_23\, \adc:AMuxHw_2_Decoder_one_hot_22\, \adc:AMuxHw_2_Decoder_one_hot_21\, \adc:AMuxHw_2_Decoder_one_hot_20\,
+			\adc:AMuxHw_2_Decoder_one_hot_19\, \adc:AMuxHw_2_Decoder_one_hot_18\, \adc:AMuxHw_2_Decoder_one_hot_17\, \adc:AMuxHw_2_Decoder_one_hot_16\,
+			\adc:AMuxHw_2_Decoder_one_hot_15\, \adc:AMuxHw_2_Decoder_one_hot_14\, \adc:AMuxHw_2_Decoder_one_hot_13\, \adc:AMuxHw_2_Decoder_one_hot_12\,
+			\adc:AMuxHw_2_Decoder_one_hot_11\, \adc:AMuxHw_2_Decoder_one_hot_10\, \adc:AMuxHw_2_Decoder_one_hot_9\, \adc:AMuxHw_2_Decoder_one_hot_8\,
+			\adc:AMuxHw_2_Decoder_one_hot_7\, \adc:AMuxHw_2_Decoder_one_hot_6\, \adc:AMuxHw_2_Decoder_one_hot_5\, \adc:AMuxHw_2_Decoder_one_hot_4\,
+			\adc:AMuxHw_2_Decoder_one_hot_3\, \adc:AMuxHw_2_Decoder_one_hot_2\, \adc:AMuxHw_2_Decoder_one_hot_1\, \adc:AMuxHw_2_Decoder_one_hot_0\),
+		vout=>\adc:V_single\);
+\adc:SAR:cy_analog_virtualmux_3_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\adc:SAR:Net_248\,
+		signal2=>\adc:SAR:Net_235\);
+\adc:SAR:ADC_SAR\:cy_psoc5_sar_v2_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(vplus=>\adc:Net_2803\,
+		vminus=>\adc:SAR:Net_126\,
+		ext_pin=>\adc:SAR:Net_215\,
+		vrefhi_out=>\adc:SAR:Net_257\,
+		vref=>\adc:SAR:Net_248\,
+		clock=>\adc:clock\,
+		pump_clock=>\adc:clock\,
+		sof_udb=>zero,
+		clk_udb=>zero,
+		vp_ctl_udb=>(zero, zero, zero, zero),
+		vn_ctl_udb=>(zero, zero, zero, zero),
+		irq=>\adc:SAR:Net_252\,
+		next_out=>Net_13,
+		data_out=>(\adc:SAR:Net_207_11\, \adc:SAR:Net_207_10\, \adc:SAR:Net_207_9\, \adc:SAR:Net_207_8\,
+			\adc:SAR:Net_207_7\, \adc:SAR:Net_207_6\, \adc:SAR:Net_207_5\, \adc:SAR:Net_207_4\,
+			\adc:SAR:Net_207_3\, \adc:SAR:Net_207_2\, \adc:SAR:Net_207_1\, \adc:SAR:Net_207_0\),
+		eof_udb=>\adc:Net_3830\);
+\adc:SAR:cy_analog_virtualmux_2_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\adc:SAR:Net_215\,
+		signal2=>\adc:SAR:Net_209\);
+\adc:SAR:cy_analog_virtualmux_1_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\adc:SAR:Net_126\,
+		signal2=>\adc:SAR:Net_149\);
+\adc:SAR:noconnect\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\adc:SAR:Net_209\);
+\adc:SAR:cy_analog_virtualmux_4_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\adc:SAR:Net_257\,
+		signal2=>\adc:SAR:Net_149\);
+\adc:SAR:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\adc:SAR:Net_255\);
+\adc:SAR:vRef_Vdda_1\:cy_vref_v1_0
+	GENERIC MAP(guid=>"4720866E-BC14-478d-B8A0-3E44F38CADAC",
+		name=>"Vdda/2",
+		autoenable=>'1',
+		ignoresleep=>'0')
+	PORT MAP(vout=>\adc:SAR:Net_235\);
+\adc:SAR:noconnect_1\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\adc:SAR:Net_368\);
+\adc:cy_analog_virtualmux_1_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\adc:Net_2803\,
+		signal2=>\adc:V_single\);
+\adc:bSAR_SEQ:ClkEn\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>\adc:clock\,
+		enable=>\adc:bSAR_SEQ:enable\,
+		clock_out=>\adc:bSAR_SEQ:clk_fin\);
+\adc:bSAR_SEQ:ClkCtrl\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>\adc:clock\,
+		enable=>tmpOE__switch1_net_0,
+		clock_out=>\adc:bSAR_SEQ:clk_ctrl\);
+\adc:bSAR_SEQ:CtrlReg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000110",
+		cy_ctrl_mode_0=>"00000111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\adc:bSAR_SEQ:clk_ctrl\,
+		control=>(\adc:bSAR_SEQ:control_7\, \adc:bSAR_SEQ:control_6\, \adc:bSAR_SEQ:control_5\, \adc:bSAR_SEQ:control_4\,
+			\adc:bSAR_SEQ:control_3\, \adc:bSAR_SEQ:control_2\, \adc:bSAR_SEQ:load_period\, \adc:bSAR_SEQ:enable\));
+\adc:bSAR_SEQ:ChannelCounter\:cy_psoc3_count7
+	GENERIC MAP(cy_period=>"0000000",
+		cy_init_value=>"0000000",
+		cy_route_ld=>'1',
+		cy_route_en=>'1',
+		cy_alt_mode=>'0')
+	PORT MAP(clock=>\adc:bSAR_SEQ:clk_fin\,
+		reset=>zero,
+		load=>\adc:bSAR_SEQ:load_period\,
+		enable=>\adc:bSAR_SEQ:cnt_enable\,
+		count=>(\adc:bSAR_SEQ:count_6\, \adc:ch_addr_5\, \adc:ch_addr_4\, \adc:ch_addr_3\,
+			\adc:ch_addr_2\, \adc:ch_addr_1\, \adc:ch_addr_0\),
+		tc=>\adc:bSAR_SEQ:cnt_tc\);
+\adc:bSAR_SEQ:EOCSts\:cy_psoc3_status
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"00000001")
+	PORT MAP(reset=>zero,
+		clock=>\adc:bSAR_SEQ:clk_fin\,
+		status=>(zero, zero, zero, zero,
+			zero, zero, zero, Net_14));
+\adc:IntClock\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"27570b1b-202f-4482-9182-aaffbfc3db5c/9725d809-97e7-404e-b621-dfdbe78d0ca9",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"625000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>\adc:clock\,
+		dig_domain_out=>open);
+\adc:TempBuf\:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"00",
+		num_tds=>0)
+	PORT MAP(drq=>\adc:Net_3830\,
+		trq=>zero,
+		nrq=>\adc:Net_3698\);
+\adc:FinalBuf\:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"00",
+		num_tds=>0)
+	PORT MAP(drq=>\adc:Net_3698\,
+		trq=>zero,
+		nrq=>\adc:nrq\);
+\adc:BusClock\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"27570b1b-202f-4482-9182-aaffbfc3db5c/3d23b625-9a71-4c05-baf4-2f904356009b",
+		source_clock_id=>"75C2148C-3656-4d8a-846D-0CAE99AB6FF7",
+		divisor=>0,
+		period=>"0",
+		is_direct=>'1',
+		is_digital=>'1')
+	PORT MAP(clock_out=>\adc:Net_3710\,
+		dig_domain_out=>open);
+\adc:IRQ\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_14);
+\adc:Sync:genblk1[0]:INST\:cy_psoc3_sync
+	PORT MAP(clock=>\adc:Net_3710\,
+		sc_in=>\adc:nrq\,
+		sc_out=>\adc:Net_3935\);
+\adc:MODULE_1:g1:a0:gx:u0:gne(1):c4:c6:u1\:cy_buf
+	PORT MAP(x=>\adc:MODULE_1:g1:a0:gx:u0:lt_5\,
+		y=>\adc:MODULE_1:g1:a0:gx:u0:lti_1\);
+\adc:MODULE_1:g1:a0:gx:u0:gne(1):c4:c6:u2\:cy_buf
+	PORT MAP(x=>\adc:MODULE_1:g1:a0:gx:u0:gt_5\,
+		y=>\adc:MODULE_1:g1:a0:gx:u0:gti_1\);
+\adc:MODULE_1:g1:a0:gx:u0:gne(0):c3:u1\:cy_buf
+	PORT MAP(x=>\adc:MODULE_1:g1:a0:gx:u0:lt_2\,
+		y=>\adc:MODULE_1:g1:a0:gx:u0:lti_0\);
+\adc:MODULE_1:g1:a0:gx:u0:gne(0):c3:u2\:cy_buf
+	PORT MAP(x=>\adc:MODULE_1:g1:a0:gx:u0:gt_2\,
+		y=>\adc:MODULE_1:g1:a0:gx:u0:gti_0\);
+pot:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"77715107-f8d5-47e5-a629-0fb83101ac6b",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"A",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__switch1_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__pot_net_0),
+		analog=>Net_15,
+		io=>(tmpIO_0__pot_net_0),
+		siovref=>(tmpSIOVREF__pot_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__switch1_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__switch1_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__pot_net_0);
+motora:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"e851a3b9-efb8-48be-bbb8-b303b216c393",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__switch1_net_0),
+		y=>Net_182,
+		fb=>(tmpFB_0__motora_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__motora_net_0),
+		siovref=>(tmpSIOVREF__motora_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__switch1_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__switch1_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__motora_net_0);
+\pwm:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_168,
+		enable=>tmpOE__switch1_net_0,
+		clock_out=>\pwm:PWMUDB:ClockOutFromEnBlock\);
+\pwm:PWMUDB:genblk1:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		control=>(\pwm:PWMUDB:control_7\, \pwm:PWMUDB:control_6\, \pwm:PWMUDB:control_5\, \pwm:PWMUDB:control_4\,
+			\pwm:PWMUDB:control_3\, \pwm:PWMUDB:control_2\, \pwm:PWMUDB:control_1\, \pwm:PWMUDB:control_0\));
+\pwm:PWMUDB:genblk8:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0100111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>zero,
+		clock=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		status=>(zero, \pwm:PWMUDB:status_5\, zero, \pwm:PWMUDB:status_3\,
+			\pwm:PWMUDB:status_2\, \pwm:PWMUDB:status_1\, \pwm:PWMUDB:status_0\),
+		interrupt=>\pwm:Net_55\);
+\pwm:PWMUDB:sP8:pwmdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\pwm:PWMUDB:tc_i\, \pwm:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\pwm:PWMUDB:cmp1_eq\,
+		cl0=>\pwm:PWMUDB:cmp1_less\,
+		z0=>\pwm:PWMUDB:tc_i\,
+		ff0=>open,
+		ce1=>\pwm:PWMUDB:cmp2_eq\,
+		cl1=>\pwm:PWMUDB:cmp2_less\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\pwm:PWMUDB:fifo_nempty\,
+		f1_blk_stat=>\pwm:PWMUDB:status_3\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>open,
+		sir=>zero,
+		sor=>open,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>open,
+		cli=>(zero, zero),
+		clo=>open,
+		zi=>(zero, zero),
+		zo=>open,
+		fi=>(zero, zero),
+		fo=>open,
+		capi=>(zero, zero),
+		capo=>open,
+		cfbi=>zero,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:gs(24):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_24\);
+\pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:gs(16):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_16\);
+\pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:gs(8):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\pwm:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_8\);
+Clock_2:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"ff3417c2-3f5a-469e-b385-b3215bbf56bc",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"83333333.3333333",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_168,
+		dig_domain_out=>open);
+motorb:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"64c88a3a-e28d-4eb9-9615-bfcef69fb6cf",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__switch1_net_0),
+		y=>Net_172,
+		fb=>(tmpFB_0__motorb_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__motorb_net_0),
+		siovref=>(tmpSIOVREF__motorb_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__switch1_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__switch1_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__motorb_net_0);
+\enc:Net_1251\:cy_dff
+	PORT MAP(d=>\enc:Net_1251\\D\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:Net_1251\);
+\enc:Cnt16:CounterUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		q=>\enc:Cnt16:CounterUDB:prevCapture\);
+\enc:Cnt16:CounterUDB:overflow_reg_i\:cy_dff
+	PORT MAP(d=>\enc:Cnt16:CounterUDB:overflow\,
+		clk=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		q=>\enc:Cnt16:CounterUDB:overflow_reg_i\);
+\enc:Cnt16:CounterUDB:underflow_reg_i\:cy_dff
+	PORT MAP(d=>\enc:Cnt16:CounterUDB:status_1\,
+		clk=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		q=>\enc:Cnt16:CounterUDB:underflow_reg_i\);
+\enc:Cnt16:CounterUDB:tc_reg_i\:cy_dff
+	PORT MAP(d=>\enc:Cnt16:CounterUDB:reload_tc\,
+		clk=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		q=>\enc:Net_1275\);
+\enc:Cnt16:CounterUDB:prevCompare\:cy_dff
+	PORT MAP(d=>\enc:Cnt16:CounterUDB:cmp_out_i\,
+		clk=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		q=>\enc:Cnt16:CounterUDB:prevCompare\);
+\enc:Cnt16:CounterUDB:cmp_out_reg_i\:cy_dff
+	PORT MAP(d=>\enc:Cnt16:CounterUDB:cmp_out_i\,
+		clk=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		q=>\enc:Net_1264\);
+\enc:Cnt16:CounterUDB:count_stored_i\:cy_dff
+	PORT MAP(d=>\enc:Net_1203\,
+		clk=>\enc:Cnt16:CounterUDB:ClockOutFromEnBlock\,
+		q=>\enc:Cnt16:CounterUDB:count_stored_i\);
+\enc:Net_1203\:cy_dff
+	PORT MAP(d=>\enc:Net_1203\\D\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:Net_1203\);
+\enc:bQuadDec:quad_A_filt\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:quad_A_filt\\D\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:quad_A_filt\);
+\enc:bQuadDec:quad_B_filt\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:quad_B_filt\\D\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:quad_B_filt\);
+\enc:bQuadDec:state_2\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:state_2\\D\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:Net_1260\);
+\enc:bQuadDec:state_3\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:state_3\\D\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:error\);
+\enc:bQuadDec:state_1\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:state_1\\D\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:state_1\);
+\enc:bQuadDec:state_0\:cy_dff
+	PORT MAP(d=>\enc:bQuadDec:state_0\\D\,
+		clk=>\enc:bQuadDec:sync_clock\,
+		q=>\enc:bQuadDec:state_0\);
+\adc:AMuxHw_2_Decoder_old_id_5\:cy_dff
+	PORT MAP(d=>\adc:ch_addr_5\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_old_id_5\);
+\adc:AMuxHw_2_Decoder_old_id_4\:cy_dff
+	PORT MAP(d=>\adc:ch_addr_4\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_old_id_4\);
+\adc:AMuxHw_2_Decoder_old_id_3\:cy_dff
+	PORT MAP(d=>\adc:ch_addr_3\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_old_id_3\);
+\adc:AMuxHw_2_Decoder_old_id_2\:cy_dff
+	PORT MAP(d=>\adc:ch_addr_2\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_old_id_2\);
+\adc:AMuxHw_2_Decoder_old_id_1\:cy_dff
+	PORT MAP(d=>\adc:ch_addr_1\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_old_id_1\);
+\adc:AMuxHw_2_Decoder_old_id_0\:cy_dff
+	PORT MAP(d=>\adc:ch_addr_0\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_old_id_0\);
+\adc:AMuxHw_2_Decoder_one_hot_0\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_0\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_0\);
+\adc:AMuxHw_2_Decoder_one_hot_1\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_1\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_1\);
+\adc:AMuxHw_2_Decoder_one_hot_2\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_2\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_2\);
+\adc:AMuxHw_2_Decoder_one_hot_3\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_3\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_3\);
+\adc:AMuxHw_2_Decoder_one_hot_4\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_4\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_4\);
+\adc:AMuxHw_2_Decoder_one_hot_5\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_5\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_5\);
+\adc:AMuxHw_2_Decoder_one_hot_6\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_6\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_6\);
+\adc:AMuxHw_2_Decoder_one_hot_7\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_7\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_7\);
+\adc:AMuxHw_2_Decoder_one_hot_8\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_8\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_8\);
+\adc:AMuxHw_2_Decoder_one_hot_9\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_9\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_9\);
+\adc:AMuxHw_2_Decoder_one_hot_10\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_10\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_10\);
+\adc:AMuxHw_2_Decoder_one_hot_11\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_11\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_11\);
+\adc:AMuxHw_2_Decoder_one_hot_12\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_12\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_12\);
+\adc:AMuxHw_2_Decoder_one_hot_13\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_13\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_13\);
+\adc:AMuxHw_2_Decoder_one_hot_14\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_14\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_14\);
+\adc:AMuxHw_2_Decoder_one_hot_15\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_15\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_15\);
+\adc:AMuxHw_2_Decoder_one_hot_16\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_16\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_16\);
+\adc:AMuxHw_2_Decoder_one_hot_17\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_17\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_17\);
+\adc:AMuxHw_2_Decoder_one_hot_18\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_18\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_18\);
+\adc:AMuxHw_2_Decoder_one_hot_19\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_19\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_19\);
+\adc:AMuxHw_2_Decoder_one_hot_20\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_20\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_20\);
+\adc:AMuxHw_2_Decoder_one_hot_21\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_21\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_21\);
+\adc:AMuxHw_2_Decoder_one_hot_22\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_22\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_22\);
+\adc:AMuxHw_2_Decoder_one_hot_23\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_23\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_23\);
+\adc:AMuxHw_2_Decoder_one_hot_24\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_24\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_24\);
+\adc:AMuxHw_2_Decoder_one_hot_25\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_25\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_25\);
+\adc:AMuxHw_2_Decoder_one_hot_26\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_26\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_26\);
+\adc:AMuxHw_2_Decoder_one_hot_27\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_27\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_27\);
+\adc:AMuxHw_2_Decoder_one_hot_28\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_28\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_28\);
+\adc:AMuxHw_2_Decoder_one_hot_29\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_29\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_29\);
+\adc:AMuxHw_2_Decoder_one_hot_30\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_30\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_30\);
+\adc:AMuxHw_2_Decoder_one_hot_31\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_31\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_31\);
+\adc:AMuxHw_2_Decoder_one_hot_32\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_32\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_32\);
+\adc:AMuxHw_2_Decoder_one_hot_33\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_33\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_33\);
+\adc:AMuxHw_2_Decoder_one_hot_34\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_34\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_34\);
+\adc:AMuxHw_2_Decoder_one_hot_35\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_35\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_35\);
+\adc:AMuxHw_2_Decoder_one_hot_36\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_36\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_36\);
+\adc:AMuxHw_2_Decoder_one_hot_37\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_37\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_37\);
+\adc:AMuxHw_2_Decoder_one_hot_38\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_38\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_38\);
+\adc:AMuxHw_2_Decoder_one_hot_39\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_39\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_39\);
+\adc:AMuxHw_2_Decoder_one_hot_40\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_40\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_40\);
+\adc:AMuxHw_2_Decoder_one_hot_41\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_41\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_41\);
+\adc:AMuxHw_2_Decoder_one_hot_42\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_42\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_42\);
+\adc:AMuxHw_2_Decoder_one_hot_43\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_43\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_43\);
+\adc:AMuxHw_2_Decoder_one_hot_44\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_44\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_44\);
+\adc:AMuxHw_2_Decoder_one_hot_45\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_45\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_45\);
+\adc:AMuxHw_2_Decoder_one_hot_46\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_46\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_46\);
+\adc:AMuxHw_2_Decoder_one_hot_47\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_47\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_47\);
+\adc:AMuxHw_2_Decoder_one_hot_48\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_48\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_48\);
+\adc:AMuxHw_2_Decoder_one_hot_49\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_49\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_49\);
+\adc:AMuxHw_2_Decoder_one_hot_50\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_50\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_50\);
+\adc:AMuxHw_2_Decoder_one_hot_51\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_51\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_51\);
+\adc:AMuxHw_2_Decoder_one_hot_52\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_52\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_52\);
+\adc:AMuxHw_2_Decoder_one_hot_53\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_53\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_53\);
+\adc:AMuxHw_2_Decoder_one_hot_54\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_54\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_54\);
+\adc:AMuxHw_2_Decoder_one_hot_55\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_55\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_55\);
+\adc:AMuxHw_2_Decoder_one_hot_56\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_56\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_56\);
+\adc:AMuxHw_2_Decoder_one_hot_57\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_57\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_57\);
+\adc:AMuxHw_2_Decoder_one_hot_58\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_58\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_58\);
+\adc:AMuxHw_2_Decoder_one_hot_59\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_59\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_59\);
+\adc:AMuxHw_2_Decoder_one_hot_60\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_60\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_60\);
+\adc:AMuxHw_2_Decoder_one_hot_61\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_61\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_61\);
+\adc:AMuxHw_2_Decoder_one_hot_62\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_62\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_62\);
+\adc:AMuxHw_2_Decoder_one_hot_63\:cy_dff
+	PORT MAP(d=>\adc:AMuxHw_2_Decoder_one_hot_63\\D\,
+		clk=>\adc:clock\,
+		q=>\adc:AMuxHw_2_Decoder_one_hot_63\);
+\adc:bSAR_SEQ:nrq_edge_detect_reg\:cy_dff
+	PORT MAP(d=>\adc:bSAR_SEQ:nrq_edge_detect\,
+		clk=>\adc:bSAR_SEQ:clk_fin\,
+		q=>Net_14);
+\adc:bSAR_SEQ:bus_clk_nrq_reg\:cy_dff
+	PORT MAP(d=>\adc:bSAR_SEQ:bus_clk_nrq_reg\\D\,
+		clk=>\adc:Net_3710\,
+		q=>\adc:bSAR_SEQ:bus_clk_nrq_reg\);
+\adc:bSAR_SEQ:nrq_reg\:cy_dff
+	PORT MAP(d=>\adc:bSAR_SEQ:bus_clk_nrq_reg\,
+		clk=>\adc:bSAR_SEQ:clk_fin\,
+		q=>\adc:bSAR_SEQ:nrq_reg\);
+\pwm:PWMUDB:min_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__switch1_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:min_kill_reg\);
+\pwm:PWMUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:prevCapture\);
+\pwm:PWMUDB:trig_last\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:trig_last\);
+\pwm:PWMUDB:runmode_enable\:cy_dsrff
+	PORT MAP(d=>\pwm:PWMUDB:control_7\,
+		s=>zero,
+		r=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:runmode_enable\);
+\pwm:PWMUDB:sc_kill_tmp\:cy_dff
+	PORT MAP(d=>\pwm:PWMUDB:sc_kill_tmp\\D\,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:sc_kill_tmp\);
+\pwm:PWMUDB:ltch_kill_reg\:cy_dsrff
+	PORT MAP(d=>tmpOE__switch1_net_0,
+		s=>zero,
+		r=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:ltch_kill_reg\);
+\pwm:PWMUDB:dith_count_1\:cy_dsrff
+	PORT MAP(d=>\pwm:PWMUDB:dith_count_1\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:dith_count_1\);
+\pwm:PWMUDB:dith_count_0\:cy_dsrff
+	PORT MAP(d=>\pwm:PWMUDB:dith_count_0\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:dith_count_0\);
+\pwm:PWMUDB:prevCompare1\:cy_dff
+	PORT MAP(d=>\pwm:PWMUDB:cmp1_less\,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:prevCompare1\);
+\pwm:PWMUDB:prevCompare2\:cy_dff
+	PORT MAP(d=>\pwm:PWMUDB:cmp2_less\,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:prevCompare2\);
+\pwm:PWMUDB:cmp1_status_reg\:cy_dsrff
+	PORT MAP(d=>\pwm:PWMUDB:cmp1_status\,
+		s=>zero,
+		r=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:status_0\);
+\pwm:PWMUDB:cmp2_status_reg\:cy_dsrff
+	PORT MAP(d=>\pwm:PWMUDB:cmp2_status\,
+		s=>zero,
+		r=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:status_1\);
+\pwm:PWMUDB:final_kill_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:status_5\);
+\pwm:PWMUDB:pwm_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:pwm_i_reg\);
+\pwm:PWMUDB:pwm1_i_reg\:cy_dff
+	PORT MAP(d=>\pwm:PWMUDB:pwm1_i\,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>Net_182);
+\pwm:PWMUDB:pwm2_i_reg\:cy_dff
+	PORT MAP(d=>\pwm:PWMUDB:pwm2_i\,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>Net_172);
+\pwm:PWMUDB:tc_i_reg\:cy_dff
+	PORT MAP(d=>\pwm:PWMUDB:status_2\,
+		clk=>\pwm:PWMUDB:ClockOutFromEnBlock\,
+		q=>\pwm:PWMUDB:tc_i_reg\);
+
+END R_T_L;
