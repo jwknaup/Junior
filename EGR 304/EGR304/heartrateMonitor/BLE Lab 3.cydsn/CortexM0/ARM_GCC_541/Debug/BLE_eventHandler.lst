@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
    2:Generated_Source\PSoC4/BLE_eventHandler.c **** * \file CYBLE_eventHandler.c
    3:Generated_Source\PSoC4/BLE_eventHandler.c **** * \version 3.30
    4:Generated_Source\PSoC4/BLE_eventHandler.c **** * 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 2
 
 
    5:Generated_Source\PSoC4/BLE_eventHandler.c **** * \brief
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
   59:Generated_Source\PSoC4/BLE_eventHandler.c **** CYBLE_CONN_HANDLE_T cyBle_connHandle;
   60:Generated_Source\PSoC4/BLE_eventHandler.c **** 
   61:Generated_Source\PSoC4/BLE_eventHandler.c **** volatile uint8 cyBle_eventHandlerFlag;
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 3
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 3
 
 
   62:Generated_Source\PSoC4/BLE_eventHandler.c **** volatile uint8 cyBle_busyStatus;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  116:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_ANS_CLIENT */
  117:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_BAS_CLIENT
  118:Generated_Source\PSoC4/BLE_eventHandler.c ****     {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_BAS_S
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 4
 
 
  119:Generated_Source\PSoC4/BLE_eventHandler.c ****     #if(CYBLE_BASC_SERVICE_COUNT > 1u) /* Generate it by GUI */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  173:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_IAS_CLIENT
  174:Generated_Source\PSoC4/BLE_eventHandler.c ****     {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_IMMED
  175:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_IAS_CLIENT */
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 5
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 5
 
 
  176:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_IPS_CLIENT
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  230:Generated_Source\PSoC4/BLE_eventHandler.c ****     CYBLE_GAP_AUTH_ERROR_NONE, /* CYBLE_AUTH_FAILED_REASON_T authErr */
  231:Generated_Source\PSoC4/BLE_eventHandler.c ****     0x00u,      /* uint8 pairingProperties */
  232:Generated_Source\PSoC4/BLE_eventHandler.c **** };
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 6
 
 
  233:Generated_Source\PSoC4/BLE_eventHandler.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  265:Generated_Source\PSoC4/BLE_eventHandler.c ****     {
  266:Generated_Source\PSoC4/BLE_eventHandler.c ****         gattErr = CyBle_AncssWriteEventHandler(eventParam);
  267:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 7
 
 
  268:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_ANCS_SERVER */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  322:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_CSCS_SERVER */
  323:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_CTS_SERVER
  324:Generated_Source\PSoC4/BLE_eventHandler.c ****     if(((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u) && (gattErr == CYBLE_GATT_ERR_NONE))
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 8
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 8
 
 
  325:Generated_Source\PSoC4/BLE_eventHandler.c ****     {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
   98              	.L2:
  357:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
  358:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_HRS_SERVER */
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 9
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 9
 
 
  359:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_HTS_SERVER
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  413:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_UDS_SERVER
  414:Generated_Source\PSoC4/BLE_eventHandler.c ****     if(((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u) && (gattErr == CYBLE_GATT_ERR_NONE))
  415:Generated_Source\PSoC4/BLE_eventHandler.c ****     {
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 10
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 10
 
 
  416:Generated_Source\PSoC4/BLE_eventHandler.c ****         gattErr = CyBle_UdssWriteEventHandler(eventParam);
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  127 006c FB18     		adds	r3, r7, r3
  128 006e 0F22     		movs	r2, #15
  129 0070 BA18     		adds	r2, r7, r2
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 11
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 11
 
 
  130 0072 1278     		ldrb	r2, [r2]
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  457:Generated_Source\PSoC4/BLE_eventHandler.c **** * 
  458:Generated_Source\PSoC4/BLE_eventHandler.c **** *  Handles the Value Confirmation request event from the BLE stack.
  459:Generated_Source\PSoC4/BLE_eventHandler.c **** * 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 12
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 12
 
 
  460:Generated_Source\PSoC4/BLE_eventHandler.c **** *  \param eventParam: Pointer to a structure of type 'CYBLE_CONN_HANDLE_T'
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  501:Generated_Source\PSoC4/BLE_eventHandler.c ****         if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
  502:Generated_Source\PSoC4/BLE_eventHandler.c ****         {
  503:Generated_Source\PSoC4/BLE_eventHandler.c ****             CyBle_CscssConfirmationEventHandler(eventParam);
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 13
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 13
 
 
  504:Generated_Source\PSoC4/BLE_eventHandler.c ****         }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  558:Generated_Source\PSoC4/BLE_eventHandler.c ****         {
  559:Generated_Source\PSoC4/BLE_eventHandler.c ****             CyBle_WsssConfirmationEventHandler(eventParam);
  560:Generated_Source\PSoC4/BLE_eventHandler.c ****         }
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 14
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 14
 
 
  561:Generated_Source\PSoC4/BLE_eventHandler.c ****     #endif /* CYBLE_WSS_SERVER */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  599:Generated_Source\PSoC4/BLE_eventHandler.c ****         CyBle_AnscWriteResponseEventHandler(eventParam);
  600:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
  601:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_ANS_CLIENT */
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 15
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 15
 
 
  602:Generated_Source\PSoC4/BLE_eventHandler.c **** 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  656:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
  657:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_CTS_CLIENT */
  658:Generated_Source\PSoC4/BLE_eventHandler.c **** 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 16
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 16
 
 
  659:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_ESS_CLIENT
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  713:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_LLS_CLIENT */
  714:Generated_Source\PSoC4/BLE_eventHandler.c **** 
  715:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_LNS_CLIENT
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 17
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 17
 
 
  716:Generated_Source\PSoC4/BLE_eventHandler.c ****     if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  770:Generated_Source\PSoC4/BLE_eventHandler.c ****     if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
  771:Generated_Source\PSoC4/BLE_eventHandler.c ****     {
  772:Generated_Source\PSoC4/BLE_eventHandler.c ****         CyBle_WsscWriteResponseEventHandler(eventParam);
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 18
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 18
 
 
  773:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  827:Generated_Source\PSoC4/BLE_eventHandler.c ****     {
  828:Generated_Source\PSoC4/BLE_eventHandler.c ****         CyBle_CpscNotificationEventHandler(eventParam);
  829:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 19
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 19
 
 
  830:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_CPS_CLIENT */
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  884:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_LNS_CLIENT */
  885:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_PASS_CLIENT
  886:Generated_Source\PSoC4/BLE_eventHandler.c ****     if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 20
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 20
 
 
  887:Generated_Source\PSoC4/BLE_eventHandler.c ****     {
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  941:Generated_Source\PSoC4/BLE_eventHandler.c ****         CyBle_AioscIndicationEventHandler(eventParam);
  942:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
  943:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_AIOS_CLIENT */
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 21
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 21
 
 
  944:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_BCS_CLIENT
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  998:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_RSCS_CLIENT
  999:Generated_Source\PSoC4/BLE_eventHandler.c ****     if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
 1000:Generated_Source\PSoC4/BLE_eventHandler.c ****     {
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 22
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 22
 
 
 1001:Generated_Source\PSoC4/BLE_eventHandler.c ****         CyBle_RscscIndicationEventHandler(eventParam);
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1055:Generated_Source\PSoC4/BLE_eventHandler.c ****         discServInfo.range.endHandle = cyBle_serverInfo[cyBle_disCount].range.endHandle;
 1056:Generated_Source\PSoC4/BLE_eventHandler.c ****         if(discServInfo.range.startHandle <= discServInfo.range.endHandle)
 1057:Generated_Source\PSoC4/BLE_eventHandler.c ****         {
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 23
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 23
 
 
 1058:Generated_Source\PSoC4/BLE_eventHandler.c ****             if(CYBLE_ERROR_OK != CyBle_GattcFindIncludedServices(cyBle_connHandle, &discServInfo.ra
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1112:Generated_Source\PSoC4/BLE_eventHandler.c ****     if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
 1113:Generated_Source\PSoC4/BLE_eventHandler.c ****     {
 1114:Generated_Source\PSoC4/BLE_eventHandler.c ****         CyBle_BmscReadResponseEventHandler(eventParam);
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 24
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 24
 
 
 1115:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1169:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
 1170:Generated_Source\PSoC4/BLE_eventHandler.c **** #endif /* CYBLE_HPS_CLIENT */
 1171:Generated_Source\PSoC4/BLE_eventHandler.c **** #ifdef CYBLE_HRS_CLIENT
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 25
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 25
 
 
 1172:Generated_Source\PSoC4/BLE_eventHandler.c ****     if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1226:Generated_Source\PSoC4/BLE_eventHandler.c ****     if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
 1227:Generated_Source\PSoC4/BLE_eventHandler.c ****     {
 1228:Generated_Source\PSoC4/BLE_eventHandler.c ****         CyBle_RtuscReadResponseEventHandler(eventParam);
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 26
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 26
 
 
 1229:Generated_Source\PSoC4/BLE_eventHandler.c ****     }
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1283:Generated_Source\PSoC4/BLE_eventHandler.c **** 
 1284:Generated_Source\PSoC4/BLE_eventHandler.c ****         /* Store service range */
 1285:Generated_Source\PSoC4/BLE_eventHandler.c ****         discServInfo.range = cyBle_discInclInfo.inclHandleRange;
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 27
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 27
 
 
 1286:Generated_Source\PSoC4/BLE_eventHandler.c ****         (void)memcpy((void *) discServInfo.uuid.uuid128.value, (void *)eventParam->value.val, event
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  199              		@ args = 0, pretend = 0, frame = 0
  200              		@ frame_needed = 1, uses_anonymous_args = 0
  201 0000 80B5     		push	{r7, lr}
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 28
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 28
 
 
  202              		.cfi_def_cfa_offset 8
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  216 0010 C046     		nop
  217 0012 BD46     		mov	sp, r7
  218              		@ sp needed
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 29
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 29
 
 
  219 0014 80BD     		pop	{r7, pc}
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1404:Generated_Source\PSoC4/BLE_eventHandler.c ****                 case CYBLE_CLIENT_STATE_INCL_DISCOVERING:
 1405:Generated_Source\PSoC4/BLE_eventHandler.c ****                     CyBle_ApplCallback(CYBLE_EVT_GATTC_INCL_DISCOVERY_FAILED, NULL);
 1406:Generated_Source\PSoC4/BLE_eventHandler.c ****                     break;
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 30
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 30
 
 
 1407:Generated_Source\PSoC4/BLE_eventHandler.c ****                 case CYBLE_CLIENT_STATE_CHAR_DISCOVERING:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1445:Generated_Source\PSoC4/BLE_eventHandler.c **** *  None
 1446:Generated_Source\PSoC4/BLE_eventHandler.c **** * 
 1447:Generated_Source\PSoC4/BLE_eventHandler.c **** ******************************************************************************/
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 31
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 31
 
 
 1448:Generated_Source\PSoC4/BLE_eventHandler.c **** static void CyBle_GattConnectReqHandler(void)
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1476:Generated_Source\PSoC4/BLE_eventHandler.c **** #if (CYBLE_GATT_ROLE_SERVER || CYBLE_GATT_ROLE_CLIENT)
 1477:Generated_Source\PSoC4/BLE_eventHandler.c **** 
 1478:Generated_Source\PSoC4/BLE_eventHandler.c **** /****************************************************************************** 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 32
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 32
 
 
 1479:Generated_Source\PSoC4/BLE_eventHandler.c **** * Function Name: CyBle_IsDeviceAddressValid
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  320 0022 0F23     		movs	r3, #15
  321 0024 FB18     		adds	r3, r7, r3
  322 0026 1B78     		ldrb	r3, [r3]
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 33
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 33
 
 
  323 0028 7A68     		ldr	r2, [r7, #4]
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  367              		.thumb_func
  368              		.type	CyBle_L2Cap_ConnParamUpdateRspEventHandler, %function
  369              	CyBle_L2Cap_ConnParamUpdateRspEventHandler:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 34
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 34
 
 
  370              	.LFB8:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  395              		.section	.text.CyBle_GapConnUpdateCompleteEventHandler,"ax",%progbits
  396              		.align	2
  397              		.code	16
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 35
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 35
 
 
  398              		.thumb_func
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  426              		.global	CyBle_EventHandler
  427              		.code	16
  428              		.thumb_func
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 36
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 36
 
 
  429              		.type	CyBle_EventHandler, %function
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  462 0026 6BE1     		b	.L60	@long jump
  463              	.LCB354:
  464 0028 9A00     		lsls	r2, r3, #2
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 37
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 37
 
 
  465 002a C74B     		ldr	r3, .L65+4
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  519 00c8 00030000 		.word	.L60
  520 00cc 00030000 		.word	.L60
  521 00d0 00030000 		.word	.L60
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 38
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 38
 
 
  522 00d4 00030000 		.word	.L60
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  576 01ac 00030000 		.word	.L60
  577 01b0 00030000 		.word	.L60
  578 01b4 00030000 		.word	.L60
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 39
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 39
 
 
  579 01b8 00030000 		.word	.L60
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  617 0060 1800     		movs	r0, r3
  618 0062 FFF7FEFF 		bl	CyBle_SetTxPowerLevel
 1602:Generated_Source\PSoC4/BLE_eventHandler.c ****             
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 40
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 40
 
 
 1603:Generated_Source\PSoC4/BLE_eventHandler.c ****             #if (CYBLE_GATT_ROLE_SERVER)
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  648 0098 0121     		movs	r1, #1
  649 009a 1800     		movs	r0, r3
  650 009c FFF7FEFF 		bl	CyBle_ChangeAdDeviceAddress
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 41
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 41
 
 
  651 00a0 36E0     		b	.L47
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1642:Generated_Source\PSoC4/BLE_eventHandler.c ****                             
 1643:Generated_Source\PSoC4/BLE_eventHandler.c ****                 cyBle_deviceAddress.bdAddr[0] = (uint8)bdAddrLoc;
  688              		.loc 1 1643 0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 42
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 42
 
 
  689 00d8 BB69     		ldr	r3, [r7, #24]
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  728 011a 3F22     		movs	r2, #63
  729 011c 1A70     		strb	r2, [r3]
  730 011e 0C23     		movs	r3, #12
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 43
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 43
 
 
  731 0120 FB18     		adds	r3, r7, r3
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1681:Generated_Source\PSoC4/BLE_eventHandler.c ****         {
 1682:Generated_Source\PSoC4/BLE_eventHandler.c ****             CYBLE_MEMORY_REQUEST_T *memReq = (CYBLE_MEMORY_REQUEST_T *)eventParam;
  763              		.loc 1 1682 0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 44
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 44
 
 
  764 014c 3B68     		ldr	r3, [r7]
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  801 0180 0122     		movs	r2, #1
  802 0182 9343     		bics	r3, r2
  803 0184 DAB2     		uxtb	r2, r3
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 45
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 45
 
 
  804 0186 6F4B     		ldr	r3, .L65
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  832 01aa 734B     		ldr	r3, .L65+52
  833 01ac 1B78     		ldrb	r3, [r3]
  834 01ae 714A     		ldr	r2, .L65+48
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 46
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 46
 
 
  835 01b0 1100     		movs	r1, r2
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1744:Generated_Source\PSoC4/BLE_eventHandler.c ****         case CYBLE_EVT_GAP_AUTH_COMPLETE:
 1745:Generated_Source\PSoC4/BLE_eventHandler.c ****         #if((CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_CENTRAL) && (CYBLE_BONDING_REQUIREMENT == 
 1746:Generated_Source\PSoC4/BLE_eventHandler.c ****             cyBle_peerBonding = ((CYBLE_GAP_AUTH_INFO_T *)eventParam)->bonding;
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 47
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 47
 
 
 1747:Generated_Source\PSoC4/BLE_eventHandler.c ****         #endif  /* CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES */
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  885 0202 1A70     		strb	r2, [r3]
 1787:Generated_Source\PSoC4/BLE_eventHandler.c ****             break;
  886              		.loc 1 1787 0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 48
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 48
 
 
  887 0204 83E0     		b	.L48
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  922 0236 4B4B     		ldr	r3, .L65+32
  923 0238 0322     		movs	r2, #3
  924 023a 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 49
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 49
 
 
 1807:Generated_Source\PSoC4/BLE_eventHandler.c ****                     cyBle_eventHandlerFlag &= (uint8)~CYBLE_START_FLAG;
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  949              		.loc 1 1813 0
  950 0262 384B     		ldr	r3, .L65
  951 0264 1B78     		ldrb	r3, [r3]
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 50
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 50
 
 
  952 0266 DBB2     		uxtb	r3, r3
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1865:Generated_Source\PSoC4/BLE_eventHandler.c ****                             if(CyBle_GapcStartScan(CYBLE_SCANNING_SLOW) == CYBLE_ERROR_OK)
 1866:Generated_Source\PSoC4/BLE_eventHandler.c ****                             {
 1867:Generated_Source\PSoC4/BLE_eventHandler.c ****                                 CyBle_SetState(CYBLE_STATE_SCANNING);
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 51
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 51
 
 
 1868:Generated_Source\PSoC4/BLE_eventHandler.c ****                             }
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1902:Generated_Source\PSoC4/BLE_eventHandler.c ****             CyBle_GattConnectReqHandler();
  993              		.loc 1 1902 0
  994 02a6 FFF7FEFF 		bl	CyBle_GattConnectReqHandler
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 52
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 52
 
 
 1903:Generated_Source\PSoC4/BLE_eventHandler.c ****             break;
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1030 02da 1204     		lsls	r2, r2, #16
  1031 02dc 120C     		lsrs	r2, r2, #16
  1032 02de 1B0C     		lsrs	r3, r3, #16
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 53
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 53
 
 
  1033 02e0 1B04     		lsls	r3, r3, #16
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 1961:Generated_Source\PSoC4/BLE_eventHandler.c ****                 (void)CyBle_HidssWriteEventHandler((CYBLE_GATTS_WRITE_REQ_PARAM_T *)eventParam);
 1962:Generated_Source\PSoC4/BLE_eventHandler.c ****             }
 1963:Generated_Source\PSoC4/BLE_eventHandler.c ****         #endif /* CYBLE_HIDS_SERVER */
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 54
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 54
 
 
 1964:Generated_Source\PSoC4/BLE_eventHandler.c ****         #ifdef CYBLE_PASS_SERVER
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 2018:Generated_Source\PSoC4/BLE_eventHandler.c ****             break;
 2019:Generated_Source\PSoC4/BLE_eventHandler.c **** 
 2020:Generated_Source\PSoC4/BLE_eventHandler.c ****         case CYBLE_EVT_GATTS_EXEC_WRITE_REQ:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 55
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 55
 
 
 2021:Generated_Source\PSoC4/BLE_eventHandler.c ****         #ifdef CYBLE_BMS_SERVER
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 2068:Generated_Source\PSoC4/BLE_eventHandler.c ****             CyBle_HpscReadLongRespEventHandler((CYBLE_GATTC_READ_RSP_PARAM_T *)eventParam);
 2069:Generated_Source\PSoC4/BLE_eventHandler.c ****         #endif /* CYBLE_HPS_CLIENT */
 2070:Generated_Source\PSoC4/BLE_eventHandler.c **** 		#ifdef CYBLE_IPS_CLIENT
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 56
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 56
 
 
 2071:Generated_Source\PSoC4/BLE_eventHandler.c ****             CyBle_IpscReadLongRespEventHandler((CYBLE_GATTC_READ_RSP_PARAM_T *)eventParam);
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 2125:Generated_Source\PSoC4/BLE_eventHandler.c ****             if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
 2126:Generated_Source\PSoC4/BLE_eventHandler.c ****             {
 2127:Generated_Source\PSoC4/BLE_eventHandler.c ****                 CyBle_EsscExecuteWriteResponseEventHandler((CYBLE_GATTC_EXEC_WRITE_RSP_T *)eventPar
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 57
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 57
 
 
 2128:Generated_Source\PSoC4/BLE_eventHandler.c ****             }
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
 2164:Generated_Source\PSoC4/BLE_eventHandler.c ****     if(0u != (cyBle_eventHandlerFlag & (CYBLE_CALLBACK | CYBLE_ENABLE_ALL_EVENTS))) 
  1070              		.loc 1 2164 0
  1071 030e 0D4B     		ldr	r3, .L65
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 58
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 58
 
 
  1072 0310 1B78     		ldrb	r3, [r3]
@@ -3462,14 +3462,14 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1105 0344 00000000 		.word	cyBle_eventHandlerFlag
  1106 0348 0C000000 		.word	.L25
  1107 034c 00000000 		.word	cyBle_sflashDeviceAddress
- 1108 0350 7CF1FF0F 		.word	268431740
- 1109 0354 7DF1FF0F 		.word	268431741
- 1110 0358 7BF1FF0F 		.word	268431739
- 1111 035c 78F1FF0F 		.word	268431736
+ 1108 0350 7CF2FF0F 		.word	268431996
+ 1109 0354 7DF2FF0F 		.word	268431997
+ 1110 0358 7BF2FF0F 		.word	268431995
+ 1111 035c 78F2FF0F 		.word	268431992
  1112 0360 00000000 		.word	cyBle_deviceAddress
  1113 0364 00000000 		.word	cyBle_state
  1114 0368 00000000 		.word	cyBle_busyStatus
- 1115 036c 00000000 		.word	gPrepWriteReqMem.6731
+ 1115 036c 00000000 		.word	gPrepWriteReqMem.6739
  1116 0370 E00A0000 		.word	cyBle_stackMemoryRam+2784
  1117 0374 00000000 		.word	cyBle_authInfo
  1118 0378 00000000 		.word	cyBle_connHandle
@@ -3478,11 +3478,11 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1121              	.LFE10:
  1122              		.size	CyBle_EventHandler, .-CyBle_EventHandler
  1123              		.bss
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 59
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 59
 
 
  1124              		.align	2
- 1125              	gPrepWriteReqMem.6731:
+ 1125              	gPrepWriteReqMem.6739:
  1126 0000 00000000 		.space	8
  1126      00000000 
  1127              		.text
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1177 004f 02       		.uleb128 0x2
  1178 0050 08       		.byte	0x8
  1179 0051 05       		.byte	0x5
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 60
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 60
 
 
  1180 0052 70130000 		.4byte	.LASF6
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1234 00bb BF000000 		.4byte	0xbf
  1235 00bf 08       		.uleb128 0x8
  1236 00c0 CF000000 		.4byte	0xcf
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 61
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 61
 
 
  1237 00c4 09       		.uleb128 0x9
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1291 0131 E3000000 		.4byte	.LASF31
  1292 0135 27       		.byte	0x27
  1293 0136 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 62
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 62
 
 
  1294 0137 44240000 		.4byte	.LASF32
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1348 01a3 BF230000 		.4byte	.LASF50
  1349 01a7 42       		.byte	0x42
  1350 01a8 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 63
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 63
 
 
  1351 01a9 001A0000 		.4byte	.LASF51
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1405 0215 54020000 		.4byte	.LASF69
  1406 0219 55       		.byte	0x55
  1407 021a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 64
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 64
 
 
  1408 021b 8A0C0000 		.4byte	.LASF70
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1462 0287 93170000 		.4byte	.LASF88
  1463 028b FF       		.byte	0xff
  1464 028c 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 65
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 65
 
 
  1465 028d 0A       		.uleb128 0xa
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1519 02fa 0B       		.uleb128 0xb
  1520 02fb 0A020000 		.4byte	.LASF105
  1521 02ff 10       		.byte	0x10
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 66
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 66
 
 
  1522 0300 0B       		.uleb128 0xb
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1576 0372 0A       		.uleb128 0xa
  1577 0373 01       		.byte	0x1
  1578 0374 2C000000 		.4byte	0x2c
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 67
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 67
 
 
  1579 0378 03       		.byte	0x3
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1633 03e7 03       		.byte	0x3
  1634 03e8 CC04     		.2byte	0x4cc
  1635 03ea C2030000 		.4byte	0x3c2
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 68
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 68
 
 
  1636 03ee 0D       		.uleb128 0xd
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1690 045f 03       		.byte	0x3
  1691 0460 1105     		.2byte	0x511
  1692 0462 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 69
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 69
 
 
  1693 0466 01       		.byte	0x1
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1747 04d8 01       		.byte	0x1
  1748 04d9 0B       		.uleb128 0xb
  1749 04da 2D1C0000 		.4byte	.LASF151
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 70
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 70
 
 
  1750 04de 02       		.byte	0x2
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1804 0549 311F0000 		.4byte	.LASF164
  1805 054d 04       		.byte	0x4
  1806 054e 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 71
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 71
 
 
  1807 054f 0A       		.uleb128 0xa
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1861 05bc 0B       		.uleb128 0xb
  1862 05bd 22030000 		.4byte	.LASF181
  1863 05c1 15       		.byte	0x15
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 72
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 72
 
 
  1864 05c2 0B       		.uleb128 0xb
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1918 0631 6A060000 		.4byte	0x66a
  1919 0635 0E       		.uleb128 0xe
  1920 0636 99100000 		.4byte	.LASF190
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 73
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 73
 
 
  1921 063a 05       		.byte	0x5
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  1975 06ab 07       		.byte	0x7
  1976 06ac 0B       		.uleb128 0xb
  1977 06ad D8180000 		.4byte	.LASF202
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 74
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 74
 
 
  1978 06b1 08       		.byte	0x8
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2032 071d 1D       		.byte	0x1d
  2033 071e 0B       		.uleb128 0xb
  2034 071f 42000000 		.4byte	.LASF221
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 75
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 75
 
 
  2035 0723 1E       		.byte	0x1e
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2089 078c A3070000 		.4byte	.LASF237
  2090 0790 0D       		.byte	0xd
  2091 0791 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 76
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 76
 
 
  2092 0792 2B0B0000 		.4byte	.LASF238
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2146 07fe A4110000 		.4byte	.LASF256
  2147 0802 A0       		.byte	0xa0
  2148 0803 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 77
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 77
 
 
  2149 0804 26050000 		.4byte	.LASF257
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2203 0873 BE01     		.2byte	0x1be
  2204 0875 A1080000 		.4byte	0x8a1
  2205 0879 13       		.uleb128 0x13
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 78
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 78
 
 
  2206 087a 76616C00 		.ascii	"val\000"
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2260 08ec E901     		.2byte	0x1e9
  2261 08ee 64080000 		.4byte	0x864
  2262 08f2 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 79
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 79
 
 
  2263 08f3 13       		.uleb128 0x13
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2317 0963 07       		.byte	0x7
  2318 0964 43       		.byte	0x43
  2319 0965 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 80
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 80
 
 
  2320 0969 02       		.byte	0x2
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2374 09d3 C8110000 		.4byte	.LASF287
  2375 09d7 02       		.byte	0x2
  2376 09d8 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 81
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 81
 
 
  2377 09d9 79060000 		.4byte	.LASF288
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2431 0a46 02       		.byte	0x2
  2432 0a47 0B       		.uleb128 0xb
  2433 0a48 8C040000 		.4byte	.LASF302
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 82
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 82
 
 
  2434 0a4c 03       		.byte	0x3
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2488 0abd 0B       		.byte	0xb
  2489 0abe A809     		.2byte	0x9a8
  2490 0ac0 600A0000 		.4byte	0xa60
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 83
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 83
 
 
  2491 0ac4 16       		.uleb128 0x16
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2545 0b33 3B0B0000 		.4byte	0xb3b
  2546 0b37 02       		.uleb128 0x2
  2547 0b38 91       		.byte	0x91
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 84
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 84
 
 
  2548 0b39 74       		.sleb128 -12
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2602 0bb0 9C       		.byte	0x9c
  2603 0bb1 E10B0000 		.4byte	0xbe1
  2604 0bb5 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 85
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 85
 
 
  2605 0bb6 BE0B0000 		.4byte	.LASF320
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2659 0c23 9C       		.byte	0x9c
  2660 0c24 380C0000 		.4byte	0xc38
  2661 0c28 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 86
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 86
 
 
  2662 0c29 D8000000 		.4byte	.LASF316
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2716 0c9d B10C0000 		.4byte	0xcb1
  2717 0ca1 1A       		.uleb128 0x1a
  2718 0ca2 CF200000 		.4byte	.LASF327
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 87
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 87
 
 
  2719 0ca6 01       		.byte	0x1
@@ -5203,7 +5203,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2758 0cfb 3E090000 		.4byte	0x93e
  2759 0cff 05       		.uleb128 0x5
  2760 0d00 03       		.byte	0x3
- 2761 0d01 00000000 		.4byte	gPrepWriteReqMem.6731
+ 2761 0d01 00000000 		.4byte	gPrepWriteReqMem.6739
  2762 0d05 00       		.byte	0
  2763 0d06 00       		.byte	0
  2764 0d07 22       		.uleb128 0x22
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2773 0d20 02       		.uleb128 0x2
  2774 0d21 91       		.byte	0x91
  2775 0d22 62       		.sleb128 -30
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 88
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 88
 
 
  2776 0d23 00       		.byte	0
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2830 0d9a 23       		.uleb128 0x23
  2831 0d9b F70D0000 		.4byte	.LASF337
  2832 0d9f 08       		.byte	0x8
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 89
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 89
 
 
  2833 0da0 A602     		.2byte	0x2a6
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2887              	.Ldebug_abbrev0:
  2888 0000 01       		.uleb128 0x1
  2889 0001 11       		.uleb128 0x11
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 90
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 90
 
 
  2890 0002 01       		.byte	0x1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  2944 0038 00       		.byte	0
  2945 0039 49       		.uleb128 0x49
  2946 003a 13       		.uleb128 0x13
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 91
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 91
 
 
  2947 003b 00       		.byte	0
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3001 0071 1C       		.uleb128 0x1c
  3002 0072 0B       		.uleb128 0xb
  3003 0073 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 92
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 92
 
 
  3004 0074 00       		.byte	0
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3058 00aa 00       		.byte	0
  3059 00ab 00       		.byte	0
  3060 00ac 11       		.uleb128 0x11
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 93
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 93
 
 
  3061 00ad 04       		.uleb128 0x4
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3115 00e3 00       		.byte	0
  3116 00e4 15       		.uleb128 0x15
  3117 00e5 0D       		.uleb128 0xd
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 94
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 94
 
 
  3118 00e6 00       		.byte	0
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3172 011d 03       		.uleb128 0x3
  3173 011e 0E       		.uleb128 0xe
  3174 011f 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 95
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 95
 
 
  3175 0120 0B       		.uleb128 0xb
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3229 0157 00       		.byte	0
  3230 0158 00       		.byte	0
  3231 0159 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 96
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 96
 
 
  3232 015a 05       		.uleb128 0x5
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3286 0191 19       		.uleb128 0x19
  3287 0192 49       		.uleb128 0x49
  3288 0193 13       		.uleb128 0x13
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 97
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 97
 
 
  3289 0194 11       		.uleb128 0x11
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3343 01cc 01       		.byte	0x1
  3344 01cd 11       		.uleb128 0x11
  3345 01ce 01       		.uleb128 0x1
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 98
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 98
 
 
  3346 01cf 12       		.uleb128 0x12
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3400 000a 04       		.byte	0x4
  3401 000b 00       		.byte	0
  3402 000c 0000     		.2byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 99
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 99
 
 
  3403 000e 0000     		.2byte	0
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3450      52525F49 
  3450      4E56414C 
  3451              	.LASF294:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 100
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 100
 
 
  3452 001b 4359424C 		.ascii	"CYBLE_DIS_CHAR_COUNT\000"
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3473              	.LASF163:
  3474 0102 4359424C 		.ascii	"CYBLE_GAP_IOCAP_NOINPUT_NOOUTPUT\000"
  3474      455F4741 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 101
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 101
 
 
  3474      505F494F 
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3493              	.LASF105:
  3494 020a 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_CONNECTION_ENTITY_NOT_FOUND\000"
  3494      455F4552 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 102
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 102
 
 
  3494      524F525F 
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3515      455F4741 
  3515      505F4155 
  3515      54485F45 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 103
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 103
 
 
  3515      52524F52 
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3533      44495350 
  3534              	.LASF46:
  3535 0443 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 104
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 104
 
 
  3535      455F4556 
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3553      5F4E4547 
  3554              	.LASF197:
  3555 0566 4359424C 		.ascii	"CYBLE_GATT_XCHNG_MTU_RSP\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 105
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 105
 
 
  3555      455F4741 
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3573      41434B5F 
  3573      4F4E00
  3574              	.LASF107:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 106
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 106
 
 
  3575 0656 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_NOT_IN_RANGE\000"
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3593      545F4C32 
  3593      4341505F 
  3593      434F4D4D 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 107
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 107
 
 
  3594              	.LASF310:
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3613      455F4552 
  3613      524F525F 
  3613      4F4B00
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 108
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 108
 
 
  3614              	.LASF136:
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3632      414E444C 
  3632      455F5641 
  3633              	.LASF43:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 109
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 109
 
 
  3634 098a 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3654 0a91 4359424C 		.ascii	"CYBLE_GATT_WRITE_RSP\000"
  3654      455F4741 
  3654      54545F57 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 110
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 110
 
 
  3654      52495445 
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3672      4E4F5F44 
  3672      45564943 
  3673              	.LASF58:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 111
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 111
 
 
  3674 0ba0 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3693 0cac 4359424C 		.ascii	"CYBLE_GATT_ERR_ANCS_ACTION_FAILED\000"
  3693      455F4741 
  3693      54545F45 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 112
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 112
 
 
  3693      52525F41 
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3712              	.LASF92:
  3713 0dbc 4359424C 		.ascii	"CYBLE_ERROR_MEMORY_ALLOCATION_FAILED\000"
  3713      455F4552 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 113
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 113
 
 
  3713      524F525F 
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3731      495F504B 
  3731      5400
  3732              	.LASF344:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 114
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 114
 
 
  3733 0ee4 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3749      46464943 
  3750              	.LASF248:
  3751 1037 4359424C 		.ascii	"CYBLE_GATT_ERR_OP_CODE_NOT_SUPPORTED\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 115
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 115
 
 
  3751      455F4741 
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3769      52524F52 
  3770              	.LASF219:
  3771 115f 4359424C 		.ascii	"CYBLE_GATT_HANDLE_VALUE_NTF\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 116
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 116
 
 
  3771      455F4741 
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3789      505F4155 
  3789      54485F45 
  3789      52524F52 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 117
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 117
 
 
  3790              	.LASF78:
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3810 139f 4359424C 		.ascii	"CYBLE_DIS_PNP_ID\000"
  3810      455F4449 
  3810      535F504E 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 118
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 118
 
 
  3810      505F4944 
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3830      5F505752 
  3830      5F4C564C 
  3830      5F4D4158 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 119
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 119
 
 
  3831              	.LASF306:
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3851              	.LASF232:
  3852 15db 4359424C 		.ascii	"CYBLE_GATT_ERR_INSUFFICIENT_AUTHORIZATION\000"
  3852      455F4741 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 120
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 120
 
 
  3852      54545F45 
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3872      5F434F4E 
  3872      4E5F4348 
  3872      5F545950 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 121
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 121
 
 
  3873              	.LASF247:
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3892      54485F46 
  3892      41494C45 
  3893              	.LASF60:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 122
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 122
 
 
  3894 17fa 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3912 18f4 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
  3912      455F4556 
  3912      545F4C32 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 123
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 123
 
 
  3912      4341505F 
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3931              	.LASF275:
  3932 19f4 71756575 		.ascii	"queueBuffer\000"
  3932      65427566 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 124
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 124
 
 
  3932      66657200 
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3951      65642069 
  3952              	.LASF225:
  3953 1b23 4359424C 		.ascii	"CYBLE_GATT_ERR_INVALID_HANDLE\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 125
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 125
 
 
  3953      455F4741 
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3972              	.LASF333:
  3973 1c02 4379426C 		.ascii	"CyBle_ApplCallback\000"
  3973      655F4170 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 126
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 126
 
 
  3973      706C4361 
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  3993 1cc8 4379426C 		.ascii	"CyBle_TimeOutEventHandler\000"
  3993      655F5469 
  3993      6D654F75 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 127
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 127
 
 
  3993      74457665 
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  4012              	.LASF328:
  4013 1dcf 6C654D61 		.ascii	"leMask\000"
  4013      736B00
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 128
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 128
 
 
  4014              	.LASF30:
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  4036      455F4852 
  4036      535F4348 
  4036      41525F43 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 129
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 129
 
 
  4036      4F554E54 
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  4055              	.LASF98:
  4056 1ffd 4359424C 		.ascii	"CYBLE_ERROR_GAP_ROLE\000"
  4056      455F4552 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 130
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 130
 
 
  4056      524F525F 
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  4076      4E4F5F43 
  4076      4F4E4E45 
  4077              	.LASF129:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 131
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 131
 
 
  4078 20f3 4359424C 		.ascii	"CYBLE_LL_PWR_LVL_0_DBM\000"
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  4096      52524F52 
  4097              	.LASF161:
  4098 21ea 4359424C 		.ascii	"CYBLE_GAP_IOCAP_DISPLAY_YESNO\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 132
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 132
 
 
  4098      455F4741 
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  4118 22e5 73686F72 		.ascii	"short unsigned int\000"
  4118      7420756E 
  4118      7369676E 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 133
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 133
 
 
  4118      65642069 
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 1
  4138      696F6E54 
  4138      4F00
  4139              	.LASF152:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccpoBe8z.s 			page 134
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccjz8oRD.s 			page 134
 
 
  4140 23eb 4359424C 		.ascii	"CYBLE_GATT_RSP_TO\000"

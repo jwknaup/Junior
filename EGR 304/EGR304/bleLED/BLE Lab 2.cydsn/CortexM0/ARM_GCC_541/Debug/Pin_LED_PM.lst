@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
   22:Generated_Source\PSoC4/Pin_LED_PM.c **** 
   23:Generated_Source\PSoC4/Pin_LED_PM.c **** /*******************************************************************************
   24:Generated_Source\PSoC4/Pin_LED_PM.c **** * Function Name: Pin_LED_Sleep
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 2
 
 
   25:Generated_Source\PSoC4/Pin_LED_PM.c **** ****************************************************************************//**
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
   49 000e BD46     		mov	sp, r7
   50              		@ sp needed
   51 0010 80BD     		pop	{r7, pc}
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 3
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 3
 
 
   52              	.L3:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
   82 000a 1360     		str	r3, [r2]
   86:Generated_Source\PSoC4/Pin_LED_PM.c ****     #else
   87:Generated_Source\PSoC4/Pin_LED_PM.c ****         #if (CY_PSOC4_4200L)
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 4
 
 
   88:Generated_Source\PSoC4/Pin_LED_PM.c ****             /* Restore the regulator state and come out of suspend mode */
@@ -215,48 +215,48 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
  104 0006 00000000 		.4byte	.Ldebug_abbrev0
  105 000a 04       		.byte	0x4
  106 000b 01       		.uleb128 0x1
- 107 000c EB000000 		.4byte	.LASF20
+ 107 000c D6000000 		.4byte	.LASF20
  108 0010 0C       		.byte	0xc
- 109 0011 C7000000 		.4byte	.LASF21
- 110 0015 00000000 		.4byte	.LASF22
+ 109 0011 B2000000 		.4byte	.LASF21
+ 110 0015 47000000 		.4byte	.LASF22
  111 0019 00000000 		.4byte	.Ldebug_ranges0+0
  112 001d 00000000 		.4byte	0
  113 0021 00000000 		.4byte	.Ldebug_line0
  114 0025 02       		.uleb128 0x2
  115 0026 01       		.byte	0x1
  116 0027 06       		.byte	0x6
- 117 0028 06020000 		.4byte	.LASF0
+ 117 0028 EB010000 		.4byte	.LASF0
  118 002c 02       		.uleb128 0x2
  119 002d 01       		.byte	0x1
  120 002e 08       		.byte	0x8
- 121 002f 94000000 		.4byte	.LASF1
+ 121 002f 39000000 		.4byte	.LASF1
  122 0033 02       		.uleb128 0x2
  123 0034 02       		.byte	0x2
  124 0035 05       		.byte	0x5
- 125 0036 E5010000 		.4byte	.LASF2
+ 125 0036 D0010000 		.4byte	.LASF2
  126 003a 02       		.uleb128 0x2
  127 003b 02       		.byte	0x2
  128 003c 07       		.byte	0x7
- 129 003d B4000000 		.4byte	.LASF3
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 5
+ 129 003d 9F000000 		.4byte	.LASF3
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 5
 
 
  130 0041 02       		.uleb128 0x2
  131 0042 04       		.byte	0x4
  132 0043 05       		.byte	0x5
- 133 0044 F7010000 		.4byte	.LASF4
+ 133 0044 E2010000 		.4byte	.LASF4
  134 0048 02       		.uleb128 0x2
  135 0049 04       		.byte	0x4
  136 004a 07       		.byte	0x7
- 137 004b A2000000 		.4byte	.LASF5
+ 137 004b 8D000000 		.4byte	.LASF5
  138 004f 02       		.uleb128 0x2
  139 0050 08       		.byte	0x8
  140 0051 05       		.byte	0x5
- 141 0052 C3010000 		.4byte	.LASF6
+ 141 0052 AE010000 		.4byte	.LASF6
  142 0056 02       		.uleb128 0x2
  143 0057 08       		.byte	0x8
  144 0058 07       		.byte	0x7
- 145 0059 94010000 		.4byte	.LASF7
+ 145 0059 7F010000 		.4byte	.LASF7
  146 005d 03       		.uleb128 0x3
  147 005e 04       		.byte	0x4
  148 005f 05       		.byte	0x5
@@ -264,26 +264,26 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
  150 0064 02       		.uleb128 0x2
  151 0065 04       		.byte	0x4
  152 0066 07       		.byte	0x7
- 153 0067 87010000 		.4byte	.LASF8
+ 153 0067 72010000 		.4byte	.LASF8
  154 006b 04       		.uleb128 0x4
- 155 006c 80010000 		.4byte	.LASF12
+ 155 006c 6B010000 		.4byte	.LASF12
  156 0070 02       		.byte	0x2
  157 0071 D401     		.2byte	0x1d4
  158 0073 48000000 		.4byte	0x48
  159 0077 02       		.uleb128 0x2
  160 0078 04       		.byte	0x4
  161 0079 04       		.byte	0x4
- 162 007a 8E000000 		.4byte	.LASF9
+ 162 007a 33000000 		.4byte	.LASF9
  163 007e 02       		.uleb128 0x2
  164 007f 08       		.byte	0x8
  165 0080 04       		.byte	0x4
- 166 0081 79010000 		.4byte	.LASF10
+ 166 0081 64010000 		.4byte	.LASF10
  167 0085 02       		.uleb128 0x2
  168 0086 01       		.byte	0x1
  169 0087 08       		.byte	0x8
- 170 0088 E0010000 		.4byte	.LASF11
+ 170 0088 CB010000 		.4byte	.LASF11
  171 008c 04       		.uleb128 0x4
- 172 008d 00020000 		.4byte	.LASF13
+ 172 008d 00000000 		.4byte	.LASF13
  173 0091 02       		.byte	0x2
  174 0092 7E02     		.2byte	0x27e
  175 0094 98000000 		.4byte	0x98
@@ -295,34 +295,34 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
  181 00a0 21       		.byte	0x21
  182 00a1 CA000000 		.4byte	0xca
  183 00a5 07       		.uleb128 0x7
- 184 00a6 EF010000 		.4byte	.LASF14
+ 184 00a6 DA010000 		.4byte	.LASF14
  185 00aa 03       		.byte	0x3
  186 00ab 23       		.byte	0x23
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 6
 
 
  187 00ac 6B000000 		.4byte	0x6b
  188 00b0 00       		.byte	0
  189 00b1 07       		.uleb128 0x7
- 190 00b2 BA010000 		.4byte	.LASF15
+ 190 00b2 A5010000 		.4byte	.LASF15
  191 00b6 03       		.byte	0x3
  192 00b7 24       		.byte	0x24
  193 00b8 6B000000 		.4byte	0x6b
  194 00bc 04       		.byte	0x4
  195 00bd 07       		.uleb128 0x7
- 196 00be 61000000 		.4byte	.LASF16
+ 196 00be 06000000 		.4byte	.LASF16
  197 00c2 03       		.byte	0x3
  198 00c3 25       		.byte	0x25
  199 00c4 6B000000 		.4byte	0x6b
  200 00c8 08       		.byte	0x8
  201 00c9 00       		.byte	0
  202 00ca 08       		.uleb128 0x8
- 203 00cb 6A000000 		.4byte	.LASF17
+ 203 00cb 0F000000 		.4byte	.LASF17
  204 00cf 03       		.byte	0x3
  205 00d0 26       		.byte	0x26
  206 00d1 9D000000 		.4byte	0x9d
  207 00d5 09       		.uleb128 0x9
- 208 00d6 80000000 		.4byte	.LASF18
+ 208 00d6 25000000 		.4byte	.LASF18
  209 00da 01       		.byte	0x1
  210 00db 2C       		.byte	0x2c
  211 00dc 00000000 		.4byte	.LFB0
@@ -330,7 +330,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
  213 00e4 01       		.uleb128 0x1
  214 00e5 9C       		.byte	0x9c
  215 00e6 09       		.uleb128 0x9
- 216 00e7 D1010000 		.4byte	.LASF19
+ 216 00e7 BC010000 		.4byte	.LASF19
  217 00eb 01       		.byte	0x1
  218 00ec 52       		.byte	0x52
  219 00ed 00000000 		.4byte	.LFB1
@@ -338,7 +338,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
  221 00f5 01       		.uleb128 0x1
  222 00f6 9C       		.byte	0x9c
  223 00f7 0A       		.uleb128 0xa
- 224 00f8 AB010000 		.4byte	.LASF23
+ 224 00f8 96010000 		.4byte	.LASF23
  225 00fc 01       		.byte	0x1
  226 00fd 14       		.byte	0x14
  227 00fe CA000000 		.4byte	0xca
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
  241 0007 03       		.uleb128 0x3
  242 0008 0E       		.uleb128 0xe
  243 0009 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 7
 
 
  244 000a 0E       		.uleb128 0xe
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
  298 0040 0B       		.uleb128 0xb
  299 0041 0B       		.uleb128 0xb
  300 0042 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 8
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 8
 
 
  301 0043 0B       		.uleb128 0xb
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
  355 0079 9742     		.uleb128 0x2117
  356 007b 19       		.uleb128 0x19
  357 007c 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 9
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 9
 
 
  358 007d 00       		.byte	0
@@ -527,140 +527,138 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 1
  399      00000201 
  399      FB0E0D00 
  399      01010101 
- 400              	.LASF22:
- 401 0000 433A5C55 		.ascii	"C:\\Users\\Jacob\\Documents\\Junior\\EGR 304\\EGR30"
- 401      73657273 
- 401      5C4A6163 
- 401      6F625C44 
- 401      6F63756D 
- 402 002d 345C5465 		.ascii	"4\\Templates\\Template Labs\\BLE Lab 2\\BLE Lab 2.c"
- 402      6D706C61 
- 402      7465735C 
- 402      54656D70 
- 402      6C617465 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 10
-
-
- 403 005c 7964736E 		.ascii	"ydsn\000"
+ 400              	.LASF13:
+ 401 0000 72656733 		.ascii	"reg32\000"
+ 401      3200
+ 402              	.LASF16:
+ 403 0006 75736253 		.ascii	"usbState\000"
+ 403      74617465 
  403      00
- 404              	.LASF16:
- 405 0061 75736253 		.ascii	"usbState\000"
- 405      74617465 
- 405      00
- 406              	.LASF17:
- 407 006a 50696E5F 		.ascii	"Pin_LED_BACKUP_STRUCT\000"
+ 404              	.LASF17:
+ 405 000f 50696E5F 		.ascii	"Pin_LED_BACKUP_STRUCT\000"
+ 405      4C45445F 
+ 405      4241434B 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 10
+
+
+ 405      55505F53 
+ 405      54525543 
+ 406              	.LASF18:
+ 407 0025 50696E5F 		.ascii	"Pin_LED_Sleep\000"
  407      4C45445F 
- 407      4241434B 
- 407      55505F53 
- 407      54525543 
- 408              	.LASF18:
- 409 0080 50696E5F 		.ascii	"Pin_LED_Sleep\000"
- 409      4C45445F 
- 409      536C6565 
- 409      7000
- 410              	.LASF9:
- 411 008e 666C6F61 		.ascii	"float\000"
- 411      7400
- 412              	.LASF1:
- 413 0094 756E7369 		.ascii	"unsigned char\000"
- 413      676E6564 
- 413      20636861 
- 413      7200
- 414              	.LASF5:
- 415 00a2 6C6F6E67 		.ascii	"long unsigned int\000"
- 415      20756E73 
- 415      69676E65 
- 415      6420696E 
- 415      7400
- 416              	.LASF3:
- 417 00b4 73686F72 		.ascii	"short unsigned int\000"
- 417      7420756E 
- 417      7369676E 
- 417      65642069 
- 417      6E7400
- 418              	.LASF21:
- 419 00c7 47656E65 		.ascii	"Generated_Source\\PSoC4\\Pin_LED_PM.c\000"
- 419      72617465 
- 419      645F536F 
- 419      75726365 
- 419      5C50536F 
- 420              	.LASF20:
- 421 00eb 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 421      43313120 
- 421      352E342E 
- 421      31203230 
- 421      31363036 
- 422 011e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 422      20726576 
- 422      6973696F 
- 422      6E203233 
- 422      37373135 
- 423 0151 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 423      66756E63 
- 423      74696F6E 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 11
+ 407      536C6565 
+ 407      7000
+ 408              	.LASF9:
+ 409 0033 666C6F61 		.ascii	"float\000"
+ 409      7400
+ 410              	.LASF1:
+ 411 0039 756E7369 		.ascii	"unsigned char\000"
+ 411      676E6564 
+ 411      20636861 
+ 411      7200
+ 412              	.LASF22:
+ 413 0047 433A5C55 		.ascii	"C:\\Users\\Jacob\\Documents\\Junior\\EGR 304\\EGR30"
+ 413      73657273 
+ 413      5C4A6163 
+ 413      6F625C44 
+ 413      6F63756D 
+ 414 0074 345C626C 		.ascii	"4\\bleLED\\BLE Lab 2.cydsn\000"
+ 414      654C4544 
+ 414      5C424C45 
+ 414      204C6162 
+ 414      20322E63 
+ 415              	.LASF5:
+ 416 008d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 416      20756E73 
+ 416      69676E65 
+ 416      6420696E 
+ 416      7400
+ 417              	.LASF3:
+ 418 009f 73686F72 		.ascii	"short unsigned int\000"
+ 418      7420756E 
+ 418      7369676E 
+ 418      65642069 
+ 418      6E7400
+ 419              	.LASF21:
+ 420 00b2 47656E65 		.ascii	"Generated_Source\\PSoC4\\Pin_LED_PM.c\000"
+ 420      72617465 
+ 420      645F536F 
+ 420      75726365 
+ 420      5C50536F 
+ 421              	.LASF20:
+ 422 00d6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 422      43313120 
+ 422      352E342E 
+ 422      31203230 
+ 422      31363036 
+ 423 0109 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 423      20726576 
+ 423      6973696F 
+ 423      6E203233 
+ 423      37373135 
+ 424 013c 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 424      66756E63 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 11
 
 
- 423      2D736563 
- 423      74696F6E 
- 424              	.LASF10:
- 425 0179 646F7562 		.ascii	"double\000"
- 425      6C6500
- 426              	.LASF12:
- 427 0180 75696E74 		.ascii	"uint32\000"
- 427      333200
- 428              	.LASF8:
- 429 0187 756E7369 		.ascii	"unsigned int\000"
- 429      676E6564 
- 429      20696E74 
- 429      00
- 430              	.LASF7:
- 431 0194 6C6F6E67 		.ascii	"long long unsigned int\000"
- 431      206C6F6E 
- 431      6720756E 
- 431      7369676E 
- 431      65642069 
- 432              	.LASF23:
- 433 01ab 50696E5F 		.ascii	"Pin_LED_backup\000"
- 433      4C45445F 
- 433      6261636B 
- 433      757000
- 434              	.LASF15:
- 435 01ba 73696F53 		.ascii	"sioState\000"
- 435      74617465 
- 435      00
- 436              	.LASF6:
- 437 01c3 6C6F6E67 		.ascii	"long long int\000"
- 437      206C6F6E 
- 437      6720696E 
- 437      7400
- 438              	.LASF19:
- 439 01d1 50696E5F 		.ascii	"Pin_LED_Wakeup\000"
- 439      4C45445F 
- 439      57616B65 
- 439      757000
- 440              	.LASF11:
- 441 01e0 63686172 		.ascii	"char\000"
- 441      00
- 442              	.LASF2:
- 443 01e5 73686F72 		.ascii	"short int\000"
- 443      7420696E 
- 443      7400
- 444              	.LASF14:
- 445 01ef 70635374 		.ascii	"pcState\000"
- 445      61746500 
- 446              	.LASF4:
- 447 01f7 6C6F6E67 		.ascii	"long int\000"
- 447      20696E74 
- 447      00
- 448              	.LASF13:
- 449 0200 72656733 		.ascii	"reg32\000"
- 449      3200
- 450              	.LASF0:
- 451 0206 7369676E 		.ascii	"signed char\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccCZ2DLr.s 			page 12
+ 424      74696F6E 
+ 424      2D736563 
+ 424      74696F6E 
+ 425              	.LASF10:
+ 426 0164 646F7562 		.ascii	"double\000"
+ 426      6C6500
+ 427              	.LASF12:
+ 428 016b 75696E74 		.ascii	"uint32\000"
+ 428      333200
+ 429              	.LASF8:
+ 430 0172 756E7369 		.ascii	"unsigned int\000"
+ 430      676E6564 
+ 430      20696E74 
+ 430      00
+ 431              	.LASF7:
+ 432 017f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 432      206C6F6E 
+ 432      6720756E 
+ 432      7369676E 
+ 432      65642069 
+ 433              	.LASF23:
+ 434 0196 50696E5F 		.ascii	"Pin_LED_backup\000"
+ 434      4C45445F 
+ 434      6261636B 
+ 434      757000
+ 435              	.LASF15:
+ 436 01a5 73696F53 		.ascii	"sioState\000"
+ 436      74617465 
+ 436      00
+ 437              	.LASF6:
+ 438 01ae 6C6F6E67 		.ascii	"long long int\000"
+ 438      206C6F6E 
+ 438      6720696E 
+ 438      7400
+ 439              	.LASF19:
+ 440 01bc 50696E5F 		.ascii	"Pin_LED_Wakeup\000"
+ 440      4C45445F 
+ 440      57616B65 
+ 440      757000
+ 441              	.LASF11:
+ 442 01cb 63686172 		.ascii	"char\000"
+ 442      00
+ 443              	.LASF2:
+ 444 01d0 73686F72 		.ascii	"short int\000"
+ 444      7420696E 
+ 444      7400
+ 445              	.LASF14:
+ 446 01da 70635374 		.ascii	"pcState\000"
+ 446      61746500 
+ 447              	.LASF4:
+ 448 01e2 6C6F6E67 		.ascii	"long int\000"
+ 448      20696E74 
+ 448      00
+ 449              	.LASF0:
+ 450 01eb 7369676E 		.ascii	"signed char\000"
+ 450      65642063 
+ 450      68617200 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccwVd7v0.s 			page 12
 
 
- 451      65642063 
- 451      68617200 
- 452              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 451              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
