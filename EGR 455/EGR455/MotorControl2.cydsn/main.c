@@ -10,61 +10,65 @@
  * ========================================
 */
 #include "project.h"
+#include "stdlib.h"
+#include "math.h"
 
 int main(void)
 {
-    int count1, count2, dCount, target1=500, target2=1000;
+    int count, count2, dCount, target1=1000, target2=2000;
     int rot, deg;
     float cpr = 814.0, rpm;
     int compare;
     int time;
-    enc_Start();
+    int error, P;
+    float kP=3.0;
+    enc_Start();    
     lcd_Start();
     pwm_Start();
     enc_SetCounter(0);
 
     for(;;)
     {
-        count1 = enc_GetCounter();
+        count = enc_GetCounter();
         time=0;
         while(time<5000){
-            count1 = enc_GetCounter();
-            if(count1 < target1){
-                pwm_WriteCompare1(83);
+            count = enc_GetCounter();
+            error = target1 - count;
+            P = kP*abs(error);
+            if(P>100)
+                P=100;
+            if(error>0){                
+                pwm_WriteCompare1(P);
                 pwm_WriteCompare2(0);
-            }
-            else if(count1 > target1){
-                pwm_WriteCompare1(0);
-                pwm_WriteCompare2(83); 
             }
             else{
                 pwm_WriteCompare1(0);
-                pwm_WriteCompare2(0);
+                pwm_WriteCompare2(P);
             }
             lcd_ClearDisplay();
             lcd_Position(0,0);
-            lcd_PrintNumber(count1);
+            lcd_PrintNumber(count);
             CyDelay(10);
             time+=10;
         }
-               time=0;
+        time=0;
         while(time<5000){
-            count1 = enc_GetCounter();
-            if(count1 < target2){
-                pwm_WriteCompare1(83);
+            count = enc_GetCounter();
+            error = target2 - count;
+            P = kP*abs(error);
+            if(P>100)
+                P=100;
+            if(error>0){                
+                pwm_WriteCompare1(P);
                 pwm_WriteCompare2(0);
-            }
-            else if(count1 > target2){
-                pwm_WriteCompare1(0);
-                pwm_WriteCompare2(83); 
             }
             else{
                 pwm_WriteCompare1(0);
-                pwm_WriteCompare2(0);
+                pwm_WriteCompare2(P);
             }
             lcd_ClearDisplay();
             lcd_Position(0,0);
-            lcd_PrintNumber(count1);
+            lcd_PrintNumber(count);
             CyDelay(10);
             time+=10;
         }
