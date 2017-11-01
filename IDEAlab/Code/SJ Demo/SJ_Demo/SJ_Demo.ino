@@ -17,14 +17,17 @@ void setup() {
   
   analogWrite(6,255);
   digitalWrite(7,1);
- 
+
+  Serial.print("started");
+
+  delay(1000);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 //  for(int i=0; i<1000;i++){
     if(Serial.available()){
-      if(Serial.read){
+      if(Serial.read()){
         Serial.print(2);
       }
     }

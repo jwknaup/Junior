@@ -4,21 +4,21 @@ clc
  
 global Tmax wmax mass moment_arm gear_ratio;
 maxJumpHeight = 0;
-loops1 = 20;
-loops2 = 50;
+loops1 = 50;
+loops2 = 100;
 jumpHeights = zeros(1, loops1*loops2);
 speeds = zeros(1, loops1*loops2);
 lengths = zeros(1, loops1*loops2);
 i=0;
 
-for gear_ratio = linspace(.5, 10, loops1)%1.02m moment arm gives 1.447m extra height
-    for moment_arm = linspace(0.05, 1.0, loops2)
+for gear_ratio = linspace(1, 10, loops1)%1.02m moment arm gives 1.447m extra height
+    for moment_arm = linspace(0.03, 1.0, loops2)
         i=i+1;
 %gear_ratio = 1;
 Tmax =0.4943*2/gear_ratio; 
 wmax = gear_ratio*100*2*pi()/60;
 %moment_arm = .1;
-mass = .019 + .04*moment_arm;
+mass = .019 + .2674*moment_arm;
 
 start_angle = 5*pi/180;
 end_angle = 85*pi/180;
@@ -63,7 +63,7 @@ v1= velocity(indexAngle);
 end
 
 results = [lengths' speeds' jumpHeights']
-csvwrite('matlabOpt2+.csv', results);
+csvwrite('matlabOpt3.csv', results);
 
 %results = [time velocity height]
 %csvwrite('matlabOne.csv', results);
