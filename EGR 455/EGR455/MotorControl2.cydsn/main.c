@@ -26,7 +26,21 @@ int main(void)
     lcd_Start();
     pwm_Start();
     enc_SetCounter(0);
+    uart_Start();
+    uint8 receive;
 
+    while(1){
+        receive = uart_GetChar();
+        if(receive){
+            lcd_ClearDisplay();
+            lcd_Position(0,0);
+            lcd_PrintNumber(receive);
+            for(uint8 i=1;i<=10;i++){
+                uart_PutChar(i);
+                CyDelay(200);
+            }
+        }
+    }
     for(;;)
     {
         count = enc_GetCounter();
