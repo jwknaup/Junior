@@ -18,21 +18,21 @@ void setup() {
   analogWrite(6,255);
   digitalWrite(7,1);
 
-  Serial.print("started");
-
-  delay(1000);
+  for(int i=0; i<100;i++){
+    //if(Serial.available()){
+      //if(Serial.read()){
+        Serial.write(2);
+        //delay(1);
+     // }
+   // }
+    
+ }
+ Serial.write('\n');
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-//  for(int i=0; i<1000;i++){
-    //if(Serial.available()){
-      //if(Serial.read()){
-        Serial.write(2);
-     // }
-   // }
-    
-//  }
+
   
   analogWrite(2,0);
   analogWrite(6,0);

@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw7_1.cydsn\hw7_1.cyprj
--- Generated: 11/02/2017 15:23:18
+-- Generated: 11/03/2017 13:34:49
 -- PSoC Creator  4.1 Update 1
 
 ENTITY hw7_1 IS
@@ -58,7 +58,7 @@ ARCHITECTURE __DEFAULT__ OF hw7_1 IS
     SIGNAL \uart:BUART:rx_fifofull\ : bit;
     SIGNAL \uart:BUART:rx_fifonotempty\ : bit;
     SIGNAL \uart:BUART:rx_last\ : bit;
-    ATTRIBUTE placement_force OF \uart:BUART:rx_last\ : SIGNAL IS "U(0,1,A)3";
+    ATTRIBUTE placement_force OF \uart:BUART:rx_last\ : SIGNAL IS "U(1,1,B)3";
     SIGNAL \uart:BUART:rx_load_fifo\ : bit;
     ATTRIBUTE placement_force OF \uart:BUART:rx_load_fifo\ : SIGNAL IS "U(1,1,A)1";
     SIGNAL \uart:BUART:rx_postpoll\ : bit;
@@ -82,7 +82,7 @@ ARCHITECTURE __DEFAULT__ OF hw7_1 IS
     SIGNAL \uart:BUART:tx_bitclk_enable_pre\ : bit;
     SIGNAL \uart:BUART:tx_counter_dp\ : bit;
     SIGNAL \uart:BUART:tx_ctrl_mark_last\ : bit;
-    ATTRIBUTE placement_force OF \uart:BUART:tx_ctrl_mark_last\ : SIGNAL IS "U(0,1,A)2";
+    ATTRIBUTE placement_force OF \uart:BUART:tx_ctrl_mark_last\ : SIGNAL IS "U(0,1,A)3";
     SIGNAL \uart:BUART:tx_fifo_empty\ : bit;
     SIGNAL \uart:BUART:tx_fifo_notfull\ : bit;
     SIGNAL \uart:BUART:tx_shift_out\ : bit;
@@ -95,7 +95,7 @@ ARCHITECTURE __DEFAULT__ OF hw7_1 IS
     SIGNAL \uart:BUART:tx_status_0\ : bit;
     ATTRIBUTE placement_force OF \uart:BUART:tx_status_0\ : SIGNAL IS "U(1,0,A)1";
     SIGNAL \uart:BUART:tx_status_2\ : bit;
-    ATTRIBUTE placement_force OF \uart:BUART:tx_status_2\ : SIGNAL IS "U(1,1,B)3";
+    ATTRIBUTE placement_force OF \uart:BUART:tx_status_2\ : SIGNAL IS "U(0,1,A)2";
     SIGNAL \uart:BUART:txn\ : bit;
     ATTRIBUTE placement_force OF \uart:BUART:txn\ : SIGNAL IS "U(0,0,A)0";
     SIGNAL \uart:Net_9_digital\ : bit;
@@ -111,9 +111,9 @@ ARCHITECTURE __DEFAULT__ OF hw7_1 IS
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P1[4]";
+    ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P0[4]";
     ATTRIBUTE lib_model OF Tx_1(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P2[1]";
+    ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P0[5]";
     ATTRIBUTE lib_model OF Net_2 : LABEL IS "macrocell1";
     ATTRIBUTE Location OF Net_2 : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \uart:BUART:counter_load_not\ : LABEL IS "macrocell2";
@@ -121,7 +121,7 @@ ARCHITECTURE __DEFAULT__ OF hw7_1 IS
     ATTRIBUTE lib_model OF \uart:BUART:tx_status_0\ : LABEL IS "macrocell3";
     ATTRIBUTE Location OF \uart:BUART:tx_status_0\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \uart:BUART:tx_status_2\ : LABEL IS "macrocell4";
-    ATTRIBUTE Location OF \uart:BUART:tx_status_2\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \uart:BUART:tx_status_2\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \uart:BUART:rx_counter_load\ : LABEL IS "macrocell5";
     ATTRIBUTE Location OF \uart:BUART:rx_counter_load\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \uart:BUART:rx_postpoll\ : LABEL IS "macrocell6";
@@ -172,7 +172,7 @@ ARCHITECTURE __DEFAULT__ OF hw7_1 IS
     ATTRIBUTE lib_model OF \uart:BUART:rx_status_3\ : LABEL IS "macrocell23";
     ATTRIBUTE Location OF \uart:BUART:rx_status_3\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \uart:BUART:rx_last\ : LABEL IS "macrocell24";
-    ATTRIBUTE Location OF \uart:BUART:rx_last\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \uart:BUART:rx_last\ : LABEL IS "U(1,1)";
     COMPONENT count7cell
         PORT (
             clock : IN std_ulogic;

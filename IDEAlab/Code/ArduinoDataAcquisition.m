@@ -4,12 +4,12 @@ arduino = serial('COM6');
 set(arduino, 'BaudRate', 115200);
 fopen(arduino);
 
-num=100;
+num=1;
 tic
 for i = 1:num
-    fprintf(arduino, '?');
+    %.fprintf(arduino, '?');
 %     fprintf(loadcell, char(13));
-    a = fscanf(arduino, '%c', 1);
+    a = fscanf(arduino);
     %force(i)=a(1);
     %b = readVoltage(arduino, 'A1');
     %current(i) = b(1);
