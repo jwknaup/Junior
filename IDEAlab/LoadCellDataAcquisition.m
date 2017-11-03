@@ -1,7 +1,7 @@
 clear
 delete(instrfindall);
 loadcell = serial('COM12');
-arduino = arduino();
+%arduino = arduino();
 set(loadcell, 'BaudRate', 115200);
 fopen(loadcell);
 num = 50;
@@ -9,10 +9,10 @@ force(num) = single(0);
 current(num) = single(0);
 t = zeros(num, 1);
 t0 = cputime;
-writeDigitalPin(arduino, 'D2', 1); 
-writeDigitalPin(arduino, 'D3', 0); 
-writeDigitalPin(arduino, 'D6', 1); 
-writeDigitalPin(arduino, 'D7', 1);
+% writeDigitalPin(arduino, 'D2', 1); 
+% writeDigitalPin(arduino, 'D3', 0); 
+% writeDigitalPin(arduino, 'D6', 1); 
+% writeDigitalPin(arduino, 'D7', 1);
 tic
 for i = 1:num
     fprintf(loadcell, '?');
@@ -24,10 +24,10 @@ for i = 1:num
 end
 toc
 tf = cputime;
-writeDigitalPin(arduino, 'D2', 0); 
-writeDigitalPin(arduino, 'D3', 0); 
-writeDigitalPin(arduino, 'D6', 0); 
-writeDigitalPin(arduino, 'D7', 1);
+% writeDigitalPin(arduino, 'D2', 0); 
+% writeDigitalPin(arduino, 'D3', 0); 
+% writeDigitalPin(arduino, 'D6', 0); 
+% writeDigitalPin(arduino, 'D7', 1);
 data = [t,force'];
 plot(t, force, 'x');
 csvwrite('force12.csv', data);

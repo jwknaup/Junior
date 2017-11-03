@@ -1,5 +1,5 @@
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   analogReadResolution(12);
   // put your setup code here, to run once:
   pinMode(2, OUTPUT);//en
@@ -26,11 +26,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 //  for(int i=0; i<1000;i++){
-    if(Serial.available()){
-      if(Serial.read()){
-        Serial.print(2);
-      }
-    }
+    //if(Serial.available()){
+      //if(Serial.read()){
+        Serial.write(2);
+     // }
+   // }
     
 //  }
   

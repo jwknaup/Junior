@@ -1,0 +1,22 @@
+--------------- Rebuild Started: 11/02/2017 15:22:39 Project: main.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
+main.c: In function 'main':
+main.c:59:2: warning: implicit declaration of function 'uart_UartPutString' [-Wimplicit-function-declaration]
+  uart_UartPutString( "COM OPEN!\n" );// display initialization string
+  ^
+main.c:67:14: warning: implicit declaration of function 'uart_UartGetChar' [-Wimplicit-function-declaration]
+         ch = uart_UartGetChar();        // get the next character
+              ^
+main.c:77:5: warning: implicit declaration of function 'uart_UartPutChar' [-Wimplicit-function-declaration]
+     uart_UartPutChar('\n');
+     ^
+main.c:79:5: warning: implicit declaration of function 'UART_UartPutChar' [-Wimplicit-function-declaration]
+     UART_UartPutChar('\n');
+     ^
+main.c:98:5: warning: implicit declaration of function 'UART_UartPutString' [-Wimplicit-function-declaration]
+     UART_UartPutString(rxbuffer);
+     ^
+main.c:66:10: warning: 'ch' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     while( ch != '\r' ) {
+          ^
+--------------- Rebuild Succeeded: 11/02/2017 15:22:39 ---------------
