@@ -1,0 +1,1286 @@
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.testFlex,"ax",%progbits
+  20              		.align	2
+  21              		.global	testFlex
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	testFlex, %function
+  25              	testFlex:
+  26              	.LFB36:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include <stdlib.h>
+  15:main.c        **** 
+  16:main.c        **** void testFlex(){
+  28              		.loc 1 16 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 48
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 30B5     		push	{r4, r5, lr}
+  33              		.cfi_def_cfa_offset 12
+  34              		.cfi_offset 4, -12
+  35              		.cfi_offset 5, -8
+  36              		.cfi_offset 14, -4
+  37 0002 8DB0     		sub	sp, sp, #52
+  38              		.cfi_def_cfa_offset 64
+  17:main.c        ****     int analog1, analog2;
+  18:main.c        ****     char buffer[] = "Flex Sensor 1: 2016\n Flex Sensor 2: 2017";
+  39              		.loc 1 18 0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 2
+
+
+  40 0004 01A9     		add	r1, sp, #4
+  41 0006 1648     		ldr	r0, .L4
+  42 0008 0B00     		movs	r3, r1
+  43 000a 0200     		movs	r2, r0
+  44 000c 13CA     		ldmia	r2!, {r0, r1, r4}
+  45 000e 13C3     		stmia	r3!, {r0, r1, r4}
+  46 0010 13CA     		ldmia	r2!, {r0, r1, r4}
+  47 0012 13C3     		stmia	r3!, {r0, r1, r4}
+  48 0014 13CA     		ldmia	r2!, {r0, r1, r4}
+  49 0016 13C3     		stmia	r3!, {r0, r1, r4}
+  50 0018 1168     		ldr	r1, [r2]
+  51 001a 1960     		str	r1, [r3]
+  52 001c 1279     		ldrb	r2, [r2, #4]
+  53 001e 1A71     		strb	r2, [r3, #4]
+  19:main.c        ****     adc_Start();
+  54              		.loc 1 19 0
+  55 0020 FFF7FEFF 		bl	adc_Start
+  56              	.LVL0:
+  20:main.c        ****     adc_StartConvert();
+  57              		.loc 1 20 0
+  58 0024 FFF7FEFF 		bl	adc_StartConvert
+  59              	.LVL1:
+  21:main.c        ****     uart_Start();
+  60              		.loc 1 21 0
+  61 0028 FFF7FEFF 		bl	uart_Start
+  62              	.LVL2:
+  63              	.LBB2:
+  22:main.c        ****     for(int i=0;i<100;i++){
+  64              		.loc 1 22 0
+  65 002c 0024     		movs	r4, #0
+  66 002e 13E0     		b	.L2
+  67              	.LVL3:
+  68              	.L3:
+  23:main.c        ****         adc_IsEndConversion(adc_WAIT_FOR_RESULT);
+  69              		.loc 1 23 0 discriminator 3
+  70 0030 0220     		movs	r0, #2
+  71 0032 FFF7FEFF 		bl	adc_IsEndConversion
+  72              	.LVL4:
+  24:main.c        ****         analog1 = adc_GetResult16(0);
+  73              		.loc 1 24 0 discriminator 3
+  74 0036 0020     		movs	r0, #0
+  75 0038 FFF7FEFF 		bl	adc_GetResult16
+  76              	.LVL5:
+  77 003c 0500     		movs	r5, r0
+  78              	.LVL6:
+  25:main.c        ****         analog2 = adc_GetResult16(1);
+  79              		.loc 1 25 0 discriminator 3
+  80 003e 0120     		movs	r0, #1
+  81              	.LVL7:
+  82 0040 FFF7FEFF 		bl	adc_GetResult16
+  83              	.LVL8:
+  84 0044 0300     		movs	r3, r0
+  85              	.LVL9:
+  26:main.c        ****         sprintf(buffer, "Flex Sensor 1: %d\n Flex Sensor 2: %d", analog1, analog2);
+  86              		.loc 1 26 0 discriminator 3
+  87 0046 2A00     		movs	r2, r5
+  88 0048 0649     		ldr	r1, .L4+4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 3
+
+
+  89 004a 01A8     		add	r0, sp, #4
+  90              	.LVL10:
+  91 004c FFF7FEFF 		bl	sprintf
+  92              	.LVL11:
+  27:main.c        ****         uart_PutString(buffer);
+  93              		.loc 1 27 0 discriminator 3
+  94 0050 01A8     		add	r0, sp, #4
+  95 0052 FFF7FEFF 		bl	uart_PutString
+  96              	.LVL12:
+  22:main.c        ****         adc_IsEndConversion(adc_WAIT_FOR_RESULT);
+  97              		.loc 1 22 0 discriminator 3
+  98 0056 0134     		adds	r4, r4, #1
+  99              	.LVL13:
+ 100              	.L2:
+  22:main.c        ****         adc_IsEndConversion(adc_WAIT_FOR_RESULT);
+ 101              		.loc 1 22 0 is_stmt 0 discriminator 1
+ 102 0058 632C     		cmp	r4, #99
+ 103 005a E9DD     		ble	.L3
+ 104              	.LBE2:
+  28:main.c        ****     }
+  29:main.c        **** }
+ 105              		.loc 1 29 0 is_stmt 1
+ 106 005c 0DB0     		add	sp, sp, #52
+ 107              		@ sp needed
+ 108              	.LVL14:
+ 109 005e 30BD     		pop	{r4, r5, pc}
+ 110              	.L5:
+ 111              		.align	2
+ 112              	.L4:
+ 113 0060 28000000 		.word	.LC0
+ 114 0064 00000000 		.word	.LC2
+ 115              		.cfi_endproc
+ 116              	.LFE36:
+ 117              		.size	testFlex, .-testFlex
+ 118              		.section	.text.testMotor,"ax",%progbits
+ 119              		.align	2
+ 120              		.global	testMotor
+ 121              		.code	16
+ 122              		.thumb_func
+ 123              		.type	testMotor, %function
+ 124              	testMotor:
+ 125              	.LFB37:
+  30:main.c        **** 
+  31:main.c        **** void testMotor(){
+ 126              		.loc 1 31 0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130 0000 10B5     		push	{r4, lr}
+ 131              		.cfi_def_cfa_offset 8
+ 132              		.cfi_offset 4, -8
+ 133              		.cfi_offset 14, -4
+  32:main.c        ****     motorA_Write(0);
+ 134              		.loc 1 32 0
+ 135 0002 0020     		movs	r0, #0
+ 136 0004 FFF7FEFF 		bl	motorA_Write
+ 137              	.LVL15:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 4
+
+
+  33:main.c        ****     motorB_Write(1);
+ 138              		.loc 1 33 0
+ 139 0008 0120     		movs	r0, #1
+ 140 000a FFF7FEFF 		bl	motorB_Write
+ 141              	.LVL16:
+  34:main.c        ****     CyDelay(2000);
+ 142              		.loc 1 34 0
+ 143 000e FA20     		movs	r0, #250
+ 144 0010 C000     		lsls	r0, r0, #3
+ 145 0012 FFF7FEFF 		bl	CyDelay
+ 146              	.LVL17:
+  35:main.c        ****     motorA_Write(1);
+ 147              		.loc 1 35 0
+ 148 0016 0120     		movs	r0, #1
+ 149 0018 FFF7FEFF 		bl	motorA_Write
+ 150              	.LVL18:
+  36:main.c        ****     motorB_Write(0);
+ 151              		.loc 1 36 0
+ 152 001c 0020     		movs	r0, #0
+ 153 001e FFF7FEFF 		bl	motorB_Write
+ 154              	.LVL19:
+  37:main.c        **** }
+ 155              		.loc 1 37 0
+ 156              		@ sp needed
+ 157 0022 10BD     		pop	{r4, pc}
+ 158              		.cfi_endproc
+ 159              	.LFE37:
+ 160              		.size	testMotor, .-testMotor
+ 161              		.section	.text.testBuzzer,"ax",%progbits
+ 162              		.align	2
+ 163              		.global	testBuzzer
+ 164              		.code	16
+ 165              		.thumb_func
+ 166              		.type	testBuzzer, %function
+ 167              	testBuzzer:
+ 168              	.LFB38:
+  38:main.c        **** 
+  39:main.c        **** void testBuzzer(){
+ 169              		.loc 1 39 0
+ 170              		.cfi_startproc
+ 171              		@ args = 0, pretend = 0, frame = 0
+ 172              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173 0000 10B5     		push	{r4, lr}
+ 174              		.cfi_def_cfa_offset 8
+ 175              		.cfi_offset 4, -8
+ 176              		.cfi_offset 14, -4
+  40:main.c        ****     pwmBuzzer_Start();
+ 177              		.loc 1 40 0
+ 178 0002 FFF7FEFF 		bl	pwmBuzzer_Start
+ 179              	.LVL20:
+  41:main.c        ****     pwmBuzzer_WriteCompare(50);
+ 180              		.loc 1 41 0
+ 181 0006 3220     		movs	r0, #50
+ 182 0008 FFF7FEFF 		bl	pwmBuzzer_WriteCompare
+ 183              	.LVL21:
+  42:main.c        ****     CyDelay(3000);
+ 184              		.loc 1 42 0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 5
+
+
+ 185 000c 0348     		ldr	r0, .L8
+ 186 000e FFF7FEFF 		bl	CyDelay
+ 187              	.LVL22:
+  43:main.c        ****     pwmBuzzer_WriteCompare(0);
+ 188              		.loc 1 43 0
+ 189 0012 0020     		movs	r0, #0
+ 190 0014 FFF7FEFF 		bl	pwmBuzzer_WriteCompare
+ 191              	.LVL23:
+  44:main.c        **** }
+ 192              		.loc 1 44 0
+ 193              		@ sp needed
+ 194 0018 10BD     		pop	{r4, pc}
+ 195              	.L9:
+ 196 001a C046     		.align	2
+ 197              	.L8:
+ 198 001c B80B0000 		.word	3000
+ 199              		.cfi_endproc
+ 200              	.LFE38:
+ 201              		.size	testBuzzer, .-testBuzzer
+ 202              		.section	.text.testSubsystems,"ax",%progbits
+ 203              		.align	2
+ 204              		.global	testSubsystems
+ 205              		.code	16
+ 206              		.thumb_func
+ 207              		.type	testSubsystems, %function
+ 208              	testSubsystems:
+ 209              	.LFB39:
+  45:main.c        **** 
+  46:main.c        **** void testSubsystems(){
+ 210              		.loc 1 46 0
+ 211              		.cfi_startproc
+ 212              		@ args = 0, pretend = 0, frame = 0
+ 213              		@ frame_needed = 0, uses_anonymous_args = 0
+ 214 0000 10B5     		push	{r4, lr}
+ 215              		.cfi_def_cfa_offset 8
+ 216              		.cfi_offset 4, -8
+ 217              		.cfi_offset 14, -4
+  47:main.c        ****     testFlex();
+ 218              		.loc 1 47 0
+ 219 0002 FFF7FEFF 		bl	testFlex
+ 220              	.LVL24:
+  48:main.c        ****     testMotor();
+ 221              		.loc 1 48 0
+ 222 0006 FFF7FEFF 		bl	testMotor
+ 223              	.LVL25:
+  49:main.c        ****     testBuzzer();
+ 224              		.loc 1 49 0
+ 225 000a FFF7FEFF 		bl	testBuzzer
+ 226              	.LVL26:
+  50:main.c        **** }
+ 227              		.loc 1 50 0
+ 228              		@ sp needed
+ 229 000e 10BD     		pop	{r4, pc}
+ 230              		.cfi_endproc
+ 231              	.LFE39:
+ 232              		.size	testSubsystems, .-testSubsystems
+ 233              		.section	.text.main,"ax",%progbits
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 6
+
+
+ 234              		.align	2
+ 235              		.global	main
+ 236              		.code	16
+ 237              		.thumb_func
+ 238              		.type	main, %function
+ 239              	main:
+ 240              	.LFB40:
+  51:main.c        **** 
+  52:main.c        **** int main(void)
+  53:main.c        **** {
+ 241              		.loc 1 53 0
+ 242              		.cfi_startproc
+ 243              		@ Volatile: function does not return.
+ 244              		@ args = 0, pretend = 0, frame = 0
+ 245              		@ frame_needed = 0, uses_anonymous_args = 0
+ 246 0000 10B5     		push	{r4, lr}
+ 247              		.cfi_def_cfa_offset 8
+ 248              		.cfi_offset 4, -8
+ 249              		.cfi_offset 14, -4
+  54:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 250              		.loc 1 54 0
+ 251              		.syntax divided
+ 252              	@ 54 "main.c" 1
+ 253 0002 62B6     		CPSIE   i
+ 254              	@ 0 "" 2
+  55:main.c        **** 
+  56:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  57:main.c        ****     testSubsystems();
+ 255              		.loc 1 57 0
+ 256              		.thumb
+ 257              		.syntax unified
+ 258 0004 FFF7FEFF 		bl	testSubsystems
+ 259              	.LVL27:
+ 260              	.L12:
+ 261 0008 FEE7     		b	.L12
+ 262              		.cfi_endproc
+ 263              	.LFE40:
+ 264              		.size	main, .-main
+ 265 000a C046     		.section	.rodata.str1.4,"aMS",%progbits,1
+ 266              		.align	2
+ 267              	.LC2:
+ 268 0000 466C6578 		.ascii	"Flex Sensor 1: %d\012 Flex Sensor 2: %d\000"
+ 268      2053656E 
+ 268      736F7220 
+ 268      313A2025 
+ 268      640A2046 
+ 269 0025 000000   		.space	3
+ 270              	.LC0:
+ 271 0028 466C6578 		.ascii	"Flex Sensor 1: 2016\012 Flex Sensor 2: 2017\000"
+ 271      2053656E 
+ 271      736F7220 
+ 271      313A2032 
+ 271      3031360A 
+ 272              		.text
+ 273              	.Letext0:
+ 274              		.file 2 "Generated_Source\\PSoC4/adc.h"
+ 275              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 7
+
+
+ 276              		.file 4 "Generated_Source\\PSoC4/uart.h"
+ 277              		.file 5 "Generated_Source\\PSoC4/motorA.h"
+ 278              		.file 6 "Generated_Source\\PSoC4/motorB.h"
+ 279              		.file 7 "Generated_Source\\PSoC4/CyLib.h"
+ 280              		.file 8 "Generated_Source\\PSoC4/pwmBuzzer.h"
+ 281              		.section	.debug_info,"",%progbits
+ 282              	.Ldebug_info0:
+ 283 0000 21030000 		.4byte	0x321
+ 284 0004 0400     		.2byte	0x4
+ 285 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 286 000a 04       		.byte	0x4
+ 287 000b 01       		.uleb128 0x1
+ 288 000c 5B010000 		.4byte	.LASF33
+ 289 0010 0C       		.byte	0xc
+ 290 0011 00020000 		.4byte	.LASF34
+ 291 0015 17010000 		.4byte	.LASF35
+ 292 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 293 001d 00000000 		.4byte	0
+ 294 0021 00000000 		.4byte	.Ldebug_line0
+ 295 0025 02       		.uleb128 0x2
+ 296 0026 01       		.byte	0x1
+ 297 0027 06       		.byte	0x6
+ 298 0028 5B020000 		.4byte	.LASF0
+ 299 002c 02       		.uleb128 0x2
+ 300 002d 01       		.byte	0x1
+ 301 002e 08       		.byte	0x8
+ 302 002f 5F000000 		.4byte	.LASF1
+ 303 0033 02       		.uleb128 0x2
+ 304 0034 02       		.byte	0x2
+ 305 0035 05       		.byte	0x5
+ 306 0036 17020000 		.4byte	.LASF2
+ 307 003a 02       		.uleb128 0x2
+ 308 003b 02       		.byte	0x2
+ 309 003c 07       		.byte	0x7
+ 310 003d 31000000 		.4byte	.LASF3
+ 311 0041 02       		.uleb128 0x2
+ 312 0042 04       		.byte	0x4
+ 313 0043 05       		.byte	0x5
+ 314 0044 32020000 		.4byte	.LASF4
+ 315 0048 02       		.uleb128 0x2
+ 316 0049 04       		.byte	0x4
+ 317 004a 07       		.byte	0x7
+ 318 004b 7D000000 		.4byte	.LASF5
+ 319 004f 02       		.uleb128 0x2
+ 320 0050 08       		.byte	0x8
+ 321 0051 05       		.byte	0x5
+ 322 0052 F2010000 		.4byte	.LASF6
+ 323 0056 02       		.uleb128 0x2
+ 324 0057 08       		.byte	0x8
+ 325 0058 07       		.byte	0x7
+ 326 0059 F7000000 		.4byte	.LASF7
+ 327 005d 03       		.uleb128 0x3
+ 328 005e 04       		.byte	0x4
+ 329 005f 05       		.byte	0x5
+ 330 0060 696E7400 		.ascii	"int\000"
+ 331 0064 02       		.uleb128 0x2
+ 332 0065 04       		.byte	0x4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 8
+
+
+ 333 0066 07       		.byte	0x7
+ 334 0067 EA000000 		.4byte	.LASF8
+ 335 006b 02       		.uleb128 0x2
+ 336 006c 04       		.byte	0x4
+ 337 006d 04       		.byte	0x4
+ 338 006e 4C000000 		.4byte	.LASF9
+ 339 0072 02       		.uleb128 0x2
+ 340 0073 08       		.byte	0x8
+ 341 0074 04       		.byte	0x4
+ 342 0075 CF000000 		.4byte	.LASF10
+ 343 0079 02       		.uleb128 0x2
+ 344 007a 01       		.byte	0x1
+ 345 007b 08       		.byte	0x8
+ 346 007c 07020000 		.4byte	.LASF11
+ 347 0080 02       		.uleb128 0x2
+ 348 0081 08       		.byte	0x8
+ 349 0082 04       		.byte	0x4
+ 350 0083 4F020000 		.4byte	.LASF12
+ 351 0087 02       		.uleb128 0x2
+ 352 0088 04       		.byte	0x4
+ 353 0089 07       		.byte	0x7
+ 354 008a E9010000 		.4byte	.LASF13
+ 355 008e 04       		.uleb128 0x4
+ 356 008f 0E010000 		.4byte	.LASF17
+ 357 0093 01       		.byte	0x1
+ 358 0094 10       		.byte	0x10
+ 359 0095 00000000 		.4byte	.LFB36
+ 360 0099 68000000 		.4byte	.LFE36-.LFB36
+ 361 009d 01       		.uleb128 0x1
+ 362 009e 9C       		.byte	0x9c
+ 363 009f 72010000 		.4byte	0x172
+ 364 00a3 05       		.uleb128 0x5
+ 365 00a4 8F000000 		.4byte	.LASF14
+ 366 00a8 01       		.byte	0x1
+ 367 00a9 11       		.byte	0x11
+ 368 00aa 5D000000 		.4byte	0x5d
+ 369 00ae 00000000 		.4byte	.LLST0
+ 370 00b2 05       		.uleb128 0x5
+ 371 00b3 44000000 		.4byte	.LASF15
+ 372 00b7 01       		.byte	0x1
+ 373 00b8 11       		.byte	0x11
+ 374 00b9 5D000000 		.4byte	0x5d
+ 375 00bd 1E000000 		.4byte	.LLST1
+ 376 00c1 06       		.uleb128 0x6
+ 377 00c2 21020000 		.4byte	.LASF16
+ 378 00c6 01       		.byte	0x1
+ 379 00c7 12       		.byte	0x12
+ 380 00c8 72010000 		.4byte	0x172
+ 381 00cc 02       		.uleb128 0x2
+ 382 00cd 91       		.byte	0x91
+ 383 00ce 44       		.sleb128 -60
+ 384 00cf 07       		.uleb128 0x7
+ 385 00d0 2C000000 		.4byte	.LBB2
+ 386 00d4 30000000 		.4byte	.LBE2-.LBB2
+ 387 00d8 56010000 		.4byte	0x156
+ 388 00dc 08       		.uleb128 0x8
+ 389 00dd 6900     		.ascii	"i\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 9
+
+
+ 390 00df 01       		.byte	0x1
+ 391 00e0 16       		.byte	0x16
+ 392 00e1 5D000000 		.4byte	0x5d
+ 393 00e5 3C000000 		.4byte	.LLST2
+ 394 00e9 09       		.uleb128 0x9
+ 395 00ea 36000000 		.4byte	.LVL4
+ 396 00ee A0020000 		.4byte	0x2a0
+ 397 00f2 FC000000 		.4byte	0xfc
+ 398 00f6 0A       		.uleb128 0xa
+ 399 00f7 01       		.uleb128 0x1
+ 400 00f8 50       		.byte	0x50
+ 401 00f9 01       		.uleb128 0x1
+ 402 00fa 32       		.byte	0x32
+ 403 00fb 00       		.byte	0
+ 404 00fc 09       		.uleb128 0x9
+ 405 00fd 3C000000 		.4byte	.LVL5
+ 406 0101 AB020000 		.4byte	0x2ab
+ 407 0105 0F010000 		.4byte	0x10f
+ 408 0109 0A       		.uleb128 0xa
+ 409 010a 01       		.uleb128 0x1
+ 410 010b 50       		.byte	0x50
+ 411 010c 01       		.uleb128 0x1
+ 412 010d 30       		.byte	0x30
+ 413 010e 00       		.byte	0
+ 414 010f 09       		.uleb128 0x9
+ 415 0110 44000000 		.4byte	.LVL8
+ 416 0114 AB020000 		.4byte	0x2ab
+ 417 0118 22010000 		.4byte	0x122
+ 418 011c 0A       		.uleb128 0xa
+ 419 011d 01       		.uleb128 0x1
+ 420 011e 50       		.byte	0x50
+ 421 011f 01       		.uleb128 0x1
+ 422 0120 31       		.byte	0x31
+ 423 0121 00       		.byte	0
+ 424 0122 09       		.uleb128 0x9
+ 425 0123 50000000 		.4byte	.LVL11
+ 426 0127 B6020000 		.4byte	0x2b6
+ 427 012b 45010000 		.4byte	0x145
+ 428 012f 0A       		.uleb128 0xa
+ 429 0130 01       		.uleb128 0x1
+ 430 0131 50       		.byte	0x50
+ 431 0132 02       		.uleb128 0x2
+ 432 0133 91       		.byte	0x91
+ 433 0134 44       		.sleb128 -60
+ 434 0135 0A       		.uleb128 0xa
+ 435 0136 01       		.uleb128 0x1
+ 436 0137 51       		.byte	0x51
+ 437 0138 05       		.uleb128 0x5
+ 438 0139 03       		.byte	0x3
+ 439 013a 00000000 		.4byte	.LC2
+ 440 013e 0A       		.uleb128 0xa
+ 441 013f 01       		.uleb128 0x1
+ 442 0140 52       		.byte	0x52
+ 443 0141 02       		.uleb128 0x2
+ 444 0142 75       		.byte	0x75
+ 445 0143 00       		.sleb128 0
+ 446 0144 00       		.byte	0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 10
+
+
+ 447 0145 0B       		.uleb128 0xb
+ 448 0146 56000000 		.4byte	.LVL12
+ 449 014a C1020000 		.4byte	0x2c1
+ 450 014e 0A       		.uleb128 0xa
+ 451 014f 01       		.uleb128 0x1
+ 452 0150 50       		.byte	0x50
+ 453 0151 02       		.uleb128 0x2
+ 454 0152 91       		.byte	0x91
+ 455 0153 44       		.sleb128 -60
+ 456 0154 00       		.byte	0
+ 457 0155 00       		.byte	0
+ 458 0156 0C       		.uleb128 0xc
+ 459 0157 24000000 		.4byte	.LVL0
+ 460 015b CC020000 		.4byte	0x2cc
+ 461 015f 0C       		.uleb128 0xc
+ 462 0160 28000000 		.4byte	.LVL1
+ 463 0164 D7020000 		.4byte	0x2d7
+ 464 0168 0C       		.uleb128 0xc
+ 465 0169 2C000000 		.4byte	.LVL2
+ 466 016d E2020000 		.4byte	0x2e2
+ 467 0171 00       		.byte	0
+ 468 0172 0D       		.uleb128 0xd
+ 469 0173 79000000 		.4byte	0x79
+ 470 0177 82010000 		.4byte	0x182
+ 471 017b 0E       		.uleb128 0xe
+ 472 017c 87000000 		.4byte	0x87
+ 473 0180 28       		.byte	0x28
+ 474 0181 00       		.byte	0
+ 475 0182 04       		.uleb128 0x4
+ 476 0183 A4000000 		.4byte	.LASF18
+ 477 0187 01       		.byte	0x1
+ 478 0188 1F       		.byte	0x1f
+ 479 0189 00000000 		.4byte	.LFB37
+ 480 018d 24000000 		.4byte	.LFE37-.LFB37
+ 481 0191 01       		.uleb128 0x1
+ 482 0192 9C       		.byte	0x9c
+ 483 0193 F5010000 		.4byte	0x1f5
+ 484 0197 09       		.uleb128 0x9
+ 485 0198 08000000 		.4byte	.LVL15
+ 486 019c ED020000 		.4byte	0x2ed
+ 487 01a0 AA010000 		.4byte	0x1aa
+ 488 01a4 0A       		.uleb128 0xa
+ 489 01a5 01       		.uleb128 0x1
+ 490 01a6 50       		.byte	0x50
+ 491 01a7 01       		.uleb128 0x1
+ 492 01a8 30       		.byte	0x30
+ 493 01a9 00       		.byte	0
+ 494 01aa 09       		.uleb128 0x9
+ 495 01ab 0E000000 		.4byte	.LVL16
+ 496 01af F8020000 		.4byte	0x2f8
+ 497 01b3 BD010000 		.4byte	0x1bd
+ 498 01b7 0A       		.uleb128 0xa
+ 499 01b8 01       		.uleb128 0x1
+ 500 01b9 50       		.byte	0x50
+ 501 01ba 01       		.uleb128 0x1
+ 502 01bb 31       		.byte	0x31
+ 503 01bc 00       		.byte	0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 11
+
+
+ 504 01bd 09       		.uleb128 0x9
+ 505 01be 16000000 		.4byte	.LVL17
+ 506 01c2 03030000 		.4byte	0x303
+ 507 01c6 D2010000 		.4byte	0x1d2
+ 508 01ca 0A       		.uleb128 0xa
+ 509 01cb 01       		.uleb128 0x1
+ 510 01cc 50       		.byte	0x50
+ 511 01cd 03       		.uleb128 0x3
+ 512 01ce 0A       		.byte	0xa
+ 513 01cf D007     		.2byte	0x7d0
+ 514 01d1 00       		.byte	0
+ 515 01d2 09       		.uleb128 0x9
+ 516 01d3 1C000000 		.4byte	.LVL18
+ 517 01d7 ED020000 		.4byte	0x2ed
+ 518 01db E5010000 		.4byte	0x1e5
+ 519 01df 0A       		.uleb128 0xa
+ 520 01e0 01       		.uleb128 0x1
+ 521 01e1 50       		.byte	0x50
+ 522 01e2 01       		.uleb128 0x1
+ 523 01e3 31       		.byte	0x31
+ 524 01e4 00       		.byte	0
+ 525 01e5 0B       		.uleb128 0xb
+ 526 01e6 22000000 		.4byte	.LVL19
+ 527 01ea F8020000 		.4byte	0x2f8
+ 528 01ee 0A       		.uleb128 0xa
+ 529 01ef 01       		.uleb128 0x1
+ 530 01f0 50       		.byte	0x50
+ 531 01f1 01       		.uleb128 0x1
+ 532 01f2 30       		.byte	0x30
+ 533 01f3 00       		.byte	0
+ 534 01f4 00       		.byte	0
+ 535 01f5 04       		.uleb128 0x4
+ 536 01f6 0C020000 		.4byte	.LASF19
+ 537 01fa 01       		.byte	0x1
+ 538 01fb 27       		.byte	0x27
+ 539 01fc 00000000 		.4byte	.LFB38
+ 540 0200 20000000 		.4byte	.LFE38-.LFB38
+ 541 0204 01       		.uleb128 0x1
+ 542 0205 9C       		.byte	0x9c
+ 543 0206 4C020000 		.4byte	0x24c
+ 544 020a 0C       		.uleb128 0xc
+ 545 020b 06000000 		.4byte	.LVL20
+ 546 020f 0E030000 		.4byte	0x30e
+ 547 0213 09       		.uleb128 0x9
+ 548 0214 0C000000 		.4byte	.LVL21
+ 549 0218 19030000 		.4byte	0x319
+ 550 021c 27020000 		.4byte	0x227
+ 551 0220 0A       		.uleb128 0xa
+ 552 0221 01       		.uleb128 0x1
+ 553 0222 50       		.byte	0x50
+ 554 0223 02       		.uleb128 0x2
+ 555 0224 08       		.byte	0x8
+ 556 0225 32       		.byte	0x32
+ 557 0226 00       		.byte	0
+ 558 0227 09       		.uleb128 0x9
+ 559 0228 12000000 		.4byte	.LVL22
+ 560 022c 03030000 		.4byte	0x303
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 12
+
+
+ 561 0230 3C020000 		.4byte	0x23c
+ 562 0234 0A       		.uleb128 0xa
+ 563 0235 01       		.uleb128 0x1
+ 564 0236 50       		.byte	0x50
+ 565 0237 03       		.uleb128 0x3
+ 566 0238 0A       		.byte	0xa
+ 567 0239 B80B     		.2byte	0xbb8
+ 568 023b 00       		.byte	0
+ 569 023c 0B       		.uleb128 0xb
+ 570 023d 18000000 		.4byte	.LVL23
+ 571 0241 19030000 		.4byte	0x319
+ 572 0245 0A       		.uleb128 0xa
+ 573 0246 01       		.uleb128 0x1
+ 574 0247 50       		.byte	0x50
+ 575 0248 01       		.uleb128 0x1
+ 576 0249 30       		.byte	0x30
+ 577 024a 00       		.byte	0
+ 578 024b 00       		.byte	0
+ 579 024c 04       		.uleb128 0x4
+ 580 024d DB000000 		.4byte	.LASF20
+ 581 0251 01       		.byte	0x1
+ 582 0252 2E       		.byte	0x2e
+ 583 0253 00000000 		.4byte	.LFB39
+ 584 0257 10000000 		.4byte	.LFE39-.LFB39
+ 585 025b 01       		.uleb128 0x1
+ 586 025c 9C       		.byte	0x9c
+ 587 025d 7D020000 		.4byte	0x27d
+ 588 0261 0C       		.uleb128 0xc
+ 589 0262 06000000 		.4byte	.LVL24
+ 590 0266 8E000000 		.4byte	0x8e
+ 591 026a 0C       		.uleb128 0xc
+ 592 026b 0A000000 		.4byte	.LVL25
+ 593 026f 82010000 		.4byte	0x182
+ 594 0273 0C       		.uleb128 0xc
+ 595 0274 0E000000 		.4byte	.LVL26
+ 596 0278 F5010000 		.4byte	0x1f5
+ 597 027c 00       		.byte	0
+ 598 027d 0F       		.uleb128 0xf
+ 599 027e D6000000 		.4byte	.LASF36
+ 600 0282 01       		.byte	0x1
+ 601 0283 34       		.byte	0x34
+ 602 0284 5D000000 		.4byte	0x5d
+ 603 0288 00000000 		.4byte	.LFB40
+ 604 028c 0A000000 		.4byte	.LFE40-.LFB40
+ 605 0290 01       		.uleb128 0x1
+ 606 0291 9C       		.byte	0x9c
+ 607 0292 A0020000 		.4byte	0x2a0
+ 608 0296 0C       		.uleb128 0xc
+ 609 0297 08000000 		.4byte	.LVL27
+ 610 029b 4C020000 		.4byte	0x24c
+ 611 029f 00       		.byte	0
+ 612 02a0 10       		.uleb128 0x10
+ 613 02a1 3B020000 		.4byte	.LASF21
+ 614 02a5 3B020000 		.4byte	.LASF21
+ 615 02a9 02       		.byte	0x2
+ 616 02aa 9F       		.byte	0x9f
+ 617 02ab 10       		.uleb128 0x10
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 13
+
+
+ 618 02ac BF000000 		.4byte	.LASF22
+ 619 02b0 BF000000 		.4byte	.LASF22
+ 620 02b4 02       		.byte	0x2
+ 621 02b5 A0       		.byte	0xa0
+ 622 02b6 10       		.uleb128 0x10
+ 623 02b7 67020000 		.4byte	.LASF23
+ 624 02bb 67020000 		.4byte	.LASF23
+ 625 02bf 03       		.byte	0x3
+ 626 02c0 E7       		.byte	0xe7
+ 627 02c1 10       		.uleb128 0x10
+ 628 02c2 22000000 		.4byte	.LASF24
+ 629 02c6 22000000 		.4byte	.LASF24
+ 630 02ca 04       		.byte	0x4
+ 631 02cb 8B       		.byte	0x8b
+ 632 02cc 10       		.uleb128 0x10
+ 633 02cd 28020000 		.4byte	.LASF25
+ 634 02d1 28020000 		.4byte	.LASF25
+ 635 02d5 02       		.byte	0x2
+ 636 02d6 99       		.byte	0x99
+ 637 02d7 10       		.uleb128 0x10
+ 638 02d8 AE000000 		.4byte	.LASF26
+ 639 02dc AE000000 		.4byte	.LASF26
+ 640 02e0 02       		.byte	0x2
+ 641 02e1 9D       		.byte	0x9d
+ 642 02e2 10       		.uleb128 0x10
+ 643 02e3 17000000 		.4byte	.LASF27
+ 644 02e7 17000000 		.4byte	.LASF27
+ 645 02eb 04       		.byte	0x4
+ 646 02ec 54       		.byte	0x54
+ 647 02ed 10       		.uleb128 0x10
+ 648 02ee 52000000 		.4byte	.LASF28
+ 649 02f2 52000000 		.4byte	.LASF28
+ 650 02f6 05       		.byte	0x5
+ 651 02f7 33       		.byte	0x33
+ 652 02f8 10       		.uleb128 0x10
+ 653 02f9 97000000 		.4byte	.LASF29
+ 654 02fd 97000000 		.4byte	.LASF29
+ 655 0301 06       		.byte	0x6
+ 656 0302 33       		.byte	0x33
+ 657 0303 10       		.uleb128 0x10
+ 658 0304 6F020000 		.4byte	.LASF30
+ 659 0308 6F020000 		.4byte	.LASF30
+ 660 030c 07       		.byte	0x7
+ 661 030d D9       		.byte	0xd9
+ 662 030e 10       		.uleb128 0x10
+ 663 030f 6D000000 		.4byte	.LASF31
+ 664 0313 6D000000 		.4byte	.LASF31
+ 665 0317 08       		.byte	0x8
+ 666 0318 92       		.byte	0x92
+ 667 0319 10       		.uleb128 0x10
+ 668 031a 00000000 		.4byte	.LASF32
+ 669 031e 00000000 		.4byte	.LASF32
+ 670 0322 08       		.byte	0x8
+ 671 0323 C3       		.byte	0xc3
+ 672 0324 00       		.byte	0
+ 673              		.section	.debug_abbrev,"",%progbits
+ 674              	.Ldebug_abbrev0:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 14
+
+
+ 675 0000 01       		.uleb128 0x1
+ 676 0001 11       		.uleb128 0x11
+ 677 0002 01       		.byte	0x1
+ 678 0003 25       		.uleb128 0x25
+ 679 0004 0E       		.uleb128 0xe
+ 680 0005 13       		.uleb128 0x13
+ 681 0006 0B       		.uleb128 0xb
+ 682 0007 03       		.uleb128 0x3
+ 683 0008 0E       		.uleb128 0xe
+ 684 0009 1B       		.uleb128 0x1b
+ 685 000a 0E       		.uleb128 0xe
+ 686 000b 55       		.uleb128 0x55
+ 687 000c 17       		.uleb128 0x17
+ 688 000d 11       		.uleb128 0x11
+ 689 000e 01       		.uleb128 0x1
+ 690 000f 10       		.uleb128 0x10
+ 691 0010 17       		.uleb128 0x17
+ 692 0011 00       		.byte	0
+ 693 0012 00       		.byte	0
+ 694 0013 02       		.uleb128 0x2
+ 695 0014 24       		.uleb128 0x24
+ 696 0015 00       		.byte	0
+ 697 0016 0B       		.uleb128 0xb
+ 698 0017 0B       		.uleb128 0xb
+ 699 0018 3E       		.uleb128 0x3e
+ 700 0019 0B       		.uleb128 0xb
+ 701 001a 03       		.uleb128 0x3
+ 702 001b 0E       		.uleb128 0xe
+ 703 001c 00       		.byte	0
+ 704 001d 00       		.byte	0
+ 705 001e 03       		.uleb128 0x3
+ 706 001f 24       		.uleb128 0x24
+ 707 0020 00       		.byte	0
+ 708 0021 0B       		.uleb128 0xb
+ 709 0022 0B       		.uleb128 0xb
+ 710 0023 3E       		.uleb128 0x3e
+ 711 0024 0B       		.uleb128 0xb
+ 712 0025 03       		.uleb128 0x3
+ 713 0026 08       		.uleb128 0x8
+ 714 0027 00       		.byte	0
+ 715 0028 00       		.byte	0
+ 716 0029 04       		.uleb128 0x4
+ 717 002a 2E       		.uleb128 0x2e
+ 718 002b 01       		.byte	0x1
+ 719 002c 3F       		.uleb128 0x3f
+ 720 002d 19       		.uleb128 0x19
+ 721 002e 03       		.uleb128 0x3
+ 722 002f 0E       		.uleb128 0xe
+ 723 0030 3A       		.uleb128 0x3a
+ 724 0031 0B       		.uleb128 0xb
+ 725 0032 3B       		.uleb128 0x3b
+ 726 0033 0B       		.uleb128 0xb
+ 727 0034 11       		.uleb128 0x11
+ 728 0035 01       		.uleb128 0x1
+ 729 0036 12       		.uleb128 0x12
+ 730 0037 06       		.uleb128 0x6
+ 731 0038 40       		.uleb128 0x40
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 15
+
+
+ 732 0039 18       		.uleb128 0x18
+ 733 003a 9742     		.uleb128 0x2117
+ 734 003c 19       		.uleb128 0x19
+ 735 003d 01       		.uleb128 0x1
+ 736 003e 13       		.uleb128 0x13
+ 737 003f 00       		.byte	0
+ 738 0040 00       		.byte	0
+ 739 0041 05       		.uleb128 0x5
+ 740 0042 34       		.uleb128 0x34
+ 741 0043 00       		.byte	0
+ 742 0044 03       		.uleb128 0x3
+ 743 0045 0E       		.uleb128 0xe
+ 744 0046 3A       		.uleb128 0x3a
+ 745 0047 0B       		.uleb128 0xb
+ 746 0048 3B       		.uleb128 0x3b
+ 747 0049 0B       		.uleb128 0xb
+ 748 004a 49       		.uleb128 0x49
+ 749 004b 13       		.uleb128 0x13
+ 750 004c 02       		.uleb128 0x2
+ 751 004d 17       		.uleb128 0x17
+ 752 004e 00       		.byte	0
+ 753 004f 00       		.byte	0
+ 754 0050 06       		.uleb128 0x6
+ 755 0051 34       		.uleb128 0x34
+ 756 0052 00       		.byte	0
+ 757 0053 03       		.uleb128 0x3
+ 758 0054 0E       		.uleb128 0xe
+ 759 0055 3A       		.uleb128 0x3a
+ 760 0056 0B       		.uleb128 0xb
+ 761 0057 3B       		.uleb128 0x3b
+ 762 0058 0B       		.uleb128 0xb
+ 763 0059 49       		.uleb128 0x49
+ 764 005a 13       		.uleb128 0x13
+ 765 005b 02       		.uleb128 0x2
+ 766 005c 18       		.uleb128 0x18
+ 767 005d 00       		.byte	0
+ 768 005e 00       		.byte	0
+ 769 005f 07       		.uleb128 0x7
+ 770 0060 0B       		.uleb128 0xb
+ 771 0061 01       		.byte	0x1
+ 772 0062 11       		.uleb128 0x11
+ 773 0063 01       		.uleb128 0x1
+ 774 0064 12       		.uleb128 0x12
+ 775 0065 06       		.uleb128 0x6
+ 776 0066 01       		.uleb128 0x1
+ 777 0067 13       		.uleb128 0x13
+ 778 0068 00       		.byte	0
+ 779 0069 00       		.byte	0
+ 780 006a 08       		.uleb128 0x8
+ 781 006b 34       		.uleb128 0x34
+ 782 006c 00       		.byte	0
+ 783 006d 03       		.uleb128 0x3
+ 784 006e 08       		.uleb128 0x8
+ 785 006f 3A       		.uleb128 0x3a
+ 786 0070 0B       		.uleb128 0xb
+ 787 0071 3B       		.uleb128 0x3b
+ 788 0072 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 16
+
+
+ 789 0073 49       		.uleb128 0x49
+ 790 0074 13       		.uleb128 0x13
+ 791 0075 02       		.uleb128 0x2
+ 792 0076 17       		.uleb128 0x17
+ 793 0077 00       		.byte	0
+ 794 0078 00       		.byte	0
+ 795 0079 09       		.uleb128 0x9
+ 796 007a 898201   		.uleb128 0x4109
+ 797 007d 01       		.byte	0x1
+ 798 007e 11       		.uleb128 0x11
+ 799 007f 01       		.uleb128 0x1
+ 800 0080 31       		.uleb128 0x31
+ 801 0081 13       		.uleb128 0x13
+ 802 0082 01       		.uleb128 0x1
+ 803 0083 13       		.uleb128 0x13
+ 804 0084 00       		.byte	0
+ 805 0085 00       		.byte	0
+ 806 0086 0A       		.uleb128 0xa
+ 807 0087 8A8201   		.uleb128 0x410a
+ 808 008a 00       		.byte	0
+ 809 008b 02       		.uleb128 0x2
+ 810 008c 18       		.uleb128 0x18
+ 811 008d 9142     		.uleb128 0x2111
+ 812 008f 18       		.uleb128 0x18
+ 813 0090 00       		.byte	0
+ 814 0091 00       		.byte	0
+ 815 0092 0B       		.uleb128 0xb
+ 816 0093 898201   		.uleb128 0x4109
+ 817 0096 01       		.byte	0x1
+ 818 0097 11       		.uleb128 0x11
+ 819 0098 01       		.uleb128 0x1
+ 820 0099 31       		.uleb128 0x31
+ 821 009a 13       		.uleb128 0x13
+ 822 009b 00       		.byte	0
+ 823 009c 00       		.byte	0
+ 824 009d 0C       		.uleb128 0xc
+ 825 009e 898201   		.uleb128 0x4109
+ 826 00a1 00       		.byte	0
+ 827 00a2 11       		.uleb128 0x11
+ 828 00a3 01       		.uleb128 0x1
+ 829 00a4 31       		.uleb128 0x31
+ 830 00a5 13       		.uleb128 0x13
+ 831 00a6 00       		.byte	0
+ 832 00a7 00       		.byte	0
+ 833 00a8 0D       		.uleb128 0xd
+ 834 00a9 01       		.uleb128 0x1
+ 835 00aa 01       		.byte	0x1
+ 836 00ab 49       		.uleb128 0x49
+ 837 00ac 13       		.uleb128 0x13
+ 838 00ad 01       		.uleb128 0x1
+ 839 00ae 13       		.uleb128 0x13
+ 840 00af 00       		.byte	0
+ 841 00b0 00       		.byte	0
+ 842 00b1 0E       		.uleb128 0xe
+ 843 00b2 21       		.uleb128 0x21
+ 844 00b3 00       		.byte	0
+ 845 00b4 49       		.uleb128 0x49
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 17
+
+
+ 846 00b5 13       		.uleb128 0x13
+ 847 00b6 2F       		.uleb128 0x2f
+ 848 00b7 0B       		.uleb128 0xb
+ 849 00b8 00       		.byte	0
+ 850 00b9 00       		.byte	0
+ 851 00ba 0F       		.uleb128 0xf
+ 852 00bb 2E       		.uleb128 0x2e
+ 853 00bc 01       		.byte	0x1
+ 854 00bd 3F       		.uleb128 0x3f
+ 855 00be 19       		.uleb128 0x19
+ 856 00bf 03       		.uleb128 0x3
+ 857 00c0 0E       		.uleb128 0xe
+ 858 00c1 3A       		.uleb128 0x3a
+ 859 00c2 0B       		.uleb128 0xb
+ 860 00c3 3B       		.uleb128 0x3b
+ 861 00c4 0B       		.uleb128 0xb
+ 862 00c5 27       		.uleb128 0x27
+ 863 00c6 19       		.uleb128 0x19
+ 864 00c7 49       		.uleb128 0x49
+ 865 00c8 13       		.uleb128 0x13
+ 866 00c9 8701     		.uleb128 0x87
+ 867 00cb 19       		.uleb128 0x19
+ 868 00cc 11       		.uleb128 0x11
+ 869 00cd 01       		.uleb128 0x1
+ 870 00ce 12       		.uleb128 0x12
+ 871 00cf 06       		.uleb128 0x6
+ 872 00d0 40       		.uleb128 0x40
+ 873 00d1 18       		.uleb128 0x18
+ 874 00d2 9742     		.uleb128 0x2117
+ 875 00d4 19       		.uleb128 0x19
+ 876 00d5 01       		.uleb128 0x1
+ 877 00d6 13       		.uleb128 0x13
+ 878 00d7 00       		.byte	0
+ 879 00d8 00       		.byte	0
+ 880 00d9 10       		.uleb128 0x10
+ 881 00da 2E       		.uleb128 0x2e
+ 882 00db 00       		.byte	0
+ 883 00dc 3F       		.uleb128 0x3f
+ 884 00dd 19       		.uleb128 0x19
+ 885 00de 3C       		.uleb128 0x3c
+ 886 00df 19       		.uleb128 0x19
+ 887 00e0 6E       		.uleb128 0x6e
+ 888 00e1 0E       		.uleb128 0xe
+ 889 00e2 03       		.uleb128 0x3
+ 890 00e3 0E       		.uleb128 0xe
+ 891 00e4 3A       		.uleb128 0x3a
+ 892 00e5 0B       		.uleb128 0xb
+ 893 00e6 3B       		.uleb128 0x3b
+ 894 00e7 0B       		.uleb128 0xb
+ 895 00e8 00       		.byte	0
+ 896 00e9 00       		.byte	0
+ 897 00ea 00       		.byte	0
+ 898              		.section	.debug_loc,"",%progbits
+ 899              	.Ldebug_loc0:
+ 900              	.LLST0:
+ 901 0000 3E000000 		.4byte	.LVL6
+ 902 0004 40000000 		.4byte	.LVL7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 18
+
+
+ 903 0008 0100     		.2byte	0x1
+ 904 000a 50       		.byte	0x50
+ 905 000b 40000000 		.4byte	.LVL7
+ 906 000f 58000000 		.4byte	.LVL13
+ 907 0013 0100     		.2byte	0x1
+ 908 0015 55       		.byte	0x55
+ 909 0016 00000000 		.4byte	0
+ 910 001a 00000000 		.4byte	0
+ 911              	.LLST1:
+ 912 001e 46000000 		.4byte	.LVL9
+ 913 0022 4C000000 		.4byte	.LVL10
+ 914 0026 0100     		.2byte	0x1
+ 915 0028 50       		.byte	0x50
+ 916 0029 4C000000 		.4byte	.LVL10
+ 917 002d 4F000000 		.4byte	.LVL11-1
+ 918 0031 0100     		.2byte	0x1
+ 919 0033 53       		.byte	0x53
+ 920 0034 00000000 		.4byte	0
+ 921 0038 00000000 		.4byte	0
+ 922              	.LLST2:
+ 923 003c 2C000000 		.4byte	.LVL2
+ 924 0040 30000000 		.4byte	.LVL3
+ 925 0044 0200     		.2byte	0x2
+ 926 0046 30       		.byte	0x30
+ 927 0047 9F       		.byte	0x9f
+ 928 0048 30000000 		.4byte	.LVL3
+ 929 004c 5E000000 		.4byte	.LVL14
+ 930 0050 0100     		.2byte	0x1
+ 931 0052 54       		.byte	0x54
+ 932 0053 00000000 		.4byte	0
+ 933 0057 00000000 		.4byte	0
+ 934              		.section	.debug_aranges,"",%progbits
+ 935 0000 3C000000 		.4byte	0x3c
+ 936 0004 0200     		.2byte	0x2
+ 937 0006 00000000 		.4byte	.Ldebug_info0
+ 938 000a 04       		.byte	0x4
+ 939 000b 00       		.byte	0
+ 940 000c 0000     		.2byte	0
+ 941 000e 0000     		.2byte	0
+ 942 0010 00000000 		.4byte	.LFB36
+ 943 0014 68000000 		.4byte	.LFE36-.LFB36
+ 944 0018 00000000 		.4byte	.LFB37
+ 945 001c 24000000 		.4byte	.LFE37-.LFB37
+ 946 0020 00000000 		.4byte	.LFB38
+ 947 0024 20000000 		.4byte	.LFE38-.LFB38
+ 948 0028 00000000 		.4byte	.LFB39
+ 949 002c 10000000 		.4byte	.LFE39-.LFB39
+ 950 0030 00000000 		.4byte	.LFB40
+ 951 0034 0A000000 		.4byte	.LFE40-.LFB40
+ 952 0038 00000000 		.4byte	0
+ 953 003c 00000000 		.4byte	0
+ 954              		.section	.debug_ranges,"",%progbits
+ 955              	.Ldebug_ranges0:
+ 956 0000 00000000 		.4byte	.LFB36
+ 957 0004 68000000 		.4byte	.LFE36
+ 958 0008 00000000 		.4byte	.LFB37
+ 959 000c 24000000 		.4byte	.LFE37
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 19
+
+
+ 960 0010 00000000 		.4byte	.LFB38
+ 961 0014 20000000 		.4byte	.LFE38
+ 962 0018 00000000 		.4byte	.LFB39
+ 963 001c 10000000 		.4byte	.LFE39
+ 964 0020 00000000 		.4byte	.LFB40
+ 965 0024 0A000000 		.4byte	.LFE40
+ 966 0028 00000000 		.4byte	0
+ 967 002c 00000000 		.4byte	0
+ 968              		.section	.debug_line,"",%progbits
+ 969              	.Ldebug_line0:
+ 970 0000 79010000 		.section	.debug_str,"MS",%progbits,1
+ 970      0200EC00 
+ 970      00000201 
+ 970      FB0E0D00 
+ 970      01010101 
+ 971              	.LASF32:
+ 972 0000 70776D42 		.ascii	"pwmBuzzer_WriteCompare\000"
+ 972      757A7A65 
+ 972      725F5772 
+ 972      69746543 
+ 972      6F6D7061 
+ 973              	.LASF27:
+ 974 0017 75617274 		.ascii	"uart_Start\000"
+ 974      5F537461 
+ 974      727400
+ 975              	.LASF24:
+ 976 0022 75617274 		.ascii	"uart_PutString\000"
+ 976      5F507574 
+ 976      53747269 
+ 976      6E6700
+ 977              	.LASF3:
+ 978 0031 73686F72 		.ascii	"short unsigned int\000"
+ 978      7420756E 
+ 978      7369676E 
+ 978      65642069 
+ 978      6E7400
+ 979              	.LASF15:
+ 980 0044 616E616C 		.ascii	"analog2\000"
+ 980      6F673200 
+ 981              	.LASF9:
+ 982 004c 666C6F61 		.ascii	"float\000"
+ 982      7400
+ 983              	.LASF28:
+ 984 0052 6D6F746F 		.ascii	"motorA_Write\000"
+ 984      72415F57 
+ 984      72697465 
+ 984      00
+ 985              	.LASF1:
+ 986 005f 756E7369 		.ascii	"unsigned char\000"
+ 986      676E6564 
+ 986      20636861 
+ 986      7200
+ 987              	.LASF31:
+ 988 006d 70776D42 		.ascii	"pwmBuzzer_Start\000"
+ 988      757A7A65 
+ 988      725F5374 
+ 988      61727400 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 20
+
+
+ 989              	.LASF5:
+ 990 007d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 990      20756E73 
+ 990      69676E65 
+ 990      6420696E 
+ 990      7400
+ 991              	.LASF14:
+ 992 008f 616E616C 		.ascii	"analog1\000"
+ 992      6F673100 
+ 993              	.LASF29:
+ 994 0097 6D6F746F 		.ascii	"motorB_Write\000"
+ 994      72425F57 
+ 994      72697465 
+ 994      00
+ 995              	.LASF18:
+ 996 00a4 74657374 		.ascii	"testMotor\000"
+ 996      4D6F746F 
+ 996      7200
+ 997              	.LASF26:
+ 998 00ae 6164635F 		.ascii	"adc_StartConvert\000"
+ 998      53746172 
+ 998      74436F6E 
+ 998      76657274 
+ 998      00
+ 999              	.LASF22:
+ 1000 00bf 6164635F 		.ascii	"adc_GetResult16\000"
+ 1000      47657452 
+ 1000      6573756C 
+ 1000      74313600 
+ 1001              	.LASF10:
+ 1002 00cf 646F7562 		.ascii	"double\000"
+ 1002      6C6500
+ 1003              	.LASF36:
+ 1004 00d6 6D61696E 		.ascii	"main\000"
+ 1004      00
+ 1005              	.LASF20:
+ 1006 00db 74657374 		.ascii	"testSubsystems\000"
+ 1006      53756273 
+ 1006      79737465 
+ 1006      6D7300
+ 1007              	.LASF8:
+ 1008 00ea 756E7369 		.ascii	"unsigned int\000"
+ 1008      676E6564 
+ 1008      20696E74 
+ 1008      00
+ 1009              	.LASF7:
+ 1010 00f7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1010      206C6F6E 
+ 1010      6720756E 
+ 1010      7369676E 
+ 1010      65642069 
+ 1011              	.LASF17:
+ 1012 010e 74657374 		.ascii	"testFlex\000"
+ 1012      466C6578 
+ 1012      00
+ 1013              	.LASF35:
+ 1014 0117 433A5C55 		.ascii	"C:\\Users\\Jacob\\Documents\\Junior\\EGR 304\\EGR30"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 21
+
+
+ 1014      73657273 
+ 1014      5C4A6163 
+ 1014      6F625C44 
+ 1014      6F63756D 
+ 1015 0144 345C5065 		.ascii	"4\\PeacefulPillow.cydsn\000"
+ 1015      61636566 
+ 1015      756C5069 
+ 1015      6C6C6F77 
+ 1015      2E637964 
+ 1016              	.LASF33:
+ 1017 015b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1017      43313120 
+ 1017      352E342E 
+ 1017      31203230 
+ 1017      31363036 
+ 1018 018e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1018      20726576 
+ 1018      6973696F 
+ 1018      6E203233 
+ 1018      37373135 
+ 1019 01c1 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1019      66756E63 
+ 1019      74696F6E 
+ 1019      2D736563 
+ 1019      74696F6E 
+ 1020              	.LASF13:
+ 1021 01e9 73697A65 		.ascii	"sizetype\000"
+ 1021      74797065 
+ 1021      00
+ 1022              	.LASF6:
+ 1023 01f2 6C6F6E67 		.ascii	"long long int\000"
+ 1023      206C6F6E 
+ 1023      6720696E 
+ 1023      7400
+ 1024              	.LASF34:
+ 1025 0200 6D61696E 		.ascii	"main.c\000"
+ 1025      2E6300
+ 1026              	.LASF11:
+ 1027 0207 63686172 		.ascii	"char\000"
+ 1027      00
+ 1028              	.LASF19:
+ 1029 020c 74657374 		.ascii	"testBuzzer\000"
+ 1029      42757A7A 
+ 1029      657200
+ 1030              	.LASF2:
+ 1031 0217 73686F72 		.ascii	"short int\000"
+ 1031      7420696E 
+ 1031      7400
+ 1032              	.LASF16:
+ 1033 0221 62756666 		.ascii	"buffer\000"
+ 1033      657200
+ 1034              	.LASF25:
+ 1035 0228 6164635F 		.ascii	"adc_Start\000"
+ 1035      53746172 
+ 1035      7400
+ 1036              	.LASF4:
+ 1037 0232 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc5xZwnv.s 			page 22
+
+
+ 1037      20696E74 
+ 1037      00
+ 1038              	.LASF21:
+ 1039 023b 6164635F 		.ascii	"adc_IsEndConversion\000"
+ 1039      4973456E 
+ 1039      64436F6E 
+ 1039      76657273 
+ 1039      696F6E00 
+ 1040              	.LASF12:
+ 1041 024f 6C6F6E67 		.ascii	"long double\000"
+ 1041      20646F75 
+ 1041      626C6500 
+ 1042              	.LASF0:
+ 1043 025b 7369676E 		.ascii	"signed char\000"
+ 1043      65642063 
+ 1043      68617200 
+ 1044              	.LASF23:
+ 1045 0267 73707269 		.ascii	"sprintf\000"
+ 1045      6E746600 
+ 1046              	.LASF30:
+ 1047 026f 43794465 		.ascii	"CyDelay\000"
+ 1047      6C617900 
+ 1048              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

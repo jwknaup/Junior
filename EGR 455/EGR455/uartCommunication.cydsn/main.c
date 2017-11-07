@@ -21,7 +21,7 @@ int main(void)
     int compare;
     int time;
     int error, P;
-    float kP=3.0;
+    float kP=0.21;
     enc_Start();    
     lcd_Start();
     pwm_Start();

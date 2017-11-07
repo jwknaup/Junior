@@ -1,0 +1,3620 @@
+Loading plugins phase: Elapsed time ==> 0s.131ms
+<CYPRESSTAG name="CyDsfit arguments...">
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cyprj -d CY8C4248LQQ-BL583 -s C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
+<CYPRESSTAG name="Design elaboration results...">
+</CYPRESSTAG>
+Elaboration phase: Elapsed time ==> 1s.681ms
+<CYPRESSTAG name="HDL generation results...">
+</CYPRESSTAG>
+HDL generation phase: Elapsed time ==> 0s.084ms
+<CYPRESSTAG name="Synthesis results...">
+
+     | | | | | | |
+   _________________
+  -|               |-
+  -|               |-
+  -|               |-
+  -|    CYPRESS    |-
+  -|               |-
+  -|               |-   Warp Verilog Synthesis Compiler: Version 6.3 IR 41
+  -|               |-   Copyright (C) 1991-2001 Cypress Semiconductor
+   |_______________|
+     | | | | | | |
+
+======================================================================
+Compiling:  PeacefulPillow.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cyprj -dcpsoc3 PeacefulPillow.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  PeacefulPillow.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cyprj -dcpsoc3 PeacefulPillow.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  PeacefulPillow.v
+Program  :   vlogfe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cyprj -dcpsoc3 -verilog PeacefulPillow.v
+======================================================================
+
+vlogfe V6.3 IR 41:  Verilog parser
+Mon Nov 06 10:04:46 2017
+
+
+======================================================================
+Compiling:  PeacefulPillow.v
+Program  :   vpp
+Options  :    -yv2 -q10 PeacefulPillow.v
+======================================================================
+
+vpp V6.3 IR 41:  Verilog Pre-Processor
+Mon Nov 06 10:04:46 2017
+
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.v'
+
+vpp:  No errors.
+
+Library 'work' => directory 'lcpsoc3'
+General_symbol_table
+General_symbol_table
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Using control file 'PeacefulPillow.ctl'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 947, col 46):  Note: Substituting module 'sub_vi_vv' for '-'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 977, col 46):  Note: Substituting module 'add_vi_vv' for '+'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1113, col 55):  Note: Substituting module 'add_vv_vv' for '+'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1122, col 48):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1122, col 77):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1389, col 59):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1424, col 61):  Note: Substituting module 'cmp_vv_vv' for '/='.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1547, col 106):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1603, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1604, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+
+vlogfe:  No errors.
+
+
+======================================================================
+Compiling:  PeacefulPillow.v
+Program  :   tovif
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cyprj -dcpsoc3 -verilog PeacefulPillow.v
+======================================================================
+
+tovif V6.3 IR 41:  High-level synthesis
+Mon Nov 06 10:04:46 2017
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\codegentemp\PeacefulPillow.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\codegentemp\PeacefulPillow.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mcompare.vif'.
+
+tovif:  No errors.
+
+
+======================================================================
+Compiling:  PeacefulPillow.v
+Program  :   topld
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cyprj -dcpsoc3 -verilog PeacefulPillow.v
+======================================================================
+
+topld V6.3 IR 41:  Synthesis and optimization
+Mon Nov 06 10:04:47 2017
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\codegentemp\PeacefulPillow.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\codegentemp\PeacefulPillow.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\common\stdlogic\mcompare.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+
+----------------------------------------------------------
+Detecting unused logic.
+----------------------------------------------------------
+    User names
+	\adc:Net_3125\
+	\adc:Net_3126\
+	\pwmBuzzer:PWMUDB:km_run\
+	\pwmBuzzer:PWMUDB:ctrl_cmpmode2_2\
+	\pwmBuzzer:PWMUDB:ctrl_cmpmode2_1\
+	\pwmBuzzer:PWMUDB:ctrl_cmpmode2_0\
+	\pwmBuzzer:PWMUDB:ctrl_cmpmode1_2\
+	\pwmBuzzer:PWMUDB:ctrl_cmpmode1_1\
+	\pwmBuzzer:PWMUDB:ctrl_cmpmode1_0\
+	\pwmBuzzer:PWMUDB:capt_rising\
+	\pwmBuzzer:PWMUDB:capt_falling\
+	\pwmBuzzer:PWMUDB:trig_rise\
+	\pwmBuzzer:PWMUDB:trig_fall\
+	\pwmBuzzer:PWMUDB:sc_kill\
+	\pwmBuzzer:PWMUDB:min_kill\
+	\pwmBuzzer:PWMUDB:db_tc\
+	\pwmBuzzer:PWMUDB:dith_sel\
+	\pwmBuzzer:PWMUDB:compare2\
+	Net_339
+	Net_340
+	Net_341
+	\pwmBuzzer:PWMUDB:MODULE_1:b_31\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_30\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_29\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_28\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_27\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_26\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_25\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_24\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_23\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_22\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_21\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_20\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_19\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_18\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_17\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_16\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_15\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_14\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_13\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_12\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_11\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_10\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_9\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_8\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_7\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_6\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_5\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_4\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_3\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_2\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_1\
+	\pwmBuzzer:PWMUDB:MODULE_1:b_0\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_31\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_30\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_29\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_28\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_27\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_26\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_25\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_24\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_31\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_30\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_29\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_28\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_27\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_26\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_25\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_24\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_23\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_22\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_21\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_20\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_19\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_18\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_17\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_16\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_15\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_14\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_13\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_12\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_11\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_10\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_9\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_8\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_7\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_6\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_5\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_4\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_3\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_2\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_1\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:b_0\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_31\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_30\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_29\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_28\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_27\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_26\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_25\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_24\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_23\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_22\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_21\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_20\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_19\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_18\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_17\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_16\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_15\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_14\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_13\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_12\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_11\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_10\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_9\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_8\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_7\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_6\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_5\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_4\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_3\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_2\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_31\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_30\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_29\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_28\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_27\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_26\
+	\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_25\
+	\pwmBuzzer:Net_139\
+	\pwmBuzzer:Net_138\
+	\pwmBuzzer:Net_183\
+	\pwmBuzzer:Net_181\
+	\uart:BUART:reset_sr\
+	Net_452
+	Net_453
+	\uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:b_1\
+	\uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:b_0\
+	\uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:gta_0\
+	\uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:gta_0\
+	Net_447
+	\uart:BUART:sRX:MODULE_5:g2:a0:gta_0\
+	\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:albi_1\
+	\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:agbi_1\
+	\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:lt_0\
+	\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:gt_0\
+	\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:lti_0\
+	\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:gti_0\
+	\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:albi_0\
+	\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:agbi_0\
+	\uart:BUART:sRX:MODULE_6:g1:a0:xeq\
+	\uart:BUART:sRX:MODULE_6:g1:a0:xlt\
+	\uart:BUART:sRX:MODULE_6:g1:a0:xlte\
+	\uart:BUART:sRX:MODULE_6:g1:a0:xgt\
+	\uart:BUART:sRX:MODULE_6:g1:a0:xgte\
+	\uart:BUART:sRX:MODULE_6:lt\
+	\uart:BUART:sRX:MODULE_6:eq\
+	\uart:BUART:sRX:MODULE_6:gt\
+	\uart:BUART:sRX:MODULE_6:gte\
+	\uart:BUART:sRX:MODULE_6:lte\
+
+    Synthesized names
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_31\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_30\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_29\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_28\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_27\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_26\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_25\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_24\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_23\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_22\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_21\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_20\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_19\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_18\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_17\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_16\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_15\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_14\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_13\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_12\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_11\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_10\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_9\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_8\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_7\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_6\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_5\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_4\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_3\
+	\pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_2\
+
+Deleted 161 User equations/components.
+Deleted 30 Synthesized equations/components.
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing one to tmpOE__flexSensorA_net_0
+Aliasing tmpOE__flexSensorB_net_0 to tmpOE__flexSensorA_net_0
+Aliasing \adc:Net_3107\ to zero
+Aliasing \adc:Net_3106\ to zero
+Aliasing \adc:Net_3105\ to zero
+Aliasing \adc:Net_3104\ to zero
+Aliasing \adc:Net_3103\ to zero
+Aliasing \adc:Net_3207_1\ to zero
+Aliasing \adc:Net_3207_0\ to zero
+Aliasing \adc:Net_3235\ to zero
+Aliasing tmpOE__motorA_net_0 to tmpOE__flexSensorA_net_0
+Aliasing tmpOE__motorB_net_0 to tmpOE__flexSensorA_net_0
+Aliasing tmpOE__buzzer_net_0 to tmpOE__flexSensorA_net_0
+Aliasing \pwmBuzzer:Net_180\ to zero
+Aliasing \pwmBuzzer:PWMUDB:hwCapture\ to zero
+Aliasing \pwmBuzzer:Net_178\ to zero
+Aliasing \pwmBuzzer:PWMUDB:trig_out\ to tmpOE__flexSensorA_net_0
+Aliasing \pwmBuzzer:PWMUDB:runmode_enable\\S\ to zero
+Aliasing \pwmBuzzer:Net_179\ to tmpOE__flexSensorA_net_0
+Aliasing \pwmBuzzer:PWMUDB:ltch_kill_reg\\R\ to \pwmBuzzer:PWMUDB:runmode_enable\\R\
+Aliasing \pwmBuzzer:PWMUDB:ltch_kill_reg\\S\ to zero
+Aliasing \pwmBuzzer:PWMUDB:km_tc\ to zero
+Aliasing \pwmBuzzer:PWMUDB:min_kill_reg\\R\ to \pwmBuzzer:PWMUDB:runmode_enable\\R\
+Aliasing \pwmBuzzer:PWMUDB:min_kill_reg\\S\ to zero
+Aliasing \pwmBuzzer:PWMUDB:final_kill\ to tmpOE__flexSensorA_net_0
+Aliasing \pwmBuzzer:PWMUDB:dith_count_1\\R\ to \pwmBuzzer:PWMUDB:runmode_enable\\R\
+Aliasing \pwmBuzzer:PWMUDB:dith_count_1\\S\ to zero
+Aliasing \pwmBuzzer:PWMUDB:dith_count_0\\R\ to \pwmBuzzer:PWMUDB:runmode_enable\\R\
+Aliasing \pwmBuzzer:PWMUDB:dith_count_0\\S\ to zero
+Aliasing \pwmBuzzer:PWMUDB:status_6\ to zero
+Aliasing \pwmBuzzer:PWMUDB:status_4\ to zero
+Aliasing \pwmBuzzer:PWMUDB:cmp2\ to zero
+Aliasing \pwmBuzzer:PWMUDB:cmp1_status_reg\\R\ to \pwmBuzzer:PWMUDB:runmode_enable\\R\
+Aliasing \pwmBuzzer:PWMUDB:cmp1_status_reg\\S\ to zero
+Aliasing \pwmBuzzer:PWMUDB:cmp2_status_reg\\R\ to \pwmBuzzer:PWMUDB:runmode_enable\\R\
+Aliasing \pwmBuzzer:PWMUDB:cmp2_status_reg\\S\ to zero
+Aliasing \pwmBuzzer:PWMUDB:final_kill_reg\\R\ to \pwmBuzzer:PWMUDB:runmode_enable\\R\
+Aliasing \pwmBuzzer:PWMUDB:final_kill_reg\\S\ to zero
+Aliasing \pwmBuzzer:PWMUDB:cs_addr_0\ to \pwmBuzzer:PWMUDB:runmode_enable\\R\
+Aliasing \pwmBuzzer:PWMUDB:pwm1_i\ to zero
+Aliasing \pwmBuzzer:PWMUDB:pwm2_i\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_23\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_22\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_21\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_20\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_19\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_18\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_17\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_16\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_15\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_14\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_13\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_12\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_11\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_10\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_9\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_8\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_7\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_6\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_5\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_4\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_3\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_2\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ to tmpOE__flexSensorA_net_0
+Aliasing Net_319 to zero
+Aliasing Net_450 to zero
+Aliasing \uart:BUART:tx_hd_send_break\ to zero
+Aliasing \uart:BUART:HalfDuplexSend\ to zero
+Aliasing \uart:BUART:FinalParityType_1\ to zero
+Aliasing \uart:BUART:FinalParityType_0\ to zero
+Aliasing \uart:BUART:FinalAddrMode_2\ to zero
+Aliasing \uart:BUART:FinalAddrMode_1\ to zero
+Aliasing \uart:BUART:FinalAddrMode_0\ to zero
+Aliasing \uart:BUART:tx_ctrl_mark\ to zero
+Aliasing \uart:BUART:tx_status_6\ to zero
+Aliasing \uart:BUART:tx_status_5\ to zero
+Aliasing \uart:BUART:tx_status_4\ to zero
+Aliasing \uart:BUART:rx_count7_bit8_wire\ to zero
+Aliasing \uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\ to tmpOE__flexSensorA_net_0
+Aliasing \uart:BUART:sRX:s23Poll:MODIN3_1\ to \uart:BUART:sRX:s23Poll:MODIN2_1\
+Aliasing \uart:BUART:sRX:s23Poll:MODIN3_0\ to \uart:BUART:sRX:s23Poll:MODIN2_0\
+Aliasing \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_1\ to zero
+Aliasing \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_0\ to tmpOE__flexSensorA_net_0
+Aliasing \uart:BUART:sRX:s23Poll:MODIN4_1\ to \uart:BUART:sRX:s23Poll:MODIN2_1\
+Aliasing \uart:BUART:sRX:s23Poll:MODIN4_0\ to \uart:BUART:sRX:s23Poll:MODIN2_0\
+Aliasing \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:newb_1\ to tmpOE__flexSensorA_net_0
+Aliasing \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:newb_0\ to zero
+Aliasing \uart:BUART:rx_status_1\ to zero
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newa_6\ to zero
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newa_5\ to zero
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newa_4\ to zero
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newb_6\ to zero
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newb_5\ to zero
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newb_4\ to zero
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newb_3\ to zero
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newb_2\ to tmpOE__flexSensorA_net_0
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newb_1\ to tmpOE__flexSensorA_net_0
+Aliasing \uart:BUART:sRX:MODULE_5:g2:a0:newb_0\ to zero
+Aliasing \uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:aeqb_0\ to tmpOE__flexSensorA_net_0
+Aliasing tmpOE__Rx_1_net_0 to tmpOE__flexSensorA_net_0
+Aliasing tmpOE__Tx_1_net_0 to tmpOE__flexSensorA_net_0
+Aliasing \pwmBuzzer:PWMUDB:prevCompare1\\D\ to \pwmBuzzer:PWMUDB:pwm_temp\
+Aliasing \pwmBuzzer:PWMUDB:tc_i_reg\\D\ to \pwmBuzzer:PWMUDB:status_2\
+Aliasing \uart:BUART:rx_break_status\\D\ to zero
+Removing Lhs of wire one[7] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire tmpOE__flexSensorB_net_0[10] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \adc:Net_3107\[90] = zero[2]
+Removing Lhs of wire \adc:Net_3106\[91] = zero[2]
+Removing Lhs of wire \adc:Net_3105\[92] = zero[2]
+Removing Lhs of wire \adc:Net_3104\[93] = zero[2]
+Removing Lhs of wire \adc:Net_3103\[94] = zero[2]
+Removing Lhs of wire \adc:Net_17\[139] = \adc:Net_1845\[18]
+Removing Lhs of wire \adc:Net_3207_1\[161] = zero[2]
+Removing Lhs of wire \adc:Net_3207_0\[162] = zero[2]
+Removing Lhs of wire \adc:Net_3235\[163] = zero[2]
+Removing Lhs of wire tmpOE__motorA_net_0[230] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire tmpOE__motorB_net_0[236] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire tmpOE__buzzer_net_0[242] = tmpOE__flexSensorA_net_0[1]
+Removing Rhs of wire Net_348[243] = \pwmBuzzer:PWMUDB:pwm_i_reg\[368]
+Removing Lhs of wire \pwmBuzzer:Net_68\[251] = Net_338[578]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:ctrl_enable\[262] = \pwmBuzzer:PWMUDB:control_7\[254]
+Removing Lhs of wire \pwmBuzzer:Net_180\[270] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:hwCapture\[273] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:hwEnable\[274] = \pwmBuzzer:PWMUDB:control_7\[254]
+Removing Lhs of wire \pwmBuzzer:Net_178\[276] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:trig_out\[279] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:runmode_enable\\R\[281] = \pwmBuzzer:Net_186\[282]
+Removing Lhs of wire \pwmBuzzer:Net_186\[282] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:runmode_enable\\S\[283] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:final_enable\[284] = \pwmBuzzer:PWMUDB:runmode_enable\[280]
+Removing Lhs of wire \pwmBuzzer:Net_179\[287] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:ltch_kill_reg\\R\[289] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:ltch_kill_reg\\S\[290] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:km_tc\[291] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:min_kill_reg\\R\[292] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:min_kill_reg\\S\[293] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:final_kill\[296] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_1\[299] = \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_1\[537]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:add_vi_vv_MODGEN_1_0\[301] = \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_0\[538]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:dith_count_1\\R\[302] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:dith_count_1\\S\[303] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:dith_count_0\\R\[304] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:dith_count_0\\S\[305] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:status_6\[308] = zero[2]
+Removing Rhs of wire \pwmBuzzer:PWMUDB:status_5\[309] = \pwmBuzzer:PWMUDB:final_kill_reg\[323]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:status_4\[310] = zero[2]
+Removing Rhs of wire \pwmBuzzer:PWMUDB:status_3\[311] = \pwmBuzzer:PWMUDB:fifo_full\[330]
+Removing Rhs of wire \pwmBuzzer:PWMUDB:status_1\[313] = \pwmBuzzer:PWMUDB:cmp2_status_reg\[322]
+Removing Rhs of wire \pwmBuzzer:PWMUDB:status_0\[314] = \pwmBuzzer:PWMUDB:cmp1_status_reg\[321]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cmp2_status\[319] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cmp2\[320] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cmp1_status_reg\\R\[324] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cmp1_status_reg\\S\[325] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cmp2_status_reg\\R\[326] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cmp2_status_reg\\S\[327] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:final_kill_reg\\R\[328] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:final_kill_reg\\S\[329] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cs_addr_2\[331] = \pwmBuzzer:PWMUDB:tc_i\[286]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cs_addr_1\[332] = \pwmBuzzer:PWMUDB:runmode_enable\[280]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cs_addr_0\[333] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:compare1\[366] = \pwmBuzzer:PWMUDB:cmp1_less\[337]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:pwm1_i\[371] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:pwm2_i\[373] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:pwm_temp\[378] = \pwmBuzzer:PWMUDB:cmp1\[317]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_23\[419] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_22\[420] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_21\[421] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_20\[422] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_19\[423] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_18\[424] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_17\[425] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_16\[426] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_15\[427] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_14\[428] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_13\[429] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_12\[430] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_11\[431] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_10\[432] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_9\[433] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_8\[434] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_7\[435] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_6\[436] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_5\[437] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_4\[438] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_3\[439] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_2\[440] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_1\[441] = \pwmBuzzer:PWMUDB:MODIN1_1\[442]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODIN1_1\[442] = \pwmBuzzer:PWMUDB:dith_count_1\[298]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:a_0\[443] = \pwmBuzzer:PWMUDB:MODIN1_0\[444]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODIN1_0\[444] = \pwmBuzzer:PWMUDB:dith_count_0\[300]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[576] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[577] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire Net_319[584] = zero[2]
+Removing Lhs of wire \uart:Net_61\[588] = \uart:Net_9\[587]
+Removing Lhs of wire Net_450[592] = zero[2]
+Removing Lhs of wire \uart:BUART:tx_hd_send_break\[593] = zero[2]
+Removing Lhs of wire \uart:BUART:HalfDuplexSend\[594] = zero[2]
+Removing Lhs of wire \uart:BUART:FinalParityType_1\[595] = zero[2]
+Removing Lhs of wire \uart:BUART:FinalParityType_0\[596] = zero[2]
+Removing Lhs of wire \uart:BUART:FinalAddrMode_2\[597] = zero[2]
+Removing Lhs of wire \uart:BUART:FinalAddrMode_1\[598] = zero[2]
+Removing Lhs of wire \uart:BUART:FinalAddrMode_0\[599] = zero[2]
+Removing Lhs of wire \uart:BUART:tx_ctrl_mark\[600] = zero[2]
+Removing Rhs of wire \uart:BUART:tx_bitclk_enable_pre\[612] = \uart:BUART:tx_bitclk_dp\[648]
+Removing Lhs of wire \uart:BUART:tx_counter_tc\[658] = \uart:BUART:tx_counter_dp\[649]
+Removing Lhs of wire \uart:BUART:tx_status_6\[659] = zero[2]
+Removing Lhs of wire \uart:BUART:tx_status_5\[660] = zero[2]
+Removing Lhs of wire \uart:BUART:tx_status_4\[661] = zero[2]
+Removing Lhs of wire \uart:BUART:tx_status_1\[663] = \uart:BUART:tx_fifo_empty\[626]
+Removing Lhs of wire \uart:BUART:tx_status_3\[665] = \uart:BUART:tx_fifo_notfull\[625]
+Removing Lhs of wire \uart:BUART:rx_count7_bit8_wire\[725] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:add_vv_vv_MODGEN_2_1\[733] = \uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_1\[744]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:add_vv_vv_MODGEN_2_0\[735] = \uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_0\[745]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_3\[736] = \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\[761]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_4\[737] = \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:lta_0\[775]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:a_1\[738] = \uart:BUART:sRX:s23Poll:MODIN2_1\[739]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODIN2_1\[739] = \uart:BUART:pollcount_1\[731]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:a_0\[740] = \uart:BUART:sRX:s23Poll:MODIN2_0\[741]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODIN2_0\[741] = \uart:BUART:pollcount_0\[734]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_0\[747] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\[748] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_1\[749] = \uart:BUART:pollcount_1\[731]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODIN3_1\[750] = \uart:BUART:pollcount_1\[731]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_0\[751] = \uart:BUART:pollcount_0\[734]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODIN3_0\[752] = \uart:BUART:pollcount_0\[734]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_1\[753] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_0\[754] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_1\[755] = \uart:BUART:pollcount_1\[731]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_0\[756] = \uart:BUART:pollcount_0\[734]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_1\[757] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_0\[758] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:newa_1\[763] = \uart:BUART:pollcount_1\[731]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODIN4_1\[764] = \uart:BUART:pollcount_1\[731]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:newa_0\[765] = \uart:BUART:pollcount_0\[734]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODIN4_0\[766] = \uart:BUART:pollcount_0\[734]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:newb_1\[767] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:newb_0\[768] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:dataa_1\[769] = \uart:BUART:pollcount_1\[731]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:dataa_0\[770] = \uart:BUART:pollcount_0\[734]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:datab_1\[771] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:datab_0\[772] = zero[2]
+Removing Lhs of wire \uart:BUART:rx_status_1\[779] = zero[2]
+Removing Rhs of wire \uart:BUART:rx_status_2\[780] = \uart:BUART:rx_parity_error_status\[781]
+Removing Rhs of wire \uart:BUART:rx_status_3\[782] = \uart:BUART:rx_stop_bit_error\[783]
+Removing Lhs of wire \uart:BUART:sRX:cmp_vv_vv_MODGEN_5\[793] = \uart:BUART:sRX:MODULE_5:g2:a0:lta_0\[842]
+Removing Lhs of wire \uart:BUART:sRX:cmp_vv_vv_MODGEN_6\[797] = \uart:BUART:sRX:MODULE_6:g1:a0:xneq\[864]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newa_6\[798] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newa_5\[799] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newa_4\[800] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newa_3\[801] = \uart:BUART:sRX:MODIN5_6\[802]
+Removing Lhs of wire \uart:BUART:sRX:MODIN5_6\[802] = \uart:BUART:rx_count_6\[720]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newa_2\[803] = \uart:BUART:sRX:MODIN5_5\[804]
+Removing Lhs of wire \uart:BUART:sRX:MODIN5_5\[804] = \uart:BUART:rx_count_5\[721]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newa_1\[805] = \uart:BUART:sRX:MODIN5_4\[806]
+Removing Lhs of wire \uart:BUART:sRX:MODIN5_4\[806] = \uart:BUART:rx_count_4\[722]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newa_0\[807] = \uart:BUART:sRX:MODIN5_3\[808]
+Removing Lhs of wire \uart:BUART:sRX:MODIN5_3\[808] = \uart:BUART:rx_count_3\[723]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newb_6\[809] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newb_5\[810] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newb_4\[811] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newb_3\[812] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newb_2\[813] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newb_1\[814] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:newb_0\[815] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:dataa_6\[816] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:dataa_5\[817] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:dataa_4\[818] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:dataa_3\[819] = \uart:BUART:rx_count_6\[720]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:dataa_2\[820] = \uart:BUART:rx_count_5\[721]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:dataa_1\[821] = \uart:BUART:rx_count_4\[722]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:dataa_0\[822] = \uart:BUART:rx_count_3\[723]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:datab_6\[823] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:datab_5\[824] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:datab_4\[825] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:datab_3\[826] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:datab_2\[827] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:datab_1\[828] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_5:g2:a0:datab_0\[829] = zero[2]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_6:g1:a0:newa_0\[844] = \uart:BUART:rx_postpoll\[679]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_6:g1:a0:newb_0\[845] = \uart:BUART:rx_parity_bit\[796]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_6:g1:a0:dataa_0\[846] = \uart:BUART:rx_postpoll\[679]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_6:g1:a0:datab_0\[847] = \uart:BUART:rx_parity_bit\[796]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:a_0\[848] = \uart:BUART:rx_postpoll\[679]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:b_0\[849] = \uart:BUART:rx_parity_bit\[796]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:aeqb_0\[851] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:eq_0\[852] = \uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\[850]
+Removing Lhs of wire \uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:eqi_0\[853] = \uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\[850]
+Removing Lhs of wire tmpOE__Rx_1_net_0[875] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire tmpOE__Tx_1_net_0[880] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:prevCapture\\D\[886] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:trig_last\\D\[887] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:prevCompare1\\D\[893] = \pwmBuzzer:PWMUDB:cmp1\[317]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cmp1_status_reg\\D\[894] = \pwmBuzzer:PWMUDB:cmp1_status\[318]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:cmp2_status_reg\\D\[895] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:pwm_i_reg\\D\[897] = \pwmBuzzer:PWMUDB:pwm_i\[369]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:pwm1_i_reg\\D\[898] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:pwm2_i_reg\\D\[899] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:tc_i_reg\\D\[900] = \pwmBuzzer:PWMUDB:status_2\[312]
+Removing Lhs of wire \uart:BUART:reset_reg\\D\[901] = zero[2]
+Removing Lhs of wire \uart:BUART:rx_bitclk\\D\[916] = \uart:BUART:rx_bitclk_pre\[714]
+Removing Lhs of wire \uart:BUART:rx_parity_error_pre\\D\[925] = \uart:BUART:rx_parity_error_pre\[791]
+Removing Lhs of wire \uart:BUART:rx_break_status\\D\[926] = zero[2]
+
+------------------------------------------------------
+Aliased 0 equations, 198 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Substituting virtuals - pass 1:
+
+Note:  Expanding virtual equation for 'tmpOE__flexSensorA_net_0' (cost = 0):
+tmpOE__flexSensorA_net_0 <=  ('1') ;
+
+Note:  Expanding virtual equation for 'zero' (cost = 0):
+zero <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:cmp1\' (cost = 0):
+\pwmBuzzer:PWMUDB:cmp1\ <= (\pwmBuzzer:PWMUDB:cmp1_less\);
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\ <= (\pwmBuzzer:PWMUDB:dith_count_0\);
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_0\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_0\ <= (not \pwmBuzzer:PWMUDB:dith_count_0\);
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_17\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_17\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_9\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_9\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_2\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_2\ <= ((\pwmBuzzer:PWMUDB:dith_count_1\ and \pwmBuzzer:PWMUDB:dith_count_0\));
+
+Note:  Expanding virtual equation for '\uart:BUART:rx_addressmatch\' (cost = 0):
+\uart:BUART:rx_addressmatch\ <= (\uart:BUART:rx_addressmatch2\
+	OR \uart:BUART:rx_addressmatch1\);
+
+Note:  Expanding virtual equation for '\uart:BUART:rx_bitclk_pre\' (cost = 1):
+\uart:BUART:rx_bitclk_pre\ <= ((not \uart:BUART:rx_count_2\ and not \uart:BUART:rx_count_1\ and not \uart:BUART:rx_count_0\));
+
+Note:  Expanding virtual equation for '\uart:BUART:rx_bitclk_pre16x\' (cost = 0):
+\uart:BUART:rx_bitclk_pre16x\ <= ((not \uart:BUART:rx_count_2\ and \uart:BUART:rx_count_1\ and \uart:BUART:rx_count_0\));
+
+Note:  Expanding virtual equation for '\uart:BUART:rx_poll_bit1\' (cost = 1):
+\uart:BUART:rx_poll_bit1\ <= ((not \uart:BUART:rx_count_2\ and not \uart:BUART:rx_count_1\ and \uart:BUART:rx_count_0\));
+
+Note:  Expanding virtual equation for '\uart:BUART:rx_poll_bit2\' (cost = 1):
+\uart:BUART:rx_poll_bit2\ <= ((not \uart:BUART:rx_count_2\ and not \uart:BUART:rx_count_1\ and not \uart:BUART:rx_count_0\));
+
+Note:  Expanding virtual equation for '\uart:BUART:pollingrange\' (cost = 4):
+\uart:BUART:pollingrange\ <= ((not \uart:BUART:rx_count_2\ and not \uart:BUART:rx_count_1\));
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_1\' (cost = 0):
+\uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_1\ <= (\uart:BUART:pollcount_0\);
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_0\' (cost = 0):
+\uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_0\ <= (not \uart:BUART:pollcount_0\);
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_1\' (cost = 0):
+\uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_1\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:gta_1\' (cost = 0):
+\uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:gta_1\ <= (\uart:BUART:pollcount_1\);
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:lta_1\' (cost = 0):
+\uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:lta_1\ <= (not \uart:BUART:pollcount_1\);
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:gta_1\' (cost = 0):
+\uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:gta_1\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:lta_6\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:lta_6\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:gta_6\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:gta_6\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:lta_5\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:lta_5\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:gta_5\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:gta_5\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:lta_4\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:lta_4\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:gta_4\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:gta_4\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:lta_3\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:lta_3\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:gta_3\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:gta_3\ <= (\uart:BUART:rx_count_6\);
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:lta_2\' (cost = 1):
+\uart:BUART:sRX:MODULE_5:g2:a0:lta_2\ <= ((not \uart:BUART:rx_count_6\ and not \uart:BUART:rx_count_5\));
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:gta_2\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:gta_2\ <= (\uart:BUART:rx_count_6\);
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:lta_1\' (cost = 2):
+\uart:BUART:sRX:MODULE_5:g2:a0:lta_1\ <= ((not \uart:BUART:rx_count_6\ and not \uart:BUART:rx_count_4\)
+	OR (not \uart:BUART:rx_count_6\ and not \uart:BUART:rx_count_5\));
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:gta_1\' (cost = 0):
+\uart:BUART:sRX:MODULE_5:g2:a0:gta_1\ <= (\uart:BUART:rx_count_6\);
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_5:g2:a0:lta_0\' (cost = 8):
+\uart:BUART:sRX:MODULE_5:g2:a0:lta_0\ <= ((not \uart:BUART:rx_count_6\ and not \uart:BUART:rx_count_4\)
+	OR (not \uart:BUART:rx_count_6\ and not \uart:BUART:rx_count_5\));
+
+
+Substituting virtuals - pass 2:
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_1\' (cost = 2):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:s_1\ <= ((not \pwmBuzzer:PWMUDB:dith_count_0\ and \pwmBuzzer:PWMUDB:dith_count_1\)
+	OR (not \pwmBuzzer:PWMUDB:dith_count_1\ and \pwmBuzzer:PWMUDB:dith_count_0\));
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_18\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_18\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_10\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_10\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_3\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_3\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\' (cost = 4):
+\uart:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\ <= ((not \uart:BUART:pollcount_1\ and not \uart:BUART:pollcount_0\));
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:lta_0\' (cost = 0):
+\uart:BUART:sRX:s23Poll:MODULE_4:g2:a0:lta_0\ <= (not \uart:BUART:pollcount_1\);
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_1\' (cost = 2):
+\uart:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_1\ <= ((not \uart:BUART:pollcount_0\ and \uart:BUART:pollcount_1\)
+	OR (not \uart:BUART:pollcount_1\ and \uart:BUART:pollcount_0\));
+
+
+Substituting virtuals - pass 3:
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_19\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_19\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_11\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_11\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_4\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_4\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\uart:BUART:rx_postpoll\' (cost = 72):
+\uart:BUART:rx_postpoll\ <= (\uart:BUART:pollcount_1\
+	OR (Net_451 and \uart:BUART:pollcount_0\));
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\' (cost = 4):
+\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\ <= ((not \uart:BUART:pollcount_1\ and not Net_451 and not \uart:BUART:rx_parity_bit\)
+	OR (not \uart:BUART:pollcount_1\ and not \uart:BUART:pollcount_0\ and not \uart:BUART:rx_parity_bit\)
+	OR (\uart:BUART:pollcount_1\ and \uart:BUART:rx_parity_bit\)
+	OR (Net_451 and \uart:BUART:pollcount_0\ and \uart:BUART:rx_parity_bit\));
+
+Note:  Expanding virtual equation for '\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:aeqb_1\' (cost = 4):
+\uart:BUART:sRX:MODULE_6:g1:a0:gx:u0:aeqb_1\ <= ((not \uart:BUART:pollcount_1\ and not Net_451 and not \uart:BUART:rx_parity_bit\)
+	OR (not \uart:BUART:pollcount_1\ and not \uart:BUART:pollcount_0\ and not \uart:BUART:rx_parity_bit\)
+	OR (\uart:BUART:pollcount_1\ and \uart:BUART:rx_parity_bit\)
+	OR (Net_451 and \uart:BUART:pollcount_0\ and \uart:BUART:rx_parity_bit\));
+
+
+Substituting virtuals - pass 4:
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_20\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_20\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_12\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_12\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_5\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_5\ <=  ('0') ;
+
+
+Substituting virtuals - pass 5:
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_21\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_21\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_13\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_13\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_6\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_6\ <=  ('0') ;
+
+
+Substituting virtuals - pass 6:
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_22\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_22\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_14\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_14\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_7\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_7\ <=  ('0') ;
+
+
+Substituting virtuals - pass 7:
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_23\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_23\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_15\' (cost = 0):
+\pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_15\ <=  ('0') ;
+
+
+Substituting virtuals - pass 8:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 57 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing \pwmBuzzer:PWMUDB:final_capture\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\ to zero
+Aliasing \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\ to zero
+Aliasing \uart:BUART:rx_status_0\ to zero
+Aliasing \uart:BUART:rx_status_6\ to zero
+Aliasing \pwmBuzzer:PWMUDB:min_kill_reg\\D\ to tmpOE__flexSensorA_net_0
+Aliasing \pwmBuzzer:PWMUDB:ltch_kill_reg\\D\ to tmpOE__flexSensorA_net_0
+Aliasing \pwmBuzzer:PWMUDB:final_kill_reg\\D\ to zero
+Aliasing \uart:BUART:rx_markspace_status\\D\ to zero
+Aliasing \uart:BUART:rx_parity_error_status\\D\ to zero
+Aliasing \uart:BUART:rx_addr_match_status\\D\ to zero
+Removing Lhs of wire \pwmBuzzer:PWMUDB:final_capture\[335] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\[547] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\[557] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\[567] = zero[2]
+Removing Rhs of wire \uart:BUART:rx_bitclk_enable\[678] = \uart:BUART:rx_bitclk\[726]
+Removing Lhs of wire \uart:BUART:rx_status_0\[777] = zero[2]
+Removing Lhs of wire \uart:BUART:rx_status_6\[786] = zero[2]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:min_kill_reg\\D\[885] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:runmode_enable\\D\[888] = \pwmBuzzer:PWMUDB:control_7\[254]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:ltch_kill_reg\\D\[890] = tmpOE__flexSensorA_net_0[1]
+Removing Lhs of wire \pwmBuzzer:PWMUDB:final_kill_reg\\D\[896] = zero[2]
+Removing Lhs of wire \uart:BUART:tx_ctrl_mark_last\\D\[908] = \uart:BUART:tx_ctrl_mark_last\[669]
+Removing Lhs of wire \uart:BUART:rx_markspace_status\\D\[920] = zero[2]
+Removing Lhs of wire \uart:BUART:rx_parity_error_status\\D\[921] = zero[2]
+Removing Lhs of wire \uart:BUART:rx_addr_match_status\\D\[923] = zero[2]
+Removing Lhs of wire \uart:BUART:rx_markspace_pre\\D\[924] = \uart:BUART:rx_markspace_pre\[790]
+Removing Lhs of wire \uart:BUART:rx_parity_bit\\D\[929] = \uart:BUART:rx_parity_bit\[796]
+
+------------------------------------------------------
+Aliased 0 equations, 17 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Eliminating unused logic - pass 1:
+
+Note:  Deleted unused equation:
+\uart:BUART:sRX:MODULE_6:g1:a0:xneq\ <= ((not \uart:BUART:rx_parity_bit\ and Net_451 and \uart:BUART:pollcount_0\)
+	OR (not \uart:BUART:pollcount_1\ and not \uart:BUART:pollcount_0\ and \uart:BUART:rx_parity_bit\)
+	OR (not \uart:BUART:pollcount_1\ and not Net_451 and \uart:BUART:rx_parity_bit\)
+	OR (not \uart:BUART:rx_parity_bit\ and \uart:BUART:pollcount_1\));
+
+
+Eliminating unused logic - pass 2:
+
+
+Substituting virtuals - pass 1:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 0 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+topld:  No errors.
+
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\warp\bin\warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cyprj" -dcpsoc3 PeacefulPillow.v -verilog
+</CYPRESSTAG>
+Warp synthesis phase: Elapsed time ==> 1s.220ms
+<CYPRESSTAG name="Fitter results...">
+<CYPRESSTAG name="Fitter startup details...">
+cyp3fit: V4.1.0.3210, Family: PSoC3, Started at: Monday, 06 November 2017 10:04:47
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cyprj -d CY8C4248LQQ-BL583 PeacefulPillow.v -verilog
+</CYPRESSTAG>
+<CYPRESSTAG name="Design parsing">
+Design parsing phase: Elapsed time ==> 0s.010ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Tech Mapping">
+<CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
+    Removed wire end \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_24\ kept zero
+    Removed wire end \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_16\ kept zero
+    Removed wire end \pwmBuzzer:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\ kept zero
+    Converted constant MacroCell: \pwmBuzzer:PWMUDB:prevCapture\ from registered to combinatorial
+    Converted constant MacroCell: \pwmBuzzer:PWMUDB:trig_last\ from registered to combinatorial
+    Converted constant MacroCell: \pwmBuzzer:PWMUDB:status_1\ from registered to combinatorial
+    Converted constant MacroCell: \pwmBuzzer:PWMUDB:status_5\ from registered to combinatorial
+    Converted constant MacroCell: \pwmBuzzer:PWMUDB:pwm1_i_reg\ from registered to combinatorial
+    Converted constant MacroCell: \pwmBuzzer:PWMUDB:pwm2_i_reg\ from registered to combinatorial
+    Converted constant MacroCell: \uart:BUART:reset_reg\ from registered to combinatorial
+    Converted constant MacroCell: \uart:BUART:rx_markspace_status\ from registered to combinatorial
+    Converted constant MacroCell: \uart:BUART:rx_status_2\ from registered to combinatorial
+    Converted constant MacroCell: \uart:BUART:rx_addr_match_status\ from registered to combinatorial
+    Converted constant MacroCell: \uart:BUART:rx_break_status\ from registered to combinatorial
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+<CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
+    Fixed Function Clock 6: Automatic-assigning  clock 'adc_intClock'. Signal=\adc:Net_1845_ff6\
+    Digital Clock 0: Automatic-assigning  clock 'uart_IntClock'. Fanout=1, Signal=\uart:Net_9_digital\
+    Digital Clock 1: Automatic-assigning  clock 'clockBuzzer'. Fanout=1, Signal=Net_338_digital
+<CYPRESSTAG name="UDB Clock/Enable Remapping Results">
+    UDB Clk/Enable \pwmBuzzer:PWMUDB:clock_enable_block\: with output requested to be synchronous
+        ClockIn: ClockGenBlock:m0s8clockgenblockcell.gen_clk_out_1 was determined to be a global clock that is synchronous to HFClk
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: ClockGenBlock:m0s8clockgenblockcell.gen_clk_out_1, EnableOut: Constant 1
+    UDB Clk/Enable \uart:BUART:ClkSync\: with output requested to be synchronous
+        ClockIn: ClockGenBlock:m0s8clockgenblockcell.gen_clk_out_0 was determined to be a global clock that is synchronous to HFClk
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: ClockGenBlock:m0s8clockgenblockcell.gen_clk_out_0, EnableOut: Constant 1
+</CYPRESSTAG>
+</CYPRESSTAG>
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+<CYPRESSTAG name="Duplicate Macrocell detection">
+</CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Duplicate Macrocell detection">
+
+Removing duplicate macrocells
+    Removing \uart:BUART:rx_parity_bit\, Duplicate of \uart:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\uart:BUART:rx_parity_bit\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \uart:BUART:rx_parity_bit\ (fanout=0)
+
+    Removing \uart:BUART:rx_address_detected\, Duplicate of \uart:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\uart:BUART:rx_address_detected\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \uart:BUART:rx_address_detected\ (fanout=0)
+
+    Removing \uart:BUART:rx_parity_error_pre\, Duplicate of \uart:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\uart:BUART:rx_parity_error_pre\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \uart:BUART:rx_parity_error_pre\ (fanout=0)
+
+    Removing \uart:BUART:rx_markspace_pre\, Duplicate of \uart:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\uart:BUART:rx_markspace_pre\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \uart:BUART:rx_markspace_pre\ (fanout=0)
+
+    Removing \uart:BUART:rx_state_1\, Duplicate of \uart:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\uart:BUART:rx_state_1\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \uart:BUART:rx_state_1\ (fanout=8)
+
+    Removing \uart:BUART:tx_parity_bit\, Duplicate of \uart:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\uart:BUART:tx_parity_bit\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \uart:BUART:tx_parity_bit\ (fanout=0)
+
+    Removing \uart:BUART:tx_mark\, Duplicate of \uart:BUART:tx_ctrl_mark_last\ 
+    MacroCell: Name=\uart:BUART:tx_mark\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \uart:BUART:tx_mark\ (fanout=0)
+
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+End removing duplicate macrocells: used 1 pass
+</CYPRESSTAG>
+<CYPRESSTAG name="Design Equations" icon="FILE_RPT_EQUATION">
+
+------------------------------------------------------------
+Design Equations
+------------------------------------------------------------
+    <CYPRESSTAG name="Pin listing">
+
+    ------------------------------------------------------------
+    Pin listing
+    ------------------------------------------------------------
+
+    Pin : Name = flexSensorA(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: AUTO
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: HI_Z_ANALOG
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: True
+            Can contain Digital: False
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: ANALOG
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => flexSensorA(0)__PA ,
+            analog_term => Net_53 ,
+            pad => flexSensorA(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = flexSensorB(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: AUTO
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: HI_Z_ANALOG
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: True
+            Can contain Digital: False
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: ANALOG
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => flexSensorB(0)__PA ,
+            analog_term => Net_51 ,
+            pad => flexSensorB(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = motorA(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => motorA(0)__PA ,
+            pad => motorA(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = motorB(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => motorB(0)__PA ,
+            pad => motorB(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = buzzer(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL, ROUTABLE
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => buzzer(0)__PA ,
+            pin_input => Net_348 ,
+            pad => buzzer(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = Rx_1(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: SYNC
+            Out Sync Option: AUTO
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: HI_Z_DIGITAL
+            VTrip: CMOS
+            Slew: FAST
+            Input Sync needed: True
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL, ROUTABLE
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => Rx_1(0)__PA ,
+            fb => Net_451 ,
+            pad => Rx_1(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = Tx_1(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL, ROUTABLE
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => Tx_1(0)__PA ,
+            pin_input => Net_446 ,
+            pad => Tx_1(0)_PAD );
+        Properties:
+        {
+        }
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
+
+    ------------------------------------------------------------
+    Macrocell listing
+    ------------------------------------------------------------
+
+    MacroCell: Name=\pwmBuzzer:PWMUDB:status_2\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \pwmBuzzer:PWMUDB:runmode_enable\ * \pwmBuzzer:PWMUDB:tc_i\
+        );
+        Output = \pwmBuzzer:PWMUDB:status_2\ (fanout=1)
+
+    MacroCell: Name=Net_446, Mode=(Combinatorial)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:txn\
+        );
+        Output = Net_446 (fanout=1)
+
+    MacroCell: Name=\uart:BUART:counter_load_not\, Mode=(Combinatorial)
+        Total # of inputs        : 4
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\
+            + !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_state_2\
+        );
+        Output = \uart:BUART:counter_load_not\ (fanout=1)
+
+    MacroCell: Name=\uart:BUART:tx_status_0\, Mode=(Combinatorial)
+        Total # of inputs        : 5
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_fifo_empty\ * 
+              \uart:BUART:tx_state_2\
+        );
+        Output = \uart:BUART:tx_status_0\ (fanout=1)
+
+    MacroCell: Name=\uart:BUART:tx_status_2\, Mode=(Combinatorial)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:tx_fifo_notfull\
+        );
+        Output = \uart:BUART:tx_status_2\ (fanout=1)
+
+    MacroCell: Name=\uart:BUART:rx_counter_load\, Mode=(Combinatorial)
+        Total # of inputs        : 4
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\
+        );
+        Output = \uart:BUART:rx_counter_load\ (fanout=1)
+
+    MacroCell: Name=\uart:BUART:rx_postpoll\, Mode=(Combinatorial)
+        Total # of inputs        : 3
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              \uart:BUART:pollcount_1\
+            + Net_451 * \uart:BUART:pollcount_0\
+        );
+        Output = \uart:BUART:rx_postpoll\ (fanout=1)
+
+    MacroCell: Name=\uart:BUART:rx_status_4\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \uart:BUART:rx_load_fifo\ * \uart:BUART:rx_fifofull\
+        );
+        Output = \uart:BUART:rx_status_4\ (fanout=1)
+
+    MacroCell: Name=\uart:BUART:rx_status_5\, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \uart:BUART:rx_fifonotempty\ * \uart:BUART:rx_state_stop1_reg\
+        );
+        Output = \uart:BUART:rx_status_5\ (fanout=1)
+
+    MacroCell: Name=\pwmBuzzer:PWMUDB:runmode_enable\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_338_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \pwmBuzzer:PWMUDB:control_7\
+        );
+        Output = \pwmBuzzer:PWMUDB:runmode_enable\ (fanout=3)
+
+    MacroCell: Name=\pwmBuzzer:PWMUDB:prevCompare1\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_338_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \pwmBuzzer:PWMUDB:cmp1_less\
+        );
+        Output = \pwmBuzzer:PWMUDB:prevCompare1\ (fanout=1)
+
+    MacroCell: Name=\pwmBuzzer:PWMUDB:status_0\, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_338_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\pwmBuzzer:PWMUDB:prevCompare1\ * \pwmBuzzer:PWMUDB:cmp1_less\
+        );
+        Output = \pwmBuzzer:PWMUDB:status_0\ (fanout=1)
+
+    MacroCell: Name=Net_348, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_338_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \pwmBuzzer:PWMUDB:runmode_enable\ * 
+              \pwmBuzzer:PWMUDB:cmp1_less\
+        );
+        Output = Net_348 (fanout=1)
+
+    MacroCell: Name=\uart:BUART:txn\, Mode=(D-Register)
+        Total # of inputs        : 7
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              \uart:BUART:txn\ * \uart:BUART:tx_state_1\ * 
+              !\uart:BUART:tx_bitclk\
+            + \uart:BUART:txn\ * \uart:BUART:tx_state_2\
+            + !\uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_shift_out\ * !\uart:BUART:tx_state_2\
+            + !\uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_state_2\ * !\uart:BUART:tx_bitclk\
+            + \uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_shift_out\ * !\uart:BUART:tx_state_2\ * 
+              !\uart:BUART:tx_counter_dp\ * \uart:BUART:tx_bitclk\
+        );
+        Output = \uart:BUART:txn\ (fanout=2)
+
+    MacroCell: Name=\uart:BUART:tx_state_1\, Mode=(T-Register)
+        Total # of inputs        : 6
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              \uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_2\ * 
+              \uart:BUART:tx_counter_dp\ * \uart:BUART:tx_bitclk\
+            + \uart:BUART:tx_state_0\ * !\uart:BUART:tx_state_2\ * 
+              \uart:BUART:tx_bitclk\
+        );
+        Output = \uart:BUART:tx_state_1\ (fanout=8)
+
+    MacroCell: Name=\uart:BUART:tx_state_0\, Mode=(T-Register)
+        Total # of inputs        : 6
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * !\uart:BUART:tx_fifo_empty\
+            + !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_fifo_empty\ * !\uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_fifo_empty\ * 
+              \uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_0\ * !\uart:BUART:tx_state_2\ * 
+              \uart:BUART:tx_bitclk\
+        );
+        Output = \uart:BUART:tx_state_0\ (fanout=8)
+
+    MacroCell: Name=\uart:BUART:tx_state_2\, Mode=(T-Register)
+        Total # of inputs        : 6
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_state_2\ * \uart:BUART:tx_bitclk\
+            + \uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_2\ * 
+              \uart:BUART:tx_counter_dp\ * \uart:BUART:tx_bitclk\
+        );
+        Output = \uart:BUART:tx_state_2\ (fanout=7)
+
+    MacroCell: Name=\uart:BUART:tx_bitclk\, Mode=(D-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_state_2\
+            + !\uart:BUART:tx_bitclk_enable_pre\
+        );
+        Output = \uart:BUART:tx_bitclk\ (fanout=4)
+
+    MacroCell: Name=\uart:BUART:tx_ctrl_mark_last\, Mode=(T-Register)
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \uart:BUART:tx_ctrl_mark_last\ (fanout=8)
+
+    MacroCell: Name=\uart:BUART:rx_state_0\, Mode=(T-Register)
+        Total # of inputs        : 11
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * !\uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\ * !\uart:BUART:pollcount_1\ * !Net_451
+            + !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * !\uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\ * !\uart:BUART:pollcount_1\ * 
+              !\uart:BUART:pollcount_0\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_5\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_4\
+        );
+        Output = \uart:BUART:rx_state_0\ (fanout=8)
+
+    MacroCell: Name=\uart:BUART:rx_load_fifo\, Mode=(D-Register)
+        Total # of inputs        : 8
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\ * 
+              !\uart:BUART:rx_state_2\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_5\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_4\
+        );
+        Output = \uart:BUART:rx_load_fifo\ (fanout=2)
+
+    MacroCell: Name=\uart:BUART:rx_state_3\, Mode=(T-Register)
+        Total # of inputs        : 8
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_5\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_4\
+        );
+        Output = \uart:BUART:rx_state_3\ (fanout=7)
+
+    MacroCell: Name=\uart:BUART:rx_state_2\, Mode=(T-Register)
+        Total # of inputs        : 10
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\
+            + !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_2\
+            + !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * !Net_451 * 
+              \uart:BUART:rx_last\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_5\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_4\
+        );
+        Output = \uart:BUART:rx_state_2\ (fanout=7)
+
+    MacroCell: Name=\uart:BUART:rx_bitclk_enable\, Mode=(D-Register)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * 
+              !\uart:BUART:rx_count_0\
+        );
+        Output = \uart:BUART:rx_bitclk_enable\ (fanout=6)
+
+    MacroCell: Name=\uart:BUART:rx_state_stop1_reg\, Mode=(D-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_state_3\ * \uart:BUART:rx_state_2\
+        );
+        Output = \uart:BUART:rx_state_stop1_reg\ (fanout=1)
+
+    MacroCell: Name=\uart:BUART:pollcount_1\, Mode=(D-Register)
+        Total # of inputs        : 5
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * 
+              !\uart:BUART:pollcount_1\ * Net_451 * \uart:BUART:pollcount_0\
+            + !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * 
+              \uart:BUART:pollcount_1\ * !Net_451
+            + !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * 
+              \uart:BUART:pollcount_1\ * !\uart:BUART:pollcount_0\
+        );
+        Output = \uart:BUART:pollcount_1\ (fanout=4)
+
+    MacroCell: Name=\uart:BUART:pollcount_0\, Mode=(D-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * !Net_451 * 
+              \uart:BUART:pollcount_0\
+            + !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * Net_451 * 
+              !\uart:BUART:pollcount_0\
+        );
+        Output = \uart:BUART:pollcount_0\ (fanout=5)
+
+    MacroCell: Name=\uart:BUART:rx_status_3\, Mode=(D-Register)
+        Total # of inputs        : 8
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\ * !\uart:BUART:pollcount_1\ * !Net_451
+            + !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\ * !\uart:BUART:pollcount_1\ * 
+              !\uart:BUART:pollcount_0\
+        );
+        Output = \uart:BUART:rx_status_3\ (fanout=1)
+
+    MacroCell: Name=\uart:BUART:rx_last\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_451
+        );
+        Output = \uart:BUART:rx_last\ (fanout=1)
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Datapath listing">
+
+    ------------------------------------------------------------
+    Datapath listing
+    ------------------------------------------------------------
+
+    datapathcell: Name =\pwmBuzzer:PWMUDB:sP8:pwmdp:u0\
+        PORT MAP (
+            clock => Net_338_digital ,
+            cs_addr_2 => \pwmBuzzer:PWMUDB:tc_i\ ,
+            cs_addr_1 => \pwmBuzzer:PWMUDB:runmode_enable\ ,
+            cl0_comb => \pwmBuzzer:PWMUDB:cmp1_less\ ,
+            z0_comb => \pwmBuzzer:PWMUDB:tc_i\ ,
+            f1_blk_stat_comb => \pwmBuzzer:PWMUDB:status_3\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    datapathcell: Name =\uart:BUART:sTX:TxShifter:u0\
+        PORT MAP (
+            clock => \uart:Net_9_digital\ ,
+            cs_addr_2 => \uart:BUART:tx_state_1\ ,
+            cs_addr_1 => \uart:BUART:tx_state_0\ ,
+            cs_addr_0 => \uart:BUART:tx_bitclk_enable_pre\ ,
+            so_comb => \uart:BUART:tx_shift_out\ ,
+            f0_bus_stat_comb => \uart:BUART:tx_fifo_notfull\ ,
+            f0_blk_stat_comb => \uart:BUART:tx_fifo_empty\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000000000000000000000000000000000000000000000000000011000000000000000000000000000010010000000000000000000000000000000000000011111111000000001111111111111111000000000000000001000100111100000000000000001100"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    datapathcell: Name =\uart:BUART:sTX:sCLOCK:TxBitClkGen\
+        PORT MAP (
+            clock => \uart:Net_9_digital\ ,
+            cs_addr_0 => \uart:BUART:counter_load_not\ ,
+            ce0_reg => \uart:BUART:tx_bitclk_enable_pre\ ,
+            ce1_reg => \uart:BUART:tx_counter_dp\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "1010100001000000001000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111000000001111111100000111001000000100000000000101111100000000000000001000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    datapathcell: Name =\uart:BUART:sRX:RxShifter:u0\
+        PORT MAP (
+            clock => \uart:Net_9_digital\ ,
+            cs_addr_2 => \uart:BUART:tx_ctrl_mark_last\ ,
+            cs_addr_1 => \uart:BUART:rx_state_0\ ,
+            cs_addr_0 => \uart:BUART:rx_bitclk_enable\ ,
+            route_si => \uart:BUART:rx_postpoll\ ,
+            f0_load => \uart:BUART:rx_load_fifo\ ,
+            f0_bus_stat_comb => \uart:BUART:rx_fifonotempty\ ,
+            f0_blk_stat_comb => \uart:BUART:rx_fifofull\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000000000000000000000000000000000000000000000000001001000000000100000000000000010000001100000001000000000000000100100001000011111111000000001111111111111111101000000110001001000001111100000000000000001100"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Status register listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="StatusI register listing">
+
+    ------------------------------------------------------------
+    StatusI register listing
+    ------------------------------------------------------------
+
+    statusicell: Name =\pwmBuzzer:PWMUDB:genblk8:stsreg\
+        PORT MAP (
+            clock => Net_338_digital ,
+            status_3 => \pwmBuzzer:PWMUDB:status_3\ ,
+            status_2 => \pwmBuzzer:PWMUDB:status_2\ ,
+            status_0 => \pwmBuzzer:PWMUDB:status_0\ );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "0100111"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    statusicell: Name =\uart:BUART:sTX:TxSts\
+        PORT MAP (
+            clock => \uart:Net_9_digital\ ,
+            status_3 => \uart:BUART:tx_fifo_notfull\ ,
+            status_2 => \uart:BUART:tx_status_2\ ,
+            status_1 => \uart:BUART:tx_fifo_empty\ ,
+            status_0 => \uart:BUART:tx_status_0\ );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "0000001"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+
+    statusicell: Name =\uart:BUART:sRX:RxSts\
+        PORT MAP (
+            clock => \uart:Net_9_digital\ ,
+            status_5 => \uart:BUART:rx_status_5\ ,
+            status_4 => \uart:BUART:rx_status_4\ ,
+            status_3 => \uart:BUART:rx_status_3\ );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "1011111"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Sync listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Control register listing">
+
+    ------------------------------------------------------------
+    Control register listing
+    ------------------------------------------------------------
+
+    controlcell: Name =\pwmBuzzer:PWMUDB:genblk1:ctrlreg\
+        PORT MAP (
+            clock => Net_338_digital ,
+            control_7 => \pwmBuzzer:PWMUDB:control_7\ ,
+            control_6 => \pwmBuzzer:PWMUDB:control_6\ ,
+            control_5 => \pwmBuzzer:PWMUDB:control_5\ ,
+            control_4 => \pwmBuzzer:PWMUDB:control_4\ ,
+            control_3 => \pwmBuzzer:PWMUDB:control_3\ ,
+            control_2 => \pwmBuzzer:PWMUDB:control_2\ ,
+            control_1 => \pwmBuzzer:PWMUDB:control_1\ ,
+            control_0 => \pwmBuzzer:PWMUDB:control_0\ );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "11111111"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000000"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Count7 listing">
+
+    ------------------------------------------------------------
+    Count7 listing
+    ------------------------------------------------------------
+
+    count7cell: Name =\uart:BUART:sRX:RxBitCounter\
+        PORT MAP (
+            clock => \uart:Net_9_digital\ ,
+            load => \uart:BUART:rx_counter_load\ ,
+            count_6 => \uart:BUART:rx_count_6\ ,
+            count_5 => \uart:BUART:rx_count_5\ ,
+            count_4 => \uart:BUART:rx_count_4\ ,
+            count_3 => \uart:BUART:rx_count_3\ ,
+            count_2 => \uart:BUART:rx_count_2\ ,
+            count_1 => \uart:BUART:rx_count_1\ ,
+            count_0 => \uart:BUART:rx_count_0\ ,
+            tc => \uart:BUART:rx_count7_tc\ );
+        Properties:
+        {
+            cy_alt_mode = 0
+            cy_init_value = "0000000"
+            cy_period = "1110010"
+            cy_route_en = 1
+            cy_route_ld = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+    </CYPRESSTAG>
+    <CYPRESSTAG name="DRQ listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Interrupt listing">
+
+    ------------------------------------------------------------
+    Interrupt listing
+    ------------------------------------------------------------
+
+    interrupt: Name =\adc:IRQ\
+        PORT MAP (
+            interrupt => \adc:Net_3112\ );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
+    </CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Technology mapping summary" expanded>
+
+------------------------------------------------------------
+Technology mapping summary
+------------------------------------------------------------
+
+Resource Type                 : Used : Free :  Max :  % Used
+============================================================
+Digital Clocks                :    2 :    2 :    4 : 50.00 %
+Interrupts                    :    1 :   31 :   32 :  3.13 %
+IO                            :   11 :   27 :   38 : 28.95 %
+Segment LCD                   :    0 :    1 :    1 :  0.00 %
+CapSense                      :    0 :    1 :    1 :  0.00 %
+Die Temp                      :    0 :    1 :    1 :  0.00 %
+Serial Communication (SCB)    :    0 :    2 :    2 :  0.00 %
+BLE                           :    0 :    1 :    1 :  0.00 %
+DMA Channels                  :    0 :    8 :    8 :  0.00 %
+Timer/Counter/PWM             :    0 :    4 :    4 :  0.00 %
+UDB                           :      :      :      :        
+  Macrocells                  :   29 :    3 :   32 : 90.63 %
+  Unique P-terms              :   49 :   15 :   64 : 76.56 %
+  Total P-terms               :   58 :      :      :        
+  Datapath Cells              :    4 :    0 :    4 : 100.00 %
+  Status Cells                :    4 :    0 :    4 : 100.00 %
+    StatusI Registers         :    3 :      :      :        
+    Routed Count7 Load/Enable :    1 :      :      :        
+  Control Cells               :    2 :    2 :    4 : 50.00 %
+    Control Registers         :    1 :      :      :        
+    Count7 Cells              :    1 :      :      :        
+Comparator/Opamp              :    0 :    4 :    4 :  0.00 %
+LP Comparator                 :    0 :    2 :    2 :  0.00 %
+SAR ADC                       :    1 :    0 :    1 : 100.00 %
+DAC                           :      :      :      :        
+  7-bit IDAC                  :    0 :    1 :    1 :  0.00 %
+  8-bit IDAC                  :    0 :    1 :    1 :  0.00 %
+</CYPRESSTAG>
+Technology Mapping: Elapsed time ==> 0s.069ms
+Tech Mapping phase: Elapsed time ==> 0s.099ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Placement">
+<CYPRESSTAG name="FFB & IO Pre Placement">
+<CYPRESSTAG name="Placement" icon="FILE_RPT_PLACEMENT">
+
+Cell                                : Block                              
+=========================================================================
+flexSensorA(0)                      : [IOP=(0)][IoId=(0)]                
+flexSensorB(0)                      : [IOP=(0)][IoId=(1)]                
+motorA(0)                           : [IOP=(2)][IoId=(6)]                
+motorB(0)                           : [IOP=(2)][IoId=(7)]                
+buzzer(0)                           : [IOP=(3)][IoId=(2)]                
+Rx_1(0)                             : [IOP=(1)][IoId=(0)]                
+Tx_1(0)                             : [IOP=(1)][IoId=(1)]                
+ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
+\adc:cy_psoc4_sar\                  : SARADC_[FFB(SARADC,0)]             
+
+</CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Real Analog Placement">
+Elapsed time ==> 0.1563388s
+</CYPRESSTAG>
+Analog Placement phase: Elapsed time ==> 0s.330ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Routing">
+<CYPRESSTAG name="Analog Routing">
+Route success=True, Iterations=1 Elapsed=0.0261356 secs
+</CYPRESSTAG>
+Analog Routing phase: Elapsed time ==> 0s.031ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Code Generation">
+============ Analog Final Answer Routes ============
+Dump of CyAnalogRoutingResultsDB
+Map of net to items {
+  Net: Net_51 {
+    p0_1
+  }
+  Net: Net_53 {
+    p0_0
+  }
+  Net: \adc:Net_1851\ {
+  }
+  Net: \adc:Net_3113\ {
+  }
+  Net: \adc:Net_3227\ {
+  }
+  Net: \adc:mux_bus_minus_0\ {
+  }
+  Net: \adc:mux_bus_minus_1\ {
+  }
+  Net: \adc:mux_bus_minus_2\ {
+  }
+  Net: \adc:mux_bus_plus_2\ {
+  }
+  Net: \adc:muxout_plus\ {
+    PASS0_sarmux_vplus
+  }
+  Net: AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A {
+    PASS0_SARMUX0_sw18
+    amuxbusa_sar
+    AMUX_CTB_SAR_SWITCH_A_SL
+    amuxbridge_ctb_sar_a
+    AMUX_CTB_SAR_SWITCH_A_SR
+    amuxbusa_ctb
+    P0_P40
+    PASS0_SARMUX0_sw19
+    amuxbusb_sar
+    AMUX_CTB_SAR_SWITCH_B_SL
+    amuxbridge_ctb_sar_b
+    AMUX_CTB_SAR_SWITCH_B_SR
+    amuxbusb_ctb
+    P0_P51
+  }
+  Net: \adc:muxout_minus\ {
+    PASS0_sarmux_vminus
+  }
+  Net: AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_B {
+  }
+}
+Map of item to net {
+  p0_1                                             -> Net_51
+  p0_0                                             -> Net_53
+  PASS0_sarmux_vplus                               -> \adc:muxout_plus\
+  PASS0_SARMUX0_sw18                               -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  amuxbusa_sar                                     -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  AMUX_CTB_SAR_SWITCH_A_SL                         -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  amuxbridge_ctb_sar_a                             -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  AMUX_CTB_SAR_SWITCH_A_SR                         -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  amuxbusa_ctb                                     -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  P0_P40                                           -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  PASS0_SARMUX0_sw19                               -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  amuxbusb_sar                                     -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  AMUX_CTB_SAR_SWITCH_B_SL                         -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  amuxbridge_ctb_sar_b                             -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  AMUX_CTB_SAR_SWITCH_B_SR                         -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  amuxbusb_ctb                                     -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  P0_P51                                           -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  PASS0_sarmux_vminus                              -> \adc:muxout_minus\
+}
+Mux Info {
+  Mux: \adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A {
+     Mouth: \adc:muxout_plus\
+     Guts:  AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+     IsSingleSwitching: False
+     IsStaticSwitching: False
+     IsAtMostOneSwitch: True
+    Arm: 0 {
+      Net:   Net_53
+      Outer: PASS0_SARMUX0_sw18
+      Inner: __open__
+      Path {
+        PASS0_SARMUX0_sw18
+        amuxbusa_sar
+        AMUX_CTB_SAR_SWITCH_A_SL
+        amuxbridge_ctb_sar_a
+        AMUX_CTB_SAR_SWITCH_A_SR
+        amuxbusa_ctb
+        P0_P40
+        p0_0
+      }
+    }
+    Arm: 1 {
+      Net:   Net_51
+      Outer: PASS0_SARMUX0_sw19
+      Inner: __open__
+      Path {
+        PASS0_SARMUX0_sw19
+        amuxbusb_sar
+        AMUX_CTB_SAR_SWITCH_B_SL
+        amuxbridge_ctb_sar_b
+        AMUX_CTB_SAR_SWITCH_B_SR
+        amuxbusb_ctb
+        P0_P51
+        p0_1
+      }
+    }
+  }
+  Mux: \adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_B {
+     Mouth: \adc:muxout_minus\
+     Guts:  AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_B
+     IsSingleSwitching: False
+     IsStaticSwitching: False
+     IsAtMostOneSwitch: True
+    Arm: 0 {
+      Net:   \adc:Net_1851\
+      Outer: __open__
+      Inner: __open__
+      Path {
+      }
+    }
+    Arm: 1 {
+      Net:   \adc:Net_1851\
+      Outer: __open__
+      Inner: __open__
+      Path {
+      }
+    }
+  }
+}
+Analog Code Generation phase: Elapsed time ==> 0s.029ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Digital Placement">
+<CYPRESSTAG name="Detailed placement messages">
+I2076: Total run-time: 0.4 sec.
+
+</CYPRESSTAG>
+<CYPRESSTAG name="PLD Packing">
+<CYPRESSTAG name="PLD Packing Summary" expanded>
+
+------------------------------------------------------------
+PLD Packing Summary
+------------------------------------------------------------
+            Resource Type : Used : Free :  Max :  % Used
+    ====================================================
+                     PLDs :    8 :    0 :    8 : 100.00%
+
+<CYPRESSTAG name="PLD Statistics">
+
+        PLD Resource Type :     Average/LAB
+    =======================================
+                   Inputs :            7.88
+                   Pterms :            6.88
+               Macrocells :            3.75
+</CYPRESSTAG>
+<CYPRESSTAG name="Packed PLD Contents">
+Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
+</CYPRESSTAG>
+PLD Packing: Elapsed time ==> 0s.000ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Partitioning">
+<CYPRESSTAG name="Initial Partitioning Summary">
+Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+<CYPRESSTAG name="Final Partitioning Summary">
+Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+Partitioning: Elapsed time ==> 0s.010ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Final Placement Summary">
+
+------------------------------------------------------------
+Final Placement Summary
+------------------------------------------------------------
+
+       Resource Type :      Count : Avg Inputs : Avg Outputs
+    ========================================================
+                 UDB :          4 :      11.00 :       7.50
+<CYPRESSTAG name="Final Placement Details">
+<CYPRESSTAG name="Component Details">
+
+------------------------------------------------------------
+Component Placement Details
+------------------------------------------------------------
+UDB [UDB=(0,0)] contents:
+LAB@[UDB=(0,0)][LB=0] #macrocells=4, #inputs=11, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\uart:BUART:rx_state_0\, Mode=(T-Register) @ [UDB=(0,0)][LB=0][MC=0]
+        Total # of inputs        : 11
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * !\uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\ * !\uart:BUART:pollcount_1\ * !Net_451
+            + !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * !\uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\ * !\uart:BUART:pollcount_1\ * 
+              !\uart:BUART:pollcount_0\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_5\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_4\
+        );
+        Output = \uart:BUART:rx_state_0\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\uart:BUART:rx_load_fifo\, Mode=(D-Register) @ [UDB=(0,0)][LB=0][MC=1]
+        Total # of inputs        : 8
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\ * 
+              !\uart:BUART:rx_state_2\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_5\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_4\
+        );
+        Output = \uart:BUART:rx_load_fifo\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\uart:BUART:rx_state_3\, Mode=(T-Register) @ [UDB=(0,0)][LB=0][MC=2]
+        Total # of inputs        : 8
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_5\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_4\
+        );
+        Output = \uart:BUART:rx_state_3\ (fanout=7)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\uart:BUART:rx_status_3\, Mode=(D-Register) @ [UDB=(0,0)][LB=0][MC=3]
+        Total # of inputs        : 8
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\ * !\uart:BUART:pollcount_1\ * !Net_451
+            + !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\ * 
+              \uart:BUART:rx_state_2\ * !\uart:BUART:pollcount_1\ * 
+              !\uart:BUART:pollcount_0\
+        );
+        Output = \uart:BUART:rx_status_3\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(0,0)][LB=1] #macrocells=4, #inputs=10, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\uart:BUART:rx_state_2\, Mode=(T-Register) @ [UDB=(0,0)][LB=1][MC=0]
+        Total # of inputs        : 10
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_3\
+            + !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_bitclk_enable\ * \uart:BUART:rx_state_2\
+            + !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * !Net_451 * 
+              \uart:BUART:rx_last\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_5\
+            + !\uart:BUART:tx_ctrl_mark_last\ * \uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\ * 
+              !\uart:BUART:rx_count_6\ * !\uart:BUART:rx_count_4\
+        );
+        Output = \uart:BUART:rx_state_2\ (fanout=7)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\uart:BUART:rx_state_stop1_reg\, Mode=(D-Register) @ [UDB=(0,0)][LB=1][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              \uart:BUART:rx_state_3\ * \uart:BUART:rx_state_2\
+        );
+        Output = \uart:BUART:rx_state_stop1_reg\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\uart:BUART:rx_counter_load\, Mode=(Combinatorial) @ [UDB=(0,0)][LB=1][MC=2]
+        Total # of inputs        : 4
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:tx_ctrl_mark_last\ * !\uart:BUART:rx_state_0\ * 
+              !\uart:BUART:rx_state_3\ * !\uart:BUART:rx_state_2\
+        );
+        Output = \uart:BUART:rx_counter_load\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\uart:BUART:rx_last\, Mode=(D-Register) @ [UDB=(0,0)][LB=1][MC=3]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_451
+        );
+        Output = \uart:BUART:rx_last\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\uart:BUART:sRX:RxShifter:u0\
+    PORT MAP (
+        clock => \uart:Net_9_digital\ ,
+        cs_addr_2 => \uart:BUART:tx_ctrl_mark_last\ ,
+        cs_addr_1 => \uart:BUART:rx_state_0\ ,
+        cs_addr_0 => \uart:BUART:rx_bitclk_enable\ ,
+        route_si => \uart:BUART:rx_postpoll\ ,
+        f0_load => \uart:BUART:rx_load_fifo\ ,
+        f0_bus_stat_comb => \uart:BUART:rx_fifonotempty\ ,
+        f0_blk_stat_comb => \uart:BUART:rx_fifofull\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000000000000000000000000000000000000000000000000001001000000000100000000000000010000001100000001000000000000000100100001000011111111000000001111111111111111101000000110001001000001111100000000000000001100"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+count7cell: Name =\uart:BUART:sRX:RxBitCounter\
+    PORT MAP (
+        clock => \uart:Net_9_digital\ ,
+        load => \uart:BUART:rx_counter_load\ ,
+        count_6 => \uart:BUART:rx_count_6\ ,
+        count_5 => \uart:BUART:rx_count_5\ ,
+        count_4 => \uart:BUART:rx_count_4\ ,
+        count_3 => \uart:BUART:rx_count_3\ ,
+        count_2 => \uart:BUART:rx_count_2\ ,
+        count_1 => \uart:BUART:rx_count_1\ ,
+        count_0 => \uart:BUART:rx_count_0\ ,
+        tc => \uart:BUART:rx_count7_tc\ );
+    Properties:
+    {
+        cy_alt_mode = 0
+        cy_init_value = "0000000"
+        cy_period = "1110010"
+        cy_route_en = 1
+        cy_route_ld = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(0,1)] contents:
+LAB@[UDB=(0,1)][LB=0] #macrocells=3, #inputs=10, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\uart:BUART:tx_state_2\, Mode=(T-Register) @ [UDB=(0,1)][LB=0][MC=0]
+        Total # of inputs        : 6
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_state_2\ * \uart:BUART:tx_bitclk\
+            + \uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_2\ * 
+              \uart:BUART:tx_counter_dp\ * \uart:BUART:tx_bitclk\
+        );
+        Output = \uart:BUART:tx_state_2\ (fanout=7)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\uart:BUART:counter_load_not\, Mode=(Combinatorial) @ [UDB=(0,1)][LB=0][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\
+            + !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_state_2\
+        );
+        Output = \uart:BUART:counter_load_not\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\uart:BUART:pollcount_0\, Mode=(D-Register) @ [UDB=(0,1)][LB=0][MC=2]
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * !Net_451 * 
+              \uart:BUART:pollcount_0\
+            + !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * Net_451 * 
+              !\uart:BUART:pollcount_0\
+        );
+        Output = \uart:BUART:pollcount_0\ (fanout=5)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(0,1)][LB=1] #macrocells=4, #inputs=8, #pterms=7
+{
+    [McSlotId=0]:     MacroCell: Name=\uart:BUART:pollcount_1\, Mode=(D-Register) @ [UDB=(0,1)][LB=1][MC=0]
+        Total # of inputs        : 5
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * 
+              !\uart:BUART:pollcount_1\ * Net_451 * \uart:BUART:pollcount_0\
+            + !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * 
+              \uart:BUART:pollcount_1\ * !Net_451
+            + !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * 
+              \uart:BUART:pollcount_1\ * !\uart:BUART:pollcount_0\
+        );
+        Output = \uart:BUART:pollcount_1\ (fanout=4)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\uart:BUART:rx_postpoll\, Mode=(Combinatorial) @ [UDB=(0,1)][LB=1][MC=1]
+        Total # of inputs        : 3
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              \uart:BUART:pollcount_1\
+            + Net_451 * \uart:BUART:pollcount_0\
+        );
+        Output = \uart:BUART:rx_postpoll\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\uart:BUART:rx_bitclk_enable\, Mode=(D-Register) @ [UDB=(0,1)][LB=1][MC=2]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:rx_count_2\ * !\uart:BUART:rx_count_1\ * 
+              !\uart:BUART:rx_count_0\
+        );
+        Output = \uart:BUART:rx_bitclk_enable\ (fanout=6)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\uart:BUART:rx_status_5\, Mode=(Combinatorial) @ [UDB=(0,1)][LB=1][MC=3]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \uart:BUART:rx_fifonotempty\ * \uart:BUART:rx_state_stop1_reg\
+        );
+        Output = \uart:BUART:rx_status_5\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\uart:BUART:sTX:sCLOCK:TxBitClkGen\
+    PORT MAP (
+        clock => \uart:Net_9_digital\ ,
+        cs_addr_0 => \uart:BUART:counter_load_not\ ,
+        ce0_reg => \uart:BUART:tx_bitclk_enable_pre\ ,
+        ce1_reg => \uart:BUART:tx_counter_dp\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "1010100001000000001000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111000000001111111100000111001000000100000000000101111100000000000000001000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+statusicell: Name =\uart:BUART:sRX:RxSts\
+    PORT MAP (
+        clock => \uart:Net_9_digital\ ,
+        status_5 => \uart:BUART:rx_status_5\ ,
+        status_4 => \uart:BUART:rx_status_4\ ,
+        status_3 => \uart:BUART:rx_status_3\ );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "1011111"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(1,0)] contents:
+LAB@[UDB=(1,0)][LB=0] #macrocells=4, #inputs=4, #pterms=4
+{
+    [McSlotId=0]:     MacroCell: Name=Net_348, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_338_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \pwmBuzzer:PWMUDB:runmode_enable\ * 
+              \pwmBuzzer:PWMUDB:cmp1_less\
+        );
+        Output = Net_348 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\pwmBuzzer:PWMUDB:prevCompare1\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=1]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_338_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \pwmBuzzer:PWMUDB:cmp1_less\
+        );
+        Output = \pwmBuzzer:PWMUDB:prevCompare1\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\pwmBuzzer:PWMUDB:status_0\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_338_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\pwmBuzzer:PWMUDB:prevCompare1\ * \pwmBuzzer:PWMUDB:cmp1_less\
+        );
+        Output = \pwmBuzzer:PWMUDB:status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\pwmBuzzer:PWMUDB:runmode_enable\, Mode=(D-Register) @ [UDB=(1,0)][LB=0][MC=3]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_338_digital) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \pwmBuzzer:PWMUDB:control_7\
+        );
+        Output = \pwmBuzzer:PWMUDB:runmode_enable\ (fanout=3)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(1,0)][LB=1] #macrocells=4, #inputs=5, #pterms=4
+{
+    [McSlotId=0]:     MacroCell: Name=\pwmBuzzer:PWMUDB:status_2\, Mode=(Combinatorial) @ [UDB=(1,0)][LB=1][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \pwmBuzzer:PWMUDB:runmode_enable\ * \pwmBuzzer:PWMUDB:tc_i\
+        );
+        Output = \pwmBuzzer:PWMUDB:status_2\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\uart:BUART:rx_status_4\, Mode=(Combinatorial) @ [UDB=(1,0)][LB=1][MC=1]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \uart:BUART:rx_load_fifo\ * \uart:BUART:rx_fifofull\
+        );
+        Output = \uart:BUART:rx_status_4\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=Net_446, Mode=(Combinatorial) @ [UDB=(1,0)][LB=1][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:txn\
+        );
+        Output = Net_446 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=__ONE__, Mode=(Combinatorial) @ [UDB=(1,0)][LB=1][MC=3]
+        Total # of inputs        : 0
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+            1
+        );
+        Output = __ONE__ (fanout=2)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\pwmBuzzer:PWMUDB:sP8:pwmdp:u0\
+    PORT MAP (
+        clock => Net_338_digital ,
+        cs_addr_2 => \pwmBuzzer:PWMUDB:tc_i\ ,
+        cs_addr_1 => \pwmBuzzer:PWMUDB:runmode_enable\ ,
+        cl0_comb => \pwmBuzzer:PWMUDB:cmp1_less\ ,
+        z0_comb => \pwmBuzzer:PWMUDB:tc_i\ ,
+        f1_blk_stat_comb => \pwmBuzzer:PWMUDB:status_3\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+statusicell: Name =\pwmBuzzer:PWMUDB:genblk8:stsreg\
+    PORT MAP (
+        clock => Net_338_digital ,
+        status_3 => \pwmBuzzer:PWMUDB:status_3\ ,
+        status_2 => \pwmBuzzer:PWMUDB:status_2\ ,
+        status_0 => \pwmBuzzer:PWMUDB:status_0\ );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0100111"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+controlcell: Name =\pwmBuzzer:PWMUDB:genblk1:ctrlreg\
+    PORT MAP (
+        clock => Net_338_digital ,
+        control_7 => \pwmBuzzer:PWMUDB:control_7\ ,
+        control_6 => \pwmBuzzer:PWMUDB:control_6\ ,
+        control_5 => \pwmBuzzer:PWMUDB:control_5\ ,
+        control_4 => \pwmBuzzer:PWMUDB:control_4\ ,
+        control_3 => \pwmBuzzer:PWMUDB:control_3\ ,
+        control_2 => \pwmBuzzer:PWMUDB:control_2\ ,
+        control_1 => \pwmBuzzer:PWMUDB:control_1\ ,
+        control_0 => \pwmBuzzer:PWMUDB:control_0\ );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "11111111"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(1,1)] contents:
+LAB@[UDB=(1,1)][LB=0] #macrocells=3, #inputs=8, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\uart:BUART:txn\, Mode=(D-Register) @ [UDB=(1,1)][LB=0][MC=0]
+        Total # of inputs        : 7
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              \uart:BUART:txn\ * \uart:BUART:tx_state_1\ * 
+              !\uart:BUART:tx_bitclk\
+            + \uart:BUART:txn\ * \uart:BUART:tx_state_2\
+            + !\uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_shift_out\ * !\uart:BUART:tx_state_2\
+            + !\uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_state_2\ * !\uart:BUART:tx_bitclk\
+            + \uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_shift_out\ * !\uart:BUART:tx_state_2\ * 
+              !\uart:BUART:tx_counter_dp\ * \uart:BUART:tx_bitclk\
+        );
+        Output = \uart:BUART:txn\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\uart:BUART:tx_state_1\, Mode=(T-Register) @ [UDB=(1,1)][LB=0][MC=1]
+        Total # of inputs        : 6
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              \uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_2\ * 
+              \uart:BUART:tx_counter_dp\ * \uart:BUART:tx_bitclk\
+            + \uart:BUART:tx_state_0\ * !\uart:BUART:tx_state_2\ * 
+              \uart:BUART:tx_bitclk\
+        );
+        Output = \uart:BUART:tx_state_1\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\uart:BUART:tx_ctrl_mark_last\, Mode=(T-Register) @ [UDB=(1,1)][LB=0][MC=2]
+        Total # of inputs        : 0
+        Total # of product terms : 0
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 0 pterms
+        (
+            0
+        );
+        Output = \uart:BUART:tx_ctrl_mark_last\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(1,1)][LB=1] #macrocells=4, #inputs=7, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\uart:BUART:tx_state_0\, Mode=(T-Register) @ [UDB=(1,1)][LB=1][MC=0]
+        Total # of inputs        : 6
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * !\uart:BUART:tx_fifo_empty\
+            + !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              !\uart:BUART:tx_fifo_empty\ * !\uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_1\ * \uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_fifo_empty\ * 
+              \uart:BUART:tx_state_2\
+            + \uart:BUART:tx_state_0\ * !\uart:BUART:tx_state_2\ * 
+              \uart:BUART:tx_bitclk\
+        );
+        Output = \uart:BUART:tx_state_0\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\uart:BUART:tx_bitclk\, Mode=(D-Register) @ [UDB=(1,1)][LB=1][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\uart:Net_9_digital\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_state_2\
+            + !\uart:BUART:tx_bitclk_enable_pre\
+        );
+        Output = \uart:BUART:tx_bitclk\ (fanout=4)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\uart:BUART:tx_status_0\, Mode=(Combinatorial) @ [UDB=(1,1)][LB=1][MC=2]
+        Total # of inputs        : 5
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:tx_state_1\ * !\uart:BUART:tx_state_0\ * 
+              \uart:BUART:tx_bitclk_enable_pre\ * \uart:BUART:tx_fifo_empty\ * 
+              \uart:BUART:tx_state_2\
+        );
+        Output = \uart:BUART:tx_status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\uart:BUART:tx_status_2\, Mode=(Combinatorial) @ [UDB=(1,1)][LB=1][MC=3]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\uart:BUART:tx_fifo_notfull\
+        );
+        Output = \uart:BUART:tx_status_2\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\uart:BUART:sTX:TxShifter:u0\
+    PORT MAP (
+        clock => \uart:Net_9_digital\ ,
+        cs_addr_2 => \uart:BUART:tx_state_1\ ,
+        cs_addr_1 => \uart:BUART:tx_state_0\ ,
+        cs_addr_0 => \uart:BUART:tx_bitclk_enable_pre\ ,
+        so_comb => \uart:BUART:tx_shift_out\ ,
+        f0_bus_stat_comb => \uart:BUART:tx_fifo_notfull\ ,
+        f0_blk_stat_comb => \uart:BUART:tx_fifo_empty\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000000000000000000000000000000000000000000000000000011000000000000000000000000000010010000000000000000000000000000000000000011111111000000001111111111111111000000000000000001000100111100000000000000001100"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+statusicell: Name =\uart:BUART:sTX:TxSts\
+    PORT MAP (
+        clock => \uart:Net_9_digital\ ,
+        status_3 => \uart:BUART:tx_fifo_notfull\ ,
+        status_2 => \uart:BUART:tx_status_2\ ,
+        status_1 => \uart:BUART:tx_fifo_empty\ ,
+        status_0 => \uart:BUART:tx_status_0\ );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0000001"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+Intr container @ [IntrContainer=(0)]: 
+  Intr@ [IntrContainer=(0)][IntrId=(15)] 
+    interrupt: Name =\adc:IRQ\
+        PORT MAP (
+            interrupt => \adc:Net_3112\ );
+        Properties:
+        {
+            int_type = "10"
+            is_nmi = 0
+        }
+Drq container @ [DrqContainer=(0)]: empty
+Port 0 contains the following IO cells:
+[IoId=0]: 
+Pin : Name = flexSensorA(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: HI_Z_ANALOG
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: True
+        Can contain Digital: False
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: ANALOG
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => flexSensorA(0)__PA ,
+        analog_term => Net_53 ,
+        pad => flexSensorA(0)_PAD ,
+        pin_input => __ONE__ );
+    Properties:
+    {
+    }
+
+[IoId=1]: 
+Pin : Name = flexSensorB(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: HI_Z_ANALOG
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: True
+        Can contain Digital: False
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: ANALOG
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => flexSensorB(0)__PA ,
+        analog_term => Net_51 ,
+        pad => flexSensorB(0)_PAD ,
+        pin_input => __ONE__ );
+    Properties:
+    {
+    }
+
+Port 1 contains the following IO cells:
+[IoId=0]: 
+Pin : Name = Rx_1(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: SYNC
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: HI_Z_DIGITAL
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: True
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL, ROUTABLE
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => Rx_1(0)__PA ,
+        fb => Net_451 ,
+        pad => Rx_1(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=1]: 
+Pin : Name = Tx_1(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL, ROUTABLE
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => Tx_1(0)__PA ,
+        pin_input => Net_446 ,
+        pad => Tx_1(0)_PAD );
+    Properties:
+    {
+    }
+
+Port 2 contains the following IO cells:
+[IoId=6]: 
+Pin : Name = motorA(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => motorA(0)__PA ,
+        pad => motorA(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=7]: 
+Pin : Name = motorB(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => motorB(0)__PA ,
+        pad => motorB(0)_PAD );
+    Properties:
+    {
+    }
+
+Port 3 contains the following IO cells:
+[IoId=2]: 
+Pin : Name = buzzer(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL, ROUTABLE
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => buzzer(0)__PA ,
+        pin_input => Net_348 ,
+        pad => buzzer(0)_PAD );
+    Properties:
+    {
+    }
+
+Port 4 contains the following IO cells:
+Port 5 contains the following IO cells:
+Port 6 contains the following IO cells:
+ARM group 0: empty
+Clock group 0: 
+    Clock Block @ F(Clock,0): 
+    m0s8clockblockcell: Name =ClockBlock
+        PORT MAP (
+            hfclk => ClockBlock_HFClk ,
+            imo => ClockBlock_IMO ,
+            ext => ClockBlock_ExtClk ,
+            sysclk => ClockBlock_SysClk ,
+            eco => ClockBlock_ECO ,
+            ilo => ClockBlock_ILO ,
+            lfclk => ClockBlock_LFClk ,
+            wco => ClockBlock_WCO ,
+            dsi_in_0 => ClockBlock_Routed1 ,
+            ff_div_6 => \adc:Net_1845_ff6\ ,
+            udb_div_0 => dclk_to_genclk ,
+            udb_div_1 => dclk_to_genclk_1 );
+        Properties:
+        {
+        }
+LCD group 0: empty
+PICU group 0: empty
+LPCOMP group 0: empty
+SCB group 0: empty
+CSD group 0: empty
+CSIDAC8 group 0: empty
+CSIDAC7 group 0: empty
+TCPWM group 0: empty
+OA group 0: empty
+TEMP group 0: empty
+SARADC group 0: 
+    SAR ADC @ F(SARADC,0): 
+    p4sarcell: Name =\adc:cy_psoc4_sar\
+        PORT MAP (
+            vplus => \adc:muxout_plus\ ,
+            vminus => \adc:muxout_minus\ ,
+            vref => \adc:Net_3113\ ,
+            ext_vref => \adc:Net_3227\ ,
+            clock => \adc:Net_1845_ff6\ ,
+            sample_done => Net_489 ,
+            chan_id_valid => \adc:Net_3108\ ,
+            chan_id_3 => \adc:Net_3109_3\ ,
+            chan_id_2 => \adc:Net_3109_2\ ,
+            chan_id_1 => \adc:Net_3109_1\ ,
+            chan_id_0 => \adc:Net_3109_0\ ,
+            data_valid => \adc:Net_3110\ ,
+            data_11 => \adc:Net_3111_11\ ,
+            data_10 => \adc:Net_3111_10\ ,
+            data_9 => \adc:Net_3111_9\ ,
+            data_8 => \adc:Net_3111_8\ ,
+            data_7 => \adc:Net_3111_7\ ,
+            data_6 => \adc:Net_3111_6\ ,
+            data_5 => \adc:Net_3111_5\ ,
+            data_4 => \adc:Net_3111_4\ ,
+            data_3 => \adc:Net_3111_3\ ,
+            data_2 => \adc:Net_3111_2\ ,
+            data_1 => \adc:Net_3111_1\ ,
+            data_0 => \adc:Net_3111_0\ ,
+            tr_sar_out => Net_490 ,
+            irq => \adc:Net_3112\ );
+        Properties:
+        {
+            cy_registers = ""
+        }
+CLK_GEN group 0: 
+    M0S8 Clock Gen Block @ F(CLK_GEN,0): 
+    m0s8clockgenblockcell: Name =ClockGenBlock
+        PORT MAP (
+            gen_clk_out_0 => \uart:Net_9_digital\ ,
+            gen_clk_in_0 => dclk_to_genclk ,
+            gen_clk_out_1 => Net_338_digital ,
+            gen_clk_in_1 => dclk_to_genclk_1 );
+        Properties:
+        {
+        }
+LPCOMPBLOCK group 0: empty
+PASSBLOCK group 0: empty
+BLE group 0: empty
+WCO group 0: empty
+SRSS group 0: empty
+CPUSS group 0: empty
+IOSS group 0: empty
+
+Blocks not positioned by the digital component placer:
+    SAR Muxes @ <No Location>: 
+    p4sarmuxcell: Name =\adc:cy_psoc4_sarmux_8\
+        PORT MAP (
+            muxin_plus_1 => Net_51 ,
+            muxin_plus_0 => Net_53 ,
+            muxin_minus_1 => \adc:mux_bus_minus_1\ ,
+            muxin_minus_0 => \adc:mux_bus_minus_0\ ,
+            cmn_neg_0 => \adc:Net_1851\ ,
+            vout_plus => \adc:muxout_plus\ ,
+            vout_minus => \adc:muxout_minus\ );
+        Properties:
+        {
+            cmn_neg_width = 1
+            cy_registers = ""
+            input_mode = "00"
+            muxin_width = 2
+        }
+</CYPRESSTAG>
+<CYPRESSTAG name="Port Configuration Details">
+
+------------------------------------------------------------
+Port Configuration report
+------------------------------------------------------------
+     |     |       | Interrupt |                  |                | 
+Port | Pin | Fixed |      Type |       Drive Mode |           Name | Connections
+-----+-----+-------+-----------+------------------+----------------+----------------------------
+   0 |   0 |     * |      NONE |      HI_Z_ANALOG | flexSensorA(0) | In(__ONE__), Analog(Net_53)
+     |   1 |     * |      NONE |      HI_Z_ANALOG | flexSensorB(0) | In(__ONE__), Analog(Net_51)
+-----+-----+-------+-----------+------------------+----------------+----------------------------
+   1 |   0 |     * |      NONE |     HI_Z_DIGITAL |        Rx_1(0) | FB(Net_451)
+     |   1 |     * |      NONE |         CMOS_OUT |        Tx_1(0) | In(Net_446)
+-----+-----+-------+-----------+------------------+----------------+----------------------------
+   2 |   6 |     * |      NONE |         CMOS_OUT |      motorA(0) | 
+     |   7 |     * |      NONE |         CMOS_OUT |      motorB(0) | 
+-----+-----+-------+-----------+------------------+----------------+----------------------------
+   3 |   2 |     * |      NONE |         CMOS_OUT |      buzzer(0) | In(Net_348)
+------------------------------------------------------------------------------------------------
+</CYPRESSTAG>
+</CYPRESSTAG>
+</CYPRESSTAG>
+Digital component placer commit/Report: Elapsed time ==> 0s.020ms
+Digital Placement phase: Elapsed time ==> 0s.630ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Digital Routing">
+"C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\dev\psoc4/3/256dma/route_arch-rrg.cydata" --vh2-path "PeacefulPillow_r.vh2" --pcf-path "PeacefulPillow.pco" --des-name "PeacefulPillow" --dsf-path "PeacefulPillow.dsf" --sdc-path "PeacefulPillow.sdc" --lib-path "PeacefulPillow_r.lib"
+Routing successful.
+Digital Routing phase: Elapsed time ==> 0s.800ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream Generation">
+Bitstream Generation phase: Elapsed time ==> 0s.280ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream Verification">
+Bitstream Verification phase: Elapsed time ==> 0s.030ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Static timing analysis">
+Warning: sta.M0019: PeacefulPillow_timing.html: Warning-1366: Setup time violation found in a path from clock ( CyHFClk ) to clock ( uart_IntClock ). (File=C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow_timing.html)
+Timing report is in PeacefulPillow_timing.html.
+Static timing analysis phase: Elapsed time ==> 0s.289ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Data reporting">
+Data reporting phase: Elapsed time ==> 0s.000ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Database update...">
+Design database save phase: Elapsed time ==> 0s.240ms
+</CYPRESSTAG>
+cydsfit: Elapsed time ==> 2s.842ms
+</CYPRESSTAG>
+Fitter phase: Elapsed time ==> 2s.842ms
+API generation phase: Elapsed time ==> 1s.824ms
+Dependency generation phase: Elapsed time ==> 0s.027ms
+Cleanup phase: Elapsed time ==> 0s.000ms

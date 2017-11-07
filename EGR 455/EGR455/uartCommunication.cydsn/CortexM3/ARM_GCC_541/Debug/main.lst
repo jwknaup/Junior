@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
   38              		.cfi_offset 4, -20
   39              		.cfi_offset 5, -16
   40              		.cfi_offset 6, -12
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 2
 
 
   41              		.cfi_offset 7, -8
@@ -70,7 +70,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
   21:main.c        ****     int compare;
   22:main.c        ****     int time;
   23:main.c        ****     int error, P;
-  24:main.c        ****     float kP=3.0;
+  24:main.c        ****     float kP=0.21;
   25:main.c        ****     enc_Start();    
   44              		.loc 1 25 0
   45 0002 FFF7FEFF 		bl	enc_Start
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
   37:main.c        **** //    while(1){
   38:main.c        **** //        receive = uart_GetChar();
   39:main.c        **** //        if(receive){
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 3
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 3
 
 
   40:main.c        **** //            lcd_ClearDisplay();
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  110              	.L5:
  111              	.LVL19:
   59:main.c        ****             if(error>0){                
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 4
 
 
  112              		.loc 1 59 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
   71:main.c        ****             val2 = count-(val1*256);
  155              		.loc 1 71 0
  156 0092 E4B2     		uxtb	r4, r4
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 5
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 5
 
 
  157              	.LVL29:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  200 00d0 FFF7FEFF 		bl	__aeabi_f2iz
  201              	.LVL43:
  202 00d4 0546     		mov	r5, r0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 6
 
 
  203              	.LVL44:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  244 010a FFF7FEFF 		bl	lcd_PrintU32Number
  245              	.LVL52:
   95:main.c        ****             val1 = count/256;
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 7
 
 
  246              		.loc 1 95 0
@@ -402,7 +402,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  278              	.L21:
  279              		.align	2
  280              	.L20:
- 281 0138 00004040 		.word	1077936128
+ 281 0138 3D0A573E 		.word	1045891645
  282              		.cfi_endproc
  283              	.LFE63:
  284              		.size	main, .-main
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  294              		.file 9 "Generated_Source\\PSoC5/CyLib.h"
  295              		.file 10 "Generated_Source\\PSoC5/core_cm3.h"
  296              		.section	.debug_info,"",%progbits
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 8
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 8
 
 
  297              	.Ldebug_info0:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  351 006f 02       		.uleb128 0x2
  352 0070 04       		.byte	0x4
  353 0071 07       		.byte	0x7
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 9
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 9
 
 
  354 0072 0C010000 		.4byte	.LASF8
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  408 00e9 01       		.byte	0x1
  409 00ea 12       		.byte	0x12
  410 00eb 68000000 		.4byte	0x68
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 10
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 10
 
 
  411 00ef 08       		.uleb128 0x8
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  465 0166 68000000 		.4byte	0x68
  466 016a 8A000000 		.4byte	.LLST2
  467 016e 0C       		.uleb128 0xc
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 11
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 11
 
 
  468 016f 5000     		.ascii	"P\000"
@@ -612,7 +612,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  476 0180 18       		.byte	0x18
  477 0181 99000000 		.4byte	0x99
  478 0185 04       		.byte	0x4
- 479 0186 00004040 		.4byte	0x40400000
+ 479 0186 3D0A573E 		.4byte	0x3e570a3d
  480 018a 07       		.uleb128 0x7
  481 018b 24000000 		.4byte	.LASF26
  482 018f 01       		.byte	0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  522 01f3 E2030000 		.4byte	0x3e2
  523 01f7 0D       		.uleb128 0xd
  524 01f8 22000000 		.4byte	.LVL7
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 12
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 12
 
 
  525 01fc E2030000 		.4byte	0x3e2
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  579 026e 01       		.uleb128 0x1
  580 026f 50       		.byte	0x50
  581 0270 01       		.uleb128 0x1
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 13
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 13
 
 
  582 0271 31       		.byte	0x31
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  636 02d2 00       		.byte	0
  637 02d3 0D       		.uleb128 0xd
  638 02d4 B8000000 		.4byte	.LVL37
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 14
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 14
 
 
  639 02d8 ED030000 		.4byte	0x3ed
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  693 033e 08010000 		.4byte	.LVL51
  694 0342 19040000 		.4byte	0x419
  695 0346 55030000 		.4byte	0x355
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 15
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 15
 
 
  696 034a 0F       		.uleb128 0xf
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  750 03a6 12       		.uleb128 0x12
  751 03a7 76000000 		.4byte	0x76
  752 03ab 13       		.uleb128 0x13
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 16
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 16
 
 
  753 03ac FD000000 		.4byte	.LASF29
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  807 0424 13       		.uleb128 0x13
  808 0425 40020000 		.4byte	.LASF40
  809 0429 40020000 		.4byte	.LASF40
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 17
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 17
 
 
  810 042d 06       		.byte	0x6
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  864 0027 49       		.uleb128 0x49
  865 0028 13       		.uleb128 0x13
  866 0029 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 18
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 18
 
 
  867 002a 00       		.byte	0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  921 0062 07       		.uleb128 0x7
  922 0063 34       		.uleb128 0x34
  923 0064 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 19
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 19
 
 
  924 0065 03       		.uleb128 0x3
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  978 009b 34       		.uleb128 0x34
  979 009c 00       		.byte	0
  980 009d 03       		.uleb128 0x3
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 20
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 20
 
 
  981 009e 08       		.uleb128 0x8
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  1035 00db 00       		.byte	0
  1036 00dc 10       		.uleb128 0x10
  1037 00dd 898201   		.uleb128 0x4109
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 21
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 21
 
 
  1038 00e0 01       		.byte	0x1
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  1092 0008 0100     		.2byte	0x1
  1093 000a 50       		.byte	0x50
  1094 000b 3C000000 		.4byte	.LVL14
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 22
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 22
 
 
  1095 000f 8E000000 		.4byte	.LVL27
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  1149 00a0 00000000 		.4byte	0
  1150 00a4 00000000 		.4byte	0
  1151              	.LLST3:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 23
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 23
 
 
  1152 00a8 50000000 		.4byte	.LVL18
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  1206 0120 00000000 		.4byte	0
  1207 0124 00000000 		.4byte	0
  1208              	.LLST6:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 24
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 24
 
 
  1209 0128 94000000 		.4byte	.LVL29
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  1251      6E7400
  1252              	.LASF32:
  1253 0033 656E635F 		.ascii	"enc_SetCounter\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 25
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 25
 
 
  1253      53657443 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  1277 00cc 49544D5F 		.ascii	"ITM_RxBuffer\000"
  1277      52784275 
  1277      66666572 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 26
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 26
 
 
  1277      00
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  1301      6E203233 
  1301      37373135 
  1302 01d7 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 27
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 27
 
 
  1302      66756E63 
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 1
  1328      00
  1329              	.LASF38:
  1330 027e 6C63645F 		.ascii	"lcd_WriteControl\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\cc4caphS.s 			page 28
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccoPLAot.s 			page 28
 
 
  1330      57726974 
