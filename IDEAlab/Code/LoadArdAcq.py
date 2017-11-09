@@ -35,16 +35,18 @@ def loadcell(queue):
     lc.open()
     i=0
     while True:
-       lc.write("?\r")
-       f = lc.readline()
-       t=time.clock()
-       force[i,:] = [t, f]
+# =============================================================================
+#        lc.write("?\r")
+#        f = lc.readline()
+#        t=time.clock()
+# =============================================================================
+       force[i,:] = [1, 2]
        i+=1
-       if ~queue.empty():
+       if (queue.get() == 'DONE'):
            queue.put(force)
            break
        
-VI = np.zeros([20,2])
+VI = np.zeros([100,2])
 def arduino(queue):
     i = 0
     ar = serial.Serial()
@@ -52,13 +54,14 @@ def arduino(queue):
     ar.port='COM6'
     ar.open()
     ar.flush()
-    for i in range(10):
+    for i in range(100):
         o = ar.readline()#'0 1'
         a = o.split()
         VI[i,:] = a
         #i+=1           
         # Write 'count' numbers into the queue
     queue.put(VI)
+    queue.put('DONE');
     
 if __name__ == '__main__':
 
@@ -68,6 +71,7 @@ if __name__ == '__main__':
     ardProc = multiprocessing.Process(target=arduino, args=((queue),))
 
     _start = time.time()
+    
     lcProc.start()
     
     ardProc.start()
