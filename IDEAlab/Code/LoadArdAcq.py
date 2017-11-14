@@ -16,7 +16,7 @@ import numpy as np
 import multiprocessing
 import serial
 import time
-import os
+#import os
 
 force = np.zeros([200,2])
 def loadcell(queue):
@@ -49,9 +49,19 @@ def arduino(queue):
     for i in range(100):
         o = ar.readline()
         a = o.split()
-        print(a)
+        if len(a) < 2:
+            continue
+        try:
+            a0=float(a[0])
+        except ValueError:
+            continue
+        try:
+            a1=float(a[1])
+        except ValueError:
+            continue
+        #print(a)
         t=time.clock()
-        VI[i,:] = [a[0], a[1],t]        
+        VI[i,:] = [t, a0, a1]        
     queue.put(VI)
     
 if __name__ == '__main__':
@@ -69,9 +79,18 @@ if __name__ == '__main__':
     
     ardProc.join()
     lcProc.join()
-    print(queue.get())
+    F = queue.get()
+    VI = queue.get()
+    print(F)
+    print(VI)
+    
+    plt.plot(F[0], F[1])
+    plt.plot(VI[:,0], VI[:,1], 'ro')
+    plt.plot(VI[:,0], VI[:,2], 'bs')
+    plt.axis([0,.6, -1, 2])
+    plt.show()
 
-    print(queue.get())
+    #print(queue.get())
 
     lcProc.terminate()
     ardProc.terminate()

@@ -1,7 +1,9 @@
 #include <Wire.h>
 #include <Adafruit_INA219.h>
+#include <Encoder.h>
 
   Adafruit_INA219 ina219;
+  Encoder leftEnc(4, 5);
   
 void setup() {
   Serial.begin(115200);
@@ -13,10 +15,6 @@ void setup() {
   
   pinMode(6, OUTPUT);//en
   pinMode(7, OUTPUT);//ph
-
-//  while(!Serial.available()){
-//    delay(20);
-//  }
 
   uint32_t currentFrequency;
   
@@ -39,6 +37,8 @@ void setup() {
   float busvoltage = 0;
   float current_mA = 0;
   float loadvoltage = 0;
+  int leftCount=0;
+  
 
   while(1){
   
@@ -47,15 +47,19 @@ void setup() {
     busvoltage = ina219.getBusVoltage_V();
     current_mA = ina219.getCurrent_mA();
     loadvoltage = busvoltage + (shuntvoltage / 1000);
+
+    leftCount = leftEnc.read();
+
+    transmit = String(loadvoltage,DEC)+String(" ")+String(current_mA,DEC)+String(" ")+String(leftCount, DEC);
+  Serial.println(transmit);
+
+//        Serial.print(loadvoltage); Serial.print(' ');
+//        Serial.print(current_mA);
+//        Serial.write('\n');
     
-    Serial.print(loadvoltage); Serial.print(' ');
-    Serial.print(current_mA);
-    
-    Serial.write('\n');
-    delay(1);
+    //delay(1);
     
  }
- Serial.write('\n');
   analogWrite(2,0);
   analogWrite(6,0);
 }
