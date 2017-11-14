@@ -1,46 +1,21 @@
---------------- Build Started: 11/08/2017 09:09:09 Project: hw8_1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-cydsfit.exe -.appdatapath "C:\Users\Jacob\AppData\Local\Cypress Semiconductor\PSoC Creator\4.1" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw8_1.cydsn\hw8_1.cyprj" -d CY8C4248LQQ-BL583 -s "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw8_1.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
-Elaborating Design...
-HDL Generation...
-Synthesis...
-Tech Mapping...
-Analog Placement...
-Analog Routing...
-Analog Code Generation...
-Digital Placement...
-Digital Routing...
-Bitstream Generation...
-Bitstream Verification...
-Static timing analysis...
-Warning: sta.M0019: hw8_1_timing.html: Warning-1366: Setup time violation found in a path from clock ( CyHFClk ) to clock ( uart_IntClock ). (File=C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw8_1.cydsn\hw8_1_timing.html)
-API Generation...
-Dependency Generation...
-Cleanup...
+--------------- Build Started: 11/13/2017 10:33:49 Project: hw8_1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
 main.c: In function 'main':
-main.c:66:10: warning: 'ch' may be used uninitialized in this function [-Wmaybe-uninitialized]
+main.c:89:8: warning: unused variable 'valid' [-Wunused-variable]
+    int valid = 0;
+        ^
+main.c:49:12: warning: unused variable 'number' [-Wunused-variable]
+     double number;                      // floating-point number
+            ^
+main.c:69:10: warning: 'ch' may be used uninitialized in this function [-Wmaybe-uninitialized]
      while( ch != '\r' ) {
           ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cymetadata.c -o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/uart.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\uart.c -o .\CortexM0\ARM_GCC_541\Debug\uart.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/uart_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\uart_PM.c -o .\CortexM0\ARM_GCC_541\Debug\uart_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/uart_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\uart_INT.c -o .\CortexM0\ARM_GCC_541\Debug\uart_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/uart_BOOT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\uart_BOOT.c -o .\CortexM0\ARM_GCC_541\Debug\uart_BOOT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/uart_IntClock.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\uart_IntClock.c -o .\CortexM0\ARM_GCC_541\Debug\uart_IntClock.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Cm0Start.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Cm0Start.c -o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/CyFlash.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\CyFlash.c -o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/CyLib.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\CyLib.c -o .\CortexM0\ARM_GCC_541\Debug\CyLib.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cyPm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyPm.c -o .\CortexM0\ARM_GCC_541\Debug\cyPm.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cyutils.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyutils.c -o .\CortexM0\ARM_GCC_541\Debug\cyutils.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/CyDMA.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\CyDMA.c -o .\CortexM0\ARM_GCC_541\Debug\CyDMA.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/CyLFClk.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\CyLFClk.c -o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o
-arm-none-eabi-as.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=.\CortexM0\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC4\CyBootAsmGnu.s
 arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\hw8_1.a .\CortexM0\ARM_GCC_541\Debug\uart.o .\CortexM0\ARM_GCC_541\Debug\uart_PM.o .\CortexM0\ARM_GCC_541\Debug\uart_INT.o .\CortexM0\ARM_GCC_541\Debug\uart_BOOT.o .\CortexM0\ARM_GCC_541\Debug\uart_IntClock.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyDMA.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\hw8_1.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw8_1.cydsn\CortexM0\ARM_GCC_541\Debug\hw8_1.elf" .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\hw8_1.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/hw8_1.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -u _printf_float -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
 cyelftool.exe -C "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw8_1.cydsn\CortexM0\ARM_GCC_541\Debug\hw8_1.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
 cyelftool.exe -S "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw8_1.cydsn\CortexM0\ARM_GCC_541\Debug\hw8_1.elf"
-Flash used: 26268 of 262144 bytes (10.0 %).
-SRAM used: 3032 of 32768 bytes (9.3 %). Stack: 2048 bytes. Heap: 512 bytes.
---------------- Build Succeeded: 11/08/2017 09:09:20 ---------------
+Flash used: 19256 of 262144 bytes (7.3 %).
+SRAM used: 3040 of 32768 bytes (9.3 %). Stack: 2048 bytes. Heap: 512 bytes.
+--------------- Build Succeeded: 11/13/2017 10:33:49 ---------------

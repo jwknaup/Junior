@@ -78,7 +78,7 @@ int main()
     // output the received string to the UART
     // printf( "\n%s\n", rxbuffer );
     uart_PutChar('\n');
-    uart_PutString(rxbuffer);
+    //uart_PutString(rxbuffer);
     uart_PutChar('\n');
 
     // convert the received string to a double (floating-point number)
@@ -89,11 +89,15 @@ int main()
    int valid = 0;
 
    strcpy(passCode, rxbuffer);
+   uart_PutString(passCode);
 
    /* Your solution goes here  */
-   for(int i=0; i<50;i++){
-      if(isdigit(passCode[i]))
+   for(int i=0; i<3;i++){
+      if(isdigit(passCode[i])){
          hasDigit = true;
+        break;
+    }
+          
    }
 
     // initialize and clear rxbuffer (good practice to avoid bugs)
@@ -106,10 +110,10 @@ int main()
     // NOTE: In order to properly output doubles, you must enable them in the compiler
     // See http://www.cypress.com/?id=4&rID=87354 for more details
    if (hasDigit) {
-      printf("Has a digit.\n");
+     uart_PutString(" has a digit.\n");
    }
    else {
-      printf("Has no digit.\n");
+      uart_PutString(" has no digit.\n");
    }
     
     // output the new string to the UART

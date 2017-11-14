@@ -19,7 +19,7 @@
         <register>
           <name>RX_uart_RX_ADDRESS1</name>
           <description>RX Address1 Register</description>
-          <addressOffset>0x400F0023</addressOffset>
+          <addressOffset>0x400F0021</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -28,16 +28,7 @@
         <register>
           <name>RX_uart_RX_ADDRESS2</name>
           <description>RX Address2 Register</description>
-          <addressOffset>0x400F0033</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>TX_uart_TX_DATA</name>
-          <description>TX Data Register</description>
-          <addressOffset>0x400F0041</addressOffset>
+          <addressOffset>0x400F0031</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -46,6 +37,15 @@
         <register>
           <name>RX_uart_RX_DATA</name>
           <description>RX Data Register</description>
+          <addressOffset>0x400F0041</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>TX_uart_TX_DATA</name>
+          <description>TX Data Register</description>
           <addressOffset>0x400F0043</addressOffset>
           <size>8</size>
           <access>read-write</access>
@@ -55,7 +55,7 @@
         <register>
           <name>RX_uart_RX_STATUS</name>
           <description>RX status register</description>
-          <addressOffset>0x400F0060</addressOffset>
+          <addressOffset>0x400F0061</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -115,7 +115,7 @@
         <register>
           <name>TX_uart_TX_STATUS</name>
           <description>TX status register</description>
-          <addressOffset>0x400F0061</addressOffset>
+          <addressOffset>0x400F0063</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -7948,7 +7948,7 @@
         <register>
           <name>pwmBuzzer_COMPARE_Reg_</name>
           <description>UDB.D0 - Assigned Compare Value</description>
-          <addressOffset>0x400F0022</addressOffset>
+          <addressOffset>0x400F0020</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -7957,7 +7957,7 @@
         <register>
           <name>pwmBuzzer_Control_Reg</name>
           <description>UDB Control Register - Assigned Control Register Value</description>
-          <addressOffset>0x400F0072</addressOffset>
+          <addressOffset>0x400F0070</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -7989,7 +7989,7 @@
         <register>
           <name>pwmBuzzer_STATUS_MASK</name>
           <description>UDB Status bits Interrupt Mask Enable Register</description>
-          <addressOffset>0x400F0082</addressOffset>
+          <addressOffset>0x400F0080</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -8035,7 +8035,7 @@
         <register>
           <name>pwmBuzzer_STATUS_AUX_CTRL</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x400F0092</addressOffset>
+          <addressOffset>0x400F0090</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>

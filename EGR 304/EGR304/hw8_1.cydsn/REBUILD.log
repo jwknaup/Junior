@@ -1,0 +1,13 @@
+--------------- Rebuild Started: 11/13/2017 10:32:00 Project: main.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
+main.c: In function 'main':
+main.c:89:8: warning: unused variable 'valid' [-Wunused-variable]
+    int valid = 0;
+        ^
+main.c:49:12: warning: unused variable 'number' [-Wunused-variable]
+     double number;                      // floating-point number
+            ^
+main.c:69:10: warning: 'ch' may be used uninitialized in this function [-Wmaybe-uninitialized]
+     while( ch != '\r' ) {
+          ^
+--------------- Rebuild Succeeded: 11/13/2017 10:32:00 ---------------

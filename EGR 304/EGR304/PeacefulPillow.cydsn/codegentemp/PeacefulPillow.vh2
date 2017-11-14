@@ -2,7 +2,7 @@
 --	Conversion of PeacefulPillow.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Nov 06 10:04:47 2017
+--	Sun Nov 12 14:58:07 2017
 --
 
 USE cypress.cypress.all;
@@ -867,6 +867,11 @@ SIGNAL tmpFB_0__Tx_1_net_0 : bit;
 SIGNAL tmpIO_0__Tx_1_net_0 : bit;
 TERMINAL tmpSIOVREF__Tx_1_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Tx_1_net_0 : bit;
+SIGNAL \BLE:Net_15\ : bit;
+SIGNAL Net_494 : bit;
+SIGNAL \BLE:Net_53\ : bit;
+SIGNAL Net_493 : bit;
+SIGNAL \BLE:Net_55\ : bit;
 SIGNAL \pwmBuzzer:PWMUDB:min_kill_reg\\D\ : bit;
 SIGNAL \pwmBuzzer:PWMUDB:prevCapture\\D\ : bit;
 SIGNAL \pwmBuzzer:PWMUDB:trig_last\\D\ : bit;
@@ -1871,7 +1876,7 @@ clockBuzzer:cy_clock_v1_0
 		id=>"de956c0b-759e-4672-8c8b-1150e7ede0c8",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"1000000000000",
+		period=>"1000000000",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_338,
@@ -1883,7 +1888,7 @@ clockBuzzer:cy_clock_v1_0
 		divisor=>0,
 		period=>"1085069444.44444",
 		is_direct=>'0',
-		is_digital=>'0')
+		is_digital=>'1')
 	PORT MAP(clock_out=>\uart:Net_9\,
 		dig_domain_out=>open);
 \uart:BUART:ClkSync\:cy_psoc3_udb_clock_enable_v1_0
@@ -2321,6 +2326,24 @@ Tx_1:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__flexSensorA_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Tx_1_net_0);
+\BLE:cy_m0s8_ble\:cy_m0s8_ble_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(interrupt=>\BLE:Net_15\,
+		rf_ext_pa_en=>Net_494);
+\BLE:bless_isr\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>\BLE:Net_15\);
+\BLE:LFCLK\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"f0d85e21-8b91-42b5-b359-768a8188b708/5ae6fa4d-f41a-4a35-8821-7ce70389cb0c",
+		source_clock_id=>"9A908CA6-5BB3-4db0-B098-959E5D90882B",
+		divisor=>0,
+		period=>"0",
+		is_direct=>'1',
+		is_digital=>'0')
+	PORT MAP(clock_out=>\BLE:Net_53\,
+		dig_domain_out=>open);
 \pwmBuzzer:PWMUDB:min_kill_reg\:cy_dsrff
 	PORT MAP(d=>tmpOE__flexSensorA_net_0,
 		s=>zero,

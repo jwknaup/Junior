@@ -226,7 +226,7 @@ void pwmBuzzer_RestoreConfig(void) ;
 /***************************************
 *         Initialization Values
 **************************************/
-#define pwmBuzzer_INIT_PERIOD_VALUE          (255u)
+#define pwmBuzzer_INIT_PERIOD_VALUE          (200u)
 #define pwmBuzzer_INIT_COMPARE_VALUE1        (127u)
 #define pwmBuzzer_INIT_COMPARE_VALUE2        (63u)
 #define pwmBuzzer_INIT_INTERRUPTS_MODE       (uint8)(((uint8)(0u <<   \

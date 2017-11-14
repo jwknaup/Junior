@@ -1,5 +1,5 @@
 -- Project:   PeacefulPillow
--- Generated: 11/06/2017 10:04:48
+-- Generated: 11/12/2017 14:58:08
 -- PSoC Creator  4.1 Update 1
 
 ENTITY PeacefulPillow IS
@@ -41,8 +41,10 @@ ARCHITECTURE __DEFAULT__ OF PeacefulPillow IS
     SIGNAL Net_451 : bit;
     SIGNAL Net_489 : bit;
     SIGNAL Net_490 : bit;
+    SIGNAL Net_494 : bit;
     SIGNAL Rx_1(0)__PA : bit;
     SIGNAL Tx_1(0)__PA : bit;
+    SIGNAL \BLE:Net_15\ : bit;
     SIGNAL \adc:Net_1845_ff6\ : bit;
     ATTRIBUTE global_signal OF \adc:Net_1845_ff6\ : SIGNAL IS true;
     SIGNAL \adc:Net_3108\ : bit;
@@ -537,6 +539,16 @@ ARCHITECTURE __DEFAULT__ OF PeacefulPillow IS
     ATTRIBUTE udb_chain OF macrocell : COMPONENT IS "cin,cout";
     ATTRIBUTE chain_lsb OF macrocell : COMPONENT IS "cin";
     ATTRIBUTE chain_msb OF macrocell : COMPONENT IS "cout";
+    COMPONENT p4blecell
+        PORT (
+            interrupt : OUT std_ulogic;
+            rfctrl_extpa_en : OUT std_ulogic;
+            wco_in : IN std_ulogic;
+            wco_out : OUT std_ulogic;
+            ext_pa_tx_ctl : OUT std_ulogic;
+            ext_lna_rx_ctl : OUT std_ulogic;
+            ext_pa_lna_chip_en : OUT std_ulogic);
+    END COMPONENT;
     COMPONENT p4sarcell
         PORT (
             clock : IN std_ulogic;
@@ -608,9 +620,9 @@ BEGIN
 
     ClockGenBlock:m0s8clockgenblockcell
         PORT MAP(
-            gen_clk_out_0 => \uart:Net_9_digital\,
+            gen_clk_out_0 => Net_338_digital,
             gen_clk_in_0 => dclk_to_genclk,
-            gen_clk_out_1 => Net_338_digital,
+            gen_clk_out_1 => \uart:Net_9_digital\,
             gen_clk_in_1 => dclk_to_genclk_1);
 
     ClockBlock:m0s8clockblockcell
@@ -1654,6 +1666,21 @@ BEGIN
             status_2 => open,
             status_1 => open,
             status_0 => open);
+
+    \BLE:cy_m0s8_ble\:p4blecell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            interrupt => \BLE:Net_15\,
+            rfctrl_extpa_en => Net_494);
+
+    \BLE:bless_isr\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \BLE:Net_15\,
+            clock => ClockBlock_HFClk);
 
     \pwmBuzzer:PWMUDB:runmode_enable\:macrocell
         GENERIC MAP(

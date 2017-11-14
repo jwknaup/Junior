@@ -43,18 +43,33 @@
 
 int main()
 {
-    char rxbuffer[100];                 // UART receive buffer
-    int rxindex;                        // UART receive buffer index
+    char rxbuffer1[100];                 // UART receive buffer
+    int rxindex1;                        // UART receive buffer index
+    char rxbuffer2[100];                 // UART receive buffer
+    int rxindex2;  
     
     double number;                      // floating-point number
+       int numRows=0;
+   int numCols=0;
     
-    uint8 ch;                           // variable to hold received character
-   
+   int i=1;
+   int j =1;
+   char c='A';
+    
+    
+    uint8 ch1;                           // variable to hold received character
+    uint8 ch2;
+    
     // initialize and clear rxbuffer
-    for( rxindex = 0; rxindex < 100; rxindex++ ) {
-        rxbuffer[rxindex] = 0u;
+    for( rxindex1 = 0; rxindex1 < 100; rxindex1++ ) {
+        rxbuffer1[rxindex1] = 0u;
     }
-    rxindex = 0;                        // initialize rxindex
+    rxindex1 = 0;                        // initialize rxindex
+        // initialize and clear rxbuffer
+    for( rxindex2 = 0; rxindex2 < 100; rxindex2++ ) {
+        rxbuffer2[rxindex2] = 0u;
+    }
+    rxindex2 = 0; 
    
     uart_Start();  // start UART
     
@@ -66,65 +81,38 @@ int main()
     
     // read string until the user presses return
     // scanf( "%s", rxbuffer );
-    while( ch != '\r' ) {
-        ch = uart_GetChar();        // get the next character
+    while( ch1 != '\r' ) {
+        ch1 = uart_GetChar();        // get the next character
         
-        if( ch != '\r' && ch != 0u ) {  // if the character is not a return or null
-            rxbuffer[rxindex] = ch;     // store it in the rxbuffer string
-            rxindex++;                  // increment the rxbuffer index
+        if( ch1 != '\r' && ch1 != 0u ) {  // if the character is not a return or null
+            rxbuffer1[rxindex1] = ch1;     // store it in the rxbuffer string
+            rxindex1++;                  // increment the rxbuffer index
         }
     }
-    
-    // output the received string to the UART
-    // printf( "\n%s\n", rxbuffer );
-    uart_PutChar('\n');
-//    uart_PutString(rxbuffer);
-//    uart_PutChar('\n');
 
-    // convert the received string to a double (floating-point number)
-    //number = strtod( rxbuffer, 0 );
-
-   int numRows=0;
-   int numCols=0;
-
-    numRows = strtod( rxbuffer, 0 );
-    
-        // initialize and clear rxbuffer (good practice to avoid bugs)
-    for( rxindex = 0; rxindex < 100; rxindex++ ) {
-        rxbuffer[rxindex] = 0u;
-    }
-    rxindex = 0;        // initialize rxindex
-    
     uart_PutString( "Type a number: " );
-    
-    while( ch != '\r' ) {
-        ch = uart_GetChar();        // get the next character
+       
+    while( ch2 != '\r' ) {
+        ch2 = uart_GetChar();        // get the next character
         
-        if( ch != '\r' && ch != 0u ) {  // if the character is not a return or null
-            rxbuffer[rxindex] = ch;     // store it in the rxbuffer string
-            rxindex++;                  // increment the rxbuffer index
+        if( ch2 != '\r' && ch2 != 0u ) {  // if the character is not a return or null
+            rxbuffer2[rxindex2] = ch2;     // store it in the rxbuffer string
+            rxindex2++;                  // increment the rxbuffer index
         }
     }
-    numCols = strtod(rxbuffer, 0);
-
-
-    // initialize and clear rxbuffer (good practice to avoid bugs)
-    for( rxindex = 0; rxindex < 100; rxindex++ ) {
-        rxbuffer[rxindex] = 0u;
-    }
-    rxindex = 0;        // initialize rxindex
+    uart_PutChar('\n');
+    
+    numRows = strtod(rxbuffer1,0);
+    numCols = strtod(rxbuffer2, 0);
     
     // output the float as a string and store it in rxbuffer
     // NOTE: In order to properly output doubles, you must enable them in the compiler
     // See http://www.cypress.com/?id=4&rID=87354 for more details
 
-   int i=1;
-   int j =1;
-   char c='A';
    while(i <= numRows){
       while(j <= numCols){
-         sprintf( rxbuffer, "%d%c ", i, c );
-         uart_PutString(rxbuffer);
+         sprintf( rxbuffer1, "%d%c ", i, c );
+         uart_PutString(rxbuffer1);
          j++;
          ++c;
       }
