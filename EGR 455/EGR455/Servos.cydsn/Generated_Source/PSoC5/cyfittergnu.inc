@@ -65,11 +65,11 @@
 .set Servo1__SLW, CYREG_PRT1_SLW
 
 /* Servo2 */
-.set Servo2__0__INTTYPE, CYREG_PICU1_INTTYPE6
-.set Servo2__0__MASK, 0x40
-.set Servo2__0__PC, CYREG_PRT1_PC6
+.set Servo2__0__INTTYPE, CYREG_PICU1_INTTYPE4
+.set Servo2__0__MASK, 0x10
+.set Servo2__0__PC, CYREG_PRT1_PC4
 .set Servo2__0__PORT, 1
-.set Servo2__0__SHIFT, 6
+.set Servo2__0__SHIFT, 4
 .set Servo2__AG, CYREG_PRT1_AG
 .set Servo2__AMUX, CYREG_PRT1_AMUX
 .set Servo2__BIE, CYREG_PRT1_BIE
@@ -84,7 +84,7 @@
 .set Servo2__INTTYPE_BASE, CYDEV_PICU_INTTYPE_PICU1_BASE
 .set Servo2__LCD_COM_SEG, CYREG_PRT1_LCD_COM_SEG
 .set Servo2__LCD_EN, CYREG_PRT1_LCD_EN
-.set Servo2__MASK, 0x40
+.set Servo2__MASK, 0x10
 .set Servo2__PORT, 1
 .set Servo2__PRT, CYREG_PRT1_PRT
 .set Servo2__PRTDSI__CAPS_SEL, CYREG_PRT1_CAPS_SEL
@@ -95,7 +95,7 @@
 .set Servo2__PRTDSI__OUT_SEL1, CYREG_PRT1_OUT_SEL1
 .set Servo2__PRTDSI__SYNC_OUT, CYREG_PRT1_SYNC_OUT
 .set Servo2__PS, CYREG_PRT1_PS
-.set Servo2__SHIFT, 6
+.set Servo2__SHIFT, 4
 .set Servo2__SLW, CYREG_PRT1_SLW
 
 /* lcd_LCDPort */

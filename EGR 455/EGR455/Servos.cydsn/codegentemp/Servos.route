@@ -240,8 +240,8 @@ net Net_165
 	switch ":dsiswitch_top@[DSI=(0,1)][side=top]:dsihc_top:94,48_f"
 	switch "IStub-:dsiswitch_top@[DSI=(0,1)][side=top]:dsihc_top:v92+:dsiswitch_top@[DSI=(0,1)][side=top]:dsihc_top:v94+:dsiswitch_top@[DSI=(0,1)][side=top]:dsihc_top:v96"
 	switch "Stub-:dsiswitch_top@[DSI=(0,1)][side=top]:dsihc_top:v92+:dsiswitch_top@[DSI=(0,1)][side=top]:dsihc_top:v94+:dsiswitch_top@[DSI=(0,1)][side=top]:dsihc_top:v96==>:ioport1:inputs2_mux.in_0"
-	switch ":ioport1:inputs2_mux.pin6__pin_input==>:ioport1:pin6.pin_input"
-	term   ":ioport1:pin6.pin_input"
+	switch ":ioport1:inputs2_mux.pin4__pin_input==>:ioport1:pin4.pin_input"
+	term   ":ioport1:pin4.pin_input"
 end Net_165
 net \pwm1:PWMUDB:status_3\
 	term   ":udb@[UDB=(0,1)]:dp_wrapper:datapath.f1_blk_stat_comb"

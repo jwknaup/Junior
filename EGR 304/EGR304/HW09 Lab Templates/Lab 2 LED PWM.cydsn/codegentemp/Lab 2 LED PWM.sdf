@@ -1,0 +1,23 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2017-11-14T21:22:24Z")
+ (DESIGN "Lab 2 LED PWM")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.1 Update 1")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "Lab 2 LED PWM")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT \\PWM\:cy_m0s8_tcpwm_1\\.line Pin_Red\(0\).pin_input (2.663:2.663:2.663))
+    (INTERCONNECT ClockBlock.ff_div_7 \\PWM\:cy_m0s8_tcpwm_1\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT Pin_Red\(0\).pad_out Pin_Red\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Pin_Red\(0\).pad_out Pin_Red\(0\)_PAD (0.000:0.000:0.000))
+    (INTERCONNECT Pin_Red\(0\)_PAD Pin_Red\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

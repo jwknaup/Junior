@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
   29:Generated_Source\PSoC4/BLE.c **** #endif /* (CYBLE_GATT_ROLE_SERVER) */
   30:Generated_Source\PSoC4/BLE.c ****     
   31:Generated_Source\PSoC4/BLE.c **** 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 2
 
 
   32:Generated_Source\PSoC4/BLE.c **** /***************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
   86:Generated_Source\PSoC4/BLE.c ****     0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u }, /* uint8 scan_rsp_data[CYBLE_MAX_SCAN
   87:Generated_Source\PSoC4/BLE.c ****     0x0Au,      /* uint8 scan_rsp_data_length */
   88:Generated_Source\PSoC4/BLE.c **** };
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 3
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 3
 
 
   89:Generated_Source\PSoC4/BLE.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  143:Generated_Source\PSoC4/BLE.c **** * Function Name: CyBle_Init
  144:Generated_Source\PSoC4/BLE.c **** ***************************************************************************//**
  145:Generated_Source\PSoC4/BLE.c **** *
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 4
 
 
  146:Generated_Source\PSoC4/BLE.c **** *   Initializes the component with the parameters set in the customizer.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  200:Generated_Source\PSoC4/BLE.c **** ******************************************************************************/
  201:Generated_Source\PSoC4/BLE.c **** void CyBle_ServiceInit(void)
  202:Generated_Source\PSoC4/BLE.c **** {
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 5
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 5
 
 
  203:Generated_Source\PSoC4/BLE.c ****     #if(CYBLE_GATT_ROLE_CLIENT)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  257:Generated_Source\PSoC4/BLE.c ****     #endif /* CYBLE_CTS */
  258:Generated_Source\PSoC4/BLE.c **** 
  259:Generated_Source\PSoC4/BLE.c ****     #ifdef CYBLE_CUSTOM
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 6
 
 
  260:Generated_Source\PSoC4/BLE.c ****         CyBle_CustomInit();
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  314:Generated_Source\PSoC4/BLE.c ****     
  315:Generated_Source\PSoC4/BLE.c ****     #ifdef CYBLE_PLXS
  316:Generated_Source\PSoC4/BLE.c ****         CyBle_PlxsInit();
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 7
 
 
  317:Generated_Source\PSoC4/BLE.c ****     #endif /* CYBLE_PLXS */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  371:Generated_Source\PSoC4/BLE.c **** *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or 
  372:Generated_Source\PSoC4/BLE.c **** *  failed. Following are the possible error codes.
  373:Generated_Source\PSoC4/BLE.c **** * 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 8
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 8
 
 
  374:Generated_Source\PSoC4/BLE.c **** *   <table>
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  428:Generated_Source\PSoC4/BLE.c ****         cyBle_initVar = 1u;
  429:Generated_Source\PSoC4/BLE.c ****     }
  430:Generated_Source\PSoC4/BLE.c ****     
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 9
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 9
 
 
  431:Generated_Source\PSoC4/BLE.c ****     if(callbackFunc != NULL)
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  485:Generated_Source\PSoC4/BLE.c ****                 apiResult = CyBle_StackInit(&CyBle_EventHandler, cyBle_stackMemoryRam, 
  486:Generated_Source\PSoC4/BLE.c ****                     CYBLE_STACK_RAM_SIZE - CYBLE_GATT_PREPARE_WRITE_BUFF_LEN, cyBle_stackDataBuff, 
  487:Generated_Source\PSoC4/BLE.c ****                     CYBLE_STACK_APP_MIN_POOL, NULL, 0u);
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 10
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 10
 
 
  488:Generated_Source\PSoC4/BLE.c ****             #endif  /* CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  542:Generated_Source\PSoC4/BLE.c ****     CyBle_Shutdown();                         /* Stop all ongoing activities */
  543:Generated_Source\PSoC4/BLE.c ****     CyBle_SetState(CYBLE_STATE_STOPPED);
  544:Generated_Source\PSoC4/BLE.c ****     #if(CYBLE_SHARING_MODE_EXPORT)
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 11
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 11
 
 
  545:Generated_Source\PSoC4/BLE.c ****         if(cyBle_stackMemoryRam != NULL)
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  599:Generated_Source\PSoC4/BLE.c ****     /* Store Stack data */
  600:Generated_Source\PSoC4/BLE.c ****     if((cyBle_pendingFlashWrite & CYBLE_PENDING_STACK_FLASH_WRITE_BIT) != 0u)
  601:Generated_Source\PSoC4/BLE.c ****     {
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 12
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 12
 
 
  602:Generated_Source\PSoC4/BLE.c ****         apiResult = CyBle_StoreStackData(isForceWrite);
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  656:Generated_Source\PSoC4/BLE.c **** #endif /* CYBLE_GATT_DB_CCCD_COUNT != 0u */
  657:Generated_Source\PSoC4/BLE.c ****     return(apiResult);
  658:Generated_Source\PSoC4/BLE.c **** }
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 13
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 13
 
 
  659:Generated_Source\PSoC4/BLE.c **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  713:Generated_Source\PSoC4/BLE.c ****             apiResult = CyBle_GapGetPeerBdHandle(&bDevHandle, bdAddr);
  714:Generated_Source\PSoC4/BLE.c ****             if(apiResult == CYBLE_ERROR_OK)
  715:Generated_Source\PSoC4/BLE.c ****             {
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 14
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 14
 
 
  716:Generated_Source\PSoC4/BLE.c ****                 /* Store BD handle to clear cccd values by CyBle_StoreBondingData API */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  770:Generated_Source\PSoC4/BLE.c ****     * 
  771:Generated_Source\PSoC4/BLE.c ****     *  \param advertisingIntervalType: Fast or slow advertising interval with timings
  772:Generated_Source\PSoC4/BLE.c ****     *                                 entered in Advertising settings section of the
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 15
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 15
 
 
  773:Generated_Source\PSoC4/BLE.c ****     *                                 customizer.
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  827:Generated_Source\PSoC4/BLE.c **** 
  828:Generated_Source\PSoC4/BLE.c ****         return (apiResult);
  829:Generated_Source\PSoC4/BLE.c ****     }
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 16
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 16
 
 
  830:Generated_Source\PSoC4/BLE.c **** 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  884:Generated_Source\PSoC4/BLE.c ****         else                /* Destination - scan response structure */
  885:Generated_Source\PSoC4/BLE.c ****         {
  886:Generated_Source\PSoC4/BLE.c ****             #ifdef CYBLE_SCN_PKT_INDEX_BLUETOOTH_DEVICE_ADDRESS
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 17
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 17
 
 
  887:Generated_Source\PSoC4/BLE.c ****                 destBuffer = &cyBle_scanRspData.scanRspData[CYBLE_SCN_PKT_INDEX_BLUETOOTH_DEVICE_AD
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  941:Generated_Source\PSoC4/BLE.c ****     *                                  limited discoverable mode and the general 
  942:Generated_Source\PSoC4/BLE.c ****     *                                  discoverable mode. Received data is provided
  943:Generated_Source\PSoC4/BLE.c ****     *                                  by the event,
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 18
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 18
 
 
  944:Generated_Source\PSoC4/BLE.c ****     *                                  CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT. This 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  998:Generated_Source\PSoC4/BLE.c ****                 cyBle_discoveryInfo.scanIntv = CYBLE_SLOW_SCAN_INTERVAL;
  999:Generated_Source\PSoC4/BLE.c ****                 cyBle_discoveryInfo.scanWindow = CYBLE_SLOW_SCAN_WINDOW;
 1000:Generated_Source\PSoC4/BLE.c ****             }       
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 19
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 19
 
 
 1001:Generated_Source\PSoC4/BLE.c ****             else /* Do not update scanning intervals */
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
 1055:Generated_Source\PSoC4/BLE.c ****     *  CyBle_GapcStartScan() and further scanning has stopped. Scanning is 
 1056:Generated_Source\PSoC4/BLE.c ****     *  successfully stopped on invoking CyBle_GapcStopScan() and then receiving the
 1057:Generated_Source\PSoC4/BLE.c ****     *  event CYBLE_EVT_GAPC_SCAN_START_STOP with sub-parameter 'success' = 0x01u.
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 20
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 20
 
 
 1058:Generated_Source\PSoC4/BLE.c ****     *  
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
 1112:Generated_Source\PSoC4/BLE.c ****                 CyBle_SetState(CYBLE_STATE_CONNECTING);
 1113:Generated_Source\PSoC4/BLE.c ****                 if(cyBle_connectingTimeout != 0u)
 1114:Generated_Source\PSoC4/BLE.c ****                 {
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 21
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 21
 
 
 1115:Generated_Source\PSoC4/BLE.c ****                     (void)CyBle_StartTimer(cyBle_connectingTimeout);
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
 1169:Generated_Source\PSoC4/BLE.c ****     
 1170:Generated_Source\PSoC4/BLE.c **** #endif /* CYBLE_GAP_ROLE_CENTRAL */
 1171:Generated_Source\PSoC4/BLE.c **** 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 22
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 22
 
 
 1172:Generated_Source\PSoC4/BLE.c **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
   48              	.L4:
 1205:Generated_Source\PSoC4/BLE.c ****             }
 1206:Generated_Source\PSoC4/BLE.c ****             else                /* Destination - scan response structure */
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 23
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 23
 
 
 1207:Generated_Source\PSoC4/BLE.c ****             {
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
   79 0028 D2B2     		uxtb	r2, r2
   80 002a 012A     		cmp	r2, #1
   81 002c 02D9     		bls	.L13
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 24
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 24
 
 
 1226:Generated_Source\PSoC4/BLE.c ****                     }
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  112              	.LVL18:
 1247:Generated_Source\PSoC4/BLE.c ****                 
 1248:Generated_Source\PSoC4/BLE.c ****                 for(i = byteCounter; ((i < (adLength)) && (CYBLE_NULL_CHARCTER != name[i - byteCoun
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 25
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 25
 
 
  113              		.loc 1 1248 0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
 1260:Generated_Source\PSoC4/BLE.c ****                 }
 1261:Generated_Source\PSoC4/BLE.c ****             }
 1262:Generated_Source\PSoC4/BLE.c ****         }
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 26
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 26
 
 
  152              		.loc 1 1262 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  202              		.cfi_def_cfa_offset 8
  203              		.cfi_offset 4, -8
  204              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 27
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 27
 
 
  154:Generated_Source\PSoC4/BLE.c ****     cyBle_busyStatus = CYBLE_STACK_STATE_FREE;
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  252 0006 1422     		movs	r2, #20
  253 0008 1F49     		ldr	r1, .L24
  254 000a 0BA8     		add	r0, sp, #44
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 28
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 28
 
 
  255              	.LVL32:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  297 0042 0823     		movs	r3, #8
  298 0044 1370     		strb	r3, [r2]
  473:Generated_Source\PSoC4/BLE.c ****             }
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 29
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 29
 
 
  299              		.loc 1 473 0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  346              	.LVL42:
  347 0084 10BD     		pop	{r4, pc}
  348              	.L25:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 30
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 30
 
 
  349 0086 C046     		.align	2
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  399              		.type	CyBle_GappStartAdvertisement, %function
  400              	CyBle_GappStartAdvertisement:
  401              	.LFB6:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 31
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 31
 
 
  791:Generated_Source\PSoC4/BLE.c ****         CYBLE_API_RESULT_T apiResult;
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  446              		.loc 1 808 0
  447 0036 144B     		ldr	r3, .L36+8
  448 0038 1A00     		movs	r2, r3
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 32
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 32
 
 
  449 003a 4032     		adds	r2, r2, #64
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  495 0076 01E0     		b	.L30
  496              	.LVL51:
  497              	.L35:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 33
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 33
 
 
  498 0078 0420     		movs	r0, #4
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  547              	.L39:
  548 0014 00000000 		.word	cyBle_eventHandlerFlag
  549              		.cfi_endproc
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 34
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 34
 
 
  550              	.LFE7:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
 1285:Generated_Source\PSoC4/BLE.c ****     *  failed. Following are the possible error codes.
 1286:Generated_Source\PSoC4/BLE.c ****     *
 1287:Generated_Source\PSoC4/BLE.c ****     *   Errors codes                       | Description
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 35
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 35
 
 
 1288:Generated_Source\PSoC4/BLE.c ****     *   ------------                       | -----------
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  612 0020 117B     		ldrb	r1, [r2, #12]
  613              	.LVL60:
 1310:Generated_Source\PSoC4/BLE.c **** 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 36
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 36
 
 
 1311:Generated_Source\PSoC4/BLE.c ****             /* Copy name into characteristic */
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  648              	.LVL66:
  649 0044 FFF7FEFF 		bl	CyBle_ChangeAdLocalName
  650              	.LVL67:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 37
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 37
 
 
 1328:Generated_Source\PSoC4/BLE.c ****                 CyBle_ChangeAdLocalName(name, 1u);
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
 1347:Generated_Source\PSoC4/BLE.c ****     * \param name: The local device name string. Used to read the local name to the
 1348:Generated_Source\PSoC4/BLE.c ****     *             given string array. It represents a UTF-8 encoded User Friendly 
 1349:Generated_Source\PSoC4/BLE.c ****     *             Descriptive Name for the device. The length of the local device
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 38
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 38
 
 
 1350:Generated_Source\PSoC4/BLE.c ****     *             string is entered into the component customizer and it can be set
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
 1379:Generated_Source\PSoC4/BLE.c ****                 can't be longer than 248, so only the LSB of 16 bit of length is to
 1380:Generated_Source\PSoC4/BLE.c ****                 be used. */
 1381:Generated_Source\PSoC4/BLE.c ****             charLen = (uint8)CYBLE_GATT_DB_ATTR_GET_ATTR_GEN_LEN(cyBle_gaps.deviceNameCharHandle);
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 39
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 39
 
 
  710              		.loc 1 1381 0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  747              	.LVL82:
  748              	.L52:
 1395:Generated_Source\PSoC4/BLE.c ****         }
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 40
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 40
 
 
 1396:Generated_Source\PSoC4/BLE.c ****         
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  780              		.loc 1 1418 0
  781              		@ sp needed
  782 0008 7047     		bx	lr
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 41
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 41
 
 
  783              		.cfi_endproc
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  817              		.global	cyBle_discoveryData
  818              		.global	cyBle_discoveryParam
  819              		.global	cyBle_stackMemoryRam
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 42
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 42
 
 
  820              		.global	cyBle_initVar
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  874 001c 00       		.byte	0
  875 001d 00       		.byte	0
  876 001e 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 43
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 43
 
 
  877 001f 0B       		.byte	11
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  931 0059 00       		.byte	0
  932 005a 00       		.byte	0
  933 005b 50       		.byte	80
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 44
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 44
 
 
  934 005c A0       		.byte	-96
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  984 000a 04       		.byte	0x4
  985 000b 01       		.uleb128 0x1
  986 000c 70020000 		.4byte	.LASF245
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 45
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 45
 
 
  987 0010 0C       		.byte	0xc
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1041 007d D301     		.2byte	0x1d3
  1042 007f 3A000000 		.4byte	0x3a
  1043 0083 04       		.uleb128 0x4
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 46
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 46
 
 
  1044 0084 5F070000 		.4byte	.LASF11
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1098 00f3 01       		.byte	0x1
  1099 00f4 0B       		.uleb128 0xb
  1100 00f5 55020000 		.4byte	.LASF20
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 47
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 47
 
 
  1101 00f9 02       		.byte	0x2
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1155 0165 2D       		.byte	0x2d
  1156 0166 0B       		.uleb128 0xb
  1157 0167 550F0000 		.4byte	.LASF39
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 48
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 48
 
 
  1158 016b 2E       		.byte	0x2e
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1212 01d7 48       		.byte	0x48
  1213 01d8 0B       		.uleb128 0xb
  1214 01d9 7A050000 		.4byte	.LASF58
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 49
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 49
 
 
  1215 01dd 49       		.byte	0x49
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1269 0249 72       		.byte	0x72
  1270 024a 0B       		.uleb128 0xb
  1271 024b B50E0000 		.4byte	.LASF77
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 50
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 50
 
 
  1272 024f 73       		.byte	0x73
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1326 02b9 97000000 		.4byte	.LASF93
  1327 02bd 03       		.byte	0x3
  1328 02be 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 51
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 51
 
 
  1329 02bf 74030000 		.4byte	.LASF94
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1383 032b 01150000 		.4byte	.LASF112
  1384 032f 29       		.byte	0x29
  1385 0330 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 52
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 52
 
 
  1386 0331 D30E0000 		.4byte	.LASF113
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1440 03a3 6B000000 		.4byte	0x6b
  1441 03a7 B2030000 		.4byte	0x3b2
  1442 03ab 10       		.uleb128 0x10
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 53
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 53
 
 
  1443 03ac BC000000 		.4byte	0xbc
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1497 041e 00       		.byte	0
  1498 041f 04       		.uleb128 0x4
  1499 0420 1D150000 		.4byte	.LASF133
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 54
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 54
 
 
  1500 0424 03       		.byte	0x3
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1554 0493 4E040000 		.4byte	0x44e
  1555 0497 07       		.uleb128 0x7
  1556 0498 04       		.byte	0x4
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 55
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 55
 
 
  1557 0499 6B000000 		.4byte	0x6b
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1611 0509 3E02     		.2byte	0x23e
  1612 050b 6B000000 		.4byte	0x6b
  1613 050f 05       		.byte	0x5
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 56
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 56
 
 
  1614 0510 0E       		.uleb128 0xe
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1668 0584 00       		.byte	0
  1669 0585 04       		.uleb128 0x4
  1670 0586 E0090000 		.4byte	.LASF157
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 57
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 57
 
 
  1671 058a 04       		.byte	0x4
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1725 05fd 0C       		.byte	0xc
  1726 05fe 0E       		.uleb128 0xe
  1727 05ff FB080000 		.4byte	.LASF163
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 58
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 58
 
 
  1728 0603 04       		.byte	0x4
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1782 066f 06       		.byte	0x6
  1783 0670 D8       		.byte	0xd8
  1784 0671 77000000 		.4byte	0x77
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 59
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 59
 
 
  1785 0675 00       		.byte	0
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1839 06de 0E       		.uleb128 0xe
  1840 06df 6F050000 		.4byte	.LASF177
  1841 06e3 06       		.byte	0x6
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 60
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 60
 
 
  1842 06e4 0501     		.2byte	0x105
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1896 0757 0C       		.byte	0xc
  1897 0758 08       		.byte	0x8
  1898 0759 9909     		.2byte	0x999
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 61
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 61
 
 
  1899 075b AE070000 		.4byte	0x7ae
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  1953 07d5 01       		.byte	0x1
  1954 07d6 A804     		.2byte	0x4a8
  1955 07d8 4F080000 		.4byte	0x84f
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 62
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 62
 
 
  1956 07dc 00000000 		.4byte	.LLST0
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2010 0865 08000000 		.4byte	.LFE3-.LFB3
  2011 0869 01       		.uleb128 0x1
  2012 086a 9C       		.byte	0x9c
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 63
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 63
 
 
  2013 086b 79080000 		.4byte	0x879
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2067 08f3 01       		.byte	0x1
  2068 08f4 BF01     		.2byte	0x1bf
  2069 08f6 1F040000 		.4byte	0x41f
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 64
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 64
 
 
  2070 08fa 02       		.uleb128 0x2
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2124 0954 22       		.uleb128 0x22
  2125 0955 01       		.uleb128 0x1
  2126 0956 51       		.byte	0x51
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 65
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 65
 
 
  2127 0957 05       		.uleb128 0x5
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2181 09a3 7E000000 		.4byte	.LVL39
  2182 09a7 5D0D0000 		.4byte	0xd5d
  2183 09ab 22       		.uleb128 0x22
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 66
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 66
 
 
  2184 09ac 01       		.uleb128 0x1
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2238 0a22 5C000000 		.4byte	.LVL46
  2239 0a26 750D0000 		.4byte	0xd75
  2240 0a2a 22       		.uleb128 0x22
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 67
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 67
 
 
  2241 0a2b 01       		.uleb128 0x1
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2295 0a9e 00       		.byte	0
  2296 0a9f 07       		.uleb128 0x7
  2297 0aa0 04       		.byte	0x4
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 68
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 68
 
 
  2298 0aa1 A50A0000 		.4byte	0xaa5
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2352 0b26 01       		.uleb128 0x1
  2353 0b27 51       		.byte	0x51
  2354 0b28 01       		.uleb128 0x1
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 69
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 69
 
 
  2355 0b29 30       		.byte	0x30
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2409 0b9b 94030000 		.4byte	.LLST20
  2410 0b9f 19       		.uleb128 0x19
  2411 0ba0 70747200 		.ascii	"ptr\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 70
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 70
 
 
  2412 0ba4 01       		.byte	0x1
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2466 0c22 12070000 		.4byte	0x712
  2467 0c26 05       		.uleb128 0x5
  2468 0c27 03       		.byte	0x3
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 71
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 71
 
 
  2469 0c28 00000000 		.4byte	CyBle_ApplCallback
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2523 0c9f 03       		.byte	0x3
  2524 0ca0 00000000 		.4byte	cyBle_discoveryParam
  2525 0ca4 2A       		.uleb128 0x2a
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 72
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 72
 
 
  2526 0ca5 3B030000 		.4byte	.LASF230
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2580 0d20 1B       		.uleb128 0x1b
  2581 0d21 AE070000 		.4byte	0x7ae
  2582 0d25 2C       		.uleb128 0x2c
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 73
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 73
 
 
  2583 0d26 4F0E0000 		.4byte	.LASF237
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2637 0009 1B       		.uleb128 0x1b
  2638 000a 0E       		.uleb128 0xe
  2639 000b 55       		.uleb128 0x55
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 74
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 74
 
 
  2640 000c 17       		.uleb128 0x17
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2694 0042 00       		.byte	0
  2695 0043 00       		.byte	0
  2696 0044 07       		.uleb128 0x7
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 75
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 75
 
 
  2697 0045 0F       		.uleb128 0xf
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2751 007b 05       		.uleb128 0x5
  2752 007c 00       		.byte	0
  2753 007d 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 76
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 76
 
 
  2754 007e 0D       		.uleb128 0xd
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2808 00b4 0B       		.uleb128 0xb
  2809 00b5 3B       		.uleb128 0x3b
  2810 00b6 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 77
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 77
 
 
  2811 00b7 01       		.uleb128 0x1
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2865 00ed 01       		.uleb128 0x1
  2866 00ee 13       		.uleb128 0x13
  2867 00ef 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 78
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 78
 
 
  2868 00f0 00       		.byte	0
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2922 0127 00       		.byte	0
  2923 0128 03       		.uleb128 0x3
  2924 0129 08       		.uleb128 0x8
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 79
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 79
 
 
  2925 012a 3A       		.uleb128 0x3a
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  2979 0161 13       		.uleb128 0x13
  2980 0162 00       		.byte	0
  2981 0163 00       		.byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 80
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 80
 
 
  2982 0164 1D       		.uleb128 0x1d
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3036 019d 11       		.uleb128 0x11
  3037 019e 01       		.uleb128 0x1
  3038 019f 12       		.uleb128 0x12
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 81
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 81
 
 
  3039 01a0 06       		.uleb128 0x6
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3093 01de 19       		.uleb128 0x19
  3094 01df 01       		.uleb128 0x1
  3095 01e0 13       		.uleb128 0x13
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 82
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 82
 
 
  3096 01e1 00       		.byte	0
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3150 0217 49       		.uleb128 0x49
  3151 0218 13       		.uleb128 0x13
  3152 0219 02       		.uleb128 0x2
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 83
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 83
 
 
  3153 021a 17       		.uleb128 0x17
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3207 0250 13       		.uleb128 0x13
  3208 0251 3F       		.uleb128 0x3f
  3209 0252 19       		.uleb128 0x19
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 84
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 84
 
 
  3210 0253 3C       		.uleb128 0x3c
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3264 0289 00       		.byte	0
  3265 028a 30       		.uleb128 0x30
  3266 028b 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 85
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 85
 
 
  3267 028c 00       		.byte	0
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3321 005b 4A000000 		.4byte	.LVL18
  3322 005f 4E000000 		.4byte	.LVL19
  3323 0063 0100     		.2byte	0x1
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 86
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 86
 
 
  3324 0065 53       		.byte	0x53
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3378 00f3 30000000 		.4byte	.LVL12
  3379 00f7 0100     		.2byte	0x1
  3380 00f9 53       		.byte	0x53
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 87
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 87
 
 
  3381 00fa 32000000 		.4byte	.LVL13
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3435 018b 50       		.byte	0x50
  3436 018c 9F       		.byte	0x9f
  3437 018d 00000000 		.4byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 88
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 88
 
 
  3438 0191 00000000 		.4byte	0
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3492 021b F3       		.byte	0xf3
  3493 021c 01       		.uleb128 0x1
  3494 021d 50       		.byte	0x50
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 89
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 89
 
 
  3495 021e 9F       		.byte	0x9f
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3549 02a7 60000000 		.4byte	.LFE10
  3550 02ab 0400     		.2byte	0x4
  3551 02ad F3       		.byte	0xf3
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 90
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 90
 
 
  3552 02ae 01       		.uleb128 0x1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3606 033b 0400     		.2byte	0x4
  3607 033d F3       		.byte	0xf3
  3608 033e 01       		.uleb128 0x1
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 91
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 91
 
 
  3609 033f 50       		.byte	0x50
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3663 03c8 54       		.byte	0x54
  3664 03c9 00000000 		.4byte	0
  3665 03cd 00000000 		.4byte	0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 92
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 92
 
 
  3666              	.LLST22:
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3720 0058 00000000 		.4byte	.LFB11
  3721 005c 48000000 		.4byte	.LFE11-.LFB11
  3722 0060 00000000 		.4byte	.LFB12
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 93
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 93
 
 
  3723 0064 0A000000 		.4byte	.LFE12-.LFB12
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3764      455F5354 
  3764      4154455F 
  3764      53544F50 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 94
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 94
 
 
  3764      50454400 
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3784      455F4552 
  3784      524F525F 
  3784      554E5355 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 95
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 95
 
 
  3784      50504F52 
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3804      20696E74 
  3804      00
  3805              	.LASF245:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 96
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 96
 
 
  3806 0270 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3823              	.LASF36:
  3824 03b4 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
  3824      455F4556 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 97
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 97
 
 
  3824      545F4741 
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3842      61636B53 
  3842      65744665 
  3842      61747572 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 98
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 98
 
 
  3843              	.LASF0:
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3863              	.LASF153:
  3864 05ad 61647646 		.ascii	"advFilterPolicy\000"
  3864      696C7465 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 99
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 99
 
 
  3864      72506F6C 
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3884      61746100 
  3885              	.LASF6:
  3886 06a9 6C6F6E67 		.ascii	"long long int\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 100
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 100
 
 
  3886      206C6F6E 
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3909              	.LASF89:
  3910 0771 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
  3910      455F4556 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 101
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 101
 
 
  3910      545F4D41 
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3932      455F4556 
  3932      545F4741 
  3932      5454435F 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 102
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 102
 
 
  3932      4C4F4E47 
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3952      455F4556 
  3952      545F4741 
  3952      5454535F 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 103
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 103
 
 
  3952      57524954 
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3972      4E56414C 
  3973              	.LASF56:
  3974 0a33 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 104
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 104
 
 
  3974      455F4556 
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  3994 0b16 4379426C 		.ascii	"CyBle_GapGetLocalName\000"
  3994      655F4761 
  3994      70476574 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 105
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 105
 
 
  3994      4C6F6361 
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4014      505F534D 
  4014      505F4C4F 
  4015 0c39 4500     		.ascii	"E\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 106
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 106
 
 
  4016              	.LASF240:
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4036              	.LASF62:
  4037 0d0a 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
  4037      455F4556 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 107
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 107
 
 
  4037      545F4741 
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4057      00
  4058              	.LASF167:
  4059 0df6 61747447 		.ascii	"attGenericVal\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 108
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 108
 
 
  4059      656E6572 
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4079 0ef0 63656E74 		.ascii	"centralAddrResolutionCharHandle\000"
  4079      72616C41 
  4079      64647252 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 109
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 109
 
 
  4079      65736F6C 
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4101 0fdf 4379426C 		.ascii	"CyBle_ChangeAdDeviceAddress\000"
  4101      655F4368 
  4101      616E6765 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 110
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 110
 
 
  4101      41644465 
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4123 10ca 4379426C 		.ascii	"CyBle_Shutdown\000"
  4123      655F5368 
  4123      7574646F 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 111
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 111
 
 
  4123      776E00
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4143      20646F75 
  4143      626C6500 
  4144              	.LASF15:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 112
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 112
 
 
  4145 11b8 63686172 		.ascii	"char\000"
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4167 128c 6379426C 		.ascii	"cyBle_gaps\000"
  4167      655F6761 
  4167      707300
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 113
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 113
 
 
  4168              	.LASF111:
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4187      434B5F54 
  4187      00
  4188              	.LASF168:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 114
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 114
 
 
  4189 1381 4359424C 		.ascii	"CYBLE_GATTS_ATT_GEN_VAL_LEN_T\000"
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4208      524F525F 
  4208      4C324341 
  4208      505F5053 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 115
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 115
 
 
  4209              	.LASF143:
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4228      655F7366 
  4228      6C617368 
  4228      44657669 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 116
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 116
 
 
  4228      63654164 
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 1
  4248      545F4C32 
  4248      4341505F 
  4248      434F4E4E 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccV1sIm2.s 			page 117
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccg7Ma0i.s 			page 117
 
 
  4249              	.LASF246:

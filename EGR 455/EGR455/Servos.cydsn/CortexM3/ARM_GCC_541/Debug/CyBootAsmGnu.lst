@@ -11365,11 +11365,11 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
   65              	.set Servo1__SLW, CYREG_PRT1_SLW
   66              	
   67              	/* Servo2 */
-  68              	.set Servo2__0__INTTYPE, CYREG_PICU1_INTTYPE6
-  69              	.set Servo2__0__MASK, 0x40
-  70              	.set Servo2__0__PC, CYREG_PRT1_PC6
+  68              	.set Servo2__0__INTTYPE, CYREG_PICU1_INTTYPE4
+  69              	.set Servo2__0__MASK, 0x10
+  70              	.set Servo2__0__PC, CYREG_PRT1_PC4
   71              	.set Servo2__0__PORT, 1
-  72              	.set Servo2__0__SHIFT, 6
+  72              	.set Servo2__0__SHIFT, 4
   73              	.set Servo2__AG, CYREG_PRT1_AG
   74              	.set Servo2__AMUX, CYREG_PRT1_AMUX
   75              	.set Servo2__BIE, CYREG_PRT1_BIE
@@ -11384,7 +11384,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
   84              	.set Servo2__INTTYPE_BASE, CYDEV_PICU_INTTYPE_PICU1_BASE
   85              	.set Servo2__LCD_COM_SEG, CYREG_PRT1_LCD_COM_SEG
   86              	.set Servo2__LCD_EN, CYREG_PRT1_LCD_EN
-  87              	.set Servo2__MASK, 0x40
+  87              	.set Servo2__MASK, 0x10
   88              	.set Servo2__PORT, 1
   89              	.set Servo2__PRT, CYREG_PRT1_PRT
   90              	.set Servo2__PRTDSI__CAPS_SEL, CYREG_PRT1_CAPS_SEL
@@ -11395,7 +11395,7 @@ ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 1
   95              	.set Servo2__PRTDSI__OUT_SEL1, CYREG_PRT1_OUT_SEL1
   96              	.set Servo2__PRTDSI__SYNC_OUT, CYREG_PRT1_SYNC_OUT
   97              	.set Servo2__PS, CYREG_PRT1_PS
-  98              	.set Servo2__SHIFT, 6
+  98              	.set Servo2__SHIFT, 4
   99              	.set Servo2__SLW, CYREG_PRT1_SLW
  100              	
 ARM GAS  Generated_Source\PSoC5\CyBootAsmGnu.s 			page 191

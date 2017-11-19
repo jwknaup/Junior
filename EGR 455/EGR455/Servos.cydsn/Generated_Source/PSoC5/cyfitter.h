@@ -65,11 +65,11 @@
 #define Servo1__SLW CYREG_PRT1_SLW
 
 /* Servo2 */
-#define Servo2__0__INTTYPE CYREG_PICU1_INTTYPE6
-#define Servo2__0__MASK 0x40u
-#define Servo2__0__PC CYREG_PRT1_PC6
+#define Servo2__0__INTTYPE CYREG_PICU1_INTTYPE4
+#define Servo2__0__MASK 0x10u
+#define Servo2__0__PC CYREG_PRT1_PC4
 #define Servo2__0__PORT 1u
-#define Servo2__0__SHIFT 6u
+#define Servo2__0__SHIFT 4u
 #define Servo2__AG CYREG_PRT1_AG
 #define Servo2__AMUX CYREG_PRT1_AMUX
 #define Servo2__BIE CYREG_PRT1_BIE
@@ -84,7 +84,7 @@
 #define Servo2__INTTYPE_BASE CYDEV_PICU_INTTYPE_PICU1_BASE
 #define Servo2__LCD_COM_SEG CYREG_PRT1_LCD_COM_SEG
 #define Servo2__LCD_EN CYREG_PRT1_LCD_EN
-#define Servo2__MASK 0x40u
+#define Servo2__MASK 0x10u
 #define Servo2__PORT 1u
 #define Servo2__PRT CYREG_PRT1_PRT
 #define Servo2__PRTDSI__CAPS_SEL CYREG_PRT1_CAPS_SEL
@@ -95,7 +95,7 @@
 #define Servo2__PRTDSI__OUT_SEL1 CYREG_PRT1_OUT_SEL1
 #define Servo2__PRTDSI__SYNC_OUT CYREG_PRT1_SYNC_OUT
 #define Servo2__PS CYREG_PRT1_PS
-#define Servo2__SHIFT 6u
+#define Servo2__SHIFT 4u
 #define Servo2__SLW CYREG_PRT1_SLW
 
 /* lcd_LCDPort */

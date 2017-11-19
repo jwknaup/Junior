@@ -1,0 +1,84 @@
+--------------- Build Started: 11/15/2017 09:51:20 Project: Lab 4 ADC, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\Jacob\AppData\Local\Cypress Semiconductor\PSoC Creator\4.1" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\HW09 Lab Templates\Lab 4 ADC.cydsn\Lab 4 ADC.cyprj" -d CY8C4248LQI-BL583 -s "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\HW09 Lab Templates\Lab 4 ADC.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation...
+Synthesis...
+Tech Mapping...
+Analog Placement...
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
+In file included from main.c:2:0:
+./LED_RGB.h:33:0: warning: "UINT16_MAX" redefined
+ #define UINT16_MAX              65535
+ ^
+In file included from c:\program files (x86)\cypress\psoc creator\4.1\psoc creator\import\gnu\arm\5.4.1\lib\gcc\arm-none-eabi\5.4.1\include\stdint.h:9:0,
+                 from Generated_Source\PSoC4/cytypes.h:34,
+                 from Generated_Source\PSoC4/cyfitter_cfg.h:20,
+                 from Generated_Source\PSoC4/project.h:17,
+                 from ./device.h:15,
+                 from main.c:1:
+c:\program files (x86)\cypress\psoc creator\4.1\psoc creator\import\gnu\arm\5.4.1\arm-none-eabi\include\stdint.h:195:0: note: this is the location of the previous definition
+ #define UINT16_MAX (__UINT16_MAX__)
+ ^
+In file included from main.c:2:0:
+./LED_RGB.h:34:0: warning: "UINT8_MAX" redefined
+ #define UINT8_MAX               255
+ ^
+In file included from c:\program files (x86)\cypress\psoc creator\4.1\psoc creator\import\gnu\arm\5.4.1\lib\gcc\arm-none-eabi\5.4.1\include\stdint.h:9:0,
+                 from Generated_Source\PSoC4/cytypes.h:34,
+                 from Generated_Source\PSoC4/cyfitter_cfg.h:20,
+                 from Generated_Source\PSoC4/project.h:17,
+                 from ./device.h:15,
+                 from main.c:1:
+c:\program files (x86)\cypress\psoc creator\4.1\psoc creator\import\gnu\arm\5.4.1\arm-none-eabi\include\stdint.h:173:0: note: this is the location of the previous definition
+ #define UINT8_MAX (__UINT8_MAX__)
+ ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/LED_RGB.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c LED_RGB.c -o .\CortexM0\ARM_GCC_541\Debug\LED_RGB.o
+In file included from LED_RGB.c:27:0:
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ADC.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC4\ADC.c -o .\CortexM0\ARM_GCC_541\Debug\ADC.o
+./LED_RGB.h:33:0: warning: "UINT16_MAX" redefined
+ #define UINT16_MAX              65535
+ ^
+In file included from c:\program files (x86)\cypress\psoc creator\4.1\psoc creator\import\gnu\arm\5.4.1\lib\gcc\arm-none-eabi\5.4.1\include\stdint.h:9:0,
+                 from Generated_Source\PSoC4/cytypes.h:34,
+                 from Generated_Source\PSoC4/cyfitter_cfg.h:20,
+                 from Generated_Source\PSoC4/project.h:17,
+                 from ./device.h:15,
+                 from ./LED_RGB.h:30,
+                 from LED_RGB.c:27:
+c:\program files (x86)\cypress\psoc creator\4.1\psoc creator\import\gnu\arm\5.4.1\arm-none-eabi\include\stdint.h:195:0: note: this is the location of the previous definition
+ #define UINT16_MAX (__UINT16_MAX__)
+ ^
+In file included from LED_RGB.c:27:0:
+./LED_RGB.h:34:0: warning: "UINT8_MAX" redefined
+ #define UINT8_MAX               255
+ ^
+In file included from c:\program files (x86)\cypress\psoc creator\4.1\psoc creator\import\gnu\arm\5.4.1\lib\gcc\arm-none-eabi\5.4.1\include\stdint.h:9:0,
+                 from Generated_Source\PSoC4/cytypes.h:34,
+                 from Generated_Source\PSoC4/cyfitter_cfg.h:20,
+                 from Generated_Source\PSoC4/project.h:17,
+                 from ./device.h:15,
+                 from ./LED_RGB.h:30,
+                 from LED_RGB.c:27:
+c:\program files (x86)\cypress\psoc creator\4.1\psoc creator\import\gnu\arm\5.4.1\arm-none-eabi\include\stdint.h:173:0: note: this is the location of the previous definition
+ #define UINT8_MAX (__UINT8_MAX__)
+ ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ADC_PM.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC4\ADC_PM.c -o .\CortexM0\ARM_GCC_541\Debug\ADC_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ADC_INT.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c Generated_Source\PSoC4\ADC_INT.c -o .\CortexM0\ARM_GCC_541\Debug\ADC_INT.o
+arm-none-eabi-ar.exe -rs ".\CortexM0\ARM_GCC_541\Debug\Lab 4 ADC.a" .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\Pin_RedLED.o .\CortexM0\ARM_GCC_541\Debug\Pin_RedLED_PM.o .\CortexM0\ARM_GCC_541\Debug\Pin_GreenLED.o .\CortexM0\ARM_GCC_541\Debug\Pin_GreenLED_PM.o .\CortexM0\ARM_GCC_541\Debug\Pin_BlueLED.o .\CortexM0\ARM_GCC_541\Debug\Pin_BlueLED_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock_PWM.o .\CortexM0\ARM_GCC_541\Debug\PWM_R.o .\CortexM0\ARM_GCC_541\Debug\PWM_R_PM.o .\CortexM0\ARM_GCC_541\Debug\PWM_G.o .\CortexM0\ARM_GCC_541\Debug\PWM_G_PM.o .\CortexM0\ARM_GCC_541\Debug\PWM_B.o .\CortexM0\ARM_GCC_541\Debug\PWM_B_PM.o .\CortexM0\ARM_GCC_541\Debug\ADC.o .\CortexM0\ARM_GCC_541\Debug\ADC_PM.o .\CortexM0\ARM_GCC_541\Debug\ADC_INT.o .\CortexM0\ARM_GCC_541\Debug\A0.o .\CortexM0\ARM_GCC_541\Debug\A0_PM.o .\CortexM0\ARM_GCC_541\Debug\ADC_IRQ.o .\CortexM0\ARM_GCC_541\Debug\ADC_intClock.o .\CortexM0\ARM_GCC_541\Debug\CyDMA.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\UART_1.o .\CortexM0\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM0\ARM_GCC_541\Debug\UART_1_INT.o .\CortexM0\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM0\ARM_GCC_541\Debug\UART_1_IntClock.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\Lab 4 ADC.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\HW09 Lab Templates\Lab 4 ADC.cydsn\CortexM0\ARM_GCC_541\Debug\Lab 4 ADC.elf" .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\LED_RGB.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o ".\CortexM0\ARM_GCC_541\Debug\Lab 4 ADC.a" "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 "-Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/Lab 4 ADC.map" -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -O0 -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\HW09 Lab Templates\Lab 4 ADC.cydsn\CortexM0\ARM_GCC_541\Debug\Lab 4 ADC.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+cyelftool.exe -S "C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\HW09 Lab Templates\Lab 4 ADC.cydsn\CortexM0\ARM_GCC_541\Debug\Lab 4 ADC.elf"
+Flash used: 9462 of 262144 bytes (3.6 %).
+SRAM used: 1660 of 32768 bytes (5.1 %). Stack: 1024 bytes. Heap: 256 bytes.
+--------------- Build Succeeded: 11/15/2017 09:51:35 ---------------

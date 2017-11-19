@@ -6,7 +6,7 @@
 
 #Build Date:         Jul 19 2017 14:31:00
 
-#File Generated:     Nov 12 2017 14:58:08
+#File Generated:     Nov 15 2017 09:59:05
 
 #Purpose:            
 
@@ -85,8 +85,8 @@ Clock: CyLFClk              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySysClk             | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyWCO                | Frequency: N/A       | Target:   0.0 MHz
-Clock: adc_intClock         | Frequency: N/A       | Target:   5.3 MHz
-Clock: adc_intClock(FFB)    | Frequency: N/A       | Target:   5.3 MHz
+Clock: adc_intClock         | Frequency: N/A       | Target:   6.0 MHz
+Clock: adc_intClock(FFB)    | Frequency: N/A       | Target:   6.0 MHz
 Clock: clockBuzzer          | Frequency:  53.4 MHz | Target:   1.0 MHz
 Clock: uart_IntClock        | Frequency:  42.7 MHz | Target:   0.9 MHz
 
@@ -94,7 +94,7 @@ Clock: uart_IntClock        | Frequency:  42.7 MHz | Target:   0.9 MHz
                      End of Clock Summary
 ######################################################################
 
-D2088: Phase 6, elapsed time : 0.1 (sec)
+D2088: Phase 6, elapsed time : 0.0 (sec)
 
 Phase 7
 ######################################################################
@@ -109,15 +109,15 @@ Clock: CyLFClk              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySysClk             | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyWCO                | Frequency: N/A       | Target:   0.0 MHz
-Clock: adc_intClock         | Frequency: N/A       | Target:   5.3 MHz
-Clock: adc_intClock(FFB)    | Frequency: N/A       | Target:   5.3 MHz
+Clock: adc_intClock         | Frequency: N/A       | Target:   6.0 MHz
+Clock: adc_intClock(FFB)    | Frequency: N/A       | Target:   6.0 MHz
 Clock: clockBuzzer          | Frequency:  53.4 MHz | Target:   1.0 MHz
 Clock: uart_IntClock        | Frequency:   2.4 MHz | Target:   0.9 MHz
 
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 0.2 (sec)
+D2088: Phase 7, elapsed time : 0.1 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	10
@@ -156,8 +156,8 @@ Clock: CyLFClk              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  48.0 MHz
 Clock: CySysClk             | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyWCO                | Frequency: N/A       | Target:   0.0 MHz
-Clock: adc_intClock         | Frequency: N/A       | Target:   5.3 MHz
-Clock: adc_intClock(FFB)    | Frequency: N/A       | Target:   5.3 MHz
+Clock: adc_intClock         | Frequency: N/A       | Target:   6.0 MHz
+Clock: adc_intClock(FFB)    | Frequency: N/A       | Target:   6.0 MHz
 Clock: clockBuzzer          | Frequency:  53.4 MHz | Target:   1.0 MHz
 Clock: uart_IntClock        | Frequency:   2.5 MHz | Target:   0.9 MHz
 
@@ -170,5 +170,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 0.9 sec.
+I2076: Total run-time: 0.4 sec.
 

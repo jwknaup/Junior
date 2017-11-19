@@ -85,7 +85,7 @@ int main(void)
 
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     initializeSubsystems();
-
+    testFlex();
     for(;;)
     {
         testSubsystems();

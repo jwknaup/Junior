@@ -2,7 +2,7 @@
 --	Conversion of PeacefulPillow.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Nov 12 14:58:07 2017
+--	Wed Nov 15 09:59:03 2017
 --
 
 USE cypress.cypress.all;
@@ -1535,7 +1535,7 @@ flexSensorB:cy_psoc3_pins_v1_10
 		id=>"17f71141-24dc-439e-9b50-f87ef1f429d9/5c71752a-e182-47ca-942c-9cb20adbdf2f",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"187500750.003",
+		period=>"166667333.336",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>\adc:Net_1845\,

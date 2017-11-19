@@ -1,5 +1,5 @@
 -- Project:   Servos
--- Generated: 09/13/2017 15:53:07
+-- Generated: 11/15/2017 17:01:18
 -- PSoC Creator  4.1 Update 1
 
 ENTITY Servos IS
@@ -102,7 +102,7 @@ ARCHITECTURE __DEFAULT__ OF Servos IS
     ATTRIBUTE lib_model OF Servo1(0) : LABEL IS "iocell1";
     ATTRIBUTE Location OF Servo1(0) : LABEL IS "P1[7]";
     ATTRIBUTE lib_model OF Servo2(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF Servo2(0) : LABEL IS "P1[6]";
+    ATTRIBUTE Location OF Servo2(0) : LABEL IS "P1[4]";
     ATTRIBUTE lib_model OF \lcd:LCDPort(0)\ : LABEL IS "iocell3";
     ATTRIBUTE Location OF \lcd:LCDPort(0)\ : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF \lcd:LCDPort(1)\ : LABEL IS "iocell4";
