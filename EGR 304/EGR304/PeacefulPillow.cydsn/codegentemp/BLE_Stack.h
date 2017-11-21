@@ -2,7 +2,7 @@
 * \file CyBle.h
 *
 * \file CYBLE_Stack.h
-* \version 3.30
+* \version 3.40
 *
 * \brief
 *  This file contains declaration of public BLE APIs other than those covered by
@@ -55,30 +55,6 @@
 
 /* Bluetooth Device Address size */
 #define CYBLE_GAP_BD_ADDR_SIZE                                          (0x06u)
-
-/* LTK Size */
-#define CYBLE_LTK_SIZE                                                  (0x10u) 
- 
-/* Mid Infor Size - EDIV + RAND */
-#define CYBLE_MID_INFO_SIZE                                             (0x0Au)
-
-/* IRK Size */
-#define CYBLE_IRK_SIZE                                                  (0x10u)
-
-/* ID Address Size - Type + Address */
-#define CYBLE_IDADDR_SIZE                                               (0x07u)
-
-/* CSRK Size */
-#define CYBLE_CSRK_SIZE                                                 (0x10u)
-
-/* Maximum Bonded devices supported */
-#define CYBLE_MAX_BONDED_DEVICE                                         (0x04u)
-
-/* Maximum Bd address can be stored */
-#define CYBLE_MAX_BD_DEVICE                                             (0x05u)
-
-/* MAX Reserved Size for Stack */
-#define CYBLE_MAX_RESERVED_SIZE                                         (0x0Au)
 
 /***************************************
 *  Memory pool configuration data defines
@@ -520,7 +496,7 @@ typedef enum
      * negotiation. The event parameter is CYBLE_GAP_AUTH_INFO_T. CYBLE_GAP_AUTH_INFO_T will have the 
      * negotiated parameter, the pairing should either pass with these negotiated parameters or may fail. This event
      * is applicable to both GAP Central and GAP Peripheral devices. In GAP Peripheral, this event is called from 
-     * API-CyBle_GappAuthReqReply context.
+     * API function CyBle_GappAuthReqReply context.
      */
     CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO,
 
@@ -648,7 +624,7 @@ typedef enum
     CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ,
 
     /** Event indicating that GATT group procedure has stopped or completed, this event occurs
-       only if application has called CyBle_GattcStopCmd API. 
+       only if application has called CyBle_GattcStopCmd API function. 
        Event parameters shall be ignored */
     CYBLE_EVT_GATTC_STOP_CMD_COMPLETE,
 
@@ -1110,6 +1086,9 @@ typedef enum
 
     /** Error in flash Write */
     CYBLE_ERROR_FLASH_WRITE,
+    
+    /** LL same transaction collision */
+    CYBLE_ERROR_LL_SAME_TRANSACTION_COLLISION,
 
 	/** Controller Busy */
     CYBLE_ERROR_CONTROLLER_BUSY = 0x00FEu,
@@ -1541,11 +1520,11 @@ typedef struct
 * Function Name: CyBle_StackSetFeatureConfig
 ***************************************************************************//**
 *
-* This API sets the configuration for Bluetooth 4.2 features in BLE Stack to
+* This API function sets the configuration for Bluetooth 4.2 features in BLE Stack to
 * initialize the corresponding data structures and data buffers to support
 * the features. BLE Stack will create the data buffers for Data length extension
 * feature, LE Privacy 1_2 and Secure connections as specified in the parameters
-* during time of initialization in CyBle_StackInit() API.
+* during time of initialization in CyBle_StackInit() API function.
 *
 * This is a blocking function. No event is generated on calling this function.
 *
@@ -1567,6 +1546,9 @@ typedef struct
 *  CYBLE_ERROR_INVALID_PARAMETER    | Invalid configuration parameters passed or invalid combination of configParam and featureMask
 *  CYBLE_ERROR_INVALID_OPERATION    | Invoked after successful stack initialization
 *
+* \note 
+* In case of BLE SOC-Mode of operation, Stack will autonomously intiatiate DLE procedure (with max supported txoctet)
+* after connection establishement when DLE feature is enabled and dleMaxTxCapability is greater than CYBLE_LL_DEFAULT_TX_CAPABILITY.
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_StackSetFeatureConfig
 (
@@ -1579,9 +1561,9 @@ CYBLE_API_RESULT_T CyBle_StackSetFeatureConfig
 * Function Name: CyBle_StackGetFeatureConfig
 *******************************************************************************
 *
-* This API is used to get Bluetooth 4.2 features configuration made to BLE Stack 
+* This API function is used to get Bluetooth 4.2 features configuration made to BLE Stack 
 * during Stack initialization. For more details about configuration please 
-* refer API CyBle_StackSetFeatureConfig.
+* refer API function CyBle_StackSetFeatureConfig.
 *
 * This is a blocking function. No event is generated on calling this function.
 *
@@ -1626,7 +1608,7 @@ CYBLE_API_RESULT_T CyBle_StackGetFeatureConfig
 *  \param CyBLEApplCbFunc: Event callback function to receive events from BLE Stack.
 *                  CYBLE_APP_CB_T is a function pointer type. Application is not expected to call 
 *                  stack APIs in the stack call back context. Stack execution should be allowed to
-*                  return unless Stack API explicitly mentions otherwise.
+*                  return unless Stack API function explicitly mentions otherwise.
 *
 *                  Following APIs should not be called from BLE Stack callback context but can be called from
 *                   'CYBLE_EVT_GATTC_ERROR_RSP' or 'CYBLE_EVT_GATTC_LONG_PROCEDURE_END' events
@@ -1886,12 +1868,12 @@ CYBLE_API_RESULT_T CyBle_SoftReset(void);
 *   (typically 2ms).
 * 
 *   NOTE: If application is using ECO as source of HFCLK for higher clock accuracy
-*   and calls this API to move BLESS to Deep Sleep mode then HFCLK accuracy and
-*   frequency would be impacted as this API switches HFCLK source from ECO to IMO.
+*   and calls this API function to move BLESS to Deep Sleep mode then HFCLK accuracy and
+*   frequency would be impacted as this API function switches HFCLK source from ECO to IMO.
 *   On BLESS wakeup, the HFCLK source would be switched back to ECO.
 *
 *   Recommendation is that application turns on IMO and sets it as HFCLK source before 
-*   calling this API. Upon wakeup due to sources other than BLESS, application can turn
+*   calling this API function. Upon wakeup due to sources other than BLESS, application can turn
 *   on ECO and switch HFCLK source to ECO. Pseudo code of recommendation is given below.
 *
 *   Pseudo Code:
@@ -2029,10 +2011,10 @@ void CyBle_ProcessEvents(void);
 * application; there are no limits specified on this period. The application
 * layer should maintain its own timers in order to do this.
 *
-* User should call 'CyBle_GapSetIdAddress' API to set identity address if 'CyBle_SetDeviceAddress'
-* API is used to set public or random static address.
+* User should call 'CyBle_GapSetIdAddress' API function to set identity address if 'CyBle_SetDeviceAddress'
+* API function is used to set public or random static address.
 *  This is a blocking function. No event is generated on calling this function.
-*  This API will be obsolete in future.
+*  This API function will be obsolete in future.
 * 
 *  \param bdAddr: Bluetooth Device address retrieved from the BLE stack gets stored
 *           to a variable pointed to by this pointer. The variable is of type
@@ -2056,7 +2038,7 @@ CYBLE_API_RESULT_T CyBle_SetDeviceAddress(CYBLE_GAP_BD_ADDR_T* bdAddr);
 * Function Name: CyBle_GetDeviceAddress
 ***************************************************************************//**
 * 
-*  This API reads the BD device address from BLE Controller's memory. This
+*  This API function reads the BD device address from BLE Controller's memory. This
 *  address shall be used for BLE procedures unless explicitly indicated by BLE
 *  Host through HCI commands. This is a blocking function and it returns
 *  immediately with the required value.
@@ -2164,7 +2146,7 @@ CYBLE_API_RESULT_T CyBle_GetTxPowerLevel(CYBLE_BLESS_PWR_IN_DB_T *bleSsPwrLvl);
 *   NOTE: The set power level is applicable to both advertisement and connection channel 
 *         for the following scenarios 
 *           - bleSsPwrLvl->blePwrLevelInDbm is greater than 0dB  
-*           - Before calling this API Tx power level is 3dB  
+*           - Before calling this API function Tx power level is 3dB  
 *
 * \return
 *  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
@@ -2400,8 +2382,9 @@ CYBLE_API_RESULT_T CyBle_AesEncrypt
 *    ------------                    | -----------
 *    CYBLE_ERROR_OK                  | On successful operation
 *    CYBLE_ERROR_INVALID_PARAMETER   | One of the input parameters is invalid
-*    CYBLE_ERROR_NO_CONNECTION       | Connection does not exist
-* 
+*    CYBLE_ERROR_NO_CONNECTION       | When controller can't find active connection using given bdHandle
+*    CYBLE_ERROR_NO_DEVICE_ENTITY    | Invalid bdHandle or LE connection doesn't exist for link identified by bdHandle.
+
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_SetCeLengthParam 
             (uint8 bdHandle, uint8 mdBit, uint16 ceLength); 
@@ -2428,7 +2411,7 @@ CYBLE_API_RESULT_T CyBle_SetCeLengthParam
 *                      - Time Range = 10 ms to 655,350 ms
 *
 *  Note: The time at which PING packet transmitted over the air is determined from the 
-*        following formula 
+*        following formula (only in case of SlaveLatency is enabled)
 *        (authPayloadTimeout - (4 * ((1 + SlaveLatency) * Connection Interval)))
 *						
 * \return
@@ -2440,8 +2423,9 @@ CYBLE_API_RESULT_T CyBle_SetCeLengthParam
 *   CYBLE_ERROR_OK                   | On successful operation
 *   CYBLE_ERROR_INVALID_PARAMETER    | One of the input parameters is invalid
 *   CYBLE_ERROR_INVALID_OPERATION    | Operation is not permitted
-*   CYBLE_ERROR_NO_CONNECTION        | Connection does not exist
-* 
+*   CYBLE_ERROR_NO_CONNECTION        | When controller can't find active connection using given bdHandle
+*   CYBLE_ERROR_NO_DEVICE_ENTITY     | Invalid bdHandle or LE connection doesn't exist for link identified by bdHandle.
+*
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_WriteAuthPayloadTimeout 
         (
@@ -2473,8 +2457,9 @@ CYBLE_API_RESULT_T CyBle_WriteAuthPayloadTimeout
 *   CYBLE_ERROR_OK                   | On successful operation.
 *   CYBLE_ERROR_INVALID_PARAMETER    | One of the input parameters is invalid.
 *   CYBLE_ERROR_INVALID_OPERATION    | Operation is not permitted.
-*   CYBLE_ERROR_NO_CONNECTION        | Connection does not exist.
-* 
+*   CYBLE_ERROR_NO_CONNECTION        | When controller can't find active connection using given bdHandle
+*   CYBLE_ERROR_NO_DEVICE_ENTITY     | Invalid bdHandle or LE connection doesn't exist for link identified by bdHandle.
+*
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_ReadAuthPayloadTimeout 
         (
@@ -2509,13 +2494,13 @@ CYBLE_API_RESULT_T CyBle_GetStackLibraryVersion(CYBLE_STACK_LIB_VERSION_T*   sta
 * Function Name: CyBle_IsStackIdle
 ***************************************************************************//**
 * 
-*  This function is used to check BLE stack is idle or not. This API returns CYBLE_ERROR_OK
+*  This function is used to check BLE stack is idle or not. This API function returns CYBLE_ERROR_OK
 *  if BLE Stack is idle. This function returns CYBLE_ERROR_STACK_BUSY if L2CAP TX data is queued 
 *  for transmission, or any tasks are pending or hardware is busy. This function will not consider 
 *  Rx path to decide stack is idle or not.
 *
 *  Note:
-*  This API should not be called from BLE Stack callback context.
+*  This API function should not be called from BLE Stack callback context.
 *  
 *  Use case example: Application can check before shut-down, BLE stack is idle or not.
 *
@@ -2695,10 +2680,10 @@ CYBLE_API_RESULT_T CyBle_AesCcmDecrypt(
 * Function Name: CyBle_GenerateAesCmac
 ***************************************************************************//**
 * 
-*  This API enables the application to generate the AES CMAC of 16 bytes, for given variable 
+*  This API function enables the application to generate the AES CMAC of 16 bytes, for given variable 
 *  length message and CMAC Key.
     
-*  After this API call, if the return value is CYBLE_ERROR_OK, 
+*  After this API function call, if the return value is CYBLE_ERROR_OK, 
 *  then callback given in the input parameter is called when the cmac generation is completed. 
 *  Once this callback is called, check the output parameter cmac to get the generated cmac value.
 * 	
@@ -2738,7 +2723,7 @@ CYBLE_API_RESULT_T CyBle_GenerateAesCmac(CYBLE_AES_CMAC_GENERATE_PARAM_T *cmacGe
 * Function Name: CyBle_SetAppEventMask
 ***************************************************************************//**
 * 
-*  This API enables the application to Mask which Events user wants to receive 
+*  This API function enables the application to Mask which Events user wants to receive 
 *	
 *    Currently supporting maskable events 
 *		CYBLE_EVT_GAP_CONN_ESTB
@@ -2773,7 +2758,7 @@ CYBLE_API_RESULT_T CyBle_SetAppEventMask(uint32 UserEventMask);
 * Function Name: CyBle_RegisterBlessInterruptCallback
 ***************************************************************************//**
 * 
-*   This API will registers the callback function for BLESS Events and sets 
+*   This API function will registers the callback function for BLESS Events and sets 
 *   Event mask which BLESS Events user wants to receive 
 *
 *    Currently supporting events 
@@ -2868,13 +2853,13 @@ void CyBle_SetRxGainMode(uint8 bleSsGainMode);
 ***************************************************************************//**
 *
 * This function overrides the default BLE Stack behavior for LE connection that
-* is established with non zero slave latency. This API can be used by application
+* is established with non zero slave latency. This API function can be used by application
 * to force set quick transmission for a link related to specified 'bdHandle' during
 * slave latency period. 
 * 
 * If the force quick transmit option is selected, the device will always respond
 * all the Connection Events (CE) ignoring the slave latency. To re-enable BLE Stack
-* control quick transmit behavior application should call this API with force 
+* control quick transmit behavior application should call this API function with force 
 * quick transmit option set to zero.
 *
 * BLE Stack Control Policy: BLE Stack enables quick transmission whenever any
@@ -2904,7 +2889,8 @@ void CyBle_SetRxGainMode(uint8 bleSsGainMode);
 *  Errors codes                 | Description
 *  ------------                 | -----------
 *  CYBLE_ERROR_OK               | On successful operation.
-*  CYBLE_ERROR_NO_CONNECTION    | Invalid bdHandle or LE connection doesn't exist for link identified by bdHandle.
+*  CYBLE_ERROR_NO_CONNECTION    | When controller can't find active connection using given bdHandle
+*  CYBLE_ERROR_NO_DEVICE_ENTITY | Invalid bdHandle or LE connection doesn't exist for link identified by bdHandle.
 *
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_SetSlaveLatencyMode(uint8 bdHandle, uint8 setForceQuickTransmit);
@@ -2916,9 +2902,9 @@ CYBLE_API_RESULT_T CyBle_SetSlaveLatencyMode(uint8 bdHandle, uint8 setForceQuick
 *
 * As per security specification of Bluetooth, BLE stack uses pseudo random number 
 * generator (Bluetooth core specification 4.2, Vol.2 Part H, Sec-2). Application 
-* can generate random number using API- CyBle_GenerateRandomNumber. Seed for 
+* can generate random number using API function CyBle_GenerateRandomNumber. Seed for 
 * random number generator with better entropy for randomness can be provided by 
-* application using this API. This function sets application specific seed for 
+* application using this API function. This function sets application specific seed for 
 * DRBG (Deterministic Random number generator).
 *  
 *  \param seed: Seed for DRBG. Setting the seed to zero is functionally 
@@ -2939,12 +2925,12 @@ void CyBle_SetSeedForRandomGenerator(uint32 seed);
 * control (LL_CHANNEL_MAP, LL_CONNECTION_UPDATE) procedure. When any such 
 * procedure is pending in Link layer busy state it is indicated by Link Layer.
 *
-* Application using specific GAP APIs or L2CAP API that can result
+* Application using specific GAP API functions or L2CAP API functions that can result
 * in initiation of real time procedures such as LL_CHANNEL_MAP, LL_CONNECTION_UPDATE
 * can check the state of Link Layer to avoid any such rejection from BLE Stack.
 *
 * BLE Stack can reject the new request 
-* If any LL control procedure is pending for completion this API will return 
+* If any LL control procedure is pending for completion this API function will return 
 * CYBLE_ERROR_CONTROLLER_BUSY.
 *
 * \return
@@ -2963,7 +2949,7 @@ CYBLE_API_RESULT_T CyBle_IsLLControlProcPending(void);
 * Function Name: CyBle_StartTransmitterTest
 ***************************************************************************//**
 * 
-*  This API Programs direct test mode TX test command parameters.
+*  This API function Programs direct test mode TX test command parameters.
 * 	
 *  \param TransmitterTestParams: pointer to structure CYBLE_TRANSMITTER_TEST_PARAMS_T.
 * 
@@ -2997,7 +2983,7 @@ CYBLE_API_RESULT_T CyBle_StartTransmitterTest
 * Function Name: CyBle_StartReceiverTest
 ***************************************************************************//**
 * 
-*  This API Programs direct test mode RX test command parameters.
+*  This API function Programs direct test mode RX test command parameters.
 *  
 *  \param RxFreq: Frequency for reception.
 *                 N = (F – 2402)/2  Range: 0x00 – 0x27. 
@@ -3032,7 +3018,7 @@ CYBLE_API_RESULT_T CyBle_StartReceiverTest
 * Function Name: CyBle_TestEnd
 ***************************************************************************//**
 * 
-*  This API Programs the direct test end command to the hardware, it reads number
+*  This API function Programs the direct test end command to the hardware, it reads number
 *  of successful packtes received from ll hardware.
 *  
 *  \param PacketCount: Pointer to a buffer of size 16 bytes in which the received 
@@ -3067,7 +3053,7 @@ CYBLE_API_RESULT_T CyBle_TestEnd
 * Function Name: CyBle_HciSendPacket
 ***************************************************************************//**
 * 
-*  This API Sends HCI packet to Controller
+*  This API function Sends HCI packet to Controller
 *  
 *  User should deallocate memory buffer passed as an input parameter,
 *  after receiving an Event from the controller for command packet and 
@@ -3161,7 +3147,7 @@ void CyBle_EnableDefaultDevicePrivacy(void);
 * Function Name: CyBle_HciUartTransportEnable
 *******************************************************************************
 *
-* This function Enables HCI Software Transport 
+* This function Enables HCI UART transport
 *
 * \return
 *    None.
@@ -3174,7 +3160,7 @@ void CyBle_HciUartTransportEnable(void);
 * Function Name: CyBle_HciSoftTransportEnable
 *******************************************************************************
 *
-* This function Enables HCI UART transport
+* This function Enables HCI Software Transport
 *
 * \return
 *    None.

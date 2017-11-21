@@ -13,6 +13,8 @@
     <Group key="Pin">
       <Data key="1cde7cad-bb9a-4c0a-bc77-c23ad63593c6" value="motorB" />
       <Data key="4ff5b3e2-2307-4da3-835d-93feefba1400" value="flexSensorB" />
+      <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/23b8206d-1c77-4e61-be4a-b4037d5de5fc" value="UART_1_tx" />
+      <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/78e33e5d-45ea-4b75-88d5-73274e8a7ce4" value="UART_1_rx" />
       <Data key="49c70522-ba19-4f05-b8e5-a86fc4991a94" value="buzzer" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx_1" />
       <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="flexSensorA" />
@@ -3564,6 +3566,16 @@
     <Group key="4ff5b3e2-2307-4da3-835d-93feefba1400">
       <Group key="0">
         <Data key="Port Format" value="0,1" />
+      </Group>
+    </Group>
+    <Group key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/23b8206d-1c77-4e61-be4a-b4037d5de5fc">
+      <Group key="0">
+        <Data key="Port Format" value="1,5" />
+      </Group>
+    </Group>
+    <Group key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/78e33e5d-45ea-4b75-88d5-73274e8a7ce4">
+      <Group key="0">
+        <Data key="Port Format" value="1,4" />
       </Group>
     </Group>
     <Group key="49c70522-ba19-4f05-b8e5-a86fc4991a94">

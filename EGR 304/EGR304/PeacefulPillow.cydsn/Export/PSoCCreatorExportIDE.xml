@@ -37,7 +37,9 @@
       <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn">
         <Files Root="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
+          <File BuildType="BUILD" Toolchain="">EventHandler.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
+          <File BuildType="BUILD" Toolchain="">main.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Generated_Source\PSoC4">
@@ -118,19 +120,10 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cycodeshareimport.scat</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_BOOT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_IntClock.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\uart_IntClock.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_gatt.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_gatt.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_ias.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_ias.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_eventHandler.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_HAL_INT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_HAL_PVT.c</File>
@@ -145,13 +138,45 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_StackGattClient.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_Stack.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_eventHandler.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_custom.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_custom.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_bless_isr.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\BLE_bless_isr.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DisplayTimer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DisplayTimer.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DisplayTimer_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Timer_CLK.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Timer_CLK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Disp_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Disp_INT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_SPI_UART.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_SPI_UART.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_SPI_UART_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_UART.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_BOOT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_UART_BOOT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_PINS.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_SPI_UART_PVT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_PVT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_BOOT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_SCBCLK.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_SCBCLK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_tx.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_tx.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_tx_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_tx_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_rx.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_rx.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_rx_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\UART_1_rx_PM.c</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Export\ARM_GCC_Generic\BLE_v3_30">
+      <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Export\ARM_GCC_Generic\BLE_v3_40">
         <Files Root="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn">
-          <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\BLE_v3_30\gccCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
+          <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\BLE_v3_40\gccCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Export\ARM_GCC_Generic">
@@ -159,9 +184,9 @@
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Export\ARM_MDK_Generic\BLE_v3_30">
+      <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Export\ARM_MDK_Generic\BLE_v3_40">
         <Files Root="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn">
-          <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\BLE_v3_30\mdkCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
+          <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\BLE_v3_40\mdkCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Export\ARM_MDK_Generic">
@@ -169,9 +194,9 @@
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Export\ARM_IAR_Generic\BLE_v3_30">
+      <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Export\ARM_IAR_Generic\BLE_v3_40">
         <Files Root="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn">
-          <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\BLE_v3_30\mdkCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
+          <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\BLE_v3_40\gccCyBLEStack_BLE_SOC_PERIPHERAL.a</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\Export\ARM_IAR_Generic">

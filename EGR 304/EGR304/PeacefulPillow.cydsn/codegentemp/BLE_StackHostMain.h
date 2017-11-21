@@ -2,7 +2,7 @@
 * \file CyBle_HostMain.h
 *
 * \file CYBLE_StackHostMain.h
-* \version 3.30
+* \version 3.40
 *
 * \brief
 *  This file contains the constants of the BLE Host Stack IP
@@ -79,7 +79,7 @@ typedef void (*CYBLE_STACK_EV_CB_PF)(CYBLE_EVT_HOST_STACK_T event, void* evParam
 ***************************************************************************//**
 * 
 *  This function instructs Stack to backup Stack internal RAM data into flash.
-*  This API must be called by application to backup stack data. If this API is not 
+*  This API function must be called by application to backup stack data. If this API function is not 
 *  called appropriately, stack internal data structure will not be available on
 *  power cycle.
 *     
@@ -105,7 +105,7 @@ CYBLE_API_RESULT_T CyBle_StoreStackData(uint8 isForceWrite);
 ***************************************************************************//**
 * 
 *  This function instructs the Stack to backup application specific data into 
-*  flash. This API must be called by application to backup application specific 
+*  flash. This API function must be called by application to backup application specific 
 *  data. 
 *     
 *  \param srcBuff: Source buffer

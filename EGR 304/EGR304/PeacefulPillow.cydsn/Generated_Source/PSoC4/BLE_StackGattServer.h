@@ -2,7 +2,7 @@
 * \file CyBle_GattServer.h
 * 
 * \file CYBLE_StackGattServer.h
-* \version 3.30
+* \version 3.40
 *
 * \brief
 *  This file contains the GATT Server routines
@@ -230,7 +230,7 @@ typedef struct
 *    <td>This operation is not permitted as BLE Stack is busy processing previous requests. The Error code is
          returned if the stack queue is full or for other reasons, the stack cannot 
   		 process the operation. If stack busy event 'CYBLE_EVT_STACK_BUSY_STATUS' 
-  		 is triggered with status busy, calling this API will trigger this error code. For details
+  		 is triggered with status busy, calling this API function will trigger this error code. For details
   		 refer 'CYBLE_EVT_STACK_BUSY_STATUS' event</td>
 *  </tr>
 *  <tr>
@@ -388,9 +388,9 @@ CYBLE_API_RESULT_T CyBle_GattsExchangeMtuRsp
 * Function Name: CyBle_GattsPrepWriteReqSupport
 ***************************************************************************//**
 * 
-*  This API needs to be called after getting CYBLE_EVT_GATTS_PREP_WRITE_REQ 
+*  This API function needs to be called after getting CYBLE_EVT_GATTS_PREP_WRITE_REQ 
 *  event from the BLE Stack to support prepare write request operation. 
-*  This API should be called only once during one Long/reliable write session. 
+*  This API function should be called only once during one Long/reliable write session. 
 *  This needs to be called from the same event call back context. 
 *  This is a non-blocking function.
 * 

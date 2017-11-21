@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file BLE_HAL_INT.c
-* \version 3.30
+* \version 3.40
 *
 * \brief
 *  This file contains the source code for the Interrupt Service Routine for the
@@ -34,7 +34,10 @@ CY_ISR(CyBLE_Bless_Interrupt)
     #endif /* CYBLE_STACK_MODE_DEBUG */
 
     /* Call stack manager bless function handler */
-    CyBLE_pf_bless_event_hdlr();
+    #if(!CYBLE_SHARING_MODE_IMPORT)
+        CyBLE_pf_bless_event_hdlr();
+    #endif /* CYBLE_SHARING_MODE_IMPORT */
+    
     /* Host stack takes care of clearing interrupts */
 }
 
@@ -56,7 +59,7 @@ CY_ISR(CyBLE_Uart_Interrupt)
     uint8  uartTxStatus = CyBLE_INTR_TX_SUCCESS;
     uint32 srcInterrupt = 0u;
 
-    uint8 length = 0u;
+    uint8 bufferLength = 0u;
     uint8 srcCount = 0u;
     uint8 uartRxStatus = CyBLE_INTR_RX_SUCCESS;
     uint8 receivedData[BLE_HAL_Uart_FIFO_SIZE] = {0u};
@@ -80,8 +83,8 @@ CY_ISR(CyBLE_Uart_Interrupt)
         }
         if(uartRxStatus == CyBLE_INTR_RX_SUCCESS)
         {
-            length = (uint8)BLE_HAL_Uart_SpiUartGetRxBufferSize();
-            for(srcCount = 0u; srcCount < length; srcCount++)
+            bufferLength = (uint8)BLE_HAL_Uart_SpiUartGetRxBufferSize();
+            for(srcCount = 0u; srcCount < bufferLength; srcCount++)
             {
                 receivedData[srcCount] = (uint8)BLE_HAL_Uart_SpiUartReadRxData();
             }
@@ -90,7 +93,7 @@ CY_ISR(CyBLE_Uart_Interrupt)
         {
             BLE_HAL_Uart_SpiUartClearRxBuffer();
         }
-        for(uartTxStatus = 0u; uartTxStatus < length; uartTxStatus++)
+        for(uartTxStatus = 0u; uartTxStatus < bufferLength; uartTxStatus++)
         {
             CyBLE_pf_handle_uart_rx_data(receivedData[uartTxStatus]);
         }

@@ -1,0 +1,32 @@
+--------------- Rebuild Started: 11/20/2017 17:26:06 Project: StandardDisplay.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/StandardDisplay.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c StandardDisplay.c -o .\CortexM0\ARM_GCC_541\Debug\StandardDisplay.o
+StandardDisplay.c: In function 'SendPacketNoCS':
+StandardDisplay.c:35:5: warning: implicit declaration of function 'MAX7219_SpiUartWriteTxData' [-Wimplicit-function-declaration]
+     MAX7219_SpiUartWriteTxData(reg & 0x0F);
+     ^
+StandardDisplay.c: In function 'showLetterIndex':
+StandardDisplay.c:46:9: warning: implicit declaration of function 'CS_Write' [-Wimplicit-function-declaration]
+         CS_Write(LOW);
+         ^
+StandardDisplay.c: In function 'DisplayMessage':
+StandardDisplay.c:158:5: warning: implicit declaration of function 'Timer_CLK_Stop' [-Wimplicit-function-declaration]
+     Timer_CLK_Stop();
+     ^
+StandardDisplay.c:167:5: warning: implicit declaration of function 'Timer_CLK_Start' [-Wimplicit-function-declaration]
+     Timer_CLK_Start();
+     ^
+StandardDisplay.c: In function 'DispaySpeed':
+StandardDisplay.c:188:5: warning: implicit declaration of function 'Timer_CLK_SetDividerValue' [-Wimplicit-function-declaration]
+     Timer_CLK_SetDividerValue(255 - (speed % 201));  // character speed: range: 80 to 255
+     ^
+StandardDisplay.c: In function 'StandardDisplayInit':
+StandardDisplay.c:198:5: warning: implicit declaration of function 'MAX7219_Start' [-Wimplicit-function-declaration]
+     MAX7219_Start();
+     ^
+StandardDisplay.c:200:5: warning: implicit declaration of function 'DisplayTimer_Start' [-Wimplicit-function-declaration]
+     DisplayTimer_Start();
+     ^
+StandardDisplay.c:201:5: warning: implicit declaration of function 'Disp_INT_StartEx' [-Wimplicit-function-declaration]
+     Disp_INT_StartEx(Display_ISR);
+     ^
+--------------- Rebuild Succeeded: 11/20/2017 17:26:06 ---------------

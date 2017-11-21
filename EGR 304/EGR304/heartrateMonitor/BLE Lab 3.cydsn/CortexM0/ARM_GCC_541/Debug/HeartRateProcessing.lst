@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
   21:HeartRateProcessing.c **** * Cypress Source Code and derivative works for the sole purpose of creating
   22:HeartRateProcessing.c **** * custom software in support of licensee product to be used only in conjunction
   23:HeartRateProcessing.c **** * with a Cypress integrated circuit as specified in the applicable agreement.
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 2
 
 
   24:HeartRateProcessing.c **** * Any reproduction, modification, translation, compilation, or representation of
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
   78:HeartRateProcessing.c **** *
   79:HeartRateProcessing.c **** * Return:
   80:HeartRateProcessing.c **** * None
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 3
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 3
 
 
   81:HeartRateProcessing.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  108:HeartRateProcessing.c ****     
  109:HeartRateProcessing.c ****     /* If the ADC output is more than a fixed threshold, consider that a 
  110:HeartRateProcessing.c ****      * valid R peak */
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 4
 
 
  111:HeartRateProcessing.c ****     if (adcOut > ADC_THRESHOLD)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
   92 0050 FFF7FEFF 		bl	WatchdogTimer_GetTimestamp
   93 0054 0200     		movs	r2, r0
   94 0056 144B     		ldr	r3, .L8+12
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 5
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 5
 
 
   95 0058 1A60     		str	r2, [r3]
@@ -256,7 +256,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  104 0066 7B68     		ldr	r3, [r7, #4]
  105 0068 002B     		cmp	r3, #0
  106 006a 07D0     		beq	.L5
- 138:HeartRateProcessing.c ****                 {
+ 138:HeartRateProcessing.c ****                 {   //modify this to be sent!!!!!!!!!!!!!
  139:HeartRateProcessing.c ****                     heartRate = (uint32)SEC_IN_MIN * MS_TO_SECOND / twoSampleTime;
  107              		.loc 1 139 0
  108 006c 7968     		ldr	r1, [r7, #4]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  158:HeartRateProcessing.c ****     }
  159:HeartRateProcessing.c **** }
  126              		.loc 1 159 0
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 6
 
 
  127 008a 02E0     		b	.L7
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  180 000b 01       		.uleb128 0x1
  181 000c E3040000 		.4byte	.LASF110
  182 0010 0C       		.byte	0xc
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 7
 
 
  183 0011 6D060000 		.4byte	.LASF111
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  237 007f 48000000 		.4byte	0x48
  238 0083 04       		.uleb128 0x4
  239 0084 2E020000 		.4byte	.LASF11
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 8
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 8
 
 
  240 0088 02       		.byte	0x2
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  294 00f0 1A070000 		.4byte	.LASF25
  295 00f4 21       		.byte	0x21
  296 00f5 06       		.uleb128 0x6
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 9
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 9
 
 
  297 00f6 00000000 		.4byte	.LASF26
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  351 0162 6F070000 		.4byte	.LASF44
  352 0166 34       		.byte	0x34
  353 0167 06       		.uleb128 0x6
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 10
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 10
 
 
  354 0168 4D090000 		.4byte	.LASF45
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  408 01d4 0D060000 		.4byte	.LASF63
  409 01d8 4F       		.byte	0x4f
  410 01d9 06       		.uleb128 0x6
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 11
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 11
 
 
  411 01da 4D0B0000 		.4byte	.LASF64
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  465 0246 15090000 		.4byte	.LASF82
  466 024a 79       		.byte	0x79
  467 024b 06       		.uleb128 0x6
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 12
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 12
 
 
  468 024c B50A0000 		.4byte	.LASF83
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  522 02b8 03       		.byte	0x3
  523 02b9 06       		.uleb128 0x6
  524 02ba 570A0000 		.4byte	.LASF97
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 13
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 13
 
 
  525 02be 04       		.byte	0x4
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  579 032d 77000000 		.4byte	0x77
  580 0331 05       		.uleb128 0x5
  581 0332 03       		.byte	0x3
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 14
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 14
 
 
  582 0333 08000000 		.4byte	newBeatTime.7431
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  636 0015 00       		.byte	0
  637 0016 0B       		.uleb128 0xb
  638 0017 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 15
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 15
 
 
  639 0018 3E       		.uleb128 0x3e
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  693 004e 07       		.uleb128 0x7
  694 004f 04       		.uleb128 0x4
  695 0050 01       		.byte	0x1
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 16
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 16
 
 
  696 0051 0B       		.uleb128 0xb
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  750 0088 00       		.byte	0
  751 0089 03       		.uleb128 0x3
  752 008a 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 17
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 17
 
 
  753 008b 3A       		.uleb128 0x3a
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  792      4D4F5259 
  792      5F524551 
  793              	.LASF48:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 18
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 18
 
 
  794 0057 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  812      5F4E554D 
  813              	.LASF6:
  814 0145 6C6F6E67 		.ascii	"long long int\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 19
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 19
 
 
  814      206C6F6E 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  835 0234 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
  835      455F4556 
  835      545F4741 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 20
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 20
 
 
  835      505F4B45 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  855 0357 6C6F6E67 		.ascii	"long long unsigned int\000"
  855      206C6F6E 
  855      6720756E 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 21
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 21
 
 
  855      7369676E 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  874      5454435F 
  874      48414E44 
  875              	.LASF22:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 22
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 22
 
 
  876 048a 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  893              	.LASF106:
  894 05cd 6E657742 		.ascii	"newBeatTime\000"
  894      65617454 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 23
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 23
 
 
  894      696D6500 
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  915              	.LASF28:
  916 06c4 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
  916      455F4556 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 24
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 24
 
 
  916      545F4741 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  934      65642069 
  934      6E7400
  935              	.LASF87:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 25
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 25
 
 
  936 07bd 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  956      5454435F 
  956      45584543 
  957              	.LASF10:
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 26
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 26
 
 
  958 08b8 75696E74 		.ascii	"uint32\000"
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  978      455F4556 
  978      545F4C32 
  978      4341505F 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 27
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 27
 
 
  978      43424643 
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  996      43424643 
  997              	.LASF35:
  998 0ad9 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 28
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 28
 
 
  998      455F4556 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 1
  1017              	.LASF39:
  1018 0bd8 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
  1018      455F4556 
-ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccIVRzXS.s 			page 29
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccyNqDuP.s 			page 29
 
 
  1018      545F4741 

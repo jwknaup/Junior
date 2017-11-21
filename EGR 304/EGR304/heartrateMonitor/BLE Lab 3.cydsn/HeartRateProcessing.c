@@ -135,7 +135,7 @@ void ProcessHeartRateSignal(void)
     			twoSampleTime = newBeatTime - previousBeatTime;
                 
                 if(twoSampleTime != 0)
-                {
+                {   //modify this to be sent!!!!!!!!!!!!!
                     heartRate = (uint32)SEC_IN_MIN * MS_TO_SECOND / twoSampleTime;
                 }
                 

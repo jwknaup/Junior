@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CYBLE_eventHandler.c
-* \version 3.30
+* \version 3.40
 * 
 * \brief
 *  This file contains the source code for the Event Handler State Machine
@@ -67,8 +67,8 @@ const CYBLE_GAPS_T cyBle_gaps =
     0x0003u,    /* Handle of the Device Name characteristic */
     0x0005u,    /* Handle of the Appearance characteristic */
     0x0007u,    /* Handle of the Peripheral Preferred Connection Parameters characteristic */
-    0x0009u,    /* Handle of the Central Address Resolution characteristic */
-    0x000Bu,    /* Handle of the Resolvable Private Address Only characteristic */
+    CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, /* Handle of the Central Address Resolution characteristic */
+    CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, /* Handle of the Resolvable Private Address Only characteristic */
 };
 
 
@@ -192,7 +192,7 @@ CYBLE_DISC_SRVC_INFO_T cyBle_serverInfo[CYBLE_SRVI_COUNT] = /*3*/
     {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_PHONE_ALERT_STATUS_SERVICE},
 #endif /* CYBLE_PASS_CLIENT */
 #ifdef CYBLE_PLXS_CLIENT
-    {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_PLXS_SERVICE},
+    {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_PLX_SERVICE},
 #endif /* CYBLE_PLXS_CLIENT */
 #ifdef CYBLE_RSCS_CLIENT
     {{CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE}, CYBLE_UUID_RUNNING_SPEED_AND_CADENCE_SERVICE},
@@ -228,7 +228,7 @@ CYBLE_GAP_AUTH_INFO_T cyBle_authInfo =
     CYBLE_GAP_BONDING_NONE, /* uint8 bonding */
     0x10u,      /* uint8 ekeySize */
     CYBLE_GAP_AUTH_ERROR_NONE, /* CYBLE_AUTH_FAILED_REASON_T authErr */
-    0x00u,      /* uint8 pairingProperties */
+    0x01u,      /* uint8 pairingProperties */
 };
 
 #if(CYBLE_GATT_ROLE_SERVER)
@@ -531,6 +531,13 @@ static void CyBle_ValueConfirmation(const CYBLE_CONN_HANDLE_T *eventParam)
             CyBle_LnssConfirmationEventHandler(eventParam);
         }
     #endif /* CYBLE_LNS_SERVER */
+    
+    #ifdef CYBLE_PLXS_SERVER
+        if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
+        {
+            CyBle_PlxssConfirmationEventHandler((CYBLE_CONN_HANDLE_T *)eventParam);
+        }
+    #endif /* CYBLE_PLXS_SERVER */
     
     #ifdef CYBLE_RSCS_SERVER
         if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
@@ -888,6 +895,12 @@ static void CyBle_NotificationEventHandler(CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T 
         CyBle_PasscNotificationEventHandler(eventParam);
     }
 #endif /* CYBLE_PASS_CLIENT */
+#ifdef CYBLE_PLXS_CLIENT
+    if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
+    {
+        CyBle_PlxscNotificationEventHandler(eventParam);
+    }
+#endif /* CYBLE_PLXS_CLIENT */
 #ifdef CYBLE_RSCS_CLIENT
     if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
     {
@@ -995,6 +1008,12 @@ static void CyBle_IndicationEventHandler(CYBLE_GATTC_HANDLE_VALUE_IND_PARAM_T *e
         CyBle_LnscIndicationEventHandler(eventParam);
     }
 #endif /* CYBLE_LNS_CLIENT */
+#ifdef CYBLE_PLXS_CLIENT
+    if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
+    {
+        CyBle_PlxscIndicationEventHandler(eventParam);
+    }
+#endif /* CYBLE_PLXS_CLIENT */
 #ifdef CYBLE_RSCS_CLIENT
     if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
     {
@@ -2193,6 +2212,7 @@ void CyBle_ReadByGroupEventHandler(CYBLE_GATTC_READ_BY_GRP_RSP_PARAM_T *eventPar
     uint16 i;
     CYBLE_DISC_SRVC128_INFO_T* discServInfo = NULL;
     uint8 flag;
+    
     if((CyBle_GetClientState() == CYBLE_CLIENT_STATE_SRVC_DISCOVERING) &&
         ((cyBle_eventHandlerFlag & CYBLE_AUTO_DISCOVERY) != 0u))
     {
@@ -2211,7 +2231,9 @@ void CyBle_ReadByGroupEventHandler(CYBLE_GATTC_READ_BY_GRP_RSP_PARAM_T *eventPar
                    (discServInfo->range.startHandle <= cyBle_gattcDiscoveryRange.endHandle))
                 {
                     if(dataLength == CYBLE_DISC_SRVC_INFO_LEN)
-                    {
+                    {   
+                        discServInfo->uuidFormat = CYBLE_GATT_16_BIT_UUID_FORMAT;
+                        
     					for(j = 0u; (j < (uint16)CYBLE_SRVI_COUNT) && (flag == 0u); j++)
                         {
                             if(cyBle_serverInfo[j].uuid == discServInfo->uuid.uuid16)
@@ -2236,6 +2258,7 @@ void CyBle_ReadByGroupEventHandler(CYBLE_GATTC_READ_BY_GRP_RSP_PARAM_T *eventPar
                     }
                     else  /* Received 128 bit service UUID */
                     {
+                        discServInfo->uuidFormat = CYBLE_GATT_128_BIT_UUID_FORMAT;
                     #ifdef CYBLE_ANCS_CLIENT
                         CyBle_AncscDiscoverServiceEventHandler(discServInfo);
                     #endif /* CYBLE_CUSTOM_CLIENT */
@@ -2243,6 +2266,13 @@ void CyBle_ReadByGroupEventHandler(CYBLE_GATTC_READ_BY_GRP_RSP_PARAM_T *eventPar
                         CyBle_CustomcDiscoverServiceEventHandler(discServInfo);
                     #endif /* CYBLE_CUSTOM_CLIENT */
                     }
+                }
+                
+                /* Generate event CY_BLE_EVT_GATTC_DISC_SKIPPED_SERVICE, if the incoming service was not processed */
+                if((flag == 0u) && ((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u))
+                {
+                    /* Inform application that we discovered the service which is not defined in GATT database */
+                    CyBle_ApplCallback((uint32_t)CYBLE_EVT_GATTC_DISC_SKIPPED_SERVICE, discServInfo);    
                 }
             }
             cyBle_eventHandlerFlag &= (uint8)~CYBLE_CALLBACK;
@@ -3028,8 +3058,7 @@ static CYBLE_GATT_ATTR_HANDLE_RANGE_T CyBle_GetCharRange(void)
         charRange.startHandle = cyBle_ipsc.charInfo[(cyBle_disCount - CYBLE_SCDI_IPS_LATITUDE) + 1u].valueHandle + 1u;
         charRange.endHandle = cyBle_ipsc.charInfo[(cyBle_disCount - CYBLE_SCDI_IPS_LATITUDE) + 1u].endHandle;
     }
-#endif /* CYBLE_CPS_CLIENT */
-
+#endif /* CYBLE_IPS_CLIENT */
 #ifdef CYBLE_HIDS_CLIENT
     if((cyBle_disCount >= (uint8) CYBLE_SCDI_HIDS_REPORT_MAP) && (cyBle_disCount <= (uint8) CYBLE_SCDI_HIDS_REPORT_END))
     {
@@ -3105,6 +3134,14 @@ static CYBLE_GATT_ATTR_HANDLE_RANGE_T CyBle_GetCharRange(void)
         charRange.endHandle = cyBle_passc.charInfo[cyBle_disCount - CYBLE_SCDI_PASS_AS].endHandle;
     }
 #endif /* CYBLE_PASS_CLIENT */
+#ifdef CYBLE_PLXS_CLIENT
+    if((cyBle_disCount >= (uint8) CYBLE_SCDI_PLXS_SPOT_CHECK_MEASUREMENT) && 
+       (cyBle_disCount <= (uint8) CYBLE_SCDI_PLXS_RECORD_ACCESS_CONTROL_POINT))
+    {
+        charRange.startHandle = cyBle_plxsc.charInfo[cyBle_disCount - CYBLE_SCDI_PLXS_SPOT_CHECK_MEASUREMENT].valueHandle + 1u;
+        charRange.endHandle = cyBle_plxsc.charInfo[cyBle_disCount - CYBLE_SCDI_PLXS_SPOT_CHECK_MEASUREMENT].endHandle;
+    }
+#endif /* CYBLE_PLXS_CLIENT */
 #ifdef CYBLE_RSCS_CLIENT
     if((cyBle_disCount >= (uint8) CYBLE_SCDI_RSCS_RSC_MEASUREMENT) && 
        (cyBle_disCount <= (uint8) CYBLE_SCDI_RSCS_SC_CONTROL_POINT))
@@ -3420,7 +3457,7 @@ void CyBle_FindInfoEventHandler(CYBLE_GATTC_FIND_INFO_RSP_PARAM_T *eventParam)
                        (cyBle_disCount == (uint8) CYBLE_SCDI_PLXS_CONTINUOUS_MEASUREMENT) || 
                        (cyBle_disCount == (uint8) CYBLE_SCDI_PLXS_RECORD_ACCESS_CONTROL_POINT) )
                     {
-                        CyBle_PasscDiscoverCharDescriptorsEventHandler(&discDescrInfo);
+                        CyBle_PlxscDiscoverCharDescriptorsEventHandler(&discDescrInfo);
                     }
                 #endif /* CYBLE_PLXS_CLIENT */
 
@@ -3801,6 +3838,12 @@ void CyBle_ErrorResponseEventHandler(const CYBLE_GATTC_ERR_RSP_PARAM_T *eventPar
                 CyBle_PasscErrorResponseEventHandler(eventParam);
             }
         #endif /* CYBLE_PASS_CLIENT */
+        #ifdef CYBLE_PLXS_CLIENT
+            if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
+            {
+                CyBle_PlxscErrorResponseEventHandler(eventParam);
+            }
+        #endif /* CYBLE_PLXS_CLIENT */
         #ifdef CYBLE_TPS_CLIENT
             if((cyBle_eventHandlerFlag & CYBLE_CALLBACK) != 0u)
             {

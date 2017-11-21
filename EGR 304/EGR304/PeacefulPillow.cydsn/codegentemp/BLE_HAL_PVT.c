@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CYBLE_HAL_PVT.c
-* \version 3.30
+* \version 3.40
 *
 * \brief
 *  This file contains the source code for the HAL section of the BLE component
@@ -67,7 +67,7 @@ void CyBLE_Uart_Stop (void)
 * Function Name: CyBLE_Uart_Transmit
 ****************************************************************************//**
 *
-*  Sends the data to Uart Tx FIFO. The API handles data length up to the 
+*  Sends the data to Uart Tx FIFO. The function handles data length up to the 
 *  supported Tx FIFO length of the uart hardware module.
 *
 *  \param data: Pointer to the data to send through the UART
@@ -123,9 +123,9 @@ void CyBLE_Uart_Isr_Disable(void)
 * Function Name: CyBLE_Nvram_Write
 ****************************************************************************//**
 *
-*  This API writes the data to the NVRAM store. It will check the appropriate
-*  alignment of a start address and also perform an address range check based
-*  on the length before performing the write operation.
+*  This function writes the data to the NVRAM store. It will check the 
+*  appropriate alignment of a start address and also perform an address range 
+*  check based on the length before performing the write operation.
 *  This function performs memory compare and writes only row where there are new
 *  data to write.
 *
@@ -139,7 +139,7 @@ void CyBLE_Uart_Isr_Disable(void)
 *  CYRET_UNKNOWN    Other errors in writing the flash
 *
 * \sideeffect
-*  For BLE devices with 128K of Flash memory this API will automatically 
+*  For BLE devices with 128K of Flash memory this function will automatically 
 *  modify the clock settings for the device.
 *  Writing to flash requires changes to be done to the IMO (set to 48 MHz)
 *  and HFCLK (source set to IMO) settings. The configuration is restored before
@@ -217,7 +217,7 @@ cystatus CyBLE_Nvram_Write (const uint8 buffer[], const uint8 varFlash[], uint16
 * Function Name: CyBLE_Nvram_Erase
 ****************************************************************************//**
 *
-*  This API erases the data from the NVRAM store. This API will perform an 
+*  This function erases the data from the NVRAM store. It will perform an 
 *  address range check based on the length before performing erase operation.
 *
 *  \param varFlash: the pointer to the array or variable in the flash.
@@ -267,7 +267,8 @@ cystatus CyBLE_Nvram_Erase (const uint8 *varFlash, uint16 length)
 * Function Name: CyBLE_Bless_LlRegRead
 ****************************************************************************//**
 *
-*  This API reads the content of the BLESS Link Layer register from the stack.
+*  This function reads the content of the BLESS Link Layer register from the 
+*  stack.
 *
 *  \param blessAddr: the pointer to the BLESS link layer address.
 *  \param regValue: the pointer to the buffer space to copy the read value.
@@ -286,7 +287,7 @@ void CyBLE_Bless_LlRegRead (const reg32 *blessAddr, uint16 *regValue)
 * Function Name: CyBLE_Bless_LlRegWrite
 ****************************************************************************//**
 *
-*  This API writes to the BLESS Link Layer register from the stack.
+*  This function writes to the BLESS Link Layer register from the stack.
 *
 *  \param blessAddr: the pointer to the BLESS link layer address.
 *  \param regValue: the pointer to the value to be written to the BLESS LL reg.
@@ -305,7 +306,7 @@ void CyBLE_Bless_LlRegWrite (reg32 *blessAddr, const uint16 regValue)
 * Function Name: CyBLE_Bless_RfRegRead
 ****************************************************************************//**
 *
-*  This API reads the content of the BLESS RF register from the stack.
+*  This function reads the content of the BLESS RF register from the stack.
 *
 *  \param blessAddr: the pointer to BLESS RF register address.
 *  \param regValue: the pointer to the buffer space to copy the read value.
@@ -324,7 +325,7 @@ void CyBLE_Bless_RfRegRead (const reg32 *blessAddr, uint16 *regValue)
 * Function Name: CyBLE_Bless_RfRegWrite
 ****************************************************************************//**
 *
-*  This API writes to the BLESS RF register from the stack.
+*  This function writes to the BLESS RF register from the stack.
 *
 *  \param blessAddr: the pointer to the BLESS RF address.
 *  \param regValue: the pointer to the value to be written to the BLESS RF reg.
@@ -466,7 +467,7 @@ void CyBle_HalInit(void)
 * Function Name: CYBLE_BlessStart
 ****************************************************************************//**
 *
-*  Start Interrupt Controller API.
+*  Starts Interrupt Controller.
 *
 * \return
 *  None
@@ -486,7 +487,7 @@ void CYBLE_BlessStart(void)
 * Function Name: CyBLE_GetIpBlockVersion
 ****************************************************************************//**
 *
-* This API returns the version of m0s8bless ip block.
+* This function returns the version of m0s8bless ip block.
 *
 * \return
 * uint32 bits:

@@ -9,12 +9,10 @@
  *
  * ========================================
 */
-#include "project.h"
-#include <stdio.h>
-#include <stdlib.h>
-void StackEventHandler(uint32 event, void* eventParam);
-void IasEventHandler(uint32 event, void* eventParam);
-void HandleAlertLEDs(uint8 status);
+
+#include "main.h"
+
+char buffer[180];
 
 void testFlex(){
     int analog1, analog2;
@@ -26,7 +24,7 @@ void testFlex(){
         adc_IsEndConversion(adc_WAIT_FOR_RESULT);
         analog1 = adc_GetResult16(0);
         analog2 = adc_GetResult16(1);
-        sprintf(buffer, "Flex Sensor 1: %d\n Flex Sensor 2: %d", analog1, analog2);
+        sprintf(buffer, "Flex Sensor 1: %d Flex Sensor 2: %d\n", analog1, analog2);
         uart_PutString(buffer);
         CyDelay(100);
     }
@@ -47,6 +45,40 @@ void testBuzzer(){
     CyDelay(3000);
     pwmBuzzer_WriteCompare(0);
     CyDelay(3000);
+}
+
+
+void DisplayMessage(char *message, uint8 length)
+{
+    uint8 i;
+    
+    //Timer_CLK_Stop();
+    
+    stpncpy(buffer, message, length);
+    for (i = length; i<180; i++)
+    {
+        buffer[i] = 0;
+    }
+    
+    //Timer_CLK_Start();
+}
+
+void testBle(){
+    /* Start BLE component */
+    
+    //sprintf(buffer, "output %d", 5);
+    
+    //DisplayMessage(buffer, 16);
+
+    CyBle_Start(StackEventHandler);
+        /* Register the Heart Rate Service event handler callback. The function
+     * to be registered is HrsEventHandler().
+     */
+	//CyBle_HrsRegisterAttrCallback(HrsEventHandler);
+    while(1){
+        //SendHeartRateOverBLE();
+        CyBle_ProcessEvents();
+    }
 }
 
 void initializeSubsystems(){
@@ -77,13 +109,16 @@ int main(void)
     //testSubsystems();
     //testFlex();
         
-    //CyGlobalIntEnable; /* Enable global interrupts. */
+    CyGlobalIntEnable; /* Enable global interrupts. */
     /* Start the BLE component and register StackEventHandler function */
     //CyBle_Start(StackEventHandler);
     /* Register IAS event handler function */
     //CyBle_IasRegisterAttrCallback(IasEventHandler);
 
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+    testBle();
+    
+    
     initializeSubsystems();
     testFlex();
     for(;;)
@@ -91,39 +126,3 @@ int main(void)
         testSubsystems();
     }
 }
-
-//void StackEventHandler(uint32 event, void *eventParam)
-//{
-//    switch(event)
-//    {
-//        /* Mandatory events to be handled by Find Me Target design */
-//        case CYBLE_EVT_STACK_ON:
-//        case CYBLE_EVT_GAP_DEVICE_DISCONNECTED:
-//            /* Start the BLE fast advertisement. */
-//            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
-//            break;
-//        
-//        default:
-//    	    break;
-//    }
-//}
-//void IasEventHandler(uint32 event, void *eventParam)
-//{
-//    uint8 alertLevel;
-//    CyBle_GattcWriteCharacteristicValue(
-//    /* Alert Level Characteristic write event */
-//    if(event == CYBLE_EVT_IASS_WRITE_CHAR_CMD)
-//    {
-//        /* Extract Alert Level value from the GATT DB using the 
-//		 * CYBLE_IAS_ALERT_LEVEL as a parameter to CyBle_IassGetCharacteristicValue
-//		 * routine. Store the Alert Level Characteristic value in "alertLevel"
-//		 * variable */
-//        
-//        
-//        /*Based on alert Level level recieved, Drive LED*/
-//        HandleAlertLEDs(alertLevel);
-//    }
-//}
-
-
-/* [] END OF FILE */

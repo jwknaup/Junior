@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CYBLE_eventHandler.h
-* \version 3.30
+* \version 3.40
 * 
 * \brief
 *  Contains the prototypes and constants used in the Event Handler State Machine
@@ -276,6 +276,12 @@ typedef enum
         No parameters passed for this event.
     */
     CYBLE_EVT_GATTC_CHAR_DISCOVERY_COMPLETE,
+        
+    /** GATT Client - The service (not defined in the GATT database) was found during
+    *  the server device discovery. The discovery procedure skips this service.
+    *  This event parameter is a structure of the CYBLE_DISC_SRVC128_INFO_T type.
+    */
+    CYBLE_EVT_GATTC_DISC_SKIPPED_SERVICE,
     
     /** GATT Client - Discovery of remote device completed successfully.
         No parameters passed for this event.
@@ -1665,7 +1671,7 @@ typedef enum
         Indication was confirmed. The parameter of this event
         is a structure of CYBLE_PLXS_CHAR_VALUE_T type.
     */
-    CYBLE_EVT_PLXS_INDICATION_CONFIRMATION,
+    CYBLE_EVT_PLXSS_INDICATION_CONFIRMED,
 
     /** PLXS Client - Pulse Oximeter Characteristic
         Notification was received. The parameter of this event
@@ -1704,7 +1710,11 @@ typedef enum
         CYBLE_PLXS_DESCR_VALUE_T type.
     */
     CYBLE_EVT_PLXSC_WRITE_DESCR_RESPONSE,
-
+    
+    /** PLXS Client - PLX RACP procedure timeout was received. The parameter
+        of this event is a structure of the cy_stc_ble_plxs_char_value_t type.
+    */
+    CYBLE_EVT_PLXSC_TIMEOUT,
     
     /****************************************
      Running Speed and Cadence Service Events
@@ -2515,9 +2525,9 @@ void CyBle_NextCharDscrDiscovery(uint8 incrementIndex);
 * 
 *  Used to set the component state machine's state.
 * 
-*  \param CYBLE_STATE_T state: The desired state that the event handler's state 
+*  \param state: The desired state of type CYBLE_STATE_T that the event handler's state 
 *                    machine should be set to. For detailed information refer to 
-*                    CyBle_GetState() API description.
+*                    CyBle_GetState() API function description.
 * 
 ******************************************************************************/
 #define CyBle_SetState(state) (cyBle_state = (state))
@@ -2530,19 +2540,19 @@ void CyBle_NextCharDscrDiscovery(uint8 incrementIndex);
 *  state machine.
 * 
 *  The component is in the state CYBLE_STATE_INITIALIZING after CyBle_Start() 
-*  API is called and until CYBLE_EVT_STACK_ON event is not received. After 
+*  function is called and until CYBLE_EVT_STACK_ON event is not received. After 
 *  successful initialization the state is changed to CYBLE_STATE_DISCONNECTED. 
-*  For GAP Peripheral role if CyBle_GappStartAdvertisement() API is called and 
+*  For GAP Peripheral role if CyBle_GappStartAdvertisement() is called and 
 *  CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP event received the state is changed 
 *  to the CYBLE_STATE_ADVERTISING. For GAP Central role if CyBle_GapcStartScan() 
-*  API is called and CYBLE_EVT_GAPC_SCAN_START_STOP event received the state is 
-*  changed to the CYBLE_STATE_SCANNING. When CyBle_GapcConnectDevice() API is 
+*  API function is called and CYBLE_EVT_GAPC_SCAN_START_STOP event received the state is 
+*  changed to the CYBLE_STATE_SCANNING. When CyBle_GapcConnectDevice() is 
 *  called the state is changed to CYBLE_STATE_CONNECTING. After successfully 
 *  connection indicated by CYBLE_EVT_GAP_DEVICE_CONNECTED or 
 *  CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE event the state is changed to 
-*  CYBLE_STATE_CONNECTED. If CyBle_GapDisconnect() API is called and 
+*  CYBLE_STATE_CONNECTED. If CyBle_GapDisconnect() API function is called and 
 *  EVT_GAP_DEVICE_DISCONNECTED event received the state is changed to the 
-*  CYBLE_STATE_DISCONNECTED. If CyBle_Stop() API is called state of component 
+*  CYBLE_STATE_DISCONNECTED. If CyBle_Stop() is called state of component 
 *  is changed to the CYBLE_STATE_STOPPED.
 *
 * \return
@@ -2585,7 +2595,7 @@ void CyBle_NextCharDscrDiscovery(uint8 incrementIndex);
 *  on the application layer on the CYBLE_EVT_<service initials>_WRITE_CHAR event 
 *  for the Bond Management Control Point characteristic.
 *     
-*  This API function is useful only within the registered service callback on the 
+*  This API function function is useful only within the registered service callback on the 
 *  CYBLE_EVT_<service initials>_CHAR event for the certain services:
 * 
 *  BMS: Check the Authorization Code of the Bond Management Control Point characteristic.

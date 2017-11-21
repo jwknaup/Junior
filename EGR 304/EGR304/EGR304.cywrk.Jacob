@@ -124,10 +124,11 @@
 <v>EGR304\PeacefulPillow\PeacefulPillow.cydwr\Flash Security</v>
 <v>EGR304\PeacefulPillow\Header Files</v>
 <v>EGR304\PeacefulPillow\Header Files\cyapicallbacks.h</v>
+<v>EGR304\PeacefulPillow\Header Files\main.h</v>
 <v>EGR304\PeacefulPillow\Source Files</v>
+<v>EGR304\PeacefulPillow\Source Files\EventHandler.c</v>
 <v>EGR304\PeacefulPillow\Source Files\main.c</v>
 <v>EGR304\PeacefulPillow\Generated_Source</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>EGR304</v>
@@ -150,33 +151,12 @@
 <v>EGR304\PeacefulPillow\PeacefulPillow.cydwr\Flash Security</v>
 <v>EGR304\PeacefulPillow\Header Files</v>
 <v>EGR304\PeacefulPillow\Header Files\cyapicallbacks.h</v>
+<v>EGR304\PeacefulPillow\Header Files\main.h</v>
 <v>EGR304\PeacefulPillow\Source Files</v>
+<v>EGR304\PeacefulPillow\Source Files\EventHandler.c</v>
 <v>EGR304\PeacefulPillow\Source Files\main.c</v>
 <v>EGR304\PeacefulPillow\Generated_Source</v>
 <v>EGR304\PeacefulPillow\Generated_Source\PSoC4</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\adc</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\adc_intClock</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\adc_IRQ</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\BLE</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\BLE_bless_isr</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\buzzer</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\clockBuzzer</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\cy_boot</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\cy_dmac</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\cy_lfclk</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\flexSensorA</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\flexSensorB</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\motorA</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\motorB</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\pwmBuzzer</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\uart</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\uart_IntClock</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\cycodeshareexport.ld</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\cycodeshareimport.ld</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\cycodeshareimport.scat</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\cydevice_trm.h</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
-<v>EGR304\PeacefulPillow\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -397,11 +377,11 @@
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\adc_PM.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_bless_isr.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_custom.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_eventHandler.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_gatt.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_HAL_INT.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_HAL_PVT.lst</v>
-<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\BLE_ias.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\buzzer.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\buzzer_PM.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\clockBuzzer.lst</v>
@@ -415,6 +395,10 @@
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\Disp_INT.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\DisplayTimer.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\DisplayTimer_PM.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\EventHandler.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\flexSensorA.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\flexSensorA_PM.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\flexSensorB.lst</v>
@@ -426,11 +410,19 @@
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\motorB_PM.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\pwmBuzzer.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\pwmBuzzer_PM.lst</v>
-<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\uart.lst</v>
-<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\uart_BOOT.lst</v>
-<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\uart_INT.lst</v>
-<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\uart_IntClock.lst</v>
-<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\uart_PM.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_CLK.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_rx.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_rx_PM.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_SCBCLK.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_SPI_UART.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_SPI_UART_INT.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_tx.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_tx_PM.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_UART.lst</v>
+<v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_UART_BOOT.lst</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\PeacefulPillow.elf</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\PeacefulPillow.hex</v>
 <v>EGR304\PeacefulPillow\CortexM0\ARM_GCC_541\Debug\PeacefulPillow.map</v>
@@ -565,14 +557,16 @@
 <v>EGR304\PeacefulPillow\System Reference Guides\cy_dmac_v1_10</v>
 <v>EGR304\PeacefulPillow\System Reference Guides\cy_lfclk_v1_20</v>
 <v>EGR304\PeacefulPillow\ADC_SAR_SEQ_P4_v2_50.pdf</v>
-<v>EGR304\PeacefulPillow\BLE_v3_30.pdf</v>
-<v>EGR304\PeacefulPillow\cy_clock_v2_20.pdf</v>
-<v>EGR304\PeacefulPillow\cy_constant_v1_0</v>
-<v>EGR304\PeacefulPillow\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>EGR304\PeacefulPillow\BLE_v3_40.pdf</v>
+<v>EGR304\PeacefulPillow\cy_clock_v2_20</v>
+<v>EGR304\PeacefulPillow\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>EGR304\PeacefulPillow\cy_constant_v1_0.pdf</v>
+<v>EGR304\PeacefulPillow\cy_isr_v1_70.pdf</v>
 <v>EGR304\PeacefulPillow\cy_pins_v2_20</v>
 <v>EGR304\PeacefulPillow\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>EGR304\PeacefulPillow\PWM_v3_30.pdf</v>
-<v>EGR304\PeacefulPillow\UART_v2_50.pdf</v>
+<v>EGR304\PeacefulPillow\SCB_P4_v4_0.pdf</v>
+<v>EGR304\PeacefulPillow\TCPWM_P4_v2_10.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>EGR304</v>
@@ -636,13 +630,11 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\hw8_1.cydsn\main.c" />
-<name v=".\hw8_2.cydsn\main.c" />
-<name v=".\hw7_2.cydsn\main.c" />
-<name v=".\PeacefulPillow.cydsn\main.c" />
 <name v=".\PeacefulPillow.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\PeacefulPillow.cydsn\PeacefulPillow.cydwr" />
-<name v=".\hw8_1.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\PeacefulPillow.cydsn\main.c" />
+<name v=".\PeacefulPillow.cydsn\main.h" />
+<name v=".\PeacefulPillow.cydsn\EventHandler.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -650,7 +642,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="697, 702" SelectedTabbedMdiWindow="7a019ac4-2c7d-4021-b7b5-99042b7b120a"><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw8_1.cydsn\main.c" Guid="db00ea8e-8b66-4aac-9088-d036c20be4be" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw8_2.cydsn\main.c" Guid="01f58e18-b5cf-4802-bd9c-955e0b9f354a" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw7_2.cydsn\main.c" Guid="1b6aaa72-508c-465d-bc2e-d76612207c0f" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f09e295b-dec4-429b-91b4-dc9d184364cf" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\main.c" Guid="961575a9-c1d7-4a2a-84b5-0ee365dbea44" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\TopDesign\TopDesign.cysch" Guid="52f05391-3c09-4eb8-b2d6-201d6fab2b98" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cydwr" Guid="7a019ac4-2c7d-4021-b7b5-99042b7b120a" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\hw8_1.cydsn\TopDesign\TopDesign.cysch" Guid="ce5c99da-ee72-4f8a-b277-c584f73a9db6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="697, 702" SelectedTabbedMdiWindow="27ebe971-dafb-442d-80f1-a85f47a78ab5"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f09e295b-dec4-429b-91b4-dc9d184364cf" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\TopDesign\TopDesign.cysch" Guid="52f05391-3c09-4eb8-b2d6-201d6fab2b98" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\PeacefulPillow.cydwr" Guid="7a019ac4-2c7d-4021-b7b5-99042b7b120a" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\main.c" Guid="961575a9-c1d7-4a2a-84b5-0ee365dbea44" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\main.h" Guid="27ebe971-dafb-442d-80f1-a85f47a78ab5" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillow.cydsn\EventHandler.c" Guid="3dee66dc-82e2-46c7-a338-359fc08bf66d" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

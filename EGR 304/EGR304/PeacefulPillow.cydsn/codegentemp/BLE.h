@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CYBLE.h
-* \version 3.30
+* \version 3.40
 * 
 * \brief
 *  Contains the function prototypes and constants available to the BLE component.
@@ -137,7 +137,7 @@
     #define CYBLE_FAST_ADV_TIMEOUT                  (0x001Eu)
     #define CYBLE_SLOW_ADV_ENABLED                  (0x00u)
     #define CYBLE_SLOW_ADV_INT_MIN                  (0x0640u)
-    #define CYBLE_SLOW_ADV_INT_MAX                  (0x4000u)
+    #define CYBLE_SLOW_ADV_INT_MAX                  (0x1F40u)
     #define CYBLE_SLOW_ADV_TIMEOUT                  (0x0096u)
     #define CYBLE_GAPP_CONNECTION_INTERVAL_MIN      (0x0006u)
     #define CYBLE_GAPP_CONNECTION_INTERVAL_MAX      (0x0028u)
@@ -168,7 +168,7 @@
     CYBLE_GAP_IOCAP_NOINPUT_NOOUTPUT
     CYBLE_GAP_IOCAP_KEYBOARD_DISPLAY
 */
-#define CYBLE_IO_CAPABILITY                         (CYBLE_GAP_IOCAP_NOINPUT_NOOUTPUT)
+#define CYBLE_IO_CAPABILITY                         (CYBLE_GAP_IOCAP_DISPLAY_ONLY)
 #define CYBLE_PAIRING_METHOD                        (0x00u)
 #define CYBLE_BONDING_REQUIREMENT                   (0x01u)
 
@@ -177,10 +177,9 @@
 #define CYBLE_TX_POWER_LEVEL_CONN                   (CYBLE_LL_PWR_LVL_0_DBM)
 
 #define CYBLE_ADV_PKT_INDEX_FLAGS   (0x00u)
-#define CYBLE_ADV_PKT_INDEX_SERVICE_UUID_16   (0x03u)
-#define CYBLE_ADV_PKT_INDEX_APPEARANCE   (0x07u)
+#define CYBLE_ADV_PKT_INDEX_LOCAL_NAME   (0x03u)
 
-#define CYBLE_SCN_PKT_INDEX_LOCAL_NAME   (0x00u)
+#define CYBLE_SCN_PKT_INDEX_BLUETOOTH_DEVICE_ADDRESS   (0x00u)
 
 
 
@@ -191,7 +190,7 @@
 #define CYBLE_STRICT_PAIRING_ENABLED                (CYBLE_STRICT_PAIRING == CYBLE_STRICT_PAIRING_ON)
 
 /* Security options from the customizer */
-#define CYBLE_SECURITY_MODE                         (0x00u)
+#define CYBLE_SECURITY_MODE                         ((0x00u == 0u) ? CYBLE_GAP_SEC_MODE_1 : CYBLE_GAP_SEC_MODE_2)
 #define CYBLE_SECURITY_LEVEL                        (0x00u)
 #define CYBLE_SECURITY_ENC_KEY_SIZE                 (0x10u)
 
@@ -210,11 +209,11 @@
 #define CYBLE_GATT_MAX_ATTR_BUFF_COUNT       ((1 > 0u) ? (1 - 1u) : 0u)
 
 /* GATT MTU Size */
-#define CYBLE_GATT_MTU                      (0x0017u)
+#define CYBLE_GATT_MTU                      (0x00B7u)
 #define CYBLE_GATT_MTU_PLUS_L2CAP_MEM_EXT   (CYBLE_ALIGN_TO_4(CYBLE_GATT_MTU + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
 
 /* GATT Maximum attribute length */
-#define CYBLE_GATT_MAX_ATTR_LEN             ((0x0008u == 0u) ? (1u) : (0x0008u))
+#define CYBLE_GATT_MAX_ATTR_LEN             ((0x00B4u == 0u) ? (1u) : (0x00B4u))
 #define CYBLE_GATT_MAX_ATTR_LEN_PLUS_L2CAP_MEM_EXT \
                                     (CYBLE_ALIGN_TO_4(CYBLE_GATT_MAX_ATTR_LEN + CYBLE_MEM_EXT_SZ + CYBLE_L2CAP_HDR_SZ))
 
@@ -698,12 +697,12 @@ extern CYBLE_GAP_AUTH_INFO_T                        cyBle_authInfo;
 #if((CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_CENTRAL) && (CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES))
 
 /* This is a two-bit variable that contains status of pending write to flash operation. 
-   This variable is initialized to zero in CyBle_Init() API.
+   This variable is initialized to zero in CyBle_Init() API function.
    CYBLE_PENDING_CCCD_FLASH_WRITE_BIT flag is set after write to CCCD event when 
    peer device supports bonding (cyBle_peerBonding == CYBLE_GAP_BONDING). 
    CYBLE_PENDING_STACK_FLASH_WRITE_BIT flag is set after CYBLE_EVT_PENDING_FLASH_WRITE event.
-   CyBle_StoreBondingData API should be called to store pending bonding data.
-   This API automatically clears pending bits after write operation complete. */
+   CyBle_StoreBondingData() should be called to store pending bonding data.
+   This function automatically clears pending bits after write operation complete. */
     extern uint8 cyBle_pendingFlashWrite;
     
 /* Bonding type setting of peer device, CYBLE_GAP_BONDING_NONE or CYBLE_GAP_BONDING.

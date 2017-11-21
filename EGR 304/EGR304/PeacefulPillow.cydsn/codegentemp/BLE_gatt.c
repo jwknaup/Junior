@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CYBLE_gatt.c
-* \version 3.30
+* \version 3.40
 * 
 * \brief
 *  This file contains the source code for the GATT API of the BLE Component.
@@ -103,31 +103,43 @@ CYBLE_STATE_T cyBle_state;
     
     const CYBLE_GATTS_T cyBle_gatts =
 {
-    0x000Cu,    /* Handle of the GATT service */
-    0x000Eu,    /* Handle of the Service Changed characteristic */
-    0x000Fu,    /* Handle of the Client Characteristic Configuration descriptor */
+    0x0008u,    /* Handle of the GATT service */
+    0x000Au,    /* Handle of the Service Changed characteristic */
+    0x000Bu,    /* Handle of the Client Characteristic Configuration descriptor */
 };
     
-    static uint8 cyBle_attValues[0x19u] = {
+    static uint8 cyBle_attValues[0xD2u] = {
     /* Device Name */
-    (uint8)'P', (uint8)'e', (uint8)'a', (uint8)'c', (uint8)'e', (uint8)'f', (uint8)'u', (uint8)'l',
+    (uint8)'C', (uint8)'y', (uint8)'S', (uint8)'m', (uint8)'a', (uint8)'r', (uint8)'t', (uint8)'D', (uint8)'i',
+    (uint8)'s', (uint8)'p', (uint8)'l', (uint8)'a', (uint8)'y',
 
     /* Appearance */
-    0x80u, 0x04u,
+    0x00u, 0x00u,
 
     /* Peripheral Preferred Connection Parameters */
     0x06u, 0x00u, 0x28u, 0x00u, 0x00u, 0x00u, 0xE8u, 0x03u,
 
-    /* Central Address Resolution */
-    0x00u,
-
-    /* Resolvable Private Address Only */
-    0x00u,
-
     /* Service Changed */
     0x00u, 0x00u, 0x00u, 0x00u,
 
-    /* Alert Level */
+    /* MESSAGE Control */
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
+    0x00u, 0x00u, 0x00u, 0x00u,
+
+    /* SPEED Control */
+    0x00u,
+
+    /* BRIGHTNESS Control */
     0x00u,
 
 };
@@ -135,36 +147,51 @@ CYBLE_STATE_T cyBle_state;
 uint8 cyBle_attValuesCCCD[CYBLE_GATT_DB_CCCD_COUNT];
 #endif /* CYBLE_GATT_DB_CCCD_COUNT != 0u */
 
+const uint8 cyBle_attUuid128[][16u] = {
+    /* MESSAGE */
+    { 0xFBu, 0x34u, 0x9Bu, 0x5Fu, 0x80u, 0x00u, 0x00u, 0x80u, 0x00u, 0x10u, 0x00u, 0x00u, 0xF0u, 0x18u, 0x00u, 0x00u },
+    /* MESSAGE Control */
+    { 0xFBu, 0x34u, 0x9Bu, 0x5Fu, 0x80u, 0x00u, 0x00u, 0x80u, 0x00u, 0x10u, 0x00u, 0x00u, 0xF0u, 0x2Au, 0x00u, 0x00u },
+    /* SPEED Control */
+    { 0xFBu, 0x34u, 0x9Bu, 0x5Fu, 0x80u, 0x00u, 0x00u, 0x80u, 0x00u, 0x10u, 0x00u, 0x00u, 0xF1u, 0x2Au, 0x00u, 0x00u },
+    /* BRIGHTNESS Control */
+    { 0xFBu, 0x34u, 0x9Bu, 0x5Fu, 0x80u, 0x00u, 0x00u, 0x80u, 0x00u, 0x10u, 0x00u, 0x00u, 0xF2u, 0x2Au, 0x00u, 0x00u },
+};
+
 CYBLE_GATTS_ATT_GEN_VAL_LEN_T cyBle_attValuesLen[CYBLE_GATT_DB_ATT_VAL_COUNT] = {
-    { 0x0008u, (void *)&cyBle_attValues[0] }, /* Device Name */
-    { 0x0002u, (void *)&cyBle_attValues[8] }, /* Appearance */
-    { 0x0008u, (void *)&cyBle_attValues[10] }, /* Peripheral Preferred Connection Parameters */
-    { 0x0001u, (void *)&cyBle_attValues[18] }, /* Central Address Resolution */
-    { 0x0001u, (void *)&cyBle_attValues[19] }, /* Resolvable Private Address Only */
-    { 0x0004u, (void *)&cyBle_attValues[20] }, /* Service Changed */
+    { 0x000Eu, (void *)&cyBle_attValues[0] }, /* Device Name */
+    { 0x0002u, (void *)&cyBle_attValues[14] }, /* Appearance */
+    { 0x0008u, (void *)&cyBle_attValues[16] }, /* Peripheral Preferred Connection Parameters */
+    { 0x0004u, (void *)&cyBle_attValues[24] }, /* Service Changed */
     { 0x0002u, (void *)&cyBle_attValuesCCCD[0] }, /* Client Characteristic Configuration */
-    { 0x0001u, (void *)&cyBle_attValues[24] }, /* Alert Level */
+    { 0x0010u, (void *)&cyBle_attUuid128[0] }, /* MESSAGE UUID */
+    { 0x0010u, (void *)&cyBle_attUuid128[1] }, /* MESSAGE Control UUID */
+    { 0x00B4u, (void *)&cyBle_attValues[28] }, /* MESSAGE Control */
+    { 0x0010u, (void *)&cyBle_attUuid128[2] }, /* SPEED Control UUID */
+    { 0x0001u, (void *)&cyBle_attValues[208] }, /* SPEED Control */
+    { 0x0010u, (void *)&cyBle_attUuid128[3] }, /* BRIGHTNESS Control UUID */
+    { 0x0001u, (void *)&cyBle_attValues[209] }, /* BRIGHTNESS Control */
 };
 
 const CYBLE_GATTS_DB_T cyBle_gattDB[0x12u] = {
-    { 0x0001u, 0x2800u /* Primary service                     */, 0x00000001u /*       */, 0x000Bu, {{0x1800u, NULL}}                           },
-    { 0x0002u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd    */, 0x0003u, {{0x2A00u, NULL}}                           },
-    { 0x0003u, 0x2A00u /* Device Name                         */, 0x01020001u /* rd    */, 0x0003u, {{0x0008u, (void *)&cyBle_attValuesLen[0]}} },
-    { 0x0004u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd    */, 0x0005u, {{0x2A01u, NULL}}                           },
-    { 0x0005u, 0x2A01u /* Appearance                          */, 0x01020001u /* rd    */, 0x0005u, {{0x0002u, (void *)&cyBle_attValuesLen[1]}} },
-    { 0x0006u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd    */, 0x0007u, {{0x2A04u, NULL}}                           },
-    { 0x0007u, 0x2A04u /* Peripheral Preferred Connection Par */, 0x01020001u /* rd    */, 0x0007u, {{0x0008u, (void *)&cyBle_attValuesLen[2]}} },
-    { 0x0008u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd    */, 0x0009u, {{0x2AA6u, NULL}}                           },
-    { 0x0009u, 0x2AA6u /* Central Address Resolution          */, 0x01020001u /* rd    */, 0x0009u, {{0x0001u, (void *)&cyBle_attValuesLen[3]}} },
-    { 0x000Au, 0x2803u /* Characteristic                      */, 0x00020001u /* rd    */, 0x000Bu, {{0x2AC9u, NULL}}                           },
-    { 0x000Bu, 0x2AC9u /* Resolvable Private Address Only     */, 0x01020001u /* rd    */, 0x000Bu, {{0x0001u, (void *)&cyBle_attValuesLen[4]}} },
-    { 0x000Cu, 0x2800u /* Primary service                     */, 0x00000001u /*       */, 0x000Fu, {{0x1801u, NULL}}                           },
-    { 0x000Du, 0x2803u /* Characteristic                      */, 0x00200001u /* ind   */, 0x000Fu, {{0x2A05u, NULL}}                           },
-    { 0x000Eu, 0x2A05u /* Service Changed                     */, 0x01200000u /* ind   */, 0x000Fu, {{0x0004u, (void *)&cyBle_attValuesLen[5]}} },
-    { 0x000Fu, 0x2902u /* Client Characteristic Configuration */, 0x010A0101u /* rd,wr */, 0x000Fu, {{0x0002u, (void *)&cyBle_attValuesLen[6]}} },
-    { 0x0010u, 0x2800u /* Primary service                     */, 0x00000001u /*       */, 0x0012u, {{0x1802u, NULL}}                           },
-    { 0x0011u, 0x2803u /* Characteristic                      */, 0x00040001u /* wwr   */, 0x0012u, {{0x2A06u, NULL}}                           },
-    { 0x0012u, 0x2A06u /* Alert Level                         */, 0x01040100u /* wwr   */, 0x0012u, {{0x0001u, (void *)&cyBle_attValuesLen[7]}} },
+    { 0x0001u, 0x2800u /* Primary service                     */, 0x00000001u /*        */, 0x0007u, {{0x1800u, NULL}}                           },
+    { 0x0002u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd     */, 0x0003u, {{0x2A00u, NULL}}                           },
+    { 0x0003u, 0x2A00u /* Device Name                         */, 0x01020001u /* rd     */, 0x0003u, {{0x000Eu, (void *)&cyBle_attValuesLen[0]}} },
+    { 0x0004u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd     */, 0x0005u, {{0x2A01u, NULL}}                           },
+    { 0x0005u, 0x2A01u /* Appearance                          */, 0x01020001u /* rd     */, 0x0005u, {{0x0002u, (void *)&cyBle_attValuesLen[1]}} },
+    { 0x0006u, 0x2803u /* Characteristic                      */, 0x00020001u /* rd     */, 0x0007u, {{0x2A04u, NULL}}                           },
+    { 0x0007u, 0x2A04u /* Peripheral Preferred Connection Par */, 0x01020001u /* rd     */, 0x0007u, {{0x0008u, (void *)&cyBle_attValuesLen[2]}} },
+    { 0x0008u, 0x2800u /* Primary service                     */, 0x00000001u /*        */, 0x000Bu, {{0x1801u, NULL}}                           },
+    { 0x0009u, 0x2803u /* Characteristic                      */, 0x00220001u /* rd,ind */, 0x000Bu, {{0x2A05u, NULL}}                           },
+    { 0x000Au, 0x2A05u /* Service Changed                     */, 0x01220001u /* rd,ind */, 0x000Bu, {{0x0004u, (void *)&cyBle_attValuesLen[3]}} },
+    { 0x000Bu, 0x2902u /* Client Characteristic Configuration */, 0x010A0101u /* rd,wr  */, 0x000Bu, {{0x0002u, (void *)&cyBle_attValuesLen[4]}} },
+    { 0x000Cu, 0x2800u /* Primary service                     */, 0x08000001u /*        */, 0x0012u, {{0x0010u, (void *)&cyBle_attValuesLen[5]}} },
+    { 0x000Du, 0x2803u /* Characteristic                      */, 0x000A0001u /* rd,wr  */, 0x000Eu, {{0x0010u, (void *)&cyBle_attValuesLen[6]}} },
+    { 0x000Eu, 0x2AF0u /* MESSAGE Control                     */, 0x090A0101u /* rd,wr  */, 0x000Eu, {{0x00B4u, (void *)&cyBle_attValuesLen[7]}} },
+    { 0x000Fu, 0x2803u /* Characteristic                      */, 0x00080001u /* wr     */, 0x0010u, {{0x0010u, (void *)&cyBle_attValuesLen[8]}} },
+    { 0x0010u, 0x2AF1u /* SPEED Control                       */, 0x09080100u /* wr     */, 0x0010u, {{0x0001u, (void *)&cyBle_attValuesLen[9]}} },
+    { 0x0011u, 0x2803u /* Characteristic                      */, 0x00080001u /* wr     */, 0x0012u, {{0x0010u, (void *)&cyBle_attValuesLen[10]}} },
+    { 0x0012u, 0x2AF2u /* BRIGHTNESS Control                  */, 0x09080100u /* wr     */, 0x0012u, {{0x0001u, (void *)&cyBle_attValuesLen[11]}} },
 };
 
 
@@ -188,7 +215,7 @@ CYBLE_GATT_ATTR_HANDLE_RANGE_T cyBle_gattcDiscoveryRange;
 *  Reinitializes the GATT database.
 * 
 *  \return
-*  CYBLE_API_RESULT_T: An API result states if the API succeeded or failed with
+*  CYBLE_API_RESULT_T: A function result states if it succeeded or failed with
 *  error codes:
 
 *  Errors codes                          | Description
@@ -224,7 +251,7 @@ CYBLE_API_RESULT_T CyBle_GattsReInitGattDb(void)
 *  \param eventParam: The pointer to the data structure specified by the event.
 * 
 *  \return
-*  CYBLE_GATT_ERR_CODE_T: An API result returns one of the following status 
+*  CYBLE_GATT_ERR_CODE_T: A function returns one of the following status 
 *  values.
 
 *  Errors codes                          | Description
@@ -264,21 +291,32 @@ CYBLE_GATT_ERR_CODE_T CyBle_GattsWriteEventHandler(CYBLE_GATTS_WRITE_REQ_PARAM_T
 
 #if(CYBLE_GATT_ROLE_CLIENT)
 
-
 /****************************************************************************** 
 * Function Name: CyBle_GattcStartDiscovery
 ***************************************************************************//**
 * 
-*  Starts the automatic server discovery process. Two events may be generated 
-*  after calling this function - CYBLE_EVT_GATTC_DISCOVERY_COMPLETE or 
-*  CYBLE_EVT_GATTC_ERROR_RSP. The CYBLE_EVT_GATTC_DISCOVERY_COMPLETE event is 
-*  generated when the remote device was successfully discovered. The
-*  CYBLE_EVT_GATTC_ERROR_RSP is generated if the device discovery is failed.
-* 
+*  Starts the automatic server discovery process. 
+*   
+*   Discovery procedure is based on the user configuration. It discovers only services, characteristics, 
+*   descriptors which were declared in the GATT database.
+*   Discovery procedure has the following flow:
+*   - discovering primary services by BLE Stack function CyBle_GattcDiscoverAllPrimaryServices();
+*   - discovering included services by BLE Stack function CyBle_GattcFindIncludedServices();
+*   - discovering characteristics for available services by BLE Stack function CyBle_GattcDiscoverAllCharacteristics();
+*   - discovering characteristic descriptors by BLE Stack function CyBle_GattcDiscoverAllCharacteristicDescriptors();
+*
+*   During the discovery procedure the discovery-specific stack events are handled by the component 
+*   and thus aren’t passed to the application callback: CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP,
+*   CYBLE_EVT_GATTC_READ_BY_TYPE_RSP, CYBLE_EVT_GATTC_FIND_INFO_RSP, CYBLE_EVT_GATTC_ERROR_RSP.              
+*   
+*   After the discovery procedure all information about available services is stored in CYBLE_DISC_SRVC_INFO_T structures,
+*   and discovered attributes handles are stored in service-specific client structures, such as CYBLE_BASC_T for 
+*   Battery Service or CYBLE_HRSC_T for Heart Rate Service.
+*
 *  \param connHandle: The handle which consists of the device ID and ATT connection ID.
 * 
-* \return
-*	CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
+*  \return
+*  CYBLE_API_RESULT_T : Return value indicates if the function succeeded or
 *                        failed. Following are the possible error codes.
 *
 *   <table>	
@@ -307,7 +345,18 @@ CYBLE_GATT_ERR_CODE_T CyBle_GattsWriteEventHandler(CYBLE_GATTS_WRITE_REQ_PARAM_T
 *	  <td>If the function is called in any state except connected or discovered</td>
 *	</tr>
 *   </table>
-* 
+*
+*  \events
+*   The following events may be generated after calling this function:
+*   * CYBLE_EVT_GATTC_DISCOVERY_COMPLETE  - event is generated when the remote device was successfully discovered. 
+*   * CYBLE_EVT_GATTC_ERROR_RSP  		- is generated if the device discovery has failed.
+*   * CYBLE_EVT_GATTC_SRVC_DUPLICATION 	- is generated if duplicate service record was found during the server device
+*        								  discovery.
+*   * CYBLE_EVT_GATTC_CHAR_DUPLICATION 	- is generated if duplicate service's characteristic descriptor record was found
+*        								  during the server device discovery.
+*   * CYBLE_EVT_GATTC_DESCR_DUPLICATION - is generated if duplicate service's characteristic descriptor record was found
+*        								  during the server device discovery.
+*  
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_GattcStartDiscovery(CYBLE_CONN_HANDLE_T connHandle)
 {
@@ -352,13 +401,9 @@ CYBLE_API_RESULT_T CyBle_GattcStartDiscovery(CYBLE_CONN_HANDLE_T connHandle)
 ***************************************************************************//**
 * 
 *  Starts the automatic server discovery process as per the range provided
-*  on a GATT Server to which it is connected. This API could be used for 
+*  on a GATT Server to which it is connected. This function could be used for 
 *  partial server discovery after indication received to the Service Changed
-*  Characteristic Value. Two events may be generated 
-*  after calling this function - CYBLE_EVT_GATTC_DISCOVERY_COMPLETE or 
-*  CYBLE_EVT_GATTC_ERROR_RSP. The CYBLE_EVT_GATTC_DISCOVERY_COMPLETE event is 
-*  generated when the remote device was successfully discovered. The
-*  CYBLE_EVT_GATTC_ERROR_RSP is generated if the device discovery is failed.
+*  Characteristic Value. 
 * 
 *  \param connHandle: The handle which consists of the device ID and ATT connection ID.
 *  \param startHandle: Start of affected attribute handle range.
@@ -395,6 +440,13 @@ CYBLE_API_RESULT_T CyBle_GattcStartDiscovery(CYBLE_CONN_HANDLE_T connHandle)
 *	</tr>
 *   </table>
 * 
+*  \events
+*  Two events may be generated after calling this function:
+*  CYBLE_EVT_GATTC_DISCOVERY_COMPLETE or CYBLE_EVT_GATTC_ERROR_RSP.
+*  The CYBLE_EVT_GATTC_DISCOVERY_COMPLETE event is 
+*  generated when the remote device was successfully discovered. The
+*  CYBLE_EVT_GATTC_ERROR_RSP is generated if the device discovery is failed.
+*
 ******************************************************************************/
 CYBLE_API_RESULT_T CyBle_GattcStartPartialDiscovery(CYBLE_CONN_HANDLE_T connHandle,
                         CYBLE_GATT_DB_ATTR_HANDLE_T startHandle, CYBLE_GATT_DB_ATTR_HANDLE_T endHandle)
@@ -443,11 +495,11 @@ CYBLE_API_RESULT_T CyBle_GattcStartPartialDiscovery(CYBLE_CONN_HANDLE_T connHand
 * Function Name: CyBle_GattcDiscoverCharacteristicsEventHandler
 ***************************************************************************//**
 * 
-*  This function is called on receiving a "CYBLE_EVT_GATTC_READ_BY_TYPE_RSP"
+*  This function is called on receiving a CYBLE_EVT_GATTC_READ_BY_TYPE_RSP
 *  event. Based on the service UUID, an appropriate data structure is populated
 *  using the data received as part of the callback.
 * 
-*  \param *discCharInfo: The pointer to a characteristic information structure.
+*  \param discCharInfo: The pointer to a characteristic information structure.
 * 
 * \return
 *  None
@@ -470,7 +522,7 @@ void CyBle_GattcDiscoverCharacteristicsEventHandler(CYBLE_DISC_CHAR_INFO_T *disc
 *  Based on the descriptor UUID, an appropriate data structure is populated 
 *  using the data received as part of the callback.
 * 
-*  \param *discDescrInfo: The pointer to a descriptor information structure.
+*  \param discDescrInfo: The pointer to a descriptor information structure.
 *  \param discoveryService: The index of the service instance
 * 
 * \return
@@ -492,7 +544,7 @@ void CyBle_GattcDiscoverCharDescriptorsEventHandler(CYBLE_DISC_DESCR_INFO_T *dis
 * 
 *  Handles the Indication Event.
 * 
-*  \param *eventParam: The pointer to the data structure specified by the event.
+*  \param eventParam: The pointer to the data structure specified by the event.
 * 
 * \return
 *  None.

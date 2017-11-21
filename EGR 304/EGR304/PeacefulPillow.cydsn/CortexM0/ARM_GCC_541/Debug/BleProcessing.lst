@@ -1,0 +1,5267 @@
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"BleProcessing.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SendHeartRateOverBLE,"ax",%progbits
+  20              		.align	2
+  21              		.global	SendHeartRateOverBLE
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	SendHeartRateOverBLE, %function
+  25              	SendHeartRateOverBLE:
+  26              	.LFB35:
+  27              		.file 1 "BleProcessing.c"
+   1:BleProcessing.c **** /*****************************************************************************
+   2:BleProcessing.c **** * File Name: BleProcessing.c
+   3:BleProcessing.c **** *
+   4:BleProcessing.c **** * Version: 1.0
+   5:BleProcessing.c **** *
+   6:BleProcessing.c **** * Description:
+   7:BleProcessing.c **** * This file implements the BLE capability in the PSoC 4 BLE Lab 3.
+   8:BleProcessing.c **** *
+   9:BleProcessing.c **** * Hardware Dependency:
+  10:BleProcessing.c **** * CY8CKIT-042 BLE Pioneer Kit
+  11:BleProcessing.c **** *
+  12:BleProcessing.c **** ******************************************************************************
+  13:BleProcessing.c **** * Copyright (2014), Cypress Semiconductor Corporation.
+  14:BleProcessing.c **** ******************************************************************************
+  15:BleProcessing.c **** * This software is owned by Cypress Semiconductor Corporation (Cypress) and is
+  16:BleProcessing.c **** * protected by and subject to worldwide patent protection (United States and
+  17:BleProcessing.c **** * foreign), United States copyright laws and international treaty provisions.
+  18:BleProcessing.c **** * Cypress hereby grants to licensee a personal, non-exclusive, non-transferable
+  19:BleProcessing.c **** * license to copy, use, modify, create derivative works of, and compile the
+  20:BleProcessing.c **** * Cypress Source Code and derivative works for the sole purpose of creating
+  21:BleProcessing.c **** * custom software in support of licensee product to be used only in conjunction
+  22:BleProcessing.c **** * with a Cypress integrated circuit as specified in the applicable agreement.
+  23:BleProcessing.c **** * Any reproduction, modification, translation, compilation, or representation of
+  24:BleProcessing.c **** * this software except as specified above is prohibited without the express
+  25:BleProcessing.c **** * written permission of Cypress.
+  26:BleProcessing.c **** *
+  27:BleProcessing.c **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH
+  28:BleProcessing.c **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  29:BleProcessing.c **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  30:BleProcessing.c **** * Cypress reserves the right to make changes without further notice to the
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 2
+
+
+  31:BleProcessing.c **** * materials described herein. Cypress does not assume any liability arising out
+  32:BleProcessing.c **** * of the application or use of any product or circuit described herein. Cypress
+  33:BleProcessing.c **** * does not authorize its products for use as critical components in life-support
+  34:BleProcessing.c **** * systems where a malfunction or failure may reasonably be expected to result in
+  35:BleProcessing.c **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  36:BleProcessing.c **** * support systems application implies that the manufacturer assumes all risk of
+  37:BleProcessing.c **** * such use and in doing so indemnifies Cypress against all charges. Use may be
+  38:BleProcessing.c **** * limited by and subject to the applicable Cypress software license agreement.
+  39:BleProcessing.c **** *****************************************************************************/
+  40:BleProcessing.c **** 
+  41:BleProcessing.c **** 
+  42:BleProcessing.c **** /*****************************************************************************
+  43:BleProcessing.c **** * Included headers
+  44:BleProcessing.c **** *****************************************************************************/
+  45:BleProcessing.c **** #include <project.h>
+  46:BleProcessing.c **** #include <stdbool.h>
+  47:BleProcessing.c **** #include "HeartRateProcessing.h"
+  48:BleProcessing.c **** #include "BleProcessing.h"
+  49:BleProcessing.c **** 
+  50:BleProcessing.c **** /*****************************************************************************
+  51:BleProcessing.c **** * Macros 
+  52:BleProcessing.c **** *****************************************************************************/
+  53:BleProcessing.c **** #define HEART_RATE_DATA_LEN					(2)
+  54:BleProcessing.c **** #define HRM_FLAG                            (0)
+  55:BleProcessing.c **** 
+  56:BleProcessing.c **** 
+  57:BleProcessing.c **** /*****************************************************************************
+  58:BleProcessing.c **** * Static variables 
+  59:BleProcessing.c **** *****************************************************************************/
+  60:BleProcessing.c **** static uint8 hrsNotification = false;
+  61:BleProcessing.c **** 
+  62:BleProcessing.c **** 
+  63:BleProcessing.c **** /*****************************************************************************
+  64:BleProcessing.c **** * Public variables 
+  65:BleProcessing.c **** *****************************************************************************/
+  66:BleProcessing.c **** bool enterHibernateFlag = false;
+  67:BleProcessing.c **** uint32 timestampWhenConnected = 0;
+  68:BleProcessing.c **** CONN_PARAM_REQUEST_STATE connParamRequestState = CONN_PARAM_REQUEST_NOT_SENT;
+  69:BleProcessing.c **** 
+  70:BleProcessing.c **** 
+  71:BleProcessing.c **** /*****************************************************************************
+  72:BleProcessing.c **** * Public function definitions
+  73:BleProcessing.c **** *****************************************************************************/
+  74:BleProcessing.c **** 
+  75:BleProcessing.c **** /*****************************************************************************
+  76:BleProcessing.c **** * Function Name: SendHeartRateOverBLE
+  77:BleProcessing.c **** ******************************************************************************
+  78:BleProcessing.c **** * Summary:
+  79:BleProcessing.c **** * Creates and sends the Heart Rate Measurement characteristic notification 
+  80:BleProcessing.c **** * packet.
+  81:BleProcessing.c **** *
+  82:BleProcessing.c **** * Parameters:
+  83:BleProcessing.c **** * None
+  84:BleProcessing.c **** *
+  85:BleProcessing.c **** * Return:
+  86:BleProcessing.c **** * None
+  87:BleProcessing.c **** *
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 3
+
+
+  88:BleProcessing.c **** * Theory:
+  89:BleProcessing.c **** * The function caches the value of the Heart Rate Measurement characteristic 
+  90:BleProcessing.c **** * and updates the heart rate value in it. It then calls the BLE HRS service 
+  91:BleProcessing.c **** * API to send this data via notification.
+  92:BleProcessing.c **** *
+  93:BleProcessing.c **** * Side Effects:
+  94:BleProcessing.c **** * None
+  95:BleProcessing.c **** *
+  96:BleProcessing.c **** *****************************************************************************/
+  97:BleProcessing.c **** void SendHeartRateOverBLE(void)
+  98:BleProcessing.c **** {
+  28              		.loc 1 98 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  36 0002 82B0     		sub	sp, sp, #8
+  37              		.cfi_def_cfa_offset 16
+  99:BleProcessing.c ****     /* Two byte packet for heart rate notification since the heart rate 
+ 100:BleProcessing.c ****      * measurement value is 8-bit (this is sufficient since our heart rate
+ 101:BleProcessing.c ****      * does not cross 255) and we are not using the Energy Expended 
+ 102:BleProcessing.c ****      * and RR-interval fields.
+ 103:BleProcessing.c ****      */
+ 104:BleProcessing.c **** 	uint8 heartRatePacket[2];
+ 105:BleProcessing.c **** 	
+ 106:BleProcessing.c **** 	if(hrsNotification)
+  38              		.loc 1 106 0
+  39 0004 0C4B     		ldr	r3, .L3
+  40 0006 1B78     		ldrb	r3, [r3]
+  41 0008 002B     		cmp	r3, #0
+  42 000a 12D0     		beq	.L1
+ 107:BleProcessing.c **** 	{
+ 108:BleProcessing.c ****         /* Read the existing characteristic value into a 
+ 109:BleProcessing.c ****          * two-byte array, by using CyBle_HrssGetCharacteristicValue(). 
+ 110:BleProcessing.c ****          */
+ 111:BleProcessing.c ****         CyBle_HrssGetCharacteristicValue(CYBLE_HRS_HRM, HEART_RATE_DATA_LEN, heartRatePacket);
+  43              		.loc 1 111 0
+  44 000c 01AC     		add	r4, sp, #4
+  45 000e 2200     		movs	r2, r4
+  46 0010 0221     		movs	r1, #2
+  47 0012 0020     		movs	r0, #0
+  48 0014 FFF7FEFF 		bl	CyBle_HrssGetCharacteristicValue
+  49              	.LVL0:
+ 112:BleProcessing.c **** 
+ 113:BleProcessing.c ****         
+ 114:BleProcessing.c ****         /* Update the second byte with the actual heart rate value. */
+ 115:BleProcessing.c ****         heartRatePacket[1] = heartRate;
+  50              		.loc 1 115 0
+  51 0018 084B     		ldr	r3, .L3+4
+  52 001a 1B78     		ldrb	r3, [r3]
+  53 001c 6370     		strb	r3, [r4, #1]
+ 116:BleProcessing.c **** 		
+ 117:BleProcessing.c ****         
+ 118:BleProcessing.c ****         /* Call the BLE component API to send notification */
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 4
+
+
+ 119:BleProcessing.c **** 		CyBle_HrssSendNotification(cyBle_connHandle, CYBLE_HRS_HRM, HEART_RATE_DATA_LEN, heartRatePacket)
+  54              		.loc 1 119 0
+  55 001e 084A     		ldr	r2, .L3+8
+  56 0020 1378     		ldrb	r3, [r2]
+  57 0022 5078     		ldrb	r0, [r2, #1]
+  58 0024 0002     		lsls	r0, r0, #8
+  59 0026 1843     		orrs	r0, r3
+  60 0028 2300     		movs	r3, r4
+  61 002a 0222     		movs	r2, #2
+  62 002c 0021     		movs	r1, #0
+  63 002e FFF7FEFF 		bl	CyBle_HrssSendNotification
+  64              	.LVL1:
+  65              	.L1:
+ 120:BleProcessing.c ****     }
+ 121:BleProcessing.c **** }
+  66              		.loc 1 121 0
+  67 0032 02B0     		add	sp, sp, #8
+  68              		@ sp needed
+  69 0034 10BD     		pop	{r4, pc}
+  70              	.L4:
+  71 0036 C046     		.align	2
+  72              	.L3:
+  73 0038 00000000 		.word	.LANCHOR0
+  74 003c 00000000 		.word	heartRate
+  75 0040 00000000 		.word	cyBle_connHandle
+  76              		.cfi_endproc
+  77              	.LFE35:
+  78              		.size	SendHeartRateOverBLE, .-SendHeartRateOverBLE
+  79              		.section	.text.HrsEventHandler,"ax",%progbits
+  80              		.align	2
+  81              		.global	HrsEventHandler
+  82              		.code	16
+  83              		.thumb_func
+  84              		.type	HrsEventHandler, %function
+  85              	HrsEventHandler:
+  86              	.LFB36:
+ 122:BleProcessing.c **** 
+ 123:BleProcessing.c **** 
+ 124:BleProcessing.c **** /*****************************************************************************
+ 125:BleProcessing.c **** * Function Name: HrsEventHandler
+ 126:BleProcessing.c **** ******************************************************************************
+ 127:BleProcessing.c **** * Summary:
+ 128:BleProcessing.c **** * Event handler for the Heart Rate Service specific events.
+ 129:BleProcessing.c **** *
+ 130:BleProcessing.c **** * Parameters:
+ 131:BleProcessing.c **** * event: An enumerated value to be checked and accordingly some action to 
+ 132:BleProcessing.c **** *        be taken. The list of events is defined in the CYBLE_EVT_T enum.
+ 133:BleProcessing.c **** *
+ 134:BleProcessing.c **** * eventParam: The parameter associated with the event. The type of parameter
+ 135:BleProcessing.c **** *             can vary depending on the event. For more details refer the 
+ 136:BleProcessing.c **** *             BLE component datasheet.
+ 137:BleProcessing.c **** *
+ 138:BleProcessing.c **** * Return:
+ 139:BleProcessing.c **** * None
+ 140:BleProcessing.c **** *
+ 141:BleProcessing.c **** * Theory:
+ 142:BleProcessing.c **** * The function implements a switch statement to handle the notification
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 5
+
+
+ 143:BleProcessing.c **** * enable and notification disable events for the Heart Rate Service.
+ 144:BleProcessing.c **** *
+ 145:BleProcessing.c **** * Side Effects:
+ 146:BleProcessing.c **** * None
+ 147:BleProcessing.c **** *
+ 148:BleProcessing.c **** *****************************************************************************/
+ 149:BleProcessing.c **** void HrsEventHandler(uint32 event, void *eventParam)
+ 150:BleProcessing.c **** {
+  87              		.loc 1 150 0
+  88              		.cfi_startproc
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91              		@ link register save eliminated.
+  92              	.LVL2:
+ 151:BleProcessing.c ****     /* Event handler switch statement for the HRS service specific events. */
+ 152:BleProcessing.c ****      
+ 153:BleProcessing.c ****     
+ 154:BleProcessing.c ****     /* Set the hrsNotification variable on the notification 
+ 155:BleProcessing.c ****      * enabled event, and clear it on the disabled event.
+ 156:BleProcessing.c ****      */
+ 157:BleProcessing.c ****     switch(event)
+  93              		.loc 1 157 0
+  94 0000 AA23     		movs	r3, #170
+  95 0002 FF33     		adds	r3, r3, #255
+  96 0004 9842     		cmp	r0, r3
+  97 0006 03D0     		beq	.L7
+  98 0008 0133     		adds	r3, r3, #1
+  99 000a 9842     		cmp	r0, r3
+ 100 000c 04D0     		beq	.L8
+ 101 000e 06E0     		b	.L5
+ 102              	.L7:
+ 158:BleProcessing.c **** 	{
+ 159:BleProcessing.c **** 		case CYBLE_EVT_HRSS_NOTIFICATION_ENABLED:
+ 160:BleProcessing.c **** 			hrsNotification = true;	
+ 103              		.loc 1 160 0
+ 104 0010 0122     		movs	r2, #1
+ 105 0012 034B     		ldr	r3, .L9
+ 106 0014 1A70     		strb	r2, [r3]
+ 161:BleProcessing.c **** 		    break;
+ 107              		.loc 1 161 0
+ 108 0016 02E0     		b	.L5
+ 109              	.L8:
+ 162:BleProcessing.c **** 		
+ 163:BleProcessing.c **** 		case CYBLE_EVT_HRSS_NOTIFICATION_DISABLED:
+ 164:BleProcessing.c **** 			hrsNotification = false;
+ 110              		.loc 1 164 0
+ 111 0018 0022     		movs	r2, #0
+ 112 001a 014B     		ldr	r3, .L9
+ 113 001c 1A70     		strb	r2, [r3]
+ 114              	.L5:
+ 165:BleProcessing.c **** 	    	break;
+ 166:BleProcessing.c **** 		
+ 167:BleProcessing.c **** 		default:
+ 168:BleProcessing.c ****     		break;
+ 169:BleProcessing.c **** 	}
+ 170:BleProcessing.c **** }
+ 115              		.loc 1 170 0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 6
+
+
+ 116              		@ sp needed
+ 117 001e 7047     		bx	lr
+ 118              	.L10:
+ 119              		.align	2
+ 120              	.L9:
+ 121 0020 00000000 		.word	.LANCHOR0
+ 122              		.cfi_endproc
+ 123              	.LFE36:
+ 124              		.size	HrsEventHandler, .-HrsEventHandler
+ 125              		.section	.text.GeneralEventHandler,"ax",%progbits
+ 126              		.align	2
+ 127              		.global	GeneralEventHandler
+ 128              		.code	16
+ 129              		.thumb_func
+ 130              		.type	GeneralEventHandler, %function
+ 131              	GeneralEventHandler:
+ 132              	.LFB37:
+ 171:BleProcessing.c **** 
+ 172:BleProcessing.c **** 
+ 173:BleProcessing.c **** /*****************************************************************************
+ 174:BleProcessing.c **** * Function Name: GeneralEventHandler
+ 175:BleProcessing.c **** ******************************************************************************
+ 176:BleProcessing.c **** * Summary:
+ 177:BleProcessing.c **** * Event handler for generic BLE events.
+ 178:BleProcessing.c **** *
+ 179:BleProcessing.c **** * Parameters:
+ 180:BleProcessing.c **** * event: An enumerated value to be checked and accordingly some action to 
+ 181:BleProcessing.c **** *        be taken. The list of events is defined in the CYBLE_EVENT_T enum.
+ 182:BleProcessing.c **** *
+ 183:BleProcessing.c **** * eventParam: The parameter associated with the event. The type of parameter
+ 184:BleProcessing.c **** *             can vary depending on the event. For more details refer the 
+ 185:BleProcessing.c **** *             BLE component datasheet.
+ 186:BleProcessing.c **** *
+ 187:BleProcessing.c **** * Return:
+ 188:BleProcessing.c **** * None
+ 189:BleProcessing.c **** *
+ 190:BleProcessing.c **** * Theory:
+ 191:BleProcessing.c **** * The function implements a switch case to handle different events for BLE
+ 192:BleProcessing.c **** * advertisement, connection and disconnection.
+ 193:BleProcessing.c **** *
+ 194:BleProcessing.c **** * Side Effects:
+ 195:BleProcessing.c **** * None
+ 196:BleProcessing.c **** *
+ 197:BleProcessing.c **** *****************************************************************************/
+ 198:BleProcessing.c **** void GeneralEventHandler(uint32 event, void *eventParam)
+ 199:BleProcessing.c **** {
+ 133              		.loc 1 199 0
+ 134              		.cfi_startproc
+ 135              		@ args = 0, pretend = 0, frame = 0
+ 136              		@ frame_needed = 0, uses_anonymous_args = 0
+ 137              	.LVL3:
+ 138 0000 10B5     		push	{r4, lr}
+ 139              		.cfi_def_cfa_offset 8
+ 140              		.cfi_offset 4, -8
+ 141              		.cfi_offset 14, -4
+ 200:BleProcessing.c ****     /* Handle various events for a general BLE connection */
+ 201:BleProcessing.c **** 	switch(event)
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 7
+
+
+ 142              		.loc 1 201 0
+ 143 0002 2828     		cmp	r0, #40
+ 144 0004 16D0     		beq	.L13
+ 145 0006 04D8     		bhi	.L14
+ 146 0008 0128     		cmp	r0, #1
+ 147 000a 07D0     		beq	.L15
+ 148 000c 2628     		cmp	r0, #38
+ 149 000e 09D0     		beq	.L16
+ 150 0010 24E0     		b	.L11
+ 151              	.L14:
+ 152 0012 4228     		cmp	r0, #66
+ 153 0014 14D0     		beq	.L17
+ 154 0016 7128     		cmp	r0, #113
+ 155 0018 16D0     		beq	.L18
+ 156 001a 1FE0     		b	.L11
+ 157              	.L15:
+ 202:BleProcessing.c **** 	{
+ 203:BleProcessing.c **** 		case CYBLE_EVT_STACK_ON:
+ 204:BleProcessing.c **** 			/* Start the fast advertisement upon BLE initialization. */
+ 205:BleProcessing.c ****             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
+ 158              		.loc 1 205 0
+ 159 001c 0020     		movs	r0, #0
+ 160              	.LVL4:
+ 161 001e FFF7FEFF 		bl	CyBle_GappStartAdvertisement
+ 162              	.LVL5:
+ 206:BleProcessing.c **** 
+ 207:BleProcessing.c ****             #if (RGB_LED_IN_PROJECT)
+ 208:BleProcessing.c ****                 /* Turn ON Green LED to indicate advertisement state */
+ 209:BleProcessing.c ****                 Led_Advertising_Green_Write(0);
+ 210:BleProcessing.c ****             #endif  /* #if (RGB_LED_IN_PROJECT) */
+ 211:BleProcessing.c ****     		break;
+ 163              		.loc 1 211 0
+ 164 0022 1BE0     		b	.L11
+ 165              	.LVL6:
+ 166              	.L16:
+ 212:BleProcessing.c ****             
+ 213:BleProcessing.c ****         case CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP:
+ 214:BleProcessing.c ****             /* If advertisement finished, then enter Hibernate mode. */
+ 215:BleProcessing.c ****             if(CYBLE_STATE_DISCONNECTED == CyBle_GetState())
+ 167              		.loc 1 215 0
+ 168 0024 0E4B     		ldr	r3, .L20
+ 169 0026 1B78     		ldrb	r3, [r3]
+ 170 0028 042B     		cmp	r3, #4
+ 171 002a 17D1     		bne	.L11
+ 216:BleProcessing.c ****             {
+ 217:BleProcessing.c ****                 enterHibernateFlag = true;
+ 172              		.loc 1 217 0
+ 173 002c 0122     		movs	r2, #1
+ 174 002e 0D4B     		ldr	r3, .L20+4
+ 175 0030 5A70     		strb	r2, [r3, #1]
+ 176 0032 13E0     		b	.L11
+ 177              	.L13:
+ 218:BleProcessing.c ****             }
+ 219:BleProcessing.c ****             break;
+ 220:BleProcessing.c ****             
+ 221:BleProcessing.c ****         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED:
+ 222:BleProcessing.c ****             /* Enter hibernate mode upon disconnect */
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 8
+
+
+ 223:BleProcessing.c **** 			enterHibernateFlag = true;
+ 178              		.loc 1 223 0
+ 179 0034 0B4B     		ldr	r3, .L20+4
+ 180 0036 0122     		movs	r2, #1
+ 181 0038 5A70     		strb	r2, [r3, #1]
+ 224:BleProcessing.c ****             
+ 225:BleProcessing.c ****             /* Reset the connection parameter update request status */
+ 226:BleProcessing.c ****             connParamRequestState = CONN_PARAM_REQUEST_NOT_SENT;
+ 182              		.loc 1 226 0
+ 183 003a 0022     		movs	r2, #0
+ 184 003c 9A70     		strb	r2, [r3, #2]
+ 227:BleProcessing.c ****             break;
+ 185              		.loc 1 227 0
+ 186 003e 0DE0     		b	.L11
+ 187              	.L17:
+ 228:BleProcessing.c **** 			
+ 229:BleProcessing.c **** 		case CYBLE_EVT_GATT_CONNECT_IND:
+ 230:BleProcessing.c ****             /* Note the time when connected */
+ 231:BleProcessing.c ****             //timestampWhenConnected = WatchdogTimer_GetTimestamp();
+ 232:BleProcessing.c **** 
+ 233:BleProcessing.c ****             #if (RGB_LED_IN_PROJECT)
+ 234:BleProcessing.c ****                 /* Turn OFF Green LED; Turn ON Blue LED to indicate Connection */
+ 235:BleProcessing.c ****                 Led_Advertising_Green_Write(1);
+ 236:BleProcessing.c ****                 Led_Connected_Blue_Write(0);
+ 237:BleProcessing.c ****             #endif  /* #if (RGB_LED_IN_PROJECT) */
+ 238:BleProcessing.c **** 			break;
+ 239:BleProcessing.c **** 			
+ 240:BleProcessing.c **** 		case CYBLE_EVT_GATT_DISCONNECT_IND:
+ 241:BleProcessing.c ****             /* Clear the HRS notification flag and the device connected flag */
+ 242:BleProcessing.c **** 			hrsNotification = false;
+ 188              		.loc 1 242 0
+ 189 0040 0022     		movs	r2, #0
+ 190 0042 084B     		ldr	r3, .L20+4
+ 191 0044 1A70     		strb	r2, [r3]
+ 243:BleProcessing.c **** 			break;
+ 192              		.loc 1 243 0
+ 193 0046 09E0     		b	.L11
+ 194              	.L18:
+ 244:BleProcessing.c **** 		
+ 245:BleProcessing.c ****         case CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP:
+ 246:BleProcessing.c ****             /* Got a response for the connection parameter update request */
+ 247:BleProcessing.c ****             if(*(uint16 *)eventParam == CYBLE_L2CAP_CONN_PARAM_ACCEPTED)
+ 195              		.loc 1 247 0
+ 196 0048 0B88     		ldrh	r3, [r1]
+ 197 004a 002B     		cmp	r3, #0
+ 198 004c 03D1     		bne	.L19
+ 248:BleProcessing.c ****             {
+ 249:BleProcessing.c ****                 connParamRequestState = CONN_PARAM_REQUEST_ACCEPTED;
+ 199              		.loc 1 249 0
+ 200 004e 0222     		movs	r2, #2
+ 201 0050 044B     		ldr	r3, .L20+4
+ 202 0052 9A70     		strb	r2, [r3, #2]
+ 203 0054 02E0     		b	.L11
+ 204              	.L19:
+ 250:BleProcessing.c ****             }
+ 251:BleProcessing.c ****             else
+ 252:BleProcessing.c ****             {
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 9
+
+
+ 253:BleProcessing.c ****                 connParamRequestState = CONN_PARAM_REQUEST_REJECTED;
+ 205              		.loc 1 253 0
+ 206 0056 0322     		movs	r2, #3
+ 207 0058 024B     		ldr	r3, .L20+4
+ 208 005a 9A70     		strb	r2, [r3, #2]
+ 209              	.LVL7:
+ 210              	.L11:
+ 254:BleProcessing.c ****             }
+ 255:BleProcessing.c ****             
+ 256:BleProcessing.c **** 		default:
+ 257:BleProcessing.c ****     		break;
+ 258:BleProcessing.c **** 	}
+ 259:BleProcessing.c **** }
+ 211              		.loc 1 259 0
+ 212              		@ sp needed
+ 213 005c 10BD     		pop	{r4, pc}
+ 214              	.L21:
+ 215 005e C046     		.align	2
+ 216              	.L20:
+ 217 0060 00000000 		.word	cyBle_state
+ 218 0064 00000000 		.word	.LANCHOR0
+ 219              		.cfi_endproc
+ 220              	.LFE37:
+ 221              		.size	GeneralEventHandler, .-GeneralEventHandler
+ 222              		.global	connParamRequestState
+ 223              		.global	timestampWhenConnected
+ 224              		.global	enterHibernateFlag
+ 225              		.bss
+ 226              		.align	2
+ 227              		.set	.LANCHOR0,. + 0
+ 228              		.type	hrsNotification, %object
+ 229              		.size	hrsNotification, 1
+ 230              	hrsNotification:
+ 231 0000 00       		.space	1
+ 232              		.type	enterHibernateFlag, %object
+ 233              		.size	enterHibernateFlag, 1
+ 234              	enterHibernateFlag:
+ 235 0001 00       		.space	1
+ 236              		.type	connParamRequestState, %object
+ 237              		.size	connParamRequestState, 1
+ 238              	connParamRequestState:
+ 239 0002 00       		.space	1
+ 240 0003 00       		.space	1
+ 241              		.type	timestampWhenConnected, %object
+ 242              		.size	timestampWhenConnected, 4
+ 243              	timestampWhenConnected:
+ 244 0004 00000000 		.space	4
+ 245              		.text
+ 246              	.Letext0:
+ 247              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 248              		.file 3 "Generated_Source\\PSoC4/BLE_1_StackGatt.h"
+ 249              		.file 4 "Generated_Source\\PSoC4/BLE_1_Stack.h"
+ 250              		.file 5 "Generated_Source\\PSoC4/BLE_1_hrs.h"
+ 251              		.file 6 "Generated_Source\\PSoC4/BLE_1_dis.h"
+ 252              		.file 7 "Generated_Source\\PSoC4/BLE_1_eventHandler.h"
+ 253              		.file 8 "BleProcessing.h"
+ 254              		.file 9 "HeartRateProcessing.h"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 10
+
+
+ 255              		.file 10 "Generated_Source\\PSoC4/BLE_1.h"
+ 256              		.section	.debug_info,"",%progbits
+ 257              	.Ldebug_info0:
+ 258 0000 ED0C0000 		.4byte	0xced
+ 259 0004 0400     		.2byte	0x4
+ 260 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 261 000a 04       		.byte	0x4
+ 262 000b 01       		.uleb128 0x1
+ 263 000c 32050000 		.4byte	.LASF426
+ 264 0010 0C       		.byte	0xc
+ 265 0011 082F0000 		.4byte	.LASF427
+ 266 0015 D12F0000 		.4byte	.LASF428
+ 267 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 268 001d 00000000 		.4byte	0
+ 269 0021 00000000 		.4byte	.Ldebug_line0
+ 270 0025 02       		.uleb128 0x2
+ 271 0026 01       		.byte	0x1
+ 272 0027 06       		.byte	0x6
+ 273 0028 260B0000 		.4byte	.LASF0
+ 274 002c 02       		.uleb128 0x2
+ 275 002d 01       		.byte	0x1
+ 276 002e 08       		.byte	0x8
+ 277 002f F00B0000 		.4byte	.LASF1
+ 278 0033 02       		.uleb128 0x2
+ 279 0034 02       		.byte	0x2
+ 280 0035 05       		.byte	0x5
+ 281 0036 FF290000 		.4byte	.LASF2
+ 282 003a 02       		.uleb128 0x2
+ 283 003b 02       		.byte	0x2
+ 284 003c 07       		.byte	0x7
+ 285 003d 3B300000 		.4byte	.LASF3
+ 286 0041 02       		.uleb128 0x2
+ 287 0042 04       		.byte	0x4
+ 288 0043 05       		.byte	0x5
+ 289 0044 3F090000 		.4byte	.LASF4
+ 290 0048 02       		.uleb128 0x2
+ 291 0049 04       		.byte	0x4
+ 292 004a 07       		.byte	0x7
+ 293 004b C8150000 		.4byte	.LASF5
+ 294 004f 02       		.uleb128 0x2
+ 295 0050 08       		.byte	0x8
+ 296 0051 05       		.byte	0x5
+ 297 0052 F5190000 		.4byte	.LASF6
+ 298 0056 02       		.uleb128 0x2
+ 299 0057 08       		.byte	0x8
+ 300 0058 07       		.byte	0x7
+ 301 0059 58240000 		.4byte	.LASF7
+ 302 005d 03       		.uleb128 0x3
+ 303 005e 04       		.byte	0x4
+ 304 005f 05       		.byte	0x5
+ 305 0060 696E7400 		.ascii	"int\000"
+ 306 0064 02       		.uleb128 0x2
+ 307 0065 04       		.byte	0x4
+ 308 0066 07       		.byte	0x7
+ 309 0067 5C1D0000 		.4byte	.LASF8
+ 310 006b 04       		.uleb128 0x4
+ 311 006c 7D290000 		.4byte	.LASF9
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 11
+
+
+ 312 0070 02       		.byte	0x2
+ 313 0071 D201     		.2byte	0x1d2
+ 314 0073 2C000000 		.4byte	0x2c
+ 315 0077 04       		.uleb128 0x4
+ 316 0078 15330000 		.4byte	.LASF10
+ 317 007c 02       		.byte	0x2
+ 318 007d D301     		.2byte	0x1d3
+ 319 007f 3A000000 		.4byte	0x3a
+ 320 0083 04       		.uleb128 0x4
+ 321 0084 A1020000 		.4byte	.LASF11
+ 322 0088 02       		.byte	0x2
+ 323 0089 D401     		.2byte	0x1d4
+ 324 008b 48000000 		.4byte	0x48
+ 325 008f 02       		.uleb128 0x2
+ 326 0090 04       		.byte	0x4
+ 327 0091 04       		.byte	0x4
+ 328 0092 481C0000 		.4byte	.LASF12
+ 329 0096 02       		.uleb128 0x2
+ 330 0097 08       		.byte	0x8
+ 331 0098 04       		.byte	0x4
+ 332 0099 E41A0000 		.4byte	.LASF13
+ 333 009d 02       		.uleb128 0x2
+ 334 009e 01       		.byte	0x1
+ 335 009f 08       		.byte	0x8
+ 336 00a0 790E0000 		.4byte	.LASF14
+ 337 00a4 02       		.uleb128 0x2
+ 338 00a5 08       		.byte	0x8
+ 339 00a6 04       		.byte	0x4
+ 340 00a7 25210000 		.4byte	.LASF15
+ 341 00ab 02       		.uleb128 0x2
+ 342 00ac 04       		.byte	0x4
+ 343 00ad 07       		.byte	0x7
+ 344 00ae 79000000 		.4byte	.LASF16
+ 345 00b2 05       		.uleb128 0x5
+ 346 00b3 04       		.byte	0x4
+ 347 00b4 06       		.uleb128 0x6
+ 348 00b5 01       		.byte	0x1
+ 349 00b6 2C000000 		.4byte	0x2c
+ 350 00ba 04       		.byte	0x4
+ 351 00bb 4D01     		.2byte	0x14d
+ 352 00bd 72020000 		.4byte	0x272
+ 353 00c1 07       		.uleb128 0x7
+ 354 00c2 F30E0000 		.4byte	.LASF17
+ 355 00c6 00       		.byte	0
+ 356 00c7 07       		.uleb128 0x7
+ 357 00c8 D7090000 		.4byte	.LASF18
+ 358 00cc 01       		.byte	0x1
+ 359 00cd 07       		.uleb128 0x7
+ 360 00ce 6F240000 		.4byte	.LASF19
+ 361 00d2 02       		.byte	0x2
+ 362 00d3 07       		.uleb128 0x7
+ 363 00d4 790B0000 		.4byte	.LASF20
+ 364 00d8 03       		.byte	0x3
+ 365 00d9 07       		.uleb128 0x7
+ 366 00da 1C310000 		.4byte	.LASF21
+ 367 00de 04       		.byte	0x4
+ 368 00df 07       		.uleb128 0x7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 12
+
+
+ 369 00e0 CE2E0000 		.4byte	.LASF22
+ 370 00e4 05       		.byte	0x5
+ 371 00e5 07       		.uleb128 0x7
+ 372 00e6 72210000 		.4byte	.LASF23
+ 373 00ea 06       		.byte	0x6
+ 374 00eb 07       		.uleb128 0x7
+ 375 00ec B42B0000 		.4byte	.LASF24
+ 376 00f0 20       		.byte	0x20
+ 377 00f1 07       		.uleb128 0x7
+ 378 00f2 B1060000 		.4byte	.LASF25
+ 379 00f6 21       		.byte	0x21
+ 380 00f7 07       		.uleb128 0x7
+ 381 00f8 FA180000 		.4byte	.LASF26
+ 382 00fc 22       		.byte	0x22
+ 383 00fd 07       		.uleb128 0x7
+ 384 00fe FA1F0000 		.4byte	.LASF27
+ 385 0102 23       		.byte	0x23
+ 386 0103 07       		.uleb128 0x7
+ 387 0104 C0140000 		.4byte	.LASF28
+ 388 0108 24       		.byte	0x24
+ 389 0109 07       		.uleb128 0x7
+ 390 010a 23150000 		.4byte	.LASF29
+ 391 010e 25       		.byte	0x25
+ 392 010f 07       		.uleb128 0x7
+ 393 0110 CC280000 		.4byte	.LASF30
+ 394 0114 26       		.byte	0x26
+ 395 0115 07       		.uleb128 0x7
+ 396 0116 44020000 		.4byte	.LASF31
+ 397 011a 27       		.byte	0x27
+ 398 011b 07       		.uleb128 0x7
+ 399 011c 63320000 		.4byte	.LASF32
+ 400 0120 28       		.byte	0x28
+ 401 0121 07       		.uleb128 0x7
+ 402 0122 4C220000 		.4byte	.LASF33
+ 403 0126 29       		.byte	0x29
+ 404 0127 07       		.uleb128 0x7
+ 405 0128 CD170000 		.4byte	.LASF34
+ 406 012c 2A       		.byte	0x2a
+ 407 012d 07       		.uleb128 0x7
+ 408 012e 5F1F0000 		.4byte	.LASF35
+ 409 0132 2B       		.byte	0x2b
+ 410 0133 07       		.uleb128 0x7
+ 411 0134 3C2F0000 		.4byte	.LASF36
+ 412 0138 2C       		.byte	0x2c
+ 413 0139 07       		.uleb128 0x7
+ 414 013a 42010000 		.4byte	.LASF37
+ 415 013e 2D       		.byte	0x2d
+ 416 013f 07       		.uleb128 0x7
+ 417 0140 A5290000 		.4byte	.LASF38
+ 418 0144 2E       		.byte	0x2e
+ 419 0145 07       		.uleb128 0x7
+ 420 0146 D3070000 		.4byte	.LASF39
+ 421 014a 2F       		.byte	0x2f
+ 422 014b 07       		.uleb128 0x7
+ 423 014c 330E0000 		.4byte	.LASF40
+ 424 0150 30       		.byte	0x30
+ 425 0151 07       		.uleb128 0x7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 13
+
+
+ 426 0152 9D1B0000 		.4byte	.LASF41
+ 427 0156 31       		.byte	0x31
+ 428 0157 07       		.uleb128 0x7
+ 429 0158 0A0F0000 		.4byte	.LASF42
+ 430 015c 32       		.byte	0x32
+ 431 015d 07       		.uleb128 0x7
+ 432 015e DE0C0000 		.4byte	.LASF43
+ 433 0162 33       		.byte	0x33
+ 434 0163 07       		.uleb128 0x7
+ 435 0164 050D0000 		.4byte	.LASF44
+ 436 0168 34       		.byte	0x34
+ 437 0169 07       		.uleb128 0x7
+ 438 016a C52C0000 		.4byte	.LASF45
+ 439 016e 35       		.byte	0x35
+ 440 016f 07       		.uleb128 0x7
+ 441 0170 78070000 		.4byte	.LASF46
+ 442 0174 36       		.byte	0x36
+ 443 0175 07       		.uleb128 0x7
+ 444 0176 6C230000 		.4byte	.LASF47
+ 445 017a 37       		.byte	0x37
+ 446 017b 07       		.uleb128 0x7
+ 447 017c A32A0000 		.4byte	.LASF48
+ 448 0180 40       		.byte	0x40
+ 449 0181 07       		.uleb128 0x7
+ 450 0182 63020000 		.4byte	.LASF49
+ 451 0186 41       		.byte	0x41
+ 452 0187 07       		.uleb128 0x7
+ 453 0188 31310000 		.4byte	.LASF50
+ 454 018c 42       		.byte	0x42
+ 455 018d 07       		.uleb128 0x7
+ 456 018e AE220000 		.4byte	.LASF51
+ 457 0192 43       		.byte	0x43
+ 458 0193 07       		.uleb128 0x7
+ 459 0194 FE0B0000 		.4byte	.LASF52
+ 460 0198 44       		.byte	0x44
+ 461 0199 07       		.uleb128 0x7
+ 462 019a 920B0000 		.4byte	.LASF53
+ 463 019e 45       		.byte	0x45
+ 464 019f 07       		.uleb128 0x7
+ 465 01a0 FB260000 		.4byte	.LASF54
+ 466 01a4 46       		.byte	0x46
+ 467 01a5 07       		.uleb128 0x7
+ 468 01a6 DD260000 		.4byte	.LASF55
+ 469 01aa 47       		.byte	0x47
+ 470 01ab 07       		.uleb128 0x7
+ 471 01ac E70D0000 		.4byte	.LASF56
+ 472 01b0 48       		.byte	0x48
+ 473 01b1 07       		.uleb128 0x7
+ 474 01b2 20200000 		.4byte	.LASF57
+ 475 01b6 49       		.byte	0x49
+ 476 01b7 07       		.uleb128 0x7
+ 477 01b8 4E0F0000 		.4byte	.LASF58
+ 478 01bc 4A       		.byte	0x4a
+ 479 01bd 07       		.uleb128 0x7
+ 480 01be 9A0E0000 		.4byte	.LASF59
+ 481 01c2 4B       		.byte	0x4b
+ 482 01c3 07       		.uleb128 0x7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 14
+
+
+ 483 01c4 A21F0000 		.4byte	.LASF60
+ 484 01c8 4C       		.byte	0x4c
+ 485 01c9 07       		.uleb128 0x7
+ 486 01ca 36280000 		.4byte	.LASF61
+ 487 01ce 4D       		.byte	0x4d
+ 488 01cf 07       		.uleb128 0x7
+ 489 01d0 DA080000 		.4byte	.LASF62
+ 490 01d4 4E       		.byte	0x4e
+ 491 01d5 07       		.uleb128 0x7
+ 492 01d6 691D0000 		.4byte	.LASF63
+ 493 01da 4F       		.byte	0x4f
+ 494 01db 07       		.uleb128 0x7
+ 495 01dc 952B0000 		.4byte	.LASF64
+ 496 01e0 50       		.byte	0x50
+ 497 01e1 07       		.uleb128 0x7
+ 498 01e2 C50F0000 		.4byte	.LASF65
+ 499 01e6 51       		.byte	0x51
+ 500 01e7 07       		.uleb128 0x7
+ 501 01e8 90060000 		.4byte	.LASF66
+ 502 01ec 52       		.byte	0x52
+ 503 01ed 07       		.uleb128 0x7
+ 504 01ee 652E0000 		.4byte	.LASF67
+ 505 01f2 53       		.byte	0x53
+ 506 01f3 07       		.uleb128 0x7
+ 507 01f4 A5320000 		.4byte	.LASF68
+ 508 01f8 54       		.byte	0x54
+ 509 01f9 07       		.uleb128 0x7
+ 510 01fa C9040000 		.4byte	.LASF69
+ 511 01fe 55       		.byte	0x55
+ 512 01ff 07       		.uleb128 0x7
+ 513 0200 42100000 		.4byte	.LASF70
+ 514 0204 56       		.byte	0x56
+ 515 0205 07       		.uleb128 0x7
+ 516 0206 CF1C0000 		.4byte	.LASF71
+ 517 020a 57       		.byte	0x57
+ 518 020b 07       		.uleb128 0x7
+ 519 020c 24320000 		.4byte	.LASF72
+ 520 0210 58       		.byte	0x58
+ 521 0211 07       		.uleb128 0x7
+ 522 0212 852F0000 		.4byte	.LASF73
+ 523 0216 70       		.byte	0x70
+ 524 0217 07       		.uleb128 0x7
+ 525 0218 A9130000 		.4byte	.LASF74
+ 526 021c 71       		.byte	0x71
+ 527 021d 07       		.uleb128 0x7
+ 528 021e A70A0000 		.4byte	.LASF75
+ 529 0222 72       		.byte	0x72
+ 530 0223 07       		.uleb128 0x7
+ 531 0224 772B0000 		.4byte	.LASF76
+ 532 0228 73       		.byte	0x73
+ 533 0229 07       		.uleb128 0x7
+ 534 022a 75200000 		.4byte	.LASF77
+ 535 022e 74       		.byte	0x74
+ 536 022f 07       		.uleb128 0x7
+ 537 0230 77180000 		.4byte	.LASF78
+ 538 0234 75       		.byte	0x75
+ 539 0235 07       		.uleb128 0x7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 15
+
+
+ 540 0236 C60D0000 		.4byte	.LASF79
+ 541 023a 76       		.byte	0x76
+ 542 023b 07       		.uleb128 0x7
+ 543 023c C7240000 		.4byte	.LASF80
+ 544 0240 77       		.byte	0x77
+ 545 0241 07       		.uleb128 0x7
+ 546 0242 ED040000 		.4byte	.LASF81
+ 547 0246 78       		.byte	0x78
+ 548 0247 07       		.uleb128 0x7
+ 549 0248 1C090000 		.4byte	.LASF82
+ 550 024c 79       		.byte	0x79
+ 551 024d 07       		.uleb128 0x7
+ 552 024e 75310000 		.4byte	.LASF83
+ 553 0252 7A       		.byte	0x7a
+ 554 0253 07       		.uleb128 0x7
+ 555 0254 0E1B0000 		.4byte	.LASF84
+ 556 0258 FA       		.byte	0xfa
+ 557 0259 07       		.uleb128 0x7
+ 558 025a AA2D0000 		.4byte	.LASF85
+ 559 025e FB       		.byte	0xfb
+ 560 025f 07       		.uleb128 0x7
+ 561 0260 CF130000 		.4byte	.LASF86
+ 562 0264 FC       		.byte	0xfc
+ 563 0265 07       		.uleb128 0x7
+ 564 0266 0D210000 		.4byte	.LASF87
+ 565 026a FD       		.byte	0xfd
+ 566 026b 07       		.uleb128 0x7
+ 567 026c 511F0000 		.4byte	.LASF88
+ 568 0270 FF       		.byte	0xff
+ 569 0271 00       		.byte	0
+ 570 0272 08       		.uleb128 0x8
+ 571 0273 02       		.byte	0x2
+ 572 0274 03       		.byte	0x3
+ 573 0275 9301     		.2byte	0x193
+ 574 0277 96020000 		.4byte	0x296
+ 575 027b 09       		.uleb128 0x9
+ 576 027c FC070000 		.4byte	.LASF89
+ 577 0280 03       		.byte	0x3
+ 578 0281 9A01     		.2byte	0x19a
+ 579 0283 6B000000 		.4byte	0x6b
+ 580 0287 00       		.byte	0
+ 581 0288 09       		.uleb128 0x9
+ 582 0289 16310000 		.4byte	.LASF90
+ 583 028d 03       		.byte	0x3
+ 584 028e A001     		.2byte	0x1a0
+ 585 0290 6B000000 		.4byte	0x6b
+ 586 0294 01       		.byte	0x1
+ 587 0295 00       		.byte	0
+ 588 0296 04       		.uleb128 0x4
+ 589 0297 F0060000 		.4byte	.LASF91
+ 590 029b 03       		.byte	0x3
+ 591 029c A201     		.2byte	0x1a2
+ 592 029e 72020000 		.4byte	0x272
+ 593 02a2 0A       		.uleb128 0xa
+ 594 02a3 01       		.byte	0x1
+ 595 02a4 2C000000 		.4byte	0x2c
+ 596 02a8 05       		.byte	0x5
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 16
+
+
+ 597 02a9 28       		.byte	0x28
+ 598 02aa C7020000 		.4byte	0x2c7
+ 599 02ae 07       		.uleb128 0x7
+ 600 02af F1220000 		.4byte	.LASF92
+ 601 02b3 00       		.byte	0
+ 602 02b4 07       		.uleb128 0x7
+ 603 02b5 CB190000 		.4byte	.LASF93
+ 604 02b9 01       		.byte	0x1
+ 605 02ba 07       		.uleb128 0x7
+ 606 02bb DA1E0000 		.4byte	.LASF94
+ 607 02bf 02       		.byte	0x2
+ 608 02c0 07       		.uleb128 0x7
+ 609 02c1 8E2A0000 		.4byte	.LASF95
+ 610 02c5 03       		.byte	0x3
+ 611 02c6 00       		.byte	0
+ 612 02c7 0A       		.uleb128 0xa
+ 613 02c8 01       		.byte	0x1
+ 614 02c9 2C000000 		.4byte	0x2c
+ 615 02cd 06       		.byte	0x6
+ 616 02ce 22       		.byte	0x22
+ 617 02cf 10030000 		.4byte	0x310
+ 618 02d3 07       		.uleb128 0x7
+ 619 02d4 E7230000 		.4byte	.LASF96
+ 620 02d8 00       		.byte	0
+ 621 02d9 07       		.uleb128 0x7
+ 622 02da A3100000 		.4byte	.LASF97
+ 623 02de 01       		.byte	0x1
+ 624 02df 07       		.uleb128 0x7
+ 625 02e0 AF170000 		.4byte	.LASF98
+ 626 02e4 02       		.byte	0x2
+ 627 02e5 07       		.uleb128 0x7
+ 628 02e6 EA090000 		.4byte	.LASF99
+ 629 02ea 03       		.byte	0x3
+ 630 02eb 07       		.uleb128 0x7
+ 631 02ec 79060000 		.4byte	.LASF100
+ 632 02f0 04       		.byte	0x4
+ 633 02f1 07       		.uleb128 0x7
+ 634 02f2 2B100000 		.4byte	.LASF101
+ 635 02f6 05       		.byte	0x5
+ 636 02f7 07       		.uleb128 0x7
+ 637 02f8 29110000 		.4byte	.LASF102
+ 638 02fc 06       		.byte	0x6
+ 639 02fd 07       		.uleb128 0x7
+ 640 02fe ED1D0000 		.4byte	.LASF103
+ 641 0302 07       		.byte	0x7
+ 642 0303 07       		.uleb128 0x7
+ 643 0304 251A0000 		.4byte	.LASF104
+ 644 0308 08       		.byte	0x8
+ 645 0309 07       		.uleb128 0x7
+ 646 030a 64000000 		.4byte	.LASF105
+ 647 030e 09       		.byte	0x9
+ 648 030f 00       		.byte	0
+ 649 0310 0A       		.uleb128 0xa
+ 650 0311 02       		.byte	0x2
+ 651 0312 3A000000 		.4byte	0x3a
+ 652 0316 07       		.byte	0x7
+ 653 0317 B1       		.byte	0xb1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 17
+
+
+ 654 0318 190B0000 		.4byte	0xb19
+ 655 031c 0B       		.uleb128 0xb
+ 656 031d 921E0000 		.4byte	.LASF106
+ 657 0321 0001     		.2byte	0x100
+ 658 0323 0B       		.uleb128 0xb
+ 659 0324 A3310000 		.4byte	.LASF107
+ 660 0328 0101     		.2byte	0x101
+ 661 032a 0B       		.uleb128 0xb
+ 662 032b B5090000 		.4byte	.LASF108
+ 663 032f 0201     		.2byte	0x102
+ 664 0331 0B       		.uleb128 0xb
+ 665 0332 4F310000 		.4byte	.LASF109
+ 666 0336 0301     		.2byte	0x103
+ 667 0338 0B       		.uleb128 0xb
+ 668 0339 35240000 		.4byte	.LASF110
+ 669 033d 0401     		.2byte	0x104
+ 670 033f 0B       		.uleb128 0xb
+ 671 0340 232A0000 		.4byte	.LASF111
+ 672 0344 0501     		.2byte	0x105
+ 673 0346 0B       		.uleb128 0xb
+ 674 0347 3A0D0000 		.4byte	.LASF112
+ 675 034b 0601     		.2byte	0x106
+ 676 034d 0B       		.uleb128 0xb
+ 677 034e E80A0000 		.4byte	.LASF113
+ 678 0352 0701     		.2byte	0x107
+ 679 0354 0B       		.uleb128 0xb
+ 680 0355 15300000 		.4byte	.LASF114
+ 681 0359 0801     		.2byte	0x108
+ 682 035b 0B       		.uleb128 0xb
+ 683 035c A3040000 		.4byte	.LASF115
+ 684 0360 0901     		.2byte	0x109
+ 685 0362 0B       		.uleb128 0xb
+ 686 0363 A8020000 		.4byte	.LASF116
+ 687 0367 0A01     		.2byte	0x10a
+ 688 0369 0B       		.uleb128 0xb
+ 689 036a CF250000 		.4byte	.LASF117
+ 690 036e 0B01     		.2byte	0x10b
+ 691 0370 0B       		.uleb128 0xb
+ 692 0371 361A0000 		.4byte	.LASF118
+ 693 0375 0C01     		.2byte	0x10c
+ 694 0377 0B       		.uleb128 0xb
+ 695 0378 8C220000 		.4byte	.LASF119
+ 696 037c 0D01     		.2byte	0x10d
+ 697 037e 0B       		.uleb128 0xb
+ 698 037f 77030000 		.4byte	.LASF120
+ 699 0383 0E01     		.2byte	0x10e
+ 700 0385 0B       		.uleb128 0xb
+ 701 0386 2C1B0000 		.4byte	.LASF121
+ 702 038a 0F01     		.2byte	0x10f
+ 703 038c 0B       		.uleb128 0xb
+ 704 038d C8060000 		.4byte	.LASF122
+ 705 0391 1001     		.2byte	0x110
+ 706 0393 0B       		.uleb128 0xb
+ 707 0394 032E0000 		.4byte	.LASF123
+ 708 0398 1101     		.2byte	0x111
+ 709 039a 0B       		.uleb128 0xb
+ 710 039b C30A0000 		.4byte	.LASF124
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 18
+
+
+ 711 039f 1201     		.2byte	0x112
+ 712 03a1 0B       		.uleb128 0xb
+ 713 03a2 0A340000 		.4byte	.LASF125
+ 714 03a6 1301     		.2byte	0x113
+ 715 03a8 0B       		.uleb128 0xb
+ 716 03a9 A4240000 		.4byte	.LASF126
+ 717 03ad 1401     		.2byte	0x114
+ 718 03af 0B       		.uleb128 0xb
+ 719 03b0 7B1A0000 		.4byte	.LASF127
+ 720 03b4 1501     		.2byte	0x115
+ 721 03b6 0B       		.uleb128 0xb
+ 722 03b7 23230000 		.4byte	.LASF128
+ 723 03bb 1601     		.2byte	0x116
+ 724 03bd 0B       		.uleb128 0xb
+ 725 03be B4250000 		.4byte	.LASF129
+ 726 03c2 1701     		.2byte	0x117
+ 727 03c4 0B       		.uleb128 0xb
+ 728 03c5 A92C0000 		.4byte	.LASF130
+ 729 03c9 1801     		.2byte	0x118
+ 730 03cb 0B       		.uleb128 0xb
+ 731 03cc 6B010000 		.4byte	.LASF131
+ 732 03d0 1901     		.2byte	0x119
+ 733 03d2 0B       		.uleb128 0xb
+ 734 03d3 D80E0000 		.4byte	.LASF132
+ 735 03d7 1A01     		.2byte	0x11a
+ 736 03d9 0B       		.uleb128 0xb
+ 737 03da 8B210000 		.4byte	.LASF133
+ 738 03de 1B01     		.2byte	0x11b
+ 739 03e0 0B       		.uleb128 0xb
+ 740 03e1 472A0000 		.4byte	.LASF134
+ 741 03e5 1C01     		.2byte	0x11c
+ 742 03e7 0B       		.uleb128 0xb
+ 743 03e8 68140000 		.4byte	.LASF135
+ 744 03ec 1D01     		.2byte	0x11d
+ 745 03ee 0B       		.uleb128 0xb
+ 746 03ef 521E0000 		.4byte	.LASF136
+ 747 03f3 1E01     		.2byte	0x11e
+ 748 03f5 0B       		.uleb128 0xb
+ 749 03f6 B90E0000 		.4byte	.LASF137
+ 750 03fa 1F01     		.2byte	0x11f
+ 751 03fc 0B       		.uleb128 0xb
+ 752 03fd 0E0E0000 		.4byte	.LASF138
+ 753 0401 2001     		.2byte	0x120
+ 754 0403 0B       		.uleb128 0xb
+ 755 0404 12260000 		.4byte	.LASF139
+ 756 0408 2101     		.2byte	0x121
+ 757 040a 0B       		.uleb128 0xb
+ 758 040b BF300000 		.4byte	.LASF140
+ 759 040f 2201     		.2byte	0x122
+ 760 0411 0B       		.uleb128 0xb
+ 761 0412 3C290000 		.4byte	.LASF141
+ 762 0416 2301     		.2byte	0x123
+ 763 0418 0B       		.uleb128 0xb
+ 764 0419 1C330000 		.4byte	.LASF142
+ 765 041d 2401     		.2byte	0x124
+ 766 041f 0B       		.uleb128 0xb
+ 767 0420 F81C0000 		.4byte	.LASF143
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 19
+
+
+ 768 0424 2501     		.2byte	0x125
+ 769 0426 0B       		.uleb128 0xb
+ 770 0427 95110000 		.4byte	.LASF144
+ 771 042b 2601     		.2byte	0x126
+ 772 042d 0B       		.uleb128 0xb
+ 773 042e F82A0000 		.4byte	.LASF145
+ 774 0432 2701     		.2byte	0x127
+ 775 0434 0B       		.uleb128 0xb
+ 776 0435 7E1F0000 		.4byte	.LASF146
+ 777 0439 2801     		.2byte	0x128
+ 778 043b 0B       		.uleb128 0xb
+ 779 043c 82330000 		.4byte	.LASF147
+ 780 0440 2901     		.2byte	0x129
+ 781 0442 0B       		.uleb128 0xb
+ 782 0443 5D2B0000 		.4byte	.LASF148
+ 783 0447 2A01     		.2byte	0x12a
+ 784 0449 0B       		.uleb128 0xb
+ 785 044a 47320000 		.4byte	.LASF149
+ 786 044e 2B01     		.2byte	0x12b
+ 787 0450 0B       		.uleb128 0xb
+ 788 0451 CB160000 		.4byte	.LASF150
+ 789 0455 2C01     		.2byte	0x12c
+ 790 0457 0B       		.uleb128 0xb
+ 791 0458 4E300000 		.4byte	.LASF151
+ 792 045c 2D01     		.2byte	0x12d
+ 793 045e 0B       		.uleb128 0xb
+ 794 045f 42040000 		.4byte	.LASF152
+ 795 0463 2E01     		.2byte	0x12e
+ 796 0465 0B       		.uleb128 0xb
+ 797 0466 A1230000 		.4byte	.LASF153
+ 798 046a 2F01     		.2byte	0x12f
+ 799 046c 0B       		.uleb128 0xb
+ 800 046d 2A170000 		.4byte	.LASF154
+ 801 0471 3001     		.2byte	0x130
+ 802 0473 0B       		.uleb128 0xb
+ 803 0474 38260000 		.4byte	.LASF155
+ 804 0478 3101     		.2byte	0x131
+ 805 047a 0B       		.uleb128 0xb
+ 806 047b 30220000 		.4byte	.LASF156
+ 807 047f 3201     		.2byte	0x132
+ 808 0481 0B       		.uleb128 0xb
+ 809 0482 E22C0000 		.4byte	.LASF157
+ 810 0486 3301     		.2byte	0x133
+ 811 0488 0B       		.uleb128 0xb
+ 812 0489 560B0000 		.4byte	.LASF158
+ 813 048d 3401     		.2byte	0x134
+ 814 048f 0B       		.uleb128 0xb
+ 815 0490 172B0000 		.4byte	.LASF159
+ 816 0494 3501     		.2byte	0x135
+ 817 0496 0B       		.uleb128 0xb
+ 818 0497 65040000 		.4byte	.LASF160
+ 819 049b 3601     		.2byte	0x136
+ 820 049d 0B       		.uleb128 0xb
+ 821 049e 6B2A0000 		.4byte	.LASF161
+ 822 04a2 3701     		.2byte	0x137
+ 823 04a4 0B       		.uleb128 0xb
+ 824 04a5 F4020000 		.4byte	.LASF162
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 20
+
+
+ 825 04a9 3801     		.2byte	0x138
+ 826 04ab 0B       		.uleb128 0xb
+ 827 04ac 18030000 		.4byte	.LASF163
+ 828 04b0 3901     		.2byte	0x139
+ 829 04b2 0B       		.uleb128 0xb
+ 830 04b3 82000000 		.4byte	.LASF164
+ 831 04b7 3A01     		.2byte	0x13a
+ 832 04b9 0B       		.uleb128 0xb
+ 833 04ba E6240000 		.4byte	.LASF165
+ 834 04be 3B01     		.2byte	0x13b
+ 835 04c0 0B       		.uleb128 0xb
+ 836 04c1 C5310000 		.4byte	.LASF166
+ 837 04c5 3C01     		.2byte	0x13c
+ 838 04c7 0B       		.uleb128 0xb
+ 839 04c8 20060000 		.4byte	.LASF167
+ 840 04cc 3D01     		.2byte	0x13d
+ 841 04ce 0B       		.uleb128 0xb
+ 842 04cf CA1D0000 		.4byte	.LASF168
+ 843 04d3 3E01     		.2byte	0x13e
+ 844 04d5 0B       		.uleb128 0xb
+ 845 04d6 F4280000 		.4byte	.LASF169
+ 846 04da 3F01     		.2byte	0x13f
+ 847 04dc 0B       		.uleb128 0xb
+ 848 04dd 05110000 		.4byte	.LASF170
+ 849 04e1 4001     		.2byte	0x140
+ 850 04e3 0B       		.uleb128 0xb
+ 851 04e4 B51E0000 		.4byte	.LASF171
+ 852 04e8 4101     		.2byte	0x141
+ 853 04ea 0B       		.uleb128 0xb
+ 854 04eb 0D130000 		.4byte	.LASF172
+ 855 04ef 4201     		.2byte	0x142
+ 856 04f1 0B       		.uleb128 0xb
+ 857 04f2 42060000 		.4byte	.LASF173
+ 858 04f6 4301     		.2byte	0x143
+ 859 04f8 0B       		.uleb128 0xb
+ 860 04f9 22020000 		.4byte	.LASF174
+ 861 04fd 4401     		.2byte	0x144
+ 862 04ff 0B       		.uleb128 0xb
+ 863 0500 2A080000 		.4byte	.LASF175
+ 864 0504 4501     		.2byte	0x145
+ 865 0506 0B       		.uleb128 0xb
+ 866 0507 35250000 		.4byte	.LASF176
+ 867 050b 4601     		.2byte	0x146
+ 868 050d 0B       		.uleb128 0xb
+ 869 050e 092A0000 		.4byte	.LASF177
+ 870 0512 4701     		.2byte	0x147
+ 871 0514 0B       		.uleb128 0xb
+ 872 0515 99070000 		.4byte	.LASF178
+ 873 0519 4801     		.2byte	0x148
+ 874 051b 0B       		.uleb128 0xb
+ 875 051c 93200000 		.4byte	.LASF179
+ 876 0520 4901     		.2byte	0x149
+ 877 0522 0B       		.uleb128 0xb
+ 878 0523 872D0000 		.4byte	.LASF180
+ 879 0527 4A01     		.2byte	0x14a
+ 880 0529 0B       		.uleb128 0xb
+ 881 052a C11A0000 		.4byte	.LASF181
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 21
+
+
+ 882 052e 4B01     		.2byte	0x14b
+ 883 0530 0B       		.uleb128 0xb
+ 884 0531 DF2D0000 		.4byte	.LASF182
+ 885 0535 4C01     		.2byte	0x14c
+ 886 0537 0B       		.uleb128 0xb
+ 887 0538 05080000 		.4byte	.LASF183
+ 888 053c 4D01     		.2byte	0x14d
+ 889 053e 0B       		.uleb128 0xb
+ 890 053f 31210000 		.4byte	.LASF184
+ 891 0543 4E01     		.2byte	0x14e
+ 892 0545 0B       		.uleb128 0xb
+ 893 0546 AB2F0000 		.4byte	.LASF185
+ 894 054a 4F01     		.2byte	0x14f
+ 895 054c 0B       		.uleb128 0xb
+ 896 054d 262E0000 		.4byte	.LASF186
+ 897 0551 5001     		.2byte	0x150
+ 898 0553 0B       		.uleb128 0xb
+ 899 0554 A4000000 		.4byte	.LASF187
+ 900 0558 5101     		.2byte	0x151
+ 901 055a 0B       		.uleb128 0xb
+ 902 055b 881D0000 		.4byte	.LASF188
+ 903 055f 5201     		.2byte	0x152
+ 904 0561 0B       		.uleb128 0xb
+ 905 0562 F6170000 		.4byte	.LASF189
+ 906 0566 5301     		.2byte	0x153
+ 907 0568 0B       		.uleb128 0xb
+ 908 0569 59290000 		.4byte	.LASF190
+ 909 056d 5401     		.2byte	0x154
+ 910 056f 0B       		.uleb128 0xb
+ 911 0570 42270000 		.4byte	.LASF191
+ 912 0574 5501     		.2byte	0x155
+ 913 0576 0B       		.uleb128 0xb
+ 914 0577 CD010000 		.4byte	.LASF192
+ 915 057b 5601     		.2byte	0x156
+ 916 057d 0B       		.uleb128 0xb
+ 917 057e 78260000 		.4byte	.LASF193
+ 918 0582 5701     		.2byte	0x157
+ 919 0584 0B       		.uleb128 0xb
+ 920 0585 570C0000 		.4byte	.LASF194
+ 921 0589 5801     		.2byte	0x158
+ 922 058b 0B       		.uleb128 0xb
+ 923 058c 94080000 		.4byte	.LASF195
+ 924 0590 5901     		.2byte	0x159
+ 925 0592 0B       		.uleb128 0xb
+ 926 0593 71080000 		.4byte	.LASF196
+ 927 0597 5A01     		.2byte	0x15a
+ 928 0599 0B       		.uleb128 0xb
+ 929 059a 1C0C0000 		.4byte	.LASF197
+ 930 059e 5B01     		.2byte	0x15b
+ 931 05a0 0B       		.uleb128 0xb
+ 932 05a1 3A190000 		.4byte	.LASF198
+ 933 05a5 5C01     		.2byte	0x15c
+ 934 05a7 0B       		.uleb128 0xb
+ 935 05a8 F4300000 		.4byte	.LASF199
+ 936 05ac 5D01     		.2byte	0x15d
+ 937 05ae 0B       		.uleb128 0xb
+ 938 05af 64100000 		.4byte	.LASF200
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 22
+
+
+ 939 05b3 5E01     		.2byte	0x15e
+ 940 05b5 0B       		.uleb128 0xb
+ 941 05b6 19250000 		.4byte	.LASF201
+ 942 05ba 5F01     		.2byte	0x15f
+ 943 05bc 0B       		.uleb128 0xb
+ 944 05bd 39200000 		.4byte	.LASF202
+ 945 05c1 6001     		.2byte	0x160
+ 946 05c3 0B       		.uleb128 0xb
+ 947 05c4 10050000 		.4byte	.LASF203
+ 948 05c8 6101     		.2byte	0x161
+ 949 05ca 0B       		.uleb128 0xb
+ 950 05cb 8C170000 		.4byte	.LASF204
+ 951 05cf 6201     		.2byte	0x162
+ 952 05d1 0B       		.uleb128 0xb
+ 953 05d2 BF000000 		.4byte	.LASF205
+ 954 05d6 6301     		.2byte	0x163
+ 955 05d8 0B       		.uleb128 0xb
+ 956 05d9 F8080000 		.4byte	.LASF206
+ 957 05dd 6401     		.2byte	0x164
+ 958 05df 0B       		.uleb128 0xb
+ 959 05e0 862E0000 		.4byte	.LASF207
+ 960 05e4 6501     		.2byte	0x165
+ 961 05e6 0B       		.uleb128 0xb
+ 962 05e7 E8120000 		.4byte	.LASF208
+ 963 05eb 6601     		.2byte	0x166
+ 964 05ed 0B       		.uleb128 0xb
+ 965 05ee 1E120000 		.4byte	.LASF209
+ 966 05f2 6701     		.2byte	0x167
+ 967 05f4 0B       		.uleb128 0xb
+ 968 05f5 C0050000 		.4byte	.LASF210
+ 969 05f9 6801     		.2byte	0x168
+ 970 05fb 0B       		.uleb128 0xb
+ 971 05fc 6D090000 		.4byte	.LASF211
+ 972 0600 6901     		.2byte	0x169
+ 973 0602 0B       		.uleb128 0xb
+ 974 0603 E31B0000 		.4byte	.LASF212
+ 975 0607 6A01     		.2byte	0x16a
+ 976 0609 0B       		.uleb128 0xb
+ 977 060a 98180000 		.4byte	.LASF213
+ 978 060e 6B01     		.2byte	0x16b
+ 979 0610 0B       		.uleb128 0xb
+ 980 0611 27070000 		.4byte	.LASF214
+ 981 0615 6C01     		.2byte	0x16c
+ 982 0617 0B       		.uleb128 0xb
+ 983 0618 5E060000 		.4byte	.LASF215
+ 984 061c 6D01     		.2byte	0x16d
+ 985 061e 0B       		.uleb128 0xb
+ 986 061f AA010000 		.4byte	.LASF216
+ 987 0623 6E01     		.2byte	0x16e
+ 988 0625 0B       		.uleb128 0xb
+ 989 0626 53180000 		.4byte	.LASF217
+ 990 062a 6F01     		.2byte	0x16f
+ 991 062c 0B       		.uleb128 0xb
+ 992 062d F1320000 		.4byte	.LASF218
+ 993 0631 7001     		.2byte	0x170
+ 994 0633 0B       		.uleb128 0xb
+ 995 0634 06140000 		.4byte	.LASF219
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 23
+
+
+ 996 0638 7101     		.2byte	0x171
+ 997 063a 0B       		.uleb128 0xb
+ 998 063b 44120000 		.4byte	.LASF220
+ 999 063f 7201     		.2byte	0x172
+ 1000 0641 0B       		.uleb128 0xb
+ 1001 0642 A51D0000 		.4byte	.LASF221
+ 1002 0646 7301     		.2byte	0x173
+ 1003 0648 0B       		.uleb128 0xb
+ 1004 0649 FB2B0000 		.4byte	.LASF222
+ 1005 064d 7401     		.2byte	0x174
+ 1006 064f 0B       		.uleb128 0xb
+ 1007 0650 75250000 		.4byte	.LASF223
+ 1008 0654 7501     		.2byte	0x175
+ 1009 0656 0B       		.uleb128 0xb
+ 1010 0657 55030000 		.4byte	.LASF224
+ 1011 065b 7601     		.2byte	0x176
+ 1012 065d 0B       		.uleb128 0xb
+ 1013 065e 81240000 		.4byte	.LASF225
+ 1014 0662 7701     		.2byte	0x177
+ 1015 0664 0B       		.uleb128 0xb
+ 1016 0665 5A150000 		.4byte	.LASF226
+ 1017 0669 7801     		.2byte	0x178
+ 1018 066b 0B       		.uleb128 0xb
+ 1019 066c 4E170000 		.4byte	.LASF227
+ 1020 0670 7901     		.2byte	0x179
+ 1021 0672 0B       		.uleb128 0xb
+ 1022 0673 53200000 		.4byte	.LASF228
+ 1023 0677 7A01     		.2byte	0x17a
+ 1024 0679 0B       		.uleb128 0xb
+ 1025 067a 50280000 		.4byte	.LASF229
+ 1026 067e 7B01     		.2byte	0x17b
+ 1027 0680 0B       		.uleb128 0xb
+ 1028 0681 BA100000 		.4byte	.LASF230
+ 1029 0685 7C01     		.2byte	0x17c
+ 1030 0687 0B       		.uleb128 0xb
+ 1031 0688 261C0000 		.4byte	.LASF231
+ 1032 068c 7D01     		.2byte	0x17d
+ 1033 068e 0B       		.uleb128 0xb
+ 1034 068f EB1A0000 		.4byte	.LASF232
+ 1035 0693 7E01     		.2byte	0x17e
+ 1036 0695 0B       		.uleb128 0xb
+ 1037 0696 2B1E0000 		.4byte	.LASF233
+ 1038 069a 7F01     		.2byte	0x17f
+ 1039 069c 0B       		.uleb128 0xb
+ 1040 069d 1C280000 		.4byte	.LASF234
+ 1041 06a1 8001     		.2byte	0x180
+ 1042 06a3 0B       		.uleb128 0xb
+ 1043 06a4 0B1C0000 		.4byte	.LASF235
+ 1044 06a8 8101     		.2byte	0x181
+ 1045 06aa 0B       		.uleb128 0xb
+ 1046 06ab 8D1C0000 		.4byte	.LASF236
+ 1047 06af 8201     		.2byte	0x182
+ 1048 06b1 0B       		.uleb128 0xb
+ 1049 06b2 7B110000 		.4byte	.LASF237
+ 1050 06b6 8301     		.2byte	0x183
+ 1051 06b8 0B       		.uleb128 0xb
+ 1052 06b9 850A0000 		.4byte	.LASF238
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 24
+
+
+ 1053 06bd 8401     		.2byte	0x184
+ 1054 06bf 0B       		.uleb128 0xb
+ 1055 06c0 D52A0000 		.4byte	.LASF239
+ 1056 06c4 8501     		.2byte	0x185
+ 1057 06c6 0B       		.uleb128 0xb
+ 1058 06c7 00150000 		.4byte	.LASF240
+ 1059 06cb 8601     		.2byte	0x186
+ 1060 06cd 0B       		.uleb128 0xb
+ 1061 06ce 010A0000 		.4byte	.LASF241
+ 1062 06d2 8701     		.2byte	0x187
+ 1063 06d4 0B       		.uleb128 0xb
+ 1064 06d5 3B2B0000 		.4byte	.LASF242
+ 1065 06d9 8801     		.2byte	0x188
+ 1066 06db 0B       		.uleb128 0xb
+ 1067 06dc 91250000 		.4byte	.LASF243
+ 1068 06e0 8901     		.2byte	0x189
+ 1069 06e2 0B       		.uleb128 0xb
+ 1070 06e3 03240000 		.4byte	.LASF244
+ 1071 06e7 8A01     		.2byte	0x18a
+ 1072 06e9 0B       		.uleb128 0xb
+ 1073 06ea 571A0000 		.4byte	.LASF245
+ 1074 06ee 8B01     		.2byte	0x18b
+ 1075 06f0 0B       		.uleb128 0xb
+ 1076 06f1 F2010000 		.4byte	.LASF246
+ 1077 06f5 8C01     		.2byte	0x18c
+ 1078 06f7 0B       		.uleb128 0xb
+ 1079 06f8 F3200000 		.4byte	.LASF247
+ 1080 06fc 8D01     		.2byte	0x18d
+ 1081 06fe 0B       		.uleb128 0xb
+ 1082 06ff DA300000 		.4byte	.LASF248
+ 1083 0703 8E01     		.2byte	0x18e
+ 1084 0705 0B       		.uleb128 0xb
+ 1085 0706 042D0000 		.4byte	.LASF249
+ 1086 070a 8F01     		.2byte	0x18f
+ 1087 070c 0B       		.uleb128 0xb
+ 1088 070d 8D280000 		.4byte	.LASF250
+ 1089 0711 9001     		.2byte	0x190
+ 1090 0713 0B       		.uleb128 0xb
+ 1091 0714 7E020000 		.4byte	.LASF251
+ 1092 0718 9101     		.2byte	0x191
+ 1093 071a 0B       		.uleb128 0xb
+ 1094 071b 2B0F0000 		.4byte	.LASF252
+ 1095 071f 9201     		.2byte	0x192
+ 1096 0721 0B       		.uleb128 0xb
+ 1097 0722 412E0000 		.4byte	.LASF253
+ 1098 0726 9301     		.2byte	0x193
+ 1099 0728 0B       		.uleb128 0xb
+ 1100 0729 C1330000 		.4byte	.LASF254
+ 1101 072d 9401     		.2byte	0x194
+ 1102 072f 0B       		.uleb128 0xb
+ 1103 0730 A91C0000 		.4byte	.LASF255
+ 1104 0734 9501     		.2byte	0x195
+ 1105 0736 0B       		.uleb128 0xb
+ 1106 0737 85320000 		.4byte	.LASF256
+ 1107 073b 9601     		.2byte	0x196
+ 1108 073d 0B       		.uleb128 0xb
+ 1109 073e 6B1C0000 		.4byte	.LASF257
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 25
+
+
+ 1110 0742 9701     		.2byte	0x197
+ 1111 0744 0B       		.uleb128 0xb
+ 1112 0745 0E0B0000 		.4byte	.LASF258
+ 1113 0749 9801     		.2byte	0x198
+ 1114 074b 0B       		.uleb128 0xb
+ 1115 074c 3D150000 		.4byte	.LASF259
+ 1116 0750 9901     		.2byte	0x199
+ 1117 0752 0B       		.uleb128 0xb
+ 1118 0753 41130000 		.4byte	.LASF260
+ 1119 0757 9A01     		.2byte	0x19a
+ 1120 0759 0B       		.uleb128 0xb
+ 1121 075a 40330000 		.4byte	.LASF261
+ 1122 075e 9B01     		.2byte	0x19b
+ 1123 0760 0B       		.uleb128 0xb
+ 1124 0761 66270000 		.4byte	.LASF262
+ 1125 0765 9C01     		.2byte	0x19c
+ 1126 0767 0B       		.uleb128 0xb
+ 1127 0768 A4150000 		.4byte	.LASF263
+ 1128 076c 9D01     		.2byte	0x19d
+ 1129 076e 0B       		.uleb128 0xb
+ 1130 076f D6210000 		.4byte	.LASF264
+ 1131 0773 9E01     		.2byte	0x19e
+ 1132 0775 0B       		.uleb128 0xb
+ 1133 0776 F9030000 		.4byte	.LASF265
+ 1134 077a 9F01     		.2byte	0x19f
+ 1135 077c 0B       		.uleb128 0xb
+ 1136 077d 5B0D0000 		.4byte	.LASF266
+ 1137 0781 A001     		.2byte	0x1a0
+ 1138 0783 0B       		.uleb128 0xb
+ 1139 0784 CC220000 		.4byte	.LASF267
+ 1140 0788 A101     		.2byte	0x1a1
+ 1141 078a 0B       		.uleb128 0xb
+ 1142 078b 27130000 		.4byte	.LASF268
+ 1143 078f A201     		.2byte	0x1a2
+ 1144 0791 0B       		.uleb128 0xb
+ 1145 0792 1E190000 		.4byte	.LASF269
+ 1146 0796 A301     		.2byte	0x1a3
+ 1147 0798 0B       		.uleb128 0xb
+ 1148 0799 9F1A0000 		.4byte	.LASF270
+ 1149 079d A401     		.2byte	0x1a4
+ 1150 079f 0B       		.uleb128 0xb
+ 1151 07a0 D82B0000 		.4byte	.LASF271
+ 1152 07a4 A501     		.2byte	0x1a5
+ 1153 07a6 0B       		.uleb128 0xb
+ 1154 07a7 3D110000 		.4byte	.LASF272
+ 1155 07ab A601     		.2byte	0x1a6
+ 1156 07ad 0B       		.uleb128 0xb
+ 1157 07ae 2E1F0000 		.4byte	.LASF273
+ 1158 07b2 A701     		.2byte	0x1a7
+ 1159 07b4 0B       		.uleb128 0xb
+ 1160 07b5 7E100000 		.4byte	.LASF274
+ 1161 07b9 A801     		.2byte	0x1a8
+ 1162 07bb 0B       		.uleb128 0xb
+ 1163 07bc 9C140000 		.4byte	.LASF275
+ 1164 07c0 A901     		.2byte	0x1a9
+ 1165 07c2 0B       		.uleb128 0xb
+ 1166 07c3 55340000 		.4byte	.LASF276
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 26
+
+
+ 1167 07c7 AA01     		.2byte	0x1aa
+ 1168 07c9 0B       		.uleb128 0xb
+ 1169 07ca 56210000 		.4byte	.LASF277
+ 1170 07ce AB01     		.2byte	0x1ab
+ 1171 07d0 0B       		.uleb128 0xb
+ 1172 07d1 0E220000 		.4byte	.LASF278
+ 1173 07d5 AC01     		.2byte	0x1ac
+ 1174 07d7 0B       		.uleb128 0xb
+ 1175 07d8 04070000 		.4byte	.LASF279
+ 1176 07dc AD01     		.2byte	0x1ad
+ 1177 07de 0B       		.uleb128 0xb
+ 1178 07df C5120000 		.4byte	.LASF280
+ 1179 07e3 AE01     		.2byte	0x1ae
+ 1180 07e5 0B       		.uleb128 0xb
+ 1181 07e6 DE270000 		.4byte	.LASF281
+ 1182 07ea AF01     		.2byte	0x1af
+ 1183 07ec 0B       		.uleb128 0xb
+ 1184 07ed 480A0000 		.4byte	.LASF282
+ 1185 07f1 B001     		.2byte	0x1b0
+ 1186 07f3 0B       		.uleb128 0xb
+ 1187 07f4 3F000000 		.4byte	.LASF283
+ 1188 07f8 B101     		.2byte	0x1b1
+ 1189 07fa 0B       		.uleb128 0xb
+ 1190 07fb 642C0000 		.4byte	.LASF284
+ 1191 07ff B201     		.2byte	0x1b2
+ 1192 0801 0B       		.uleb128 0xb
+ 1193 0802 6C0F0000 		.4byte	.LASF285
+ 1194 0806 B301     		.2byte	0x1b3
+ 1195 0808 0B       		.uleb128 0xb
+ 1196 0809 E6330000 		.4byte	.LASF286
+ 1197 080d B401     		.2byte	0x1b4
+ 1198 080f 0B       		.uleb128 0xb
+ 1199 0810 10170000 		.4byte	.LASF287
+ 1200 0814 B501     		.2byte	0x1b5
+ 1201 0816 0B       		.uleb128 0xb
+ 1202 0817 D9190000 		.4byte	.LASF288
+ 1203 081b B601     		.2byte	0x1b6
+ 1204 081d 0B       		.uleb128 0xb
+ 1205 081e A7330000 		.4byte	.LASF289
+ 1206 0822 B701     		.2byte	0x1b7
+ 1207 0824 0B       		.uleb128 0xb
+ 1208 0825 83290000 		.4byte	.LASF290
+ 1209 0829 B801     		.2byte	0x1b8
+ 1210 082b 0B       		.uleb128 0xb
+ 1211 082c E81E0000 		.4byte	.LASF291
+ 1212 0830 B901     		.2byte	0x1b9
+ 1213 0832 0B       		.uleb128 0xb
+ 1214 0833 B6200000 		.4byte	.LASF292
+ 1215 0837 BA01     		.2byte	0x1ba
+ 1216 0839 0B       		.uleb128 0xb
+ 1217 083a 182F0000 		.4byte	.LASF293
+ 1218 083e BB01     		.2byte	0x1bb
+ 1219 0840 0B       		.uleb128 0xb
+ 1220 0841 FD150000 		.4byte	.LASF294
+ 1221 0845 BC01     		.2byte	0x1bc
+ 1222 0847 0B       		.uleb128 0xb
+ 1223 0848 5E070000 		.4byte	.LASF295
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 27
+
+
+ 1224 084c BD01     		.2byte	0x1bd
+ 1225 084e 0B       		.uleb128 0xb
+ 1226 084f A40D0000 		.4byte	.LASF296
+ 1227 0853 BE01     		.2byte	0x1be
+ 1228 0855 0B       		.uleb128 0xb
+ 1229 0856 C6320000 		.4byte	.LASF297
+ 1230 085a BF01     		.2byte	0x1bf
+ 1231 085c 0B       		.uleb128 0xb
+ 1232 085d 250A0000 		.4byte	.LASF298
+ 1233 0861 C001     		.2byte	0x1c0
+ 1234 0863 0B       		.uleb128 0xb
+ 1235 0864 DA150000 		.4byte	.LASF299
+ 1236 0868 C101     		.2byte	0x1c1
+ 1237 086a 0B       		.uleb128 0xb
+ 1238 086b 5B190000 		.4byte	.LASF300
+ 1239 086f C201     		.2byte	0x1c2
+ 1240 0871 0B       		.uleb128 0xb
+ 1241 0872 EA2E0000 		.4byte	.LASF301
+ 1242 0876 C301     		.2byte	0x1c3
+ 1243 0878 0B       		.uleb128 0xb
+ 1244 0879 372C0000 		.4byte	.LASF302
+ 1245 087d C401     		.2byte	0x1c4
+ 1246 087f 0B       		.uleb128 0xb
+ 1247 0880 A7120000 		.4byte	.LASF303
+ 1248 0884 C501     		.2byte	0x1c5
+ 1249 0886 0B       		.uleb128 0xb
+ 1250 0887 C11B0000 		.4byte	.LASF304
+ 1251 088b C601     		.2byte	0x1c6
+ 1252 088d 0B       		.uleb128 0xb
+ 1253 088e 642D0000 		.4byte	.LASF305
+ 1254 0892 C701     		.2byte	0x1c7
+ 1255 0894 0B       		.uleb128 0xb
+ 1256 0895 F0250000 		.4byte	.LASF306
+ 1257 0899 C801     		.2byte	0x1c8
+ 1258 089b 0B       		.uleb128 0xb
+ 1259 089c 32030000 		.4byte	.LASF307
+ 1260 08a0 C901     		.2byte	0x1c9
+ 1261 08a2 0B       		.uleb128 0xb
+ 1262 08a3 48230000 		.4byte	.LASF308
+ 1263 08a7 CA01     		.2byte	0x1ca
+ 1264 08a9 0B       		.uleb128 0xb
+ 1265 08aa B6080000 		.4byte	.LASF309
+ 1266 08ae CB01     		.2byte	0x1cb
+ 1267 08b0 0B       		.uleb128 0xb
+ 1268 08b1 48090000 		.4byte	.LASF310
+ 1269 08b5 CC01     		.2byte	0x1cc
+ 1270 08b7 0B       		.uleb128 0xb
+ 1271 08b8 02280000 		.4byte	.LASF311
+ 1272 08bc CD01     		.2byte	0x1cd
+ 1273 08be 0B       		.uleb128 0xb
+ 1274 08bf E3050000 		.4byte	.LASF312
+ 1275 08c3 CE01     		.2byte	0x1ce
+ 1276 08c5 0B       		.uleb128 0xb
+ 1277 08c6 59250000 		.4byte	.LASF313
+ 1278 08ca CF01     		.2byte	0x1cf
+ 1279 08cc 0B       		.uleb128 0xb
+ 1280 08cd C5230000 		.4byte	.LASF314
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 28
+
+
+ 1281 08d1 D001     		.2byte	0x1d0
+ 1282 08d3 0B       		.uleb128 0xb
+ 1283 08d4 86130000 		.4byte	.LASF315
+ 1284 08d8 D101     		.2byte	0x1d1
+ 1285 08da 0B       		.uleb128 0xb
+ 1286 08db 71300000 		.4byte	.LASF316
+ 1287 08df D201     		.2byte	0x1d2
+ 1288 08e1 0B       		.uleb128 0xb
+ 1289 08e2 791B0000 		.4byte	.LASF317
+ 1290 08e6 D301     		.2byte	0x1d3
+ 1291 08e8 0B       		.uleb128 0xb
+ 1292 08e9 69220000 		.4byte	.LASF318
+ 1293 08ed D401     		.2byte	0x1d4
+ 1294 08ef 0B       		.uleb128 0xb
+ 1295 08f0 1B160000 		.4byte	.LASF319
+ 1296 08f4 D501     		.2byte	0x1d5
+ 1297 08f6 0B       		.uleb128 0xb
+ 1298 08f7 1C270000 		.4byte	.LASF320
+ 1299 08fb D601     		.2byte	0x1d6
+ 1300 08fd 0B       		.uleb128 0xb
+ 1301 08fe 71170000 		.4byte	.LASF321
+ 1302 0902 D701     		.2byte	0x1d7
+ 1303 0904 0B       		.uleb128 0xb
+ 1304 0905 40160000 		.4byte	.LASF322
+ 1305 0909 D801     		.2byte	0x1d8
+ 1306 090b 0B       		.uleb128 0xb
+ 1307 090c FD050000 		.4byte	.LASF323
+ 1308 0910 D901     		.2byte	0x1d9
+ 1309 0912 0B       		.uleb128 0xb
+ 1310 0913 DC140000 		.4byte	.LASF324
+ 1311 0917 DA01     		.2byte	0x1da
+ 1312 0919 0B       		.uleb128 0xb
+ 1313 091a C9290000 		.4byte	.LASF325
+ 1314 091e DB01     		.2byte	0x1db
+ 1315 0920 0B       		.uleb128 0xb
+ 1316 0921 5D260000 		.4byte	.LASF326
+ 1317 0925 DC01     		.2byte	0x1dc
+ 1318 0927 0B       		.uleb128 0xb
+ 1319 0928 5D160000 		.4byte	.LASF327
+ 1320 092c DD01     		.2byte	0x1dd
+ 1321 092e 0B       		.uleb128 0xb
+ 1322 092f A5160000 		.4byte	.LASF328
+ 1323 0933 DE01     		.2byte	0x1de
+ 1324 0935 0B       		.uleb128 0xb
+ 1325 0936 ED160000 		.4byte	.LASF329
+ 1326 093a DF01     		.2byte	0x1df
+ 1327 093c 0B       		.uleb128 0xb
+ 1328 093d B3180000 		.4byte	.LASF330
+ 1329 0941 E001     		.2byte	0x1e0
+ 1330 0943 0B       		.uleb128 0xb
+ 1331 0944 A4190000 		.4byte	.LASF331
+ 1332 0948 E101     		.2byte	0x1e1
+ 1333 094a 0B       		.uleb128 0xb
+ 1334 094b 22000000 		.4byte	.LASF332
+ 1335 094f E201     		.2byte	0x1e2
+ 1336 0951 0B       		.uleb128 0xb
+ 1337 0952 BA030000 		.4byte	.LASF333
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 29
+
+
+ 1338 0956 E301     		.2byte	0x1e3
+ 1339 0958 0B       		.uleb128 0xb
+ 1340 0959 45140000 		.4byte	.LASF334
+ 1341 095d E401     		.2byte	0x1e4
+ 1342 095f 0B       		.uleb128 0xb
+ 1343 0960 4D080000 		.4byte	.LASF335
+ 1344 0964 E501     		.2byte	0x1e5
+ 1345 0966 0B       		.uleb128 0xb
+ 1346 0967 E2000000 		.4byte	.LASF336
+ 1347 096b E601     		.2byte	0x1e6
+ 1348 096d 0B       		.uleb128 0xb
+ 1349 096e 7F190000 		.4byte	.LASF337
+ 1350 0972 E701     		.2byte	0x1e7
+ 1351 0974 0B       		.uleb128 0xb
+ 1352 0975 5D330000 		.4byte	.LASF338
+ 1353 0979 E801     		.2byte	0x1e8
+ 1354 097b 0B       		.uleb128 0xb
+ 1355 097c 7E150000 		.4byte	.LASF339
+ 1356 0980 E901     		.2byte	0x1e9
+ 1357 0982 0B       		.uleb128 0xb
+ 1358 0983 CD0B0000 		.4byte	.LASF340
+ 1359 0987 EA01     		.2byte	0x1ea
+ 1360 0989 0B       		.uleb128 0xb
+ 1361 098a 68120000 		.4byte	.LASF341
+ 1362 098e EB01     		.2byte	0x1eb
+ 1363 0990 0B       		.uleb128 0xb
+ 1364 0991 AE210000 		.4byte	.LASF342
+ 1365 0995 EC01     		.2byte	0x1ec
+ 1366 0997 0B       		.uleb128 0xb
+ 1367 0998 9F030000 		.4byte	.LASF343
+ 1368 099c ED01     		.2byte	0x1ed
+ 1369 099e 0B       		.uleb128 0xb
+ 1370 099f AF280000 		.4byte	.LASF344
+ 1371 09a3 EE01     		.2byte	0x1ee
+ 1372 09a5 0B       		.uleb128 0xb
+ 1373 09a6 7C0C0000 		.4byte	.LASF345
+ 1374 09aa EF01     		.2byte	0x1ef
+ 1375 09ac 0B       		.uleb128 0xb
+ 1376 09ad D7180000 		.4byte	.LASF346
+ 1377 09b1 F001     		.2byte	0x1f0
+ 1378 09b3 0B       		.uleb128 0xb
+ 1379 09b4 BA110000 		.4byte	.LASF347
+ 1380 09b8 F101     		.2byte	0x1f1
+ 1381 09ba 0B       		.uleb128 0xb
+ 1382 09bb AA2E0000 		.4byte	.LASF348
+ 1383 09bf F201     		.2byte	0x1f2
+ 1384 09c1 0B       		.uleb128 0xb
+ 1385 09c2 CF020000 		.4byte	.LASF349
+ 1386 09c6 F301     		.2byte	0x1f3
+ 1387 09c8 0B       		.uleb128 0xb
+ 1388 09c9 06010000 		.4byte	.LASF350
+ 1389 09cd F401     		.2byte	0x1f4
+ 1390 09cf 0B       		.uleb128 0xb
+ 1391 09d0 8F0F0000 		.4byte	.LASF351
+ 1392 09d4 F501     		.2byte	0x1f5
+ 1393 09d6 0B       		.uleb128 0xb
+ 1394 09d7 7F0D0000 		.4byte	.LASF352
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 30
+
+
+ 1395 09db F601     		.2byte	0x1f6
+ 1396 09dd 0B       		.uleb128 0xb
+ 1397 09de 051E0000 		.4byte	.LASF353
+ 1398 09e2 F701     		.2byte	0x1f7
+ 1399 09e4 0B       		.uleb128 0xb
+ 1400 09e5 202D0000 		.4byte	.LASF354
+ 1401 09e9 F801     		.2byte	0x1f8
+ 1402 09eb 0B       		.uleb128 0xb
+ 1403 09ec 4E1C0000 		.4byte	.LASF355
+ 1404 09f0 F901     		.2byte	0x1f9
+ 1405 09f2 0B       		.uleb128 0xb
+ 1406 09f3 BA270000 		.4byte	.LASF356
+ 1407 09f7 FA01     		.2byte	0x1fa
+ 1408 09f9 0B       		.uleb128 0xb
+ 1409 09fa 540E0000 		.4byte	.LASF357
+ 1410 09fe FB01     		.2byte	0x1fb
+ 1411 0a00 0B       		.uleb128 0xb
+ 1412 0a01 1E040000 		.4byte	.LASF358
+ 1413 0a05 FC01     		.2byte	0x1fc
+ 1414 0a07 0B       		.uleb128 0xb
+ 1415 0a08 95270000 		.4byte	.LASF359
+ 1416 0a0c FD01     		.2byte	0x1fd
+ 1417 0a0e 0B       		.uleb128 0xb
+ 1418 0a0f 7E0E0000 		.4byte	.LASF360
+ 1419 0a13 FE01     		.2byte	0x1fe
+ 1420 0a15 0B       		.uleb128 0xb
+ 1421 0a16 031A0000 		.4byte	.LASF361
+ 1422 0a1a FF01     		.2byte	0x1ff
+ 1423 0a1c 0B       		.uleb128 0xb
+ 1424 0a1d 9C260000 		.4byte	.LASF362
+ 1425 0a21 0002     		.2byte	0x200
+ 1426 0a23 0B       		.uleb128 0xb
+ 1427 0a24 DE110000 		.4byte	.LASF363
+ 1428 0a28 0102     		.2byte	0x201
+ 1429 0a2a 0B       		.uleb128 0xb
+ 1430 0a2b 152C0000 		.4byte	.LASF364
+ 1431 0a2f 0202     		.2byte	0x202
+ 1432 0a31 0B       		.uleb128 0xb
+ 1433 0a32 08100000 		.4byte	.LASF365
+ 1434 0a36 0302     		.2byte	0x203
+ 1435 0a38 0B       		.uleb128 0xb
+ 1436 0a39 91090000 		.4byte	.LASF366
+ 1437 0a3d 0402     		.2byte	0x204
+ 1438 0a3f 0B       		.uleb128 0xb
+ 1439 0a40 FF220000 		.4byte	.LASF367
+ 1440 0a44 0502     		.2byte	0x205
+ 1441 0a46 0B       		.uleb128 0xb
+ 1442 0a47 E1130000 		.4byte	.LASF368
+ 1443 0a4b 0602     		.2byte	0x206
+ 1444 0a4d 0B       		.uleb128 0xb
+ 1445 0a4e 6C0A0000 		.4byte	.LASF369
+ 1446 0a52 0702     		.2byte	0x207
+ 1447 0a54 0B       		.uleb128 0xb
+ 1448 0a55 2B140000 		.4byte	.LASF370
+ 1449 0a59 0802     		.2byte	0x208
+ 1450 0a5b 0B       		.uleb128 0xb
+ 1451 0a5c 44070000 		.4byte	.LASF371
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 31
+
+
+ 1452 0a60 0902     		.2byte	0x209
+ 1453 0a62 0B       		.uleb128 0xb
+ 1454 0a63 1C1D0000 		.4byte	.LASF372
+ 1455 0a67 0A02     		.2byte	0x20a
+ 1456 0a69 0B       		.uleb128 0xb
+ 1457 0a6a 00000000 		.4byte	.LASF373
+ 1458 0a6e 0B02     		.2byte	0x20b
+ 1459 0a70 0B       		.uleb128 0xb
+ 1460 0a71 BC1F0000 		.4byte	.LASF374
+ 1461 0a75 0C02     		.2byte	0x20c
+ 1462 0a77 0B       		.uleb128 0xb
+ 1463 0a78 862C0000 		.4byte	.LASF375
+ 1464 0a7c 0D02     		.2byte	0x20d
+ 1465 0a7e 0B       		.uleb128 0xb
+ 1466 0a7f D5030000 		.4byte	.LASF376
+ 1467 0a83 0E02     		.2byte	0x20e
+ 1468 0a85 0B       		.uleb128 0xb
+ 1469 0a86 BF260000 		.4byte	.LASF377
+ 1470 0a8a 0F02     		.2byte	0x20f
+ 1471 0a8c 0B       		.uleb128 0xb
+ 1472 0a8d 541B0000 		.4byte	.LASF378
+ 1473 0a91 1002     		.2byte	0x210
+ 1474 0a93 0B       		.uleb128 0xb
+ 1475 0a94 DF100000 		.4byte	.LASF379
+ 1476 0a98 1102     		.2byte	0x211
+ 1477 0a9a 0B       		.uleb128 0xb
+ 1478 0a9b 82160000 		.4byte	.LASF380
+ 1479 0a9f 1202     		.2byte	0x212
+ 1480 0aa1 0B       		.uleb128 0xb
+ 1481 0aa2 BA0C0000 		.4byte	.LASF381
+ 1482 0aa6 1302     		.2byte	0x213
+ 1483 0aa8 0B       		.uleb128 0xb
+ 1484 0aa9 30340000 		.4byte	.LASF382
+ 1485 0aad 1402     		.2byte	0x214
+ 1486 0aaf 0B       		.uleb128 0xb
+ 1487 0ab0 8C120000 		.4byte	.LASF383
+ 1488 0ab4 1502     		.2byte	0x215
+ 1489 0ab6 0B       		.uleb128 0xb
+ 1490 0ab7 25010000 		.4byte	.LASF384
+ 1491 0abb 1602     		.2byte	0x216
+ 1492 0abd 0B       		.uleb128 0xb
+ 1493 0abe DF1F0000 		.4byte	.LASF385
+ 1494 0ac2 1702     		.2byte	0x217
+ 1495 0ac4 0B       		.uleb128 0xb
+ 1496 0ac5 381D0000 		.4byte	.LASF386
+ 1497 0ac9 1802     		.2byte	0x218
+ 1498 0acb 0B       		.uleb128 0xb
+ 1499 0acc 63130000 		.4byte	.LASF387
+ 1500 0ad0 1902     		.2byte	0x219
+ 1501 0ad2 0B       		.uleb128 0xb
+ 1502 0ad3 18290000 		.4byte	.LASF388
+ 1503 0ad7 1A02     		.2byte	0x21a
+ 1504 0ad9 0B       		.uleb128 0xb
+ 1505 0ada 602F0000 		.4byte	.LASF389
+ 1506 0ade 1B02     		.2byte	0x21b
+ 1507 0ae0 0B       		.uleb128 0xb
+ 1508 0ae1 88010000 		.4byte	.LASF390
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 32
+
+
+ 1509 0ae5 1C02     		.2byte	0x21c
+ 1510 0ae7 0B       		.uleb128 0xb
+ 1511 0ae8 0B1F0000 		.4byte	.LASF391
+ 1512 0aec 1D02     		.2byte	0x21d
+ 1513 0aee 0B       		.uleb128 0xb
+ 1514 0aef E40F0000 		.4byte	.LASF392
+ 1515 0af3 1E02     		.2byte	0x21e
+ 1516 0af5 0B       		.uleb128 0xb
+ 1517 0af6 61110000 		.4byte	.LASF393
+ 1518 0afa 1F02     		.2byte	0x21f
+ 1519 0afc 0B       		.uleb128 0xb
+ 1520 0afd 02320000 		.4byte	.LASF394
+ 1521 0b01 2002     		.2byte	0x220
+ 1522 0b03 0B       		.uleb128 0xb
+ 1523 0b04 970C0000 		.4byte	.LASF395
+ 1524 0b08 2102     		.2byte	0x221
+ 1525 0b0a 0B       		.uleb128 0xb
+ 1526 0b0b 320B0000 		.4byte	.LASF396
+ 1527 0b0f 2202     		.2byte	0x222
+ 1528 0b11 0B       		.uleb128 0xb
+ 1529 0b12 D9200000 		.4byte	.LASF397
+ 1530 0b16 00E0     		.2byte	0xe000
+ 1531 0b18 00       		.byte	0
+ 1532 0b19 06       		.uleb128 0x6
+ 1533 0b1a 01       		.byte	0x1
+ 1534 0b1b 2C000000 		.4byte	0x2c
+ 1535 0b1f 07       		.byte	0x7
+ 1536 0b20 5008     		.2byte	0x850
+ 1537 0b22 450B0000 		.4byte	0xb45
+ 1538 0b26 07       		.uleb128 0x7
+ 1539 0b27 B90B0000 		.4byte	.LASF398
+ 1540 0b2b 00       		.byte	0
+ 1541 0b2c 07       		.uleb128 0x7
+ 1542 0b2d 19180000 		.4byte	.LASF399
+ 1543 0b31 01       		.byte	0x1
+ 1544 0b32 07       		.uleb128 0x7
+ 1545 0b33 94300000 		.4byte	.LASF400
+ 1546 0b37 02       		.byte	0x2
+ 1547 0b38 07       		.uleb128 0x7
+ 1548 0b39 BB070000 		.4byte	.LASF401
+ 1549 0b3d 03       		.byte	0x3
+ 1550 0b3e 07       		.uleb128 0x7
+ 1551 0b3f 74280000 		.4byte	.LASF402
+ 1552 0b43 04       		.byte	0x4
+ 1553 0b44 00       		.byte	0
+ 1554 0b45 04       		.uleb128 0x4
+ 1555 0b46 27240000 		.4byte	.LASF403
+ 1556 0b4a 07       		.byte	0x7
+ 1557 0b4b 5E08     		.2byte	0x85e
+ 1558 0b4d 190B0000 		.4byte	0xb19
+ 1559 0b51 0A       		.uleb128 0xa
+ 1560 0b52 01       		.byte	0x1
+ 1561 0b53 2C000000 		.4byte	0x2c
+ 1562 0b57 08       		.byte	0x8
+ 1563 0b58 38       		.byte	0x38
+ 1564 0b59 760B0000 		.4byte	0xb76
+ 1565 0b5d 07       		.uleb128 0x7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 33
+
+
+ 1566 0b5e 87040000 		.4byte	.LASF404
+ 1567 0b62 00       		.byte	0
+ 1568 0b63 07       		.uleb128 0x7
+ 1569 0b64 BD2A0000 		.4byte	.LASF405
+ 1570 0b68 01       		.byte	0x1
+ 1571 0b69 07       		.uleb128 0x7
+ 1572 0b6a 482D0000 		.4byte	.LASF406
+ 1573 0b6e 02       		.byte	0x2
+ 1574 0b6f 07       		.uleb128 0x7
+ 1575 0b70 02120000 		.4byte	.LASF407
+ 1576 0b74 03       		.byte	0x3
+ 1577 0b75 00       		.byte	0
+ 1578 0b76 0C       		.uleb128 0xc
+ 1579 0b77 E9310000 		.4byte	.LASF408
+ 1580 0b7b 08       		.byte	0x8
+ 1581 0b7c 3D       		.byte	0x3d
+ 1582 0b7d 510B0000 		.4byte	0xb51
+ 1583 0b81 0D       		.uleb128 0xd
+ 1584 0b82 AA300000 		.4byte	.LASF409
+ 1585 0b86 01       		.byte	0x1
+ 1586 0b87 61       		.byte	0x61
+ 1587 0b88 00000000 		.4byte	.LFB35
+ 1588 0b8c 44000000 		.4byte	.LFE35-.LFB35
+ 1589 0b90 01       		.uleb128 0x1
+ 1590 0b91 9C       		.byte	0x9c
+ 1591 0b92 DD0B0000 		.4byte	0xbdd
+ 1592 0b96 0E       		.uleb128 0xe
+ 1593 0b97 09250000 		.4byte	.LASF414
+ 1594 0b9b 01       		.byte	0x1
+ 1595 0b9c 68       		.byte	0x68
+ 1596 0b9d DD0B0000 		.4byte	0xbdd
+ 1597 0ba1 02       		.uleb128 0x2
+ 1598 0ba2 91       		.byte	0x91
+ 1599 0ba3 74       		.sleb128 -12
+ 1600 0ba4 0F       		.uleb128 0xf
+ 1601 0ba5 18000000 		.4byte	.LVL0
+ 1602 0ba9 CE0C0000 		.4byte	0xcce
+ 1603 0bad C20B0000 		.4byte	0xbc2
+ 1604 0bb1 10       		.uleb128 0x10
+ 1605 0bb2 01       		.uleb128 0x1
+ 1606 0bb3 50       		.byte	0x50
+ 1607 0bb4 01       		.uleb128 0x1
+ 1608 0bb5 30       		.byte	0x30
+ 1609 0bb6 10       		.uleb128 0x10
+ 1610 0bb7 01       		.uleb128 0x1
+ 1611 0bb8 51       		.byte	0x51
+ 1612 0bb9 01       		.uleb128 0x1
+ 1613 0bba 32       		.byte	0x32
+ 1614 0bbb 10       		.uleb128 0x10
+ 1615 0bbc 01       		.uleb128 0x1
+ 1616 0bbd 52       		.byte	0x52
+ 1617 0bbe 02       		.uleb128 0x2
+ 1618 0bbf 74       		.byte	0x74
+ 1619 0bc0 00       		.sleb128 0
+ 1620 0bc1 00       		.byte	0
+ 1621 0bc2 11       		.uleb128 0x11
+ 1622 0bc3 32000000 		.4byte	.LVL1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 34
+
+
+ 1623 0bc7 D90C0000 		.4byte	0xcd9
+ 1624 0bcb 10       		.uleb128 0x10
+ 1625 0bcc 01       		.uleb128 0x1
+ 1626 0bcd 51       		.byte	0x51
+ 1627 0bce 01       		.uleb128 0x1
+ 1628 0bcf 30       		.byte	0x30
+ 1629 0bd0 10       		.uleb128 0x10
+ 1630 0bd1 01       		.uleb128 0x1
+ 1631 0bd2 52       		.byte	0x52
+ 1632 0bd3 01       		.uleb128 0x1
+ 1633 0bd4 32       		.byte	0x32
+ 1634 0bd5 10       		.uleb128 0x10
+ 1635 0bd6 01       		.uleb128 0x1
+ 1636 0bd7 53       		.byte	0x53
+ 1637 0bd8 02       		.uleb128 0x2
+ 1638 0bd9 74       		.byte	0x74
+ 1639 0bda 00       		.sleb128 0
+ 1640 0bdb 00       		.byte	0
+ 1641 0bdc 00       		.byte	0
+ 1642 0bdd 12       		.uleb128 0x12
+ 1643 0bde 6B000000 		.4byte	0x6b
+ 1644 0be2 ED0B0000 		.4byte	0xbed
+ 1645 0be6 13       		.uleb128 0x13
+ 1646 0be7 AB000000 		.4byte	0xab
+ 1647 0beb 01       		.byte	0x1
+ 1648 0bec 00       		.byte	0
+ 1649 0bed 0D       		.uleb128 0xd
+ 1650 0bee 542C0000 		.4byte	.LASF410
+ 1651 0bf2 01       		.byte	0x1
+ 1652 0bf3 95       		.byte	0x95
+ 1653 0bf4 00000000 		.4byte	.LFB36
+ 1654 0bf8 24000000 		.4byte	.LFE36-.LFB36
+ 1655 0bfc 01       		.uleb128 0x1
+ 1656 0bfd 9C       		.byte	0x9c
+ 1657 0bfe 1D0C0000 		.4byte	0xc1d
+ 1658 0c02 14       		.uleb128 0x14
+ 1659 0c03 C7170000 		.4byte	.LASF411
+ 1660 0c07 01       		.byte	0x1
+ 1661 0c08 95       		.byte	0x95
+ 1662 0c09 83000000 		.4byte	0x83
+ 1663 0c0d 01       		.uleb128 0x1
+ 1664 0c0e 50       		.byte	0x50
+ 1665 0c0f 14       		.uleb128 0x14
+ 1666 0c10 17020000 		.4byte	.LASF412
+ 1667 0c14 01       		.byte	0x1
+ 1668 0c15 95       		.byte	0x95
+ 1669 0c16 B2000000 		.4byte	0xb2
+ 1670 0c1a 01       		.uleb128 0x1
+ 1671 0c1b 51       		.byte	0x51
+ 1672 0c1c 00       		.byte	0
+ 1673 0c1d 0D       		.uleb128 0xd
+ 1674 0c1e FA210000 		.4byte	.LASF413
+ 1675 0c22 01       		.byte	0x1
+ 1676 0c23 C6       		.byte	0xc6
+ 1677 0c24 00000000 		.4byte	.LFB37
+ 1678 0c28 68000000 		.4byte	.LFE37-.LFB37
+ 1679 0c2c 01       		.uleb128 0x1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 35
+
+
+ 1680 0c2d 9C       		.byte	0x9c
+ 1681 0c2e 600C0000 		.4byte	0xc60
+ 1682 0c32 15       		.uleb128 0x15
+ 1683 0c33 C7170000 		.4byte	.LASF411
+ 1684 0c37 01       		.byte	0x1
+ 1685 0c38 C6       		.byte	0xc6
+ 1686 0c39 83000000 		.4byte	0x83
+ 1687 0c3d 00000000 		.4byte	.LLST0
+ 1688 0c41 15       		.uleb128 0x15
+ 1689 0c42 17020000 		.4byte	.LASF412
+ 1690 0c46 01       		.byte	0x1
+ 1691 0c47 C6       		.byte	0xc6
+ 1692 0c48 B2000000 		.4byte	0xb2
+ 1693 0c4c 3A000000 		.4byte	.LLST1
+ 1694 0c50 11       		.uleb128 0x11
+ 1695 0c51 22000000 		.4byte	.LVL5
+ 1696 0c55 E40C0000 		.4byte	0xce4
+ 1697 0c59 10       		.uleb128 0x10
+ 1698 0c5a 01       		.uleb128 0x1
+ 1699 0c5b 50       		.byte	0x50
+ 1700 0c5c 01       		.uleb128 0x1
+ 1701 0c5d 30       		.byte	0x30
+ 1702 0c5e 00       		.byte	0
+ 1703 0c5f 00       		.byte	0
+ 1704 0c60 0E       		.uleb128 0xe
+ 1705 0c61 8C140000 		.4byte	.LASF415
+ 1706 0c65 01       		.byte	0x1
+ 1707 0c66 3C       		.byte	0x3c
+ 1708 0c67 6B000000 		.4byte	0x6b
+ 1709 0c6b 05       		.uleb128 0x5
+ 1710 0c6c 03       		.byte	0x3
+ 1711 0c6d 00000000 		.4byte	hrsNotification
+ 1712 0c71 16       		.uleb128 0x16
+ 1713 0c72 89270000 		.4byte	.LASF416
+ 1714 0c76 07       		.byte	0x7
+ 1715 0c77 A90A     		.2byte	0xaa9
+ 1716 0c79 450B0000 		.4byte	0xb45
+ 1717 0c7d 16       		.uleb128 0x16
+ 1718 0c7e EE290000 		.4byte	.LASF417
+ 1719 0c82 07       		.byte	0x7
+ 1720 0c83 AA0A     		.2byte	0xaaa
+ 1721 0c85 96020000 		.4byte	0x296
+ 1722 0c89 17       		.uleb128 0x17
+ 1723 0c8a 99310000 		.4byte	.LASF418
+ 1724 0c8e 09       		.byte	0x9
+ 1725 0c8f 36       		.byte	0x36
+ 1726 0c90 6B000000 		.4byte	0x6b
+ 1727 0c94 18       		.uleb128 0x18
+ 1728 0c95 B20F0000 		.4byte	.LASF419
+ 1729 0c99 01       		.byte	0x1
+ 1730 0c9a 42       		.byte	0x42
+ 1731 0c9b A50C0000 		.4byte	0xca5
+ 1732 0c9f 05       		.uleb128 0x5
+ 1733 0ca0 03       		.byte	0x3
+ 1734 0ca1 00000000 		.4byte	enterHibernateFlag
+ 1735 0ca5 02       		.uleb128 0x2
+ 1736 0ca6 01       		.byte	0x1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 36
+
+
+ 1737 0ca7 02       		.byte	0x2
+ 1738 0ca8 550D0000 		.4byte	.LASF420
+ 1739 0cac 18       		.uleb128 0x18
+ 1740 0cad 400C0000 		.4byte	.LASF421
+ 1741 0cb1 01       		.byte	0x1
+ 1742 0cb2 43       		.byte	0x43
+ 1743 0cb3 83000000 		.4byte	0x83
+ 1744 0cb7 05       		.uleb128 0x5
+ 1745 0cb8 03       		.byte	0x3
+ 1746 0cb9 00000000 		.4byte	timestampWhenConnected
+ 1747 0cbd 18       		.uleb128 0x18
+ 1748 0cbe C92D0000 		.4byte	.LASF422
+ 1749 0cc2 01       		.byte	0x1
+ 1750 0cc3 44       		.byte	0x44
+ 1751 0cc4 760B0000 		.4byte	0xb76
+ 1752 0cc8 05       		.uleb128 0x5
+ 1753 0cc9 03       		.byte	0x3
+ 1754 0cca 00000000 		.4byte	connParamRequestState
+ 1755 0cce 19       		.uleb128 0x19
+ 1756 0ccf 32180000 		.4byte	.LASF423
+ 1757 0cd3 32180000 		.4byte	.LASF423
+ 1758 0cd7 05       		.byte	0x5
+ 1759 0cd8 79       		.byte	0x79
+ 1760 0cd9 19       		.uleb128 0x19
+ 1761 0cda 771E0000 		.4byte	.LASF424
+ 1762 0cde 771E0000 		.4byte	.LASF424
+ 1763 0ce2 05       		.byte	0x5
+ 1764 0ce3 7D       		.byte	0x7d
+ 1765 0ce4 1A       		.uleb128 0x1a
+ 1766 0ce5 1D0D0000 		.4byte	.LASF425
+ 1767 0ce9 1D0D0000 		.4byte	.LASF425
+ 1768 0ced 0A       		.byte	0xa
+ 1769 0cee 8102     		.2byte	0x281
+ 1770 0cf0 00       		.byte	0
+ 1771              		.section	.debug_abbrev,"",%progbits
+ 1772              	.Ldebug_abbrev0:
+ 1773 0000 01       		.uleb128 0x1
+ 1774 0001 11       		.uleb128 0x11
+ 1775 0002 01       		.byte	0x1
+ 1776 0003 25       		.uleb128 0x25
+ 1777 0004 0E       		.uleb128 0xe
+ 1778 0005 13       		.uleb128 0x13
+ 1779 0006 0B       		.uleb128 0xb
+ 1780 0007 03       		.uleb128 0x3
+ 1781 0008 0E       		.uleb128 0xe
+ 1782 0009 1B       		.uleb128 0x1b
+ 1783 000a 0E       		.uleb128 0xe
+ 1784 000b 55       		.uleb128 0x55
+ 1785 000c 17       		.uleb128 0x17
+ 1786 000d 11       		.uleb128 0x11
+ 1787 000e 01       		.uleb128 0x1
+ 1788 000f 10       		.uleb128 0x10
+ 1789 0010 17       		.uleb128 0x17
+ 1790 0011 00       		.byte	0
+ 1791 0012 00       		.byte	0
+ 1792 0013 02       		.uleb128 0x2
+ 1793 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 37
+
+
+ 1794 0015 00       		.byte	0
+ 1795 0016 0B       		.uleb128 0xb
+ 1796 0017 0B       		.uleb128 0xb
+ 1797 0018 3E       		.uleb128 0x3e
+ 1798 0019 0B       		.uleb128 0xb
+ 1799 001a 03       		.uleb128 0x3
+ 1800 001b 0E       		.uleb128 0xe
+ 1801 001c 00       		.byte	0
+ 1802 001d 00       		.byte	0
+ 1803 001e 03       		.uleb128 0x3
+ 1804 001f 24       		.uleb128 0x24
+ 1805 0020 00       		.byte	0
+ 1806 0021 0B       		.uleb128 0xb
+ 1807 0022 0B       		.uleb128 0xb
+ 1808 0023 3E       		.uleb128 0x3e
+ 1809 0024 0B       		.uleb128 0xb
+ 1810 0025 03       		.uleb128 0x3
+ 1811 0026 08       		.uleb128 0x8
+ 1812 0027 00       		.byte	0
+ 1813 0028 00       		.byte	0
+ 1814 0029 04       		.uleb128 0x4
+ 1815 002a 16       		.uleb128 0x16
+ 1816 002b 00       		.byte	0
+ 1817 002c 03       		.uleb128 0x3
+ 1818 002d 0E       		.uleb128 0xe
+ 1819 002e 3A       		.uleb128 0x3a
+ 1820 002f 0B       		.uleb128 0xb
+ 1821 0030 3B       		.uleb128 0x3b
+ 1822 0031 05       		.uleb128 0x5
+ 1823 0032 49       		.uleb128 0x49
+ 1824 0033 13       		.uleb128 0x13
+ 1825 0034 00       		.byte	0
+ 1826 0035 00       		.byte	0
+ 1827 0036 05       		.uleb128 0x5
+ 1828 0037 0F       		.uleb128 0xf
+ 1829 0038 00       		.byte	0
+ 1830 0039 0B       		.uleb128 0xb
+ 1831 003a 0B       		.uleb128 0xb
+ 1832 003b 00       		.byte	0
+ 1833 003c 00       		.byte	0
+ 1834 003d 06       		.uleb128 0x6
+ 1835 003e 04       		.uleb128 0x4
+ 1836 003f 01       		.byte	0x1
+ 1837 0040 0B       		.uleb128 0xb
+ 1838 0041 0B       		.uleb128 0xb
+ 1839 0042 49       		.uleb128 0x49
+ 1840 0043 13       		.uleb128 0x13
+ 1841 0044 3A       		.uleb128 0x3a
+ 1842 0045 0B       		.uleb128 0xb
+ 1843 0046 3B       		.uleb128 0x3b
+ 1844 0047 05       		.uleb128 0x5
+ 1845 0048 01       		.uleb128 0x1
+ 1846 0049 13       		.uleb128 0x13
+ 1847 004a 00       		.byte	0
+ 1848 004b 00       		.byte	0
+ 1849 004c 07       		.uleb128 0x7
+ 1850 004d 28       		.uleb128 0x28
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 38
+
+
+ 1851 004e 00       		.byte	0
+ 1852 004f 03       		.uleb128 0x3
+ 1853 0050 0E       		.uleb128 0xe
+ 1854 0051 1C       		.uleb128 0x1c
+ 1855 0052 0B       		.uleb128 0xb
+ 1856 0053 00       		.byte	0
+ 1857 0054 00       		.byte	0
+ 1858 0055 08       		.uleb128 0x8
+ 1859 0056 13       		.uleb128 0x13
+ 1860 0057 01       		.byte	0x1
+ 1861 0058 0B       		.uleb128 0xb
+ 1862 0059 0B       		.uleb128 0xb
+ 1863 005a 3A       		.uleb128 0x3a
+ 1864 005b 0B       		.uleb128 0xb
+ 1865 005c 3B       		.uleb128 0x3b
+ 1866 005d 05       		.uleb128 0x5
+ 1867 005e 01       		.uleb128 0x1
+ 1868 005f 13       		.uleb128 0x13
+ 1869 0060 00       		.byte	0
+ 1870 0061 00       		.byte	0
+ 1871 0062 09       		.uleb128 0x9
+ 1872 0063 0D       		.uleb128 0xd
+ 1873 0064 00       		.byte	0
+ 1874 0065 03       		.uleb128 0x3
+ 1875 0066 0E       		.uleb128 0xe
+ 1876 0067 3A       		.uleb128 0x3a
+ 1877 0068 0B       		.uleb128 0xb
+ 1878 0069 3B       		.uleb128 0x3b
+ 1879 006a 05       		.uleb128 0x5
+ 1880 006b 49       		.uleb128 0x49
+ 1881 006c 13       		.uleb128 0x13
+ 1882 006d 38       		.uleb128 0x38
+ 1883 006e 0B       		.uleb128 0xb
+ 1884 006f 00       		.byte	0
+ 1885 0070 00       		.byte	0
+ 1886 0071 0A       		.uleb128 0xa
+ 1887 0072 04       		.uleb128 0x4
+ 1888 0073 01       		.byte	0x1
+ 1889 0074 0B       		.uleb128 0xb
+ 1890 0075 0B       		.uleb128 0xb
+ 1891 0076 49       		.uleb128 0x49
+ 1892 0077 13       		.uleb128 0x13
+ 1893 0078 3A       		.uleb128 0x3a
+ 1894 0079 0B       		.uleb128 0xb
+ 1895 007a 3B       		.uleb128 0x3b
+ 1896 007b 0B       		.uleb128 0xb
+ 1897 007c 01       		.uleb128 0x1
+ 1898 007d 13       		.uleb128 0x13
+ 1899 007e 00       		.byte	0
+ 1900 007f 00       		.byte	0
+ 1901 0080 0B       		.uleb128 0xb
+ 1902 0081 28       		.uleb128 0x28
+ 1903 0082 00       		.byte	0
+ 1904 0083 03       		.uleb128 0x3
+ 1905 0084 0E       		.uleb128 0xe
+ 1906 0085 1C       		.uleb128 0x1c
+ 1907 0086 05       		.uleb128 0x5
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 39
+
+
+ 1908 0087 00       		.byte	0
+ 1909 0088 00       		.byte	0
+ 1910 0089 0C       		.uleb128 0xc
+ 1911 008a 16       		.uleb128 0x16
+ 1912 008b 00       		.byte	0
+ 1913 008c 03       		.uleb128 0x3
+ 1914 008d 0E       		.uleb128 0xe
+ 1915 008e 3A       		.uleb128 0x3a
+ 1916 008f 0B       		.uleb128 0xb
+ 1917 0090 3B       		.uleb128 0x3b
+ 1918 0091 0B       		.uleb128 0xb
+ 1919 0092 49       		.uleb128 0x49
+ 1920 0093 13       		.uleb128 0x13
+ 1921 0094 00       		.byte	0
+ 1922 0095 00       		.byte	0
+ 1923 0096 0D       		.uleb128 0xd
+ 1924 0097 2E       		.uleb128 0x2e
+ 1925 0098 01       		.byte	0x1
+ 1926 0099 3F       		.uleb128 0x3f
+ 1927 009a 19       		.uleb128 0x19
+ 1928 009b 03       		.uleb128 0x3
+ 1929 009c 0E       		.uleb128 0xe
+ 1930 009d 3A       		.uleb128 0x3a
+ 1931 009e 0B       		.uleb128 0xb
+ 1932 009f 3B       		.uleb128 0x3b
+ 1933 00a0 0B       		.uleb128 0xb
+ 1934 00a1 27       		.uleb128 0x27
+ 1935 00a2 19       		.uleb128 0x19
+ 1936 00a3 11       		.uleb128 0x11
+ 1937 00a4 01       		.uleb128 0x1
+ 1938 00a5 12       		.uleb128 0x12
+ 1939 00a6 06       		.uleb128 0x6
+ 1940 00a7 40       		.uleb128 0x40
+ 1941 00a8 18       		.uleb128 0x18
+ 1942 00a9 9742     		.uleb128 0x2117
+ 1943 00ab 19       		.uleb128 0x19
+ 1944 00ac 01       		.uleb128 0x1
+ 1945 00ad 13       		.uleb128 0x13
+ 1946 00ae 00       		.byte	0
+ 1947 00af 00       		.byte	0
+ 1948 00b0 0E       		.uleb128 0xe
+ 1949 00b1 34       		.uleb128 0x34
+ 1950 00b2 00       		.byte	0
+ 1951 00b3 03       		.uleb128 0x3
+ 1952 00b4 0E       		.uleb128 0xe
+ 1953 00b5 3A       		.uleb128 0x3a
+ 1954 00b6 0B       		.uleb128 0xb
+ 1955 00b7 3B       		.uleb128 0x3b
+ 1956 00b8 0B       		.uleb128 0xb
+ 1957 00b9 49       		.uleb128 0x49
+ 1958 00ba 13       		.uleb128 0x13
+ 1959 00bb 02       		.uleb128 0x2
+ 1960 00bc 18       		.uleb128 0x18
+ 1961 00bd 00       		.byte	0
+ 1962 00be 00       		.byte	0
+ 1963 00bf 0F       		.uleb128 0xf
+ 1964 00c0 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 40
+
+
+ 1965 00c3 01       		.byte	0x1
+ 1966 00c4 11       		.uleb128 0x11
+ 1967 00c5 01       		.uleb128 0x1
+ 1968 00c6 31       		.uleb128 0x31
+ 1969 00c7 13       		.uleb128 0x13
+ 1970 00c8 01       		.uleb128 0x1
+ 1971 00c9 13       		.uleb128 0x13
+ 1972 00ca 00       		.byte	0
+ 1973 00cb 00       		.byte	0
+ 1974 00cc 10       		.uleb128 0x10
+ 1975 00cd 8A8201   		.uleb128 0x410a
+ 1976 00d0 00       		.byte	0
+ 1977 00d1 02       		.uleb128 0x2
+ 1978 00d2 18       		.uleb128 0x18
+ 1979 00d3 9142     		.uleb128 0x2111
+ 1980 00d5 18       		.uleb128 0x18
+ 1981 00d6 00       		.byte	0
+ 1982 00d7 00       		.byte	0
+ 1983 00d8 11       		.uleb128 0x11
+ 1984 00d9 898201   		.uleb128 0x4109
+ 1985 00dc 01       		.byte	0x1
+ 1986 00dd 11       		.uleb128 0x11
+ 1987 00de 01       		.uleb128 0x1
+ 1988 00df 31       		.uleb128 0x31
+ 1989 00e0 13       		.uleb128 0x13
+ 1990 00e1 00       		.byte	0
+ 1991 00e2 00       		.byte	0
+ 1992 00e3 12       		.uleb128 0x12
+ 1993 00e4 01       		.uleb128 0x1
+ 1994 00e5 01       		.byte	0x1
+ 1995 00e6 49       		.uleb128 0x49
+ 1996 00e7 13       		.uleb128 0x13
+ 1997 00e8 01       		.uleb128 0x1
+ 1998 00e9 13       		.uleb128 0x13
+ 1999 00ea 00       		.byte	0
+ 2000 00eb 00       		.byte	0
+ 2001 00ec 13       		.uleb128 0x13
+ 2002 00ed 21       		.uleb128 0x21
+ 2003 00ee 00       		.byte	0
+ 2004 00ef 49       		.uleb128 0x49
+ 2005 00f0 13       		.uleb128 0x13
+ 2006 00f1 2F       		.uleb128 0x2f
+ 2007 00f2 0B       		.uleb128 0xb
+ 2008 00f3 00       		.byte	0
+ 2009 00f4 00       		.byte	0
+ 2010 00f5 14       		.uleb128 0x14
+ 2011 00f6 05       		.uleb128 0x5
+ 2012 00f7 00       		.byte	0
+ 2013 00f8 03       		.uleb128 0x3
+ 2014 00f9 0E       		.uleb128 0xe
+ 2015 00fa 3A       		.uleb128 0x3a
+ 2016 00fb 0B       		.uleb128 0xb
+ 2017 00fc 3B       		.uleb128 0x3b
+ 2018 00fd 0B       		.uleb128 0xb
+ 2019 00fe 49       		.uleb128 0x49
+ 2020 00ff 13       		.uleb128 0x13
+ 2021 0100 02       		.uleb128 0x2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 41
+
+
+ 2022 0101 18       		.uleb128 0x18
+ 2023 0102 00       		.byte	0
+ 2024 0103 00       		.byte	0
+ 2025 0104 15       		.uleb128 0x15
+ 2026 0105 05       		.uleb128 0x5
+ 2027 0106 00       		.byte	0
+ 2028 0107 03       		.uleb128 0x3
+ 2029 0108 0E       		.uleb128 0xe
+ 2030 0109 3A       		.uleb128 0x3a
+ 2031 010a 0B       		.uleb128 0xb
+ 2032 010b 3B       		.uleb128 0x3b
+ 2033 010c 0B       		.uleb128 0xb
+ 2034 010d 49       		.uleb128 0x49
+ 2035 010e 13       		.uleb128 0x13
+ 2036 010f 02       		.uleb128 0x2
+ 2037 0110 17       		.uleb128 0x17
+ 2038 0111 00       		.byte	0
+ 2039 0112 00       		.byte	0
+ 2040 0113 16       		.uleb128 0x16
+ 2041 0114 34       		.uleb128 0x34
+ 2042 0115 00       		.byte	0
+ 2043 0116 03       		.uleb128 0x3
+ 2044 0117 0E       		.uleb128 0xe
+ 2045 0118 3A       		.uleb128 0x3a
+ 2046 0119 0B       		.uleb128 0xb
+ 2047 011a 3B       		.uleb128 0x3b
+ 2048 011b 05       		.uleb128 0x5
+ 2049 011c 49       		.uleb128 0x49
+ 2050 011d 13       		.uleb128 0x13
+ 2051 011e 3F       		.uleb128 0x3f
+ 2052 011f 19       		.uleb128 0x19
+ 2053 0120 3C       		.uleb128 0x3c
+ 2054 0121 19       		.uleb128 0x19
+ 2055 0122 00       		.byte	0
+ 2056 0123 00       		.byte	0
+ 2057 0124 17       		.uleb128 0x17
+ 2058 0125 34       		.uleb128 0x34
+ 2059 0126 00       		.byte	0
+ 2060 0127 03       		.uleb128 0x3
+ 2061 0128 0E       		.uleb128 0xe
+ 2062 0129 3A       		.uleb128 0x3a
+ 2063 012a 0B       		.uleb128 0xb
+ 2064 012b 3B       		.uleb128 0x3b
+ 2065 012c 0B       		.uleb128 0xb
+ 2066 012d 49       		.uleb128 0x49
+ 2067 012e 13       		.uleb128 0x13
+ 2068 012f 3F       		.uleb128 0x3f
+ 2069 0130 19       		.uleb128 0x19
+ 2070 0131 3C       		.uleb128 0x3c
+ 2071 0132 19       		.uleb128 0x19
+ 2072 0133 00       		.byte	0
+ 2073 0134 00       		.byte	0
+ 2074 0135 18       		.uleb128 0x18
+ 2075 0136 34       		.uleb128 0x34
+ 2076 0137 00       		.byte	0
+ 2077 0138 03       		.uleb128 0x3
+ 2078 0139 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 42
+
+
+ 2079 013a 3A       		.uleb128 0x3a
+ 2080 013b 0B       		.uleb128 0xb
+ 2081 013c 3B       		.uleb128 0x3b
+ 2082 013d 0B       		.uleb128 0xb
+ 2083 013e 49       		.uleb128 0x49
+ 2084 013f 13       		.uleb128 0x13
+ 2085 0140 3F       		.uleb128 0x3f
+ 2086 0141 19       		.uleb128 0x19
+ 2087 0142 02       		.uleb128 0x2
+ 2088 0143 18       		.uleb128 0x18
+ 2089 0144 00       		.byte	0
+ 2090 0145 00       		.byte	0
+ 2091 0146 19       		.uleb128 0x19
+ 2092 0147 2E       		.uleb128 0x2e
+ 2093 0148 00       		.byte	0
+ 2094 0149 3F       		.uleb128 0x3f
+ 2095 014a 19       		.uleb128 0x19
+ 2096 014b 3C       		.uleb128 0x3c
+ 2097 014c 19       		.uleb128 0x19
+ 2098 014d 6E       		.uleb128 0x6e
+ 2099 014e 0E       		.uleb128 0xe
+ 2100 014f 03       		.uleb128 0x3
+ 2101 0150 0E       		.uleb128 0xe
+ 2102 0151 3A       		.uleb128 0x3a
+ 2103 0152 0B       		.uleb128 0xb
+ 2104 0153 3B       		.uleb128 0x3b
+ 2105 0154 0B       		.uleb128 0xb
+ 2106 0155 00       		.byte	0
+ 2107 0156 00       		.byte	0
+ 2108 0157 1A       		.uleb128 0x1a
+ 2109 0158 2E       		.uleb128 0x2e
+ 2110 0159 00       		.byte	0
+ 2111 015a 3F       		.uleb128 0x3f
+ 2112 015b 19       		.uleb128 0x19
+ 2113 015c 3C       		.uleb128 0x3c
+ 2114 015d 19       		.uleb128 0x19
+ 2115 015e 6E       		.uleb128 0x6e
+ 2116 015f 0E       		.uleb128 0xe
+ 2117 0160 03       		.uleb128 0x3
+ 2118 0161 0E       		.uleb128 0xe
+ 2119 0162 3A       		.uleb128 0x3a
+ 2120 0163 0B       		.uleb128 0xb
+ 2121 0164 3B       		.uleb128 0x3b
+ 2122 0165 05       		.uleb128 0x5
+ 2123 0166 00       		.byte	0
+ 2124 0167 00       		.byte	0
+ 2125 0168 00       		.byte	0
+ 2126              		.section	.debug_loc,"",%progbits
+ 2127              	.Ldebug_loc0:
+ 2128              	.LLST0:
+ 2129 0000 00000000 		.4byte	.LVL3
+ 2130 0004 1E000000 		.4byte	.LVL4
+ 2131 0008 0100     		.2byte	0x1
+ 2132 000a 50       		.byte	0x50
+ 2133 000b 1E000000 		.4byte	.LVL4
+ 2134 000f 24000000 		.4byte	.LVL6
+ 2135 0013 0400     		.2byte	0x4
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 43
+
+
+ 2136 0015 F3       		.byte	0xf3
+ 2137 0016 01       		.uleb128 0x1
+ 2138 0017 50       		.byte	0x50
+ 2139 0018 9F       		.byte	0x9f
+ 2140 0019 24000000 		.4byte	.LVL6
+ 2141 001d 5C000000 		.4byte	.LVL7
+ 2142 0021 0100     		.2byte	0x1
+ 2143 0023 50       		.byte	0x50
+ 2144 0024 5C000000 		.4byte	.LVL7
+ 2145 0028 68000000 		.4byte	.LFE37
+ 2146 002c 0400     		.2byte	0x4
+ 2147 002e F3       		.byte	0xf3
+ 2148 002f 01       		.uleb128 0x1
+ 2149 0030 50       		.byte	0x50
+ 2150 0031 9F       		.byte	0x9f
+ 2151 0032 00000000 		.4byte	0
+ 2152 0036 00000000 		.4byte	0
+ 2153              	.LLST1:
+ 2154 003a 00000000 		.4byte	.LVL3
+ 2155 003e 21000000 		.4byte	.LVL5-1
+ 2156 0042 0100     		.2byte	0x1
+ 2157 0044 51       		.byte	0x51
+ 2158 0045 21000000 		.4byte	.LVL5-1
+ 2159 0049 24000000 		.4byte	.LVL6
+ 2160 004d 0400     		.2byte	0x4
+ 2161 004f F3       		.byte	0xf3
+ 2162 0050 01       		.uleb128 0x1
+ 2163 0051 51       		.byte	0x51
+ 2164 0052 9F       		.byte	0x9f
+ 2165 0053 24000000 		.4byte	.LVL6
+ 2166 0057 5C000000 		.4byte	.LVL7
+ 2167 005b 0100     		.2byte	0x1
+ 2168 005d 51       		.byte	0x51
+ 2169 005e 5C000000 		.4byte	.LVL7
+ 2170 0062 68000000 		.4byte	.LFE37
+ 2171 0066 0400     		.2byte	0x4
+ 2172 0068 F3       		.byte	0xf3
+ 2173 0069 01       		.uleb128 0x1
+ 2174 006a 51       		.byte	0x51
+ 2175 006b 9F       		.byte	0x9f
+ 2176 006c 00000000 		.4byte	0
+ 2177 0070 00000000 		.4byte	0
+ 2178              		.section	.debug_aranges,"",%progbits
+ 2179 0000 2C000000 		.4byte	0x2c
+ 2180 0004 0200     		.2byte	0x2
+ 2181 0006 00000000 		.4byte	.Ldebug_info0
+ 2182 000a 04       		.byte	0x4
+ 2183 000b 00       		.byte	0
+ 2184 000c 0000     		.2byte	0
+ 2185 000e 0000     		.2byte	0
+ 2186 0010 00000000 		.4byte	.LFB35
+ 2187 0014 44000000 		.4byte	.LFE35-.LFB35
+ 2188 0018 00000000 		.4byte	.LFB36
+ 2189 001c 24000000 		.4byte	.LFE36-.LFB36
+ 2190 0020 00000000 		.4byte	.LFB37
+ 2191 0024 68000000 		.4byte	.LFE37-.LFB37
+ 2192 0028 00000000 		.4byte	0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 44
+
+
+ 2193 002c 00000000 		.4byte	0
+ 2194              		.section	.debug_ranges,"",%progbits
+ 2195              	.Ldebug_ranges0:
+ 2196 0000 00000000 		.4byte	.LFB35
+ 2197 0004 44000000 		.4byte	.LFE35
+ 2198 0008 00000000 		.4byte	.LFB36
+ 2199 000c 24000000 		.4byte	.LFE36
+ 2200 0010 00000000 		.4byte	.LFB37
+ 2201 0014 68000000 		.4byte	.LFE37
+ 2202 0018 00000000 		.4byte	0
+ 2203 001c 00000000 		.4byte	0
+ 2204              		.section	.debug_line,"",%progbits
+ 2205              	.Ldebug_line0:
+ 2206 0000 2D010000 		.section	.debug_str,"MS",%progbits,1
+ 2206      0200DD00 
+ 2206      00000201 
+ 2206      FB0E0D00 
+ 2206      01010101 
+ 2207              	.LASF373:
+ 2208 0000 4359424C 		.ascii	"CYBLE_EVT_UDSC_READ_CHAR_RESPONSE\000"
+ 2208      455F4556 
+ 2208      545F5544 
+ 2208      53435F52 
+ 2208      4541445F 
+ 2209              	.LASF332:
+ 2210 0022 4359424C 		.ascii	"CYBLE_EVT_PLXSC_NOTIFICATION\000"
+ 2210      455F4556 
+ 2210      545F504C 
+ 2210      5853435F 
+ 2210      4E4F5449 
+ 2211              	.LASF283:
+ 2212 003f 4359424C 		.ascii	"CYBLE_EVT_HTSS_NOTIFICATION_DISABLED\000"
+ 2212      455F4556 
+ 2212      545F4854 
+ 2212      53535F4E 
+ 2212      4F544946 
+ 2213              	.LASF105:
+ 2214 0064 4359424C 		.ascii	"CYBLE_DIS_CHAR_COUNT\000"
+ 2214      455F4449 
+ 2214      535F4348 
+ 2214      41525F43 
+ 2214      4F554E54 
+ 2215              	.LASF16:
+ 2216 0079 73697A65 		.ascii	"sizetype\000"
+ 2216      74797065 
+ 2216      00
+ 2217              	.LASF164:
+ 2218 0082 4359424C 		.ascii	"CYBLE_EVT_BCSC_READ_CHAR_RESPONSE\000"
+ 2218      455F4556 
+ 2218      545F4243 
+ 2218      53435F52 
+ 2218      4541445F 
+ 2219              	.LASF187:
+ 2220 00a4 4359424C 		.ascii	"CYBLE_EVT_CGMSC_INDICATION\000"
+ 2220      455F4556 
+ 2220      545F4347 
+ 2220      4D53435F 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 45
+
+
+ 2220      494E4449 
+ 2221              	.LASF205:
+ 2222 00bf 4359424C 		.ascii	"CYBLE_EVT_CPSC_READ_DESCR_RESPONSE\000"
+ 2222      455F4556 
+ 2222      545F4350 
+ 2222      53435F52 
+ 2222      4541445F 
+ 2223              	.LASF336:
+ 2224 00e2 4359424C 		.ascii	"CYBLE_EVT_PLXSC_READ_DESCR_RESPONSE\000"
+ 2224      455F4556 
+ 2224      545F504C 
+ 2224      5853435F 
+ 2224      52454144 
+ 2225              	.LASF350:
+ 2226 0106 4359424C 		.ascii	"CYBLE_EVT_RTUSS_WRITE_CHAR_CMD\000"
+ 2226      455F4556 
+ 2226      545F5254 
+ 2226      5553535F 
+ 2226      57524954 
+ 2227              	.LASF384:
+ 2228 0125 4359424C 		.ascii	"CYBLE_EVT_WPTSC_NOTIFICATION\000"
+ 2228      455F4556 
+ 2228      545F5750 
+ 2228      5453435F 
+ 2228      4E4F5449 
+ 2229              	.LASF37:
+ 2230 0142 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
+ 2230      455F4556 
+ 2230      545F4741 
+ 2230      505F4E55 
+ 2230      4D455249 
+ 2231              	.LASF131:
+ 2232 016b 4359424C 		.ascii	"CYBLE_EVT_AIOSC_NOTIFICATION\000"
+ 2232      455F4556 
+ 2232      545F4149 
+ 2232      4F53435F 
+ 2232      4E4F5449 
+ 2233              	.LASF390:
+ 2234 0188 4359424C 		.ascii	"CYBLE_EVT_WSSS_INDICATION_ENABLED\000"
+ 2234      455F4556 
+ 2234      545F5753 
+ 2234      53535F49 
+ 2234      4E444943 
+ 2235              	.LASF216:
+ 2236 01aa 4359424C 		.ascii	"CYBLE_EVT_CSCSC_READ_CHAR_RESPONSE\000"
+ 2236      455F4556 
+ 2236      545F4353 
+ 2236      4353435F 
+ 2236      52454144 
+ 2237              	.LASF192:
+ 2238 01cd 4359424C 		.ascii	"CYBLE_EVT_CGMSC_WRITE_DESCR_RESPONSE\000"
+ 2238      455F4556 
+ 2238      545F4347 
+ 2238      4D53435F 
+ 2238      57524954 
+ 2239              	.LASF246:
+ 2240 01f2 4359424C 		.ascii	"CYBLE_EVT_GLSS_NOTIFICATION_DISABLED\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 46
+
+
+ 2240      455F4556 
+ 2240      545F474C 
+ 2240      53535F4E 
+ 2240      4F544946 
+ 2241              	.LASF412:
+ 2242 0217 6576656E 		.ascii	"eventParam\000"
+ 2242      74506172 
+ 2242      616D00
+ 2243              	.LASF174:
+ 2244 0222 4359424C 		.ascii	"CYBLE_EVT_BLSC_READ_CHAR_RESPONSE\000"
+ 2244      455F4556 
+ 2244      545F424C 
+ 2244      53435F52 
+ 2244      4541445F 
+ 2245              	.LASF31:
+ 2246 0244 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 2246      455F4556 
+ 2246      545F4741 
+ 2246      505F4445 
+ 2246      56494345 
+ 2247              	.LASF49:
+ 2248 0263 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ 2248      455F4556 
+ 2248      545F4741 
+ 2248      54545F43 
+ 2248      4F4E4E45 
+ 2249              	.LASF251:
+ 2250 027e 4359424C 		.ascii	"CYBLE_EVT_GLSC_WRITE_CHAR_RESPONSE\000"
+ 2250      455F4556 
+ 2250      545F474C 
+ 2250      53435F57 
+ 2250      52495445 
+ 2251              	.LASF11:
+ 2252 02a1 75696E74 		.ascii	"uint32\000"
+ 2252      333200
+ 2253              	.LASF116:
+ 2254 02a8 4359424C 		.ascii	"CYBLE_EVT_GATTC_DESCR_DISCOVERY_FAILED\000"
+ 2254      455F4556 
+ 2254      545F4741 
+ 2254      5454435F 
+ 2254      44455343 
+ 2255              	.LASF349:
+ 2256 02cf 4359424C 		.ascii	"CYBLE_EVT_RSCSC_WRITE_DESCR_RESPONSE\000"
+ 2256      455F4556 
+ 2256      545F5253 
+ 2256      4353435F 
+ 2256      57524954 
+ 2257              	.LASF162:
+ 2258 02f4 4359424C 		.ascii	"CYBLE_EVT_BCSS_INDICATION_CONFIRMED\000"
+ 2258      455F4556 
+ 2258      545F4243 
+ 2258      53535F49 
+ 2258      4E444943 
+ 2259              	.LASF163:
+ 2260 0318 4359424C 		.ascii	"CYBLE_EVT_BCSC_INDICATION\000"
+ 2260      455F4556 
+ 2260      545F4243 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 47
+
+
+ 2260      53435F49 
+ 2260      4E444943 
+ 2261              	.LASF307:
+ 2262 0332 4359424C 		.ascii	"CYBLE_EVT_LNSS_INDICATION_DISABLED\000"
+ 2262      455F4556 
+ 2262      545F4C4E 
+ 2262      53535F49 
+ 2262      4E444943 
+ 2263              	.LASF224:
+ 2264 0355 4359424C 		.ascii	"CYBLE_EVT_CTSC_READ_CHAR_RESPONSE\000"
+ 2264      455F4556 
+ 2264      545F4354 
+ 2264      53435F52 
+ 2264      4541445F 
+ 2265              	.LASF120:
+ 2266 0377 4359424C 		.ascii	"CYBLE_EVT_GATTC_SRVC_DISCOVERY_COMPLETE\000"
+ 2266      455F4556 
+ 2266      545F4741 
+ 2266      5454435F 
+ 2266      53525643 
+ 2267              	.LASF343:
+ 2268 039f 4359424C 		.ascii	"CYBLE_EVT_RSCSS_CHAR_WRITE\000"
+ 2268      455F4556 
+ 2268      545F5253 
+ 2268      4353535F 
+ 2268      43484152 
+ 2269              	.LASF333:
+ 2270 03ba 4359424C 		.ascii	"CYBLE_EVT_PLXSC_INDICATION\000"
+ 2270      455F4556 
+ 2270      545F504C 
+ 2270      5853435F 
+ 2270      494E4449 
+ 2271              	.LASF376:
+ 2272 03d5 4359424C 		.ascii	"CYBLE_EVT_UDSC_WRITE_DESCR_RESPONSE\000"
+ 2272      455F4556 
+ 2272      545F5544 
+ 2272      53435F57 
+ 2272      52495445 
+ 2273              	.LASF265:
+ 2274 03f9 4359424C 		.ascii	"CYBLE_EVT_HIDSC_WRITE_DESCR_RESPONSE\000"
+ 2274      455F4556 
+ 2274      545F4849 
+ 2274      4453435F 
+ 2274      57524954 
+ 2275              	.LASF358:
+ 2276 041e 4359424C 		.ascii	"CYBLE_EVT_TPSS_NOTIFICATION_ENABLED\000"
+ 2276      455F4556 
+ 2276      545F5450 
+ 2276      53535F4E 
+ 2276      4F544946 
+ 2277              	.LASF152:
+ 2278 0442 4359424C 		.ascii	"CYBLE_EVT_ANSC_READ_DESCR_RESPONSE\000"
+ 2278      455F4556 
+ 2278      545F414E 
+ 2278      53435F52 
+ 2278      4541445F 
+ 2279              	.LASF160:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 48
+
+
+ 2280 0465 4359424C 		.ascii	"CYBLE_EVT_BCSS_INDICATION_ENABLED\000"
+ 2280      455F4556 
+ 2280      545F4243 
+ 2280      53535F49 
+ 2280      4E444943 
+ 2281              	.LASF404:
+ 2282 0487 434F4E4E 		.ascii	"CONN_PARAM_REQUEST_NOT_SENT\000"
+ 2282      5F504152 
+ 2282      414D5F52 
+ 2282      45515545 
+ 2282      53545F4E 
+ 2283              	.LASF115:
+ 2284 04a3 4359424C 		.ascii	"CYBLE_EVT_GATTC_CHAR_DISCOVERY_FAILED\000"
+ 2284      455F4556 
+ 2284      545F4741 
+ 2284      5454435F 
+ 2284      43484152 
+ 2285              	.LASF69:
+ 2286 04c9 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ 2286      455F4556 
+ 2286      545F4741 
+ 2286      5454535F 
+ 2286      44415441 
+ 2287              	.LASF81:
+ 2288 04ed 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
+ 2288      455F4556 
+ 2288      545F4C32 
+ 2288      4341505F 
+ 2288      43424643 
+ 2289              	.LASF203:
+ 2290 0510 4359424C 		.ascii	"CYBLE_EVT_CPSC_READ_CHAR_RESPONSE\000"
+ 2290      455F4556 
+ 2290      545F4350 
+ 2290      53435F52 
+ 2290      4541445F 
+ 2291              	.LASF426:
+ 2292 0532 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2292      43313120 
+ 2292      352E342E 
+ 2292      31203230 
+ 2292      31363036 
+ 2293 0565 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 2293      20726576 
+ 2293      6973696F 
+ 2293      6E203233 
+ 2293      37373135 
+ 2294 0598 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2294      66756E63 
+ 2294      74696F6E 
+ 2294      2D736563 
+ 2294      74696F6E 
+ 2295              	.LASF210:
+ 2296 05c0 4359424C 		.ascii	"CYBLE_EVT_CSCSS_INDICATION_ENABLED\000"
+ 2296      455F4556 
+ 2296      545F4353 
+ 2296      4353535F 
+ 2296      494E4449 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 49
+
+
+ 2297              	.LASF312:
+ 2298 05e3 4359424C 		.ascii	"CYBLE_EVT_LNSC_INDICATION\000"
+ 2298      455F4556 
+ 2298      545F4C4E 
+ 2298      53435F49 
+ 2298      4E444943 
+ 2299              	.LASF323:
+ 2300 05fd 4359424C 		.ascii	"CYBLE_EVT_PASSC_READ_CHAR_RESPONSE\000"
+ 2300      455F4556 
+ 2300      545F5041 
+ 2300      5353435F 
+ 2300      52454144 
+ 2301              	.LASF167:
+ 2302 0620 4359424C 		.ascii	"CYBLE_EVT_BLSS_INDICATION_ENABLED\000"
+ 2302      455F4556 
+ 2302      545F424C 
+ 2302      53535F49 
+ 2302      4E444943 
+ 2303              	.LASF173:
+ 2304 0642 4359424C 		.ascii	"CYBLE_EVT_BLSC_NOTIFICATION\000"
+ 2304      455F4556 
+ 2304      545F424C 
+ 2304      53435F4E 
+ 2304      4F544946 
+ 2305              	.LASF215:
+ 2306 065e 4359424C 		.ascii	"CYBLE_EVT_CSCSC_INDICATION\000"
+ 2306      455F4556 
+ 2306      545F4353 
+ 2306      4353435F 
+ 2306      494E4449 
+ 2307              	.LASF100:
+ 2308 0679 4359424C 		.ascii	"CYBLE_DIS_FIRMWARE_REV\000"
+ 2308      455F4449 
+ 2308      535F4649 
+ 2308      524D5741 
+ 2308      52455F52 
+ 2309              	.LASF66:
+ 2310 0690 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
+ 2310      455F4556 
+ 2310      545F4741 
+ 2310      5454435F 
+ 2310      48414E44 
+ 2311              	.LASF25:
+ 2312 06b1 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 2312      455F4556 
+ 2312      545F4741 
+ 2312      505F4155 
+ 2312      54485F52 
+ 2313              	.LASF122:
+ 2314 06c8 4359424C 		.ascii	"CYBLE_EVT_GATTC_CHAR_DISCOVERY_COMPLETE\000"
+ 2314      455F4556 
+ 2314      545F4741 
+ 2314      5454435F 
+ 2314      43484152 
+ 2315              	.LASF91:
+ 2316 06f0 4359424C 		.ascii	"CYBLE_CONN_HANDLE_T\000"
+ 2316      455F434F 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 50
+
+
+ 2316      4E4E5F48 
+ 2316      414E444C 
+ 2316      455F5400 
+ 2317              	.LASF279:
+ 2318 0704 4359424C 		.ascii	"CYBLE_EVT_HRSC_WRITE_CHAR_RESPONSE\000"
+ 2318      455F4556 
+ 2318      545F4852 
+ 2318      53435F57 
+ 2318      52495445 
+ 2319              	.LASF214:
+ 2320 0727 4359424C 		.ascii	"CYBLE_EVT_CSCSC_NOTIFICATION\000"
+ 2320      455F4556 
+ 2320      545F4353 
+ 2320      4353435F 
+ 2320      4E4F5449 
+ 2321              	.LASF371:
+ 2322 0744 4359424C 		.ascii	"CYBLE_EVT_UDSC_INDICATION\000"
+ 2322      455F4556 
+ 2322      545F5544 
+ 2322      53435F49 
+ 2322      4E444943 
+ 2323              	.LASF295:
+ 2324 075e 4359424C 		.ascii	"CYBLE_EVT_IPSS_WRITE_CHAR\000"
+ 2324      455F4556 
+ 2324      545F4950 
+ 2324      53535F57 
+ 2324      52495445 
+ 2325              	.LASF46:
+ 2326 0778 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
+ 2326      455F4556 
+ 2326      545F4741 
+ 2326      505F4155 
+ 2326      54485F52 
+ 2327              	.LASF178:
+ 2328 0799 4359424C 		.ascii	"CYBLE_EVT_BMSC_READ_CHAR_RESPONSE\000"
+ 2328      455F4556 
+ 2328      545F424D 
+ 2328      53435F52 
+ 2328      4541445F 
+ 2329              	.LASF401:
+ 2330 07bb 4359424C 		.ascii	"CYBLE_STATE_ADVERTISING\000"
+ 2330      455F5354 
+ 2330      4154455F 
+ 2330      41445645 
+ 2330      52544953 
+ 2331              	.LASF39:
+ 2332 07d3 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
+ 2332      455F4556 
+ 2332      545F4741 
+ 2332      505F4F4F 
+ 2332      425F4745 
+ 2333              	.LASF89:
+ 2334 07fc 62644861 		.ascii	"bdHandle\000"
+ 2334      6E646C65 
+ 2334      00
+ 2335              	.LASF183:
+ 2336 0805 4359424C 		.ascii	"CYBLE_EVT_CGMSS_INDICATION_CONFIRMED\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 51
+
+
+ 2336      455F4556 
+ 2336      545F4347 
+ 2336      4D53535F 
+ 2336      494E4449 
+ 2337              	.LASF175:
+ 2338 082a 4359424C 		.ascii	"CYBLE_EVT_BLSC_READ_DESCR_RESPONSE\000"
+ 2338      455F4556 
+ 2338      545F424C 
+ 2338      53435F52 
+ 2338      4541445F 
+ 2339              	.LASF335:
+ 2340 084d 4359424C 		.ascii	"CYBLE_EVT_PLXSC_WRITE_CHAR_RESPONSE\000"
+ 2340      455F4556 
+ 2340      545F504C 
+ 2340      5853435F 
+ 2340      57524954 
+ 2341              	.LASF196:
+ 2342 0871 4359424C 		.ascii	"CYBLE_EVT_CPSS_INDICATION_DISABLED\000"
+ 2342      455F4556 
+ 2342      545F4350 
+ 2342      53535F49 
+ 2342      4E444943 
+ 2343              	.LASF195:
+ 2344 0894 4359424C 		.ascii	"CYBLE_EVT_CPSS_INDICATION_ENABLED\000"
+ 2344      455F4556 
+ 2344      545F4350 
+ 2344      53535F49 
+ 2344      4E444943 
+ 2345              	.LASF309:
+ 2346 08b6 4359424C 		.ascii	"CYBLE_EVT_LNSS_NOTIFICATION_ENABLED\000"
+ 2346      455F4556 
+ 2346      545F4C4E 
+ 2346      53535F4E 
+ 2346      4F544946 
+ 2347              	.LASF62:
+ 2348 08da 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 2348      455F4556 
+ 2348      545F4741 
+ 2348      5454535F 
+ 2348      57524954 
+ 2349              	.LASF206:
+ 2350 08f8 4359424C 		.ascii	"CYBLE_EVT_CPSC_WRITE_DESCR_RESPONSE\000"
+ 2350      455F4556 
+ 2350      545F4350 
+ 2350      53435F57 
+ 2350      52495445 
+ 2351              	.LASF82:
+ 2352 091c 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 2352      455F4556 
+ 2352      545F4C32 
+ 2352      4341505F 
+ 2352      43424643 
+ 2353              	.LASF4:
+ 2354 093f 6C6F6E67 		.ascii	"long int\000"
+ 2354      20696E74 
+ 2354      00
+ 2355              	.LASF310:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 52
+
+
+ 2356 0948 4359424C 		.ascii	"CYBLE_EVT_LNSS_NOTIFICATION_DISABLED\000"
+ 2356      455F4556 
+ 2356      545F4C4E 
+ 2356      53535F4E 
+ 2356      4F544946 
+ 2357              	.LASF211:
+ 2358 096d 4359424C 		.ascii	"CYBLE_EVT_CSCSS_INDICATION_DISABLED\000"
+ 2358      455F4556 
+ 2358      545F4353 
+ 2358      4353535F 
+ 2358      494E4449 
+ 2359              	.LASF366:
+ 2360 0991 4359424C 		.ascii	"CYBLE_EVT_UDSS_INDICATION_CONFIRMED\000"
+ 2360      455F4556 
+ 2360      545F5544 
+ 2360      53535F49 
+ 2360      4E444943 
+ 2361              	.LASF108:
+ 2362 09b5 4359424C 		.ascii	"CYBLE_LONG_TERM_KEY_REQUEST_REPLY\000"
+ 2362      455F4C4F 
+ 2362      4E475F54 
+ 2362      45524D5F 
+ 2362      4B45595F 
+ 2363              	.LASF18:
+ 2364 09d7 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
+ 2364      455F4556 
+ 2364      545F5354 
+ 2364      41434B5F 
+ 2364      4F4E00
+ 2365              	.LASF99:
+ 2366 09ea 4359424C 		.ascii	"CYBLE_DIS_HARDWARE_REV\000"
+ 2366      455F4449 
+ 2366      535F4841 
+ 2366      52445741 
+ 2366      52455F52 
+ 2367              	.LASF241:
+ 2368 0a01 4359424C 		.ascii	"CYBLE_EVT_ESSC_WRITE_DESCR_RESPONSE\000"
+ 2368      455F4556 
+ 2368      545F4553 
+ 2368      53435F57 
+ 2368      52495445 
+ 2369              	.LASF298:
+ 2370 0a25 4359424C 		.ascii	"CYBLE_EVT_IPSC_WRITE_CHAR_RESPONSE\000"
+ 2370      455F4556 
+ 2370      545F4950 
+ 2370      53435F57 
+ 2370      52495445 
+ 2371              	.LASF282:
+ 2372 0a48 4359424C 		.ascii	"CYBLE_EVT_HTSS_NOTIFICATION_ENABLED\000"
+ 2372      455F4556 
+ 2372      545F4854 
+ 2372      53535F4E 
+ 2372      4F544946 
+ 2373              	.LASF369:
+ 2374 0a6c 4359424C 		.ascii	"CYBLE_EVT_UDSS_READ_CHAR\000"
+ 2374      455F4556 
+ 2374      545F5544 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 53
+
+
+ 2374      53535F52 
+ 2374      4541445F 
+ 2375              	.LASF238:
+ 2376 0a85 4359424C 		.ascii	"CYBLE_EVT_ESSC_READ_CHAR_RESPONSE\000"
+ 2376      455F4556 
+ 2376      545F4553 
+ 2376      53435F52 
+ 2376      4541445F 
+ 2377              	.LASF75:
+ 2378 0aa7 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 2378      455F4556 
+ 2378      545F4C32 
+ 2378      4341505F 
+ 2378      434F4D4D 
+ 2379              	.LASF124:
+ 2380 0ac3 4359424C 		.ascii	"CYBLE_EVT_AIOSS_NOTIFICATION_ENABLED\000"
+ 2380      455F4556 
+ 2380      545F4149 
+ 2380      4F53535F 
+ 2380      4E4F5449 
+ 2381              	.LASF113:
+ 2382 0ae8 4359424C 		.ascii	"CYBLE_EVT_GATTC_SRVC_DISCOVERY_FAILED\000"
+ 2382      455F4556 
+ 2382      545F4741 
+ 2382      5454435F 
+ 2382      53525643 
+ 2383              	.LASF258:
+ 2384 0b0e 4359424C 		.ascii	"CYBLE_EVT_HIDSS_SUSPEND\000"
+ 2384      455F4556 
+ 2384      545F4849 
+ 2384      4453535F 
+ 2384      53555350 
+ 2385              	.LASF0:
+ 2386 0b26 7369676E 		.ascii	"signed char\000"
+ 2386      65642063 
+ 2386      68617200 
+ 2387              	.LASF396:
+ 2388 0b32 4359424C 		.ascii	"CYBLE_EVT_WSSC_WRITE_DESCR_RESPONSE\000"
+ 2388      455F4556 
+ 2388      545F5753 
+ 2388      53435F57 
+ 2388      52495445 
+ 2389              	.LASF158:
+ 2390 0b56 4359424C 		.ascii	"CYBLE_EVT_BASC_READ_DESCR_RESPONSE\000"
+ 2390      455F4556 
+ 2390      545F4241 
+ 2390      53435F52 
+ 2390      4541445F 
+ 2391              	.LASF20:
+ 2392 0b79 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 2392      455F4556 
+ 2392      545F4841 
+ 2392      52445741 
+ 2392      52455F45 
+ 2393              	.LASF53:
+ 2394 0b92 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 2394      455F4556 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 54
+
+
+ 2394      545F4741 
+ 2394      5454435F 
+ 2394      52454144 
+ 2395              	.LASF398:
+ 2396 0bb9 4359424C 		.ascii	"CYBLE_STATE_STOPPED\000"
+ 2396      455F5354 
+ 2396      4154455F 
+ 2396      53544F50 
+ 2396      50454400 
+ 2397              	.LASF340:
+ 2398 0bcd 4359424C 		.ascii	"CYBLE_EVT_RSCSS_INDICATION_ENABLED\000"
+ 2398      455F4556 
+ 2398      545F5253 
+ 2398      4353535F 
+ 2398      494E4449 
+ 2399              	.LASF1:
+ 2400 0bf0 756E7369 		.ascii	"unsigned char\000"
+ 2400      676E6564 
+ 2400      20636861 
+ 2400      7200
+ 2401              	.LASF52:
+ 2402 0bfe 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 2402      455F4556 
+ 2402      545F4741 
+ 2402      5454435F 
+ 2402      5843484E 
+ 2403              	.LASF197:
+ 2404 0c1c 4359424C 		.ascii	"CYBLE_EVT_CPSS_INDICATION_CONFIRMED\000"
+ 2404      455F4556 
+ 2404      545F4350 
+ 2404      53535F49 
+ 2404      4E444943 
+ 2405              	.LASF421:
+ 2406 0c40 74696D65 		.ascii	"timestampWhenConnected\000"
+ 2406      7374616D 
+ 2406      70576865 
+ 2406      6E436F6E 
+ 2406      6E656374 
+ 2407              	.LASF194:
+ 2408 0c57 4359424C 		.ascii	"CYBLE_EVT_CPSS_NOTIFICATION_DISABLED\000"
+ 2408      455F4556 
+ 2408      545F4350 
+ 2408      53535F4E 
+ 2408      4F544946 
+ 2409              	.LASF345:
+ 2410 0c7c 4359424C 		.ascii	"CYBLE_EVT_RSCSC_INDICATION\000"
+ 2410      455F4556 
+ 2410      545F5253 
+ 2410      4353435F 
+ 2410      494E4449 
+ 2411              	.LASF395:
+ 2412 0c97 4359424C 		.ascii	"CYBLE_EVT_WSSC_READ_DESCR_RESPONSE\000"
+ 2412      455F4556 
+ 2412      545F5753 
+ 2412      53435F52 
+ 2412      4541445F 
+ 2413              	.LASF381:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 55
+
+
+ 2414 0cba 4359424C 		.ascii	"CYBLE_EVT_WPTSS_INDICATION_DISABLED\000"
+ 2414      455F4556 
+ 2414      545F5750 
+ 2414      5453535F 
+ 2414      494E4449 
+ 2415              	.LASF43:
+ 2416 0cde 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
+ 2416      455F4556 
+ 2416      545F4741 
+ 2416      505F534D 
+ 2416      505F4E45 
+ 2417              	.LASF44:
+ 2418 0d05 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
+ 2418      455F4556 
+ 2418      545F4741 
+ 2418      505F434F 
+ 2418      4E4E5F45 
+ 2419              	.LASF425:
+ 2420 0d1d 4379426C 		.ascii	"CyBle_GappStartAdvertisement\000"
+ 2420      655F4761 
+ 2420      70705374 
+ 2420      61727441 
+ 2420      64766572 
+ 2421              	.LASF112:
+ 2422 0d3a 4359424C 		.ascii	"CYBLE_EVT_GATTC_INDICATION\000"
+ 2422      455F4556 
+ 2422      545F4741 
+ 2422      5454435F 
+ 2422      494E4449 
+ 2423              	.LASF420:
+ 2424 0d55 5F426F6F 		.ascii	"_Bool\000"
+ 2424      6C00
+ 2425              	.LASF266:
+ 2426 0d5b 4359424C 		.ascii	"CYBLE_EVT_HPSS_NOTIFICATION_ENABLED\000"
+ 2426      455F4556 
+ 2426      545F4850 
+ 2426      53535F4E 
+ 2426      4F544946 
+ 2427              	.LASF352:
+ 2428 0d7f 4359424C 		.ascii	"CYBLE_EVT_SCPSS_NOTIFICATION_ENABLED\000"
+ 2428      455F4556 
+ 2428      545F5343 
+ 2428      5053535F 
+ 2428      4E4F5449 
+ 2429              	.LASF296:
+ 2430 0da4 4359424C 		.ascii	"CYBLE_EVT_IPSC_READ_CHAR_RESPONSE\000"
+ 2430      455F4556 
+ 2430      545F4950 
+ 2430      53435F52 
+ 2430      4541445F 
+ 2431              	.LASF79:
+ 2432 0dc6 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
+ 2432      455F4556 
+ 2432      545F4C32 
+ 2432      4341505F 
+ 2432      43424643 
+ 2433              	.LASF56:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 56
+
+
+ 2434 0de7 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
+ 2434      455F4556 
+ 2434      545F4741 
+ 2434      5454435F 
+ 2434      46494E44 
+ 2435              	.LASF138:
+ 2436 0e0e 4359424C 		.ascii	"CYBLE_EVT_ANCSS_NOTIFICATION_ENABLED\000"
+ 2436      455F4556 
+ 2436      545F414E 
+ 2436      4353535F 
+ 2436      4E4F5449 
+ 2437              	.LASF40:
+ 2438 0e33 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
+ 2438      455F4556 
+ 2438      545F4741 
+ 2438      505F4441 
+ 2438      54415F4C 
+ 2439              	.LASF357:
+ 2440 0e54 4359424C 		.ascii	"CYBLE_EVT_SCPSC_WRITE_DESCR_RESPONSE\000"
+ 2440      455F4556 
+ 2440      545F5343 
+ 2440      5053435F 
+ 2440      57524954 
+ 2441              	.LASF14:
+ 2442 0e79 63686172 		.ascii	"char\000"
+ 2442      00
+ 2443              	.LASF360:
+ 2444 0e7e 4359424C 		.ascii	"CYBLE_EVT_TPSC_NOTIFICATION\000"
+ 2444      455F4556 
+ 2444      545F5450 
+ 2444      53435F4E 
+ 2444      4F544946 
+ 2445              	.LASF59:
+ 2446 0e9a 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
+ 2446      455F4556 
+ 2446      545F4741 
+ 2446      5454435F 
+ 2446      52454144 
+ 2447              	.LASF137:
+ 2448 0eb9 4359424C 		.ascii	"CYBLE_EVT_AIOSC_ERROR_RESPONSE\000"
+ 2448      455F4556 
+ 2448      545F4149 
+ 2448      4F53435F 
+ 2448      4552524F 
+ 2449              	.LASF132:
+ 2450 0ed8 4359424C 		.ascii	"CYBLE_EVT_AIOSC_INDICATION\000"
+ 2450      455F4556 
+ 2450      545F4149 
+ 2450      4F53435F 
+ 2450      494E4449 
+ 2451              	.LASF17:
+ 2452 0ef3 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 2452      455F4556 
+ 2452      545F484F 
+ 2452      53545F49 
+ 2452      4E56414C 
+ 2453              	.LASF42:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 57
+
+
+ 2454 0f0a 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
+ 2454      455F4556 
+ 2454      545F4741 
+ 2454      50435F44 
+ 2454      49524543 
+ 2455              	.LASF252:
+ 2456 0f2b 4359424C 		.ascii	"CYBLE_EVT_GLSC_READ_DESCR_RESPONSE\000"
+ 2456      455F4556 
+ 2456      545F474C 
+ 2456      53435F52 
+ 2456      4541445F 
+ 2457              	.LASF58:
+ 2458 0f4e 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
+ 2458      455F4556 
+ 2458      545F4741 
+ 2458      5454435F 
+ 2458      52454144 
+ 2459              	.LASF285:
+ 2460 0f6c 4359424C 		.ascii	"CYBLE_EVT_HTSS_INDICATION_DISABLED\000"
+ 2460      455F4556 
+ 2460      545F4854 
+ 2460      53535F49 
+ 2460      4E444943 
+ 2461              	.LASF351:
+ 2462 0f8f 4359424C 		.ascii	"CYBLE_EVT_RTUSC_READ_CHAR_RESPONSE\000"
+ 2462      455F4556 
+ 2462      545F5254 
+ 2462      5553435F 
+ 2462      52454144 
+ 2463              	.LASF419:
+ 2464 0fb2 656E7465 		.ascii	"enterHibernateFlag\000"
+ 2464      72486962 
+ 2464      65726E61 
+ 2464      7465466C 
+ 2464      616700
+ 2465              	.LASF65:
+ 2466 0fc5 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
+ 2466      455F4556 
+ 2466      545F4741 
+ 2466      5454435F 
+ 2466      45584543 
+ 2467              	.LASF392:
+ 2468 0fe4 4359424C 		.ascii	"CYBLE_EVT_WSSS_INDICATION_CONFIRMED\000"
+ 2468      455F4556 
+ 2468      545F5753 
+ 2468      53535F49 
+ 2468      4E444943 
+ 2469              	.LASF365:
+ 2470 1008 4359424C 		.ascii	"CYBLE_EVT_UDSS_INDICATION_DISABLED\000"
+ 2470      455F4556 
+ 2470      545F5544 
+ 2470      53535F49 
+ 2470      4E444943 
+ 2471              	.LASF101:
+ 2472 102b 4359424C 		.ascii	"CYBLE_DIS_SOFTWARE_REV\000"
+ 2472      455F4449 
+ 2472      535F534F 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 58
+
+
+ 2472      46545741 
+ 2472      52455F52 
+ 2473              	.LASF70:
+ 2474 1042 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 2474      455F4556 
+ 2474      545F4741 
+ 2474      5454435F 
+ 2474      53544F50 
+ 2475              	.LASF200:
+ 2476 1064 4359424C 		.ascii	"CYBLE_EVT_CPSS_CHAR_WRITE\000"
+ 2476      455F4556 
+ 2476      545F4350 
+ 2476      53535F43 
+ 2476      4841525F 
+ 2477              	.LASF274:
+ 2478 107e 4359424C 		.ascii	"CYBLE_EVT_HRSS_ENERGY_EXPENDED_RESET\000"
+ 2478      455F4556 
+ 2478      545F4852 
+ 2478      53535F45 
+ 2478      4E455247 
+ 2479              	.LASF97:
+ 2480 10a3 4359424C 		.ascii	"CYBLE_DIS_MODEL_NUMBER\000"
+ 2480      455F4449 
+ 2480      535F4D4F 
+ 2480      44454C5F 
+ 2480      4E554D42 
+ 2481              	.LASF230:
+ 2482 10ba 4359424C 		.ascii	"CYBLE_EVT_ESSS_NOTIFICATION_DISABLED\000"
+ 2482      455F4556 
+ 2482      545F4553 
+ 2482      53535F4E 
+ 2482      4F544946 
+ 2483              	.LASF379:
+ 2484 10df 4359424C 		.ascii	"CYBLE_EVT_WPTSS_NOTIFICATION_DISABLED\000"
+ 2484      455F4556 
+ 2484      545F5750 
+ 2484      5453535F 
+ 2484      4E4F5449 
+ 2485              	.LASF170:
+ 2486 1105 4359424C 		.ascii	"CYBLE_EVT_BLSS_NOTIFICATION_ENABLED\000"
+ 2486      455F4556 
+ 2486      545F424C 
+ 2486      53535F4E 
+ 2486      4F544946 
+ 2487              	.LASF102:
+ 2488 1129 4359424C 		.ascii	"CYBLE_DIS_SYSTEM_ID\000"
+ 2488      455F4449 
+ 2488      535F5359 
+ 2488      5354454D 
+ 2488      5F494400 
+ 2489              	.LASF272:
+ 2490 113d 4359424C 		.ascii	"CYBLE_EVT_HPSC_WRITE_DESCR_RESPONSE\000"
+ 2490      455F4556 
+ 2490      545F4850 
+ 2490      53435F57 
+ 2490      52495445 
+ 2491              	.LASF393:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 59
+
+
+ 2492 1161 4359424C 		.ascii	"CYBLE_EVT_WSSC_INDICATION\000"
+ 2492      455F4556 
+ 2492      545F5753 
+ 2492      53435F49 
+ 2492      4E444943 
+ 2493              	.LASF237:
+ 2494 117b 4359424C 		.ascii	"CYBLE_EVT_ESSC_INDICATION\000"
+ 2494      455F4556 
+ 2494      545F4553 
+ 2494      53435F49 
+ 2494      4E444943 
+ 2495              	.LASF144:
+ 2496 1195 4359424C 		.ascii	"CYBLE_EVT_ANCSC_WRITE_DESCR_RESPONSE\000"
+ 2496      455F4556 
+ 2496      545F414E 
+ 2496      4353435F 
+ 2496      57524954 
+ 2497              	.LASF347:
+ 2498 11ba 4359424C 		.ascii	"CYBLE_EVT_RSCSC_WRITE_CHAR_RESPONSE\000"
+ 2498      455F4556 
+ 2498      545F5253 
+ 2498      4353435F 
+ 2498      57524954 
+ 2499              	.LASF363:
+ 2500 11de 4359424C 		.ascii	"CYBLE_EVT_TPSC_WRITE_DESCR_RESPONSE\000"
+ 2500      455F4556 
+ 2500      545F5450 
+ 2500      53435F57 
+ 2500      52495445 
+ 2501              	.LASF407:
+ 2502 1202 434F4E4E 		.ascii	"CONN_PARAM_REQUEST_REJECTED\000"
+ 2502      5F504152 
+ 2502      414D5F52 
+ 2502      45515545 
+ 2502      53545F52 
+ 2503              	.LASF209:
+ 2504 121e 4359424C 		.ascii	"CYBLE_EVT_CSCSS_NOTIFICATION_DISABLED\000"
+ 2504      455F4556 
+ 2504      545F4353 
+ 2504      4353535F 
+ 2504      4E4F5449 
+ 2505              	.LASF220:
+ 2506 1244 4359424C 		.ascii	"CYBLE_EVT_CTSS_NOTIFICATION_ENABLED\000"
+ 2506      455F4556 
+ 2506      545F4354 
+ 2506      53535F4E 
+ 2506      4F544946 
+ 2507              	.LASF341:
+ 2508 1268 4359424C 		.ascii	"CYBLE_EVT_RSCSS_INDICATION_DISABLED\000"
+ 2508      455F4556 
+ 2508      545F5253 
+ 2508      4353535F 
+ 2508      494E4449 
+ 2509              	.LASF383:
+ 2510 128c 4359424C 		.ascii	"CYBLE_EVT_WPTSS_WRITE_CHAR\000"
+ 2510      455F4556 
+ 2510      545F5750 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 60
+
+
+ 2510      5453535F 
+ 2510      57524954 
+ 2511              	.LASF303:
+ 2512 12a7 4359424C 		.ascii	"CYBLE_EVT_LLSS_WRITE_CHAR_REQ\000"
+ 2512      455F4556 
+ 2512      545F4C4C 
+ 2512      53535F57 
+ 2512      52495445 
+ 2513              	.LASF280:
+ 2514 12c5 4359424C 		.ascii	"CYBLE_EVT_HRSC_READ_DESCR_RESPONSE\000"
+ 2514      455F4556 
+ 2514      545F4852 
+ 2514      53435F52 
+ 2514      4541445F 
+ 2515              	.LASF208:
+ 2516 12e8 4359424C 		.ascii	"CYBLE_EVT_CSCSS_NOTIFICATION_ENABLED\000"
+ 2516      455F4556 
+ 2516      545F4353 
+ 2516      4353535F 
+ 2516      4E4F5449 
+ 2517              	.LASF172:
+ 2518 130d 4359424C 		.ascii	"CYBLE_EVT_BLSC_INDICATION\000"
+ 2518      455F4556 
+ 2518      545F424C 
+ 2518      53435F49 
+ 2518      4E444943 
+ 2519              	.LASF268:
+ 2520 1327 4359424C 		.ascii	"CYBLE_EVT_HPSS_CHAR_WRITE\000"
+ 2520      455F4556 
+ 2520      545F4850 
+ 2520      53535F43 
+ 2520      4841525F 
+ 2521              	.LASF260:
+ 2522 1341 4359424C 		.ascii	"CYBLE_EVT_HIDSS_REPORT_CHAR_WRITE\000"
+ 2522      455F4556 
+ 2522      545F4849 
+ 2522      4453535F 
+ 2522      5245504F 
+ 2523              	.LASF387:
+ 2524 1363 4359424C 		.ascii	"CYBLE_EVT_WPTSC_READ_CHAR_RESPONSE\000"
+ 2524      455F4556 
+ 2524      545F5750 
+ 2524      5453435F 
+ 2524      52454144 
+ 2525              	.LASF315:
+ 2526 1386 4359424C 		.ascii	"CYBLE_EVT_LNSC_WRITE_CHAR_RESPONSE\000"
+ 2526      455F4556 
+ 2526      545F4C4E 
+ 2526      53435F57 
+ 2526      52495445 
+ 2527              	.LASF74:
+ 2528 13a9 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
+ 2528      455F4556 
+ 2528      545F4C32 
+ 2528      4341505F 
+ 2528      434F4E4E 
+ 2529              	.LASF86:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 61
+
+
+ 2530 13cf 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
+ 2530      455F4556 
+ 2530      545F4843 
+ 2530      495F504B 
+ 2530      5400
+ 2531              	.LASF368:
+ 2532 13e1 4359424C 		.ascii	"CYBLE_EVT_UDSS_NOTIFICATION_DISABLED\000"
+ 2532      455F4556 
+ 2532      545F5544 
+ 2532      53535F4E 
+ 2532      4F544946 
+ 2533              	.LASF219:
+ 2534 1406 4359424C 		.ascii	"CYBLE_EVT_CSCSC_WRITE_DESCR_RESPONSE\000"
+ 2534      455F4556 
+ 2534      545F4353 
+ 2534      4353435F 
+ 2534      57524954 
+ 2535              	.LASF370:
+ 2536 142b 4359424C 		.ascii	"CYBLE_EVT_UDSS_WRITE_CHAR\000"
+ 2536      455F4556 
+ 2536      545F5544 
+ 2536      53535F57 
+ 2536      52495445 
+ 2537              	.LASF334:
+ 2538 1445 4359424C 		.ascii	"CYBLE_EVT_PLXSC_READ_CHAR_RESPONSE\000"
+ 2538      455F4556 
+ 2538      545F504C 
+ 2538      5853435F 
+ 2538      52454144 
+ 2539              	.LASF135:
+ 2540 1468 4359424C 		.ascii	"CYBLE_EVT_AIOSC_READ_DESCR_RESPONSE\000"
+ 2540      455F4556 
+ 2540      545F4149 
+ 2540      4F53435F 
+ 2540      52454144 
+ 2541              	.LASF415:
+ 2542 148c 6872734E 		.ascii	"hrsNotification\000"
+ 2542      6F746966 
+ 2542      69636174 
+ 2542      696F6E00 
+ 2543              	.LASF275:
+ 2544 149c 4359424C 		.ascii	"CYBLE_EVT_HRSS_NOTIFICATION_ENABLED\000"
+ 2544      455F4556 
+ 2544      545F4852 
+ 2544      53535F4E 
+ 2544      4F544946 
+ 2545              	.LASF28:
+ 2546 14c0 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
+ 2546      455F4556 
+ 2546      545F4741 
+ 2546      505F4155 
+ 2546      54485F43 
+ 2547              	.LASF324:
+ 2548 14dc 4359424C 		.ascii	"CYBLE_EVT_PASSC_READ_DESCR_RESPONSE\000"
+ 2548      455F4556 
+ 2548      545F5041 
+ 2548      5353435F 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 62
+
+
+ 2548      52454144 
+ 2549              	.LASF240:
+ 2550 1500 4359424C 		.ascii	"CYBLE_EVT_ESSC_READ_DESCR_RESPONSE\000"
+ 2550      455F4556 
+ 2550      545F4553 
+ 2550      53435F52 
+ 2550      4541445F 
+ 2551              	.LASF29:
+ 2552 1523 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
+ 2552      455F4556 
+ 2552      545F4741 
+ 2552      505F4155 
+ 2552      54485F46 
+ 2553              	.LASF259:
+ 2554 153d 4359424C 		.ascii	"CYBLE_EVT_HIDSS_EXIT_SUSPEND\000"
+ 2554      455F4556 
+ 2554      545F4849 
+ 2554      4453535F 
+ 2554      45584954 
+ 2555              	.LASF226:
+ 2556 155a 4359424C 		.ascii	"CYBLE_EVT_CTSC_WRITE_DESCR_RESPONSE\000"
+ 2556      455F4556 
+ 2556      545F4354 
+ 2556      53435F57 
+ 2556      52495445 
+ 2557              	.LASF339:
+ 2558 157e 4359424C 		.ascii	"CYBLE_EVT_RSCSS_NOTIFICATION_DISABLED\000"
+ 2558      455F4556 
+ 2558      545F5253 
+ 2558      4353535F 
+ 2558      4E4F5449 
+ 2559              	.LASF263:
+ 2560 15a4 4359424C 		.ascii	"CYBLE_EVT_HIDSC_WRITE_CHAR_RESPONSE\000"
+ 2560      455F4556 
+ 2560      545F4849 
+ 2560      4453435F 
+ 2560      57524954 
+ 2561              	.LASF5:
+ 2562 15c8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2562      20756E73 
+ 2562      69676E65 
+ 2562      6420696E 
+ 2562      7400
+ 2563              	.LASF299:
+ 2564 15da 4359424C 		.ascii	"CYBLE_EVT_IPSC_READ_DESCR_RESPONSE\000"
+ 2564      455F4556 
+ 2564      545F4950 
+ 2564      53435F52 
+ 2564      4541445F 
+ 2565              	.LASF294:
+ 2566 15fd 4359424C 		.ascii	"CYBLE_EVT_IASS_WRITE_CHAR_CMD\000"
+ 2566      455F4556 
+ 2566      545F4941 
+ 2566      53535F57 
+ 2566      52495445 
+ 2567              	.LASF319:
+ 2568 161b 4359424C 		.ascii	"CYBLE_EVT_PASSS_NOTIFICATION_ENABLED\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 63
+
+
+ 2568      455F4556 
+ 2568      545F5041 
+ 2568      5353535F 
+ 2568      4E4F5449 
+ 2569              	.LASF322:
+ 2570 1640 4359424C 		.ascii	"CYBLE_EVT_PASSC_NOTIFICATION\000"
+ 2570      455F4556 
+ 2570      545F5041 
+ 2570      5353435F 
+ 2570      4E4F5449 
+ 2571              	.LASF327:
+ 2572 165d 4359424C 		.ascii	"CYBLE_EVT_PLXSS_NOTIFICATION_ENABLED\000"
+ 2572      455F4556 
+ 2572      545F504C 
+ 2572      5853535F 
+ 2572      4E4F5449 
+ 2573              	.LASF380:
+ 2574 1682 4359424C 		.ascii	"CYBLE_EVT_WPTSS_INDICATION_ENABLED\000"
+ 2574      455F4556 
+ 2574      545F5750 
+ 2574      5453535F 
+ 2574      494E4449 
+ 2575              	.LASF328:
+ 2576 16a5 4359424C 		.ascii	"CYBLE_EVT_PLXSS_NOTIFICATION_DISABLED\000"
+ 2576      455F4556 
+ 2576      545F504C 
+ 2576      5853535F 
+ 2576      4E4F5449 
+ 2577              	.LASF150:
+ 2578 16cb 4359424C 		.ascii	"CYBLE_EVT_ANSC_READ_CHAR_RESPONSE\000"
+ 2578      455F4556 
+ 2578      545F414E 
+ 2578      53435F52 
+ 2578      4541445F 
+ 2579              	.LASF329:
+ 2580 16ed 4359424C 		.ascii	"CYBLE_EVT_PLXSS_INDICATION_ENABLED\000"
+ 2580      455F4556 
+ 2580      545F504C 
+ 2580      5853535F 
+ 2580      494E4449 
+ 2581              	.LASF287:
+ 2582 1710 4359424C 		.ascii	"CYBLE_EVT_HTSS_CHAR_WRITE\000"
+ 2582      455F4556 
+ 2582      545F4854 
+ 2582      53535F43 
+ 2582      4841525F 
+ 2583              	.LASF154:
+ 2584 172a 4359424C 		.ascii	"CYBLE_EVT_BASS_NOTIFICATION_ENABLED\000"
+ 2584      455F4556 
+ 2584      545F4241 
+ 2584      53535F4E 
+ 2584      4F544946 
+ 2585              	.LASF227:
+ 2586 174e 4359424C 		.ascii	"CYBLE_EVT_CTSC_WRITE_CHAR_RESPONSE\000"
+ 2586      455F4556 
+ 2586      545F4354 
+ 2586      53435F57 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 64
+
+
+ 2586      52495445 
+ 2587              	.LASF321:
+ 2588 1771 4359424C 		.ascii	"CYBLE_EVT_PASSS_WRITE_CHAR\000"
+ 2588      455F4556 
+ 2588      545F5041 
+ 2588      5353535F 
+ 2588      57524954 
+ 2589              	.LASF204:
+ 2590 178c 4359424C 		.ascii	"CYBLE_EVT_CPSC_WRITE_CHAR_RESPONSE\000"
+ 2590      455F4556 
+ 2590      545F4350 
+ 2590      53435F57 
+ 2590      52495445 
+ 2591              	.LASF98:
+ 2592 17af 4359424C 		.ascii	"CYBLE_DIS_SERIAL_NUMBER\000"
+ 2592      455F4449 
+ 2592      535F5345 
+ 2592      5249414C 
+ 2592      5F4E554D 
+ 2593              	.LASF411:
+ 2594 17c7 6576656E 		.ascii	"event\000"
+ 2594      7400
+ 2595              	.LASF34:
+ 2596 17cd 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
+ 2596      455F4556 
+ 2596      545F4741 
+ 2596      505F434F 
+ 2596      4E4E4543 
+ 2597              	.LASF189:
+ 2598 17f6 4359424C 		.ascii	"CYBLE_EVT_CGMSC_READ_CHAR_RESPONSE\000"
+ 2598      455F4556 
+ 2598      545F4347 
+ 2598      4D53435F 
+ 2598      52454144 
+ 2599              	.LASF399:
+ 2600 1819 4359424C 		.ascii	"CYBLE_STATE_INITIALIZING\000"
+ 2600      455F5354 
+ 2600      4154455F 
+ 2600      494E4954 
+ 2600      49414C49 
+ 2601              	.LASF423:
+ 2602 1832 4379426C 		.ascii	"CyBle_HrssGetCharacteristicValue\000"
+ 2602      655F4872 
+ 2602      73734765 
+ 2602      74436861 
+ 2602      72616374 
+ 2603              	.LASF217:
+ 2604 1853 4359424C 		.ascii	"CYBLE_EVT_CSCSC_WRITE_CHAR_RESPONSE\000"
+ 2604      455F4556 
+ 2604      545F4353 
+ 2604      4353435F 
+ 2604      57524954 
+ 2605              	.LASF78:
+ 2606 1877 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 2606      455F4556 
+ 2606      545F4C32 
+ 2606      4341505F 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 65
+
+
+ 2606      43424643 
+ 2607              	.LASF213:
+ 2608 1898 4359424C 		.ascii	"CYBLE_EVT_CSCSS_CHAR_WRITE\000"
+ 2608      455F4556 
+ 2608      545F4353 
+ 2608      4353535F 
+ 2608      43484152 
+ 2609              	.LASF330:
+ 2610 18b3 4359424C 		.ascii	"CYBLE_EVT_PLXSS_INDICATION_DISABLED\000"
+ 2610      455F4556 
+ 2610      545F504C 
+ 2610      5853535F 
+ 2610      494E4449 
+ 2611              	.LASF346:
+ 2612 18d7 4359424C 		.ascii	"CYBLE_EVT_RSCSC_READ_CHAR_RESPONSE\000"
+ 2612      455F4556 
+ 2612      545F5253 
+ 2612      4353435F 
+ 2612      52454144 
+ 2613              	.LASF26:
+ 2614 18fa 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 2614      455F4556 
+ 2614      545F4741 
+ 2614      505F5041 
+ 2614      53534B45 
+ 2615              	.LASF269:
+ 2616 191e 4359424C 		.ascii	"CYBLE_EVT_HPSC_NOTIFICATION\000"
+ 2616      455F4556 
+ 2616      545F4850 
+ 2616      53435F4E 
+ 2616      4F544946 
+ 2617              	.LASF198:
+ 2618 193a 4359424C 		.ascii	"CYBLE_EVT_CPSS_BROADCAST_ENABLED\000"
+ 2618      455F4556 
+ 2618      545F4350 
+ 2618      53535F42 
+ 2618      524F4144 
+ 2619              	.LASF300:
+ 2620 195b 4359424C 		.ascii	"CYBLE_EVT_IPSC_WRITE_DESCR_RESPONSE\000"
+ 2620      455F4556 
+ 2620      545F4950 
+ 2620      53435F57 
+ 2620      52495445 
+ 2621              	.LASF337:
+ 2622 197f 4359424C 		.ascii	"CYBLE_EVT_PLXSC_WRITE_DESCR_RESPONSE\000"
+ 2622      455F4556 
+ 2622      545F504C 
+ 2622      5853435F 
+ 2622      57524954 
+ 2623              	.LASF331:
+ 2624 19a4 4359424C 		.ascii	"CYBLE_EVT_PLXS_INDICATION_CONFIRMATION\000"
+ 2624      455F4556 
+ 2624      545F504C 
+ 2624      58535F49 
+ 2624      4E444943 
+ 2625              	.LASF93:
+ 2626 19cb 4359424C 		.ascii	"CYBLE_HRS_BSL\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 66
+
+
+ 2626      455F4852 
+ 2626      535F4253 
+ 2626      4C00
+ 2627              	.LASF288:
+ 2628 19d9 4359424C 		.ascii	"CYBLE_EVT_HTSC_NOTIFICATION\000"
+ 2628      455F4556 
+ 2628      545F4854 
+ 2628      53435F4E 
+ 2628      4F544946 
+ 2629              	.LASF6:
+ 2630 19f5 6C6F6E67 		.ascii	"long long int\000"
+ 2630      206C6F6E 
+ 2630      6720696E 
+ 2630      7400
+ 2631              	.LASF361:
+ 2632 1a03 4359424C 		.ascii	"CYBLE_EVT_TPSC_READ_CHAR_RESPONSE\000"
+ 2632      455F4556 
+ 2632      545F5450 
+ 2632      53435F52 
+ 2632      4541445F 
+ 2633              	.LASF104:
+ 2634 1a25 4359424C 		.ascii	"CYBLE_DIS_PNP_ID\000"
+ 2634      455F4449 
+ 2634      535F504E 
+ 2634      505F4944 
+ 2634      00
+ 2635              	.LASF118:
+ 2636 1a36 4359424C 		.ascii	"CYBLE_EVT_GATTC_CHAR_DUPLICATION\000"
+ 2636      455F4556 
+ 2636      545F4741 
+ 2636      5454435F 
+ 2636      43484152 
+ 2637              	.LASF245:
+ 2638 1a57 4359424C 		.ascii	"CYBLE_EVT_GLSS_NOTIFICATION_ENABLED\000"
+ 2638      455F4556 
+ 2638      545F474C 
+ 2638      53535F4E 
+ 2638      4F544946 
+ 2639              	.LASF127:
+ 2640 1a7b 4359424C 		.ascii	"CYBLE_EVT_AIOSS_INDICATION_DISABLED\000"
+ 2640      455F4556 
+ 2640      545F4149 
+ 2640      4F53535F 
+ 2640      494E4449 
+ 2641              	.LASF270:
+ 2642 1a9f 4359424C 		.ascii	"CYBLE_EVT_HPSC_READ_CHAR_RESPONSE\000"
+ 2642      455F4556 
+ 2642      545F4850 
+ 2642      53435F52 
+ 2642      4541445F 
+ 2643              	.LASF181:
+ 2644 1ac1 4359424C 		.ascii	"CYBLE_EVT_CGMSS_INDICATION_ENABLED\000"
+ 2644      455F4556 
+ 2644      545F4347 
+ 2644      4D53535F 
+ 2644      494E4449 
+ 2645              	.LASF13:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 67
+
+
+ 2646 1ae4 646F7562 		.ascii	"double\000"
+ 2646      6C6500
+ 2647              	.LASF232:
+ 2648 1aeb 4359424C 		.ascii	"CYBLE_EVT_ESSS_INDICATION_DISABLED\000"
+ 2648      455F4556 
+ 2648      545F4553 
+ 2648      53535F49 
+ 2648      4E444943 
+ 2649              	.LASF84:
+ 2650 1b0e 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 2650      455F4556 
+ 2650      545F5045 
+ 2650      4E44494E 
+ 2650      475F464C 
+ 2651              	.LASF121:
+ 2652 1b2c 4359424C 		.ascii	"CYBLE_EVT_GATTC_INCL_DISCOVERY_COMPLETE\000"
+ 2652      455F4556 
+ 2652      545F4741 
+ 2652      5454435F 
+ 2652      494E434C 
+ 2653              	.LASF378:
+ 2654 1b54 4359424C 		.ascii	"CYBLE_EVT_WPTSS_NOTIFICATION_ENABLED\000"
+ 2654      455F4556 
+ 2654      545F5750 
+ 2654      5453535F 
+ 2654      4E4F5449 
+ 2655              	.LASF317:
+ 2656 1b79 4359424C 		.ascii	"CYBLE_EVT_LNSC_WRITE_DESCR_RESPONSE\000"
+ 2656      455F4556 
+ 2656      545F4C4E 
+ 2656      53435F57 
+ 2656      52495445 
+ 2657              	.LASF41:
+ 2658 1b9d 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
+ 2658      455F4556 
+ 2658      545F4741 
+ 2658      505F454E 
+ 2658      48414E43 
+ 2659              	.LASF304:
+ 2660 1bc1 4359424C 		.ascii	"CYBLE_EVT_LLSC_READ_CHAR_RESPONSE\000"
+ 2660      455F4556 
+ 2660      545F4C4C 
+ 2660      53435F52 
+ 2660      4541445F 
+ 2661              	.LASF212:
+ 2662 1be3 4359424C 		.ascii	"CYBLE_EVT_CSCSS_INDICATION_CONFIRMATION\000"
+ 2662      455F4556 
+ 2662      545F4353 
+ 2662      4353535F 
+ 2662      494E4449 
+ 2663              	.LASF235:
+ 2664 1c0b 4359424C 		.ascii	"CYBLE_EVT_ESSS_DESCR_WRITE\000"
+ 2664      455F4556 
+ 2664      545F4553 
+ 2664      53535F44 
+ 2664      45534352 
+ 2665              	.LASF231:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 68
+
+
+ 2666 1c26 4359424C 		.ascii	"CYBLE_EVT_ESSS_INDICATION_ENABLED\000"
+ 2666      455F4556 
+ 2666      545F4553 
+ 2666      53535F49 
+ 2666      4E444943 
+ 2667              	.LASF12:
+ 2668 1c48 666C6F61 		.ascii	"float\000"
+ 2668      7400
+ 2669              	.LASF355:
+ 2670 1c4e 4359424C 		.ascii	"CYBLE_EVT_SCPSC_NOTIFICATION\000"
+ 2670      455F4556 
+ 2670      545F5343 
+ 2670      5053435F 
+ 2670      4E4F5449 
+ 2671              	.LASF257:
+ 2672 1c6b 4359424C 		.ascii	"CYBLE_EVT_HIDSS_REPORT_MODE_ENTER\000"
+ 2672      455F4556 
+ 2672      545F4849 
+ 2672      4453535F 
+ 2672      5245504F 
+ 2673              	.LASF236:
+ 2674 1c8d 4359424C 		.ascii	"CYBLE_EVT_ESSC_NOTIFICATION\000"
+ 2674      455F4556 
+ 2674      545F4553 
+ 2674      53435F4E 
+ 2674      4F544946 
+ 2675              	.LASF255:
+ 2676 1ca9 4359424C 		.ascii	"CYBLE_EVT_HIDSS_NOTIFICATION_DISABLED\000"
+ 2676      455F4556 
+ 2676      545F4849 
+ 2676      4453535F 
+ 2676      4E4F5449 
+ 2677              	.LASF71:
+ 2678 1ccf 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 2678      455F4556 
+ 2678      545F4741 
+ 2678      5454535F 
+ 2678      52454144 
+ 2679              	.LASF143:
+ 2680 1cf8 4359424C 		.ascii	"CYBLE_EVT_ANCSC_READ_DESCR_RESPONSE\000"
+ 2680      455F4556 
+ 2680      545F414E 
+ 2680      4353435F 
+ 2680      52454144 
+ 2681              	.LASF372:
+ 2682 1d1c 4359424C 		.ascii	"CYBLE_EVT_UDSC_NOTIFICATION\000"
+ 2682      455F4556 
+ 2682      545F5544 
+ 2682      53435F4E 
+ 2682      4F544946 
+ 2683              	.LASF386:
+ 2684 1d38 4359424C 		.ascii	"CYBLE_EVT_WPTSC_WRITE_CHAR_RESPONSE\000"
+ 2684      455F4556 
+ 2684      545F5750 
+ 2684      5453435F 
+ 2684      57524954 
+ 2685              	.LASF8:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 69
+
+
+ 2686 1d5c 756E7369 		.ascii	"unsigned int\000"
+ 2686      676E6564 
+ 2686      20696E74 
+ 2686      00
+ 2687              	.LASF63:
+ 2688 1d69 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
+ 2688      455F4556 
+ 2688      545F4741 
+ 2688      5454535F 
+ 2688      50524550 
+ 2689              	.LASF188:
+ 2690 1d88 4359424C 		.ascii	"CYBLE_EVT_CGMSC_NOTIFICATION\000"
+ 2690      455F4556 
+ 2690      545F4347 
+ 2690      4D53435F 
+ 2690      4E4F5449 
+ 2691              	.LASF221:
+ 2692 1da5 4359424C 		.ascii	"CYBLE_EVT_CTSS_NOTIFICATION_DISABLED\000"
+ 2692      455F4556 
+ 2692      545F4354 
+ 2692      53535F4E 
+ 2692      4F544946 
+ 2693              	.LASF168:
+ 2694 1dca 4359424C 		.ascii	"CYBLE_EVT_BLSS_INDICATION_DISABLED\000"
+ 2694      455F4556 
+ 2694      545F424C 
+ 2694      53535F49 
+ 2694      4E444943 
+ 2695              	.LASF103:
+ 2696 1ded 4359424C 		.ascii	"CYBLE_DIS_REG_CERT_DATA\000"
+ 2696      455F4449 
+ 2696      535F5245 
+ 2696      475F4345 
+ 2696      52545F44 
+ 2697              	.LASF353:
+ 2698 1e05 4359424C 		.ascii	"CYBLE_EVT_SCPSS_NOTIFICATION_DISABLED\000"
+ 2698      455F4556 
+ 2698      545F5343 
+ 2698      5053535F 
+ 2698      4E4F5449 
+ 2699              	.LASF233:
+ 2700 1e2b 4359424C 		.ascii	"CYBLE_EVT_ESSS_INDICATION_CONFIRMATION\000"
+ 2700      455F4556 
+ 2700      545F4553 
+ 2700      53535F49 
+ 2700      4E444943 
+ 2701              	.LASF136:
+ 2702 1e52 4359424C 		.ascii	"CYBLE_EVT_AIOSC_WRITE_DESCR_RESPONSE\000"
+ 2702      455F4556 
+ 2702      545F4149 
+ 2702      4F53435F 
+ 2702      57524954 
+ 2703              	.LASF424:
+ 2704 1e77 4379426C 		.ascii	"CyBle_HrssSendNotification\000"
+ 2704      655F4872 
+ 2704      73735365 
+ 2704      6E644E6F 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 70
+
+
+ 2704      74696669 
+ 2705              	.LASF106:
+ 2706 1e92 4359424C 		.ascii	"CYBLE_AUTHENTICATION_REQUEST_REPLY\000"
+ 2706      455F4155 
+ 2706      5448454E 
+ 2706      54494341 
+ 2706      54494F4E 
+ 2707              	.LASF171:
+ 2708 1eb5 4359424C 		.ascii	"CYBLE_EVT_BLSS_NOTIFICATION_DISABLED\000"
+ 2708      455F4556 
+ 2708      545F424C 
+ 2708      53535F4E 
+ 2708      4F544946 
+ 2709              	.LASF94:
+ 2710 1eda 4359424C 		.ascii	"CYBLE_HRS_CPT\000"
+ 2710      455F4852 
+ 2710      535F4350 
+ 2710      5400
+ 2711              	.LASF291:
+ 2712 1ee8 4359424C 		.ascii	"CYBLE_EVT_HTSC_WRITE_CHAR_RESPONSE\000"
+ 2712      455F4556 
+ 2712      545F4854 
+ 2712      53435F57 
+ 2712      52495445 
+ 2713              	.LASF391:
+ 2714 1f0b 4359424C 		.ascii	"CYBLE_EVT_WSSS_INDICATION_DISABLED\000"
+ 2714      455F4556 
+ 2714      545F5753 
+ 2714      53535F49 
+ 2714      4E444943 
+ 2715              	.LASF273:
+ 2716 1f2e 4359424C 		.ascii	"CYBLE_EVT_HPSC_WRITE_CHAR_RESPONSE\000"
+ 2716      455F4556 
+ 2716      545F4850 
+ 2716      53435F57 
+ 2716      52495445 
+ 2717              	.LASF88:
+ 2718 1f51 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
+ 2718      455F4556 
+ 2718      545F4D41 
+ 2718      5800
+ 2719              	.LASF35:
+ 2720 1f5f 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
+ 2720      455F4556 
+ 2720      545F4741 
+ 2720      50435F53 
+ 2720      43414E5F 
+ 2721              	.LASF146:
+ 2722 1f7e 4359424C 		.ascii	"CYBLE_EVT_ANSS_NOTIFICATION_ENABLED\000"
+ 2722      455F4556 
+ 2722      545F414E 
+ 2722      53535F4E 
+ 2722      4F544946 
+ 2723              	.LASF60:
+ 2724 1fa2 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 2724      455F4556 
+ 2724      545F4741 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 71
+
+
+ 2724      5454535F 
+ 2724      57524954 
+ 2725              	.LASF374:
+ 2726 1fbc 4359424C 		.ascii	"CYBLE_EVT_UDSC_WRITE_CHAR_RESPONSE\000"
+ 2726      455F4556 
+ 2726      545F5544 
+ 2726      53435F57 
+ 2726      52495445 
+ 2727              	.LASF385:
+ 2728 1fdf 4359424C 		.ascii	"CYBLE_EVT_WPTSC_INDICATION\000"
+ 2728      455F4556 
+ 2728      545F5750 
+ 2728      5453435F 
+ 2728      494E4449 
+ 2729              	.LASF27:
+ 2730 1ffa 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 2730      455F4556 
+ 2730      545F4741 
+ 2730      505F5041 
+ 2730      53534B45 
+ 2731              	.LASF57:
+ 2732 2020 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
+ 2732      455F4556 
+ 2732      545F4741 
+ 2732      5454435F 
+ 2732      52454144 
+ 2733              	.LASF202:
+ 2734 2039 4359424C 		.ascii	"CYBLE_EVT_CPSC_INDICATION\000"
+ 2734      455F4556 
+ 2734      545F4350 
+ 2734      53435F49 
+ 2734      4E444943 
+ 2735              	.LASF228:
+ 2736 2053 4359424C 		.ascii	"CYBLE_EVT_DISC_READ_CHAR_RESPONSE\000"
+ 2736      455F4556 
+ 2736      545F4449 
+ 2736      53435F52 
+ 2736      4541445F 
+ 2737              	.LASF77:
+ 2738 2075 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
+ 2738      455F4556 
+ 2738      545F4C32 
+ 2738      4341505F 
+ 2738      43424643 
+ 2739              	.LASF179:
+ 2740 2093 4359424C 		.ascii	"CYBLE_EVT_BMSC_WRITE_CHAR_RESPONSE\000"
+ 2740      455F4556 
+ 2740      545F424D 
+ 2740      53435F57 
+ 2740      52495445 
+ 2741              	.LASF292:
+ 2742 20b6 4359424C 		.ascii	"CYBLE_EVT_HTSC_READ_DESCR_RESPONSE\000"
+ 2742      455F4556 
+ 2742      545F4854 
+ 2742      53435F52 
+ 2742      4541445F 
+ 2743              	.LASF397:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 72
+
+
+ 2744 20d9 4359424C 		.ascii	"CYBLE_DEBUG_EVT_BLESS_INT\000"
+ 2744      455F4445 
+ 2744      4255475F 
+ 2744      4556545F 
+ 2744      424C4553 
+ 2745              	.LASF247:
+ 2746 20f3 4359424C 		.ascii	"CYBLE_EVT_GLSS_WRITE_CHAR\000"
+ 2746      455F4556 
+ 2746      545F474C 
+ 2746      53535F57 
+ 2746      52495445 
+ 2747              	.LASF87:
+ 2748 210d 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
+ 2748      455F4556 
+ 2748      545F464C 
+ 2748      4153485F 
+ 2748      434F5252 
+ 2749              	.LASF15:
+ 2750 2125 6C6F6E67 		.ascii	"long double\000"
+ 2750      20646F75 
+ 2750      626C6500 
+ 2751              	.LASF184:
+ 2752 2131 4359424C 		.ascii	"CYBLE_EVT_CGMSS_NOTIFICATION_ENABLED\000"
+ 2752      455F4556 
+ 2752      545F4347 
+ 2752      4D53535F 
+ 2752      4E4F5449 
+ 2753              	.LASF277:
+ 2754 2156 4359424C 		.ascii	"CYBLE_EVT_HRSC_NOTIFICATION\000"
+ 2754      455F4556 
+ 2754      545F4852 
+ 2754      53435F4E 
+ 2754      4F544946 
+ 2755              	.LASF23:
+ 2756 2172 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
+ 2756      455F4556 
+ 2756      545F4D45 
+ 2756      4D4F5259 
+ 2756      5F524551 
+ 2757              	.LASF133:
+ 2758 218b 4359424C 		.ascii	"CYBLE_EVT_AIOSC_READ_CHAR_RESPONSE\000"
+ 2758      455F4556 
+ 2758      545F4149 
+ 2758      4F53435F 
+ 2758      52454144 
+ 2759              	.LASF342:
+ 2760 21ae 4359424C 		.ascii	"CYBLE_EVT_RSCSS_INDICATION_CONFIRMATION\000"
+ 2760      455F4556 
+ 2760      545F5253 
+ 2760      4353535F 
+ 2760      494E4449 
+ 2761              	.LASF264:
+ 2762 21d6 4359424C 		.ascii	"CYBLE_EVT_HIDSC_READ_DESCR_RESPONSE\000"
+ 2762      455F4556 
+ 2762      545F4849 
+ 2762      4453435F 
+ 2762      52454144 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 73
+
+
+ 2763              	.LASF413:
+ 2764 21fa 47656E65 		.ascii	"GeneralEventHandler\000"
+ 2764      72616C45 
+ 2764      76656E74 
+ 2764      48616E64 
+ 2764      6C657200 
+ 2765              	.LASF278:
+ 2766 220e 4359424C 		.ascii	"CYBLE_EVT_HRSC_READ_CHAR_RESPONSE\000"
+ 2766      455F4556 
+ 2766      545F4852 
+ 2766      53435F52 
+ 2766      4541445F 
+ 2767              	.LASF156:
+ 2768 2230 4359424C 		.ascii	"CYBLE_EVT_BASC_NOTIFICATION\000"
+ 2768      455F4556 
+ 2768      545F4241 
+ 2768      53435F4E 
+ 2768      4F544946 
+ 2769              	.LASF33:
+ 2770 224c 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
+ 2770      455F4556 
+ 2770      545F4741 
+ 2770      505F454E 
+ 2770      43525950 
+ 2771              	.LASF318:
+ 2772 2269 4359424C 		.ascii	"CYBLE_EVT_NDCSC_READ_CHAR_RESPONSE\000"
+ 2772      455F4556 
+ 2772      545F4E44 
+ 2772      4353435F 
+ 2772      52454144 
+ 2773              	.LASF119:
+ 2774 228c 4359424C 		.ascii	"CYBLE_EVT_GATTC_DESCR_DUPLICATION\000"
+ 2774      455F4556 
+ 2774      545F4741 
+ 2774      5454435F 
+ 2774      44455343 
+ 2775              	.LASF51:
+ 2776 22ae 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
+ 2776      455F4556 
+ 2776      545F4741 
+ 2776      5454535F 
+ 2776      58434E48 
+ 2777              	.LASF267:
+ 2778 22cc 4359424C 		.ascii	"CYBLE_EVT_HPSS_NOTIFICATION_DISABLED\000"
+ 2778      455F4556 
+ 2778      545F4850 
+ 2778      53535F4E 
+ 2778      4F544946 
+ 2779              	.LASF92:
+ 2780 22f1 4359424C 		.ascii	"CYBLE_HRS_HRM\000"
+ 2780      455F4852 
+ 2780      535F4852 
+ 2780      4D00
+ 2781              	.LASF367:
+ 2782 22ff 4359424C 		.ascii	"CYBLE_EVT_UDSS_NOTIFICATION_ENABLED\000"
+ 2782      455F4556 
+ 2782      545F5544 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 74
+
+
+ 2782      53535F4E 
+ 2782      4F544946 
+ 2783              	.LASF128:
+ 2784 2323 4359424C 		.ascii	"CYBLE_EVT_AIOSS_INDICATION_CONFIRMED\000"
+ 2784      455F4556 
+ 2784      545F4149 
+ 2784      4F53535F 
+ 2784      494E4449 
+ 2785              	.LASF308:
+ 2786 2348 4359424C 		.ascii	"CYBLE_EVT_LNSS_INDICATION_CONFIRMED\000"
+ 2786      455F4556 
+ 2786      545F4C4E 
+ 2786      53535F49 
+ 2786      4E444943 
+ 2787              	.LASF47:
+ 2788 236c 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
+ 2788      455F4556 
+ 2788      545F4741 
+ 2788      505F534D 
+ 2788      505F4C4F 
+ 2789 239f 4500     		.ascii	"E\000"
+ 2790              	.LASF153:
+ 2791 23a1 4359424C 		.ascii	"CYBLE_EVT_ANSC_WRITE_DESCR_RESPONSE\000"
+ 2791      455F4556 
+ 2791      545F414E 
+ 2791      53435F57 
+ 2791      52495445 
+ 2792              	.LASF314:
+ 2793 23c5 4359424C 		.ascii	"CYBLE_EVT_LNSC_READ_CHAR_RESPONSE\000"
+ 2793      455F4556 
+ 2793      545F4C4E 
+ 2793      53435F52 
+ 2793      4541445F 
+ 2794              	.LASF96:
+ 2795 23e7 4359424C 		.ascii	"CYBLE_DIS_MANUFACTURER_NAME\000"
+ 2795      455F4449 
+ 2795      535F4D41 
+ 2795      4E554641 
+ 2795      43545552 
+ 2796              	.LASF244:
+ 2797 2403 4359424C 		.ascii	"CYBLE_EVT_GLSS_INDICATION_CONFIRMED\000"
+ 2797      455F4556 
+ 2797      545F474C 
+ 2797      53535F49 
+ 2797      4E444943 
+ 2798              	.LASF403:
+ 2799 2427 4359424C 		.ascii	"CYBLE_STATE_T\000"
+ 2799      455F5354 
+ 2799      4154455F 
+ 2799      5400
+ 2800              	.LASF110:
+ 2801 2435 4359424C 		.ascii	"CYBLE_EVT_GATTS_INDICATION_ENABLED\000"
+ 2801      455F4556 
+ 2801      545F4741 
+ 2801      5454535F 
+ 2801      494E4449 
+ 2802              	.LASF7:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 75
+
+
+ 2803 2458 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2803      206C6F6E 
+ 2803      6720756E 
+ 2803      7369676E 
+ 2803      65642069 
+ 2804              	.LASF19:
+ 2805 246f 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
+ 2805      455F4556 
+ 2805      545F5449 
+ 2805      4D454F55 
+ 2805      5400
+ 2806              	.LASF225:
+ 2807 2481 4359424C 		.ascii	"CYBLE_EVT_CTSC_READ_DESCR_RESPONSE\000"
+ 2807      455F4556 
+ 2807      545F4354 
+ 2807      53435F52 
+ 2807      4541445F 
+ 2808              	.LASF126:
+ 2809 24a4 4359424C 		.ascii	"CYBLE_EVT_AIOSS_INDICATION_ENABLED\000"
+ 2809      455F4556 
+ 2809      545F4149 
+ 2809      4F53535F 
+ 2809      494E4449 
+ 2810              	.LASF80:
+ 2811 24c7 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
+ 2811      455F4556 
+ 2811      545F4C32 
+ 2811      4341505F 
+ 2811      43424643 
+ 2812              	.LASF165:
+ 2813 24e6 4359424C 		.ascii	"CYBLE_EVT_BCSC_READ_DESCR_RESPONSE\000"
+ 2813      455F4556 
+ 2813      545F4243 
+ 2813      53435F52 
+ 2813      4541445F 
+ 2814              	.LASF414:
+ 2815 2509 68656172 		.ascii	"heartRatePacket\000"
+ 2815      74526174 
+ 2815      65506163 
+ 2815      6B657400 
+ 2816              	.LASF201:
+ 2817 2519 4359424C 		.ascii	"CYBLE_EVT_CPSC_NOTIFICATION\000"
+ 2817      455F4556 
+ 2817      545F4350 
+ 2817      53435F4E 
+ 2817      4F544946 
+ 2818              	.LASF176:
+ 2819 2535 4359424C 		.ascii	"CYBLE_EVT_BLSC_WRITE_DESCR_RESPONSE\000"
+ 2819      455F4556 
+ 2819      545F424C 
+ 2819      53435F57 
+ 2819      52495445 
+ 2820              	.LASF313:
+ 2821 2559 4359424C 		.ascii	"CYBLE_EVT_LNSC_NOTIFICATION\000"
+ 2821      455F4556 
+ 2821      545F4C4E 
+ 2821      53435F4E 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 76
+
+
+ 2821      4F544946 
+ 2822              	.LASF223:
+ 2823 2575 4359424C 		.ascii	"CYBLE_EVT_CTSC_NOTIFICATION\000"
+ 2823      455F4556 
+ 2823      545F4354 
+ 2823      53435F4E 
+ 2823      4F544946 
+ 2824              	.LASF243:
+ 2825 2591 4359424C 		.ascii	"CYBLE_EVT_GLSS_INDICATION_DISABLED\000"
+ 2825      455F4556 
+ 2825      545F474C 
+ 2825      53535F49 
+ 2825      4E444943 
+ 2826              	.LASF129:
+ 2827 25b4 4359424C 		.ascii	"CYBLE_EVT_AIOSS_CHAR_WRITE\000"
+ 2827      455F4556 
+ 2827      545F4149 
+ 2827      4F53535F 
+ 2827      43484152 
+ 2828              	.LASF117:
+ 2829 25cf 4359424C 		.ascii	"CYBLE_EVT_GATTC_SRVC_DUPLICATION\000"
+ 2829      455F4556 
+ 2829      545F4741 
+ 2829      5454435F 
+ 2829      53525643 
+ 2830              	.LASF306:
+ 2831 25f0 4359424C 		.ascii	"CYBLE_EVT_LNSS_INDICATION_ENABLED\000"
+ 2831      455F4556 
+ 2831      545F4C4E 
+ 2831      53535F49 
+ 2831      4E444943 
+ 2832              	.LASF139:
+ 2833 2612 4359424C 		.ascii	"CYBLE_EVT_ANCSS_NOTIFICATION_DISABLED\000"
+ 2833      455F4556 
+ 2833      545F414E 
+ 2833      4353535F 
+ 2833      4E4F5449 
+ 2834              	.LASF155:
+ 2835 2638 4359424C 		.ascii	"CYBLE_EVT_BASS_NOTIFICATION_DISABLED\000"
+ 2835      455F4556 
+ 2835      545F4241 
+ 2835      53535F4E 
+ 2835      4F544946 
+ 2836              	.LASF326:
+ 2837 265d 4359424C 		.ascii	"CYBLE_EVT_PLXSS_WRITE_CHAR\000"
+ 2837      455F4556 
+ 2837      545F504C 
+ 2837      5853535F 
+ 2837      57524954 
+ 2838              	.LASF193:
+ 2839 2678 4359424C 		.ascii	"CYBLE_EVT_CPSS_NOTIFICATION_ENABLED\000"
+ 2839      455F4556 
+ 2839      545F4350 
+ 2839      53535F4E 
+ 2839      4F544946 
+ 2840              	.LASF362:
+ 2841 269c 4359424C 		.ascii	"CYBLE_EVT_TPSC_READ_DESCR_RESPONSE\000"
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 77
+
+
+ 2841      455F4556 
+ 2841      545F5450 
+ 2841      53435F52 
+ 2841      4541445F 
+ 2842              	.LASF377:
+ 2843 26bf 4359424C 		.ascii	"CYBLE_EVT_UDSC_ERROR_RESPONSE\000"
+ 2843      455F4556 
+ 2843      545F5544 
+ 2843      53435F45 
+ 2843      52524F52 
+ 2844              	.LASF55:
+ 2845 26dd 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
+ 2845      455F4556 
+ 2845      545F4741 
+ 2845      5454435F 
+ 2845      46494E44 
+ 2846              	.LASF54:
+ 2847 26fb 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 2847      455F4556 
+ 2847      545F4741 
+ 2847      5454435F 
+ 2847      52454144 
+ 2848              	.LASF320:
+ 2849 271c 4359424C 		.ascii	"CYBLE_EVT_PASSS_NOTIFICATION_DISABLED\000"
+ 2849      455F4556 
+ 2849      545F5041 
+ 2849      5353535F 
+ 2849      4E4F5449 
+ 2850              	.LASF191:
+ 2851 2742 4359424C 		.ascii	"CYBLE_EVT_CGMSC_READ_DESCR_RESPONSE\000"
+ 2851      455F4556 
+ 2851      545F4347 
+ 2851      4D53435F 
+ 2851      52454144 
+ 2852              	.LASF262:
+ 2853 2766 4359424C 		.ascii	"CYBLE_EVT_HIDSC_READ_CHAR_RESPONSE\000"
+ 2853      455F4556 
+ 2853      545F4849 
+ 2853      4453435F 
+ 2853      52454144 
+ 2854              	.LASF416:
+ 2855 2789 6379426C 		.ascii	"cyBle_state\000"
+ 2855      655F7374 
+ 2855      61746500 
+ 2856              	.LASF359:
+ 2857 2795 4359424C 		.ascii	"CYBLE_EVT_TPSS_NOTIFICATION_DISABLED\000"
+ 2857      455F4556 
+ 2857      545F5450 
+ 2857      53535F4E 
+ 2857      4F544946 
+ 2858              	.LASF356:
+ 2859 27ba 4359424C 		.ascii	"CYBLE_EVT_SCPSC_READ_DESCR_RESPONSE\000"
+ 2859      455F4556 
+ 2859      545F5343 
+ 2859      5053435F 
+ 2859      52454144 
+ 2860              	.LASF281:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 78
+
+
+ 2861 27de 4359424C 		.ascii	"CYBLE_EVT_HRSC_WRITE_DESCR_RESPONSE\000"
+ 2861      455F4556 
+ 2861      545F4852 
+ 2861      53435F57 
+ 2861      52495445 
+ 2862              	.LASF311:
+ 2863 2802 4359424C 		.ascii	"CYBLE_EVT_LNSS_WRITE_CHAR\000"
+ 2863      455F4556 
+ 2863      545F4C4E 
+ 2863      53535F57 
+ 2863      52495445 
+ 2864              	.LASF234:
+ 2865 281c 4359424C 		.ascii	"CYBLE_EVT_ESSS_CHAR_WRITE\000"
+ 2865      455F4556 
+ 2865      545F4553 
+ 2865      53535F43 
+ 2865      4841525F 
+ 2866              	.LASF61:
+ 2867 2836 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
+ 2867      455F4556 
+ 2867      545F4741 
+ 2867      5454435F 
+ 2867      57524954 
+ 2868              	.LASF229:
+ 2869 2850 4359424C 		.ascii	"CYBLE_EVT_ESSS_NOTIFICATION_ENABLED\000"
+ 2869      455F4556 
+ 2869      545F4553 
+ 2869      53535F4E 
+ 2869      4F544946 
+ 2870              	.LASF402:
+ 2871 2874 4359424C 		.ascii	"CYBLE_STATE_DISCONNECTED\000"
+ 2871      455F5354 
+ 2871      4154455F 
+ 2871      44495343 
+ 2871      4F4E4E45 
+ 2872              	.LASF250:
+ 2873 288d 4359424C 		.ascii	"CYBLE_EVT_GLSC_READ_CHAR_RESPONSE\000"
+ 2873      455F4556 
+ 2873      545F474C 
+ 2873      53435F52 
+ 2873      4541445F 
+ 2874              	.LASF344:
+ 2875 28af 4359424C 		.ascii	"CYBLE_EVT_RSCSC_NOTIFICATION\000"
+ 2875      455F4556 
+ 2875      545F5253 
+ 2875      4353435F 
+ 2875      4E4F5449 
+ 2876              	.LASF30:
+ 2877 28cc 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 2877      455F4556 
+ 2877      545F4741 
+ 2877      50505F41 
+ 2877      44564552 
+ 2878              	.LASF169:
+ 2879 28f4 4359424C 		.ascii	"CYBLE_EVT_BLSS_INDICATION_CONFIRMED\000"
+ 2879      455F4556 
+ 2879      545F424C 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 79
+
+
+ 2879      53535F49 
+ 2879      4E444943 
+ 2880              	.LASF388:
+ 2881 2918 4359424C 		.ascii	"CYBLE_EVT_WPTSC_READ_DESCR_RESPONSE\000"
+ 2881      455F4556 
+ 2881      545F5750 
+ 2881      5453435F 
+ 2881      52454144 
+ 2882              	.LASF141:
+ 2883 293c 4359424C 		.ascii	"CYBLE_EVT_ANCSC_NOTIFICATION\000"
+ 2883      455F4556 
+ 2883      545F414E 
+ 2883      4353435F 
+ 2883      4E4F5449 
+ 2884              	.LASF190:
+ 2885 2959 4359424C 		.ascii	"CYBLE_EVT_CGMSC_WRITE_CHAR_RESPONSE\000"
+ 2885      455F4556 
+ 2885      545F4347 
+ 2885      4D53435F 
+ 2885      57524954 
+ 2886              	.LASF9:
+ 2887 297d 75696E74 		.ascii	"uint8\000"
+ 2887      3800
+ 2888              	.LASF290:
+ 2889 2983 4359424C 		.ascii	"CYBLE_EVT_HTSC_READ_CHAR_RESPONSE\000"
+ 2889      455F4556 
+ 2889      545F4854 
+ 2889      53435F52 
+ 2889      4541445F 
+ 2890              	.LASF38:
+ 2891 29a5 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ 2891      455F4556 
+ 2891      545F4741 
+ 2891      505F4B45 
+ 2891      59505245 
+ 2892              	.LASF325:
+ 2893 29c9 4359424C 		.ascii	"CYBLE_EVT_PASSC_WRITE_DESCR_RESPONSE\000"
+ 2893      455F4556 
+ 2893      545F5041 
+ 2893      5353435F 
+ 2893      57524954 
+ 2894              	.LASF417:
+ 2895 29ee 6379426C 		.ascii	"cyBle_connHandle\000"
+ 2895      655F636F 
+ 2895      6E6E4861 
+ 2895      6E646C65 
+ 2895      00
+ 2896              	.LASF2:
+ 2897 29ff 73686F72 		.ascii	"short int\000"
+ 2897      7420696E 
+ 2897      7400
+ 2898              	.LASF177:
+ 2899 2a09 4359424C 		.ascii	"CYBLE_EVT_BMSS_WRITE_CHAR\000"
+ 2899      455F4556 
+ 2899      545F424D 
+ 2899      53535F57 
+ 2899      52495445 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 80
+
+
+ 2900              	.LASF111:
+ 2901 2a23 4359424C 		.ascii	"CYBLE_EVT_GATTS_INDICATION_DISABLED\000"
+ 2901      455F4556 
+ 2901      545F4741 
+ 2901      5454535F 
+ 2901      494E4449 
+ 2902              	.LASF134:
+ 2903 2a47 4359424C 		.ascii	"CYBLE_EVT_AIOSC_WRITE_CHAR_RESPONSE\000"
+ 2903      455F4556 
+ 2903      545F4149 
+ 2903      4F53435F 
+ 2903      57524954 
+ 2904              	.LASF161:
+ 2905 2a6b 4359424C 		.ascii	"CYBLE_EVT_BCSS_INDICATION_DISABLED\000"
+ 2905      455F4556 
+ 2905      545F4243 
+ 2905      53535F49 
+ 2905      4E444943 
+ 2906              	.LASF95:
+ 2907 2a8e 4359424C 		.ascii	"CYBLE_HRS_CHAR_COUNT\000"
+ 2907      455F4852 
+ 2907      535F4348 
+ 2907      41525F43 
+ 2907      4F554E54 
+ 2908              	.LASF48:
+ 2909 2aa3 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
+ 2909      455F4556 
+ 2909      545F4741 
+ 2909      5454435F 
+ 2909      4552524F 
+ 2910              	.LASF405:
+ 2911 2abd 434F4E4E 		.ascii	"CONN_PARAM_REQUEST_SENT\000"
+ 2911      5F504152 
+ 2911      414D5F52 
+ 2911      45515545 
+ 2911      53545F53 
+ 2912              	.LASF239:
+ 2913 2ad5 4359424C 		.ascii	"CYBLE_EVT_ESSC_WRITE_CHAR_RESPONSE\000"
+ 2913      455F4556 
+ 2913      545F4553 
+ 2913      53435F57 
+ 2913      52495445 
+ 2914              	.LASF145:
+ 2915 2af8 4359424C 		.ascii	"CYBLE_EVT_ANCSC_ERROR_RESPONSE\000"
+ 2915      455F4556 
+ 2915      545F414E 
+ 2915      4353435F 
+ 2915      4552524F 
+ 2916              	.LASF159:
+ 2917 2b17 4359424C 		.ascii	"CYBLE_EVT_BASC_WRITE_DESCR_RESPONSE\000"
+ 2917      455F4556 
+ 2917      545F4241 
+ 2917      53435F57 
+ 2917      52495445 
+ 2918              	.LASF242:
+ 2919 2b3b 4359424C 		.ascii	"CYBLE_EVT_GLSS_INDICATION_ENABLED\000"
+ 2919      455F4556 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 81
+
+
+ 2919      545F474C 
+ 2919      53535F49 
+ 2919      4E444943 
+ 2920              	.LASF148:
+ 2921 2b5d 4359424C 		.ascii	"CYBLE_EVT_ANSS_CHAR_WRITE\000"
+ 2921      455F4556 
+ 2921      545F414E 
+ 2921      53535F43 
+ 2921      4841525F 
+ 2922              	.LASF76:
+ 2923 2b77 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
+ 2923      455F4556 
+ 2923      545F4C32 
+ 2923      4341505F 
+ 2923      43424643 
+ 2924              	.LASF64:
+ 2925 2b95 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
+ 2925      455F4556 
+ 2925      545F4741 
+ 2925      5454535F 
+ 2925      45584543 
+ 2926              	.LASF24:
+ 2927 2bb4 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 2927      455F4556 
+ 2927      545F4741 
+ 2927      50435F53 
+ 2927      43414E5F 
+ 2928              	.LASF271:
+ 2929 2bd8 4359424C 		.ascii	"CYBLE_EVT_HPSC_READ_DESCR_RESPONSE\000"
+ 2929      455F4556 
+ 2929      545F4850 
+ 2929      53435F52 
+ 2929      4541445F 
+ 2930              	.LASF222:
+ 2931 2bfb 4359424C 		.ascii	"CYBLE_EVT_CTSS_CHAR_WRITE\000"
+ 2931      455F4556 
+ 2931      545F4354 
+ 2931      53535F43 
+ 2931      4841525F 
+ 2932              	.LASF364:
+ 2933 2c15 4359424C 		.ascii	"CYBLE_EVT_UDSS_INDICATION_ENABLED\000"
+ 2933      455F4556 
+ 2933      545F5544 
+ 2933      53535F49 
+ 2933      4E444943 
+ 2934              	.LASF302:
+ 2935 2c37 4359424C 		.ascii	"CYBLE_EVT_IPSC_READ_BLOB_RSP\000"
+ 2935      455F4556 
+ 2935      545F4950 
+ 2935      53435F52 
+ 2935      4541445F 
+ 2936              	.LASF410:
+ 2937 2c54 48727345 		.ascii	"HrsEventHandler\000"
+ 2937      76656E74 
+ 2937      48616E64 
+ 2937      6C657200 
+ 2938              	.LASF284:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 82
+
+
+ 2939 2c64 4359424C 		.ascii	"CYBLE_EVT_HTSS_INDICATION_ENABLED\000"
+ 2939      455F4556 
+ 2939      545F4854 
+ 2939      53535F49 
+ 2939      4E444943 
+ 2940              	.LASF375:
+ 2941 2c86 4359424C 		.ascii	"CYBLE_EVT_UDSC_READ_DESCR_RESPONSE\000"
+ 2941      455F4556 
+ 2941      545F5544 
+ 2941      53435F52 
+ 2941      4541445F 
+ 2942              	.LASF130:
+ 2943 2ca9 4359424C 		.ascii	"CYBLE_EVT_AIOSS_DESCR_WRITE\000"
+ 2943      455F4556 
+ 2943      545F4149 
+ 2943      4F53535F 
+ 2943      44455343 
+ 2944              	.LASF45:
+ 2945 2cc5 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
+ 2945      455F4556 
+ 2945      545F4741 
+ 2945      505F5343 
+ 2945      414E5F52 
+ 2946              	.LASF157:
+ 2947 2ce2 4359424C 		.ascii	"CYBLE_EVT_BASC_READ_CHAR_RESPONSE\000"
+ 2947      455F4556 
+ 2947      545F4241 
+ 2947      53435F52 
+ 2947      4541445F 
+ 2948              	.LASF249:
+ 2949 2d04 4359424C 		.ascii	"CYBLE_EVT_GLSC_NOTIFICATION\000"
+ 2949      455F4556 
+ 2949      545F474C 
+ 2949      53435F4E 
+ 2949      4F544946 
+ 2950              	.LASF354:
+ 2951 2d20 4359424C 		.ascii	"CYBLE_EVT_SCPSS_SCAN_INT_WIN_CHAR_WRITE\000"
+ 2951      455F4556 
+ 2951      545F5343 
+ 2951      5053535F 
+ 2951      5343414E 
+ 2952              	.LASF406:
+ 2953 2d48 434F4E4E 		.ascii	"CONN_PARAM_REQUEST_ACCEPTED\000"
+ 2953      5F504152 
+ 2953      414D5F52 
+ 2953      45515545 
+ 2953      53545F41 
+ 2954              	.LASF305:
+ 2955 2d64 4359424C 		.ascii	"CYBLE_EVT_LLSC_WRITE_CHAR_RESPONSE\000"
+ 2955      455F4556 
+ 2955      545F4C4C 
+ 2955      53435F57 
+ 2955      52495445 
+ 2956              	.LASF180:
+ 2957 2d87 4359424C 		.ascii	"CYBLE_EVT_BMSC_READ_DESCR_RESPONSE\000"
+ 2957      455F4556 
+ 2957      545F424D 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 83
+
+
+ 2957      53435F52 
+ 2957      4541445F 
+ 2958              	.LASF85:
+ 2959 2daa 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 2959      455F4556 
+ 2959      545F4C45 
+ 2959      5F50494E 
+ 2959      475F4155 
+ 2960              	.LASF422:
+ 2961 2dc9 636F6E6E 		.ascii	"connParamRequestState\000"
+ 2961      50617261 
+ 2961      6D526571 
+ 2961      75657374 
+ 2961      53746174 
+ 2962              	.LASF182:
+ 2963 2ddf 4359424C 		.ascii	"CYBLE_EVT_CGMSS_INDICATION_DISABLED\000"
+ 2963      455F4556 
+ 2963      545F4347 
+ 2963      4D53535F 
+ 2963      494E4449 
+ 2964              	.LASF123:
+ 2965 2e03 4359424C 		.ascii	"CYBLE_EVT_GATTC_DISCOVERY_COMPLETE\000"
+ 2965      455F4556 
+ 2965      545F4741 
+ 2965      5454435F 
+ 2965      44495343 
+ 2966              	.LASF186:
+ 2967 2e26 4359424C 		.ascii	"CYBLE_EVT_CGMSS_WRITE_CHAR\000"
+ 2967      455F4556 
+ 2967      545F4347 
+ 2967      4D53535F 
+ 2967      57524954 
+ 2968              	.LASF253:
+ 2969 2e41 4359424C 		.ascii	"CYBLE_EVT_GLSC_WRITE_DESCR_RESPONSE\000"
+ 2969      455F4556 
+ 2969      545F474C 
+ 2969      53435F57 
+ 2969      52495445 
+ 2970              	.LASF67:
+ 2971 2e65 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
+ 2971      455F4556 
+ 2971      545F4741 
+ 2971      5454435F 
+ 2971      48414E44 
+ 2972              	.LASF207:
+ 2973 2e86 4359424C 		.ascii	"CYBLE_EVT_CPSC_SCAN_PROGRESS_RESULT\000"
+ 2973      455F4556 
+ 2973      545F4350 
+ 2973      53435F53 
+ 2973      43414E5F 
+ 2974              	.LASF348:
+ 2975 2eaa 4359424C 		.ascii	"CYBLE_EVT_RSCSC_READ_DESCR_RESPONSE\000"
+ 2975      455F4556 
+ 2975      545F5253 
+ 2975      4353435F 
+ 2975      52454144 
+ 2976              	.LASF22:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 84
+
+
+ 2977 2ece 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
+ 2977      455F4556 
+ 2977      545F5354 
+ 2977      41434B5F 
+ 2977      42555359 
+ 2978              	.LASF301:
+ 2979 2eea 4359424C 		.ascii	"CYBLE_EVT_IPSC_ERROR_RESPONSE\000"
+ 2979      455F4556 
+ 2979      545F4950 
+ 2979      53435F45 
+ 2979      52524F52 
+ 2980              	.LASF427:
+ 2981 2f08 426C6550 		.ascii	"BleProcessing.c\000"
+ 2981      726F6365 
+ 2981      7373696E 
+ 2981      672E6300 
+ 2982              	.LASF293:
+ 2983 2f18 4359424C 		.ascii	"CYBLE_EVT_HTSC_WRITE_DESCR_RESPONSE\000"
+ 2983      455F4556 
+ 2983      545F4854 
+ 2983      53435F57 
+ 2983      52495445 
+ 2984              	.LASF36:
+ 2985 2f3c 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
+ 2985      455F4556 
+ 2985      545F4741 
+ 2985      505F4B45 
+ 2985      59494E46 
+ 2986              	.LASF389:
+ 2987 2f60 4359424C 		.ascii	"CYBLE_EVT_WPTSC_WRITE_DESCR_RESPONSE\000"
+ 2987      455F4556 
+ 2987      545F5750 
+ 2987      5453435F 
+ 2987      57524954 
+ 2988              	.LASF73:
+ 2989 2f85 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
+ 2989      455F4556 
+ 2989      545F4C32 
+ 2989      4341505F 
+ 2989      434F4E4E 
+ 2990              	.LASF185:
+ 2991 2fab 4359424C 		.ascii	"CYBLE_EVT_CGMSS_NOTIFICATION_DISABLED\000"
+ 2991      455F4556 
+ 2991      545F4347 
+ 2991      4D53535F 
+ 2991      4E4F5449 
+ 2992              	.LASF428:
+ 2993 2fd1 433A5C55 		.ascii	"C:\\Users\\Jacob\\Documents\\Junior\\EGR 304\\EGR30"
+ 2993      73657273 
+ 2993      5C4A6163 
+ 2993      6F625C44 
+ 2993      6F63756D 
+ 2994 2ffe 345C5065 		.ascii	"4\\PeacefulPillow.cydsn\000"
+ 2994      61636566 
+ 2994      756C5069 
+ 2994      6C6C6F77 
+ 2994      2E637964 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 85
+
+
+ 2995              	.LASF114:
+ 2996 3015 4359424C 		.ascii	"CYBLE_EVT_GATTC_INCL_DISCOVERY_FAILED\000"
+ 2996      455F4556 
+ 2996      545F4741 
+ 2996      5454435F 
+ 2996      494E434C 
+ 2997              	.LASF3:
+ 2998 303b 73686F72 		.ascii	"short unsigned int\000"
+ 2998      7420756E 
+ 2998      7369676E 
+ 2998      65642069 
+ 2998      6E7400
+ 2999              	.LASF151:
+ 3000 304e 4359424C 		.ascii	"CYBLE_EVT_ANSC_WRITE_CHAR_RESPONSE\000"
+ 3000      455F4556 
+ 3000      545F414E 
+ 3000      53435F57 
+ 3000      52495445 
+ 3001              	.LASF316:
+ 3002 3071 4359424C 		.ascii	"CYBLE_EVT_LNSC_READ_DESCR_RESPONSE\000"
+ 3002      455F4556 
+ 3002      545F4C4E 
+ 3002      53435F52 
+ 3002      4541445F 
+ 3003              	.LASF400:
+ 3004 3094 4359424C 		.ascii	"CYBLE_STATE_CONNECTED\000"
+ 3004      455F5354 
+ 3004      4154455F 
+ 3004      434F4E4E 
+ 3004      45435445 
+ 3005              	.LASF409:
+ 3006 30aa 53656E64 		.ascii	"SendHeartRateOverBLE\000"
+ 3006      48656172 
+ 3006      74526174 
+ 3006      654F7665 
+ 3006      72424C45 
+ 3007              	.LASF140:
+ 3008 30bf 4359424C 		.ascii	"CYBLE_EVT_ANCSS_WRITE_CHAR\000"
+ 3008      455F4556 
+ 3008      545F414E 
+ 3008      4353535F 
+ 3008      57524954 
+ 3009              	.LASF248:
+ 3010 30da 4359424C 		.ascii	"CYBLE_EVT_GLSC_INDICATION\000"
+ 3010      455F4556 
+ 3010      545F474C 
+ 3010      53435F49 
+ 3010      4E444943 
+ 3011              	.LASF199:
+ 3012 30f4 4359424C 		.ascii	"CYBLE_EVT_CPSS_BROADCAST_DISABLED\000"
+ 3012      455F4556 
+ 3012      545F4350 
+ 3012      53535F42 
+ 3012      524F4144 
+ 3013              	.LASF90:
+ 3014 3116 61747449 		.ascii	"attId\000"
+ 3014      6400
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 86
+
+
+ 3015              	.LASF21:
+ 3016 311c 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
+ 3016      455F4556 
+ 3016      545F4843 
+ 3016      495F5354 
+ 3016      41545553 
+ 3017              	.LASF50:
+ 3018 3131 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 3018      455F4556 
+ 3018      545F4741 
+ 3018      54545F44 
+ 3018      4953434F 
+ 3019              	.LASF109:
+ 3020 314f 4359424C 		.ascii	"CYBLE_KEY_EXCHANGE_INFO_REQUEST_REPLY\000"
+ 3020      455F4B45 
+ 3020      595F4558 
+ 3020      4348414E 
+ 3020      47455F49 
+ 3021              	.LASF83:
+ 3022 3175 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 3022      455F4556 
+ 3022      545F4C32 
+ 3022      4341505F 
+ 3022      43424643 
+ 3023              	.LASF418:
+ 3024 3199 68656172 		.ascii	"heartRate\000"
+ 3024      74526174 
+ 3024      6500
+ 3025              	.LASF107:
+ 3026 31a3 4359424C 		.ascii	"CYBLE_PASSKEY_ENTRY_REQUEST_REPLY\000"
+ 3026      455F5041 
+ 3026      53534B45 
+ 3026      595F454E 
+ 3026      5452595F 
+ 3027              	.LASF166:
+ 3028 31c5 4359424C 		.ascii	"CYBLE_EVT_BCSC_WRITE_DESCR_RESPONSE\000"
+ 3028      455F4556 
+ 3028      545F4243 
+ 3028      53435F57 
+ 3028      52495445 
+ 3029              	.LASF408:
+ 3030 31e9 434F4E4E 		.ascii	"CONN_PARAM_REQUEST_STATE\000"
+ 3030      5F504152 
+ 3030      414D5F52 
+ 3030      45515545 
+ 3030      53545F53 
+ 3031              	.LASF394:
+ 3032 3202 4359424C 		.ascii	"CYBLE_EVT_WSSC_READ_CHAR_RESPONSE\000"
+ 3032      455F4556 
+ 3032      545F5753 
+ 3032      53435F52 
+ 3032      4541445F 
+ 3033              	.LASF72:
+ 3034 3224 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
+ 3034      455F4556 
+ 3034      545F4741 
+ 3034      5454435F 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 87
+
+
+ 3034      4C4F4E47 
+ 3035              	.LASF149:
+ 3036 3247 4359424C 		.ascii	"CYBLE_EVT_ANSC_NOTIFICATION\000"
+ 3036      455F4556 
+ 3036      545F414E 
+ 3036      53435F4E 
+ 3036      4F544946 
+ 3037              	.LASF32:
+ 3038 3263 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
+ 3038      455F4556 
+ 3038      545F4741 
+ 3038      505F4445 
+ 3038      56494345 
+ 3039              	.LASF256:
+ 3040 3285 4359424C 		.ascii	"CYBLE_EVT_HIDSS_BOOT_MODE_ENTER\000"
+ 3040      455F4556 
+ 3040      545F4849 
+ 3040      4453535F 
+ 3040      424F4F54 
+ 3041              	.LASF68:
+ 3042 32a5 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
+ 3042      455F4556 
+ 3042      545F4741 
+ 3042      5454535F 
+ 3042      48414E44 
+ 3043              	.LASF297:
+ 3044 32c6 4359424C 		.ascii	"CYBLE_EVT_IPSC_READ_MULTIPLE_CHAR_RESPONSE\000"
+ 3044      455F4556 
+ 3044      545F4950 
+ 3044      53435F52 
+ 3044      4541445F 
+ 3045              	.LASF218:
+ 3046 32f1 4359424C 		.ascii	"CYBLE_EVT_CSCSC_READ_DESCR_RESPONSE\000"
+ 3046      455F4556 
+ 3046      545F4353 
+ 3046      4353435F 
+ 3046      52454144 
+ 3047              	.LASF10:
+ 3048 3315 75696E74 		.ascii	"uint16\000"
+ 3048      313600
+ 3049              	.LASF142:
+ 3050 331c 4359424C 		.ascii	"CYBLE_EVT_ANCSC_WRITE_CHAR_RESPONSE\000"
+ 3050      455F4556 
+ 3050      545F414E 
+ 3050      4353435F 
+ 3050      57524954 
+ 3051              	.LASF261:
+ 3052 3340 4359424C 		.ascii	"CYBLE_EVT_HIDSC_NOTIFICATION\000"
+ 3052      455F4556 
+ 3052      545F4849 
+ 3052      4453435F 
+ 3052      4E4F5449 
+ 3053              	.LASF338:
+ 3054 335d 4359424C 		.ascii	"CYBLE_EVT_RSCSS_NOTIFICATION_ENABLED\000"
+ 3054      455F4556 
+ 3054      545F5253 
+ 3054      4353535F 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccnkWsmD.s 			page 88
+
+
+ 3054      4E4F5449 
+ 3055              	.LASF147:
+ 3056 3382 4359424C 		.ascii	"CYBLE_EVT_ANSS_NOTIFICATION_DISABLED\000"
+ 3056      455F4556 
+ 3056      545F414E 
+ 3056      53535F4E 
+ 3056      4F544946 
+ 3057              	.LASF289:
+ 3058 33a7 4359424C 		.ascii	"CYBLE_EVT_HTSC_INDICATION\000"
+ 3058      455F4556 
+ 3058      545F4854 
+ 3058      53435F49 
+ 3058      4E444943 
+ 3059              	.LASF254:
+ 3060 33c1 4359424C 		.ascii	"CYBLE_EVT_HIDSS_NOTIFICATION_ENABLED\000"
+ 3060      455F4556 
+ 3060      545F4849 
+ 3060      4453535F 
+ 3060      4E4F5449 
+ 3061              	.LASF286:
+ 3062 33e6 4359424C 		.ascii	"CYBLE_EVT_HTSS_INDICATION_CONFIRMED\000"
+ 3062      455F4556 
+ 3062      545F4854 
+ 3062      53535F49 
+ 3062      4E444943 
+ 3063              	.LASF125:
+ 3064 340a 4359424C 		.ascii	"CYBLE_EVT_AIOSS_NOTIFICATION_DISABLED\000"
+ 3064      455F4556 
+ 3064      545F4149 
+ 3064      4F53535F 
+ 3064      4E4F5449 
+ 3065              	.LASF382:
+ 3066 3430 4359424C 		.ascii	"CYBLE_EVT_WPTSS_INDICATION_CONFIRMED\000"
+ 3066      455F4556 
+ 3066      545F5750 
+ 3066      5453535F 
+ 3066      494E4449 
+ 3067              	.LASF276:
+ 3068 3455 4359424C 		.ascii	"CYBLE_EVT_HRSS_NOTIFICATION_DISABLED\000"
+ 3068      455F4556 
+ 3068      545F4852 
+ 3068      53535F4E 
+ 3068      4F544946 
+ 3069              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
