@@ -250,8 +250,13 @@
   <Data key="DataVersionKey" value="2" />
   <Group key="DWRInstGuidMapping">
     <Group key="Pin">
+      <Data key="1c7878f4-f0ec-4859-81c2-9aa524a3660c" value="C1" />
       <Data key="7ee618fb-c5c7-42f1-b7da-1a55b753e713/ed092b9b-d398-4703-be89-cebf998501f6" value="lcd_LCDPort" />
+      <Data key="64c88a3a-e28d-4eb9-9615-bfcef69fb6cf" value="motorb" />
+      <Data key="94d4706b-cff7-4de9-89cb-6f3c94c6831a" value="C2" />
+      <Data key="ac1868fa-1495-4f15-8116-17e14482883b" value="mag" />
       <Data key="aff5651d-b3dd-4952-b371-a9380f0890f7" value="Servo2" />
+      <Data key="c3cba39e-a06d-480f-95ff-f9b9651df8f4" value="motora" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Servo1" />
     </Group>
   </Group>
@@ -3339,6 +3344,11 @@
     </Group>
   </Group>
   <Group key="Pin2">
+    <Group key="1c7878f4-f0ec-4859-81c2-9aa524a3660c">
+      <Group key="0">
+        <Data key="Port Format" value="1,6" />
+      </Group>
+    </Group>
     <Group key="7ee618fb-c5c7-42f1-b7da-1a55b753e713/ed092b9b-d398-4703-be89-cebf998501f6">
       <Group key="0">
         <Data key="Port Format" value="2,0" />
@@ -3362,9 +3372,29 @@
         <Data key="Port Format" value="2,6" />
       </Group>
     </Group>
+    <Group key="64c88a3a-e28d-4eb9-9615-bfcef69fb6cf">
+      <Group key="0">
+        <Data key="Port Format" value="0,7" />
+      </Group>
+    </Group>
+    <Group key="94d4706b-cff7-4de9-89cb-6f3c94c6831a">
+      <Group key="0">
+        <Data key="Port Format" value="1,5" />
+      </Group>
+    </Group>
+    <Group key="ac1868fa-1495-4f15-8116-17e14482883b">
+      <Group key="0">
+        <Data key="Port Format" value="0,6" />
+      </Group>
+    </Group>
     <Group key="aff5651d-b3dd-4952-b371-a9380f0890f7">
       <Group key="0">
         <Data key="Port Format" value="1,4" />
+      </Group>
+    </Group>
+    <Group key="c3cba39e-a06d-480f-95ff-f9b9651df8f4">
+      <Group key="0">
+        <Data key="Port Format" value="1,2" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">

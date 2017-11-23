@@ -3,7 +3,7 @@ import cv2
 
 cap=cv2.VideoCapture(1)
 
-cm2pixel = #cm/640.0
+cm2pixel = 1/640.0
 
 while(1):
     _,frame=cap.read()

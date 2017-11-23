@@ -5,16 +5,16 @@ clc
 %.187 jumped .6759 left gnd at 44 deg & .25897m -> 1.233
 
 global Tmax wmax mass moment_arm gear_ratio;
-gear_ratio = 10;
-Tmax =0.4943*2/gear_ratio; 
-wmax = gear_ratio*100*2*pi()/60;
+gear_ratio = 17;
+Tmax =.0013*2*gear_ratio;%0.4943*2/gear_ratio; 
+wmax = 11100/gear_ratio*2*pi()/60;%gear_ratio*100*2*pi()/60;
 moment_arm = .05;
-mass = .039%13557594%.019 + .04*moment_arm
+mass = .015*2+.006*2;%13557594%.019 + .04*moment_arm
 
 start_angle = 5*pi/180;
 end_angle = 85*pi/180;
 
-tFinal = 1.6*moment_arm/gear_ratio + .15;
+tFinal = 2.5*moment_arm/gear_ratio + .4;
 tspan = [0,tFinal];
 x0 = [0; start_angle];
 options = odeset('MaxStep', tFinal*.01);
@@ -58,10 +58,11 @@ jumpHeight = finalHeight - moment_arm*2
 function dxdt = odes(t, x)
     global Tmax wmax mass moment_arm;
     
-    w = 0.5*v/moment_arm/cos(theta);
+    w = 0.5*x(1)/moment_arm/cos(x(2));
     T = (Tmax - w * Tmax/wmax);
-    F = T*cos(theta)/moment_arm - 9.81*mass;
+    F = T*cos(x(2))/moment_arm - 9.81*mass;
     a = F/mass;
+
 
     dxdt = [ a
         w];
