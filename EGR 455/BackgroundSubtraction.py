@@ -3,7 +3,7 @@ import cv2
 
 cap=cv2.VideoCapture(1)
 
-cm2pixel = 1/640.0
+cm2pixel = 10.35/640.0
 
 while(1):
     _,frame=cap.read()
@@ -51,7 +51,7 @@ while(1):
 
     yLocation=rowLocation*cm2pixel
 
-    print(xLocation, rowLocation)
+    print(xLocation, yLocation)
  
     k=cv2.waitKey(5)
     if k==27:

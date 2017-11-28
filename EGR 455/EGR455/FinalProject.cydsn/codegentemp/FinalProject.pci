@@ -1,5 +1,5 @@
 # FinalProject
-# 2017-11-23 00:08:46Z
+# 2017-11-27 23:49:57Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -21,3 +21,5 @@ set_io "C2(0)" iocell 1 5
 set_io "motora(0)" iocell 1 2
 set_io "motorb(0)" iocell 0 7
 set_io "mag(0)" iocell 0 6
+set_io "Rx_1(0)" iocell 12 6
+set_io "Tx_1(0)" iocell 12 7

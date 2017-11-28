@@ -1,16 +1,22 @@
 import numpy as np
 import cv2
+import serial
+
+s = serial.Serial()
+s.baudrate=9600
+s.port='COM7'
+s.open()
 
 cap=cv2.VideoCapture(1)
 
 cm2pixel = 10.5/640.0
 
 R180x = [[1,0,0],[0,np.cos(np.pi),-np.sin(np.pi)],[0,np.sin(np.pi),np.cos(np.pi)]]
-rad=-88.0/180.0*np.pi
+rad=90.0/180.0*np.pi
 Rz=[[np.cos(rad),-np.sin(rad),0], [np.sin(rad),np.cos(rad),0], [0,0,1]]
 R0_C=np.dot(R180x,Rz)
 
-d0_C=[[-7.8],[0.6],[0]]
+d0_C=[[8.8],[11.5],[0]]
 
 H0_C=np.concatenate((R0_C,d0_C),1)
 H0_C=np.concatenate((H0_C,[[0,0,0,1]]),0)
@@ -67,11 +73,20 @@ while(1):
     x=P[0]
     y=P[1]
 
-    print(x, y)
+    print(int(x), y)
  
     k=cv2.waitKey(5)
     if k==27:
         break
+
+u = int(x)
+s.write(bytearray([u]))
+#s.write('\n')
+while(1):
+    if k==27:
+        break
+v= int(y)
+s.write(bytearray([v]))
 
 cv2.destroyAllWindows()
 
