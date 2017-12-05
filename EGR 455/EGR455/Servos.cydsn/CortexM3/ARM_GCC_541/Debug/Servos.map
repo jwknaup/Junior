@@ -492,100 +492,101 @@ END GROUP
                 0x00000084                theta1
  .text.theta2   0x000000a0       0x28 .\CortexM3\ARM_GCC_541\Debug\main.o
                 0x000000a0                theta2
- .text.main     0x000000c8       0x78 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .text.main     0x000000c8       0x74 .\CortexM3\ARM_GCC_541\Debug\main.o
                 0x000000c8                main
  .text.CyClockStartupError
-                0x00000140        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000013c        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.cfg_write_bytes32
-                0x00000144       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000140       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.AnalogSetDefault
-                0x00000178       0x28 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000174       0x28 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYMEMZERO
-                0x000001a0        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000019c        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.ClockSetup
-                0x000001ac       0xb8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000001a8       0xb8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYCONFIGCPY
-                0x00000264        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000260        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.cyfitter_cfg
-                0x0000026c       0xdc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x0000026c                cyfitter_cfg
+                0x00000268       0xdc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000268                cyfitter_cfg
  .text.IntDefaultHandler
-                0x00000348       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000348                IntDefaultHandler
- .text.Start_c  0x00000358       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000358                Start_c
+                0x00000344       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000344                IntDefaultHandler
+ .text.Start_c  0x00000354       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000354                Start_c
  .text.initialize_psoc
-                0x000003a4       0x68 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x000003a4                initialize_psoc
- .text.CyDelay  0x0000040c       0x2c .\CortexM3\ARM_GCC_541\Debug\Servos.a(CyLib.o)
-                0x0000040c                CyDelay
+                0x000003a0       0x68 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x000003a0                initialize_psoc
+ .text.CyDelay  0x00000408       0x2c .\CortexM3\ARM_GCC_541\Debug\Servos.a(CyLib.o)
+                0x00000408                CyDelay
  .text.CyDelayUs
-                0x00000438       0x14 .\CortexM3\ARM_GCC_541\Debug\Servos.a(CyLib.o)
-                0x00000438                CyDelayUs
+                0x00000434       0x14 .\CortexM3\ARM_GCC_541\Debug\Servos.a(CyLib.o)
+                0x00000434                CyDelayUs
  .text.pwm1_Enable
-                0x0000044c       0x10 .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x0000044c                pwm1_Enable
+                0x00000448       0x10 .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x00000448                pwm1_Enable
  .text.pwm1_WriteCounter
-                0x0000045c        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x0000045c                pwm1_WriteCounter
+                0x00000458        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x00000458                pwm1_WriteCounter
  .text.pwm1_WritePeriod
-                0x00000468        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x00000468                pwm1_WritePeriod
+                0x00000464        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x00000464                pwm1_WritePeriod
  .text.pwm1_WriteCompare1
-                0x00000474        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x00000474                pwm1_WriteCompare1
+                0x00000470        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x00000470                pwm1_WriteCompare1
  .text.pwm1_WriteCompare2
-                0x00000480        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x00000480                pwm1_WriteCompare2
+                0x0000047c        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x0000047c                pwm1_WriteCompare2
  .text.pwm1_SetInterruptMode
-                0x0000048c        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x0000048c                pwm1_SetInterruptMode
+                0x00000488        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x00000488                pwm1_SetInterruptMode
  .text.pwm1_ReadStatusRegister
-                0x00000498        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x00000498                pwm1_ReadStatusRegister
+                0x00000494        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x00000494                pwm1_ReadStatusRegister
  .text.pwm1_ReadCapture
-                0x000004a4        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x000004a4                pwm1_ReadCapture
+                0x000004a0        0xc .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x000004a0                pwm1_ReadCapture
  .text.pwm1_ClearFIFO
-                0x000004b0       0x14 .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x000004b0                pwm1_ClearFIFO
+                0x000004ac       0x14 .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x000004ac                pwm1_ClearFIFO
  .text.pwm1_Init
-                0x000004c4       0x64 .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x000004c4                pwm1_Init
+                0x000004c0       0x64 .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x000004c0                pwm1_Init
  .text.pwm1_Start
-                0x00000528       0x1c .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
-                0x00000528                pwm1_Start
+                0x00000524       0x1c .\CortexM3\ARM_GCC_541\Debug\Servos.a(pwm1.o)
+                0x00000524                pwm1_Start
  .text.lcd_WrCntrlNib
-                0x00000544       0x34 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x00000540       0x34 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
  .text.lcd_WrDatNib
-                0x00000578       0x44 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x00000574       0x44 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
  .text.lcd_IsReady
-                0x000005bc       0xe4 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
-                0x000005bc                lcd_IsReady
+                0x000005b8       0xe4 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x000005b8                lcd_IsReady
  .text.lcd_WriteData
-                0x000006a0       0x18 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
-                0x000006a0                lcd_WriteData
+                0x0000069c       0x18 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x0000069c                lcd_WriteData
  .text.lcd_PrintString
-                0x000006b8       0x1c .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
-                0x000006b8                lcd_PrintString
+                0x000006b4       0x1c .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x000006b4                lcd_PrintString
  .text.lcd_WriteControl
-                0x000006d4       0x18 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
-                0x000006d4                lcd_WriteControl
+                0x000006d0       0x18 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x000006d0                lcd_WriteControl
  .text.lcd_Init
-                0x000006ec       0x6c .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
-                0x000006ec                lcd_Init
+                0x000006e8       0x6c .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x000006e8                lcd_Init
  .text.lcd_Enable
-                0x00000758       0x14 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
-                0x00000758                lcd_Enable
+                0x00000754       0x14 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x00000754                lcd_Enable
  .text.lcd_Start
-                0x0000076c       0x1c .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
-                0x0000076c                lcd_Start
+                0x00000768       0x1c .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x00000768                lcd_Start
  .text.lcd_Position
-                0x00000788       0x3c .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
-                0x00000788                lcd_Position
+                0x00000784       0x3c .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x00000784                lcd_Position
  .text.lcd_PrintU32Number
-                0x000007c4       0x64 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
-                0x000007c4                lcd_PrintU32Number
+                0x000007c0       0x64 .\CortexM3\ARM_GCC_541\Debug\Servos.a(lcd.o)
+                0x000007c0                lcd_PrintU32Number
+ *fill*         0x00000824        0x4 
  .text          0x00000828       0x20 .\CortexM3\ARM_GCC_541\Debug\Servos.a(CyBootAsmGnu.o)
                 0x00000828                CyDelayCycles
                 0x00000838                CyEnterCriticalSection

@@ -59,7 +59,7 @@ int main(void)
     //float x = 4.0;//5:9
     //float y = 8.0;
     
-    float a2 = 6.0, a4=5.0;
+    float a2 = 6.0, a4=6.0;
     float r1 = sqrt(x*x+y*y); //eq 1
     float phi1 = acos((a4*a4-a2*a2-r1*r1)/(-2.0*a2*r1)); //eq 2
     float phi2 = atan(y/x); //eq 3
@@ -75,26 +75,31 @@ int main(void)
     servoPwm_WriteCompare2(theta2(T2*rad2deg)); //servo 2 full clockwise
     CyDelay(2000);
     
-    target = -1000;
+    target = -1700;
     count = enc_GetCounter();
     error = abs(target - count);
-    while(error > 50){
+    int t=0;
+    while(error > 50 && t < 1200){
         motorPwm_WriteCompare1(0);
         motorPwm_WriteCompare2(100);
         count = enc_GetCounter();
         error = abs(target - count);
-        lcd_PrintNumber(error);
+        lcd_ClearDisplay();
+        lcd_Position(0,0);
+        lcd_PrintNumber(count);
+        t+=10;
+        CyDelay(10);
     }
     motorPwm_WriteCompare1(0);
     motorPwm_WriteCompare2(0);
     
     mag_Write(1);
-    
+    CyDelay(500);
     target = 0;
     count = enc_GetCounter();
     error = abs(target - count);
     while(error > 10){
-        motorPwm_WriteCompare1(100);
+        motorPwm_WriteCompare1(70);
         motorPwm_WriteCompare2(0);
         count = enc_GetCounter();
         error = abs(target - count);
@@ -107,7 +112,7 @@ int main(void)
     {
         servoPwm_WriteCompare1(theta1(0*rad2deg)); //servo 1 full clockwise
         servoPwm_WriteCompare2(theta2(0*rad2deg)); //servo 2 full clockwise
-        CyDelay(3000);
+        CyDelay(1000);
        mag_Write(0);
 //        servoPwm_WriteCompare1(theta1(180)); //servo 1 full ccw
 //        CyDelay(2000);

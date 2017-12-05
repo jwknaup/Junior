@@ -16,7 +16,7 @@ rad=90.0/180.0*np.pi
 Rz=[[np.cos(rad),-np.sin(rad),0], [np.sin(rad),np.cos(rad),0], [0,0,1]]
 R0_C=np.dot(R180x,Rz)
 
-d0_C=[[8.8],[11.5],[0]]
+d0_C=[[8.8],[11.9],[0]]
 
 H0_C=np.concatenate((R0_C,d0_C),1)
 H0_C=np.concatenate((H0_C,[[0,0,0,1]]),0)
@@ -73,19 +73,19 @@ while(1):
     x=P[0]
     y=P[1]
 
-    print(int(x), y)
+    print(x, y)
  
     k=cv2.waitKey(5)
     if k==27:
         break
 
-u = int(x)
+u = int(np.round_(x))
 s.write(bytearray([u]))
 #s.write('\n')
 while(1):
     if k==27:
         break
-v= int(y)
+v= int(np.round_(y))
 s.write(bytearray([v]))
 
 cv2.destroyAllWindows()

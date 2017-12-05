@@ -99,32 +99,68 @@ int main()
     int threshold = 500;
     
     initializeSubsystems();
+    sprintf(text, "Waiting            ");
+    DisplayMessage(text, sizeof(text));
     
     while(1)
     {   
+        for(int i=0; i< 100100; i++){
+            CyBle_ProcessEvents();
+        }
         //waiting for sleeper
         updateFlexSensors();
         while(flexA > threshold && flexB > threshold){
             CyDelay(100);
             updateFlexSensors();
+            //sprintf(text, "Waiting ");
+            DisplayMessage(text, sizeof(text));
+            for(int i=0; i< 100100; i++){
+                CyBle_ProcessEvents();
+            }
         }
+        sprintf(text, "Sleeping            ");
+        DisplayMessage(text, sizeof(text));
+        CyBle_ProcessEvents();
         //sleeping
+        int k=0;
         for(int i=0; i < 10000; i+=100){
+            updateFlexSensors();
+            if(flexA > 500 && flexB > 500)
+                k++;
+            CyBle_ProcessEvents();
             CyDelay(100);
         }
         activateAlarm(1);
         updateFlexSensors();
+        sprintf(text, "Wakeup!             ");
+        DisplayMessage(text, sizeof(text));
+        CyBle_ProcessEvents();
         //waiting to wakeup
-        while(flexA < threshold || flexB < threshold){
-            CyDelay(100);
+        int j =0;
+        while(j<50){
             updateFlexSensors();
+            if(flexA > 500 && flexB > 500){
+                activateAlarm(0);
+                j++;
+            }
+            else{
+                activateAlarm(1);
+                j=0;
+            }
+            CyBle_ProcessEvents();
+            CyDelay(100);
         }
         activateAlarm(0);
         
+        if(k<3)
+            sprintf(text, "You slept peacefully");
+        else 
+            sprintf(text, "You slept restlessly");
+        DisplayMessage(text, sizeof(text));
         
-        
-        for(int i=0; i< 100100; i++){
+        for(int i=0; i< 500; i++){
             CyBle_ProcessEvents();
+            CyDelay(10);
         }
     }
         
