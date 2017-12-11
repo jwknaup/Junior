@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EGR304\PeacefulPillowShowcase\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EGR304\PeacefulPillowShowcase\Header Files\main.h">
 <ExpandedNodeIds>
 <v>EGR304</v>
 <v>EGR304\BlinkWhenPressed\TopDesign</v>
@@ -213,6 +213,7 @@
 <v>EGR304\PeacefulPillowShowcase\Generated_Source\PSoC4\UART_rx</v>
 <v>EGR304\PeacefulPillowShowcase\Generated_Source\PSoC4\UART_SCBCLK</v>
 <v>EGR304\PeacefulPillowShowcase\Generated_Source\PSoC4\UART_tx</v>
+<v>EGR304\PeacefulPillowShowcase\Generated_Source\PSoC4\uart2</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -684,6 +685,7 @@
 <v>EGR304\CySmartDisplay_Copy_01\CortexM0\ARM_GCC_541\Debug\Listing Files\buzzer.lst</v>
 <v>EGR304\CySmartDisplay_Copy_01\CortexM0\ARM_GCC_541\Debug\Listing Files\buzzer_PM.lst</v>
 <v>EGR304\CySmartDisplay_Copy_01\CortexM0\ARM_GCC_541\Debug\Listing Files\clockBuzzer.lst</v>
+<v>EGR304\CySmartDisplay_Copy_01\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -862,6 +864,7 @@
 <v>EGR304\hw7_2\System Reference Guides</v>
 <v>EGR304\hw7_2\System Reference Guides\cy_boot_v5_60</v>
 <v>EGR304\hw7_2\System Reference Guides\cy_dmac_v1_10</v>
+<v>EGR304\hw7_2\System Reference Guides\cy_lfclk_v1_20</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -887,7 +890,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="443, 702" SelectedTabbedMdiWindow="59146f68-ad83-429d-a71c-4a51c0c7a131"><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillowShowcase.cydsn\main.c" Guid="59146f68-ad83-429d-a71c-4a51c0c7a131" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f09e295b-dec4-429b-91b4-dc9d184364cf" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\CySmartDisplay_Copy_01.cydsn\main.c" Guid="ac93614d-385b-41a7-9f83-284254461d24" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\CySmartDisplay_Copy_01.cydsn\TopDesign\TopDesign.cysch" Guid="459d2bc9-6948-4519-a55a-87681ae9b4b7" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillowShowcase.cydsn\TopDesign\TopDesign.cysch" Guid="94bde028-91a1-418f-baca-1b84149894a4" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1405, 711" SelectedTabbedMdiWindow="59146f68-ad83-429d-a71c-4a51c0c7a131"><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillowShowcase.cydsn\main.c" Guid="59146f68-ad83-429d-a71c-4a51c0c7a131" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f09e295b-dec4-429b-91b4-dc9d184364cf" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\CySmartDisplay_Copy_01.cydsn\main.c" Guid="ac93614d-385b-41a7-9f83-284254461d24" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\CySmartDisplay_Copy_01.cydsn\TopDesign\TopDesign.cysch" Guid="459d2bc9-6948-4519-a55a-87681ae9b4b7" /><DocumentWindow Key="C:\Users\Jacob\Documents\Junior\EGR 304\EGR304\PeacefulPillowShowcase.cydsn\TopDesign\TopDesign.cysch" Guid="94bde028-91a1-418f-baca-1b84149894a4" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
