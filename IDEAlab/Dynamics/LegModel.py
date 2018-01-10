@@ -13,15 +13,18 @@ from pynamics.body import Body
 from pynamics.dyadic import Dyadic
 from pynamics.output import Output
 from pynamics.particle import Particle
+import pynamics.integration
 
 #import sympy
 import numpy
-import scipy.integrate
+#import scipy.integrate
 import matplotlib.pyplot as plt
 plt.ion()
 from sympy import pi
 system = System()
 
+####VARIOUS DESIGN CONSTANTS#####
+#define length constants
 # top, then each leg segment
 lO = Constant(.5,'lO',system)
 lA = Constant(1,'lA',system)
@@ -29,31 +32,37 @@ lB = Constant(1.1,'lB',system)
 lC = Constant(1,'lC',system)
 lD = Constant(1.1,'lD',system)
 
+#define mass cnstants for each segment
 mO = Constant(10,'mO',system)
 mA = Constant(1,'mA',system)
 mB = Constant(1,'mB',system)
 mC = Constant(1,'mC',system)
 mD = Constant(1,'mD',system)
 
+#define inertia constants
 I_xx = Constant(1,'I_xx',system)
 I_yy = Constant(1,'I_yy',system)
 I_zz = Constant(1,'I_zz',system)
 
+#define misc constants
 g = Constant(9.81,'g',system)
 b = Constant(1e0,'b',system)
 k = Constant(1e3,'k',system)
 
+###INTEGRATION INTERVAL####
 tinitial = 0
 tfinal = 10
-tstep = .01 ##TURN BACK TO 0.01!!!
+tstep = .01 ##0.01!!!
 t = numpy.r_[tinitial:tfinal:tstep]
 
+##give joints stiffness -- just for initial conditions
 preload1 = Constant(0*pi/180,'preload1',system)
 preload2 = Constant(0*pi/180,'preload2',system)
 preload3 = Constant(-180*pi/180,'preload3',system)
 preload4 = Constant(0*pi/180,'preload4',system)
 preload5 = Constant(180*pi/180,'preload5',system)
 
+#state variables for the whole device
 x,x_d,x_dd = Differentiable('x',system)
 y,y_d,y_dd = Differentiable('y',system)
 qO,qO_d,qO_dd = Differentiable('qO',system)
@@ -62,10 +71,11 @@ qB,qB_d,qB_dd = Differentiable('qB',system)
 qC,qC_d,qC_dd = Differentiable('qC',system)
 qD,qD_d,qD_dd = Differentiable('qD',system)
 
+#initial joint positions & system location 
 initialvalues = {}
 initialvalues[x]=0
 initialvalues[x_d]=0
-initialvalues[y]=2.0
+initialvalues[y]=20.0
 initialvalues[y_d]=0
 initialvalues[qO]=0*pi/180
 initialvalues[qO_d]=0*pi/180
@@ -84,9 +94,11 @@ initialvalues[qD_d]=0*pi/180
 # A & C are upper
 # =============================================================================
 
+#pynamics stuff
 statevariables = system.get_state_variables()
 ini = [initialvalues[item] for item in statevariables]
 
+#######define frames########
 N = Frame('N')
 O = Frame('O')
 A = Frame('A')
@@ -101,6 +113,7 @@ B.rotate_fixed_axis_directed(N,[0,0,1],qB,system)
 C.rotate_fixed_axis_directed(N,[0,0,1],qC,system)
 D.rotate_fixed_axis_directed(N,[0,0,1],qD,system)
 
+####WRITE SYSTEM EQUATIONS#####
 pOcm=x*N.x+y*N.y #position of top
 pOA = pOcm+lO/2*O.x #right edge of top
 pOC = pOcm-lO/2*O.x #left edge of top
@@ -112,17 +125,20 @@ pCD = pOC + lC*C.x #positon of left joint
 pDtip = pCD + lD*D.x #position of bottom from left side
 vDtip = pDtip.time_derivative(N,system) #velocity of bottom from left side
 
+#positions of centers of mass of members
 pAcm=pOA+lA/2*A.x
 pBcm=pAB+lB/2*B.x
 pCcm=pOC+lC/2*C.x
 pDcm=pCD+lD/2*D.x
 
+#get relative angular velocities
 wOA = O.getw_(A)
 wAB = A.getw_(B)
 wOC = O.getw_(C)
 wCD = C.getw_(D)
 wBD = B.getw_(D)
 
+#####DEFINE BODIES#######
 I = Dyadic.build(A,I_xx,I_yy,I_zz)
 
 BodyO = Body('BodyO',O,pOcm,mO,I,system)
@@ -138,7 +154,7 @@ BodyD = Body('BodyD',D,pDcm,mD,I,system) #left calf
 #ParticleD = Particle(pDcm,mD,'ParticleD',system)
 
 #damper for each joint
-system.addforce(-b*wOA,wOA) 
+damper1 = system.addforce(-b*wOA,wOA) 
 system.addforce(-b*wAB,wAB)
 system.addforce(-b*wOC,wOC)
 system.addforce(-b*wCD,wCD)
@@ -148,29 +164,28 @@ system.addforce(-b*wBD,wBD)
 stretch = -pBtip.dot(N.y)
 stretch_s = (stretch+abs(stretch))
 on = stretch_s/(2*stretch+1e-10)
-system.add_spring_force(1e4,-stretch_s*N.y,vBtip)
+system.add_spring_force1(1e4,-stretch_s*N.y,vBtip)
 system.addforce(-1e2*vBtip*on,vBtip)
 
 #spring constraints for bottom of leg
 v = pBtip-pDtip
 l = (v.dot(v))**.5
 n = 1/l*v
-system.add_spring_force(1e3,-l*N.x,vBtip)
-system.add_spring_force(1e3,l*N.x,vDtip)
-system.addforce(-b*1000*(vBtip-vDtip),vBtip)
-system.addforce(b*1000*(vBtip-vDtip),vDtip)
+system.add_spring_force1(1e5,l*n,vBtip)
+system.add_spring_force1(1e5,-l*n,vDtip)
+system.addforce(-b*(vBtip-vDtip),vBtip)
+system.addforce(b*(vBtip-vDtip),vDtip)
 
 #add spring forces to each joint
-# =============================================================================
-# system.add_spring_force(k,(qA-qO-preload1)*N.z,wOA)
-# system.add_spring_force(k,(qB-qA-preload2)*N.z,wAB)
-# system.add_spring_force(k,(qC-qO-preload3)*N.z,wOC)
-# system.add_spring_force(k,(qD-qC-preload4)*N.z,wCD)
-# system.add_spring_force(k,(qD-qB-preload5)*N.z,wBD)
-# =============================================================================
+system.add_spring_force1(k,(qA-qO-preload1)*N.z,wOA)
+system.add_spring_force1(k,(qB-qA-preload2)*N.z,wAB)
+system.add_spring_force1(k,(qC-qO-preload3)*N.z,wOC)
+system.add_spring_force1(k,(qD-qC-preload4)*N.z,wCD)
+system.add_spring_force1(k,(qD-qB-preload5)*N.z,wBD)
 
 system.addforcegravity(-g*N.y)
 
+##WHAT ARE THESE?
 eq = []
 eq.append(pOcm.dot(N.y)-initialvalues[y])
 eq.append(pOcm.dot(N.x)-initialvalues[x])
@@ -191,7 +206,7 @@ f,ma = system.getdynamics()
 print('creating second order function...')
 func1 = system.state_space_post_invert2(f,ma,eq_dd,eq_d,eq,constants = system.constant_values)
 print('integrating...')
-states=scipy.integrate.odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e2,'beta':1e1},))
+states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e2,'beta':1e1},))
 pynamics.toc()
 print('calculating outputs..')
 
@@ -248,7 +263,7 @@ tinitial = 0
 tfinal = 3
 tstep = 0.01 ## was 1/30!!!!
 func1 = system.state_space_post_invert(f,ma,constants = system.constant_values)
-states2=scipy.integrate.odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+states2=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 y = points.calc(states2)
 y = y.reshape((-1,6,2))
 plt.figure()
