@@ -35,12 +35,16 @@ print(jumpHeight)
 
 import os
 
-files = folders =subfolders = 0
+for entry in os.scandir(root):
+   if not entry.name.startswith('s') and not entry.is_file():
+       designFolder = entry.name
+       words = designFolder.split('_')
+       width = int(words[0])
+       length = int(words[1])
+       gear_ratio = int(words[2])
+       for entry in os.scandir(root + '/' + designFolder):
+           if entry.name.startswith('t') and not entry.is_file():
+               trialFolder = entry.name
+               
 
-for dirnames, subdirnames, filenames in os.walk(root):
-  # ^ this idiom means "we won't be using this value"
-    files += len(filenames)
-    folders += 1
-    subfolders += len(dirnames)
-
-print(folders)
+       

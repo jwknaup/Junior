@@ -28,9 +28,9 @@ system = System()
 # top, then each leg segment
 lO = Constant(.5,'lO',system)
 lA = Constant(1,'lA',system)
-lB = Constant(1.1,'lB',system)
+lB = Constant(1.25,'lB',system)
 lC = Constant(1,'lC',system)
-lD = Constant(1.1,'lD',system)
+lD = Constant(1.25,'lD',system)
 
 #define mass cnstants for each segment
 mO = Constant(10,'mO',system)
@@ -52,7 +52,7 @@ k = Constant(1e3,'k',system)
 ###INTEGRATION INTERVAL####
 tinitial = 0
 tfinal = 10
-tstep = .01 ##0.01!!!
+tstep = .1 ##0.01!!!
 t = numpy.r_[tinitial:tfinal:tstep]
 
 ##give joints stiffness -- just for initial conditions
@@ -113,15 +113,20 @@ B.rotate_fixed_axis_directed(N,[0,0,1],qB,system)
 C.rotate_fixed_axis_directed(N,[0,0,1],qC,system)
 D.rotate_fixed_axis_directed(N,[0,0,1],qD,system)
 
-####WRITE SYSTEM EQUATIONS#####
+####WRITE KINEMATIC EQUATIONS#####
 pOcm=x*N.x+y*N.y #position of top
+vOcm = pOcm.time_derivative(N, system)
 pOA = pOcm+lO/2*O.x #right edge of top
 pOC = pOcm-lO/2*O.x #left edge of top
 pAB = pOA+lA*A.x #position of right joint
+vAB = pAB.time_derivative(N,system) #velocity of right joint
+
+
 pBtip = pAB + lB*B.x #position of bottom from right side
 vBtip = pBtip.time_derivative(N,system) #velocity of bottom
 
 pCD = pOC + lC*C.x #positon of left joint
+vCD = pCD.time_derivative(N,system) # velocity of left joint
 pDtip = pCD + lD*D.x #position of bottom from left side
 vDtip = pDtip.time_derivative(N,system) #velocity of bottom from left side
 
@@ -153,53 +158,44 @@ BodyD = Body('BodyD',D,pDcm,mD,I,system) #left calf
 #ParticleC = Particle(pCcm,mC,'ParticleC',system)
 #ParticleD = Particle(pDcm,mD,'ParticleD',system)
 
+#########FORCES#FORCES#FORCES###################
+
 #damper for each joint
 damper1 = system.addforce(-b*wOA,wOA) 
-system.addforce(-b*wAB,wAB)
-system.addforce(-b*wOC,wOC)
-system.addforce(-b*wCD,wCD)
-system.addforce(-b*wBD,wBD)
-
-#ground normal force
-stretch = -pBtip.dot(N.y)
-stretch_s = (stretch+abs(stretch))
-on = stretch_s/(2*stretch+1e-10)
-system.add_spring_force1(1e4,-stretch_s*N.y,vBtip)
-system.addforce(-1e2*vBtip*on,vBtip)
+damper2 = system.addforce(-b*wAB,wAB)
+damper3 = system.addforce(-b*wOC,wOC)
+damper4 = system.addforce(-b*wCD,wCD)
+damper5 = system.addforce(-b*wBD,wBD)
 
 #spring constraints for bottom of leg
 v = pBtip-pDtip
 l = (v.dot(v))**.5
 n = 1/l*v
-system.add_spring_force1(1e5,l*n,vBtip)
-system.add_spring_force1(1e5,-l*n,vDtip)
-system.addforce(-b*(vBtip-vDtip),vBtip)
-system.addforce(b*(vBtip-vDtip),vDtip)
+bottomSpring1, _ = system.add_spring_force1(1e5,l*n,vBtip)
+bottomSpring2, _ = system.add_spring_force1(1e5,-l*n,vDtip)
+bottomDamper1 = system.addforce(-b*(vBtip-vDtip),vBtip)
+bottomDamper2 = system.addforce(b*(vBtip-vDtip),vDtip)
 
 #add spring forces to each joint
-system.add_spring_force1(k,(qA-qO-preload1)*N.z,wOA)
-system.add_spring_force1(k,(qB-qA-preload2)*N.z,wAB)
-system.add_spring_force1(k,(qC-qO-preload3)*N.z,wOC)
-system.add_spring_force1(k,(qD-qC-preload4)*N.z,wCD)
-system.add_spring_force1(k,(qD-qB-preload5)*N.z,wBD)
+spring1, _ = system.add_spring_force1(k,(qA-qO-preload1)*N.z,wOA)
+spring2, _ = system.add_spring_force1(k,(qB-qA-preload2)*N.z,wAB)
+spring3, _ = system.add_spring_force1(k,(qC-qO-preload3)*N.z,wOC)
+spring4, _ = system.add_spring_force1(k,(qD-qC-preload4)*N.z,wCD)
+spring5, _ = system.add_spring_force1(k,(qD-qB-preload5)*N.z,wBD)
 
 system.addforcegravity(-g*N.y)
 
-##WHAT ARE THESE?
+#########CONSTRAINTS#########
+#hold the leg in the air
 eq = []
 eq.append(pOcm.dot(N.y)-initialvalues[y])
 eq.append(pOcm.dot(N.x)-initialvalues[x])
 eq.append(qO-initialvalues[qO])
-#eq.append((pBtip-pDtip).dot(N.x))
-#eq.append((pBtip-pDtip).dot(N.y))
-
-
-#eq.append(pBtip.dot(N.y))
-#eq.append(pDtip.dot(N.y))
 
 eq_d= [system.derivative(item) for item in eq]
 eq_dd= [system.derivative(item) for item in eq_d]
 
+#######SOLVING TIP CONSTRAINTS#########
 pynamics.tic()
 print('solving dynamics...')
 f,ma = system.getdynamics()
@@ -210,6 +206,7 @@ states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,arg
 pynamics.toc()
 print('calculating outputs..')
 
+####PLOTTING####
 KE = system.get_KE()
 PE = system.getPEGravity(0*N.x) - system.getPESprings()
 
@@ -229,30 +226,32 @@ plt.title('leg constraint solving')
 for item in y[::60]:
     plt.plot(*(item.T))
 
-#eq2 = []
-#eq2.append((pBtip-pDtip).dot(N.x))
-#eq2.append((pBtip-pDtip).dot(N.y))
-#eq2.append((pBtip).dot(N.y))
-#eq2.append((pBtip).dot(N.x))
+print("!!!!!!finished 1!!!!!!!!!!!!!")
+#########2#2#2#2#2#2#2###################################
+#remove forces to bring tips together
+system.forces.remove(bottomDamper1)
+system.forces.remove(bottomDamper2)
+system.forces.remove(bottomSpring1)
+system.forces.remove(bottomSpring2)
 
-#eq2_d= [system.derivative(item) for item in eq2]
-#eq2_dd= [system.derivative(item) for item in eq2_d]
+#ground normal force
+stretch = -pBtip.dot(N.y)
+stretch_s = (stretch+abs(stretch))
+on = stretch_s/(2*stretch+1e-10)
+groundS, _ = system.add_spring_force1(1e4,-stretch_s*N.y,vBtip)
+groundD = system.addforce(-1e2*vBtip*on,vBtip)
 
-#eq2_active = []
-#eq2_active.append(1)
-#eq2_active.append(1)
-#eq2_active.append(0-pBtip.dot(N.y))
-#eq2_active.append(0-pBtip.dot(N.x))
-#eq2_active = [(item+abs(item)) for item in eq2_active]
-    
-# =============================================================================
-#     system.addforce(1000*-N.z, wOA)
-#     system.addforce(1000*N.z, wOC)
-#     print('solving dynamics...')
-#     f,ma = system.getdynamics()
-# =============================================================================
-    
-#
+#constrain tips together
+#constrain rotation and x displacement
+eq2 = []
+eq2.append((pBtip-pDtip).dot(N.x))
+eq2.append((pBtip-pDtip).dot(N.y))
+eq2.append(pOcm.dot(N.x)-initialvalues[x])
+eq2.append(qO-initialvalues[qO])
+
+eq2_d= [system.derivative(item) for item in eq2]
+eq2_dd= [system.derivative(item) for item in eq2_d]
+
 ini = states[-1]
 ini[2] = 0
 ini[7:] = 0
@@ -260,9 +259,12 @@ ini[7:] = 0
 ini = list(ini)
 
 tinitial = 0
-tfinal = 3
-tstep = 0.01 ## was 1/30!!!!
-func1 = system.state_space_post_invert(f,ma,constants = system.constant_values)
+tfinal = 20
+tstep = 1.0/10.0 ## was 1/30
+
+######SOLVE TO PLACE IT ON THE GROUND#############
+f,ma = system.getdynamics()
+func1 = system.state_space_post_invert2(f,ma,eq2_dd,eq2_d,eq2,constants = system.constant_values)
 states2=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 y = points.calc(states2)
 y = y.reshape((-1,6,2))
@@ -279,22 +281,163 @@ tip = Output([pBtip.dot(N.y),stretch])
 tip.calc(states2)
 tip.plot_time()
 
-# =============================================================================
-# import os
-# import idealab_tools.makemovie
-# idealab_tools.makemovie.clear_folder()
-# folder = idealab_tools.makemovie.prep_folder()
-# f = plt.figure()
-# ax = f.add_subplot(1,1,1)
-# ax.axis('equal')
-# 
-# for ii,item in enumerate(y):
-#     [item.remove() for item in ax.lines]
-#     plt.plot(*(item.T),'ro-')
-#     ax.set_xlim((y[:,:,0].min(),y[:,:,0].max()))
-#     ax.set_ylim((y[:,:,1].min(),y[:,:,1].max()))
-#     plt.savefig(os.path.join(folder,'{0:04d}.png'.format(ii)))
-# 
-# idealab_tools.makemovie.render(image_name_format = '%04d.png')
-# idealab_tools.makemovie.clear_folder()
-# =============================================================================
+print("!!!!!!finished 2!!!!!!!!!!!!!")
+
+
+########3#3#3#3#3#3#3#3#################################
+
+#add force to compress the top
+contraction, _ = system.add_spring_force1(100.0,pOcm - pDtip - 1.5*N.y, vOcm)
+contractionD = system.addforce(-1e3*vOcm,vOcm)
+
+#remove joint stiffness
+system.forces.remove(spring1)
+system.forces.remove(spring2)
+system.forces.remove(spring3)
+system.forces.remove(spring4)
+system.forces.remove(spring5)
+
+#temporarilly remove ground reaction force
+system.forces.remove(groundS)
+system.forces.remove(groundD)
+
+#constrain tips, rotation, x displacement, and tip to ground
+eq3 = []
+eq3.append((pBtip-pDtip).dot(N.x))
+eq3.append((pBtip-pDtip).dot(N.y))
+eq3.append(pOcm.dot(N.x)-initialvalues[x])
+eq3.append(qO-initialvalues[qO])
+eq3.append(pBtip.dot(N.y))
+
+eq3_d= [system.derivative(item) for item in eq3]
+eq3_dd= [system.derivative(item) for item in eq3_d]
+
+ini = states2[-1]
+ini[2] = 0
+ini[7:] = 0
+#ini[7] = 10
+ini = list(ini)
+
+tinitial = 0
+tfinal = 50
+tstep = 0.2 ## was 1/30!!!!
+
+###########SOLVE FOR COMPRESSION#########
+f,ma = system.getdynamics()
+func1 = system.state_space_post_invert2(f,ma,eq3_dd,eq3_d,eq3,constants = system.constant_values)
+states3=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+y = points.calc(states3)
+y = y.reshape((-1,6,2))
+plt.figure()
+for item in y[::25]:
+    plt.plot(*(item.T))
+plt.axis('equal')
+
+energy = Output([KE-PE])
+energy.calc(states3)
+energy.plot_time()
+
+tip = Output([pBtip.dot(N.y),stretch])
+tip.calc(states3)
+tip.plot_time()
+print("!!!!!!finished 3!!!!!!!!!!!!!")
+
+
+#######4#4#4#4#4#4#4#4#4#4#4#4#4#########################
+
+#remove compression force
+system.forces.remove(contraction)
+system.forces.remove(contractionD)
+
+#add torque
+system.addforce(1000.0*-N.z, wOA)
+system.addforce(1000.0*N.z, wOC)
+
+#leg collision force
+stretch = pCD.dot(N.x) - pAB.dot(N.x)
+stretch_s = (stretch+abs(stretch))
+on = stretch_s/(2*stretch+1e-10)
+legColcS, legColaS, _ = system.add_spring_force2(1e5,stretch_s*N.x,vCD, -vAB)
+legColcD = system.addforce(-1e4*wCD*on,wCD)
+legColaD = system.addforce(-1e4*wAB*on,wAB)
+
+#ground normal force
+stretch = -pBtip.dot(N.y)
+stretch_s = (stretch+abs(stretch))
+on = stretch_s/(2*stretch+1e-10)
+groundS, _ = system.add_spring_force1(1e4,-stretch_s*N.y,vBtip)
+groundD = system.addforce(-1e2*vBtip*on,vBtip)
+
+#only constrain tip
+eq4 = []
+eq4.append((pBtip-pDtip).dot(N.x))
+eq4.append((pBtip-pDtip).dot(N.y))
+
+eq4_d= [system.derivative(item) for item in eq4]
+eq4_dd= [system.derivative(item) for item in eq4_d]
+
+ini = states3[-1]
+ini[2] = 0
+ini[7:] = 0
+#ini[7] = 10
+ini = list(ini)
+
+tinitial = 0
+tfinal = 1.2
+tstep = 0.01 ## was 1/30
+
+######SOLVE FOR JUMPING#######
+f,ma = system.getdynamics()
+func1 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = system.constant_values)
+states4=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+y = points.calc(states4)
+y = y.reshape((-1,6,2))
+plt.figure()
+for item in y[::25]:
+    plt.plot(*(item.T))
+plt.axis('equal')
+
+energy = Output([KE-PE])
+energy.calc(states4)
+energy.plot_time()
+
+tip = Output([pBtip.dot(N.y),stretch])
+tip.calc(states4)
+tip.plot_time()
+print("!!!!!!finished 4!!!!!!!!!!!!!")
+
+
+#########################################################
+
+
+import os
+import idealab_tools.makemovie
+idealab_tools.makemovie.clear_folder()
+folder = idealab_tools.makemovie.prep_folder()
+f = plt.figure()
+ax = f.add_subplot(1,1,1)
+ax.axis('tight')
+
+for ii,item in enumerate(y):
+    [item.remove() for item in ax.lines]
+    plt.plot(*(item.T),'ro-')
+    ax.set_xlim((y[:,:,0].min(),y[:,:,0].max()))
+    ax.set_ylim((y[:,:,1].min(),y[:,:,1].max()))
+    plt.savefig(os.path.join(folder,'{0:04d}.png'.format(ii)))
+
+def make_gif(output_filename='render.gif',images_folder='render',fps=30,output_folder='.',image_name_format='*.png'):
+    import imageio
+    import glob
+    
+    if os.path.exists(output_folder+'/'+output_filename):
+        os.remove(output_folder+'/'+output_filename)
+
+    filenames = glob.glob(os.path.join(images_folder,image_name_format))
+    images = []
+    for filename in filenames:
+        images.append(imageio.imread(filename))
+    imageio.mimsave(os.path.join(output_folder,output_filename), images,duration=1/fps ) 
+
+make_gif()
+idealab_tools.makemovie.render(image_name_format='*.png')
+#idealab_tools.makemovie.clear_folder()
