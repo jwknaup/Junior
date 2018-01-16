@@ -23,14 +23,17 @@ plt.ion()
 from sympy import pi
 system = System()
 
+top_length = 0.01333
+leg_length = 0.08
+
 ####VARIOUS DESIGN CONSTANTS#####
 #define length constants
 # top, then each leg segment
-lO = Constant(.5,'lO',system)
-lA = Constant(1,'lA',system)
-lB = Constant(1.25,'lB',system)
-lC = Constant(1,'lC',system)
-lD = Constant(1.25,'lD',system)
+lO = Constant(top_length,'lO',system)
+lA = Constant(leg_length-top_length/2.0,'lA',system)
+lB = Constant(leg_length,'lB',system)
+lC = Constant(leg_length-top_length/2.0,'lC',system)
+lD = Constant(leg_length,'lD',system)
 
 #define mass cnstants for each segment
 mO = Constant(10,'mO',system)
@@ -52,7 +55,7 @@ k = Constant(1e3,'k',system)
 ###INTEGRATION INTERVAL####
 tinitial = 0
 tfinal = 10
-tstep = .1 ##0.01!!!
+tstep = .05 ##0.01!!!
 t = numpy.r_[tinitial:tfinal:tstep]
 
 ##give joints stiffness -- just for initial conditions
@@ -75,7 +78,7 @@ qD,qD_d,qD_dd = Differentiable('qD',system)
 initialvalues = {}
 initialvalues[x]=0
 initialvalues[x_d]=0
-initialvalues[y]=20.0
+initialvalues[y]=0.20
 initialvalues[y_d]=0
 initialvalues[qO]=0*pi/180
 initialvalues[qO_d]=0*pi/180
@@ -171,8 +174,8 @@ damper5 = system.addforce(-b*wBD,wBD)
 v = pBtip-pDtip
 l = (v.dot(v))**.5
 n = 1/l*v
-bottomSpring1, _ = system.add_spring_force1(1e5,l*n,vBtip)
-bottomSpring2, _ = system.add_spring_force1(1e5,-l*n,vDtip)
+bottomSpring1, _ = system.add_spring_force1(1e7,l*n,vBtip)
+bottomSpring2, _ = system.add_spring_force1(1e7,-l*n,vDtip)
 bottomDamper1 = system.addforce(-b*(vBtip-vDtip),vBtip)
 bottomDamper2 = system.addforce(b*(vBtip-vDtip),vDtip)
 
@@ -259,8 +262,8 @@ ini[7:] = 0
 ini = list(ini)
 
 tinitial = 0
-tfinal = 20
-tstep = 1.0/10.0 ## was 1/30
+tfinal = 10
+tstep = 0.1 ## was 1/30
 
 ######SOLVE TO PLACE IT ON THE GROUND#############
 f,ma = system.getdynamics()
@@ -286,8 +289,8 @@ print("!!!!!!finished 2!!!!!!!!!!!!!")
 
 ########3#3#3#3#3#3#3#3#################################
 
-#add force to compress the top
-contraction, _ = system.add_spring_force1(100.0,pOcm - pDtip - 1.5*N.y, vOcm)
+#add force to compress the top #1.42 cm
+contraction, _ = system.add_spring_force1(100.0,pOcm - pDtip - 0.5*N.y - 0.7*N.y, vOcm)
 contractionD = system.addforce(-1e3*vOcm,vOcm)
 
 #remove joint stiffness
@@ -439,5 +442,5 @@ def make_gif(output_filename='render.gif',images_folder='render',fps=30,output_f
     imageio.mimsave(os.path.join(output_folder,output_filename), images,duration=1/fps ) 
 
 make_gif()
-idealab_tools.makemovie.render(image_name_format='*.png')
+#idealab_tools.makemovie.render(image_name_format='*.png')
 #idealab_tools.makemovie.clear_folder()
