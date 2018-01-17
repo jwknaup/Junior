@@ -5,8 +5,6 @@ Email: danaukes<at>gmail.com
 Please see LICENSE for full license.
 """
 
-##diatic build, correct way to calc torque, make movie work, get forces out
-
 import pynamics
 from pynamics.frame import Frame
 from pynamics.variable_types import Differentiable,Constant
@@ -28,11 +26,12 @@ system = System()
 top_length = 0.01333
 leg_length = 0.08
 top_mass = 0.07
-leg_mass = 0.01
-leg_width = 0.0001
+leg_mass = 0.001
+leg_width = 0.01
+leg_thickness = .002
 gear_ratio = 100.0
 Tmax = 0.3
-wMax = 320.0/60.0*2.0*3.14159
+wMax = 300.0/60.0*2.0*3.14159
 
 ####VARIOUS DESIGN CONSTANTS#####
 #define length constants
@@ -51,9 +50,9 @@ mC = Constant(leg_mass,'mC',system)
 mD = Constant(leg_mass,'mD',system)
 
 #define inertia constants
-I_xx = Constant(leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width),'I_xx',system)
+I_xx = Constant(leg_mass/12.0*(leg_thickness*leg_thickness + leg_width*leg_width),'I_xx',system)
 I_yy = Constant(leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width),'I_yy',system)
-I_zz = Constant(leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width),'I_zz',system)
+I_zz = Constant(leg_mass/12.0*(leg_length*leg_length + leg_thickness*leg_thickness),'I_zz',system)
 
 #define misc constants
 g = Constant(9.81,'g',system)
@@ -62,8 +61,8 @@ k = Constant(1e3,'k',system)
 
 ###INTEGRATION INTERVAL####
 tinitial = 0
-tfinal = 10
-tstep = .05 ##0.01!!!
+tfinal = 2
+tstep = .5 ##0.01!!!
 t = numpy.r_[tinitial:tfinal:tstep]
 
 ##give joints stiffness -- just for initial conditions
@@ -155,14 +154,17 @@ wCD = C.getw_(D)
 wBD = B.getw_(D)
 
 #####DEFINE BODIES#######
-I = Dyadic.build(A,I_xx,I_yy,I_zz)
-#??is this correct ???? should it be separate for each frame?????
+IO = Dyadic.build(O,top_mass/12.0*.06**2,top_mass/12.0*.06**2,top_mass/12.0*.06**2)
+IA = Dyadic.build(A,I_xx,I_yy,I_zz)
+IB = Dyadic.build(B,I_xx,I_yy,I_zz)
+IC = Dyadic.build(C,I_xx,I_yy,I_zz)
+ID = Dyadic.build(D,I_xx,I_yy,I_zz)
 
-BodyO = Body('BodyO',O,pOcm,mO,I,system)
-BodyA = Body('BodyA',A,pAcm,mA,I,system) #right thigh
-BodyB = Body('BodyB',B,pBcm,mB,I,system) #right calf
-BodyC = Body('BodyC',C,pCcm,mC,I,system) #left thigh
-BodyD = Body('BodyD',D,pDcm,mD,I,system) #left calf
+BodyO = Body('BodyO',O,pOcm,mO,IO,system)
+BodyA = Body('BodyA',A,pAcm,mA,IA,system) #right thigh
+BodyB = Body('BodyB',B,pBcm,mB,IB,system) #right calf
+BodyC = Body('BodyC',C,pCcm,mC,IC,system) #left thigh
+BodyD = Body('BodyD',D,pDcm,mD,ID,system) #left calf
 
 #ParticleO = Particle(pOcm,mO,'ParticleO',system)
 #ParticleA = Particle(pAcm,mA,'ParticleA',system)
@@ -271,7 +273,7 @@ ini[7:] = 0
 ini = list(ini)
 
 tinitial = 0
-tfinal = 10
+tfinal = 2
 tstep = 0.1 ## was 1/30
 
 ######SOLVE TO PLACE IT ON THE GROUND#############
@@ -331,7 +333,7 @@ ini[7:] = 0
 ini = list(ini)
 
 tinitial = 0
-tfinal = 10
+tfinal = 2
 tstep = 0.1 ## was 1/30!!!!
 
 ###########SOLVE FOR COMPRESSION#########
@@ -361,21 +363,26 @@ print("!!!!!!finished 3!!!!!!!!!!!!!")
 system.forces.remove(contraction)
 system.forces.remove(contractionD)
 
+system.forces.remove(damper1)
+system.forces.remove(damper2)
+system.forces.remove(damper3)
+system.forces.remove(damper4)
+system.forces.remove(damper5)
+
+
 #torque = Tmax - Tmax/wMax*w
 
 #add torque
-system.addforce(Tmax*-N.z, wOA)
-system.addforce(Tmax*N.z, wOC)
+system.addforce((Tmax - Tmax/wMax*abs(wOA.dot(N.z)))*-N.z, wOA)
+system.addforce((Tmax - Tmax/wMax*abs(wOA.dot(N.z)))*N.z, wOC)
 
 #leg collision force
-# =============================================================================
-# stretch = pCD.dot(N.x) - pAB.dot(N.x)
-# stretch_s = (stretch+abs(stretch))
-# on = stretch_s/(2*stretch+1e-10)
-# legColcS, legColaS, _ = system.add_spring_force2(1e5,stretch_s*N.x,vCD, -vAB)
-# legColcD = system.addforce(-1e4*wCD*on,wCD)
-# legColaD = system.addforce(-1e4*wAB*on,wAB)
-# =============================================================================
+stretch = pCD.dot(N.x) - pAB.dot(N.x)
+stretch_s = (stretch+abs(stretch))
+on = stretch_s/(2*stretch+1e-8)
+legColcS, legColaS, _ = system.add_spring_force2(1e1,stretch_s*N.x,vCD, -vAB)
+legColcD = system.addforce(-1e2*wCD*on,wCD)
+legColaD = system.addforce(-1e2*wAB*on,wAB)
 
 #ground normal force
 stretch = -pBtip.dot(N.y)
@@ -455,5 +462,5 @@ def make_gif(output_filename='render.gif',images_folder='render',fps=30,output_f
     imageio.mimsave(os.path.join(output_folder,output_filename), images,duration=1/fps ) 
 
 make_gif()
-#idealab_tools.makemovie.render(image_name_format='*.png')
+#idealab_tools.makemovie.render(movie_folder="C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics")
 #idealab_tools.makemovie.clear_folder()
