@@ -5,6 +5,8 @@ Email: danaukes<at>gmail.com
 Please see LICENSE for full license.
 """
 
+##diatic build, correct way to calc torque, make movie work, get forces out
+
 import pynamics
 from pynamics.frame import Frame
 from pynamics.variable_types import Differentiable,Constant
@@ -25,6 +27,12 @@ system = System()
 
 top_length = 0.01333
 leg_length = 0.08
+top_mass = 0.07
+leg_mass = 0.01
+leg_width = 0.0001
+gear_ratio = 100.0
+Tmax = 0.3
+wMax = 320.0/60.0*2.0*3.14159
 
 ####VARIOUS DESIGN CONSTANTS#####
 #define length constants
@@ -36,16 +44,16 @@ lC = Constant(leg_length-top_length/2.0,'lC',system)
 lD = Constant(leg_length,'lD',system)
 
 #define mass cnstants for each segment
-mO = Constant(10,'mO',system)
-mA = Constant(1,'mA',system)
-mB = Constant(1,'mB',system)
-mC = Constant(1,'mC',system)
-mD = Constant(1,'mD',system)
+mO = Constant(top_mass,'mO',system)
+mA = Constant(leg_mass,'mA',system)
+mB = Constant(leg_mass,'mB',system)
+mC = Constant(leg_mass,'mC',system)
+mD = Constant(leg_mass,'mD',system)
 
 #define inertia constants
-I_xx = Constant(1,'I_xx',system)
-I_yy = Constant(1,'I_yy',system)
-I_zz = Constant(1,'I_zz',system)
+I_xx = Constant(leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width),'I_xx',system)
+I_yy = Constant(leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width),'I_yy',system)
+I_zz = Constant(leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width),'I_zz',system)
 
 #define misc constants
 g = Constant(9.81,'g',system)
@@ -148,6 +156,7 @@ wBD = B.getw_(D)
 
 #####DEFINE BODIES#######
 I = Dyadic.build(A,I_xx,I_yy,I_zz)
+#??is this correct ???? should it be separate for each frame?????
 
 BodyO = Body('BodyO',O,pOcm,mO,I,system)
 BodyA = Body('BodyA',A,pAcm,mA,I,system) #right thigh
@@ -290,8 +299,8 @@ print("!!!!!!finished 2!!!!!!!!!!!!!")
 ########3#3#3#3#3#3#3#3#################################
 
 #add force to compress the top #1.42 cm
-contraction, _ = system.add_spring_force1(100.0,pOcm - pDtip - 0.5*N.y - 0.7*N.y, vOcm)
-contractionD = system.addforce(-1e3*vOcm,vOcm)
+contraction, _ = system.add_spring_force1(1.0e3,(pOcm.dot(N.y) - pBtip.dot(N.y) - 0.0142)*N.y, vOcm)
+contractionD = system.addforce(-1e1*vOcm,vOcm)
 
 #remove joint stiffness
 system.forces.remove(spring1)
@@ -322,8 +331,8 @@ ini[7:] = 0
 ini = list(ini)
 
 tinitial = 0
-tfinal = 50
-tstep = 0.2 ## was 1/30!!!!
+tfinal = 10
+tstep = 0.1 ## was 1/30!!!!
 
 ###########SOLVE FOR COMPRESSION#########
 f,ma = system.getdynamics()
@@ -352,17 +361,21 @@ print("!!!!!!finished 3!!!!!!!!!!!!!")
 system.forces.remove(contraction)
 system.forces.remove(contractionD)
 
+#torque = Tmax - Tmax/wMax*w
+
 #add torque
-system.addforce(1000.0*-N.z, wOA)
-system.addforce(1000.0*N.z, wOC)
+system.addforce(Tmax*-N.z, wOA)
+system.addforce(Tmax*N.z, wOC)
 
 #leg collision force
-stretch = pCD.dot(N.x) - pAB.dot(N.x)
-stretch_s = (stretch+abs(stretch))
-on = stretch_s/(2*stretch+1e-10)
-legColcS, legColaS, _ = system.add_spring_force2(1e5,stretch_s*N.x,vCD, -vAB)
-legColcD = system.addforce(-1e4*wCD*on,wCD)
-legColaD = system.addforce(-1e4*wAB*on,wAB)
+# =============================================================================
+# stretch = pCD.dot(N.x) - pAB.dot(N.x)
+# stretch_s = (stretch+abs(stretch))
+# on = stretch_s/(2*stretch+1e-10)
+# legColcS, legColaS, _ = system.add_spring_force2(1e5,stretch_s*N.x,vCD, -vAB)
+# legColcD = system.addforce(-1e4*wCD*on,wCD)
+# legColaD = system.addforce(-1e4*wAB*on,wAB)
+# =============================================================================
 
 #ground normal force
 stretch = -pBtip.dot(N.y)
