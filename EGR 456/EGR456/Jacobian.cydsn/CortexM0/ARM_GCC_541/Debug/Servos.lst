@@ -1,0 +1,2753 @@
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Servos.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Servos_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	Servos_Enable
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	Servos_Enable, %function
+  25              	Servos_Enable:
+  26              	.LFB4:
+  27              		.file 1 "Generated_Source\\PSoC4\\Servos.c"
+   1:Generated_Source\PSoC4/Servos.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/Servos.c **** * File Name: Servos.c
+   3:Generated_Source\PSoC4/Servos.c **** * Version 3.30
+   4:Generated_Source\PSoC4/Servos.c **** *
+   5:Generated_Source\PSoC4/Servos.c **** * Description:
+   6:Generated_Source\PSoC4/Servos.c **** *  The PWM User Module consist of an 8 or 16-bit counter with two 8 or 16-bit
+   7:Generated_Source\PSoC4/Servos.c **** *  comparitors. Each instance of this user module is capable of generating
+   8:Generated_Source\PSoC4/Servos.c **** *  two PWM outputs with the same period. The pulse width is selectable between
+   9:Generated_Source\PSoC4/Servos.c **** *  1 and 255/65535. The period is selectable between 2 and 255/65536 clocks.
+  10:Generated_Source\PSoC4/Servos.c **** *  The compare value output may be configured to be active when the present
+  11:Generated_Source\PSoC4/Servos.c **** *  counter is less than or less than/equal to the compare value.
+  12:Generated_Source\PSoC4/Servos.c **** *  A terminal count output is also provided. It generates a pulse one clock
+  13:Generated_Source\PSoC4/Servos.c **** *  width wide when the counter is equal to zero.
+  14:Generated_Source\PSoC4/Servos.c **** *
+  15:Generated_Source\PSoC4/Servos.c **** * Note:
+  16:Generated_Source\PSoC4/Servos.c **** *
+  17:Generated_Source\PSoC4/Servos.c **** *******************************************************************************
+  18:Generated_Source\PSoC4/Servos.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  19:Generated_Source\PSoC4/Servos.c **** * You may use this file only in accordance with the license, terms, conditions,
+  20:Generated_Source\PSoC4/Servos.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  21:Generated_Source\PSoC4/Servos.c **** * the software package with which this file was provided.
+  22:Generated_Source\PSoC4/Servos.c **** ********************************************************************************/
+  23:Generated_Source\PSoC4/Servos.c **** 
+  24:Generated_Source\PSoC4/Servos.c **** #include "Servos.h"
+  25:Generated_Source\PSoC4/Servos.c **** 
+  26:Generated_Source\PSoC4/Servos.c **** /* Error message for removed <resource> through optimization */
+  27:Generated_Source\PSoC4/Servos.c **** #ifdef Servos_PWMUDB_genblk1_ctrlreg__REMOVED
+  28:Generated_Source\PSoC4/Servos.c ****     #error PWM_v3_30 detected with a constant 0 for the enable or \
+  29:Generated_Source\PSoC4/Servos.c ****          constant 1 for reset. This will prevent the component from operating.
+  30:Generated_Source\PSoC4/Servos.c **** #endif /* Servos_PWMUDB_genblk1_ctrlreg__REMOVED */
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 2
+
+
+  31:Generated_Source\PSoC4/Servos.c **** 
+  32:Generated_Source\PSoC4/Servos.c **** uint8 Servos_initVar = 0u;
+  33:Generated_Source\PSoC4/Servos.c **** 
+  34:Generated_Source\PSoC4/Servos.c **** 
+  35:Generated_Source\PSoC4/Servos.c **** /*******************************************************************************
+  36:Generated_Source\PSoC4/Servos.c **** * Function Name: Servos_Start
+  37:Generated_Source\PSoC4/Servos.c **** ********************************************************************************
+  38:Generated_Source\PSoC4/Servos.c **** *
+  39:Generated_Source\PSoC4/Servos.c **** * Summary:
+  40:Generated_Source\PSoC4/Servos.c **** *  The start function initializes the pwm with the default values, the
+  41:Generated_Source\PSoC4/Servos.c **** *  enables the counter to begin counting.  It does not enable interrupts,
+  42:Generated_Source\PSoC4/Servos.c **** *  the EnableInt command should be called if interrupt generation is required.
+  43:Generated_Source\PSoC4/Servos.c **** *
+  44:Generated_Source\PSoC4/Servos.c **** * Parameters:
+  45:Generated_Source\PSoC4/Servos.c **** *  None
+  46:Generated_Source\PSoC4/Servos.c **** *
+  47:Generated_Source\PSoC4/Servos.c **** * Return:
+  48:Generated_Source\PSoC4/Servos.c **** *  None
+  49:Generated_Source\PSoC4/Servos.c **** *
+  50:Generated_Source\PSoC4/Servos.c **** * Global variables:
+  51:Generated_Source\PSoC4/Servos.c **** *  Servos_initVar: Is modified when this function is called for the
+  52:Generated_Source\PSoC4/Servos.c **** *   first time. Is used to ensure that initialization happens only once.
+  53:Generated_Source\PSoC4/Servos.c **** *
+  54:Generated_Source\PSoC4/Servos.c **** *******************************************************************************/
+  55:Generated_Source\PSoC4/Servos.c **** void Servos_Start(void) 
+  56:Generated_Source\PSoC4/Servos.c **** {
+  57:Generated_Source\PSoC4/Servos.c ****     /* If not Initialized then initialize all required hardware and software */
+  58:Generated_Source\PSoC4/Servos.c ****     if(Servos_initVar == 0u)
+  59:Generated_Source\PSoC4/Servos.c ****     {
+  60:Generated_Source\PSoC4/Servos.c ****         Servos_Init();
+  61:Generated_Source\PSoC4/Servos.c ****         Servos_initVar = 1u;
+  62:Generated_Source\PSoC4/Servos.c ****     }
+  63:Generated_Source\PSoC4/Servos.c ****     Servos_Enable();
+  64:Generated_Source\PSoC4/Servos.c **** 
+  65:Generated_Source\PSoC4/Servos.c **** }
+  66:Generated_Source\PSoC4/Servos.c **** 
+  67:Generated_Source\PSoC4/Servos.c **** 
+  68:Generated_Source\PSoC4/Servos.c **** /*******************************************************************************
+  69:Generated_Source\PSoC4/Servos.c **** * Function Name: Servos_Init
+  70:Generated_Source\PSoC4/Servos.c **** ********************************************************************************
+  71:Generated_Source\PSoC4/Servos.c **** *
+  72:Generated_Source\PSoC4/Servos.c **** * Summary:
+  73:Generated_Source\PSoC4/Servos.c **** *  Initialize component's parameters to the parameters set by user in the
+  74:Generated_Source\PSoC4/Servos.c **** *  customizer of the component placed onto schematic. Usually called in
+  75:Generated_Source\PSoC4/Servos.c **** *  Servos_Start().
+  76:Generated_Source\PSoC4/Servos.c **** *
+  77:Generated_Source\PSoC4/Servos.c **** * Parameters:
+  78:Generated_Source\PSoC4/Servos.c **** *  None
+  79:Generated_Source\PSoC4/Servos.c **** *
+  80:Generated_Source\PSoC4/Servos.c **** * Return:
+  81:Generated_Source\PSoC4/Servos.c **** *  None
+  82:Generated_Source\PSoC4/Servos.c **** *
+  83:Generated_Source\PSoC4/Servos.c **** *******************************************************************************/
+  84:Generated_Source\PSoC4/Servos.c **** void Servos_Init(void) 
+  85:Generated_Source\PSoC4/Servos.c **** {
+  86:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UsingFixedFunction || Servos_UseControl)
+  87:Generated_Source\PSoC4/Servos.c ****         uint8 ctrl;
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 3
+
+
+  88:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UsingFixedFunction || Servos_UseControl) */
+  89:Generated_Source\PSoC4/Servos.c **** 
+  90:Generated_Source\PSoC4/Servos.c ****     #if(!Servos_UsingFixedFunction)
+  91:Generated_Source\PSoC4/Servos.c ****         #if(Servos_UseStatus)
+  92:Generated_Source\PSoC4/Servos.c ****             /* Interrupt State Backup for Critical Region*/
+  93:Generated_Source\PSoC4/Servos.c ****             uint8 Servos_interruptState;
+  94:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UseStatus) */
+  95:Generated_Source\PSoC4/Servos.c ****     #endif /* (!Servos_UsingFixedFunction) */
+  96:Generated_Source\PSoC4/Servos.c **** 
+  97:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UsingFixedFunction)
+  98:Generated_Source\PSoC4/Servos.c ****         /* You are allowed to write the compare value (FF only) */
+  99:Generated_Source\PSoC4/Servos.c ****         Servos_CONTROL |= Servos_CFG0_MODE;
+ 100:Generated_Source\PSoC4/Servos.c ****         #if (Servos_DeadBand2_4)
+ 101:Generated_Source\PSoC4/Servos.c ****             Servos_CONTROL |= Servos_CFG0_DB;
+ 102:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_DeadBand2_4) */
+ 103:Generated_Source\PSoC4/Servos.c **** 
+ 104:Generated_Source\PSoC4/Servos.c ****         ctrl = Servos_CONTROL3 & ((uint8 )(~Servos_CTRL_CMPMODE1_MASK));
+ 105:Generated_Source\PSoC4/Servos.c ****         Servos_CONTROL3 = ctrl | Servos_DEFAULT_COMPARE1_MODE;
+ 106:Generated_Source\PSoC4/Servos.c **** 
+ 107:Generated_Source\PSoC4/Servos.c ****          /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ 108:Generated_Source\PSoC4/Servos.c ****         Servos_RT1 &= ((uint8)(~Servos_RT1_MASK));
+ 109:Generated_Source\PSoC4/Servos.c ****         Servos_RT1 |= Servos_SYNC;
+ 110:Generated_Source\PSoC4/Servos.c **** 
+ 111:Generated_Source\PSoC4/Servos.c ****         /*Enable DSI Sync all all inputs of the PWM*/
+ 112:Generated_Source\PSoC4/Servos.c ****         Servos_RT1 &= ((uint8)(~Servos_SYNCDSI_MASK));
+ 113:Generated_Source\PSoC4/Servos.c ****         Servos_RT1 |= Servos_SYNCDSI_EN;
+ 114:Generated_Source\PSoC4/Servos.c **** 
+ 115:Generated_Source\PSoC4/Servos.c ****     #elif (Servos_UseControl)
+ 116:Generated_Source\PSoC4/Servos.c ****         /* Set the default compare mode defined in the parameter */
+ 117:Generated_Source\PSoC4/Servos.c ****         ctrl = Servos_CONTROL & ((uint8)(~Servos_CTRL_CMPMODE2_MASK)) &
+ 118:Generated_Source\PSoC4/Servos.c ****                 ((uint8)(~Servos_CTRL_CMPMODE1_MASK));
+ 119:Generated_Source\PSoC4/Servos.c ****         Servos_CONTROL = ctrl | Servos_DEFAULT_COMPARE2_MODE |
+ 120:Generated_Source\PSoC4/Servos.c ****                                    Servos_DEFAULT_COMPARE1_MODE;
+ 121:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UsingFixedFunction) */
+ 122:Generated_Source\PSoC4/Servos.c **** 
+ 123:Generated_Source\PSoC4/Servos.c ****     #if (!Servos_UsingFixedFunction)
+ 124:Generated_Source\PSoC4/Servos.c ****         #if (Servos_Resolution == 8)
+ 125:Generated_Source\PSoC4/Servos.c ****             /* Set FIFO 0 to 1 byte register for period*/
+ 126:Generated_Source\PSoC4/Servos.c ****             Servos_AUX_CONTROLDP0 |= (Servos_AUX_CTRL_FIFO0_CLR);
+ 127:Generated_Source\PSoC4/Servos.c ****         #else /* (Servos_Resolution == 16)*/
+ 128:Generated_Source\PSoC4/Servos.c ****             /* Set FIFO 0 to 1 byte register for period */
+ 129:Generated_Source\PSoC4/Servos.c ****             Servos_AUX_CONTROLDP0 |= (Servos_AUX_CTRL_FIFO0_CLR);
+ 130:Generated_Source\PSoC4/Servos.c ****             Servos_AUX_CONTROLDP1 |= (Servos_AUX_CTRL_FIFO0_CLR);
+ 131:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_Resolution == 8) */
+ 132:Generated_Source\PSoC4/Servos.c **** 
+ 133:Generated_Source\PSoC4/Servos.c ****         Servos_WriteCounter(Servos_INIT_PERIOD_VALUE);
+ 134:Generated_Source\PSoC4/Servos.c ****     #endif /* (!Servos_UsingFixedFunction) */
+ 135:Generated_Source\PSoC4/Servos.c **** 
+ 136:Generated_Source\PSoC4/Servos.c ****     Servos_WritePeriod(Servos_INIT_PERIOD_VALUE);
+ 137:Generated_Source\PSoC4/Servos.c **** 
+ 138:Generated_Source\PSoC4/Servos.c ****         #if (Servos_UseOneCompareMode)
+ 139:Generated_Source\PSoC4/Servos.c ****             Servos_WriteCompare(Servos_INIT_COMPARE_VALUE1);
+ 140:Generated_Source\PSoC4/Servos.c ****         #else
+ 141:Generated_Source\PSoC4/Servos.c ****             Servos_WriteCompare1(Servos_INIT_COMPARE_VALUE1);
+ 142:Generated_Source\PSoC4/Servos.c ****             Servos_WriteCompare2(Servos_INIT_COMPARE_VALUE2);
+ 143:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UseOneCompareMode) */
+ 144:Generated_Source\PSoC4/Servos.c **** 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 4
+
+
+ 145:Generated_Source\PSoC4/Servos.c ****         #if (Servos_KillModeMinTime)
+ 146:Generated_Source\PSoC4/Servos.c ****             Servos_WriteKillTime(Servos_MinimumKillTime);
+ 147:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_KillModeMinTime) */
+ 148:Generated_Source\PSoC4/Servos.c **** 
+ 149:Generated_Source\PSoC4/Servos.c ****         #if (Servos_DeadBandUsed)
+ 150:Generated_Source\PSoC4/Servos.c ****             Servos_WriteDeadTime(Servos_INIT_DEAD_TIME);
+ 151:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_DeadBandUsed) */
+ 152:Generated_Source\PSoC4/Servos.c **** 
+ 153:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UseStatus || Servos_UsingFixedFunction)
+ 154:Generated_Source\PSoC4/Servos.c ****         Servos_SetInterruptMode(Servos_INIT_INTERRUPTS_MODE);
+ 155:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UseStatus || Servos_UsingFixedFunction) */
+ 156:Generated_Source\PSoC4/Servos.c **** 
+ 157:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UsingFixedFunction)
+ 158:Generated_Source\PSoC4/Servos.c ****         /* Globally Enable the Fixed Function Block chosen */
+ 159:Generated_Source\PSoC4/Servos.c ****         Servos_GLOBAL_ENABLE |= Servos_BLOCK_EN_MASK;
+ 160:Generated_Source\PSoC4/Servos.c ****         /* Set the Interrupt source to come from the status register */
+ 161:Generated_Source\PSoC4/Servos.c ****         Servos_CONTROL2 |= Servos_CTRL2_IRQ_SEL;
+ 162:Generated_Source\PSoC4/Servos.c ****     #else
+ 163:Generated_Source\PSoC4/Servos.c ****         #if(Servos_UseStatus)
+ 164:Generated_Source\PSoC4/Servos.c **** 
+ 165:Generated_Source\PSoC4/Servos.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 166:Generated_Source\PSoC4/Servos.c ****             /* Enter Critical Region*/
+ 167:Generated_Source\PSoC4/Servos.c ****             Servos_interruptState = CyEnterCriticalSection();
+ 168:Generated_Source\PSoC4/Servos.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 169:Generated_Source\PSoC4/Servos.c ****             Servos_STATUS_AUX_CTRL |= Servos_STATUS_ACTL_INT_EN_MASK;
+ 170:Generated_Source\PSoC4/Servos.c **** 
+ 171:Generated_Source\PSoC4/Servos.c ****              /* Exit Critical Region*/
+ 172:Generated_Source\PSoC4/Servos.c ****             CyExitCriticalSection(Servos_interruptState);
+ 173:Generated_Source\PSoC4/Servos.c **** 
+ 174:Generated_Source\PSoC4/Servos.c ****             /* Clear the FIFO to enable the Servos_STATUS_FIFOFULL
+ 175:Generated_Source\PSoC4/Servos.c ****                    bit to be set on FIFO full. */
+ 176:Generated_Source\PSoC4/Servos.c ****             Servos_ClearFIFO();
+ 177:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UseStatus) */
+ 178:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UsingFixedFunction) */
+ 179:Generated_Source\PSoC4/Servos.c **** }
+ 180:Generated_Source\PSoC4/Servos.c **** 
+ 181:Generated_Source\PSoC4/Servos.c **** 
+ 182:Generated_Source\PSoC4/Servos.c **** /*******************************************************************************
+ 183:Generated_Source\PSoC4/Servos.c **** * Function Name: Servos_Enable
+ 184:Generated_Source\PSoC4/Servos.c **** ********************************************************************************
+ 185:Generated_Source\PSoC4/Servos.c **** *
+ 186:Generated_Source\PSoC4/Servos.c **** * Summary:
+ 187:Generated_Source\PSoC4/Servos.c **** *  Enables the PWM block operation
+ 188:Generated_Source\PSoC4/Servos.c **** *
+ 189:Generated_Source\PSoC4/Servos.c **** * Parameters:
+ 190:Generated_Source\PSoC4/Servos.c **** *  None
+ 191:Generated_Source\PSoC4/Servos.c **** *
+ 192:Generated_Source\PSoC4/Servos.c **** * Return:
+ 193:Generated_Source\PSoC4/Servos.c **** *  None
+ 194:Generated_Source\PSoC4/Servos.c **** *
+ 195:Generated_Source\PSoC4/Servos.c **** * Side Effects:
+ 196:Generated_Source\PSoC4/Servos.c **** *  This works only if software enable mode is chosen
+ 197:Generated_Source\PSoC4/Servos.c **** *
+ 198:Generated_Source\PSoC4/Servos.c **** *******************************************************************************/
+ 199:Generated_Source\PSoC4/Servos.c **** void Servos_Enable(void) 
+ 200:Generated_Source\PSoC4/Servos.c **** {
+  28              		.loc 1 200 0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 5
+
+
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ 201:Generated_Source\PSoC4/Servos.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 202:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UsingFixedFunction)
+ 203:Generated_Source\PSoC4/Servos.c ****         Servos_GLOBAL_ENABLE |= Servos_BLOCK_EN_MASK;
+ 204:Generated_Source\PSoC4/Servos.c ****         Servos_GLOBAL_STBY_ENABLE |= Servos_BLOCK_STBY_EN_MASK;
+ 205:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UsingFixedFunction) */
+ 206:Generated_Source\PSoC4/Servos.c **** 
+ 207:Generated_Source\PSoC4/Servos.c ****     /* Enable the PWM from the control register  */
+ 208:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UseControl || Servos_UsingFixedFunction)
+ 209:Generated_Source\PSoC4/Servos.c ****         Servos_CONTROL |= Servos_CTRL_ENABLE;
+  33              		.loc 1 209 0
+  34 0000 034A     		ldr	r2, .L2
+  35 0002 1178     		ldrb	r1, [r2]
+  36 0004 8023     		movs	r3, #128
+  37 0006 5B42     		rsbs	r3, r3, #0
+  38 0008 0B43     		orrs	r3, r1
+  39 000a DBB2     		uxtb	r3, r3
+  40 000c 1370     		strb	r3, [r2]
+ 210:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UseControl || Servos_UsingFixedFunction) */
+ 211:Generated_Source\PSoC4/Servos.c **** }
+  41              		.loc 1 211 0
+  42              		@ sp needed
+  43 000e 7047     		bx	lr
+  44              	.L3:
+  45              		.align	2
+  46              	.L2:
+  47 0010 73000F40 		.word	1074724979
+  48              		.cfi_endproc
+  49              	.LFE4:
+  50              		.size	Servos_Enable, .-Servos_Enable
+  51              		.section	.text.Servos_Stop,"ax",%progbits
+  52              		.align	2
+  53              		.global	Servos_Stop
+  54              		.code	16
+  55              		.thumb_func
+  56              		.type	Servos_Stop, %function
+  57              	Servos_Stop:
+  58              	.LFB5:
+ 212:Generated_Source\PSoC4/Servos.c **** 
+ 213:Generated_Source\PSoC4/Servos.c **** 
+ 214:Generated_Source\PSoC4/Servos.c **** /*******************************************************************************
+ 215:Generated_Source\PSoC4/Servos.c **** * Function Name: Servos_Stop
+ 216:Generated_Source\PSoC4/Servos.c **** ********************************************************************************
+ 217:Generated_Source\PSoC4/Servos.c **** *
+ 218:Generated_Source\PSoC4/Servos.c **** * Summary:
+ 219:Generated_Source\PSoC4/Servos.c **** *  The stop function halts the PWM, but does not change any modes or disable
+ 220:Generated_Source\PSoC4/Servos.c **** *  interrupts.
+ 221:Generated_Source\PSoC4/Servos.c **** *
+ 222:Generated_Source\PSoC4/Servos.c **** * Parameters:
+ 223:Generated_Source\PSoC4/Servos.c **** *  None
+ 224:Generated_Source\PSoC4/Servos.c **** *
+ 225:Generated_Source\PSoC4/Servos.c **** * Return:
+ 226:Generated_Source\PSoC4/Servos.c **** *  None
+ 227:Generated_Source\PSoC4/Servos.c **** *
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 6
+
+
+ 228:Generated_Source\PSoC4/Servos.c **** * Side Effects:
+ 229:Generated_Source\PSoC4/Servos.c **** *  If the Enable mode is set to Hardware only then this function
+ 230:Generated_Source\PSoC4/Servos.c **** *  has no effect on the operation of the PWM
+ 231:Generated_Source\PSoC4/Servos.c **** *
+ 232:Generated_Source\PSoC4/Servos.c **** *******************************************************************************/
+ 233:Generated_Source\PSoC4/Servos.c **** void Servos_Stop(void) 
+ 234:Generated_Source\PSoC4/Servos.c **** {
+  59              		.loc 1 234 0
+  60              		.cfi_startproc
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63              		@ link register save eliminated.
+ 235:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UseControl || Servos_UsingFixedFunction)
+ 236:Generated_Source\PSoC4/Servos.c ****         Servos_CONTROL &= ((uint8)(~Servos_CTRL_ENABLE));
+  64              		.loc 1 236 0
+  65 0000 024A     		ldr	r2, .L5
+  66 0002 1178     		ldrb	r1, [r2]
+  67 0004 7F23     		movs	r3, #127
+  68 0006 0B40     		ands	r3, r1
+  69 0008 1370     		strb	r3, [r2]
+ 237:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UseControl || Servos_UsingFixedFunction) */
+ 238:Generated_Source\PSoC4/Servos.c **** 
+ 239:Generated_Source\PSoC4/Servos.c ****     /* Globally disable the Fixed Function Block chosen */
+ 240:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UsingFixedFunction)
+ 241:Generated_Source\PSoC4/Servos.c ****         Servos_GLOBAL_ENABLE &= ((uint8)(~Servos_BLOCK_EN_MASK));
+ 242:Generated_Source\PSoC4/Servos.c ****         Servos_GLOBAL_STBY_ENABLE &= ((uint8)(~Servos_BLOCK_STBY_EN_MASK));
+ 243:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UsingFixedFunction) */
+ 244:Generated_Source\PSoC4/Servos.c **** }
+  70              		.loc 1 244 0
+  71              		@ sp needed
+  72 000a 7047     		bx	lr
+  73              	.L6:
+  74              		.align	2
+  75              	.L5:
+  76 000c 73000F40 		.word	1074724979
+  77              		.cfi_endproc
+  78              	.LFE5:
+  79              		.size	Servos_Stop, .-Servos_Stop
+  80              		.section	.text.Servos_WriteCounter,"ax",%progbits
+  81              		.align	2
+  82              		.global	Servos_WriteCounter
+  83              		.code	16
+  84              		.thumb_func
+  85              		.type	Servos_WriteCounter, %function
+  86              	Servos_WriteCounter:
+  87              	.LFB6:
+ 245:Generated_Source\PSoC4/Servos.c **** 
+ 246:Generated_Source\PSoC4/Servos.c **** #if (Servos_UseOneCompareMode)
+ 247:Generated_Source\PSoC4/Servos.c ****     #if (Servos_CompareMode1SW)
+ 248:Generated_Source\PSoC4/Servos.c **** 
+ 249:Generated_Source\PSoC4/Servos.c **** 
+ 250:Generated_Source\PSoC4/Servos.c ****         /*******************************************************************************
+ 251:Generated_Source\PSoC4/Servos.c ****         * Function Name: Servos_SetCompareMode
+ 252:Generated_Source\PSoC4/Servos.c ****         ********************************************************************************
+ 253:Generated_Source\PSoC4/Servos.c ****         *
+ 254:Generated_Source\PSoC4/Servos.c ****         * Summary:
+ 255:Generated_Source\PSoC4/Servos.c ****         *  This function writes the Compare Mode for the pwm output when in Dither mode,
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 7
+
+
+ 256:Generated_Source\PSoC4/Servos.c ****         *  Center Align Mode or One Output Mode.
+ 257:Generated_Source\PSoC4/Servos.c ****         *
+ 258:Generated_Source\PSoC4/Servos.c ****         * Parameters:
+ 259:Generated_Source\PSoC4/Servos.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 260:Generated_Source\PSoC4/Servos.c ****         *                defined in the H file as input arguments.
+ 261:Generated_Source\PSoC4/Servos.c ****         *
+ 262:Generated_Source\PSoC4/Servos.c ****         * Return:
+ 263:Generated_Source\PSoC4/Servos.c ****         *  None
+ 264:Generated_Source\PSoC4/Servos.c ****         *
+ 265:Generated_Source\PSoC4/Servos.c ****         *******************************************************************************/
+ 266:Generated_Source\PSoC4/Servos.c ****         void Servos_SetCompareMode(uint8 comparemode) 
+ 267:Generated_Source\PSoC4/Servos.c ****         {
+ 268:Generated_Source\PSoC4/Servos.c ****             #if(Servos_UsingFixedFunction)
+ 269:Generated_Source\PSoC4/Servos.c **** 
+ 270:Generated_Source\PSoC4/Servos.c ****                 #if(0 != Servos_CTRL_CMPMODE1_SHIFT)
+ 271:Generated_Source\PSoC4/Servos.c ****                     uint8 comparemodemasked = ((uint8)((uint8)comparemode << Servos_CTRL_CMPMODE1_S
+ 272:Generated_Source\PSoC4/Servos.c ****                 #else
+ 273:Generated_Source\PSoC4/Servos.c ****                     uint8 comparemodemasked = comparemode;
+ 274:Generated_Source\PSoC4/Servos.c ****                 #endif /* (0 != Servos_CTRL_CMPMODE1_SHIFT) */
+ 275:Generated_Source\PSoC4/Servos.c **** 
+ 276:Generated_Source\PSoC4/Servos.c ****                 Servos_CONTROL3 &= ((uint8)(~Servos_CTRL_CMPMODE1_MASK)); /*Clear Existing Data */
+ 277:Generated_Source\PSoC4/Servos.c ****                 Servos_CONTROL3 |= comparemodemasked;
+ 278:Generated_Source\PSoC4/Servos.c **** 
+ 279:Generated_Source\PSoC4/Servos.c ****             #elif (Servos_UseControl)
+ 280:Generated_Source\PSoC4/Servos.c **** 
+ 281:Generated_Source\PSoC4/Servos.c ****                 #if(0 != Servos_CTRL_CMPMODE1_SHIFT)
+ 282:Generated_Source\PSoC4/Servos.c ****                     uint8 comparemode1masked = ((uint8)((uint8)comparemode << Servos_CTRL_CMPMODE1_
+ 283:Generated_Source\PSoC4/Servos.c ****                                                 Servos_CTRL_CMPMODE1_MASK;
+ 284:Generated_Source\PSoC4/Servos.c ****                 #else
+ 285:Generated_Source\PSoC4/Servos.c ****                     uint8 comparemode1masked = comparemode & Servos_CTRL_CMPMODE1_MASK;
+ 286:Generated_Source\PSoC4/Servos.c ****                 #endif /* (0 != Servos_CTRL_CMPMODE1_SHIFT) */
+ 287:Generated_Source\PSoC4/Servos.c **** 
+ 288:Generated_Source\PSoC4/Servos.c ****                 #if(0 != Servos_CTRL_CMPMODE2_SHIFT)
+ 289:Generated_Source\PSoC4/Servos.c ****                     uint8 comparemode2masked = ((uint8)((uint8)comparemode << Servos_CTRL_CMPMODE2_
+ 290:Generated_Source\PSoC4/Servos.c ****                                                Servos_CTRL_CMPMODE2_MASK;
+ 291:Generated_Source\PSoC4/Servos.c ****                 #else
+ 292:Generated_Source\PSoC4/Servos.c ****                     uint8 comparemode2masked = comparemode & Servos_CTRL_CMPMODE2_MASK;
+ 293:Generated_Source\PSoC4/Servos.c ****                 #endif /* (0 != Servos_CTRL_CMPMODE2_SHIFT) */
+ 294:Generated_Source\PSoC4/Servos.c **** 
+ 295:Generated_Source\PSoC4/Servos.c ****                 /*Clear existing mode */
+ 296:Generated_Source\PSoC4/Servos.c ****                 Servos_CONTROL &= ((uint8)(~(Servos_CTRL_CMPMODE1_MASK |
+ 297:Generated_Source\PSoC4/Servos.c ****                                             Servos_CTRL_CMPMODE2_MASK)));
+ 298:Generated_Source\PSoC4/Servos.c ****                 Servos_CONTROL |= (comparemode1masked | comparemode2masked);
+ 299:Generated_Source\PSoC4/Servos.c **** 
+ 300:Generated_Source\PSoC4/Servos.c ****             #else
+ 301:Generated_Source\PSoC4/Servos.c ****                 uint8 temp = comparemode;
+ 302:Generated_Source\PSoC4/Servos.c ****             #endif /* (Servos_UsingFixedFunction) */
+ 303:Generated_Source\PSoC4/Servos.c ****         }
+ 304:Generated_Source\PSoC4/Servos.c ****     #endif /* Servos_CompareMode1SW */
+ 305:Generated_Source\PSoC4/Servos.c **** 
+ 306:Generated_Source\PSoC4/Servos.c **** #else /* UseOneCompareMode */
+ 307:Generated_Source\PSoC4/Servos.c **** 
+ 308:Generated_Source\PSoC4/Servos.c ****     #if (Servos_CompareMode1SW)
+ 309:Generated_Source\PSoC4/Servos.c **** 
+ 310:Generated_Source\PSoC4/Servos.c **** 
+ 311:Generated_Source\PSoC4/Servos.c ****         /*******************************************************************************
+ 312:Generated_Source\PSoC4/Servos.c ****         * Function Name: Servos_SetCompareMode1
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 8
+
+
+ 313:Generated_Source\PSoC4/Servos.c ****         ********************************************************************************
+ 314:Generated_Source\PSoC4/Servos.c ****         *
+ 315:Generated_Source\PSoC4/Servos.c ****         * Summary:
+ 316:Generated_Source\PSoC4/Servos.c ****         *  This function writes the Compare Mode for the pwm or pwm1 output
+ 317:Generated_Source\PSoC4/Servos.c ****         *
+ 318:Generated_Source\PSoC4/Servos.c ****         * Parameters:
+ 319:Generated_Source\PSoC4/Servos.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 320:Generated_Source\PSoC4/Servos.c ****         *                defined in the H file as input arguments.
+ 321:Generated_Source\PSoC4/Servos.c ****         *
+ 322:Generated_Source\PSoC4/Servos.c ****         * Return:
+ 323:Generated_Source\PSoC4/Servos.c ****         *  None
+ 324:Generated_Source\PSoC4/Servos.c ****         *
+ 325:Generated_Source\PSoC4/Servos.c ****         *******************************************************************************/
+ 326:Generated_Source\PSoC4/Servos.c ****         void Servos_SetCompareMode1(uint8 comparemode) 
+ 327:Generated_Source\PSoC4/Servos.c ****         {
+ 328:Generated_Source\PSoC4/Servos.c ****             #if(0 != Servos_CTRL_CMPMODE1_SHIFT)
+ 329:Generated_Source\PSoC4/Servos.c ****                 uint8 comparemodemasked = ((uint8)((uint8)comparemode << Servos_CTRL_CMPMODE1_SHIFT
+ 330:Generated_Source\PSoC4/Servos.c ****                                            Servos_CTRL_CMPMODE1_MASK;
+ 331:Generated_Source\PSoC4/Servos.c ****             #else
+ 332:Generated_Source\PSoC4/Servos.c ****                 uint8 comparemodemasked = comparemode & Servos_CTRL_CMPMODE1_MASK;
+ 333:Generated_Source\PSoC4/Servos.c ****             #endif /* (0 != Servos_CTRL_CMPMODE1_SHIFT) */
+ 334:Generated_Source\PSoC4/Servos.c **** 
+ 335:Generated_Source\PSoC4/Servos.c ****             #if (Servos_UseControl)
+ 336:Generated_Source\PSoC4/Servos.c ****                 Servos_CONTROL &= ((uint8)(~Servos_CTRL_CMPMODE1_MASK)); /*Clear existing mode */
+ 337:Generated_Source\PSoC4/Servos.c ****                 Servos_CONTROL |= comparemodemasked;
+ 338:Generated_Source\PSoC4/Servos.c ****             #endif /* (Servos_UseControl) */
+ 339:Generated_Source\PSoC4/Servos.c ****         }
+ 340:Generated_Source\PSoC4/Servos.c ****     #endif /* Servos_CompareMode1SW */
+ 341:Generated_Source\PSoC4/Servos.c **** 
+ 342:Generated_Source\PSoC4/Servos.c **** #if (Servos_CompareMode2SW)
+ 343:Generated_Source\PSoC4/Servos.c **** 
+ 344:Generated_Source\PSoC4/Servos.c **** 
+ 345:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 346:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_SetCompareMode2
+ 347:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 348:Generated_Source\PSoC4/Servos.c ****     *
+ 349:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 350:Generated_Source\PSoC4/Servos.c ****     *  This function writes the Compare Mode for the pwm or pwm2 output
+ 351:Generated_Source\PSoC4/Servos.c ****     *
+ 352:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 353:Generated_Source\PSoC4/Servos.c ****     *  comparemode:  The new compare mode for the PWM output. Use the compare types
+ 354:Generated_Source\PSoC4/Servos.c ****     *                defined in the H file as input arguments.
+ 355:Generated_Source\PSoC4/Servos.c ****     *
+ 356:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 357:Generated_Source\PSoC4/Servos.c ****     *  None
+ 358:Generated_Source\PSoC4/Servos.c ****     *
+ 359:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 360:Generated_Source\PSoC4/Servos.c ****     void Servos_SetCompareMode2(uint8 comparemode) 
+ 361:Generated_Source\PSoC4/Servos.c ****     {
+ 362:Generated_Source\PSoC4/Servos.c **** 
+ 363:Generated_Source\PSoC4/Servos.c ****         #if(0 != Servos_CTRL_CMPMODE2_SHIFT)
+ 364:Generated_Source\PSoC4/Servos.c ****             uint8 comparemodemasked = ((uint8)((uint8)comparemode << Servos_CTRL_CMPMODE2_SHIFT)) &
+ 365:Generated_Source\PSoC4/Servos.c ****                                                  Servos_CTRL_CMPMODE2_MASK;
+ 366:Generated_Source\PSoC4/Servos.c ****         #else
+ 367:Generated_Source\PSoC4/Servos.c ****             uint8 comparemodemasked = comparemode & Servos_CTRL_CMPMODE2_MASK;
+ 368:Generated_Source\PSoC4/Servos.c ****         #endif /* (0 != Servos_CTRL_CMPMODE2_SHIFT) */
+ 369:Generated_Source\PSoC4/Servos.c **** 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 9
+
+
+ 370:Generated_Source\PSoC4/Servos.c ****         #if (Servos_UseControl)
+ 371:Generated_Source\PSoC4/Servos.c ****             Servos_CONTROL &= ((uint8)(~Servos_CTRL_CMPMODE2_MASK)); /*Clear existing mode */
+ 372:Generated_Source\PSoC4/Servos.c ****             Servos_CONTROL |= comparemodemasked;
+ 373:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UseControl) */
+ 374:Generated_Source\PSoC4/Servos.c ****     }
+ 375:Generated_Source\PSoC4/Servos.c ****     #endif /*Servos_CompareMode2SW */
+ 376:Generated_Source\PSoC4/Servos.c **** 
+ 377:Generated_Source\PSoC4/Servos.c **** #endif /* UseOneCompareMode */
+ 378:Generated_Source\PSoC4/Servos.c **** 
+ 379:Generated_Source\PSoC4/Servos.c **** 
+ 380:Generated_Source\PSoC4/Servos.c **** #if (!Servos_UsingFixedFunction)
+ 381:Generated_Source\PSoC4/Servos.c **** 
+ 382:Generated_Source\PSoC4/Servos.c **** 
+ 383:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 384:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_WriteCounter
+ 385:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 386:Generated_Source\PSoC4/Servos.c ****     *
+ 387:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 388:Generated_Source\PSoC4/Servos.c ****     *  Writes a new counter value directly to the counter register. This will be
+ 389:Generated_Source\PSoC4/Servos.c ****     *  implemented for that currently running period and only that period. This API
+ 390:Generated_Source\PSoC4/Servos.c ****     *  is valid only for UDB implementation and not available for fixed function
+ 391:Generated_Source\PSoC4/Servos.c ****     *  PWM implementation.
+ 392:Generated_Source\PSoC4/Servos.c ****     *
+ 393:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 394:Generated_Source\PSoC4/Servos.c ****     *  counter:  The period new period counter value.
+ 395:Generated_Source\PSoC4/Servos.c ****     *
+ 396:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 397:Generated_Source\PSoC4/Servos.c ****     *  None
+ 398:Generated_Source\PSoC4/Servos.c ****     *
+ 399:Generated_Source\PSoC4/Servos.c ****     * Side Effects:
+ 400:Generated_Source\PSoC4/Servos.c ****     *  The PWM Period will be reloaded when a counter value will be a zero
+ 401:Generated_Source\PSoC4/Servos.c ****     *
+ 402:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 403:Generated_Source\PSoC4/Servos.c ****     void Servos_WriteCounter(uint16 counter) \
+ 404:Generated_Source\PSoC4/Servos.c ****                                        
+ 405:Generated_Source\PSoC4/Servos.c ****     {
+  88              		.loc 1 405 0
+  89              		.cfi_startproc
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92              		@ link register save eliminated.
+  93              	.LVL0:
+ 406:Generated_Source\PSoC4/Servos.c ****         CY_SET_REG16(Servos_COUNTER_LSB_PTR, counter);
+  94              		.loc 1 406 0
+  95 0000 014B     		ldr	r3, .L8
+  96 0002 1880     		strh	r0, [r3]
+ 407:Generated_Source\PSoC4/Servos.c ****     }
+  97              		.loc 1 407 0
+  98              		@ sp needed
+  99 0004 7047     		bx	lr
+ 100              	.L9:
+ 101 0006 C046     		.align	2
+ 102              	.L8:
+ 103 0008 04100F40 		.word	1074728964
+ 104              		.cfi_endproc
+ 105              	.LFE6:
+ 106              		.size	Servos_WriteCounter, .-Servos_WriteCounter
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 10
+
+
+ 107              		.section	.text.Servos_ReadCounter,"ax",%progbits
+ 108              		.align	2
+ 109              		.global	Servos_ReadCounter
+ 110              		.code	16
+ 111              		.thumb_func
+ 112              		.type	Servos_ReadCounter, %function
+ 113              	Servos_ReadCounter:
+ 114              	.LFB7:
+ 408:Generated_Source\PSoC4/Servos.c **** 
+ 409:Generated_Source\PSoC4/Servos.c **** 
+ 410:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 411:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_ReadCounter
+ 412:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 413:Generated_Source\PSoC4/Servos.c ****     *
+ 414:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 415:Generated_Source\PSoC4/Servos.c ****     *  This function returns the current value of the counter.  It doesn't matter
+ 416:Generated_Source\PSoC4/Servos.c ****     *  if the counter is enabled or running.
+ 417:Generated_Source\PSoC4/Servos.c ****     *
+ 418:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 419:Generated_Source\PSoC4/Servos.c ****     *  None
+ 420:Generated_Source\PSoC4/Servos.c ****     *
+ 421:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 422:Generated_Source\PSoC4/Servos.c ****     *  The current value of the counter.
+ 423:Generated_Source\PSoC4/Servos.c ****     *
+ 424:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 425:Generated_Source\PSoC4/Servos.c ****     uint16 Servos_ReadCounter(void) 
+ 426:Generated_Source\PSoC4/Servos.c ****     {
+ 115              		.loc 1 426 0
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 0
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119              		@ link register save eliminated.
+ 427:Generated_Source\PSoC4/Servos.c ****         /* Force capture by reading Accumulator */
+ 428:Generated_Source\PSoC4/Servos.c ****         /* Must first do a software capture to be able to read the counter */
+ 429:Generated_Source\PSoC4/Servos.c ****         /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 430:Generated_Source\PSoC4/Servos.c ****           (void)CY_GET_REG8(Servos_COUNTERCAP_LSB_PTR_8BIT);
+ 120              		.loc 1 430 0
+ 121 0000 024B     		ldr	r3, .L11
+ 122 0002 1B78     		ldrb	r3, [r3]
+ 431:Generated_Source\PSoC4/Servos.c **** 
+ 432:Generated_Source\PSoC4/Servos.c ****         /* Read the data from the FIFO */
+ 433:Generated_Source\PSoC4/Servos.c ****         return (CY_GET_REG16(Servos_CAPTURE_LSB_PTR));
+ 123              		.loc 1 433 0
+ 124 0004 024B     		ldr	r3, .L11+4
+ 125 0006 1888     		ldrh	r0, [r3]
+ 126 0008 80B2     		uxth	r0, r0
+ 434:Generated_Source\PSoC4/Servos.c ****     }
+ 127              		.loc 1 434 0
+ 128              		@ sp needed
+ 129 000a 7047     		bx	lr
+ 130              	.L12:
+ 131              		.align	2
+ 132              	.L11:
+ 133 000c 12000F40 		.word	1074724882
+ 134 0010 A4100F40 		.word	1074729124
+ 135              		.cfi_endproc
+ 136              	.LFE7:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 11
+
+
+ 137              		.size	Servos_ReadCounter, .-Servos_ReadCounter
+ 138              		.section	.text.Servos_WritePeriod,"ax",%progbits
+ 139              		.align	2
+ 140              		.global	Servos_WritePeriod
+ 141              		.code	16
+ 142              		.thumb_func
+ 143              		.type	Servos_WritePeriod, %function
+ 144              	Servos_WritePeriod:
+ 145              	.LFB9:
+ 435:Generated_Source\PSoC4/Servos.c **** 
+ 436:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UseStatus)
+ 437:Generated_Source\PSoC4/Servos.c **** 
+ 438:Generated_Source\PSoC4/Servos.c **** 
+ 439:Generated_Source\PSoC4/Servos.c ****         /*******************************************************************************
+ 440:Generated_Source\PSoC4/Servos.c ****         * Function Name: Servos_ClearFIFO
+ 441:Generated_Source\PSoC4/Servos.c ****         ********************************************************************************
+ 442:Generated_Source\PSoC4/Servos.c ****         *
+ 443:Generated_Source\PSoC4/Servos.c ****         * Summary:
+ 444:Generated_Source\PSoC4/Servos.c ****         *  This function clears all capture data from the capture FIFO
+ 445:Generated_Source\PSoC4/Servos.c ****         *
+ 446:Generated_Source\PSoC4/Servos.c ****         * Parameters:
+ 447:Generated_Source\PSoC4/Servos.c ****         *  None
+ 448:Generated_Source\PSoC4/Servos.c ****         *
+ 449:Generated_Source\PSoC4/Servos.c ****         * Return:
+ 450:Generated_Source\PSoC4/Servos.c ****         *  None
+ 451:Generated_Source\PSoC4/Servos.c ****         *
+ 452:Generated_Source\PSoC4/Servos.c ****         *******************************************************************************/
+ 453:Generated_Source\PSoC4/Servos.c ****         void Servos_ClearFIFO(void) 
+ 454:Generated_Source\PSoC4/Servos.c ****         {
+ 455:Generated_Source\PSoC4/Servos.c ****             while(0u != (Servos_ReadStatusRegister() & Servos_STATUS_FIFONEMPTY))
+ 456:Generated_Source\PSoC4/Servos.c ****             {
+ 457:Generated_Source\PSoC4/Servos.c ****                 (void)Servos_ReadCapture();
+ 458:Generated_Source\PSoC4/Servos.c ****             }
+ 459:Generated_Source\PSoC4/Servos.c ****         }
+ 460:Generated_Source\PSoC4/Servos.c **** 
+ 461:Generated_Source\PSoC4/Servos.c ****     #endif /* Servos_UseStatus */
+ 462:Generated_Source\PSoC4/Servos.c **** 
+ 463:Generated_Source\PSoC4/Servos.c **** #endif /* !Servos_UsingFixedFunction */
+ 464:Generated_Source\PSoC4/Servos.c **** 
+ 465:Generated_Source\PSoC4/Servos.c **** 
+ 466:Generated_Source\PSoC4/Servos.c **** /*******************************************************************************
+ 467:Generated_Source\PSoC4/Servos.c **** * Function Name: Servos_WritePeriod
+ 468:Generated_Source\PSoC4/Servos.c **** ********************************************************************************
+ 469:Generated_Source\PSoC4/Servos.c **** *
+ 470:Generated_Source\PSoC4/Servos.c **** * Summary:
+ 471:Generated_Source\PSoC4/Servos.c **** *  This function is used to change the period of the counter.  The new period
+ 472:Generated_Source\PSoC4/Servos.c **** *  will be loaded the next time terminal count is detected.
+ 473:Generated_Source\PSoC4/Servos.c **** *
+ 474:Generated_Source\PSoC4/Servos.c **** * Parameters:
+ 475:Generated_Source\PSoC4/Servos.c **** *  period:  Period value. May be between 1 and (2^Resolution)-1.  A value of 0
+ 476:Generated_Source\PSoC4/Servos.c **** *           will result in the counter remaining at zero.
+ 477:Generated_Source\PSoC4/Servos.c **** *
+ 478:Generated_Source\PSoC4/Servos.c **** * Return:
+ 479:Generated_Source\PSoC4/Servos.c **** *  None
+ 480:Generated_Source\PSoC4/Servos.c **** *
+ 481:Generated_Source\PSoC4/Servos.c **** *******************************************************************************/
+ 482:Generated_Source\PSoC4/Servos.c **** void Servos_WritePeriod(uint16 period) 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 12
+
+
+ 483:Generated_Source\PSoC4/Servos.c **** {
+ 146              		.loc 1 483 0
+ 147              		.cfi_startproc
+ 148              		@ args = 0, pretend = 0, frame = 0
+ 149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150              		@ link register save eliminated.
+ 151              	.LVL1:
+ 484:Generated_Source\PSoC4/Servos.c ****     #if(Servos_UsingFixedFunction)
+ 485:Generated_Source\PSoC4/Servos.c ****         CY_SET_REG16(Servos_PERIOD_LSB_PTR, (uint16)period);
+ 486:Generated_Source\PSoC4/Servos.c ****     #else
+ 487:Generated_Source\PSoC4/Servos.c ****         CY_SET_REG16(Servos_PERIOD_LSB_PTR, period);
+ 152              		.loc 1 487 0
+ 153 0000 014B     		ldr	r3, .L14
+ 154 0002 1880     		strh	r0, [r3]
+ 488:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UsingFixedFunction) */
+ 489:Generated_Source\PSoC4/Servos.c **** }
+ 155              		.loc 1 489 0
+ 156              		@ sp needed
+ 157 0004 7047     		bx	lr
+ 158              	.L15:
+ 159 0006 C046     		.align	2
+ 160              	.L14:
+ 161 0008 84100F40 		.word	1074729092
+ 162              		.cfi_endproc
+ 163              	.LFE9:
+ 164              		.size	Servos_WritePeriod, .-Servos_WritePeriod
+ 165              		.section	.text.Servos_WriteCompare1,"ax",%progbits
+ 166              		.align	2
+ 167              		.global	Servos_WriteCompare1
+ 168              		.code	16
+ 169              		.thumb_func
+ 170              		.type	Servos_WriteCompare1, %function
+ 171              	Servos_WriteCompare1:
+ 172              	.LFB10:
+ 490:Generated_Source\PSoC4/Servos.c **** 
+ 491:Generated_Source\PSoC4/Servos.c **** #if (Servos_UseOneCompareMode)
+ 492:Generated_Source\PSoC4/Servos.c **** 
+ 493:Generated_Source\PSoC4/Servos.c **** 
+ 494:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 495:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_WriteCompare
+ 496:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 497:Generated_Source\PSoC4/Servos.c ****     *
+ 498:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 499:Generated_Source\PSoC4/Servos.c ****     *  This funtion is used to change the compare1 value when the PWM is in Dither
+ 500:Generated_Source\PSoC4/Servos.c ****     *  mode. The compare output will reflect the new value on the next UDB clock.
+ 501:Generated_Source\PSoC4/Servos.c ****     *  The compare output will be driven high when the present counter value is
+ 502:Generated_Source\PSoC4/Servos.c ****     *  compared to the compare value based on the compare mode defined in
+ 503:Generated_Source\PSoC4/Servos.c ****     *  Dither Mode.
+ 504:Generated_Source\PSoC4/Servos.c ****     *
+ 505:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 506:Generated_Source\PSoC4/Servos.c ****     *  compare:  New compare value.
+ 507:Generated_Source\PSoC4/Servos.c ****     *
+ 508:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 509:Generated_Source\PSoC4/Servos.c ****     *  None
+ 510:Generated_Source\PSoC4/Servos.c ****     *
+ 511:Generated_Source\PSoC4/Servos.c ****     * Side Effects:
+ 512:Generated_Source\PSoC4/Servos.c ****     *  This function is only available if the PWM mode parameter is set to
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 13
+
+
+ 513:Generated_Source\PSoC4/Servos.c ****     *  Dither Mode, Center Aligned Mode or One Output Mode
+ 514:Generated_Source\PSoC4/Servos.c ****     *
+ 515:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 516:Generated_Source\PSoC4/Servos.c ****     void Servos_WriteCompare(uint16 compare) \
+ 517:Generated_Source\PSoC4/Servos.c ****                                        
+ 518:Generated_Source\PSoC4/Servos.c ****     {
+ 519:Generated_Source\PSoC4/Servos.c ****         #if(Servos_UsingFixedFunction)
+ 520:Generated_Source\PSoC4/Servos.c ****             CY_SET_REG16(Servos_COMPARE1_LSB_PTR, (uint16)compare);
+ 521:Generated_Source\PSoC4/Servos.c ****         #else
+ 522:Generated_Source\PSoC4/Servos.c ****             CY_SET_REG16(Servos_COMPARE1_LSB_PTR, compare);
+ 523:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UsingFixedFunction) */
+ 524:Generated_Source\PSoC4/Servos.c **** 
+ 525:Generated_Source\PSoC4/Servos.c ****         #if (Servos_PWMMode == Servos__B_PWM__DITHER)
+ 526:Generated_Source\PSoC4/Servos.c ****             #if(Servos_UsingFixedFunction)
+ 527:Generated_Source\PSoC4/Servos.c ****                 CY_SET_REG16(Servos_COMPARE2_LSB_PTR, (uint16)(compare + 1u));
+ 528:Generated_Source\PSoC4/Servos.c ****             #else
+ 529:Generated_Source\PSoC4/Servos.c ****                 CY_SET_REG16(Servos_COMPARE2_LSB_PTR, (compare + 1u));
+ 530:Generated_Source\PSoC4/Servos.c ****             #endif /* (Servos_UsingFixedFunction) */
+ 531:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_PWMMode == Servos__B_PWM__DITHER) */
+ 532:Generated_Source\PSoC4/Servos.c ****     }
+ 533:Generated_Source\PSoC4/Servos.c **** 
+ 534:Generated_Source\PSoC4/Servos.c **** 
+ 535:Generated_Source\PSoC4/Servos.c **** #else
+ 536:Generated_Source\PSoC4/Servos.c **** 
+ 537:Generated_Source\PSoC4/Servos.c **** 
+ 538:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 539:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_WriteCompare1
+ 540:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 541:Generated_Source\PSoC4/Servos.c ****     *
+ 542:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 543:Generated_Source\PSoC4/Servos.c ****     *  This funtion is used to change the compare1 value.  The compare output will
+ 544:Generated_Source\PSoC4/Servos.c ****     *  reflect the new value on the next UDB clock.  The compare output will be
+ 545:Generated_Source\PSoC4/Servos.c ****     *  driven high when the present counter value is less than or less than or
+ 546:Generated_Source\PSoC4/Servos.c ****     *  equal to the compare register, depending on the mode.
+ 547:Generated_Source\PSoC4/Servos.c ****     *
+ 548:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 549:Generated_Source\PSoC4/Servos.c ****     *  compare:  New compare value.
+ 550:Generated_Source\PSoC4/Servos.c ****     *
+ 551:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 552:Generated_Source\PSoC4/Servos.c ****     *  None
+ 553:Generated_Source\PSoC4/Servos.c ****     *
+ 554:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 555:Generated_Source\PSoC4/Servos.c ****     void Servos_WriteCompare1(uint16 compare) \
+ 556:Generated_Source\PSoC4/Servos.c ****                                         
+ 557:Generated_Source\PSoC4/Servos.c ****     {
+ 173              		.loc 1 557 0
+ 174              		.cfi_startproc
+ 175              		@ args = 0, pretend = 0, frame = 0
+ 176              		@ frame_needed = 0, uses_anonymous_args = 0
+ 177              		@ link register save eliminated.
+ 178              	.LVL2:
+ 558:Generated_Source\PSoC4/Servos.c ****         #if(Servos_UsingFixedFunction)
+ 559:Generated_Source\PSoC4/Servos.c ****             CY_SET_REG16(Servos_COMPARE1_LSB_PTR, (uint16)compare);
+ 560:Generated_Source\PSoC4/Servos.c ****         #else
+ 561:Generated_Source\PSoC4/Servos.c ****             CY_SET_REG16(Servos_COMPARE1_LSB_PTR, compare);
+ 179              		.loc 1 561 0
+ 180 0000 014B     		ldr	r3, .L17
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 14
+
+
+ 181 0002 1880     		strh	r0, [r3]
+ 562:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UsingFixedFunction) */
+ 563:Generated_Source\PSoC4/Servos.c ****     }
+ 182              		.loc 1 563 0
+ 183              		@ sp needed
+ 184 0004 7047     		bx	lr
+ 185              	.L18:
+ 186 0006 C046     		.align	2
+ 187              	.L17:
+ 188 0008 44100F40 		.word	1074729028
+ 189              		.cfi_endproc
+ 190              	.LFE10:
+ 191              		.size	Servos_WriteCompare1, .-Servos_WriteCompare1
+ 192              		.section	.text.Servos_WriteCompare2,"ax",%progbits
+ 193              		.align	2
+ 194              		.global	Servos_WriteCompare2
+ 195              		.code	16
+ 196              		.thumb_func
+ 197              		.type	Servos_WriteCompare2, %function
+ 198              	Servos_WriteCompare2:
+ 199              	.LFB11:
+ 564:Generated_Source\PSoC4/Servos.c **** 
+ 565:Generated_Source\PSoC4/Servos.c **** 
+ 566:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 567:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_WriteCompare2
+ 568:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 569:Generated_Source\PSoC4/Servos.c ****     *
+ 570:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 571:Generated_Source\PSoC4/Servos.c ****     *  This funtion is used to change the compare value, for compare1 output.
+ 572:Generated_Source\PSoC4/Servos.c ****     *  The compare output will reflect the new value on the next UDB clock.
+ 573:Generated_Source\PSoC4/Servos.c ****     *  The compare output will be driven high when the present counter value is
+ 574:Generated_Source\PSoC4/Servos.c ****     *  less than or less than or equal to the compare register, depending on the
+ 575:Generated_Source\PSoC4/Servos.c ****     *  mode.
+ 576:Generated_Source\PSoC4/Servos.c ****     *
+ 577:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 578:Generated_Source\PSoC4/Servos.c ****     *  compare:  New compare value.
+ 579:Generated_Source\PSoC4/Servos.c ****     *
+ 580:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 581:Generated_Source\PSoC4/Servos.c ****     *  None
+ 582:Generated_Source\PSoC4/Servos.c ****     *
+ 583:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 584:Generated_Source\PSoC4/Servos.c ****     void Servos_WriteCompare2(uint16 compare) \
+ 585:Generated_Source\PSoC4/Servos.c ****                                         
+ 586:Generated_Source\PSoC4/Servos.c ****     {
+ 200              		.loc 1 586 0
+ 201              		.cfi_startproc
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204              		@ link register save eliminated.
+ 205              	.LVL3:
+ 587:Generated_Source\PSoC4/Servos.c ****         #if(Servos_UsingFixedFunction)
+ 588:Generated_Source\PSoC4/Servos.c ****             CY_SET_REG16(Servos_COMPARE2_LSB_PTR, compare);
+ 589:Generated_Source\PSoC4/Servos.c ****         #else
+ 590:Generated_Source\PSoC4/Servos.c ****             CY_SET_REG16(Servos_COMPARE2_LSB_PTR, compare);
+ 206              		.loc 1 590 0
+ 207 0000 014B     		ldr	r3, .L20
+ 208 0002 1880     		strh	r0, [r3]
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 15
+
+
+ 591:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UsingFixedFunction) */
+ 592:Generated_Source\PSoC4/Servos.c ****     }
+ 209              		.loc 1 592 0
+ 210              		@ sp needed
+ 211 0004 7047     		bx	lr
+ 212              	.L21:
+ 213 0006 C046     		.align	2
+ 214              	.L20:
+ 215 0008 64100F40 		.word	1074729060
+ 216              		.cfi_endproc
+ 217              	.LFE11:
+ 218              		.size	Servos_WriteCompare2, .-Servos_WriteCompare2
+ 219              		.section	.text.Servos_SetInterruptMode,"ax",%progbits
+ 220              		.align	2
+ 221              		.global	Servos_SetInterruptMode
+ 222              		.code	16
+ 223              		.thumb_func
+ 224              		.type	Servos_SetInterruptMode, %function
+ 225              	Servos_SetInterruptMode:
+ 226              	.LFB12:
+ 593:Generated_Source\PSoC4/Servos.c **** #endif /* UseOneCompareMode */
+ 594:Generated_Source\PSoC4/Servos.c **** 
+ 595:Generated_Source\PSoC4/Servos.c **** #if (Servos_DeadBandUsed)
+ 596:Generated_Source\PSoC4/Servos.c **** 
+ 597:Generated_Source\PSoC4/Servos.c **** 
+ 598:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 599:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_WriteDeadTime
+ 600:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 601:Generated_Source\PSoC4/Servos.c ****     *
+ 602:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 603:Generated_Source\PSoC4/Servos.c ****     *  This function writes the dead-band counts to the corresponding register
+ 604:Generated_Source\PSoC4/Servos.c ****     *
+ 605:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 606:Generated_Source\PSoC4/Servos.c ****     *  deadtime:  Number of counts for dead time
+ 607:Generated_Source\PSoC4/Servos.c ****     *
+ 608:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 609:Generated_Source\PSoC4/Servos.c ****     *  None
+ 610:Generated_Source\PSoC4/Servos.c ****     *
+ 611:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 612:Generated_Source\PSoC4/Servos.c ****     void Servos_WriteDeadTime(uint8 deadtime) 
+ 613:Generated_Source\PSoC4/Servos.c ****     {
+ 614:Generated_Source\PSoC4/Servos.c ****         /* If using the Dead Band 1-255 mode then just write the register */
+ 615:Generated_Source\PSoC4/Servos.c ****         #if(!Servos_DeadBand2_4)
+ 616:Generated_Source\PSoC4/Servos.c ****             CY_SET_REG8(Servos_DEADBAND_COUNT_PTR, deadtime);
+ 617:Generated_Source\PSoC4/Servos.c ****         #else
+ 618:Generated_Source\PSoC4/Servos.c ****             /* Otherwise the data has to be masked and offset */
+ 619:Generated_Source\PSoC4/Servos.c ****             /* Clear existing data */
+ 620:Generated_Source\PSoC4/Servos.c ****             Servos_DEADBAND_COUNT &= ((uint8)(~Servos_DEADBAND_COUNT_MASK));
+ 621:Generated_Source\PSoC4/Servos.c **** 
+ 622:Generated_Source\PSoC4/Servos.c ****             /* Set new dead time */
+ 623:Generated_Source\PSoC4/Servos.c ****             #if(Servos_DEADBAND_COUNT_SHIFT)
+ 624:Generated_Source\PSoC4/Servos.c ****                 Servos_DEADBAND_COUNT |= ((uint8)((uint8)deadtime << Servos_DEADBAND_COUNT_SHIFT)) 
+ 625:Generated_Source\PSoC4/Servos.c ****                                                     Servos_DEADBAND_COUNT_MASK;
+ 626:Generated_Source\PSoC4/Servos.c ****             #else
+ 627:Generated_Source\PSoC4/Servos.c ****                 Servos_DEADBAND_COUNT |= deadtime & Servos_DEADBAND_COUNT_MASK;
+ 628:Generated_Source\PSoC4/Servos.c ****             #endif /* (Servos_DEADBAND_COUNT_SHIFT) */
+ 629:Generated_Source\PSoC4/Servos.c **** 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 16
+
+
+ 630:Generated_Source\PSoC4/Servos.c ****         #endif /* (!Servos_DeadBand2_4) */
+ 631:Generated_Source\PSoC4/Servos.c ****     }
+ 632:Generated_Source\PSoC4/Servos.c **** 
+ 633:Generated_Source\PSoC4/Servos.c **** 
+ 634:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 635:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_ReadDeadTime
+ 636:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 637:Generated_Source\PSoC4/Servos.c ****     *
+ 638:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 639:Generated_Source\PSoC4/Servos.c ****     *  This function reads the dead-band counts from the corresponding register
+ 640:Generated_Source\PSoC4/Servos.c ****     *
+ 641:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 642:Generated_Source\PSoC4/Servos.c ****     *  None
+ 643:Generated_Source\PSoC4/Servos.c ****     *
+ 644:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 645:Generated_Source\PSoC4/Servos.c ****     *  Dead Band Counts
+ 646:Generated_Source\PSoC4/Servos.c ****     *
+ 647:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 648:Generated_Source\PSoC4/Servos.c ****     uint8 Servos_ReadDeadTime(void) 
+ 649:Generated_Source\PSoC4/Servos.c ****     {
+ 650:Generated_Source\PSoC4/Servos.c ****         /* If using the Dead Band 1-255 mode then just read the register */
+ 651:Generated_Source\PSoC4/Servos.c ****         #if(!Servos_DeadBand2_4)
+ 652:Generated_Source\PSoC4/Servos.c ****             return (CY_GET_REG8(Servos_DEADBAND_COUNT_PTR));
+ 653:Generated_Source\PSoC4/Servos.c ****         #else
+ 654:Generated_Source\PSoC4/Servos.c **** 
+ 655:Generated_Source\PSoC4/Servos.c ****             /* Otherwise the data has to be masked and offset */
+ 656:Generated_Source\PSoC4/Servos.c ****             #if(Servos_DEADBAND_COUNT_SHIFT)
+ 657:Generated_Source\PSoC4/Servos.c ****                 return ((uint8)(((uint8)(Servos_DEADBAND_COUNT & Servos_DEADBAND_COUNT_MASK)) >>
+ 658:Generated_Source\PSoC4/Servos.c ****                                                                            Servos_DEADBAND_COUNT_SH
+ 659:Generated_Source\PSoC4/Servos.c ****             #else
+ 660:Generated_Source\PSoC4/Servos.c ****                 return (Servos_DEADBAND_COUNT & Servos_DEADBAND_COUNT_MASK);
+ 661:Generated_Source\PSoC4/Servos.c ****             #endif /* (Servos_DEADBAND_COUNT_SHIFT) */
+ 662:Generated_Source\PSoC4/Servos.c ****         #endif /* (!Servos_DeadBand2_4) */
+ 663:Generated_Source\PSoC4/Servos.c ****     }
+ 664:Generated_Source\PSoC4/Servos.c **** #endif /* DeadBandUsed */
+ 665:Generated_Source\PSoC4/Servos.c **** 
+ 666:Generated_Source\PSoC4/Servos.c **** #if (Servos_UseStatus || Servos_UsingFixedFunction)
+ 667:Generated_Source\PSoC4/Servos.c **** 
+ 668:Generated_Source\PSoC4/Servos.c **** 
+ 669:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 670:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_SetInterruptMode
+ 671:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 672:Generated_Source\PSoC4/Servos.c ****     *
+ 673:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 674:Generated_Source\PSoC4/Servos.c ****     *  This function configures the interrupts mask control of theinterrupt
+ 675:Generated_Source\PSoC4/Servos.c ****     *  source status register.
+ 676:Generated_Source\PSoC4/Servos.c ****     *
+ 677:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 678:Generated_Source\PSoC4/Servos.c ****     *  uint8 interruptMode: Bit field containing the interrupt sources enabled
+ 679:Generated_Source\PSoC4/Servos.c ****     *
+ 680:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 681:Generated_Source\PSoC4/Servos.c ****     *  None
+ 682:Generated_Source\PSoC4/Servos.c ****     *
+ 683:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 684:Generated_Source\PSoC4/Servos.c ****     void Servos_SetInterruptMode(uint8 interruptMode) 
+ 685:Generated_Source\PSoC4/Servos.c ****     {
+ 227              		.loc 1 685 0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 17
+
+
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+ 232              	.LVL4:
+ 686:Generated_Source\PSoC4/Servos.c ****         CY_SET_REG8(Servos_STATUS_MASK_PTR, interruptMode);
+ 233              		.loc 1 686 0
+ 234 0000 014B     		ldr	r3, .L23
+ 235 0002 1870     		strb	r0, [r3]
+ 687:Generated_Source\PSoC4/Servos.c ****     }
+ 236              		.loc 1 687 0
+ 237              		@ sp needed
+ 238 0004 7047     		bx	lr
+ 239              	.L24:
+ 240 0006 C046     		.align	2
+ 241              	.L23:
+ 242 0008 83000F40 		.word	1074724995
+ 243              		.cfi_endproc
+ 244              	.LFE12:
+ 245              		.size	Servos_SetInterruptMode, .-Servos_SetInterruptMode
+ 246              		.section	.text.Servos_ReadStatusRegister,"ax",%progbits
+ 247              		.align	2
+ 248              		.global	Servos_ReadStatusRegister
+ 249              		.code	16
+ 250              		.thumb_func
+ 251              		.type	Servos_ReadStatusRegister, %function
+ 252              	Servos_ReadStatusRegister:
+ 253              	.LFB13:
+ 688:Generated_Source\PSoC4/Servos.c **** 
+ 689:Generated_Source\PSoC4/Servos.c **** 
+ 690:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 691:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_ReadStatusRegister
+ 692:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 693:Generated_Source\PSoC4/Servos.c ****     *
+ 694:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 695:Generated_Source\PSoC4/Servos.c ****     *  This function returns the current state of the status register.
+ 696:Generated_Source\PSoC4/Servos.c ****     *
+ 697:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 698:Generated_Source\PSoC4/Servos.c ****     *  None
+ 699:Generated_Source\PSoC4/Servos.c ****     *
+ 700:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 701:Generated_Source\PSoC4/Servos.c ****     *  uint8 : Current status register value. The status register bits are:
+ 702:Generated_Source\PSoC4/Servos.c ****     *  [7:6] : Unused(0)
+ 703:Generated_Source\PSoC4/Servos.c ****     *  [5]   : Kill event output
+ 704:Generated_Source\PSoC4/Servos.c ****     *  [4]   : FIFO not empty
+ 705:Generated_Source\PSoC4/Servos.c ****     *  [3]   : FIFO full
+ 706:Generated_Source\PSoC4/Servos.c ****     *  [2]   : Terminal count
+ 707:Generated_Source\PSoC4/Servos.c ****     *  [1]   : Compare output 2
+ 708:Generated_Source\PSoC4/Servos.c ****     *  [0]   : Compare output 1
+ 709:Generated_Source\PSoC4/Servos.c ****     *
+ 710:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 711:Generated_Source\PSoC4/Servos.c ****     uint8 Servos_ReadStatusRegister(void) 
+ 712:Generated_Source\PSoC4/Servos.c ****     {
+ 254              		.loc 1 712 0
+ 255              		.cfi_startproc
+ 256              		@ args = 0, pretend = 0, frame = 0
+ 257              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 18
+
+
+ 258              		@ link register save eliminated.
+ 713:Generated_Source\PSoC4/Servos.c ****         return (CY_GET_REG8(Servos_STATUS_PTR));
+ 259              		.loc 1 713 0
+ 260 0000 014B     		ldr	r3, .L26
+ 261 0002 1878     		ldrb	r0, [r3]
+ 262 0004 C0B2     		uxtb	r0, r0
+ 714:Generated_Source\PSoC4/Servos.c ****     }
+ 263              		.loc 1 714 0
+ 264              		@ sp needed
+ 265 0006 7047     		bx	lr
+ 266              	.L27:
+ 267              		.align	2
+ 268              	.L26:
+ 269 0008 63000F40 		.word	1074724963
+ 270              		.cfi_endproc
+ 271              	.LFE13:
+ 272              		.size	Servos_ReadStatusRegister, .-Servos_ReadStatusRegister
+ 273              		.section	.text.Servos_ReadControlRegister,"ax",%progbits
+ 274              		.align	2
+ 275              		.global	Servos_ReadControlRegister
+ 276              		.code	16
+ 277              		.thumb_func
+ 278              		.type	Servos_ReadControlRegister, %function
+ 279              	Servos_ReadControlRegister:
+ 280              	.LFB14:
+ 715:Generated_Source\PSoC4/Servos.c **** 
+ 716:Generated_Source\PSoC4/Servos.c **** #endif /* (Servos_UseStatus || Servos_UsingFixedFunction) */
+ 717:Generated_Source\PSoC4/Servos.c **** 
+ 718:Generated_Source\PSoC4/Servos.c **** 
+ 719:Generated_Source\PSoC4/Servos.c **** #if (Servos_UseControl)
+ 720:Generated_Source\PSoC4/Servos.c **** 
+ 721:Generated_Source\PSoC4/Servos.c **** 
+ 722:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 723:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_ReadControlRegister
+ 724:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 725:Generated_Source\PSoC4/Servos.c ****     *
+ 726:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 727:Generated_Source\PSoC4/Servos.c ****     *  Returns the current state of the control register. This API is available
+ 728:Generated_Source\PSoC4/Servos.c ****     *  only if the control register is not removed.
+ 729:Generated_Source\PSoC4/Servos.c ****     *
+ 730:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 731:Generated_Source\PSoC4/Servos.c ****     *  None
+ 732:Generated_Source\PSoC4/Servos.c ****     *
+ 733:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 734:Generated_Source\PSoC4/Servos.c ****     *  uint8 : Current control register value
+ 735:Generated_Source\PSoC4/Servos.c ****     *
+ 736:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 737:Generated_Source\PSoC4/Servos.c ****     uint8 Servos_ReadControlRegister(void) 
+ 738:Generated_Source\PSoC4/Servos.c ****     {
+ 281              		.loc 1 738 0
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285              		@ link register save eliminated.
+ 739:Generated_Source\PSoC4/Servos.c ****         uint8 result;
+ 740:Generated_Source\PSoC4/Servos.c **** 
+ 741:Generated_Source\PSoC4/Servos.c ****         result = CY_GET_REG8(Servos_CONTROL_PTR);
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 19
+
+
+ 286              		.loc 1 741 0
+ 287 0000 014B     		ldr	r3, .L29
+ 288 0002 1878     		ldrb	r0, [r3]
+ 289 0004 C0B2     		uxtb	r0, r0
+ 290              	.LVL5:
+ 742:Generated_Source\PSoC4/Servos.c ****         return (result);
+ 743:Generated_Source\PSoC4/Servos.c ****     }
+ 291              		.loc 1 743 0
+ 292              		@ sp needed
+ 293 0006 7047     		bx	lr
+ 294              	.L30:
+ 295              		.align	2
+ 296              	.L29:
+ 297 0008 73000F40 		.word	1074724979
+ 298              		.cfi_endproc
+ 299              	.LFE14:
+ 300              		.size	Servos_ReadControlRegister, .-Servos_ReadControlRegister
+ 301              		.section	.text.Servos_WriteControlRegister,"ax",%progbits
+ 302              		.align	2
+ 303              		.global	Servos_WriteControlRegister
+ 304              		.code	16
+ 305              		.thumb_func
+ 306              		.type	Servos_WriteControlRegister, %function
+ 307              	Servos_WriteControlRegister:
+ 308              	.LFB15:
+ 744:Generated_Source\PSoC4/Servos.c **** 
+ 745:Generated_Source\PSoC4/Servos.c **** 
+ 746:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 747:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_WriteControlRegister
+ 748:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 749:Generated_Source\PSoC4/Servos.c ****     *
+ 750:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 751:Generated_Source\PSoC4/Servos.c ****     *  Sets the bit field of the control register. This API is available only if
+ 752:Generated_Source\PSoC4/Servos.c ****     *  the control register is not removed.
+ 753:Generated_Source\PSoC4/Servos.c ****     *
+ 754:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 755:Generated_Source\PSoC4/Servos.c ****     *  uint8 control: Control register bit field, The status register bits are:
+ 756:Generated_Source\PSoC4/Servos.c ****     *  [7]   : PWM Enable
+ 757:Generated_Source\PSoC4/Servos.c ****     *  [6]   : Reset
+ 758:Generated_Source\PSoC4/Servos.c ****     *  [5:3] : Compare Mode2
+ 759:Generated_Source\PSoC4/Servos.c ****     *  [2:0] : Compare Mode2
+ 760:Generated_Source\PSoC4/Servos.c ****     *
+ 761:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 762:Generated_Source\PSoC4/Servos.c ****     *  None
+ 763:Generated_Source\PSoC4/Servos.c ****     *
+ 764:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 765:Generated_Source\PSoC4/Servos.c ****     void Servos_WriteControlRegister(uint8 control) 
+ 766:Generated_Source\PSoC4/Servos.c ****     {
+ 309              		.loc 1 766 0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 0
+ 312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313              		@ link register save eliminated.
+ 314              	.LVL6:
+ 767:Generated_Source\PSoC4/Servos.c ****         CY_SET_REG8(Servos_CONTROL_PTR, control);
+ 315              		.loc 1 767 0
+ 316 0000 014B     		ldr	r3, .L32
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 20
+
+
+ 317 0002 1870     		strb	r0, [r3]
+ 768:Generated_Source\PSoC4/Servos.c ****     }
+ 318              		.loc 1 768 0
+ 319              		@ sp needed
+ 320 0004 7047     		bx	lr
+ 321              	.L33:
+ 322 0006 C046     		.align	2
+ 323              	.L32:
+ 324 0008 73000F40 		.word	1074724979
+ 325              		.cfi_endproc
+ 326              	.LFE15:
+ 327              		.size	Servos_WriteControlRegister, .-Servos_WriteControlRegister
+ 328              		.section	.text.Servos_ReadCapture,"ax",%progbits
+ 329              		.align	2
+ 330              		.global	Servos_ReadCapture
+ 331              		.code	16
+ 332              		.thumb_func
+ 333              		.type	Servos_ReadCapture, %function
+ 334              	Servos_ReadCapture:
+ 335              	.LFB16:
+ 769:Generated_Source\PSoC4/Servos.c **** 
+ 770:Generated_Source\PSoC4/Servos.c **** #endif /* (Servos_UseControl) */
+ 771:Generated_Source\PSoC4/Servos.c **** 
+ 772:Generated_Source\PSoC4/Servos.c **** 
+ 773:Generated_Source\PSoC4/Servos.c **** #if (!Servos_UsingFixedFunction)
+ 774:Generated_Source\PSoC4/Servos.c **** 
+ 775:Generated_Source\PSoC4/Servos.c **** 
+ 776:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 777:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_ReadCapture
+ 778:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 779:Generated_Source\PSoC4/Servos.c ****     *
+ 780:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 781:Generated_Source\PSoC4/Servos.c ****     *  Reads the capture value from the capture FIFO.
+ 782:Generated_Source\PSoC4/Servos.c ****     *
+ 783:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 784:Generated_Source\PSoC4/Servos.c ****     *  None
+ 785:Generated_Source\PSoC4/Servos.c ****     *
+ 786:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 787:Generated_Source\PSoC4/Servos.c ****     *  uint8/uint16: The current capture value
+ 788:Generated_Source\PSoC4/Servos.c ****     *
+ 789:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 790:Generated_Source\PSoC4/Servos.c ****     uint16 Servos_ReadCapture(void) 
+ 791:Generated_Source\PSoC4/Servos.c ****     {
+ 336              		.loc 1 791 0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              		@ link register save eliminated.
+ 792:Generated_Source\PSoC4/Servos.c ****         return (CY_GET_REG16(Servos_CAPTURE_LSB_PTR));
+ 341              		.loc 1 792 0
+ 342 0000 014B     		ldr	r3, .L35
+ 343 0002 1888     		ldrh	r0, [r3]
+ 344 0004 80B2     		uxth	r0, r0
+ 793:Generated_Source\PSoC4/Servos.c ****     }
+ 345              		.loc 1 793 0
+ 346              		@ sp needed
+ 347 0006 7047     		bx	lr
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 21
+
+
+ 348              	.L36:
+ 349              		.align	2
+ 350              	.L35:
+ 351 0008 A4100F40 		.word	1074729124
+ 352              		.cfi_endproc
+ 353              	.LFE16:
+ 354              		.size	Servos_ReadCapture, .-Servos_ReadCapture
+ 355              		.section	.text.Servos_ClearFIFO,"ax",%progbits
+ 356              		.align	2
+ 357              		.global	Servos_ClearFIFO
+ 358              		.code	16
+ 359              		.thumb_func
+ 360              		.type	Servos_ClearFIFO, %function
+ 361              	Servos_ClearFIFO:
+ 362              	.LFB8:
+ 454:Generated_Source\PSoC4/Servos.c ****             while(0u != (Servos_ReadStatusRegister() & Servos_STATUS_FIFONEMPTY))
+ 363              		.loc 1 454 0
+ 364              		.cfi_startproc
+ 365              		@ args = 0, pretend = 0, frame = 0
+ 366              		@ frame_needed = 0, uses_anonymous_args = 0
+ 367 0000 10B5     		push	{r4, lr}
+ 368              		.cfi_def_cfa_offset 8
+ 369              		.cfi_offset 4, -8
+ 370              		.cfi_offset 14, -4
+ 455:Generated_Source\PSoC4/Servos.c ****             {
+ 371              		.loc 1 455 0
+ 372 0002 01E0     		b	.L38
+ 373              	.L39:
+ 457:Generated_Source\PSoC4/Servos.c ****             }
+ 374              		.loc 1 457 0
+ 375 0004 FFF7FEFF 		bl	Servos_ReadCapture
+ 376              	.LVL7:
+ 377              	.L38:
+ 455:Generated_Source\PSoC4/Servos.c ****             {
+ 378              		.loc 1 455 0
+ 379 0008 FFF7FEFF 		bl	Servos_ReadStatusRegister
+ 380              	.LVL8:
+ 381 000c C306     		lsls	r3, r0, #27
+ 382 000e F9D4     		bmi	.L39
+ 459:Generated_Source\PSoC4/Servos.c **** 
+ 383              		.loc 1 459 0
+ 384              		@ sp needed
+ 385 0010 10BD     		pop	{r4, pc}
+ 386              		.cfi_endproc
+ 387              	.LFE8:
+ 388              		.size	Servos_ClearFIFO, .-Servos_ClearFIFO
+ 389 0012 C046     		.section	.text.Servos_Init,"ax",%progbits
+ 390              		.align	2
+ 391              		.global	Servos_Init
+ 392              		.code	16
+ 393              		.thumb_func
+ 394              		.type	Servos_Init, %function
+ 395              	Servos_Init:
+ 396              	.LFB3:
+  85:Generated_Source\PSoC4/Servos.c ****     #if (Servos_UsingFixedFunction || Servos_UseControl)
+ 397              		.loc 1 85 0
+ 398              		.cfi_startproc
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 22
+
+
+ 399              		@ args = 0, pretend = 0, frame = 0
+ 400              		@ frame_needed = 0, uses_anonymous_args = 0
+ 401 0000 70B5     		push	{r4, r5, r6, lr}
+ 402              		.cfi_def_cfa_offset 16
+ 403              		.cfi_offset 4, -16
+ 404              		.cfi_offset 5, -12
+ 405              		.cfi_offset 6, -8
+ 406              		.cfi_offset 14, -4
+ 117:Generated_Source\PSoC4/Servos.c ****                 ((uint8)(~Servos_CTRL_CMPMODE1_MASK));
+ 407              		.loc 1 117 0
+ 408 0002 1749     		ldr	r1, .L41
+ 409 0004 0B78     		ldrb	r3, [r1]
+ 410 0006 3F22     		movs	r2, #63
+ 411 0008 9343     		bics	r3, r2
+ 412              	.LVL9:
+ 119:Generated_Source\PSoC4/Servos.c ****                                    Servos_DEFAULT_COMPARE1_MODE;
+ 413              		.loc 1 119 0
+ 414 000a 0922     		movs	r2, #9
+ 415 000c 1343     		orrs	r3, r2
+ 416              	.LVL10:
+ 417 000e DBB2     		uxtb	r3, r3
+ 418 0010 0B70     		strb	r3, [r1]
+ 129:Generated_Source\PSoC4/Servos.c ****             Servos_AUX_CONTROLDP1 |= (Servos_AUX_CTRL_FIFO0_CLR);
+ 419              		.loc 1 129 0
+ 420 0012 1449     		ldr	r1, .L41+4
+ 421 0014 0A78     		ldrb	r2, [r1]
+ 422 0016 0123     		movs	r3, #1
+ 423 0018 1A43     		orrs	r2, r3
+ 424 001a D2B2     		uxtb	r2, r2
+ 425 001c 0A70     		strb	r2, [r1]
+ 130:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_Resolution == 8) */
+ 426              		.loc 1 130 0
+ 427 001e 124C     		ldr	r4, .L41+8
+ 428 0020 2278     		ldrb	r2, [r4]
+ 429 0022 1343     		orrs	r3, r2
+ 430 0024 DBB2     		uxtb	r3, r3
+ 431 0026 2370     		strb	r3, [r4]
+ 133:Generated_Source\PSoC4/Servos.c ****     #endif /* (!Servos_UsingFixedFunction) */
+ 432              		.loc 1 133 0
+ 433 0028 104D     		ldr	r5, .L41+12
+ 434 002a 2800     		movs	r0, r5
+ 435 002c FFF7FEFF 		bl	Servos_WriteCounter
+ 436              	.LVL11:
+ 136:Generated_Source\PSoC4/Servos.c **** 
+ 437              		.loc 1 136 0
+ 438 0030 2800     		movs	r0, r5
+ 439 0032 FFF7FEFF 		bl	Servos_WritePeriod
+ 440              	.LVL12:
+ 141:Generated_Source\PSoC4/Servos.c ****             Servos_WriteCompare2(Servos_INIT_COMPARE_VALUE2);
+ 441              		.loc 1 141 0
+ 442 0036 0020     		movs	r0, #0
+ 443 0038 FFF7FEFF 		bl	Servos_WriteCompare1
+ 444              	.LVL13:
+ 142:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UseOneCompareMode) */
+ 445              		.loc 1 142 0
+ 446 003c 0020     		movs	r0, #0
+ 447 003e FFF7FEFF 		bl	Servos_WriteCompare2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 23
+
+
+ 448              	.LVL14:
+ 154:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UseStatus || Servos_UsingFixedFunction) */
+ 449              		.loc 1 154 0
+ 450 0042 0020     		movs	r0, #0
+ 451 0044 FFF7FEFF 		bl	Servos_SetInterruptMode
+ 452              	.LVL15:
+ 167:Generated_Source\PSoC4/Servos.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 453              		.loc 1 167 0
+ 454 0048 FFF7FEFF 		bl	CyEnterCriticalSection
+ 455              	.LVL16:
+ 169:Generated_Source\PSoC4/Servos.c **** 
+ 456              		.loc 1 169 0
+ 457 004c 2278     		ldrb	r2, [r4]
+ 458 004e 1023     		movs	r3, #16
+ 459 0050 1343     		orrs	r3, r2
+ 460 0052 DBB2     		uxtb	r3, r3
+ 461 0054 2370     		strb	r3, [r4]
+ 172:Generated_Source\PSoC4/Servos.c **** 
+ 462              		.loc 1 172 0
+ 463 0056 FFF7FEFF 		bl	CyExitCriticalSection
+ 464              	.LVL17:
+ 176:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UseStatus) */
+ 465              		.loc 1 176 0
+ 466 005a FFF7FEFF 		bl	Servos_ClearFIFO
+ 467              	.LVL18:
+ 179:Generated_Source\PSoC4/Servos.c **** 
+ 468              		.loc 1 179 0
+ 469              		@ sp needed
+ 470 005e 70BD     		pop	{r4, r5, r6, pc}
+ 471              	.L42:
+ 472              		.align	2
+ 473              	.L41:
+ 474 0060 73000F40 		.word	1074724979
+ 475 0064 92000F40 		.word	1074725010
+ 476 0068 93000F40 		.word	1074725011
+ 477 006c 60EA0000 		.word	60000
+ 478              		.cfi_endproc
+ 479              	.LFE3:
+ 480              		.size	Servos_Init, .-Servos_Init
+ 481              		.section	.text.Servos_Start,"ax",%progbits
+ 482              		.align	2
+ 483              		.global	Servos_Start
+ 484              		.code	16
+ 485              		.thumb_func
+ 486              		.type	Servos_Start, %function
+ 487              	Servos_Start:
+ 488              	.LFB2:
+  56:Generated_Source\PSoC4/Servos.c ****     /* If not Initialized then initialize all required hardware and software */
+ 489              		.loc 1 56 0
+ 490              		.cfi_startproc
+ 491              		@ args = 0, pretend = 0, frame = 0
+ 492              		@ frame_needed = 0, uses_anonymous_args = 0
+ 493 0000 10B5     		push	{r4, lr}
+ 494              		.cfi_def_cfa_offset 8
+ 495              		.cfi_offset 4, -8
+ 496              		.cfi_offset 14, -4
+  58:Generated_Source\PSoC4/Servos.c ****     {
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 24
+
+
+ 497              		.loc 1 58 0
+ 498 0002 064B     		ldr	r3, .L45
+ 499 0004 1B78     		ldrb	r3, [r3]
+ 500 0006 002B     		cmp	r3, #0
+ 501 0008 04D1     		bne	.L44
+  60:Generated_Source\PSoC4/Servos.c ****         Servos_initVar = 1u;
+ 502              		.loc 1 60 0
+ 503 000a FFF7FEFF 		bl	Servos_Init
+ 504              	.LVL19:
+  61:Generated_Source\PSoC4/Servos.c ****     }
+ 505              		.loc 1 61 0
+ 506 000e 0122     		movs	r2, #1
+ 507 0010 024B     		ldr	r3, .L45
+ 508 0012 1A70     		strb	r2, [r3]
+ 509              	.L44:
+  63:Generated_Source\PSoC4/Servos.c **** 
+ 510              		.loc 1 63 0
+ 511 0014 FFF7FEFF 		bl	Servos_Enable
+ 512              	.LVL20:
+  65:Generated_Source\PSoC4/Servos.c **** 
+ 513              		.loc 1 65 0
+ 514              		@ sp needed
+ 515 0018 10BD     		pop	{r4, pc}
+ 516              	.L46:
+ 517 001a C046     		.align	2
+ 518              	.L45:
+ 519 001c 00000000 		.word	.LANCHOR0
+ 520              		.cfi_endproc
+ 521              	.LFE2:
+ 522              		.size	Servos_Start, .-Servos_Start
+ 523              		.section	.text.Servos_ReadCompare1,"ax",%progbits
+ 524              		.align	2
+ 525              		.global	Servos_ReadCompare1
+ 526              		.code	16
+ 527              		.thumb_func
+ 528              		.type	Servos_ReadCompare1, %function
+ 529              	Servos_ReadCompare1:
+ 530              	.LFB17:
+ 794:Generated_Source\PSoC4/Servos.c **** 
+ 795:Generated_Source\PSoC4/Servos.c **** #endif /* (!Servos_UsingFixedFunction) */
+ 796:Generated_Source\PSoC4/Servos.c **** 
+ 797:Generated_Source\PSoC4/Servos.c **** 
+ 798:Generated_Source\PSoC4/Servos.c **** #if (Servos_UseOneCompareMode)
+ 799:Generated_Source\PSoC4/Servos.c **** 
+ 800:Generated_Source\PSoC4/Servos.c **** 
+ 801:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 802:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_ReadCompare
+ 803:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 804:Generated_Source\PSoC4/Servos.c ****     *
+ 805:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 806:Generated_Source\PSoC4/Servos.c ****     *  Reads the compare value for the compare output when the PWM Mode parameter is
+ 807:Generated_Source\PSoC4/Servos.c ****     *  set to Dither mode, Center Aligned mode, or One Output mode.
+ 808:Generated_Source\PSoC4/Servos.c ****     *
+ 809:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 810:Generated_Source\PSoC4/Servos.c ****     *  None
+ 811:Generated_Source\PSoC4/Servos.c ****     *
+ 812:Generated_Source\PSoC4/Servos.c ****     * Return:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 25
+
+
+ 813:Generated_Source\PSoC4/Servos.c ****     *  uint8/uint16: Current compare value
+ 814:Generated_Source\PSoC4/Servos.c ****     *
+ 815:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 816:Generated_Source\PSoC4/Servos.c ****     uint16 Servos_ReadCompare(void) 
+ 817:Generated_Source\PSoC4/Servos.c ****     {
+ 818:Generated_Source\PSoC4/Servos.c ****         #if(Servos_UsingFixedFunction)
+ 819:Generated_Source\PSoC4/Servos.c ****             return ((uint16)CY_GET_REG16(Servos_COMPARE1_LSB_PTR));
+ 820:Generated_Source\PSoC4/Servos.c ****         #else
+ 821:Generated_Source\PSoC4/Servos.c ****             return (CY_GET_REG16(Servos_COMPARE1_LSB_PTR));
+ 822:Generated_Source\PSoC4/Servos.c ****         #endif /* (Servos_UsingFixedFunction) */
+ 823:Generated_Source\PSoC4/Servos.c ****     }
+ 824:Generated_Source\PSoC4/Servos.c **** 
+ 825:Generated_Source\PSoC4/Servos.c **** #else
+ 826:Generated_Source\PSoC4/Servos.c **** 
+ 827:Generated_Source\PSoC4/Servos.c **** 
+ 828:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 829:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_ReadCompare1
+ 830:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 831:Generated_Source\PSoC4/Servos.c ****     *
+ 832:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 833:Generated_Source\PSoC4/Servos.c ****     *  Reads the compare value for the compare1 output.
+ 834:Generated_Source\PSoC4/Servos.c ****     *
+ 835:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 836:Generated_Source\PSoC4/Servos.c ****     *  None
+ 837:Generated_Source\PSoC4/Servos.c ****     *
+ 838:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 839:Generated_Source\PSoC4/Servos.c ****     *  uint8/uint16: Current compare value.
+ 840:Generated_Source\PSoC4/Servos.c ****     *
+ 841:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 842:Generated_Source\PSoC4/Servos.c ****     uint16 Servos_ReadCompare1(void) 
+ 843:Generated_Source\PSoC4/Servos.c ****     {
+ 531              		.loc 1 843 0
+ 532              		.cfi_startproc
+ 533              		@ args = 0, pretend = 0, frame = 0
+ 534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 535              		@ link register save eliminated.
+ 844:Generated_Source\PSoC4/Servos.c ****         return (CY_GET_REG16(Servos_COMPARE1_LSB_PTR));
+ 536              		.loc 1 844 0
+ 537 0000 014B     		ldr	r3, .L48
+ 538 0002 1888     		ldrh	r0, [r3]
+ 539 0004 80B2     		uxth	r0, r0
+ 845:Generated_Source\PSoC4/Servos.c ****     }
+ 540              		.loc 1 845 0
+ 541              		@ sp needed
+ 542 0006 7047     		bx	lr
+ 543              	.L49:
+ 544              		.align	2
+ 545              	.L48:
+ 546 0008 44100F40 		.word	1074729028
+ 547              		.cfi_endproc
+ 548              	.LFE17:
+ 549              		.size	Servos_ReadCompare1, .-Servos_ReadCompare1
+ 550              		.section	.text.Servos_ReadCompare2,"ax",%progbits
+ 551              		.align	2
+ 552              		.global	Servos_ReadCompare2
+ 553              		.code	16
+ 554              		.thumb_func
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 26
+
+
+ 555              		.type	Servos_ReadCompare2, %function
+ 556              	Servos_ReadCompare2:
+ 557              	.LFB18:
+ 846:Generated_Source\PSoC4/Servos.c **** 
+ 847:Generated_Source\PSoC4/Servos.c **** 
+ 848:Generated_Source\PSoC4/Servos.c ****     /*******************************************************************************
+ 849:Generated_Source\PSoC4/Servos.c ****     * Function Name: Servos_ReadCompare2
+ 850:Generated_Source\PSoC4/Servos.c ****     ********************************************************************************
+ 851:Generated_Source\PSoC4/Servos.c ****     *
+ 852:Generated_Source\PSoC4/Servos.c ****     * Summary:
+ 853:Generated_Source\PSoC4/Servos.c ****     *  Reads the compare value for the compare2 output.
+ 854:Generated_Source\PSoC4/Servos.c ****     *
+ 855:Generated_Source\PSoC4/Servos.c ****     * Parameters:
+ 856:Generated_Source\PSoC4/Servos.c ****     *  None
+ 857:Generated_Source\PSoC4/Servos.c ****     *
+ 858:Generated_Source\PSoC4/Servos.c ****     * Return:
+ 859:Generated_Source\PSoC4/Servos.c ****     *  uint8/uint16: Current compare value.
+ 860:Generated_Source\PSoC4/Servos.c ****     *
+ 861:Generated_Source\PSoC4/Servos.c ****     *******************************************************************************/
+ 862:Generated_Source\PSoC4/Servos.c ****     uint16 Servos_ReadCompare2(void) 
+ 863:Generated_Source\PSoC4/Servos.c ****     {
+ 558              		.loc 1 863 0
+ 559              		.cfi_startproc
+ 560              		@ args = 0, pretend = 0, frame = 0
+ 561              		@ frame_needed = 0, uses_anonymous_args = 0
+ 562              		@ link register save eliminated.
+ 864:Generated_Source\PSoC4/Servos.c ****         return (CY_GET_REG16(Servos_COMPARE2_LSB_PTR));
+ 563              		.loc 1 864 0
+ 564 0000 014B     		ldr	r3, .L51
+ 565 0002 1888     		ldrh	r0, [r3]
+ 566 0004 80B2     		uxth	r0, r0
+ 865:Generated_Source\PSoC4/Servos.c ****     }
+ 567              		.loc 1 865 0
+ 568              		@ sp needed
+ 569 0006 7047     		bx	lr
+ 570              	.L52:
+ 571              		.align	2
+ 572              	.L51:
+ 573 0008 64100F40 		.word	1074729060
+ 574              		.cfi_endproc
+ 575              	.LFE18:
+ 576              		.size	Servos_ReadCompare2, .-Servos_ReadCompare2
+ 577              		.section	.text.Servos_ReadPeriod,"ax",%progbits
+ 578              		.align	2
+ 579              		.global	Servos_ReadPeriod
+ 580              		.code	16
+ 581              		.thumb_func
+ 582              		.type	Servos_ReadPeriod, %function
+ 583              	Servos_ReadPeriod:
+ 584              	.LFB19:
+ 866:Generated_Source\PSoC4/Servos.c **** 
+ 867:Generated_Source\PSoC4/Servos.c **** #endif /* (Servos_UseOneCompareMode) */
+ 868:Generated_Source\PSoC4/Servos.c **** 
+ 869:Generated_Source\PSoC4/Servos.c **** 
+ 870:Generated_Source\PSoC4/Servos.c **** /*******************************************************************************
+ 871:Generated_Source\PSoC4/Servos.c **** * Function Name: Servos_ReadPeriod
+ 872:Generated_Source\PSoC4/Servos.c **** ********************************************************************************
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 27
+
+
+ 873:Generated_Source\PSoC4/Servos.c **** *
+ 874:Generated_Source\PSoC4/Servos.c **** * Summary:
+ 875:Generated_Source\PSoC4/Servos.c **** *  Reads the period value used by the PWM hardware.
+ 876:Generated_Source\PSoC4/Servos.c **** *
+ 877:Generated_Source\PSoC4/Servos.c **** * Parameters:
+ 878:Generated_Source\PSoC4/Servos.c **** *  None
+ 879:Generated_Source\PSoC4/Servos.c **** *
+ 880:Generated_Source\PSoC4/Servos.c **** * Return:
+ 881:Generated_Source\PSoC4/Servos.c **** *  uint8/16: Period value
+ 882:Generated_Source\PSoC4/Servos.c **** *
+ 883:Generated_Source\PSoC4/Servos.c **** *******************************************************************************/
+ 884:Generated_Source\PSoC4/Servos.c **** uint16 Servos_ReadPeriod(void) 
+ 885:Generated_Source\PSoC4/Servos.c **** {
+ 585              		.loc 1 885 0
+ 586              		.cfi_startproc
+ 587              		@ args = 0, pretend = 0, frame = 0
+ 588              		@ frame_needed = 0, uses_anonymous_args = 0
+ 589              		@ link register save eliminated.
+ 886:Generated_Source\PSoC4/Servos.c ****     #if(Servos_UsingFixedFunction)
+ 887:Generated_Source\PSoC4/Servos.c ****         return ((uint16)CY_GET_REG16(Servos_PERIOD_LSB_PTR));
+ 888:Generated_Source\PSoC4/Servos.c ****     #else
+ 889:Generated_Source\PSoC4/Servos.c ****         return (CY_GET_REG16(Servos_PERIOD_LSB_PTR));
+ 590              		.loc 1 889 0
+ 591 0000 014B     		ldr	r3, .L54
+ 592 0002 1888     		ldrh	r0, [r3]
+ 593 0004 80B2     		uxth	r0, r0
+ 890:Generated_Source\PSoC4/Servos.c ****     #endif /* (Servos_UsingFixedFunction) */
+ 891:Generated_Source\PSoC4/Servos.c **** }
+ 594              		.loc 1 891 0
+ 595              		@ sp needed
+ 596 0006 7047     		bx	lr
+ 597              	.L55:
+ 598              		.align	2
+ 599              	.L54:
+ 600 0008 84100F40 		.word	1074729092
+ 601              		.cfi_endproc
+ 602              	.LFE19:
+ 603              		.size	Servos_ReadPeriod, .-Servos_ReadPeriod
+ 604              		.global	Servos_initVar
+ 605              		.bss
+ 606              		.set	.LANCHOR0,. + 0
+ 607              		.type	Servos_initVar, %object
+ 608              		.size	Servos_initVar, 1
+ 609              	Servos_initVar:
+ 610 0000 00       		.space	1
+ 611              		.text
+ 612              	.Letext0:
+ 613              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 614              		.file 3 "Generated_Source\\PSoC4\\CyLib.h"
+ 615              		.section	.debug_info,"",%progbits
+ 616              	.Ldebug_info0:
+ 617 0000 9A030000 		.4byte	0x39a
+ 618 0004 0400     		.2byte	0x4
+ 619 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 620 000a 04       		.byte	0x4
+ 621 000b 01       		.uleb128 0x1
+ 622 000c ED010000 		.4byte	.LASF45
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 28
+
+
+ 623 0010 0C       		.byte	0xc
+ 624 0011 AD020000 		.4byte	.LASF46
+ 625 0015 94000000 		.4byte	.LASF47
+ 626 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 627 001d 00000000 		.4byte	0
+ 628 0021 00000000 		.4byte	.Ldebug_line0
+ 629 0025 02       		.uleb128 0x2
+ 630 0026 01       		.byte	0x1
+ 631 0027 06       		.byte	0x6
+ 632 0028 50030000 		.4byte	.LASF0
+ 633 002c 02       		.uleb128 0x2
+ 634 002d 01       		.byte	0x1
+ 635 002e 08       		.byte	0x8
+ 636 002f 57010000 		.4byte	.LASF1
+ 637 0033 02       		.uleb128 0x2
+ 638 0034 02       		.byte	0x2
+ 639 0035 05       		.byte	0x5
+ 640 0036 EE020000 		.4byte	.LASF2
+ 641 003a 02       		.uleb128 0x2
+ 642 003b 02       		.byte	0x2
+ 643 003c 07       		.byte	0x7
+ 644 003d 42000000 		.4byte	.LASF3
+ 645 0041 02       		.uleb128 0x2
+ 646 0042 04       		.byte	0x4
+ 647 0043 05       		.byte	0x5
+ 648 0044 28030000 		.4byte	.LASF4
+ 649 0048 02       		.uleb128 0x2
+ 650 0049 04       		.byte	0x4
+ 651 004a 07       		.byte	0x7
+ 652 004b F4000000 		.4byte	.LASF5
+ 653 004f 02       		.uleb128 0x2
+ 654 0050 08       		.byte	0x8
+ 655 0051 05       		.byte	0x5
+ 656 0052 9F020000 		.4byte	.LASF6
+ 657 0056 02       		.uleb128 0x2
+ 658 0057 08       		.byte	0x8
+ 659 0058 07       		.byte	0x7
+ 660 0059 7D000000 		.4byte	.LASF7
+ 661 005d 03       		.uleb128 0x3
+ 662 005e 04       		.byte	0x4
+ 663 005f 05       		.byte	0x5
+ 664 0060 696E7400 		.ascii	"int\000"
+ 665 0064 02       		.uleb128 0x2
+ 666 0065 04       		.byte	0x4
+ 667 0066 07       		.byte	0x7
+ 668 0067 B8010000 		.4byte	.LASF8
+ 669 006b 04       		.uleb128 0x4
+ 670 006c 22010000 		.4byte	.LASF9
+ 671 0070 02       		.byte	0x2
+ 672 0071 D201     		.2byte	0x1d2
+ 673 0073 2C000000 		.4byte	0x2c
+ 674 0077 04       		.uleb128 0x4
+ 675 0078 7F010000 		.4byte	.LASF10
+ 676 007c 02       		.byte	0x2
+ 677 007d D301     		.2byte	0x1d3
+ 678 007f 3A000000 		.4byte	0x3a
+ 679 0083 02       		.uleb128 0x2
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 29
+
+
+ 680 0084 04       		.byte	0x4
+ 681 0085 04       		.byte	0x4
+ 682 0086 6F000000 		.4byte	.LASF11
+ 683 008a 02       		.uleb128 0x2
+ 684 008b 08       		.byte	0x8
+ 685 008c 04       		.byte	0x4
+ 686 008d 65010000 		.4byte	.LASF12
+ 687 0091 02       		.uleb128 0x2
+ 688 0092 01       		.byte	0x1
+ 689 0093 08       		.byte	0x8
+ 690 0094 31030000 		.4byte	.LASF13
+ 691 0098 04       		.uleb128 0x4
+ 692 0099 E3000000 		.4byte	.LASF14
+ 693 009d 02       		.byte	0x2
+ 694 009e 7C02     		.2byte	0x27c
+ 695 00a0 A4000000 		.4byte	0xa4
+ 696 00a4 05       		.uleb128 0x5
+ 697 00a5 6B000000 		.4byte	0x6b
+ 698 00a9 04       		.uleb128 0x4
+ 699 00aa F8020000 		.4byte	.LASF15
+ 700 00ae 02       		.byte	0x2
+ 701 00af 7D02     		.2byte	0x27d
+ 702 00b1 B5000000 		.4byte	0xb5
+ 703 00b5 05       		.uleb128 0x5
+ 704 00b6 77000000 		.4byte	0x77
+ 705 00ba 02       		.uleb128 0x2
+ 706 00bb 08       		.byte	0x8
+ 707 00bc 04       		.byte	0x4
+ 708 00bd 36030000 		.4byte	.LASF16
+ 709 00c1 02       		.uleb128 0x2
+ 710 00c2 04       		.byte	0x4
+ 711 00c3 07       		.byte	0x7
+ 712 00c4 96020000 		.4byte	.LASF17
+ 713 00c8 06       		.uleb128 0x6
+ 714 00c9 42030000 		.4byte	.LASF18
+ 715 00cd 01       		.byte	0x1
+ 716 00ce C7       		.byte	0xc7
+ 717 00cf 00000000 		.4byte	.LFB4
+ 718 00d3 14000000 		.4byte	.LFE4-.LFB4
+ 719 00d7 01       		.uleb128 0x1
+ 720 00d8 9C       		.byte	0x9c
+ 721 00d9 06       		.uleb128 0x6
+ 722 00da 2F000000 		.4byte	.LASF19
+ 723 00de 01       		.byte	0x1
+ 724 00df E9       		.byte	0xe9
+ 725 00e0 00000000 		.4byte	.LFB5
+ 726 00e4 10000000 		.4byte	.LFE5-.LFB5
+ 727 00e8 01       		.uleb128 0x1
+ 728 00e9 9C       		.byte	0x9c
+ 729 00ea 07       		.uleb128 0x7
+ 730 00eb 64030000 		.4byte	.LASF20
+ 731 00ef 01       		.byte	0x1
+ 732 00f0 9301     		.2byte	0x193
+ 733 00f2 00000000 		.4byte	.LFB6
+ 734 00f6 0C000000 		.4byte	.LFE6-.LFB6
+ 735 00fa 01       		.uleb128 0x1
+ 736 00fb 9C       		.byte	0x9c
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 30
+
+
+ 737 00fc 0F010000 		.4byte	0x10f
+ 738 0100 08       		.uleb128 0x8
+ 739 0101 75000000 		.4byte	.LASF22
+ 740 0105 01       		.byte	0x1
+ 741 0106 9301     		.2byte	0x193
+ 742 0108 77000000 		.4byte	0x77
+ 743 010c 01       		.uleb128 0x1
+ 744 010d 50       		.byte	0x50
+ 745 010e 00       		.byte	0
+ 746 010f 09       		.uleb128 0x9
+ 747 0110 DB020000 		.4byte	.LASF29
+ 748 0114 01       		.byte	0x1
+ 749 0115 A901     		.2byte	0x1a9
+ 750 0117 77000000 		.4byte	0x77
+ 751 011b 00000000 		.4byte	.LFB7
+ 752 011f 14000000 		.4byte	.LFE7-.LFB7
+ 753 0123 01       		.uleb128 0x1
+ 754 0124 9C       		.byte	0x9c
+ 755 0125 07       		.uleb128 0x7
+ 756 0126 85030000 		.4byte	.LASF21
+ 757 012a 01       		.byte	0x1
+ 758 012b E201     		.2byte	0x1e2
+ 759 012d 00000000 		.4byte	.LFB9
+ 760 0131 0C000000 		.4byte	.LFE9-.LFB9
+ 761 0135 01       		.uleb128 0x1
+ 762 0136 9C       		.byte	0x9c
+ 763 0137 4A010000 		.4byte	0x14a
+ 764 013b 08       		.uleb128 0x8
+ 765 013c 3B000000 		.4byte	.LASF23
+ 766 0140 01       		.byte	0x1
+ 767 0141 E201     		.2byte	0x1e2
+ 768 0143 77000000 		.4byte	0x77
+ 769 0147 01       		.uleb128 0x1
+ 770 0148 50       		.byte	0x50
+ 771 0149 00       		.byte	0
+ 772 014a 07       		.uleb128 0x7
+ 773 014b FE020000 		.4byte	.LASF24
+ 774 014f 01       		.byte	0x1
+ 775 0150 2B02     		.2byte	0x22b
+ 776 0152 00000000 		.4byte	.LFB10
+ 777 0156 0C000000 		.4byte	.LFE10-.LFB10
+ 778 015a 01       		.uleb128 0x1
+ 779 015b 9C       		.byte	0x9c
+ 780 015c 6F010000 		.4byte	0x16f
+ 781 0160 08       		.uleb128 0x8
+ 782 0161 5C030000 		.4byte	.LASF25
+ 783 0165 01       		.byte	0x1
+ 784 0166 2B02     		.2byte	0x22b
+ 785 0168 77000000 		.4byte	0x77
+ 786 016c 01       		.uleb128 0x1
+ 787 016d 50       		.byte	0x50
+ 788 016e 00       		.byte	0
+ 789 016f 07       		.uleb128 0x7
+ 790 0170 13030000 		.4byte	.LASF26
+ 791 0174 01       		.byte	0x1
+ 792 0175 4802     		.2byte	0x248
+ 793 0177 00000000 		.4byte	.LFB11
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 31
+
+
+ 794 017b 0C000000 		.4byte	.LFE11-.LFB11
+ 795 017f 01       		.uleb128 0x1
+ 796 0180 9C       		.byte	0x9c
+ 797 0181 94010000 		.4byte	0x194
+ 798 0185 08       		.uleb128 0x8
+ 799 0186 5C030000 		.4byte	.LASF25
+ 800 018a 01       		.byte	0x1
+ 801 018b 4802     		.2byte	0x248
+ 802 018d 77000000 		.4byte	0x77
+ 803 0191 01       		.uleb128 0x1
+ 804 0192 50       		.byte	0x50
+ 805 0193 00       		.byte	0
+ 806 0194 07       		.uleb128 0x7
+ 807 0195 30010000 		.4byte	.LASF27
+ 808 0199 01       		.byte	0x1
+ 809 019a AC02     		.2byte	0x2ac
+ 810 019c 00000000 		.4byte	.LFB12
+ 811 01a0 0C000000 		.4byte	.LFE12-.LFB12
+ 812 01a4 01       		.uleb128 0x1
+ 813 01a5 9C       		.byte	0x9c
+ 814 01a6 B9010000 		.4byte	0x1b9
+ 815 01aa 08       		.uleb128 0x8
+ 816 01ab CD020000 		.4byte	.LASF28
+ 817 01af 01       		.byte	0x1
+ 818 01b0 AC02     		.2byte	0x2ac
+ 819 01b2 6B000000 		.4byte	0x6b
+ 820 01b6 01       		.uleb128 0x1
+ 821 01b7 50       		.byte	0x50
+ 822 01b8 00       		.byte	0
+ 823 01b9 09       		.uleb128 0x9
+ 824 01ba 55000000 		.4byte	.LASF30
+ 825 01be 01       		.byte	0x1
+ 826 01bf C702     		.2byte	0x2c7
+ 827 01c1 6B000000 		.4byte	0x6b
+ 828 01c5 00000000 		.4byte	.LFB13
+ 829 01c9 0C000000 		.4byte	.LFE13-.LFB13
+ 830 01cd 01       		.uleb128 0x1
+ 831 01ce 9C       		.byte	0x9c
+ 832 01cf 0A       		.uleb128 0xa
+ 833 01d0 86010000 		.4byte	.LASF48
+ 834 01d4 01       		.byte	0x1
+ 835 01d5 E102     		.2byte	0x2e1
+ 836 01d7 6B000000 		.4byte	0x6b
+ 837 01db 00000000 		.4byte	.LFB14
+ 838 01df 0C000000 		.4byte	.LFE14-.LFB14
+ 839 01e3 01       		.uleb128 0x1
+ 840 01e4 9C       		.byte	0x9c
+ 841 01e5 F8010000 		.4byte	0x1f8
+ 842 01e9 0B       		.uleb128 0xb
+ 843 01ea 28000000 		.4byte	.LASF36
+ 844 01ee 01       		.byte	0x1
+ 845 01ef E302     		.2byte	0x2e3
+ 846 01f1 6B000000 		.4byte	0x6b
+ 847 01f5 01       		.uleb128 0x1
+ 848 01f6 50       		.byte	0x50
+ 849 01f7 00       		.byte	0
+ 850 01f8 07       		.uleb128 0x7
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 32
+
+
+ 851 01f9 06010000 		.4byte	.LASF31
+ 852 01fd 01       		.byte	0x1
+ 853 01fe FD02     		.2byte	0x2fd
+ 854 0200 00000000 		.4byte	.LFB15
+ 855 0204 0C000000 		.4byte	.LFE15-.LFB15
+ 856 0208 01       		.uleb128 0x1
+ 857 0209 9C       		.byte	0x9c
+ 858 020a 1D020000 		.4byte	0x21d
+ 859 020e 08       		.uleb128 0x8
+ 860 020f 28010000 		.4byte	.LASF32
+ 861 0213 01       		.byte	0x1
+ 862 0214 FD02     		.2byte	0x2fd
+ 863 0216 6B000000 		.4byte	0x6b
+ 864 021a 01       		.uleb128 0x1
+ 865 021b 50       		.byte	0x50
+ 866 021c 00       		.byte	0
+ 867 021d 09       		.uleb128 0x9
+ 868 021e 6C010000 		.4byte	.LASF33
+ 869 0222 01       		.byte	0x1
+ 870 0223 1603     		.2byte	0x316
+ 871 0225 77000000 		.4byte	0x77
+ 872 0229 00000000 		.4byte	.LFB16
+ 873 022d 0C000000 		.4byte	.LFE16-.LFB16
+ 874 0231 01       		.uleb128 0x1
+ 875 0232 9C       		.byte	0x9c
+ 876 0233 07       		.uleb128 0x7
+ 877 0234 D2000000 		.4byte	.LASF34
+ 878 0238 01       		.byte	0x1
+ 879 0239 C501     		.2byte	0x1c5
+ 880 023b 00000000 		.4byte	.LFB8
+ 881 023f 12000000 		.4byte	.LFE8-.LFB8
+ 882 0243 01       		.uleb128 0x1
+ 883 0244 9C       		.byte	0x9c
+ 884 0245 5C020000 		.4byte	0x25c
+ 885 0249 0C       		.uleb128 0xc
+ 886 024a 08000000 		.4byte	.LVL7
+ 887 024e 1D020000 		.4byte	0x21d
+ 888 0252 0C       		.uleb128 0xc
+ 889 0253 0C000000 		.4byte	.LVL8
+ 890 0257 B9010000 		.4byte	0x1b9
+ 891 025b 00       		.byte	0
+ 892 025c 0D       		.uleb128 0xd
+ 893 025d E8000000 		.4byte	.LASF35
+ 894 0261 01       		.byte	0x1
+ 895 0262 54       		.byte	0x54
+ 896 0263 00000000 		.4byte	.LFB3
+ 897 0267 70000000 		.4byte	.LFE3-.LFB3
+ 898 026b 01       		.uleb128 0x1
+ 899 026c 9C       		.byte	0x9c
+ 900 026d 0C030000 		.4byte	0x30c
+ 901 0271 0E       		.uleb128 0xe
+ 902 0272 7B020000 		.4byte	.LASF37
+ 903 0276 01       		.byte	0x1
+ 904 0277 57       		.byte	0x57
+ 905 0278 6B000000 		.4byte	0x6b
+ 906 027c 00000000 		.4byte	.LLST0
+ 907 0280 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 33
+
+
+ 908 0281 80020000 		.4byte	.LASF38
+ 909 0285 01       		.byte	0x1
+ 910 0286 5D       		.byte	0x5d
+ 911 0287 6B000000 		.4byte	0x6b
+ 912 028b 13000000 		.4byte	.LLST1
+ 913 028f 0F       		.uleb128 0xf
+ 914 0290 30000000 		.4byte	.LVL11
+ 915 0294 EA000000 		.4byte	0xea
+ 916 0298 A3020000 		.4byte	0x2a3
+ 917 029c 10       		.uleb128 0x10
+ 918 029d 01       		.uleb128 0x1
+ 919 029e 50       		.byte	0x50
+ 920 029f 02       		.uleb128 0x2
+ 921 02a0 75       		.byte	0x75
+ 922 02a1 00       		.sleb128 0
+ 923 02a2 00       		.byte	0
+ 924 02a3 0F       		.uleb128 0xf
+ 925 02a4 36000000 		.4byte	.LVL12
+ 926 02a8 25010000 		.4byte	0x125
+ 927 02ac B7020000 		.4byte	0x2b7
+ 928 02b0 10       		.uleb128 0x10
+ 929 02b1 01       		.uleb128 0x1
+ 930 02b2 50       		.byte	0x50
+ 931 02b3 02       		.uleb128 0x2
+ 932 02b4 75       		.byte	0x75
+ 933 02b5 00       		.sleb128 0
+ 934 02b6 00       		.byte	0
+ 935 02b7 0F       		.uleb128 0xf
+ 936 02b8 3C000000 		.4byte	.LVL13
+ 937 02bc 4A010000 		.4byte	0x14a
+ 938 02c0 CA020000 		.4byte	0x2ca
+ 939 02c4 10       		.uleb128 0x10
+ 940 02c5 01       		.uleb128 0x1
+ 941 02c6 50       		.byte	0x50
+ 942 02c7 01       		.uleb128 0x1
+ 943 02c8 30       		.byte	0x30
+ 944 02c9 00       		.byte	0
+ 945 02ca 0F       		.uleb128 0xf
+ 946 02cb 42000000 		.4byte	.LVL14
+ 947 02cf 6F010000 		.4byte	0x16f
+ 948 02d3 DD020000 		.4byte	0x2dd
+ 949 02d7 10       		.uleb128 0x10
+ 950 02d8 01       		.uleb128 0x1
+ 951 02d9 50       		.byte	0x50
+ 952 02da 01       		.uleb128 0x1
+ 953 02db 30       		.byte	0x30
+ 954 02dc 00       		.byte	0
+ 955 02dd 0F       		.uleb128 0xf
+ 956 02de 48000000 		.4byte	.LVL15
+ 957 02e2 94010000 		.4byte	0x194
+ 958 02e6 F0020000 		.4byte	0x2f0
+ 959 02ea 10       		.uleb128 0x10
+ 960 02eb 01       		.uleb128 0x1
+ 961 02ec 50       		.byte	0x50
+ 962 02ed 01       		.uleb128 0x1
+ 963 02ee 30       		.byte	0x30
+ 964 02ef 00       		.byte	0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 34
+
+
+ 965 02f0 0C       		.uleb128 0xc
+ 966 02f1 4C000000 		.4byte	.LVL16
+ 967 02f5 87030000 		.4byte	0x387
+ 968 02f9 0C       		.uleb128 0xc
+ 969 02fa 5A000000 		.4byte	.LVL17
+ 970 02fe 92030000 		.4byte	0x392
+ 971 0302 0C       		.uleb128 0xc
+ 972 0303 5E000000 		.4byte	.LVL18
+ 973 0307 33020000 		.4byte	0x233
+ 974 030b 00       		.byte	0
+ 975 030c 0D       		.uleb128 0xd
+ 976 030d 78030000 		.4byte	.LASF39
+ 977 0311 01       		.byte	0x1
+ 978 0312 37       		.byte	0x37
+ 979 0313 00000000 		.4byte	.LFB2
+ 980 0317 20000000 		.4byte	.LFE2-.LFB2
+ 981 031b 01       		.uleb128 0x1
+ 982 031c 9C       		.byte	0x9c
+ 983 031d 34030000 		.4byte	0x334
+ 984 0321 0C       		.uleb128 0xc
+ 985 0322 0E000000 		.4byte	.LVL19
+ 986 0326 5C020000 		.4byte	0x25c
+ 987 032a 0C       		.uleb128 0xc
+ 988 032b 18000000 		.4byte	.LVL20
+ 989 032f C8000000 		.4byte	0xc8
+ 990 0333 00       		.byte	0
+ 991 0334 09       		.uleb128 0x9
+ 992 0335 00000000 		.4byte	.LASF40
+ 993 0339 01       		.byte	0x1
+ 994 033a 4A03     		.2byte	0x34a
+ 995 033c 77000000 		.4byte	0x77
+ 996 0340 00000000 		.4byte	.LFB17
+ 997 0344 0C000000 		.4byte	.LFE17-.LFB17
+ 998 0348 01       		.uleb128 0x1
+ 999 0349 9C       		.byte	0x9c
+ 1000 034a 09       		.uleb128 0x9
+ 1001 034b 14000000 		.4byte	.LASF41
+ 1002 034f 01       		.byte	0x1
+ 1003 0350 5E03     		.2byte	0x35e
+ 1004 0352 77000000 		.4byte	0x77
+ 1005 0356 00000000 		.4byte	.LFB18
+ 1006 035a 0C000000 		.4byte	.LFE18-.LFB18
+ 1007 035e 01       		.uleb128 0x1
+ 1008 035f 9C       		.byte	0x9c
+ 1009 0360 09       		.uleb128 0x9
+ 1010 0361 DB010000 		.4byte	.LASF42
+ 1011 0365 01       		.byte	0x1
+ 1012 0366 7403     		.2byte	0x374
+ 1013 0368 77000000 		.4byte	0x77
+ 1014 036c 00000000 		.4byte	.LFB19
+ 1015 0370 0C000000 		.4byte	.LFE19-.LFB19
+ 1016 0374 01       		.uleb128 0x1
+ 1017 0375 9C       		.byte	0x9c
+ 1018 0376 11       		.uleb128 0x11
+ 1019 0377 48010000 		.4byte	.LASF49
+ 1020 037b 01       		.byte	0x1
+ 1021 037c 20       		.byte	0x20
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 35
+
+
+ 1022 037d 6B000000 		.4byte	0x6b
+ 1023 0381 05       		.uleb128 0x5
+ 1024 0382 03       		.byte	0x3
+ 1025 0383 00000000 		.4byte	Servos_initVar
+ 1026 0387 12       		.uleb128 0x12
+ 1027 0388 A1010000 		.4byte	.LASF43
+ 1028 038c A1010000 		.4byte	.LASF43
+ 1029 0390 03       		.byte	0x3
+ 1030 0391 E5       		.byte	0xe5
+ 1031 0392 12       		.uleb128 0x12
+ 1032 0393 C5010000 		.4byte	.LASF44
+ 1033 0397 C5010000 		.4byte	.LASF44
+ 1034 039b 03       		.byte	0x3
+ 1035 039c E6       		.byte	0xe6
+ 1036 039d 00       		.byte	0
+ 1037              		.section	.debug_abbrev,"",%progbits
+ 1038              	.Ldebug_abbrev0:
+ 1039 0000 01       		.uleb128 0x1
+ 1040 0001 11       		.uleb128 0x11
+ 1041 0002 01       		.byte	0x1
+ 1042 0003 25       		.uleb128 0x25
+ 1043 0004 0E       		.uleb128 0xe
+ 1044 0005 13       		.uleb128 0x13
+ 1045 0006 0B       		.uleb128 0xb
+ 1046 0007 03       		.uleb128 0x3
+ 1047 0008 0E       		.uleb128 0xe
+ 1048 0009 1B       		.uleb128 0x1b
+ 1049 000a 0E       		.uleb128 0xe
+ 1050 000b 55       		.uleb128 0x55
+ 1051 000c 17       		.uleb128 0x17
+ 1052 000d 11       		.uleb128 0x11
+ 1053 000e 01       		.uleb128 0x1
+ 1054 000f 10       		.uleb128 0x10
+ 1055 0010 17       		.uleb128 0x17
+ 1056 0011 00       		.byte	0
+ 1057 0012 00       		.byte	0
+ 1058 0013 02       		.uleb128 0x2
+ 1059 0014 24       		.uleb128 0x24
+ 1060 0015 00       		.byte	0
+ 1061 0016 0B       		.uleb128 0xb
+ 1062 0017 0B       		.uleb128 0xb
+ 1063 0018 3E       		.uleb128 0x3e
+ 1064 0019 0B       		.uleb128 0xb
+ 1065 001a 03       		.uleb128 0x3
+ 1066 001b 0E       		.uleb128 0xe
+ 1067 001c 00       		.byte	0
+ 1068 001d 00       		.byte	0
+ 1069 001e 03       		.uleb128 0x3
+ 1070 001f 24       		.uleb128 0x24
+ 1071 0020 00       		.byte	0
+ 1072 0021 0B       		.uleb128 0xb
+ 1073 0022 0B       		.uleb128 0xb
+ 1074 0023 3E       		.uleb128 0x3e
+ 1075 0024 0B       		.uleb128 0xb
+ 1076 0025 03       		.uleb128 0x3
+ 1077 0026 08       		.uleb128 0x8
+ 1078 0027 00       		.byte	0
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 36
+
+
+ 1079 0028 00       		.byte	0
+ 1080 0029 04       		.uleb128 0x4
+ 1081 002a 16       		.uleb128 0x16
+ 1082 002b 00       		.byte	0
+ 1083 002c 03       		.uleb128 0x3
+ 1084 002d 0E       		.uleb128 0xe
+ 1085 002e 3A       		.uleb128 0x3a
+ 1086 002f 0B       		.uleb128 0xb
+ 1087 0030 3B       		.uleb128 0x3b
+ 1088 0031 05       		.uleb128 0x5
+ 1089 0032 49       		.uleb128 0x49
+ 1090 0033 13       		.uleb128 0x13
+ 1091 0034 00       		.byte	0
+ 1092 0035 00       		.byte	0
+ 1093 0036 05       		.uleb128 0x5
+ 1094 0037 35       		.uleb128 0x35
+ 1095 0038 00       		.byte	0
+ 1096 0039 49       		.uleb128 0x49
+ 1097 003a 13       		.uleb128 0x13
+ 1098 003b 00       		.byte	0
+ 1099 003c 00       		.byte	0
+ 1100 003d 06       		.uleb128 0x6
+ 1101 003e 2E       		.uleb128 0x2e
+ 1102 003f 00       		.byte	0
+ 1103 0040 3F       		.uleb128 0x3f
+ 1104 0041 19       		.uleb128 0x19
+ 1105 0042 03       		.uleb128 0x3
+ 1106 0043 0E       		.uleb128 0xe
+ 1107 0044 3A       		.uleb128 0x3a
+ 1108 0045 0B       		.uleb128 0xb
+ 1109 0046 3B       		.uleb128 0x3b
+ 1110 0047 0B       		.uleb128 0xb
+ 1111 0048 27       		.uleb128 0x27
+ 1112 0049 19       		.uleb128 0x19
+ 1113 004a 11       		.uleb128 0x11
+ 1114 004b 01       		.uleb128 0x1
+ 1115 004c 12       		.uleb128 0x12
+ 1116 004d 06       		.uleb128 0x6
+ 1117 004e 40       		.uleb128 0x40
+ 1118 004f 18       		.uleb128 0x18
+ 1119 0050 9742     		.uleb128 0x2117
+ 1120 0052 19       		.uleb128 0x19
+ 1121 0053 00       		.byte	0
+ 1122 0054 00       		.byte	0
+ 1123 0055 07       		.uleb128 0x7
+ 1124 0056 2E       		.uleb128 0x2e
+ 1125 0057 01       		.byte	0x1
+ 1126 0058 3F       		.uleb128 0x3f
+ 1127 0059 19       		.uleb128 0x19
+ 1128 005a 03       		.uleb128 0x3
+ 1129 005b 0E       		.uleb128 0xe
+ 1130 005c 3A       		.uleb128 0x3a
+ 1131 005d 0B       		.uleb128 0xb
+ 1132 005e 3B       		.uleb128 0x3b
+ 1133 005f 05       		.uleb128 0x5
+ 1134 0060 27       		.uleb128 0x27
+ 1135 0061 19       		.uleb128 0x19
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 37
+
+
+ 1136 0062 11       		.uleb128 0x11
+ 1137 0063 01       		.uleb128 0x1
+ 1138 0064 12       		.uleb128 0x12
+ 1139 0065 06       		.uleb128 0x6
+ 1140 0066 40       		.uleb128 0x40
+ 1141 0067 18       		.uleb128 0x18
+ 1142 0068 9742     		.uleb128 0x2117
+ 1143 006a 19       		.uleb128 0x19
+ 1144 006b 01       		.uleb128 0x1
+ 1145 006c 13       		.uleb128 0x13
+ 1146 006d 00       		.byte	0
+ 1147 006e 00       		.byte	0
+ 1148 006f 08       		.uleb128 0x8
+ 1149 0070 05       		.uleb128 0x5
+ 1150 0071 00       		.byte	0
+ 1151 0072 03       		.uleb128 0x3
+ 1152 0073 0E       		.uleb128 0xe
+ 1153 0074 3A       		.uleb128 0x3a
+ 1154 0075 0B       		.uleb128 0xb
+ 1155 0076 3B       		.uleb128 0x3b
+ 1156 0077 05       		.uleb128 0x5
+ 1157 0078 49       		.uleb128 0x49
+ 1158 0079 13       		.uleb128 0x13
+ 1159 007a 02       		.uleb128 0x2
+ 1160 007b 18       		.uleb128 0x18
+ 1161 007c 00       		.byte	0
+ 1162 007d 00       		.byte	0
+ 1163 007e 09       		.uleb128 0x9
+ 1164 007f 2E       		.uleb128 0x2e
+ 1165 0080 00       		.byte	0
+ 1166 0081 3F       		.uleb128 0x3f
+ 1167 0082 19       		.uleb128 0x19
+ 1168 0083 03       		.uleb128 0x3
+ 1169 0084 0E       		.uleb128 0xe
+ 1170 0085 3A       		.uleb128 0x3a
+ 1171 0086 0B       		.uleb128 0xb
+ 1172 0087 3B       		.uleb128 0x3b
+ 1173 0088 05       		.uleb128 0x5
+ 1174 0089 27       		.uleb128 0x27
+ 1175 008a 19       		.uleb128 0x19
+ 1176 008b 49       		.uleb128 0x49
+ 1177 008c 13       		.uleb128 0x13
+ 1178 008d 11       		.uleb128 0x11
+ 1179 008e 01       		.uleb128 0x1
+ 1180 008f 12       		.uleb128 0x12
+ 1181 0090 06       		.uleb128 0x6
+ 1182 0091 40       		.uleb128 0x40
+ 1183 0092 18       		.uleb128 0x18
+ 1184 0093 9742     		.uleb128 0x2117
+ 1185 0095 19       		.uleb128 0x19
+ 1186 0096 00       		.byte	0
+ 1187 0097 00       		.byte	0
+ 1188 0098 0A       		.uleb128 0xa
+ 1189 0099 2E       		.uleb128 0x2e
+ 1190 009a 01       		.byte	0x1
+ 1191 009b 3F       		.uleb128 0x3f
+ 1192 009c 19       		.uleb128 0x19
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 38
+
+
+ 1193 009d 03       		.uleb128 0x3
+ 1194 009e 0E       		.uleb128 0xe
+ 1195 009f 3A       		.uleb128 0x3a
+ 1196 00a0 0B       		.uleb128 0xb
+ 1197 00a1 3B       		.uleb128 0x3b
+ 1198 00a2 05       		.uleb128 0x5
+ 1199 00a3 27       		.uleb128 0x27
+ 1200 00a4 19       		.uleb128 0x19
+ 1201 00a5 49       		.uleb128 0x49
+ 1202 00a6 13       		.uleb128 0x13
+ 1203 00a7 11       		.uleb128 0x11
+ 1204 00a8 01       		.uleb128 0x1
+ 1205 00a9 12       		.uleb128 0x12
+ 1206 00aa 06       		.uleb128 0x6
+ 1207 00ab 40       		.uleb128 0x40
+ 1208 00ac 18       		.uleb128 0x18
+ 1209 00ad 9742     		.uleb128 0x2117
+ 1210 00af 19       		.uleb128 0x19
+ 1211 00b0 01       		.uleb128 0x1
+ 1212 00b1 13       		.uleb128 0x13
+ 1213 00b2 00       		.byte	0
+ 1214 00b3 00       		.byte	0
+ 1215 00b4 0B       		.uleb128 0xb
+ 1216 00b5 34       		.uleb128 0x34
+ 1217 00b6 00       		.byte	0
+ 1218 00b7 03       		.uleb128 0x3
+ 1219 00b8 0E       		.uleb128 0xe
+ 1220 00b9 3A       		.uleb128 0x3a
+ 1221 00ba 0B       		.uleb128 0xb
+ 1222 00bb 3B       		.uleb128 0x3b
+ 1223 00bc 05       		.uleb128 0x5
+ 1224 00bd 49       		.uleb128 0x49
+ 1225 00be 13       		.uleb128 0x13
+ 1226 00bf 02       		.uleb128 0x2
+ 1227 00c0 18       		.uleb128 0x18
+ 1228 00c1 00       		.byte	0
+ 1229 00c2 00       		.byte	0
+ 1230 00c3 0C       		.uleb128 0xc
+ 1231 00c4 898201   		.uleb128 0x4109
+ 1232 00c7 00       		.byte	0
+ 1233 00c8 11       		.uleb128 0x11
+ 1234 00c9 01       		.uleb128 0x1
+ 1235 00ca 31       		.uleb128 0x31
+ 1236 00cb 13       		.uleb128 0x13
+ 1237 00cc 00       		.byte	0
+ 1238 00cd 00       		.byte	0
+ 1239 00ce 0D       		.uleb128 0xd
+ 1240 00cf 2E       		.uleb128 0x2e
+ 1241 00d0 01       		.byte	0x1
+ 1242 00d1 3F       		.uleb128 0x3f
+ 1243 00d2 19       		.uleb128 0x19
+ 1244 00d3 03       		.uleb128 0x3
+ 1245 00d4 0E       		.uleb128 0xe
+ 1246 00d5 3A       		.uleb128 0x3a
+ 1247 00d6 0B       		.uleb128 0xb
+ 1248 00d7 3B       		.uleb128 0x3b
+ 1249 00d8 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 39
+
+
+ 1250 00d9 27       		.uleb128 0x27
+ 1251 00da 19       		.uleb128 0x19
+ 1252 00db 11       		.uleb128 0x11
+ 1253 00dc 01       		.uleb128 0x1
+ 1254 00dd 12       		.uleb128 0x12
+ 1255 00de 06       		.uleb128 0x6
+ 1256 00df 40       		.uleb128 0x40
+ 1257 00e0 18       		.uleb128 0x18
+ 1258 00e1 9742     		.uleb128 0x2117
+ 1259 00e3 19       		.uleb128 0x19
+ 1260 00e4 01       		.uleb128 0x1
+ 1261 00e5 13       		.uleb128 0x13
+ 1262 00e6 00       		.byte	0
+ 1263 00e7 00       		.byte	0
+ 1264 00e8 0E       		.uleb128 0xe
+ 1265 00e9 34       		.uleb128 0x34
+ 1266 00ea 00       		.byte	0
+ 1267 00eb 03       		.uleb128 0x3
+ 1268 00ec 0E       		.uleb128 0xe
+ 1269 00ed 3A       		.uleb128 0x3a
+ 1270 00ee 0B       		.uleb128 0xb
+ 1271 00ef 3B       		.uleb128 0x3b
+ 1272 00f0 0B       		.uleb128 0xb
+ 1273 00f1 49       		.uleb128 0x49
+ 1274 00f2 13       		.uleb128 0x13
+ 1275 00f3 02       		.uleb128 0x2
+ 1276 00f4 17       		.uleb128 0x17
+ 1277 00f5 00       		.byte	0
+ 1278 00f6 00       		.byte	0
+ 1279 00f7 0F       		.uleb128 0xf
+ 1280 00f8 898201   		.uleb128 0x4109
+ 1281 00fb 01       		.byte	0x1
+ 1282 00fc 11       		.uleb128 0x11
+ 1283 00fd 01       		.uleb128 0x1
+ 1284 00fe 31       		.uleb128 0x31
+ 1285 00ff 13       		.uleb128 0x13
+ 1286 0100 01       		.uleb128 0x1
+ 1287 0101 13       		.uleb128 0x13
+ 1288 0102 00       		.byte	0
+ 1289 0103 00       		.byte	0
+ 1290 0104 10       		.uleb128 0x10
+ 1291 0105 8A8201   		.uleb128 0x410a
+ 1292 0108 00       		.byte	0
+ 1293 0109 02       		.uleb128 0x2
+ 1294 010a 18       		.uleb128 0x18
+ 1295 010b 9142     		.uleb128 0x2111
+ 1296 010d 18       		.uleb128 0x18
+ 1297 010e 00       		.byte	0
+ 1298 010f 00       		.byte	0
+ 1299 0110 11       		.uleb128 0x11
+ 1300 0111 34       		.uleb128 0x34
+ 1301 0112 00       		.byte	0
+ 1302 0113 03       		.uleb128 0x3
+ 1303 0114 0E       		.uleb128 0xe
+ 1304 0115 3A       		.uleb128 0x3a
+ 1305 0116 0B       		.uleb128 0xb
+ 1306 0117 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 40
+
+
+ 1307 0118 0B       		.uleb128 0xb
+ 1308 0119 49       		.uleb128 0x49
+ 1309 011a 13       		.uleb128 0x13
+ 1310 011b 3F       		.uleb128 0x3f
+ 1311 011c 19       		.uleb128 0x19
+ 1312 011d 02       		.uleb128 0x2
+ 1313 011e 18       		.uleb128 0x18
+ 1314 011f 00       		.byte	0
+ 1315 0120 00       		.byte	0
+ 1316 0121 12       		.uleb128 0x12
+ 1317 0122 2E       		.uleb128 0x2e
+ 1318 0123 00       		.byte	0
+ 1319 0124 3F       		.uleb128 0x3f
+ 1320 0125 19       		.uleb128 0x19
+ 1321 0126 3C       		.uleb128 0x3c
+ 1322 0127 19       		.uleb128 0x19
+ 1323 0128 6E       		.uleb128 0x6e
+ 1324 0129 0E       		.uleb128 0xe
+ 1325 012a 03       		.uleb128 0x3
+ 1326 012b 0E       		.uleb128 0xe
+ 1327 012c 3A       		.uleb128 0x3a
+ 1328 012d 0B       		.uleb128 0xb
+ 1329 012e 3B       		.uleb128 0x3b
+ 1330 012f 0B       		.uleb128 0xb
+ 1331 0130 00       		.byte	0
+ 1332 0131 00       		.byte	0
+ 1333 0132 00       		.byte	0
+ 1334              		.section	.debug_loc,"",%progbits
+ 1335              	.Ldebug_loc0:
+ 1336              	.LLST0:
+ 1337 0000 0A000000 		.4byte	.LVL9
+ 1338 0004 0E000000 		.4byte	.LVL10
+ 1339 0008 0100     		.2byte	0x1
+ 1340 000a 53       		.byte	0x53
+ 1341 000b 00000000 		.4byte	0
+ 1342 000f 00000000 		.4byte	0
+ 1343              	.LLST1:
+ 1344 0013 4C000000 		.4byte	.LVL16
+ 1345 0017 59000000 		.4byte	.LVL17-1
+ 1346 001b 0100     		.2byte	0x1
+ 1347 001d 50       		.byte	0x50
+ 1348 001e 00000000 		.4byte	0
+ 1349 0022 00000000 		.4byte	0
+ 1350              		.section	.debug_aranges,"",%progbits
+ 1351 0000 A4000000 		.4byte	0xa4
+ 1352 0004 0200     		.2byte	0x2
+ 1353 0006 00000000 		.4byte	.Ldebug_info0
+ 1354 000a 04       		.byte	0x4
+ 1355 000b 00       		.byte	0
+ 1356 000c 0000     		.2byte	0
+ 1357 000e 0000     		.2byte	0
+ 1358 0010 00000000 		.4byte	.LFB4
+ 1359 0014 14000000 		.4byte	.LFE4-.LFB4
+ 1360 0018 00000000 		.4byte	.LFB5
+ 1361 001c 10000000 		.4byte	.LFE5-.LFB5
+ 1362 0020 00000000 		.4byte	.LFB6
+ 1363 0024 0C000000 		.4byte	.LFE6-.LFB6
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 41
+
+
+ 1364 0028 00000000 		.4byte	.LFB7
+ 1365 002c 14000000 		.4byte	.LFE7-.LFB7
+ 1366 0030 00000000 		.4byte	.LFB9
+ 1367 0034 0C000000 		.4byte	.LFE9-.LFB9
+ 1368 0038 00000000 		.4byte	.LFB10
+ 1369 003c 0C000000 		.4byte	.LFE10-.LFB10
+ 1370 0040 00000000 		.4byte	.LFB11
+ 1371 0044 0C000000 		.4byte	.LFE11-.LFB11
+ 1372 0048 00000000 		.4byte	.LFB12
+ 1373 004c 0C000000 		.4byte	.LFE12-.LFB12
+ 1374 0050 00000000 		.4byte	.LFB13
+ 1375 0054 0C000000 		.4byte	.LFE13-.LFB13
+ 1376 0058 00000000 		.4byte	.LFB14
+ 1377 005c 0C000000 		.4byte	.LFE14-.LFB14
+ 1378 0060 00000000 		.4byte	.LFB15
+ 1379 0064 0C000000 		.4byte	.LFE15-.LFB15
+ 1380 0068 00000000 		.4byte	.LFB16
+ 1381 006c 0C000000 		.4byte	.LFE16-.LFB16
+ 1382 0070 00000000 		.4byte	.LFB8
+ 1383 0074 12000000 		.4byte	.LFE8-.LFB8
+ 1384 0078 00000000 		.4byte	.LFB3
+ 1385 007c 70000000 		.4byte	.LFE3-.LFB3
+ 1386 0080 00000000 		.4byte	.LFB2
+ 1387 0084 20000000 		.4byte	.LFE2-.LFB2
+ 1388 0088 00000000 		.4byte	.LFB17
+ 1389 008c 0C000000 		.4byte	.LFE17-.LFB17
+ 1390 0090 00000000 		.4byte	.LFB18
+ 1391 0094 0C000000 		.4byte	.LFE18-.LFB18
+ 1392 0098 00000000 		.4byte	.LFB19
+ 1393 009c 0C000000 		.4byte	.LFE19-.LFB19
+ 1394 00a0 00000000 		.4byte	0
+ 1395 00a4 00000000 		.4byte	0
+ 1396              		.section	.debug_ranges,"",%progbits
+ 1397              	.Ldebug_ranges0:
+ 1398 0000 00000000 		.4byte	.LFB4
+ 1399 0004 14000000 		.4byte	.LFE4
+ 1400 0008 00000000 		.4byte	.LFB5
+ 1401 000c 10000000 		.4byte	.LFE5
+ 1402 0010 00000000 		.4byte	.LFB6
+ 1403 0014 0C000000 		.4byte	.LFE6
+ 1404 0018 00000000 		.4byte	.LFB7
+ 1405 001c 14000000 		.4byte	.LFE7
+ 1406 0020 00000000 		.4byte	.LFB9
+ 1407 0024 0C000000 		.4byte	.LFE9
+ 1408 0028 00000000 		.4byte	.LFB10
+ 1409 002c 0C000000 		.4byte	.LFE10
+ 1410 0030 00000000 		.4byte	.LFB11
+ 1411 0034 0C000000 		.4byte	.LFE11
+ 1412 0038 00000000 		.4byte	.LFB12
+ 1413 003c 0C000000 		.4byte	.LFE12
+ 1414 0040 00000000 		.4byte	.LFB13
+ 1415 0044 0C000000 		.4byte	.LFE13
+ 1416 0048 00000000 		.4byte	.LFB14
+ 1417 004c 0C000000 		.4byte	.LFE14
+ 1418 0050 00000000 		.4byte	.LFB15
+ 1419 0054 0C000000 		.4byte	.LFE15
+ 1420 0058 00000000 		.4byte	.LFB16
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 42
+
+
+ 1421 005c 0C000000 		.4byte	.LFE16
+ 1422 0060 00000000 		.4byte	.LFB8
+ 1423 0064 12000000 		.4byte	.LFE8
+ 1424 0068 00000000 		.4byte	.LFB3
+ 1425 006c 70000000 		.4byte	.LFE3
+ 1426 0070 00000000 		.4byte	.LFB2
+ 1427 0074 20000000 		.4byte	.LFE2
+ 1428 0078 00000000 		.4byte	.LFB17
+ 1429 007c 0C000000 		.4byte	.LFE17
+ 1430 0080 00000000 		.4byte	.LFB18
+ 1431 0084 0C000000 		.4byte	.LFE18
+ 1432 0088 00000000 		.4byte	.LFB19
+ 1433 008c 0C000000 		.4byte	.LFE19
+ 1434 0090 00000000 		.4byte	0
+ 1435 0094 00000000 		.4byte	0
+ 1436              		.section	.debug_line,"",%progbits
+ 1437              	.Ldebug_line0:
+ 1438 0000 B3010000 		.section	.debug_str,"MS",%progbits,1
+ 1438      02004E00 
+ 1438      00000201 
+ 1438      FB0E0D00 
+ 1438      01010101 
+ 1439              	.LASF40:
+ 1440 0000 53657276 		.ascii	"Servos_ReadCompare1\000"
+ 1440      6F735F52 
+ 1440      65616443 
+ 1440      6F6D7061 
+ 1440      72653100 
+ 1441              	.LASF41:
+ 1442 0014 53657276 		.ascii	"Servos_ReadCompare2\000"
+ 1442      6F735F52 
+ 1442      65616443 
+ 1442      6F6D7061 
+ 1442      72653200 
+ 1443              	.LASF36:
+ 1444 0028 72657375 		.ascii	"result\000"
+ 1444      6C7400
+ 1445              	.LASF19:
+ 1446 002f 53657276 		.ascii	"Servos_Stop\000"
+ 1446      6F735F53 
+ 1446      746F7000 
+ 1447              	.LASF23:
+ 1448 003b 70657269 		.ascii	"period\000"
+ 1448      6F6400
+ 1449              	.LASF3:
+ 1450 0042 73686F72 		.ascii	"short unsigned int\000"
+ 1450      7420756E 
+ 1450      7369676E 
+ 1450      65642069 
+ 1450      6E7400
+ 1451              	.LASF30:
+ 1452 0055 53657276 		.ascii	"Servos_ReadStatusRegister\000"
+ 1452      6F735F52 
+ 1452      65616453 
+ 1452      74617475 
+ 1452      73526567 
+ 1453              	.LASF11:
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 43
+
+
+ 1454 006f 666C6F61 		.ascii	"float\000"
+ 1454      7400
+ 1455              	.LASF22:
+ 1456 0075 636F756E 		.ascii	"counter\000"
+ 1456      74657200 
+ 1457              	.LASF7:
+ 1458 007d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1458      206C6F6E 
+ 1458      6720756E 
+ 1458      7369676E 
+ 1458      65642069 
+ 1459              	.LASF47:
+ 1460 0094 433A5C55 		.ascii	"C:\\Users\\Jacob\\Documents\\Junior\\EGR 456\\EGR45"
+ 1460      73657273 
+ 1460      5C4A6163 
+ 1460      6F625C44 
+ 1460      6F63756D 
+ 1461 00c1 365C4A61 		.ascii	"6\\Jacobian.cydsn\000"
+ 1461      636F6269 
+ 1461      616E2E63 
+ 1461      7964736E 
+ 1461      00
+ 1462              	.LASF34:
+ 1463 00d2 53657276 		.ascii	"Servos_ClearFIFO\000"
+ 1463      6F735F43 
+ 1463      6C656172 
+ 1463      4649464F 
+ 1463      00
+ 1464              	.LASF14:
+ 1465 00e3 72656738 		.ascii	"reg8\000"
+ 1465      00
+ 1466              	.LASF35:
+ 1467 00e8 53657276 		.ascii	"Servos_Init\000"
+ 1467      6F735F49 
+ 1467      6E697400 
+ 1468              	.LASF5:
+ 1469 00f4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1469      20756E73 
+ 1469      69676E65 
+ 1469      6420696E 
+ 1469      7400
+ 1470              	.LASF31:
+ 1471 0106 53657276 		.ascii	"Servos_WriteControlRegister\000"
+ 1471      6F735F57 
+ 1471      72697465 
+ 1471      436F6E74 
+ 1471      726F6C52 
+ 1472              	.LASF9:
+ 1473 0122 75696E74 		.ascii	"uint8\000"
+ 1473      3800
+ 1474              	.LASF32:
+ 1475 0128 636F6E74 		.ascii	"control\000"
+ 1475      726F6C00 
+ 1476              	.LASF27:
+ 1477 0130 53657276 		.ascii	"Servos_SetInterruptMode\000"
+ 1477      6F735F53 
+ 1477      6574496E 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 44
+
+
+ 1477      74657272 
+ 1477      7570744D 
+ 1478              	.LASF49:
+ 1479 0148 53657276 		.ascii	"Servos_initVar\000"
+ 1479      6F735F69 
+ 1479      6E697456 
+ 1479      617200
+ 1480              	.LASF1:
+ 1481 0157 756E7369 		.ascii	"unsigned char\000"
+ 1481      676E6564 
+ 1481      20636861 
+ 1481      7200
+ 1482              	.LASF12:
+ 1483 0165 646F7562 		.ascii	"double\000"
+ 1483      6C6500
+ 1484              	.LASF33:
+ 1485 016c 53657276 		.ascii	"Servos_ReadCapture\000"
+ 1485      6F735F52 
+ 1485      65616443 
+ 1485      61707475 
+ 1485      726500
+ 1486              	.LASF10:
+ 1487 017f 75696E74 		.ascii	"uint16\000"
+ 1487      313600
+ 1488              	.LASF48:
+ 1489 0186 53657276 		.ascii	"Servos_ReadControlRegister\000"
+ 1489      6F735F52 
+ 1489      65616443 
+ 1489      6F6E7472 
+ 1489      6F6C5265 
+ 1490              	.LASF43:
+ 1491 01a1 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1491      74657243 
+ 1491      72697469 
+ 1491      63616C53 
+ 1491      65637469 
+ 1492              	.LASF8:
+ 1493 01b8 756E7369 		.ascii	"unsigned int\000"
+ 1493      676E6564 
+ 1493      20696E74 
+ 1493      00
+ 1494              	.LASF44:
+ 1495 01c5 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1495      69744372 
+ 1495      69746963 
+ 1495      616C5365 
+ 1495      6374696F 
+ 1496              	.LASF42:
+ 1497 01db 53657276 		.ascii	"Servos_ReadPeriod\000"
+ 1497      6F735F52 
+ 1497      65616450 
+ 1497      6572696F 
+ 1497      6400
+ 1498              	.LASF45:
+ 1499 01ed 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1499      43313120 
+ 1499      352E342E 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 45
+
+
+ 1499      31203230 
+ 1499      31363036 
+ 1500 0220 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1500      20726576 
+ 1500      6973696F 
+ 1500      6E203233 
+ 1500      37373135 
+ 1501 0253 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1501      66756E63 
+ 1501      74696F6E 
+ 1501      2D736563 
+ 1501      74696F6E 
+ 1502              	.LASF37:
+ 1503 027b 6374726C 		.ascii	"ctrl\000"
+ 1503      00
+ 1504              	.LASF38:
+ 1505 0280 53657276 		.ascii	"Servos_interruptState\000"
+ 1505      6F735F69 
+ 1505      6E746572 
+ 1505      72757074 
+ 1505      53746174 
+ 1506              	.LASF17:
+ 1507 0296 73697A65 		.ascii	"sizetype\000"
+ 1507      74797065 
+ 1507      00
+ 1508              	.LASF6:
+ 1509 029f 6C6F6E67 		.ascii	"long long int\000"
+ 1509      206C6F6E 
+ 1509      6720696E 
+ 1509      7400
+ 1510              	.LASF46:
+ 1511 02ad 47656E65 		.ascii	"Generated_Source\\PSoC4\\Servos.c\000"
+ 1511      72617465 
+ 1511      645F536F 
+ 1511      75726365 
+ 1511      5C50536F 
+ 1512              	.LASF28:
+ 1513 02cd 696E7465 		.ascii	"interruptMode\000"
+ 1513      72727570 
+ 1513      744D6F64 
+ 1513      6500
+ 1514              	.LASF29:
+ 1515 02db 53657276 		.ascii	"Servos_ReadCounter\000"
+ 1515      6F735F52 
+ 1515      65616443 
+ 1515      6F756E74 
+ 1515      657200
+ 1516              	.LASF2:
+ 1517 02ee 73686F72 		.ascii	"short int\000"
+ 1517      7420696E 
+ 1517      7400
+ 1518              	.LASF15:
+ 1519 02f8 72656731 		.ascii	"reg16\000"
+ 1519      3600
+ 1520              	.LASF24:
+ 1521 02fe 53657276 		.ascii	"Servos_WriteCompare1\000"
+ 1521      6F735F57 
+ARM GAS  C:\Users\Jacob\AppData\Local\Temp\ccNI3Q9j.s 			page 46
+
+
+ 1521      72697465 
+ 1521      436F6D70 
+ 1521      61726531 
+ 1522              	.LASF26:
+ 1523 0313 53657276 		.ascii	"Servos_WriteCompare2\000"
+ 1523      6F735F57 
+ 1523      72697465 
+ 1523      436F6D70 
+ 1523      61726532 
+ 1524              	.LASF4:
+ 1525 0328 6C6F6E67 		.ascii	"long int\000"
+ 1525      20696E74 
+ 1525      00
+ 1526              	.LASF13:
+ 1527 0331 63686172 		.ascii	"char\000"
+ 1527      00
+ 1528              	.LASF16:
+ 1529 0336 6C6F6E67 		.ascii	"long double\000"
+ 1529      20646F75 
+ 1529      626C6500 
+ 1530              	.LASF18:
+ 1531 0342 53657276 		.ascii	"Servos_Enable\000"
+ 1531      6F735F45 
+ 1531      6E61626C 
+ 1531      6500
+ 1532              	.LASF0:
+ 1533 0350 7369676E 		.ascii	"signed char\000"
+ 1533      65642063 
+ 1533      68617200 
+ 1534              	.LASF25:
+ 1535 035c 636F6D70 		.ascii	"compare\000"
+ 1535      61726500 
+ 1536              	.LASF20:
+ 1537 0364 53657276 		.ascii	"Servos_WriteCounter\000"
+ 1537      6F735F57 
+ 1537      72697465 
+ 1537      436F756E 
+ 1537      74657200 
+ 1538              	.LASF39:
+ 1539 0378 53657276 		.ascii	"Servos_Start\000"
+ 1539      6F735F53 
+ 1539      74617274 
+ 1539      00
+ 1540              	.LASF21:
+ 1541 0385 53657276 		.ascii	"Servos_WritePeriod\000"
+ 1541      6F735F57 
+ 1541      72697465 
+ 1541      50657269 
+ 1541      6F6400
+ 1542              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

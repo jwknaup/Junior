@@ -1,0 +1,72 @@
+--------------- Rebuild Started: 01/18/2018 13:15:14 Project: Jacobian, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\main.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\servos.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\untitled01.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\cymetadata.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\Servos_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\Clock_1.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\Servo1.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\Servo1_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\Servo2.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\Servo2_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\Cm0Start.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\CyFlash.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\CyLib.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\cyPm.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\cyutils.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\CyDMA.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\CyLFClk.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\Jacobian.hex"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\Jacobian.map"
+Deleting file ".\Jacobian.cycdx"
+Deleting file ".\Jacobian.svd"
+Deleting file ".\Jacobian.rpt"
+Deleting file ".\Jacobian_timing.html"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.P"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\.deps\SOURCE_ASM__ARM_GCC_GENERIC.P"
+cydsfit.exe -.appdatapath "C:\Users\Jacob\AppData\Local\Cypress Semiconductor\PSoC Creator\4.1" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Jacob\Documents\Junior\EGR 456\EGR456\Jacobian.cydsn\Jacobian.cyprj" -d CY8C4248LQQ-BL583 -s "C:\Users\Jacob\Documents\Junior\EGR 456\EGR456\Jacobian.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation...
+Synthesis...
+Tech Mapping...
+Analog Placement...
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/servos.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c servos.c -o .\CortexM0\ARM_GCC_541\Debug\servos.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/untitled01.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c untitled01.c -o .\CortexM0\ARM_GCC_541\Debug\untitled01.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cymetadata.c -o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Servos.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Servos.c -o .\CortexM0\ARM_GCC_541\Debug\Servos.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Servos_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Servos_PM.c -o .\CortexM0\ARM_GCC_541\Debug\Servos_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Clock_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Clock_1.c -o .\CortexM0\ARM_GCC_541\Debug\Clock_1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Servo1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Servo1.c -o .\CortexM0\ARM_GCC_541\Debug\Servo1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Servo1_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Servo1_PM.c -o .\CortexM0\ARM_GCC_541\Debug\Servo1_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Servo2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Servo2.c -o .\CortexM0\ARM_GCC_541\Debug\Servo2.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Servo2_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Servo2_PM.c -o .\CortexM0\ARM_GCC_541\Debug\Servo2_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Cm0Start.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Cm0Start.c -o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/CyFlash.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\CyFlash.c -o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/CyLib.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\CyLib.c -o .\CortexM0\ARM_GCC_541\Debug\CyLib.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cyPm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyPm.c -o .\CortexM0\ARM_GCC_541\Debug\cyPm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cyutils.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyutils.c -o .\CortexM0\ARM_GCC_541\Debug\cyutils.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/CyDMA.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\CyDMA.c -o .\CortexM0\ARM_GCC_541\Debug\CyDMA.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/CyLFClk.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\CyLFClk.c -o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o
+arm-none-eabi-as.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=.\CortexM0\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC4\CyBootAsmGnu.s
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\Jacobian.a .\CortexM0\ARM_GCC_541\Debug\Servos.o .\CortexM0\ARM_GCC_541\Debug\Servos_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock_1.o .\CortexM0\ARM_GCC_541\Debug\Servo1.o .\CortexM0\ARM_GCC_541\Debug\Servo1_PM.o .\CortexM0\ARM_GCC_541\Debug\Servo2.o .\CortexM0\ARM_GCC_541\Debug\Servo2_PM.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyDMA.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\Jacobian.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\Jacob\Documents\Junior\EGR 456\EGR456\Jacobian.cydsn\CortexM0\ARM_GCC_541\Debug\Jacobian.elf" .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\servos.o .\CortexM0\ARM_GCC_541\Debug\untitled01.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\Jacobian.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/Jacobian.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+.\CortexM0\ARM_GCC_541\Debug\main.o: In function `main':
+C:\Users\Jacob\Documents\Junior\EGR 456\EGR456\Jacobian.cydsn/main.c:46: undefined reference to `hello'
+collect2.exe: error: ld returned 1 exit status
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Rebuild Failed: 01/18/2018 13:15:36 ---------------
