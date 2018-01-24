@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jan 18 13:33:03 2018
+Created on Tue Jan 23 11:58:46 2018
 
 @author: Jacob
 """
-
-import numpy as np
 import sympy as sp
-
+import numpy as np
 
 def dhHeval(theta, alpha, r, d):
     row1 = [np.cos(theta), -np.sin(theta)*np.cos(alpha), np.sin(theta)*np.sin(alpha), r*np.cos(theta)]
@@ -35,29 +33,3 @@ def jacobianColSym(Hi, Hn, jointType = 'rev'):
     ans = sp.Matrix(ans)
     ans = sp.trigsimp(ans)
     return sp.simplify(ans)
-    
-###
-q1 = sp.Symbol("q1")
-q2 = sp.Symbol("q2")
-a1 = sp.Symbol("a1")
-a2 = sp.Symbol("a2")
-a3 = sp.Symbol("a3")
-
-theta1 = -90.0*sp.pi/180.0+q1
-alpha1 = -90.0*sp.pi/180.0
-r1 = 0.0
-d1 = a1
-
-theta2 = 0.0
-alpha2 = 0.0
-r2 = 0.0
-d2 = a2+a3 +q2
-
-H0_0 = np.matrix(np.identity(4))
-H0_1 = np.matrix(dhHsym(theta1,alpha1,r1,d1))
-H1_2 = np.matrix(dhHsym(theta2,alpha2,r2,d2))
-H0_2 = H0_1.dot(H1_2)
-
-jac1 = jacobianColSym(H0_0,H0_2)
-jac2 = jacobianColSym(H0_1,H0_2, 'prism')
-print(np.matrix(jac1))

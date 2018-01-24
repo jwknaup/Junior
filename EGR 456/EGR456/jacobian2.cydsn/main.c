@@ -11,61 +11,58 @@
 */
 //#include "project.h"
 #include <main.h>
-
-int theta1(float angle){
-    int max_comp = 6450, min_comp = 1600, max_angle=180, min_angle=0;
-    int compare;
-    compare = (max_comp-min_comp)/(max_angle-min_angle)*(angle-min_angle) + min_comp;
-    return compare;
-}
-int theta2(float angle){
-    int max_comp = 6750, min_comp = 2050, max_angle=90, min_angle=-90;
-    int compare;
-    compare = (max_comp-min_comp)/(max_angle-min_angle)*(angle-min_angle) + min_comp;
-    return compare;
-}
-
-void calibrateServos(){
-    for(;;)
-    {
-        /* Place your application code here. */
-        Servos_WriteCompare1(theta1(0.0));
-        CyDelay(1000);
-        Servos_WriteCompare2(theta2(0.0));
-        CyDelay(1000);
-    
-    }
-}
+#include "math.h"
     
 
 int main(void)
 {
-    //CyGlobalIntEnable; /* Enable global interrupts. */
+    float a1 = 4.9, a2 = 6.0, a3 = 5.5, a4 = 7.2, a5 = 8.9;
 
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     initializeServos();
-    Servos_WriteCompare1(theta1(0.0));
-    //Servos_WriteCompare1(theta1(0.0));
-    Servos_WriteCompare2(theta2(0.0));
+    
+    BottomServo.omega = 0.0;//deg per s
+    BottomServo.theta = 60.0;//60
+    BottomServo.inc = BottomServo.omega/100.0;
+    
+    TopServo.omega = 0.0;
+    TopServo.theta = -80.0;//-80
+    TopServo.inc = TopServo.omega/100.0;
+    
+    moveServo(BottomServo, BottomServo.theta);
+    moveServo(TopServo, TopServo.theta);
     CyDelay(3000);
     
-    float velocity = 45;//deg per s
-    float angle1=0.0;
-    float inc = velocity/100.0;
-    while(angle1 < 180.0){
-        Servos_WriteCompare1(theta1(angle1));
-        angle1+=inc;
+    float jac1, jac2;
+    float x=0.0, y=0.0;
+    float xDot = -0.0, yDot = 1.0;
+    
+    while((pow(x,2) + pow(y,2)) < pow(a2+a4,2) - 1){
+               
+        float q1 = BottomServo.theta*3.14159/180.0;
+        float q2 = TopServo.theta*3.14159/180.0;
+        
+        x = a2*cos(q1) - a4*sin(q1)*sin(q2) + a4*cos(q1)*cos(q2);
+        y = a2*sin(q1) + a4*sin(q1)*cos(q2) + a4*sin(q2)*cos(q1);
+        
+        jac1 = 1.0*(xDot*cos(q1 + q2) + yDot*sin(q1 + q2))/(a2*sin(q2));
+        jac2  = -(1.0*a2*xDot*cos(q1) + 1.0*a2*yDot*sin(q1) + 1.0*a4*xDot*cos(q1 + q2) + 1.0*a4*yDot*sin(q1 + q2))/(a2*a4*sin(q2));
+    
+        BottomServo.omega = jac1*180.0/3.14159;//deg per s
+        BottomServo.inc = BottomServo.omega/100.0;
+        BottomServo.theta += BottomServo.inc;
+        
+        TopServo.omega = jac2*180.0/3.14159;//deg per s
+        TopServo.inc = TopServo.omega/100.0;
+        TopServo.theta += TopServo.inc;
+        
+        moveServo(BottomServo, BottomServo.theta);
+        moveServo(TopServo, TopServo.theta);
+             
         CyDelay(10);
     }
-    Servos_WriteCompare2(theta2(90.0));
-    Servos_WriteCompare1(theta1(0.0));
-    angle1=0.0;
-    CyDelay(3000);
-    while(angle1 < 180.0){
-    Servos_WriteCompare1(theta1(angle1));
-    angle1+=inc;
-    CyDelay(10);
-    }
+    //moveServo(TopServo, TopServo.theta);
+    //moveServo(BottomServo, BottomServo.theta);
     
     
 }

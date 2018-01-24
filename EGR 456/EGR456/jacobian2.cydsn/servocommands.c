@@ -9,6 +9,17 @@
  *
  * ========================================
 */
+/* ========================================
+ *
+ * Copyright YOUR COMPANY, THE YEAR
+ * All Rights Reserved
+ * UNPUBLISHED, LICENSED SOFTWARE.
+ *
+ * CONFIDENTIAL AND PROPRIETARY INFORMATION
+ * WHICH IS THE PROPERTY OF your company.
+ *
+ * ========================================
+*/
 #include <main.h>
 
 void hi(){
@@ -26,8 +37,8 @@ void initializeServos(){
     
     TopServo.minComp = 2050;
     TopServo.maxComp = 6750;
-    TopServo.minAngle = 0.0;
-    TopServo.maxAngle = 180.0;
+    TopServo.minAngle = -90.0;
+    TopServo.maxAngle = 90.0;
     TopServo.write = Servos_WriteCompare2;
 }
 
@@ -37,8 +48,10 @@ int getCompare(struct Servo s, float angle){
 }
 
 void moveServo(struct Servo s, float angle){
-    getCompare(s,angle);
+    s.compare = getCompare(s,angle);
     s.write(s.compare);
 }
+
+/* [] END OF FILE */
 
 /* [] END OF FILE */

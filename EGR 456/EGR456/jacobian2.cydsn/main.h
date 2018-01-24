@@ -24,6 +24,8 @@ struct Servo{
     float minAngle;
     int compare;
     void (*write)(unsigned short compare);
+    
+    float theta, omega, inc;
 }BottomServo,TopServo;
    
 void initializeServos(void);
