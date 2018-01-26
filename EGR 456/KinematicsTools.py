@@ -18,7 +18,7 @@ def dhHsym(theta, alpha, r, d):
     row2 = [sp.sin(theta), sp.cos(theta)*sp.cos(alpha), -sp.cos(theta)*sp.sin(alpha), r*sp.sin(theta)]
     row3 = [0,sp.sin(alpha), sp.cos(alpha), d]
     row4 = [0,0,0,1]
-    return[row1,row2,row3,row4]
+    return sp.Matrix([row1,row2,row3,row4])
     
 def jacobianColSym(Hi, Hn, jointType = 'rev'):
     if (jointType == 'rev'):

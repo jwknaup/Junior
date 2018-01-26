@@ -446,7 +446,7 @@ for ii,item in enumerate(y):
     plt.plot(*(item.T),'ro-')
     ax.set_xlim((y[:,:,0].min(),y[:,:,0].max()))
     ax.set_ylim((y[:,:,1].min(),y[:,:,1].max()))
-    plt.savefig(os.path.join(folder,'{0:04d}.png'.format(ii)))
+    plt.savefig(os.path.join(folder,'{0:04d}.png'.format(ii)), dpi = 900)
 
 def make_gif(output_filename='render.gif',images_folder='render',fps=30,output_folder='.',image_name_format='*.png'):
     import imageio
