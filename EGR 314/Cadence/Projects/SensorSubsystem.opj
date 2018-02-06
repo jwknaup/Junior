@@ -1,0 +1,159 @@
+(ExpressProject "SensorSubsystem"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Amplifier.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Arithmetic.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\ATOD.OLB"
+        (Type "Schematic Library"))
+      (File
+         "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\BusDriverTransceiver.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\capsym.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Connector.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Counter.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Discrete.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\DRAM.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\ElectroMechanical.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\FIFO.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Filter.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\FPGA.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Gate.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Latch.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\LineDriverReceiver.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Mechanical.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MicroController.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MicroProcessor.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Misc.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Misc2.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Misc3.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MiscLinear.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MiscMemory.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MiscPower.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MuxDecoder.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\OPAmp.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\PassiveFilter.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\PLD.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\PROM.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Regulator.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\ShiftRegister.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\SRAM.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Transistor.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\sensorsubsystem.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    (PIC18F47J13-IML
+      (FullPartName "PIC18F47J13-IML.Normal")
+      (LibraryName
+         "C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\SYMBOLS\PIC18F47J13\ORCADCAPTUREEDF\ORCADCAPTUREEDF.OLB")
+      (DeviceIndex "0"))
+    (PIC18F47J53-XPT
+      (FullPartName "PIC18F47J53-XPT.Normal")
+      (LibraryName
+         "C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\SYMBOLS\PIC18F47J13\ORCADCAPTUREEDF\ORCADCAPTUREEDF.OLB")
+      (DeviceIndex "0")))
+  (LastUsedLibraryBrowseDirectory
+     "C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\symbols\PIC18F47J13\OrcadCaptureEDF")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\Projects\sensorsubsystem.dsn")
+      (Path "Design Resources"
+         "C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\Projects\sensorsubsystem.dsn"
+         "SCHEMATIC1")
+      (Path "Design Resources" "Library")
+      (Path "Design Resources" "Library"
+         "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB")
+      (Select "Design Resources" "Library"
+         "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 412"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 52 726 52 503")
+        (Scroll "0 33")
+        (Zoom "114")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\PROJECTS\SENSORSUBSYSTEM.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))
+    (Doc
+      (Type "COrPartDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 104 485 104 555")
+        (PackageScroll "0 0")
+        (PackageZoom "1")
+        (PartPackage "Part")
+        (Scroll "0 0")
+        (Zoom "118"))
+      (Path "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB")
+      (Package " PIC18F47K40-I/PT"))
+    (Doc
+      (Type "COrPartDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 156 537 156 607")
+        (PackageScroll "0 0")
+        (PackageZoom "1")
+        (PartPackage "Part")
+        (Scroll "469 636")
+        (Zoom "475"))
+      (Path "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB")
+      (Package "TCS40DPR"))
+    (Doc
+      (Type "COrPartDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 182 563 182 633")
+        (PackageScroll "0 0")
+        (PackageZoom "1")
+        (PartPackage "Part")
+        (Scroll "0 12")
+        (Zoom "118"))
+      (Path "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB")
+      (Package "MCP23017T"))))
