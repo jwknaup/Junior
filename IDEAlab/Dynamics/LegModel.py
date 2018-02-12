@@ -24,12 +24,12 @@ from sympy import pi
 system = System()
 
 top_length = 0.01333
-leg_length = 0.08
+leg_length = 0.12
 top_mass = 0.025
 leg_mass = 0.0125
 leg_width = 0.01
 leg_thickness = .002
-gear_ratio = 100.0
+gear_ratio = 75.0
 Tmax = 0.2825
 wMax = 200.0/60.0*2.0*3.14159
 
@@ -437,8 +437,8 @@ import os
 import idealab_tools.makemovie
 idealab_tools.makemovie.clear_folder()
 folder = idealab_tools.makemovie.prep_folder()
-f = plt.figure()
-ax = f.add_subplot(1,1,1)
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
 ax.axis('tight')
 
 for ii,item in enumerate(y):
@@ -446,7 +446,7 @@ for ii,item in enumerate(y):
     plt.plot(*(item.T),'ro-')
     ax.set_xlim((y[:,:,0].min(),y[:,:,0].max()))
     ax.set_ylim((y[:,:,1].min(),y[:,:,1].max()))
-    plt.savefig(os.path.join(folder,'{0:04d}.png'.format(ii)), dpi = 900)
+    plt.savefig(os.path.join(folder,'{0:04d}.png'.format(ii)), dpi = 100)
 
 def make_gif(output_filename='render.gif',images_folder='render',fps=30,output_folder='.',image_name_format='*.png'):
     import imageio

@@ -82,6 +82,48 @@
   (Folder "Outputs")
   (Folder "Referenced Projects")
   (PartMRUSelector
+    ("SW KEY-SPST"
+      (FullPartName "SW KEY-SPST.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (GND
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (VCC_BAR
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (JUMPER
+      (FullPartName "JUMPER.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    ("CAP NP"
+      (FullPartName "CAP NP.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (CON6
+      (FullPartName "CON6.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (TCS40DPR
+      (FullPartName "TCS40DPR.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MYMCUANDIC.OLB")
+      (DeviceIndex "0"))
+    (" PIC18F47K40-I/PT"
+      (FullPartName " PIC18F47K40-I/PT.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MYMCUANDIC.OLB")
+      (DeviceIndex "0"))
+    (CON2
+      (FullPartName "CON2.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (MCP23017T
+      (FullPartName "MCP23017T.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MYMCUANDIC.OLB")
+      (DeviceIndex "0"))
     (PIC18F47J13-IML
       (FullPartName "PIC18F47J13-IML.Normal")
       (LibraryName
@@ -98,32 +140,16 @@
     (FileView
       (Path "Design Resources")
       (Path "Design Resources"
-         "C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\Projects\sensorsubsystem.dsn")
-      (Path "Design Resources"
-         "C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\Projects\sensorsubsystem.dsn"
-         "SCHEMATIC1")
+         "c:\users\jacob\documents\junior\egr 314\cadence\projects\sensorsubsystem.dsn")
       (Path "Design Resources" "Library")
       (Path "Design Resources" "Library"
-         "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB")
-      (Select "Design Resources" "Library"
          "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 412"))
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 412"))
       (Tab 0))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 52 726 52 503")
-        (Scroll "0 33")
-        (Zoom "114")
-        (Occurrence "/"))
-      (Path
-         "C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\PROJECTS\SENSORSUBSYSTEM.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "PAGE1"))
     (Doc
       (Type "COrPartDoc")
       (Frame
@@ -133,7 +159,7 @@
         (PartPackage "Part")
         (Scroll "0 0")
         (Zoom "118"))
-      (Path "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB")
+      (Path "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MYMCUANDIC.OLB")
       (Package " PIC18F47K40-I/PT"))
     (Doc
       (Type "COrPartDoc")
@@ -142,9 +168,9 @@
         (PackageScroll "0 0")
         (PackageZoom "1")
         (PartPackage "Part")
-        (Scroll "469 636")
-        (Zoom "475"))
-      (Path "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB")
+        (Scroll "748 227")
+        (Zoom "236"))
+      (Path "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MYMCUANDIC.OLB")
       (Package "TCS40DPR"))
     (Doc
       (Type "COrPartDoc")
@@ -155,5 +181,17 @@
         (PartPackage "Part")
         (Scroll "0 12")
         (Zoom "118"))
-      (Path "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB")
-      (Package "MCP23017T"))))
+      (Path "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MYMCUANDIC.OLB")
+      (Package "MCP23017T"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 52 726 52 503")
+        (Scroll "0 362")
+        (Zoom "82")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\PROJECTS\SENSORSUBSYSTEM.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (MPSSessionName "Jacob"))

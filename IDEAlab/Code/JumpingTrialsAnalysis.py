@@ -4,14 +4,19 @@ import matplotlib.pyplot as plt
 
 root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/datas/Jumping Results/'
 width  ='01'
-length = '08'
-gear_ratio = '75'
+length = '12'
+gear_ratio = '150'
 trial = '1'
-file = root + width +'_' + length + '_' + gear_ratio + '/trial' + trial + '/cameras.csv'
+directory = root + width +'_' + length + '_' + gear_ratio + '/trial' + trial
+file = directory + '/cameras.csv'
 position = np.genfromtxt(file, delimiter=',')
-print(position)
+file=directory + '/loadcell.csv'
+force = np.genfromtxt(file, delimiter=',')
+file=directory + '/arduino.csv'
+arduino = np.genfromtxt(file, delimiter=',')
+#print(force)
 
-def maxHeightGet(array):    
+def maxHeightGet(array, l, ax=0):    
     if(np.min(array[:,2]) < 0.05):
         index = 5
     elif( np.min(array[:,5]) < 0.05):
@@ -23,9 +28,11 @@ def maxHeightGet(array):
         
     array[array[:,index] > 0.54, index] = 0.25
     
-    plt.plot(array[:,0], array[:,index])
-    plt.show()
-    plt.figure()
+    if ax is not 0:
+        ax.plot(array[:,0], array[:,index])
+        ax.set_ylabel('h (m)',color='b' )
+    #plt.show()
+    #plt.figure()
     #plt.plot(position[:,0], position[:,2])
     #plt.plot(position[:,0], position[:,6])
     
@@ -36,55 +43,163 @@ def maxHeightGet(array):
     deltaX = array[maxIndeces[index], index-1] - array[0,index-1]
     deltaZ = array[maxIndeces[index], index+1] - array[0,index+1]
     displacement = np.array([deltaX, deltaY, deltaZ])
-    legLength = (2*float(length) - 1.43)/100.0
+    legLength = (2*float(l) - 1.43)/100.0
     deltaHeight = np.linalg.norm(displacement)
     jumpHeight = deltaHeight - legLength
     #print(maxTime)
     print(jumpHeight)
-    return jumpHeight
+    return jumpHeight, deltaHeight
+
+def forceProfile(array, ax):
+    ax.plot(array[:,0], array[:,1], 'r')
+    ax.set_ylim([0,1.0])
+    ax.set_ylabel('F (N)', color='r')
+    
+def electricalProfile(array, axA, axB):
+    axA.plot(array[:,0], array[:,1], 'g')
+    axB.plot(array[:,0], array[:,2], 'k')
+    axA.set_ylim([0,8.0])
+    axB.set_ylim([0,2.0])
+    axA.set_ylabel('V (V)', color='g')
+    axB.set_ylabel('I (A)', color='k')
+
+    
+def encoderProfile(array, ax):
+    ax.plot(array[:,0], array[:,3], 'y')
+    ax.set_ylim([0,360])
+    
+def energyProfile(electrical, potential, force, l):
+    power = electrical[:,1]*electrical[:,2]
+    energyIn = np.trapz(power, x=electrical[:,0])
+    
+    jH, mH = maxHeightGet(potential, l)
+    energyOut = mH*force[0,1]
+    return energyIn, energyOut
+    
+    
+def iterateThroughTrials(p=0):
+    data = np.zeros([100,4])
+    efficiency = np.zeros([100,3])
+    i=0
+    for entry in os.scandir(root):
+       if not entry.name.startswith('s') and not entry.is_file():
+           designFolder = entry.name
+           words = designFolder.split('_')
+           width = int(words[0])
+           length = int(words[1])
+           gear_ratio = int(words[2])
+           for entry in os.scandir(root + '/' + designFolder):
+               if entry.name.startswith('t') and not entry.is_file():
+                   trialFolder = entry.name
+                   words = trialFolder.split('l')
+                   trial = words[1]
+                   directory = root + '/' + designFolder + '/' + trialFolder + '/'
+                   file = 'cameras.csv'
+                   try:
+                       position = np.genfromtxt(directory + file, delimiter=',')
+                   except:
+                       pass
+                   file = 'loadcell.csv'
+                   try:
+                       force = np.genfromtxt(directory + file, delimiter=',')
+                   except:
+                       pass
+                   file = 'arduino.csv'
+                   try:
+                       arduino = np.genfromtxt(directory + file, delimiter=',')
+                   except:
+                       pass
+                   if p is not 0:
+                       print(designFolder + '/' + trialFolder)
+                       fig, ax1 = plt.subplots()
+                       jH, _ = maxHeightGet(position,length, ax1)
+                       ax2 = ax1.twinx()
+                       forceProfile(force, ax2)
+                       ax3 = ax1.twinx()
+                       ax3.spines["right"].set_position(("axes", -0.2))
+                       encoderProfile(arduino, ax3)
+                       ax4 = ax1.twinx()
+                       ax4.spines["right"].set_position(("axes", 1.1))
+                       ax5 = ax1.twinx()
+                       ax5.spines["right"].set_position(("axes", 1.2))
+                       electricalProfile(arduino, ax4, ax5)
+                       plt.figure()
+                       plt.show()
+                       data[i,:] = [width, length, gear_ratio, jH]
+                   Ein, Eout = energyProfile(arduino, position, force, length)
+                   efficiency[i,:] = [length, gear_ratio, Eout/Ein]
+                   print('\n')
+                   i += 1
+    return data, efficiency
+    
+def plotJumpHeights(data):
+    print(data)
+    plt.figure()
+    plt.subplot(221)
+    plt.ylabel('jump height (m)')
+    plt.title("length")
+    plt.plot(data[:,1], data[:,3], 'o')
+    plt.xlabel('(cm)')
+    plt.subplot(222)
+    plt.title("gear ratio")
+    plt.plot(data[:,2], data[:,3], 'o')  
+    plt.xlabel('(reduction)')
+    plt.tight_layout()
+    plt.savefig('height results.png', dpi = 600)
+    
+def plotEfficiencies(eff):
+    plt.subplot(211)
+    plt.plot(eff[:,0], eff[:,2], 'o')
+    plt.title("Efficiency vs Length")
+    plt.xlabel('(cm)')
+    plt.ylabel('efficiency')
+    
+    plt.subplot(212)
+    plt.plot(eff[:,1], eff[:,2], 'o')
+    plt.title("Efficiency vs Gear Ratio")
+    plt.xlabel('(reduction)')
+    plt.tight_layout()
+    plt.savefig('efficiency results.png', dpi = 600)
+               
 
 #maxHeightGet(position)
+#forceProfile(force)
 
 
 import os
 
-data = np.zeros([100,4])
-i=0
+data, eff = iterateThroughTrials(0)
+plotJumpHeights(data)
+plotEfficiencies(eff)
 
-for entry in os.scandir(root):
-   if not entry.name.startswith('s') and not entry.is_file():
-       designFolder = entry.name
-       words = designFolder.split('_')
-       width = int(words[0])
-       length = int(words[1])
-       gear_ratio = int(words[2])
-       for entry in os.scandir(root + '/' + designFolder):
-           if entry.name.startswith('t') and not entry.is_file():
-               trialFolder = entry.name
-               words = trialFolder.split('l')
-               trial = words[1]
-               directory = root + '/' + designFolder + '/' + trialFolder + '/'
-               file = 'cameras.csv'
-               try:
-                   position = np.genfromtxt(directory + file, delimiter=',')
-               except:
-                   pass
-               print(designFolder + '/' + trialFolder)
-               jH = maxHeightGet(position)
-               data[i,:] = [width, length, gear_ratio, jH]
-               print('\n')
-               i += 1
+# =============================================================================
+# data = np.zeros([100,4])
+# i=0
+# 
+# for entry in os.scandir(root):
+#    if not entry.name.startswith('s') and not entry.is_file():
+#        designFolder = entry.name
+#        words = designFolder.split('_')
+#        width = int(words[0])
+#        length = int(words[1])
+#        gear_ratio = int(words[2])
+#        for entry in os.scandir(root + '/' + designFolder):
+#            if entry.name.startswith('t') and not entry.is_file():
+#                trialFolder = entry.name
+#                words = trialFolder.split('l')
+#                trial = words[1]
+#                directory = root + '/' + designFolder + '/' + trialFolder + '/'
+#                file = 'loadcell.csv'
+#                try:
+#                    force = np.genfromtxt(directory + file, delimiter=',')
+#                except:
+#                    pass
+#                print(designFolder + '/' + trialFolder)
+#                forceProfile(force)
+#                #data[i,:] = [width, length, gear_ratio, jH]
+#                print('\n')
+#                i += 1
+# =============================================================================
                
-print(data)
-plt.figure()
-plt.subplot(221)
-plt.ylabel('jump height (m)')
-plt.title("length")
-plt.plot(data[:,1], data[:,3], 'o')
-plt.xlabel('(cm)')
-plt.subplot(222)
-plt.title("gear ratio")
-plt.plot(data[:,2], data[:,3], 'o')  
-plt.xlabel('(reduction)')
-plt.savefig('height results.png', dpi = 1200)
+
 

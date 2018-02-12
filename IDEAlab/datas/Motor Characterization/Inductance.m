@@ -14,3 +14,11 @@ L = R*tau_aver
 currentAC = .4807e-3;
 voltagePP = 5.0;
 frequency = 50e3;
+
+%z^2 = x^2 + R^2
+%x^2 = V/I-R^2 = (2pi*fL)^2
+
+z = voltagePP/2.0/currentAC;
+x = sqrt(z^2-R^2);
+L=x/(2*pi*frequency)
+

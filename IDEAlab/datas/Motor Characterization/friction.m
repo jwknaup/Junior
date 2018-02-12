@@ -11,10 +11,12 @@ constantW = constantFreq/3.0*2.0*pi;
 constantI = [0.103, 0.111, .110, .112, .119, .112 ];
 
 B = K.*constantI./constantW
+T = K.*constantI
+%more or less constant
 
 %T = Bw + Tk = KI
 
-B = (K*constantI - torqueKineticFriction)./constantW
+%B = (K*constantI - torqueKineticFriction)./constantW
 
 %%%%%%with gear 30 reduction
 
@@ -28,4 +30,7 @@ constantW = constantFreq/3.0*2.0*pi;
 constantI = [.100, .102, .105, .110, .118, .129, .134, .139];
 
 B = K.*constantI./constantW
-B = (K*constantI - torqueKineticFriction)./constantW
+%B = (K*constantI - torqueKineticFriction)./constantW
+T=L.*constantI
+%needs linear fit
+
