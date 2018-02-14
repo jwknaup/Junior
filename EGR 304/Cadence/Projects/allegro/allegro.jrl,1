@@ -1,23 +1,83 @@
-\t (00:00:08) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
-\t (00:00:08)     Journal start - Fri Oct 06 12:36:36 2017
-\t (00:00:08)         Host=JACOB-Y50 User=Jacob Pid=12048 CPUs=8
-\t (00:00:08) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe
-\t (00:00:08) 
-\t (00:00:10) Opening existing design...
-\d (00:00:10) Design opened: C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/Projects/allegro/PPSENSOR5.brd
-\i (00:00:11) trapsize 3947
-\i (00:00:11) trapsize 3777
-\i (00:00:11) trapsize 3977
-\i (00:00:11) trapsize 2997
-\i (00:00:11) trapsize 2997
-\i (00:00:11) placementedit 
-\i (00:11:44) slide 
-\t (00:11:44) Pick element to slide.
-\i (00:11:51) capture image 
-\i (00:12:25) fillin "C:\Users\Jacob\Documents\Junior\EGR 304\Cadence\ppsensor pcb1.jpg"
-\i (00:12:25) cd "C:\Users\Jacob\Documents\Junior\EGR 304\Cadence"
-\i (00:12:25) capture image "C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/ppsensor pcb1.jpg" 
-\i (00:17:12) exit 
-\e (00:17:12) Do you want to save the changes you made to PPSENSOR5.brd?
-\i (00:17:16) fillin no 
-\t (00:17:16)     Journal end - Fri Oct 06 12:53:43 2017
+\t (00:00:18) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
+\t (00:00:18)     Journal start - Wed Feb 14 09:38:30 2018
+\t (00:00:18)         Host=JACOB-Y50 User=Jacob Pid=6892 CPUs=8
+\t (00:00:18) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe
+\t (00:00:18) 
+\t (00:00:20) Opening existing design...
+\d (00:00:20) Design opened: C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/Projects/allegro/PPSENSOR5.brd
+\i (00:00:20) trapsize 1602
+\i (00:00:20) trapsize 1573
+\i (00:00:21) trapsize 1606
+\i (00:00:21) trapsize 1637
+\i (00:00:21) trapsize 2963
+\i (00:00:21) etchedit 
+\i (00:00:23) trapsize 7544
+\i (00:00:24) trapsize 7403
+\i (00:00:32) new 
+\i (00:03:16) newdrawfillin "MCP23017.dra" "Package Symbol (Wizard)"
+\t (00:03:16) Starting new design...
+\i (00:03:16) trapsize 16355
+\i (00:03:16) trapsize 15510
+\i (00:03:16) trapsize 16355
+\i (00:03:16) trapsize 11824
+\i (00:03:16) trapsize 11824
+\i (00:03:16) trapsize 11824
+\i (00:03:16) package symbol wizard 
+\i (00:03:16) etchedit 
+   (00:03:51) Loading cmds.cxt 
+   (00:03:51) Loading axlcore.cxt 
+\i (00:03:51) setwindow form.sym_wizard
+\i (00:03:51) FORM sym_wizard soic YES 
+\i (00:03:53) FORM sym_wizard dip YES 
+\i (00:03:54) FORM sym_wizard soic YES 
+\i (00:03:57) FORM sym_wizard sip YES 
+\i (00:03:59) FORM sym_wizard soic YES 
+\i (00:04:01) FORM sym_wizard wiz_next  
+\i (00:04:45) FORM sym_wizard load_template  
+\t (00:04:45) Opening existing design...
+\i (00:04:52) fillin yes 
+\t (00:04:52) Grids are drawn 200, 200 apart for enhanced viewability.
+\i (00:04:52) setwindow pcb
+\i (00:04:52) trapsize 248
+\d (00:04:52) Design opened: C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols/template/sym_template.dra
+\i (00:05:13) setwindow form.sym_wizard
+\i (00:05:13) FORM sym_wizard wiz_next  
+\i (00:07:39) FORM sym_wizard pack_units Millimeter 
+\i (00:07:47) FORM sym_wizard wiz_next  
+\i (00:08:14) FORM sym_wizard sop_pin_count 31 
+\i (00:10:52) FORM sym_wizard sop_e1 9.400 
+\i (00:11:08) FORM sym_wizard sop_width 7.400 
+\i (00:12:04) FORM sym_wizard sop_pin_count 28 
+\i (00:13:53) FORM sym_wizard sop_len 17.900 
+\i (00:13:54) FORM sym_wizard wiz_next  
+\i (00:13:58) FORM sym_wizard default_pad_browse  
+\i (00:14:39) fillin "menu_cancel"
+\i (00:46:22) FORM sym_wizard default_pad_browse  
+\i (00:47:10) fillin "Padmcp23017soic"
+\i (00:47:15) FORM sym_wizard wiz_next  
+\i (00:47:24) FORM sym_wizard wiz_next  
+\i (00:47:43) FORM sym_wizard wiz_finish  
+\w (00:47:43) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\t (00:47:43) Grids are drawn 5.080, 5.080 apart for enhanced viewability.
+\i (00:47:43) setwindow pcb
+\i (00:47:43) trapsize 6293
+\t (00:47:43) Performing DRC...
+\t (00:47:43) No DRC errors detected.
+\w (00:47:43) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\i (00:47:43) trapsize 6293
+\i (00:47:43) trapsize 768
+\i (00:47:43) trapsize 154
+\i (00:47:43) trapsize 154
+\w (00:47:43) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\i (00:47:43) trapsize 6
+\t (00:47:43) Performing DRC...
+\t (00:47:43) DRC done; 26 errors detected.
+\t (00:47:43) Creating package symbol 'C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/Projects/allegro/mcp23017.psm'.
+\t (00:47:43) Starting Create symbol...
+\i (00:47:44) etchedit 
+\i (00:47:58) save 
+\i (00:48:02) fillin yes 
+\t (00:48:02) Symbol 'mcp23017.psm' created.
+\i (00:48:02) etchedit 
+\i (00:48:30) exit 
+\t (00:48:31)     Journal end - Wed Feb 14 10:26:43 2018

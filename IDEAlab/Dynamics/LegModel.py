@@ -25,13 +25,13 @@ system = System()
 
 top_length = 0.01333
 leg_length = 0.12
-top_mass = 0.025
-leg_mass = 0.0125
+top_mass = 0.030372
+leg_mass = 0.095*10**-3*leg_length*100.0
 leg_width = 0.01
 leg_thickness = .002
 gear_ratio = 75.0
-Tmax = 0.2825
-wMax = 200.0/60.0*2.0*3.14159
+Tmax = 0.2118/100.0*gear_ratio
+wMax = 320.0/60.0*2.0*3.14159*100/gear_ratio
 
 ####VARIOUS DESIGN CONSTANTS#####
 #define length constants
@@ -427,6 +427,7 @@ energy.plot_time()
 tip = Output([pBtip.dot(N.y),stretch])
 tip.calc(states4)
 tip.plot_time()
+plt.title('tip')
 print("!!!!!!finished 4!!!!!!!!!!!!!")
 
 
@@ -460,7 +461,7 @@ def make_gif(output_filename='render.gif',images_folder='render',fps=30,output_f
     for filename in filenames:
         images.append(imageio.imread(filename))
     imageio.mimsave(os.path.join(output_folder,output_filename), images,duration=1/fps ) 
-
+plt.ion()
 make_gif()
 #idealab_tools.makemovie.render(movie_folder="C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics")
 #idealab_tools.makemovie.clear_folder()

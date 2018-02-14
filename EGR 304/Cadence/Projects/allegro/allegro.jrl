@@ -1,77 +1,46 @@
-\t (00:00:04) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
-\t (00:00:04)     Journal start - Fri Oct 06 12:54:34 2017
-\t (00:00:04)         Host=JACOB-Y50 User=Jacob Pid=6352 CPUs=8
-\t (00:00:04) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe
-\t (00:00:04) 
-\t (00:00:07) Opening existing design...
-\d (00:00:07) Design opened: C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/Projects/allegro/PPSENSOR5.brd
-\i (00:00:07) trapsize 3947
-\i (00:00:07) trapsize 3777
-\i (00:00:07) trapsize 3977
-\i (00:00:07) trapsize 2997
-\i (00:00:07) trapsize 2997
-\i (00:00:08) placementedit 
-\i (00:02:21) toolswap 
-\i (00:02:23) fillin menu_cancel
-\i (00:02:23) placementedit 
-\i (00:02:27) file_property 
-\i (00:02:32) setwindow form.fileprop
-\i (00:02:32) FORM fileprop cancel  
-\i (00:02:32) setwindow pcb
-\i (00:02:32) placementedit 
-\i (00:02:48) net_properties 
-\i (00:02:49) setwindow cmgr
-\i (00:02:49) cm newView ( worksheet 144:Properties 14:Net "36:General Properties" "37:General Properties" )
-\i (00:02:49) setwindow pcb
-\i (00:02:49) placementedit 
-\i (00:03:35) setwindow cmgr
-\i (00:03:35) cm exit
-\i (00:04:30) setwindow pcb
-\i (00:04:30) pick grid 4288.87 1554.82
-\t (00:04:30) last pick:  4300.00 1600.00
-\w (00:10:07) Save Pending
-\i (00:16:11) pick grid 1226.37 2136.16
-\t (00:16:11) last pick:  1200.00 2100.00
-\i (00:16:14) trapsize 1419
-\i (00:16:16) pick grid 1135.95 1995.55
-\t (00:16:16) last pick:  1100.00 2000.00
-\i (00:16:17) pick grid 1127.44 2043.79
-\t (00:16:17) last pick:  1100.00 2000.00
-\i (00:16:23) trapsize 1637
-\i (00:16:26) pick grid 1185.75 2105.54
-\t (00:16:26) last pick:  1200.00 2100.00
-\i (00:16:26) prepopup 1189.02 2105.54
-\i (00:16:27) pick grid 1123.56 2066.26
-\t (00:16:27) last pick:  1100.00 2100.00
-\i (00:16:29) add connect 
-\t (00:16:30) Pick first element.
-\i (00:16:32) pick grid 1264.30 2154.63
-\t (00:16:32) last pick:  1275.00 2150.00
-\t (00:16:32) last pick:  1262.48 2162.48
-\t (00:16:32) last pick:  1262.48 2162.48
-\i (00:16:41) prepopup 1342.86 1902.60
-\i (00:16:44) oops 
-\t (00:16:44) last pick:  1262.48 2162.48
-\t (00:16:44) Pick first element.
-\i (00:17:44) pick grid 3532.54 1139.98
-\t (00:17:44) last pick:  3525.00 1150.00
-\t (00:17:44) last pick:  3525.00 1150.00
-\i (00:17:45) mouse_pos 3398.34 1339.64
-\i (00:17:45) mouse_pos 3349.25 1405.10
-\i (00:17:46) Esc 
-\i (00:17:47) prepopup 3080.86 1918.97
-\i (00:17:48) cancel 
-\t (00:17:48) Performing autosave...
-\t (00:17:49) Autosave successful
-\i (00:17:49) placementedit 
-\i (00:17:51) pick grid 3048.13 2066.26
-\t (00:17:51) last pick:  3050.00 2075.00
-\i (00:17:54) etchedit 
-\i (00:18:26) save 
-\i (00:18:30) fillin no 
-\i (00:18:32) fillin "menu_cancel"
-\i (00:18:32) etchedit 
-\i (00:18:33) exit 
-\e (00:18:33) Do you want to save the changes you made to PPSENSOR5.brd?
-\i (00:18:36) fillin no 
-\t (00:18:36)     Journal end - Fri Oct 06 13:13:06 2017
+\t (00:00:05) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
+\t (00:00:05)     Journal start - Wed Feb 14 10:27:26 2018
+\t (00:00:05)         Host=JACOB-Y50 User=Jacob Pid=6048 CPUs=8
+\t (00:00:05) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe
+\t (00:00:05) 
+\t (00:00:08) Opening existing design...
+\d (00:00:08) Design opened: C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/Projects/allegro/MCP23017.dra
+\i (00:00:08) trapsize 8
+\i (00:00:08) trapsize 6
+\i (00:00:08) trapsize 6
+\i (00:00:08) etchedit 
+\i (00:00:11) pick grid -13 -89
+\t (00:00:11) last pick:  -25 -100
+\i (00:00:12) prepopup -13 -89
+\i (00:00:20) pop dyn_option_select '@:@Property edit' 
+\i (00:00:20) property edit 
+\i (00:00:22) setwindow text
+close
+\i (00:00:25) setwindow form.editprop1
+\i (00:00:25) FORM editprop1 cancel  
+\i (00:00:25) setwindow pcb
+\i (00:00:25) etchedit 
+\i (00:00:25) prepopup -74 -239
+\i (00:00:37) pick grid 397 -335
+\t (00:00:37) last pick:  400 -325
+\i (00:02:02) refresh padstack 
+\i (00:02:06) setwindow form.rf_pad
+\i (00:02:06) FORM rf_pad execute  
+\t (00:02:06) Starting Refreshing padstacks...
+\t (00:02:06) Opening existing design...
+\i (00:02:06) setwindow pcb
+\i (00:02:06) trapsize 6
+\i (00:02:18) setwindow form.rf_pad
+\i (00:02:18) FORM rf_pad cancel  
+\i (00:02:18) setwindow pcb
+\i (00:02:18) etchedit 
+\i (00:02:20) save 
+\i (00:02:22) fillin yes 
+\t (00:02:22) Symbol 'mcp23017.psm' created.
+\i (00:02:22) etchedit 
+\i (00:02:23) save 
+\i (00:02:23) fillin yes 
+\t (00:02:23) Symbol 'mcp23017.psm' created.
+\i (00:02:23) etchedit 
+\i (00:02:26) exit 
+\t (00:02:26)     Journal end - Wed Feb 14 10:29:47 2018

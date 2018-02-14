@@ -1,47 +1,76 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Nov 06 18:27:39 2017
-
-@author: Jacob
-"""
-
+import matplotlib.pyplot as plt
+import numpy as np
+import multiprocessing
 import serial
 import time
 
-s = serial.Serial()
-s.baudrate=115200
-s.port='COM6'
-s.open()
-s.flush()
 
-output =[]
-#o=s.readline()
-#output=s.readline()
-#l = str.split(output)
+VI = np.zeros([100,4])
+def arduino(queue):
+    time.clock()
+    i = 0
+    ar = serial.Serial()
+    ar.baudrate=115200
+    ar.port='COM6'
+    ar.open()
+    time.sleep(0.5)
+    ar.write(55)
+    #ar.flush()
+    for i in range(100):
+        o = ar.readline()
+        a = o.split()
+        if len(a) < 3:
+            continue
+        try:
+            a0=float(a[0])
+        except ValueError:
+            continue
+        try:
+            a1=float(a[1])
+        except ValueError:
+            continue
+        try:
+            a2=float(a[2])
+        except ValueError:
+            continue
+        t=time.clock()
+        VI[i,:] = [t, a0, a1, a2]   
+    ar.close()
+    queue.put(VI)
+    
+if __name__ == '__main__':
 
-start = time.time();
-for j in range(0,500):
-    #s.write("?\r")
-    o=s.readline();
-    output.append(o)
-fin = time.time()
-print(fin-start)
+    queue = multiprocessing.Queue()
+    ardProc = multiprocessing.Process(target=arduino, args=((queue),))
 
-s.close()
+    _start = time.clock()
+    
+    ardProc.start()
 
-file=open("pydata.csv", "w")
+     
+    print("started")
+    #lcProc.join()
+    VI = queue.get()
+    print(1)
 
-for i in output:
-    file.write("%s" % i)
+    print("V-I-THETA")
+    print(VI)
 
-file.close()
+    
+    np.savetxt('arduino.csv', VI, delimiter=',')
+   
+    plt.figure(1)
+    plt.subplot(211)
+    plt.plot(VI[:,0], VI[:,1], 'ro')
+    plt.plot(VI[:,0], VI[:,2], 'bs')
+    plt.title("V-I")
+    plt.legend(['V', 'I (A)'])
+    plt.subplot(212)
+    plt.plot(VI[:,0], VI[:,3], 'c:')
+    plt.title('encoder')
+    #plt.axis([0,.5, -1, 2])
+    plt.show() 
 
+    #print(queue.get())
 
-# =============================================================================
-# file=open("data.txt", "w")
-# 
-# for j in range(0,400):
-#     file.write("%d\n" % d[j])
-# 
-# file.close()
-# =============================================================================
+    ardProc.terminate()

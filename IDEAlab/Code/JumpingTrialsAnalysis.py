@@ -75,6 +75,12 @@ def energyProfile(electrical, potential, force, l):
     jH, mH = maxHeightGet(potential, l)
     energyOut = mH*force[0,1]
     return energyIn, energyOut
+
+massTotal=0
+def addMass(array):
+    global massTotal
+    massTotal+=array[0,1]
+    return massTotal
     
     
 def iterateThroughTrials(p=0):
@@ -110,7 +116,6 @@ def iterateThroughTrials(p=0):
                    except:
                        pass
                    if p is not 0:
-                       print(designFolder + '/' + trialFolder)
                        fig, ax1 = plt.subplots()
                        jH, _ = maxHeightGet(position,length, ax1)
                        ax2 = ax1.twinx()
@@ -126,11 +131,13 @@ def iterateThroughTrials(p=0):
                        plt.figure()
                        plt.show()
                        data[i,:] = [width, length, gear_ratio, jH]
-                   Ein, Eout = energyProfile(arduino, position, force, length)
-                   efficiency[i,:] = [length, gear_ratio, Eout/Ein]
+                   print(designFolder + '/' + trialFolder)
+                   massTotal = addMass(force)
+                   #Ein, Eout = energyProfile(arduino, position, force, length)
+                   #efficiency[i,:] = [length, gear_ratio, Eout/Ein]
                    print('\n')
                    i += 1
-    return data, efficiency
+    return data, massTotal/i
     
 def plotJumpHeights(data):
     print(data)
@@ -168,9 +175,11 @@ def plotEfficiencies(eff):
 
 import os
 
-data, eff = iterateThroughTrials(0)
-plotJumpHeights(data)
-plotEfficiencies(eff)
+data, massAve = iterateThroughTrials(0)
+#plotJumpHeights(data)
+#plotEfficiencies(eff)
+
+print(massAve)
 
 # =============================================================================
 # data = np.zeros([100,4])
