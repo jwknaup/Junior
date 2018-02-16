@@ -30,7 +30,8 @@ constantFreq = [150,  270, 330, 495, 630, 900, 1.23e3, 1.585e3];
 constantW = constantFreq/3.0*2.0*pi;
 constantI = [.100, .102, .105, .110, .118, .129, .134, .139];
 
-B = K.*constantI./constantW - TfAve
+plot(K.*constantI, constantW)
+B = (K.*constantI - TfAve)./constantW
 %B = (K*constantI - torqueKineticFriction)./constantW
 %T=L.*constantI
 
@@ -41,7 +42,14 @@ constantFreq = [220,330, 417, 480, 600, 860, 1170, 1440];
 constantW = constantFreq/3.0*2.0*pi;
 constantI = [.099, 0.107, .109, .111, .111, .119, .124, .132];
 
-B = K.*constantI./constantW - TfAve
+figure(2)
+plot(K.*constantI, constantW)
+B = (K.*constantI - TfAve)./constantW
 
 %final friction model is Tf = Bw + Tf0
+
+%T=0=Tm-Tf=K*I - (B*w-Tf0)
+%B*w-Tf0=K*I
+%B*w=K*I + Tf0
+%B = (K*I + Tf0)/w
 

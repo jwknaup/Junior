@@ -8,7 +8,7 @@ Created on Thu Feb 08 16:49:18 2018
 import numpy as np
 import cv2
 
-cap=cv2.VideoCapture(1)
+cap=cv2.VideoCapture(0)
 
 while 1:
     _, frame=cap.read()

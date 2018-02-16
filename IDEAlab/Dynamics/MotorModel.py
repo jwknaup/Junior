@@ -55,11 +55,11 @@ i,i_d= Differentiable('i',ii=1,system=system)
 
 constants = {}
 constants[L] = .0166
-constants[V] = 6.0
+constants[V] = 5.0
 constants[R] = 4.3586
 constants[G] = 1.0
-constants[Im] = .000001
-constants[Il] = .000000001
+constants[Im] = .00000001
+constants[Il] = 0.0
 constants[b] = 0.1798*10**-3
 constants[f0] = 1.7999*10**-4
 constants[kv] = .0016
@@ -110,10 +110,9 @@ Load = Body('Load',B,pO,m,I_load,system)
 #T = kt*(V/R)-kv*G*qB_d
 T = kt*i
 system.addforce(T*N.z,wNA)
-system.addforce(-b*wNA,wNA)
-system.addforce(-Tl*B.z,wNB)
+#system.addforce(-b*wNA,wNA)
+#system.addforce(-Tl*B.z,wNB)
 system.addforce(-f0*B.z,wNA)
-#add constant frictional force
 system.addforce((V-i*R - kv*G*qB_d)*M.x,i*M.x)
 eq_d = []
 #eq_d = [N.getw_(A).dot(N.z) - G*wB]

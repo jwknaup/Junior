@@ -7,8 +7,8 @@ Va = 5.05;
 VbackEMF = Va-Ra*Ia
 
 frequency = 1.3195e3;
-rpm = frequency/3.0*60
-angularVelocity = frequency/3.0*2*pi;
+rpm = frequency/3.0*60;
+angularVelocity = frequency/3.0*2*pi
 freeW = angularVelocity;
 
 K = VbackEMF/freeW
