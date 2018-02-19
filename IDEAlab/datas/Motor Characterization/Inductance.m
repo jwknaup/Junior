@@ -22,3 +22,5 @@ z = voltagePP/2.0/currentAC;
 x = sqrt(z^2-R^2);
 L=x/(2*pi*frequency)
 
+%530 uH per LCR meter
+%52.9 ohm per LCR meter

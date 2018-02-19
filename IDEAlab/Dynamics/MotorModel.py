@@ -22,6 +22,8 @@ import matplotlib.pyplot as plt
 plt.ion()
 from math import pi
 
+import scipy as sp
+
 def add_motor_dynamics():
     pass
 
@@ -43,8 +45,8 @@ m = Constant(name='m',system=system)
 g = Constant(name='g',system=system)
 
 tinitial = 0
-tfinal = 10
-tstep = .01
+tfinal = 0.26
+tstep = .001
 t = numpy.r_[tinitial:tfinal:tstep]
 
 #qA,qA_d,qA_dd = Differentiable('qA',system)
@@ -54,14 +56,14 @@ i,i_d= Differentiable('i',ii=1,system=system)
 
 
 constants = {}
-constants[L] = .0166
-constants[V] = 5.0
+constants[L] = 530*10**-6#.0166
+constants[V] = 5.7
 constants[R] = 4.3586
-constants[G] = 1.0
-constants[Im] = .00000001
-constants[Il] = 0.0
-constants[b] = 0.1798*10**-3
-constants[f0] = 1.7999*10**-4
+constants[G] = 30.0
+constants[Im] = 0.00000013
+constants[Il] = 0.000000
+constants[b] = 2.2*10**-8
+constants[f0] = .00016
 constants[kv] = .0016
 constants[kt] = .0016
 constants[Tl] = 0
@@ -110,9 +112,9 @@ Load = Body('Load',B,pO,m,I_load,system)
 #T = kt*(V/R)-kv*G*qB_d
 T = kt*i
 system.addforce(T*N.z,wNA)
-#system.addforce(-b*wNA,wNA)
+system.addforce(-b*wNA,wNA)
 #system.addforce(-Tl*B.z,wNB)
-system.addforce(-f0*B.z,wNA)
+system.addforce(-f0*N.z,wNA)
 system.addforce((V-i*R - kv*G*qB_d)*M.x,i*M.x)
 eq_d = []
 #eq_d = [N.getw_(A).dot(N.z) - G*wB]
@@ -144,7 +146,7 @@ KE = system.get_KE()
 PE = system.getPEGravity(0*N.x) - system.getPESprings()
 energy = Output([KE-PE], constant_values = constants)
 energy.calc(states)
-energy.plot_time()
+#energy.plot_time()
 # =============================================================================
 
 positions = Output(system.get_q(0), constant_values = constants)
@@ -153,11 +155,11 @@ positions.calc(states)
 
 speeds = Output(system.get_q(1), constant_values = constants)
 speeds.calc(states)
-speeds.plot_time(t)
+#speeds.plot_time(t)
 
 y= Output([G*qB_d], constant_values=constants)
 y.calc(states)
-y.plot_time(t)
+#y.plot_time(t)
 
 #################################################################
 directory = 'C:/Users/Jacob/Documents/Junior/IDEAlab/datas/Motor Characterization/Inertia/'
@@ -166,7 +168,27 @@ file = 'motorAccel' + gear + '.csv'
 tVIe = numpy.genfromtxt(directory + file, delimiter=',')
 i0 = numpy.argmax(tVIe[:,1]<6.0)
 t0 = tVIe[i0,0]
-plt.figure()
-plt.plot((tVIe[i0:-1,0]-t0)*1000, numpy.abs(tVIe[i0:-1,3]))
-positions.plot_time(t)
+t1 = tVIe[i0:-1,0]-t0
+enc1 = numpy.abs(tVIe[i0:-1,3])/12.0*2.0*pi
 
+gear = '30'
+file = 'motorAccel' + gear + '.csv'
+tVIe = numpy.genfromtxt(directory + file, delimiter=',')
+i0 = numpy.argmax(tVIe[:,1]<6.0)
+t0 = tVIe[i0,0]
+t30 = tVIe[i0:-1,0]-t0
+enc30 = numpy.abs(tVIe[i0:-1,3])/12.0*2.0*pi
+
+gear = '300'
+file = 'motorAccel' + gear + '.csv'
+tVIe = numpy.genfromtxt(directory + file, delimiter=',')
+i0 = numpy.argmax(tVIe[:,1]<6.0)
+t0 = tVIe[i0,0]
+t300 = tVIe[i0:-1,0]-t0
+enc300 = numpy.abs(tVIe[i0:-1,3])/12.0*2.0*pi
+
+#plt.figure()
+positions.plot_time(t)
+plt.plot(t1, enc30/30)
+#plt.plot(t30, enc30)
+#plt.plot(t300, enc300)

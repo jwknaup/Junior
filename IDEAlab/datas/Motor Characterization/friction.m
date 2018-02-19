@@ -27,14 +27,15 @@ finI = .103
 torqueKineticFriction = K*finI
 
 constantFreq = [150,  270, 330, 495, 630, 900, 1.23e3, 1.585e3];
-constantW = constantFreq/3.0*2.0*pi;
+constantW = constantFreq/3.0*2.0*pi
 constantI = [.100, .102, .105, .110, .118, .129, .134, .139];
 
-plot(K.*constantI, constantW)
-B = (K.*constantI - TfAve)./constantW
+plot(constantW, K.*constantI, 'bo')
+B = (K.*constantI./constantW - TfAve);
 %B = (K*constantI - torqueKineticFriction)./constantW
 %T=L.*constantI
-
+%B=K*I/w - T0
+%T0w + Bw = KI
 
 %%%%%%%%%with gear 300 reduction
 
@@ -42,9 +43,10 @@ constantFreq = [220,330, 417, 480, 600, 860, 1170, 1440];
 constantW = constantFreq/3.0*2.0*pi;
 constantI = [.099, 0.107, .109, .111, .111, .119, .124, .132];
 
-figure(2)
-plot(K.*constantI, constantW)
-B = (K.*constantI - TfAve)./constantW
+hold on
+plot(constantW, K.*constantI, 'ro')
+
+B = (K.*constantI./constantW - TfAve);
 
 %final friction model is Tf = Bw + Tf0
 
@@ -53,3 +55,12 @@ B = (K.*constantI - TfAve)./constantW
 %B*w=K*I + Tf0
 %B = (K*I + Tf0)/w
 
+%%%%%%%%%%with gear 75 reduction
+
+constantI = [.115,.122, .127, .125, .126, .130,.128,.129];
+constantFreq = [223,369,480,620,720,914,1280,1570];
+constantW = constantFreq/3.0*2.0*pi;
+
+plot(constantW, K.*constantI, 'go')
+
+lsline
