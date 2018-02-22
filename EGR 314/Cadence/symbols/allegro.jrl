@@ -1,108 +1,41 @@
-\t (00:00:05) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
-\t (00:00:05)     Journal start - Mon Feb 19 11:41:18 2018
-\t (00:00:05)         Host=JACOB-Y50 User=Jacob Pid=6620 CPUs=8
-\t (00:00:05) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe
-\t (00:00:05) 
-\t (00:00:08) Opening existing design...
-\d (00:00:08) Design opened: C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/symbols/tqfpPIC18F47K40.dra
-\i (00:00:08) trapsize 5
-\i (00:00:08) trapsize 4
-\i (00:00:08) trapsize 4
-\i (00:00:08) etchedit 
-\i (00:00:12) new 
-\i (00:00:32) newdrawfillin "pdipPIC18F47K40.dra" "Package Symbol (Wizard)"
-\t (00:00:32) Starting new design...
-\i (00:00:32) trapsize 11
-\i (00:00:32) trapsize 11
-\i (00:00:32) package symbol wizard 
-\i (00:00:32) etchedit 
-\i (00:00:35) setwindow form.sym_wizard
-\i (00:00:35) FORM sym_wizard wiz_next  
-   (00:00:35) Loading cmds.cxt 
-   (00:00:35) Loading axlcore.cxt 
-\i (00:00:37) FORM sym_wizard load_template  
-\t (00:00:37) Opening existing design...
-\i (00:00:38) fillin yes 
-\t (00:00:38) Grids are drawn 200, 200 apart for enhanced viewability.
-\i (00:00:38) setwindow pcb
-\i (00:00:38) trapsize 248
-\d (00:00:38) Design opened: C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols/template/sym_template.dra
-\i (00:00:39) setwindow form.sym_wizard
-\i (00:00:39) FORM sym_wizard wiz_next  
-\i (00:01:05) FORM sym_wizard pack_units Inch 
-\i (00:01:09) FORM sym_wizard pack_precision 4 
-\i (00:01:10) FORM sym_wizard wiz_next  
-\i (00:01:55) FORM sym_wizard dip_pin_count 40 
-\i (00:03:53) FORM sym_wizard dip_e1 0.7000 
-\i (00:04:45) FORM sym_wizard dip_width 0.4325 
-\i (00:05:31) FORM sym_wizard dip_len 1.9950 
-\i (00:05:32) FORM sym_wizard wiz_next  
-\i (00:05:33) FORM sym_wizard default_pad_browse  
-\i (00:05:46) fillin "Padpdippic18f47k40"
-\i (00:05:47) FORM sym_wizard wiz_next  
-\i (00:05:55) FORM sym_wizard wiz_next  
-\i (00:05:59) FORM sym_wizard wiz_finish  
-\t (00:05:59) Grids are drawn 0.2000, 0.2000 apart for enhanced viewability.
-\i (00:05:59) setwindow pcb
-\i (00:05:59) trapsize 2477
-\t (00:05:59) Performing DRC...
-\t (00:05:59) No DRC errors detected.
-\i (00:05:59) trapsize 2477
-\i (00:05:59) trapsize 2477
-\t (00:05:59) Grids are drawn 0.0500, 0.0500 apart for enhanced viewability.
-\i (00:05:59) trapsize 322
-\i (00:05:59) trapsize 322
-\w (00:05:59) WARNING(SPMHUT-48): Scaled value has been rounded off.
-\t (00:05:59) Grids are drawn 50, 50 apart for enhanced viewability.
-\i (00:05:59) trapsize 32
-\t (00:05:59) Performing DRC...
-\t (00:05:59) No DRC errors detected.
-\t (00:05:59) Creating package symbol 'C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/symbols/pdippic18f47k40.psm'.
-\t (00:05:59) Starting Create symbol...
-\i (00:05:59) etchedit 
-\i (00:06:02) zoom out 1 
-\i (00:06:02) setwindow pcb
-\i (00:06:02) zoom out -561 -706
-\i (00:06:02) trapsize 38
-\i (00:06:02) zoom out 1 
-\i (00:06:02) setwindow pcb
-\i (00:06:02) zoom out -427 -475
-\i (00:06:02) trapsize 38
-\i (00:06:02) zoom out 1 
-\i (00:06:02) setwindow pcb
-\i (00:06:02) zoom out -427 -475
-\i (00:06:02) trapsize 38
-\i (00:06:02) zoom in 1 
-\i (00:06:02) setwindow pcb
-\i (00:06:02) zoom in -427 -475
-\i (00:06:02) trapsize 19
-\i (00:06:03) zoom in 1 
-\i (00:06:03) setwindow pcb
-\i (00:06:03) zoom in -891 -474
-\i (00:06:03) trapsize 9
-\i (00:06:04) zoom in 1 
-\i (00:06:04) setwindow pcb
-\i (00:06:04) zoom in -250 -459
-\i (00:06:04) trapsize 5
-\i (00:06:05) zoom out 1 
-\i (00:06:05) setwindow pcb
-\i (00:06:05) zoom out -250 -459
-\i (00:06:05) trapsize 9
-\i (00:06:05) zoom out 1 
-\i (00:06:05) setwindow pcb
-\i (00:06:05) zoom out -249 -458
-\i (00:06:05) trapsize 19
-\i (00:06:05) zoom out 1 
-\i (00:06:05) setwindow pcb
-\i (00:06:05) zoom out 392 -459
-\i (00:06:05) trapsize 38
-\i (00:06:07) zoom in 1 
-\i (00:06:07) setwindow pcb
-\i (00:06:07) zoom in -826 -905
-\i (00:06:07) trapsize 19
-\i (00:06:10) save 
-\i (00:06:13) fillin yes 
-\t (00:06:13) Symbol 'pdippic18f47k40.psm' created.
-\i (00:06:13) etchedit 
-\i (00:06:19) exit 
-\t (00:06:20)     Journal end - Mon Feb 19 11:47:32 2018
+\t (00:34:01) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
+\t (00:34:01)     Journal start - Wed Feb 21 09:54:13 2018
+\t (00:34:01)         Host=JACOB-Y50 User=Jacob Pid=8640 CPUs=8
+\t (00:34:01) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe
+\t (00:34:01) 
+\d (00:34:01) Design opened: C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/symbols/header1x6.dra
+\i (00:34:01) etchedit 
+\i (00:34:06) pick grid 80.6 -215.5
+\t (00:34:06) last pick:  75.0 -225.0
+\i (00:34:07) save 
+\i (00:34:09) fillin yes 
+\t (00:34:10) Symbol 'header1x6.psm' created.
+\i (00:34:10) etchedit 
+\i (00:47:57) open 
+\i (00:48:04) fillin "electrolyticCap.dra"
+\t (00:48:04) Opening existing design...
+\i (00:48:04) trapsize 46
+\d (00:48:04) Design opened: C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/symbols/electrolyticCap.dra
+\i (00:48:04) etchedit 
+\i (00:48:19) zoom in 1 
+\i (00:48:19) setwindow pcb
+\i (00:48:19) zoom in 15.2 -109.1
+\i (00:48:19) trapsize 23
+\i (00:48:19) zoom in 1 
+\i (00:48:19) setwindow pcb
+\i (00:48:19) zoom in 15.2 -109.1
+\i (00:48:19) trapsize 11
+\i (00:48:19) zoom in 1 
+\i (00:48:19) setwindow pcb
+\i (00:48:19) zoom in 15.2 -109.0
+\i (00:48:19) trapsize 6
+\i (00:48:19) zoom out 1 
+\i (00:48:19) setwindow pcb
+\i (00:48:19) zoom out 15.2 -109.0
+\i (00:48:19) trapsize 11
+\i (00:48:19) zoom out 1 
+\i (00:48:19) setwindow pcb
+\i (00:48:19) zoom out 15.2 -109.0
+\i (00:48:19) trapsize 23
+\i (00:55:54) exit 
+\t (00:55:54)     Journal end - Wed Feb 21 10:16:06 2018

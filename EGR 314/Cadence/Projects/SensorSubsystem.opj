@@ -141,11 +141,18 @@
       (Path "Design Resources")
       (Path "Design Resources"
          "c:\users\jacob\documents\junior\egr 314\cadence\projects\sensorsubsystem.dsn")
+      (Path "Design Resources"
+         "c:\users\jacob\documents\junior\egr 314\cadence\projects\sensorsubsystem.dsn"
+         "SCHEMATIC1")
+      (Path "Design Resources"
+         "c:\users\jacob\documents\junior\egr 314\cadence\projects\sensorsubsystem.dsn"
+         "Design Cache")
       (Path "Design Resources" "Library")
       (Path "Design Resources" "Library"
          "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB")
-      (Select "Design Resources" "Library"
-         "C:\Cadence\SPB_16.6\tools\capture\library\myMCUandIC.OLB" "MCP23017T"))
+      (Select "Design Resources"
+         "c:\users\jacob\documents\junior\egr 314\cadence\projects\sensorsubsystem.dsn"
+         "Design Cache" "CAP NP"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -175,21 +182,10 @@
       (Path "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MYMCUANDIC.OLB")
       (Package "TCS40DPR"))
     (Doc
-      (Type "COrPartDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 182 563 182 633")
-        (PackageScroll "0 0")
-        (PackageZoom "1")
-        (PartPackage "Part")
-        (Scroll "0 12")
-        (Zoom "118"))
-      (Path "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MYMCUANDIC.OLB")
-      (Package "MCP23017T"))
-    (Doc
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 2 3 -1 -1 -8 -31 52 726 52 503")
-        (Scroll "342 470")
+        (Scroll "0 609")
         (Zoom "82")
         (Occurrence "/"))
       (Path
