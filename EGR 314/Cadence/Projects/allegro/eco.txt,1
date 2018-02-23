@@ -2,89 +2,71 @@
 |                                 ECO   REPORT                                 |
 |                                                                    Page   1  |
 |------------------------------------------------------------------------------|
-|  C:.../JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/PPSENSOR.brd  |
-|                                                    Wed Oct 04 10:14:40 2017  |
-|------------------------------------------------------------------------------|
-| NET CHANGES                                                                  |
-|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-|   net  name |  type of change |                net     pins                  |
-|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-  +5V          pins ADDED TO this new net
-                                 C1.1           C2.2           C3.1           
-                                 J1.1           U1.1           U2.1           
-                                 U3.4           U4.2           U4.22          
-                                 U4.43          
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-  A0           pins ADDED TO this new net
-                                 R1.2           U3.1           U4.19          
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-  A1           pins ADDED TO this new net
-                                 R2.2           U3.7           U4.20          
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-  GND          pins ADDED TO this new net
-                                 C1.2           C2.1           C3.2           
-                                 J1.2           R3.2           R4.2           
-                                 U3.11          U4.4           U4.21          
-                                 U4.44          
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-  N04951       pins ADDED TO this new net
-                                 R3.1           U1.2           U3.3           
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-  N04995       pins ADDED TO this new net
-                                 R4.1           U2.2           U3.5           
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-  N06521       pins ADDED TO this new net
-                                 R1.1           U3.2           
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-  N09660       pins ADDED TO this new net
-                                 R2.1           U3.6           
-|------------------------------------------------------------------------------|
-|                                 ECO   REPORT                                 |
-|                                                                    Page   2  |
-|------------------------------------------------------------------------------|
-|  C:.../JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/PPSENSOR.brd  |
-|                                                    Wed Oct 04 10:14:40 2017  |
+|  C:.../Jacob/Documents/Junior/EGR 314/Cadence/Projects/sensorsubsystem1.brd  |
+|                                                    Thu Feb 22 21:59:48 2018  |
 |------------------------------------------------------------------------------|
 | COMPONENT DEFINITION added to design                                         |
 |- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 |    device type                                                               |
 |- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
- CAP NP_CAPACITOR_0.1UF
- CON2_2PINHEADER_CON2
- FLEXSENSOR_5_2PINHEADER_FLEXSEN
- LM324_LM324AN_LM324
- PSOC 4 BLE_PSOC4BLE_PSOC 4 BLE
- RESISTOR_RESISTOR_1K
- R_RESISTOR_500
+ CAP NP_1206_0.1 UF
+ R_1206_0 OHM
+ R_1206_1 KOHM
+ R_1206_10 KOHM
+ R_1206_100 KOHM
+ R_1206_22 OHM
+ R_1206_220 OHM
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   2  |
+|------------------------------------------------------------------------------|
+|  C:.../Jacob/Documents/Junior/EGR 314/Cadence/Projects/sensorsubsystem1.brd  |
+|                                                    Thu Feb 22 21:59:48 2018  |
+|------------------------------------------------------------------------------|
+| COMPONENTS CHANGED from one device type to another in design                 |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        | new device type     |   x   |   y   |  old  device type  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ C1                  CAP NP_1206_0.1 UF                    CAP NP_1206RF_WV_12D_0.1 UF
+ C2                  CAP NP_1206_0.1 UF                    CAP NP_1206RF_WV_12D_0.1 UF
+ C3                  CAP NP_1206_0.1 UF                    CAP NP_1206RF_WV_12D_0.1 UF
+ C4                  CAP NP_1206_0.1 UF                    CAP NP_1206RF_WV_12D_0.1 UF
+ C5                  CAP NP_1206_0.1 UF                    CAP NP_1206RF_WV_12D_0.1 UF
+ C6                  CAP NP_1206_0.1 UF                    CAP NP_1206RF_WV_12D_0.1 UF
+ R1                  R_1206_220 OHM                        R_1206RF_WV_12D_220 OHM
+ R2                  R_1206_10 KOHM                        R_1206RF_WV_12D_10 KOHM
+ R3                  R_1206_22 OHM                         R_1206RF_WV_12D_22 OHM
+ R4                  R_1206_22 OHM                         R_1206RF_WV_12D_22 OHM
+ R5                  R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R6                  R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R10                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R11                 R_1206_0 OHM                          R_1206RF_WV_12D_0 OHM
+ R12                 R_1206_0 OHM                          R_1206RF_WV_12D_0 OHM
+ R13                 R_1206_0 OHM                          R_1206RF_WV_12D_0 OHM
+ R14                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R15                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R16                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R17                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R18                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R19                 R_1206_0 OHM                          R_1206RF_WV_12D_0 OHM
+ R20                 R_1206_0 OHM                          R_1206RF_WV_12D_0 OHM
+ R21                 R_1206_100 KOHM                       R_1206RF_WV_12D_100 KOHM
+ R22                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R23                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R24                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R25                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R26                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R27                 R_1206_0 OHM                          R_1206RF_WV_12D_0 OHM
+ R28                 R_1206_100 KOHM                       R_1206RF_WV_12D_100 KOHM
+ R29                 R_1206_0 OHM                          R_1206RF_WV_12D_0 OHM
+ R30                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
+ R31                 R_1206_1 KOHM                         R_1206RF_WV_12D_1 KOHM
 |------------------------------------------------------------------------------|
 |                                 ECO   REPORT                                 |
 |                                                                    Page   3  |
 |------------------------------------------------------------------------------|
-|  C:.../JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/PPSENSOR.brd  |
-|                                                    Wed Oct 04 10:14:40 2017  |
-|------------------------------------------------------------------------------|
-| COMPONENTS ADDED to design                                                   |
-|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
-|    ref des        |    device type                                           |
-|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
- C1                  CAP NP_CAPACITOR_0.1UF 
- C2                  CAP NP_CAPACITOR_0.1UF 
- C3                  CAP NP_CAPACITOR_0.1UF 
- J1                  CON2_2PINHEADER_CON2  
- R1                  R_RESISTOR_500        
- R2                  R_RESISTOR_500        
- R3                  RESISTOR_RESISTOR_1K  
- R4                  RESISTOR_RESISTOR_1K  
- U1                  FLEXSENSOR_5_2PINHEADER_FLEXSEN 
- U2                  FLEXSENSOR_5_2PINHEADER_FLEXSEN 
- U3                  LM324_LM324AN_LM324   
- U4                  PSOC 4 BLE_PSOC4BLE_PSOC 4 BLE 
-|------------------------------------------------------------------------------|
-|                                 ECO   REPORT                                 |
-|                                                                    Page   4  |
-|------------------------------------------------------------------------------|
-|  C:.../JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/PPSENSOR.brd  |
-|                                                    Wed Oct 04 10:14:40 2017  |
+|  C:.../Jacob/Documents/Junior/EGR 314/Cadence/Projects/sensorsubsystem1.brd  |
+|                                                    Thu Feb 22 21:59:48 2018  |
 |------------------------------------------------------------------------------|
 | SLOT PROPERTIES added to design                                              |
 |- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
@@ -96,8 +78,12 @@
  C2.2                           SECTION        
  C3.2                           PRIM_FILE      .\pstchip.dat
  C3.2                           SECTION        
- J1.2                           PRIM_FILE      .\pstchip.dat
- J1.2                           SECTION        
+ C4.2                           PRIM_FILE      .\pstchip.dat
+ C4.2                           SECTION        
+ C5.2                           PRIM_FILE      .\pstchip.dat
+ C5.2                           SECTION        
+ C6.2                           PRIM_FILE      .\pstchip.dat
+ C6.2                           SECTION        
  R1.2                           PRIM_FILE      .\pstchip.dat
  R1.2                           SECTION        
  R2.2                           PRIM_FILE      .\pstchip.dat
@@ -106,32 +92,69 @@
  R3.2                           SECTION        
  R4.2                           PRIM_FILE      .\pstchip.dat
  R4.2                           SECTION        
- U1.2                           PRIM_FILE      .\pstchip.dat
- U1.2                           SECTION        
- U2.2                           PRIM_FILE      .\pstchip.dat
- U2.2                           SECTION        
- U3.3                           PRIM_FILE      .\pstchip.dat
- U3.3                           SECTION        A
- U3.5                           PRIM_FILE      .\pstchip.dat
- U3.5                           SECTION        B
- U4.13                          PRIM_FILE      .\pstchip.dat
- U4.13                          SECTION        
+ R5.2                           PRIM_FILE      .\pstchip.dat
+ R5.2                           SECTION        
+ R6.2                           PRIM_FILE      .\pstchip.dat
+ R6.2                           SECTION        
+ R10.2                          PRIM_FILE      .\pstchip.dat
+ R10.2                          SECTION        
+ R11.2                          PRIM_FILE      .\pstchip.dat
+ R11.2                          SECTION        
+ R12.2                          PRIM_FILE      .\pstchip.dat
+ R12.2                          SECTION        
+ R13.2                          PRIM_FILE      .\pstchip.dat
+ R13.2                          SECTION        
+ R14.2                          PRIM_FILE      .\pstchip.dat
+ R14.2                          SECTION        
+ R15.2                          PRIM_FILE      .\pstchip.dat
+ R15.2                          SECTION        
+ R16.2                          PRIM_FILE      .\pstchip.dat
+ R16.2                          SECTION        
+ R17.2                          PRIM_FILE      .\pstchip.dat
+ R17.2                          SECTION        
+ R18.2                          PRIM_FILE      .\pstchip.dat
+ R18.2                          SECTION        
+ R19.2                          PRIM_FILE      .\pstchip.dat
+ R19.2                          SECTION        
+ R20.2                          PRIM_FILE      .\pstchip.dat
 |------------------------------------------------------------------------------|
 |                                 ECO   REPORT                                 |
-|                                                                    Page   5  |
+|                                                                    Page   4  |
 |------------------------------------------------------------------------------|
-|  C:.../JACOB/DOCUMENTS/JUNIOR/EGR 304/CADENCE/PROJECTS/allegro/PPSENSOR.brd  |
-|                                                    Wed Oct 04 10:14:40 2017  |
+|  C:.../Jacob/Documents/Junior/EGR 314/Cadence/Projects/sensorsubsystem1.brd  |
+|                                                    Thu Feb 22 21:59:48 2018  |
 |------------------------------------------------------------------------------|
 | SLOT PROPERTIES added to design                                              |
 |- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
 |   slot_id    |   x   |   y   |   property   |             value              |
 |- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ R20.2                          SECTION        
+ R21.2                          PRIM_FILE      .\pstchip.dat
+ R21.2                          SECTION        
+ R22.2                          PRIM_FILE      .\pstchip.dat
+ R22.2                          SECTION        
+ R23.2                          PRIM_FILE      .\pstchip.dat
+ R23.2                          SECTION        
+ R24.2                          PRIM_FILE      .\pstchip.dat
+ R24.2                          SECTION        
+ R25.2                          PRIM_FILE      .\pstchip.dat
+ R25.2                          SECTION        
+ R26.2                          PRIM_FILE      .\pstchip.dat
+ R26.2                          SECTION        
+ R27.2                          PRIM_FILE      .\pstchip.dat
+ R27.2                          SECTION        
+ R28.2                          PRIM_FILE      .\pstchip.dat
+ R28.2                          SECTION        
+ R29.2                          PRIM_FILE      .\pstchip.dat
+ R29.2                          SECTION        
+ R30.2                          PRIM_FILE      .\pstchip.dat
+ R30.2                          SECTION        
+ R31.2                          PRIM_FILE      .\pstchip.dat
+ R31.2                          SECTION        
 |------------------------------------------------------------------------------|
-|       Nets changed          :      36                                        |
 |       Comp definitions added:       7                                        |
-|       Components added      :      12                                        |
-|       Slot property added   :      26                                        |
+|       Components changed    :      34                                        |
+|       Slot property added   :      68                                        |
 |                                                                              |
-|   Total ECO changes reported:      81                                        |
+|   Total ECO changes reported:     109                                        |
 |------------------------------------------------------------------------------|

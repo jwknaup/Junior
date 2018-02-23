@@ -155,7 +155,7 @@ positions.calc(states)
 
 speeds = Output(system.get_q(1), constant_values = constants)
 speeds.calc(states)
-#speeds.plot_time(t)
+#plt.plot(t,speeds.y[:,1])
 
 y= Output([G*qB_d], constant_values=constants)
 y.calc(states)
@@ -170,6 +170,7 @@ i0 = numpy.argmax(tVIe[:,1]<6.0)
 t0 = tVIe[i0,0]
 t1 = tVIe[i0:-1,0]-t0
 enc1 = numpy.abs(tVIe[i0:-1,3])/12.0*2.0*pi
+current1 = tVIe[i0:-1,2]
 
 gear = '30'
 file = 'motorAccel' + gear + '.csv'
@@ -189,6 +190,14 @@ enc300 = numpy.abs(tVIe[i0:-1,3])/12.0*2.0*pi
 
 #plt.figure()
 positions.plot_time(t)
-plt.plot(t1, enc30/30)
-#plt.plot(t30, enc30)
-#plt.plot(t300, enc300)
+#speeds.plot_time(t)
+# =============================================================================
+#plt.plot(t1, enc1)
+#plt.plot(t1, current1)
+# =============================================================================
+# =============================================================================
+plt.plot(t30, enc30/30.0)
+#p#lt.plot(t300, enc300)
+# =============================================================================
+plt.show()
+#minimize squares of error

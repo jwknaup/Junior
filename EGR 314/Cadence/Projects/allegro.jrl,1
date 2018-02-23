@@ -1,0 +1,93 @@
+\t (00:00:07) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
+\t (00:00:07)     Journal start - Thu Feb 22 22:00:01 2018
+\t (00:00:07)         Host=JACOB-Y50 User=Jacob Pid=6960 CPUs=8
+\t (00:00:07) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\allegro.exe -mpssession Jacob C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\Projects\sensorsubsystem2.brd
+\t (00:00:07) 
+\t (00:00:09) Opening existing design...
+\d (00:00:09) Design opened: C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects/sensorsubsystem2.brd
+\i (00:00:09) trapsize 8380
+\i (00:00:09) trapsize 8184
+\i (00:00:09) trapsize 8413
+\i (00:00:09) trapsize 7172
+\i (00:00:09) trapsize 7172
+\i (00:00:10) generaledit 
+\i (00:00:18) place manual 
+\i (00:00:23) setwindow form.plc_manual
+\i (00:00:23) FORM plc_manual tree 'MULTISEL YES' U3 'Components by refdes' 
+\t (00:00:23) Placing U3 / PIC18F47K40-I/PT_TQFPPIC18F47K / TQFPPIC18F47K40 on Top.
+\i (00:00:23) FORM plc_manual tree  U3 'Components by refdes' 
+\i (00:00:25) setwindow pcb
+\i (00:00:25) pick grid 10284.84 6758.19
+\t (00:00:25) last pick:  10300.00 6800.00
+\i (00:00:30) setwindow form.plc_manual
+\i (00:00:30) FORM plc_manual tree 'MULTISEL YES' U2 'Components by refdes' 
+\t (00:00:30) Placing U2 / MCP23017T_MCP23017_MCP23017T / MCP23017 on Top.
+\i (00:00:30) FORM plc_manual tree  U2 'Components by refdes' 
+\i (00:00:34) setwindow pcb
+\i (00:00:34) pick grid 10342.21 8450.82
+\t (00:00:34) last pick:  10300.00 8500.00
+\i (00:00:49) setwindow form.plc_manual
+\i (00:00:49) FORM plc_manual tree 'MULTISEL YES' R5 'Components by refdes' 
+\e (00:00:49) Cannot load symbol '1206'
+\i (00:00:49) FORM plc_manual tree  R5 'Components by refdes' 
+\i (00:00:50) FORM plc_manual tree 'MULTISEL YES' R6 'Components by refdes' 
+\i (00:00:50) FORM plc_manual tree  R6 'Components by refdes' 
+\i (00:00:56) FORM plc_manual tree 'MULTISEL NO' R6 'Components by refdes' 
+\i (00:00:57) FORM plc_manual tree 'MULTISEL YES' R6 'Components by refdes' 
+\i (00:01:00) setwindow pcb
+\i (00:01:00) pick grid 11088.11 8450.82
+\t (00:01:00) last pick:  11100.00 8500.00
+\e (00:01:00) Cannot load symbol '1206'
+\i (00:01:01) pick grid dbl 11088.11 8450.82
+\t (00:01:01) last pick:  11100.00 8500.00
+\i (00:01:02) zoom in 1 
+\i (00:01:02) setwindow pcb
+\i (00:01:02) zoom in 10686.48 8608.60
+\i (00:01:02) trapsize 3586
+\i (00:01:03) zoom in 1 
+\i (00:01:03) setwindow pcb
+\i (00:01:03) zoom in 10686.48 8493.85
+\i (00:01:03) trapsize 1793
+\i (00:01:03) zoom in 1 
+\i (00:01:03) setwindow pcb
+\i (00:01:03) zoom in 10686.48 8493.85
+\i (00:01:03) trapsize 897
+\i (00:01:05) zoom out 1 
+\i (00:01:05) setwindow pcb
+\i (00:01:05) zoom out 10686.48 8493.85
+\i (00:01:05) trapsize 1793
+\i (00:01:06) pick grid 10629.10 8357.58
+\t (00:01:06) last pick:  10600.00 8400.00
+\i (00:01:09) setwindow form.plc_manual
+\i (00:01:09) FORM plc_manual tree 'MULTISEL YES' R5 'Components by refdes' 
+\e (00:01:09) Cannot load symbol '1206'
+\i (00:01:09) FORM plc_manual tree  R5 'Components by refdes' 
+\i (00:01:13) FORM plc_manual tree 'MULTISEL NO' R5 'Components by refdes' 
+\i (00:01:15) FORM plc_manual cancel  
+\i (00:01:16) setwindow pcb
+\i (00:01:16) generaledit 
+\i (00:01:18) xhilite 
+\i (00:01:18) xrefdes R5 
+\t (00:01:18) Can not select unplaced component R5.
+\t (00:01:18) Can not select unplaced component R5.
+\i (00:01:18) xname_flush 
+\i (00:01:19) done 
+\i (00:01:19) generaledit 
+\i (00:01:23) xdehilite 
+\i (00:01:23) xrefdes R5 
+\t (00:01:23) Can not select unplaced component R5.
+\t (00:01:23) Can not select unplaced component R5.
+\i (00:01:23) xname_flush 
+\i (00:01:23) done 
+\i (00:01:23) generaledit 
+\i (00:01:43) open 
+\e (00:01:43) Do you want to save the changes you made to sensorsubsystem2.brd?
+\i (00:01:46) fillin no 
+\i (00:01:58) fillin "C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\symbols\1206.dra"
+\i (00:01:58) cd "C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\symbols"
+\t (00:01:58) Opening existing design...
+\i (00:01:59) trapsize 322
+\i (00:01:59) trapsize 314
+\i (00:01:59) trapsize 322
+\i (00:01:59) trapsize 322
+\t (00:01:59)     Journal end - Thu Feb 22 22:01:54 2018
