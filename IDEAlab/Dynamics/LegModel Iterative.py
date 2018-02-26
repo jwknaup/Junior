@@ -26,12 +26,14 @@ system = System()
 top_length = 0.01333
 leg_length = 0.12
 top_mass = 0.030372
-leg_mass = 0.01#0.095*10**-3*leg_length*100.0
+leg_mass = 0.095*(10**-3)*leg_length*100.0
 leg_width = 0.01
-leg_thickness = .002
+leg_thickness = .0007
 gear_ratio = 75.0
-Tmax = 10#0.2118/100.0*gear_ratio
-wMax = 320.0/60.0*2.0*3.14159*100/gear_ratio
+Tmax = 0.1554/75.0*gear_ratio
+wMax = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
+
+debugging = 1
 
 ####VARIOUS DESIGN CONSTANTS#####
 #define length constants
@@ -56,8 +58,8 @@ I_zz = Constant(leg_mass/12.0*(leg_length*leg_length + leg_thickness*leg_thickne
 
 #define misc constants
 g = Constant(9.81,'g',system)
-b = Constant(1e0,'b',system)
-k = Constant(1e3,'k',system)
+b = Constant(1e-1,'b',system)
+k = Constant(1e-1,'k',system)
 
 ###INTEGRATION INTERVAL####
 # =============================================================================
@@ -233,20 +235,13 @@ PE = system.getPEGravity(0*N.x) - system.getPESprings()
 # plt.title('energy')
 # =============================================================================
 
-#leg constraint check
-points = [pDtip,pCD,pOC,pOA,pAB,pBtip]
-points = [item2 for item in points for item2 in [item.dot(N.x),item.dot(N.y)]]
-points = Output(points)
-# =============================================================================
-# y = points.calc(states)
-# y = y.reshape((-1,6,2))
-# plt.figure()
-# plt.title('leg constraint solving')
-# for item in y[::60]:
-#     plt.plot(*(item.T))
-# =============================================================================
+
 
 print("!!!!!!finished 1!!!!!!!!!!!!!")
+
+
+
+
 #########2#2#2#2#2#2#2###################################
 #remove forces to bring tips together
 system.forces.remove(bottomDamper1)
@@ -288,6 +283,7 @@ eq2_dd= [system.derivative(item) for item in eq2_d]
 f,ma = system.getdynamics()
 func2 = system.state_space_post_invert2(f,ma,eq2_dd,eq2_d,eq2,constants = system.constant_values)
 #states2=pynamics.integration.integrate_odeint(func2,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+
 # =============================================================================
 # y = points.calc(states2)
 # y = y.reshape((-1,6,2))
@@ -317,8 +313,8 @@ print("!!!!!!finished 2!!!!!!!!!!!!!")
 ########3#3#3#3#3#3#3#3#################################
 
 #add force to compress the top #1.42 cm
-contraction, _ = system.add_spring_force1(1.0e3,(pOcm.dot(N.y) - pBtip.dot(N.y) - 0.0142)*N.y, vOcm)
-contractionD = system.addforce(-1e1*vOcm,vOcm)
+contraction, _ = system.add_spring_force1(k*(10**3),(pOcm.dot(N.y) - pBtip.dot(N.y) - 0.0142)*N.y, vOcm)
+contractionD = system.addforce(-b*(10**-3)*vOcm,vOcm)
 
 #remove joint stiffness
 system.forces.remove(spring1)
@@ -443,16 +439,29 @@ eq4_dd= [system.derivative(item) for item in eq4_d]
 f,ma = system.getdynamics()
 func4 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = system.constant_values)
 #states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
-
+print("!!!!!!finished 4!!!!!!!!!!!!!")
 
 
 #1
 tinitial = 0
 tfinal = 2
-tstep = .5 ##0.01!!!
+tstep = .01 ##0.01!!!
 t = numpy.r_[tinitial:tfinal:tstep]
 
 states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e2,'beta':1e1},))
+
+#leg constraint check
+points = [pDtip,pCD,pOC,pOA,pAB,pBtip]
+points = [item2 for item in points for item2 in [item.dot(N.x),item.dot(N.y)]]
+points = Output(points)
+if(debugging):
+    y = points.calc(states)
+    y = y.reshape((-1,6,2))
+    plt.figure()
+    plt.title('leg constraint solving')
+    for item in y[::60]:
+        plt.plot(*(item.T))
+
 #2
 ini = states[-1]
 ini[2] = 0
@@ -462,9 +471,18 @@ ini = list(ini)
 
 tinitial = 0
 tfinal = 2
-tstep = 0.1 ## was 1/30
+tstep = 0.01 ## was 1/30
 
 states2=pynamics.integration.integrate_odeint(func2,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+
+if(debugging):
+    y = points.calc(states2)
+    y = y.reshape((-1,6,2))
+    plt.figure()
+    for item in y[::25]:
+        plt.plot(*(item.T))
+    plt.axis('equal')
+
 #3
 ini = states2[-1]
 ini[2] = 0
@@ -474,9 +492,19 @@ ini = list(ini)
 
 tinitial = 0
 tfinal = 2
-tstep = 0.1 ## was 1/30!!!!
+tstep = 0.01 ## was 1/30!!!!
 
 states3=pynamics.integration.integrate_odeint(func3,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+
+if(debugging):
+    y = points.calc(states3)
+    y = y.reshape((-1,6,2))
+    plt.figure()
+    for item in y[::25]:
+        plt.plot(*(item.T))
+    plt.axis('equal')
+    plt.title('show pre? compressed')
+
 #4
 ini = states3[-1]
 ini[2] = 0
@@ -546,7 +574,6 @@ numpy.savetxt('enc.csv', numpy.transpose([t,encarray]), delimiter=',')
 plt.xlabel('time (s)')
 plt.ylabel('rotation (rad)')
 
-print("!!!!!!finished 4!!!!!!!!!!!!!")
 
 # =============================================================================
 # for inertia1 in inertia_test_range:
