@@ -2,9 +2,9 @@
 (                                                                     )
 (    ARTWORK LOG                                                      )
 (                                                                     )
-(    Drawing          : sensorsubsystem3.brd                          )
+(    Drawing          : sensorsubsystem4.brd                          )
 (    Software Version : 16.6-2015S062                                 )
-(    Date/Time        : Thu Feb 22 22:49:48 2018                      )
+(    Date/Time        : Fri Feb 23 16:20:09 2018                      )
 (                                                                     )
 (---------------------------------------------------------------------)
 
@@ -25,6 +25,98 @@ Results from parameter file ...
     SUPPRESS-EQUAL        YES
     UNDEF-APT-CONT        NO
 
+
+
+================================================================
+     PROCESSING FILM < TOP >
+     TO FILE < C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects/TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.01200                                  DARK 
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.06000                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+  RECTANGLE  0.01654     x 0.01181       0.000 NO     DARK 
+  RECTANGLE  0.04016     x 0.05984       0.000 NO     DARK 
+  RECTANGLE  0.05906     x 0.02165       0.000 NO     DARK 
+  RECTANGLE  0.05906     x 0.02165      90.000 NO     DARK 
+  RECTANGLE  0.07874     x 0.02362       0.000 NO     DARK 
+
+     TOP created.
+
+
+================================================================
+     PROCESSING FILM < BOTTOM >
+     TO FILE < C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects/BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.01200                                  DARK 
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.06000                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+
+     BOTTOM created.
+
+
+================================================================
+     PROCESSING FILM < OUTLINE >
+     TO FILE < C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects/OUTLINE.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.20
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00020                                  DARK 
+
+     OUTLINE created.
 
 
 ================================================================
@@ -92,6 +184,9 @@ Results from parameter file ...
 
 ------------------------------------------------------
  SUMMARY:
+        TOP created.
+        BOTTOM created.
+        OUTLINE created.
         SolermaskTop created.
         SoldermaskBottom created.
 
