@@ -286,8 +286,8 @@ eq2_dd= [system.derivative(item) for item in eq2_d]
 
 ######SOLVE TO PLACE IT ON THE GROUND#############
 f,ma = system.getdynamics()
-func1 = system.state_space_post_invert2(f,ma,eq2_dd,eq2_d,eq2,constants = system.constant_values)
-#states2=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+func2 = system.state_space_post_invert2(f,ma,eq2_dd,eq2_d,eq2,constants = system.constant_values)
+#states2=pynamics.integration.integrate_odeint(func2,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 # =============================================================================
 # y = points.calc(states2)
 # y = y.reshape((-1,6,2))
@@ -356,8 +356,8 @@ eq3_dd= [system.derivative(item) for item in eq3_d]
 
 ###########SOLVE FOR COMPRESSION#########
 f,ma = system.getdynamics()
-func1 = system.state_space_post_invert2(f,ma,eq3_dd,eq3_d,eq3,constants = system.constant_values)
-#states3=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+func3 = system.state_space_post_invert2(f,ma,eq3_dd,eq3_d,eq3,constants = system.constant_values)
+#states3=pynamics.integration.integrate_odeint(func3,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 # =============================================================================
 # y = points.calc(states3)
 # y = y.reshape((-1,6,2))
@@ -426,36 +426,25 @@ eq4.append((pBtip-pDtip).dot(N.y))
 eq4_d= [system.derivative(item) for item in eq4]
 eq4_dd= [system.derivative(item) for item in eq4_d]
 
-ini = states3[-1]
-ini[2] = 0
-ini[7:] = 0
-#ini[7] = 10
-ini = list(ini)
-
-tinitial = 0
-tfinal = 1.2
-tstep = 0.01 ## was 1/30
-t=numpy.r_[tinitial:tfinal:tstep]
+# =============================================================================
+# ini = states3[-1]
+# ini[2] = 0
+# ini[7:] = 0
+# #ini[7] = 10
+# ini = list(ini)
+# 
+# tinitial = 0
+# tfinal = 1.2
+# tstep = 0.01 ## was 1/30
+# t=numpy.r_[tinitial:tfinal:tstep]
+# =============================================================================
 
 ######SOLVE FOR JUMPING#######
 f,ma = system.getdynamics()
-func1 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = system.constant_values)
-states4=pynamics.integration.integrate_odeint(func1,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
-y = points.calc(states4)
-y = y.reshape((-1,6,2))
-plt.figure()
-for item in y[::25]:
-    plt.plot(*(item.T))
-plt.axis('equal')
-plt.title('Jumping Visualization')
-plt.savefig('Jumping Visualization.pdf', transparent = True)
+func4 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = system.constant_values)
+#states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 
-energy = Output([KE-PE])
-# =============================================================================
-# energy.calc(states4)
-# energy.plot_time()
-# plt.title('energy as jumping')
-# =============================================================================
+
 
 #1
 tinitial = 0
@@ -475,7 +464,7 @@ tinitial = 0
 tfinal = 2
 tstep = 0.1 ## was 1/30
 
-states2=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+states2=pynamics.integration.integrate_odeint(func2,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 #3
 ini = states2[-1]
 ini[2] = 0
@@ -487,10 +476,39 @@ tinitial = 0
 tfinal = 2
 tstep = 0.1 ## was 1/30!!!!
 
-states3=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
-
+states3=pynamics.integration.integrate_odeint(func3,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 #4
+ini = states3[-1]
+ini[2] = 0
+ini[7:] = 0
+#ini[7] = 10
+ini = list(ini)
 
+tinitial = 0
+tfinal = 1.2
+tstep = 0.01 ## was 1/30
+t=numpy.r_[tinitial:tfinal:tstep]
+states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+
+
+
+y = points.calc(states4)
+y = y.reshape((-1,6,2))
+plt.figure()
+for item in y[::25]:
+    plt.plot(*(item.T))
+plt.axis('equal')
+plt.title('Jumping Visualization')
+plt.savefig('Jumping Visualization.pdf', transparent = True)
+plt.xlabel('(m)')
+plt.ylabel('(m)')
+
+energy = Output([KE-PE])
+# =============================================================================
+# energy.calc(states4)
+# energy.plot_time()
+# plt.title('energy as jumping')
+# =============================================================================
 
 top = Output([pOcm.dot(N.y)])
 toparray = top.calc(states4)
@@ -498,6 +516,8 @@ top.plot_time(t)
 plt.title('Height of Top as Jumping')
 plt.savefig('Top Height.pdf', transparent = True)
 numpy.savetxt('top height.csv', numpy.transpose([t,toparray]), delimiter=',')
+plt.xlabel('time (s)')
+plt.ylabel('height (m)')
 
 tip = Output([pBtip.dot(N.y)])
 bottomarray = tip.calc(states4)
@@ -505,6 +525,26 @@ tip.plot_time(t)
 plt.title('Height of Bottom as Jumping')
 plt.savefig('Bottom Height.pdf', transparent = True)
 numpy.savetxt('bottom height.csv', numpy.transpose([t,bottomarray]), delimiter=',')
+plt.xlabel('time (s)')
+plt.ylabel('height (m)')
+
+forcy = Output([groundS.f.dot(N.y) + groundD.f.dot(N.y)])
+forcyarray = forcy.calc(states4)
+forcy.plot_time(t)
+plt.title('Force on Ground as Jumping')
+plt.savefig('Force.pdf', transparent = True)
+numpy.savetxt('force.csv', numpy.transpose([t,forcyarray]), delimiter=',')
+plt.xlabel('time (s)')
+plt.ylabel('force (N)')
+
+enc = Output([qA*-180.0/3.14159])
+encarray = enc.calc(states4)
+enc.plot_time(t)
+plt.title('Encoder Rotation as Jumping')
+plt.savefig('Encoder.pdf', transparent = True)
+numpy.savetxt('enc.csv', numpy.transpose([t,encarray]), delimiter=',')
+plt.xlabel('time (s)')
+plt.ylabel('rotation (rad)')
 
 print("!!!!!!finished 4!!!!!!!!!!!!!")
 
