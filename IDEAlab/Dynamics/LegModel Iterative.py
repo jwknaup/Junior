@@ -25,7 +25,7 @@ system = System()
 
 top_length = 0.01333
 leg_length = 0.12
-top_mass = 0.030372
+top_mass = 0.0365
 leg_mass = 0.095*(10**-3)*leg_length*100.0
 leg_width = 0.01
 leg_thickness = .0007
@@ -33,7 +33,7 @@ gear_ratio = 75.0
 Tmax = 0.1554/75.0*gear_ratio
 wMax = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
 
-debugging = 1
+debugging = 0
 
 ####VARIOUS DESIGN CONSTANTS#####
 #define length constants

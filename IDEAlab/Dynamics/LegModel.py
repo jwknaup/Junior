@@ -30,7 +30,7 @@ leg_mass = 0.01#0.095*10**-3*leg_length*100.0
 leg_width = 0.01
 leg_thickness = .002
 gear_ratio = 75.0
-Tmax = 10#0.2118/100.0*gear_ratio
+Tmax = 0.2118/100.0*gear_ratio
 wMax = 320.0/60.0*2.0*3.14159*100/gear_ratio
 
 ####VARIOUS DESIGN CONSTANTS#####
@@ -60,12 +60,10 @@ b = Constant(1e0,'b',system)
 k = Constant(1e3,'k',system)
 
 ###INTEGRATION INTERVAL####
-# =============================================================================
-# tinitial = 0
-# tfinal = 2
-# tstep = .5 ##0.01!!!
-# t = numpy.r_[tinitial:tfinal:tstep]
-# =============================================================================
+tinitial = 0
+tfinal = 2
+tstep = .5 ##0.01!!!
+t = numpy.r_[tinitial:tfinal:tstep]
 
 ##give joints stiffness -- just for initial conditions
 preload1 = Constant(0*pi/180,'preload1',system)
@@ -218,7 +216,7 @@ f,ma = system.getdynamics()
 print('creating second order function...')
 func1 = system.state_space_post_invert2(f,ma,eq_dd,eq_d,eq,constants = system.constant_values)
 print('integrating...')
-#states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e2,'beta':1e1},))
+states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e2,'beta':1e1},))
 pynamics.toc()
 print('calculating outputs..')
 
@@ -272,22 +270,20 @@ eq2.append(qO-initialvalues[qO])
 eq2_d= [system.derivative(item) for item in eq2]
 eq2_dd= [system.derivative(item) for item in eq2_d]
 
-# =============================================================================
-# ini = states[-1]
-# ini[2] = 0
-# ini[7:] = 0
-# #ini[7] = 10
-# ini = list(ini)
-# 
-# tinitial = 0
-# tfinal = 2
-# tstep = 0.1 ## was 1/30
-# =============================================================================
+ini = states[-1]
+ini[2] = 0
+ini[7:] = 0
+#ini[7] = 10
+ini = list(ini)
+
+tinitial = 0
+tfinal = 2
+tstep = 0.1 ## was 1/30
 
 ######SOLVE TO PLACE IT ON THE GROUND#############
 f,ma = system.getdynamics()
 func1 = system.state_space_post_invert2(f,ma,eq2_dd,eq2_d,eq2,constants = system.constant_values)
-#states2=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+states2=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 # =============================================================================
 # y = points.calc(states2)
 # y = y.reshape((-1,6,2))
@@ -342,22 +338,20 @@ eq3.append(pBtip.dot(N.y))
 eq3_d= [system.derivative(item) for item in eq3]
 eq3_dd= [system.derivative(item) for item in eq3_d]
 
-# =============================================================================
-# ini = states2[-1]
-# ini[2] = 0
-# ini[7:] = 0
-# #ini[7] = 10
-# ini = list(ini)
-# 
-# tinitial = 0
-# tfinal = 2
-# tstep = 0.1 ## was 1/30!!!!
-# =============================================================================
+ini = states2[-1]
+ini[2] = 0
+ini[7:] = 0
+#ini[7] = 10
+ini = list(ini)
+
+tinitial = 0
+tfinal = 2
+tstep = 0.1 ## was 1/30!!!!
 
 ###########SOLVE FOR COMPRESSION#########
 f,ma = system.getdynamics()
 func1 = system.state_space_post_invert2(f,ma,eq3_dd,eq3_d,eq3,constants = system.constant_values)
-#states3=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+states3=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 # =============================================================================
 # y = points.calc(states3)
 # y = y.reshape((-1,6,2))
@@ -457,39 +451,7 @@ energy = Output([KE-PE])
 # plt.title('energy as jumping')
 # =============================================================================
 
-#1
-tinitial = 0
-tfinal = 2
-tstep = .5 ##0.01!!!
-t = numpy.r_[tinitial:tfinal:tstep]
 
-states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e2,'beta':1e1},))
-#2
-ini = states[-1]
-ini[2] = 0
-ini[7:] = 0
-#ini[7] = 10
-ini = list(ini)
-
-tinitial = 0
-tfinal = 2
-tstep = 0.1 ## was 1/30
-
-states2=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
-#3
-ini = states2[-1]
-ini[2] = 0
-ini[7:] = 0
-#ini[7] = 10
-ini = list(ini)
-
-tinitial = 0
-tfinal = 2
-tstep = 0.1 ## was 1/30!!!!
-
-states3=pynamics.integration.integrate_odeint(func1,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
-
-#4
 
 
 top = Output([pOcm.dot(N.y)])
@@ -505,6 +467,15 @@ tip.plot_time(t)
 plt.title('Height of Bottom as Jumping')
 plt.savefig('Bottom Height.pdf', transparent = True)
 numpy.savetxt('bottom height.csv', numpy.transpose([t,bottomarray]), delimiter=',')
+
+forcy = Output([groundS.f.dot(N.y) + groundD.f.dot(N.y)])
+forcyarray = forcy.calc(states4)
+forcy.plot_time(t)
+plt.title('Force on Ground as Jumping')
+plt.savefig('Force.pdf', transparent = True)
+numpy.savetxt('force.csv', numpy.transpose([t,forcyarray]), delimiter=',')
+plt.xlabel('time (s)')
+plt.ylabel('force (N)')
 
 print("!!!!!!finished 4!!!!!!!!!!!!!")
 
