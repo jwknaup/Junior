@@ -174,7 +174,7 @@ p1 = ax1.plot(t,y_experiment_interp,'r-',label = 'experimental')
 inertia_test_range = numpy.r_[1.3e-7-0.2e-7:1.3e-7+0.2e-7:5j]
 
 for inertia1 in inertia_test_range:
-    constants[Im] = inertia1
+    Im = inertia1
     states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-10,atol=1e-10,args=({'constants':constants,'alpha':1e2,'beta':1e1},))
     positions.calc(states)
     y_simulation = positions.y
