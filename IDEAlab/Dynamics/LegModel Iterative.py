@@ -21,6 +21,8 @@ import numpy
 import matplotlib.pyplot as plt
 plt.ion()
 from sympy import pi
+#system    
+
 system = System()
 
 top_length = 0.01333
@@ -218,7 +220,7 @@ pynamics.tic()
 print('solving dynamics...')
 f,ma = system.getdynamics()
 print('creating second order function...')
-func1 = system.state_space_post_invert2(f,ma,eq_dd,eq_d,eq,constants = system.constant_values)
+func1 = system.state_space_post_invert2(f,ma,eq_dd,eq_d,eq,constants = {})
 print('integrating...')
 #states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e2,'beta':1e1},))
 pynamics.toc()
@@ -281,7 +283,7 @@ eq2_dd= [system.derivative(item) for item in eq2_d]
 
 ######SOLVE TO PLACE IT ON THE GROUND#############
 f,ma = system.getdynamics()
-func2 = system.state_space_post_invert2(f,ma,eq2_dd,eq2_d,eq2,constants = system.constant_values)
+func2 = system.state_space_post_invert2(f,ma,eq2_dd,eq2_d,eq2,constants = {})
 #states2=pynamics.integration.integrate_odeint(func2,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 
 # =============================================================================
@@ -352,7 +354,7 @@ eq3_dd= [system.derivative(item) for item in eq3_d]
 
 ###########SOLVE FOR COMPRESSION#########
 f,ma = system.getdynamics()
-func3 = system.state_space_post_invert2(f,ma,eq3_dd,eq3_d,eq3,constants = system.constant_values)
+func3 = system.state_space_post_invert2(f,ma,eq3_dd,eq3_d,eq3,constants = {})
 #states3=pynamics.integration.integrate_odeint(func3,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 # =============================================================================
 # y = points.calc(states3)
@@ -409,10 +411,13 @@ legColaD = system.addforce(-1e2*wAB*on,wAB)
 
 #ground normal force
 stretch = -pBtip.dot(N.y)
+stretchDot = vBtip.dot(N.y)
 stretch_s = (stretch+abs(stretch))
+stretchDot_s = (stretchDot-abs(stretchDot))
 on = stretch_s/(2*stretch+1e-10)
-groundS, _ = system.add_spring_force1(1e4,-stretch_s*N.y,vBtip)
-groundD = system.addforce(-1e2*vBtip*on,vBtip)
+onDot = stretchDot_s/(2*stretchDot+1e-10)
+groundS, _ = system.add_spring_force1(1e3,-stretch_s*N.y,vBtip)
+groundD = system.addforce(-1e4*vBtip*onDot*on,vBtip)
 
 #only constrain tip
 eq4 = []
@@ -437,7 +442,7 @@ eq4_dd= [system.derivative(item) for item in eq4_d]
 
 ######SOLVE FOR JUMPING#######
 f,ma = system.getdynamics()
-func4 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = system.constant_values)
+func4 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = {})
 #states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 print("!!!!!!finished 4!!!!!!!!!!!!!")
 
@@ -448,7 +453,7 @@ tfinal = 2
 tstep = .01 ##0.01!!!
 t = numpy.r_[tinitial:tfinal:tstep]
 
-states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e2,'beta':1e1},))
+states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e2,'beta':1e1},))
 
 #leg constraint check
 points = [pDtip,pCD,pOC,pOA,pAB,pBtip]
@@ -473,7 +478,7 @@ tinitial = 0
 tfinal = 2
 tstep = 0.01 ## was 1/30
 
-states2=pynamics.integration.integrate_odeint(func2,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+states2=pynamics.integration.integrate_odeint(func2,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
 
 if(debugging):
     y = points.calc(states2)
@@ -494,7 +499,7 @@ tinitial = 0
 tfinal = 2
 tstep = 0.01 ## was 1/30!!!!
 
-states3=pynamics.integration.integrate_odeint(func3,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+states3=pynamics.integration.integrate_odeint(func3,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
 
 if(debugging):
     y = points.calc(states3)
@@ -516,7 +521,7 @@ tinitial = 0
 tfinal = 1.2
 tstep = 0.01 ## was 1/30
 t=numpy.r_[tinitial:tfinal:tstep]
-states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
 
 
 
@@ -573,7 +578,10 @@ plt.savefig('Encoder.pdf', transparent = True)
 numpy.savetxt('enc.csv', numpy.transpose([t,encarray]), delimiter=',')
 plt.xlabel('time (s)')
 plt.ylabel('rotation (rad)')
-
+    
+        
+#damper should be turned on with velocity
+#and try just increasing both
 
 # =============================================================================
 # for inertia1 in inertia_test_range:
