@@ -21,7 +21,7 @@ import numpy
 import matplotlib.pyplot as plt
 plt.ion()
 from sympy import pi
-#system    
+import os    
 
 system = System()
 
@@ -31,13 +31,18 @@ top_mass = 0.0365
 leg_mass = 0.095*(10**-3)*leg_length*100.0
 leg_width = 0.01
 leg_thickness = .0007
+# =============================================================================
 gear_ratio = 75.0
-Tmax = 0.1554/75.0*gear_ratio
-wMax = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
+# Tmax = 0.1554/75.0*gear_ratio
+# wMax = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
+# =============================================================================
 
 debugging = 0
 
 ####VARIOUS DESIGN CONSTANTS#####
+#gear_ratio = Constant(75.0, 'gear_ratio',system)
+Tmax = Constant(0.1554/75.0*gear_ratio, 'Tmax', system)
+wMax = Constant(400.0/60.0*2.0*3.14159*75.0/gear_ratio, 'wMax', system)
 #define length constants
 # top, then each leg segment
 lO = Constant(top_length,'lO',system)
@@ -253,10 +258,13 @@ system.forces.remove(bottomSpring2)
 
 #ground normal force
 stretch = -pBtip.dot(N.y)
+stretchDot = vBtip.dot(N.y)
 stretch_s = (stretch+abs(stretch))
+stretchDot_s = (stretchDot-abs(stretchDot))
 on = stretch_s/(2*stretch+1e-10)
-groundS, _ = system.add_spring_force1(1e4,-stretch_s*N.y,vBtip)
-groundD = system.addforce(-1e2*vBtip*on,vBtip)
+onDot = stretchDot_s/(2*stretchDot+1e-10)
+groundS, _ = system.add_spring_force1(1e3,-stretch_s*N.y,vBtip)
+groundD = system.addforce(-1e4*vBtip*onDot*on,vBtip)
 
 #constrain tips together
 #constrain rotation and x displacement
@@ -446,139 +454,190 @@ func4 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = {})
 #states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 print("!!!!!!finished 4!!!!!!!!!!!!!")
 
-
-#1
-tinitial = 0
-tfinal = 2
-tstep = .01 ##0.01!!!
-t = numpy.r_[tinitial:tfinal:tstep]
-
-states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e2,'beta':1e1},))
-
-#leg constraint check
-points = [pDtip,pCD,pOC,pOA,pAB,pBtip]
-points = [item2 for item in points for item2 in [item.dot(N.x),item.dot(N.y)]]
-points = Output(points)
-if(debugging):
-    y = points.calc(states)
-    y = y.reshape((-1,6,2))
-    plt.figure()
-    plt.title('leg constraint solving')
-    for item in y[::60]:
-        plt.plot(*(item.T))
-
-#2
-ini = states[-1]
-ini[2] = 0
-ini[7:] = 0
-#ini[7] = 10
-ini = list(ini)
-
-tinitial = 0
-tfinal = 2
-tstep = 0.01 ## was 1/30
-
-states2=pynamics.integration.integrate_odeint(func2,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
-
-if(debugging):
-    y = points.calc(states2)
-    y = y.reshape((-1,6,2))
-    plt.figure()
-    for item in y[::25]:
-        plt.plot(*(item.T))
-    plt.axis('equal')
-
-#3
-ini = states2[-1]
-ini[2] = 0
-ini[7:] = 0
-#ini[7] = 10
-ini = list(ini)
-
-tinitial = 0
-tfinal = 2
-tstep = 0.01 ## was 1/30!!!!
-
-states3=pynamics.integration.integrate_odeint(func3,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
-
-if(debugging):
-    y = points.calc(states3)
-    y = y.reshape((-1,6,2))
-    plt.figure()
-    for item in y[::25]:
-        plt.plot(*(item.T))
-    plt.axis('equal')
-    plt.title('show pre? compressed')
-
-#4
-ini = states3[-1]
-ini[2] = 0
-ini[7:] = 0
-#ini[7] = 10
-ini = list(ini)
-
-tinitial = 0
-tfinal = 1.2
-tstep = 0.01 ## was 1/30
-t=numpy.r_[tinitial:tfinal:tstep]
-states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
-
-
-
-y = points.calc(states4)
-y = y.reshape((-1,6,2))
-plt.figure()
-for item in y[::25]:
-    plt.plot(*(item.T))
-plt.axis('equal')
-plt.title('Jumping Visualization')
-plt.savefig('Jumping Visualization.pdf', transparent = True)
-plt.xlabel('(m)')
-plt.ylabel('(m)')
-
-energy = Output([KE-PE])
-# =============================================================================
-# energy.calc(states4)
-# energy.plot_time()
-# plt.title('energy as jumping')
-# =============================================================================
-
-top = Output([pOcm.dot(N.y)])
-toparray = top.calc(states4)
-top.plot_time(t)
-plt.title('Height of Top as Jumping')
-plt.savefig('Top Height.pdf', transparent = True)
-numpy.savetxt('top height.csv', numpy.transpose([t,toparray]), delimiter=',')
-plt.xlabel('time (s)')
-plt.ylabel('height (m)')
-
-tip = Output([pBtip.dot(N.y)])
-bottomarray = tip.calc(states4)
-tip.plot_time(t)
-plt.title('Height of Bottom as Jumping')
-plt.savefig('Bottom Height.pdf', transparent = True)
-numpy.savetxt('bottom height.csv', numpy.transpose([t,bottomarray]), delimiter=',')
-plt.xlabel('time (s)')
-plt.ylabel('height (m)')
-
-forcy = Output([groundS.f.dot(N.y) + groundD.f.dot(N.y)])
-forcyarray = forcy.calc(states4)
-forcy.plot_time(t)
-plt.title('Force on Ground as Jumping')
-plt.savefig('Force.pdf', transparent = True)
-numpy.savetxt('force.csv', numpy.transpose([t,forcyarray]), delimiter=',')
-plt.xlabel('time (s)')
-plt.ylabel('force (N)')
-
-enc = Output([qA*-180.0/3.14159])
-encarray = enc.calc(states4)
-enc.plot_time(t)
-plt.title('Encoder Rotation as Jumping')
-plt.savefig('Encoder.pdf', transparent = True)
-numpy.savetxt('enc.csv', numpy.transpose([t,encarray]), delimiter=',')
-plt.xlabel('time (s)')
-plt.ylabel('rotation (rad)')
+for length in numpy.arange(.04,.16,.02):
+    leg_length = length
+    print(leg_length)
     
+    leg_mass = 0.095*(10**-3)*leg_length*100.0
+
+    system.constant_values[lA] = leg_length-top_length/2.0
+    system.constant_values[lB] = leg_length
+    system.constant_values[lC] = leg_length-top_length/2.0
+    system.constant_values[lD] = leg_length
+    
+    #define mass cnstants for each segment
+    system.constant_values[mA] = leg_mass
+    system.constant_values[mB] = leg_mass
+    system.constant_values[mC] = leg_mass
+    system.constant_values[mD] = leg_mass
+    
+    #define inertia constants
+    system.constant_values[I_xx] = leg_mass/12.0*(leg_thickness*leg_thickness + leg_width*leg_width)
+    system.constant_values[I_yy] = leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width)
+    system.constant_values[I_zz] = leg_mass/12.0*(leg_length*leg_length + leg_thickness*leg_thickness)
+
+    
+    #1
+    print('****Integrating 1*******')
+    tinitial = 0
+    tfinal = 2
+    tstep = .01 ##0.01!!!
+    t = numpy.r_[tinitial:tfinal:tstep]
+    
+    states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e2,'beta':1e1},))
+    
+    #leg constraint check
+    points = [pDtip,pCD,pOC,pOA,pAB,pBtip]
+    points = [item2 for item in points for item2 in [item.dot(N.x),item.dot(N.y)]]
+    points = Output(points)
+    if(debugging):
+        y = points.calc(states)
+        y = y.reshape((-1,6,2))
+        plt.figure()
+        plt.title('leg constraint solving')
+        for item in y[::60]:
+            plt.plot(*(item.T))
+    
+    #2
+    print('****Integrating 2*******')
+    ini = states[-1]
+    ini[2] = 0
+    ini[7:] = 0
+    #ini[7] = 10
+    ini = list(ini)
+    
+    tinitial = 0
+    tfinal = 2
+    tstep = 0.01 ## was 1/30
+    t = numpy.r_[tinitial:tfinal:tstep]
+    
+    states2=pynamics.integration.integrate_odeint(func2,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e2,'beta':1e1},))
+    #states2=pynamics.integration.integrate_odeint(func2,ini,numpy.r_[tinitial:tfinal:tstep],hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
+    
+    if(debugging):
+        y = points.calc(states2)
+        y = y.reshape((-1,6,2))
+        plt.figure()
+        for item in y[::25]:
+            plt.plot(*(item.T))
+        plt.axis('equal')
+    
+    #3
+    print('****Integrating 3*******')
+    ini = states2[-1]
+    ini[2] = 0
+    ini[7:] = 0
+    #ini[7] = 10
+    ini = list(ini)
+    
+    tinitial = 0
+    tfinal = 2
+    tstep = 0.01 ## was 1/30!!!!
+    t = numpy.r_[tinitial:tfinal:tstep]
+    
+    states3=pynamics.integration.integrate_odeint(func3,ini,t,rtol=1e-3,atol=1e-3,
+                                                  args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
+    
+    if(debugging):
+        y = points.calc(states3)
+        y = y.reshape((-1,6,2))
+        plt.figure()
+        for item in y[::25]:
+            plt.plot(*(item.T))
+        plt.axis('equal')
+        plt.title('show pre? compressed')
+    
+    
+    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/leg modelling'
+    lenDir = root + '/01_' + "%02d"%(leg_length*100)
+    
+    for g in numpy.arange(25,175,25):
+        gearDir = lenDir + '_' + str(g)
+        if not os.path.exists(gearDir):
+            os.makedirs(gearDir)
+        os.chdir(gearDir)
+        print(g)
+        gear_ratio = g
+        system.constant_values[Tmax] = 0.1554/75.0*gear_ratio
+        system.constant_values[wMax] = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
+        
+        #4
+        print('*****Integrating 4*******')
+        ini = states3[-1]
+        ini[2] = 0
+        ini[7:] = 0
+        #ini[7] = 10
+        ini = list(ini)
+        
+        tinitial = 0
+        tfinal = 1.2
+        tstep = 0.01 ## was 1/30
+        t=numpy.r_[tinitial:tfinal:tstep]
+        states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
+        
+        
+        
+        y = points.calc(states4)
+        y = y.reshape((-1,6,2))
+        plt.figure()
+        for item in y[::25]:
+            plt.plot(*(item.T))
+        plt.axis('equal')
+        plt.title('Jumping Visualization')
+        plt.suptitle('length = ' + str(leg_length) + ' (m), gear ratio = ' + str(gear_ratio))
+        plt.xlabel('(m)')
+        plt.ylabel('(m)')
+        plt.savefig('Jumping Visualization.pdf', transparent = True)
+        
+        energy = Output([KE-PE])
+        # =============================================================================
+        # energy.calc(states4)
+        # energy.plot_time()
+        # plt.title('energy as jumping')
+        # =============================================================================
+        
+        top = Output([pOcm.dot(N.y)])
+        toparray = top.calc(states4)
+        top.plot_time(t)
+        plt.title('Height of Top as Jumping')
+        plt.suptitle('length = ' + str(leg_length) + ' (m), gear ratio = ' + str(gear_ratio))
+        plt.xlabel('time (s)')
+        plt.ylabel('height (m)')
+        plt.savefig('Top Height.pdf', transparent = True)
+        numpy.savetxt('top height.csv', numpy.transpose([t,toparray]), delimiter=',')
+        
+        tip = Output([pBtip.dot(N.y)])
+        bottomarray = tip.calc(states4)
+        tip.plot_time(t)
+        plt.title('Height of Bottom as Jumping')
+        plt.suptitle('length = ' + str(leg_length) + ' (m), gear ratio = ' + str(gear_ratio))
+        plt.xlabel('time (s)')
+        plt.ylabel('height (m)')
+        plt.savefig('Bottom Height.pdf', transparent = True)
+        numpy.savetxt('bottom height.csv', numpy.transpose([t,bottomarray]), delimiter=',')
+        
+        forcy = Output([groundS.f.dot(N.y) + groundD.f.dot(N.y)])
+        forcyarray = forcy.calc(states4)
+        forcy.plot_time(t)
+        plt.title('Force on Ground as Jumping')
+        plt.suptitle('length = ' + str(leg_length) + ' (m), gear ratio = ' + str(gear_ratio))
+        plt.xlabel('time (s)')
+        plt.ylabel('force (N)')
+        plt.savefig('Force.pdf', transparent = True)
+        numpy.savetxt('force.csv', numpy.transpose([t,forcyarray]), delimiter=',')
+        
+        enc = Output([qA*-180.0/3.14159])
+        encarray = enc.calc(states4)
+        enc.plot_time(t)
+        plt.title('Encoder Rotation as Jumping')
+        plt.suptitle('length = ' + str(leg_length) + ' (m), gear ratio = ' + str(gear_ratio))
+        plt.xlabel('time (s)')
+        plt.ylabel('rotation (rad)')
+        plt.savefig('Encoder.pdf', transparent = True)
+        numpy.savetxt('enc.csv', numpy.transpose([t,encarray]), delimiter=',')
+        
+        plt.show()
+
         
 #damper should be turned on with velocity
 #and try just increasing both
