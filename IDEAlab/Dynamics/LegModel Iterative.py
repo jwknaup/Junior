@@ -548,7 +548,7 @@ for length in numpy.arange(.04,.16,.02):
         plt.title('show pre? compressed')
     
     
-    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/leg modelling'
+    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/leg modelling stiff'
     lenDir = root + '/01_' + "%02d"%(leg_length*100)
     
     for g in numpy.arange(25,175,25):

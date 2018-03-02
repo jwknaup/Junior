@@ -26,18 +26,21 @@ import os
 system = System()
 
 top_length = 0.01333
-leg_length = 0.12
+leg_length = 0.10
 top_mass = 0.0365
 leg_mass = 0.095*(10**-3)*leg_length*100.0
 leg_width = 0.01
 leg_thickness = .0007
+E = 5122768405
+areaI = leg_width * (leg_thickness**3) / 12.0;
+flexk = .00265;
 # =============================================================================
 gear_ratio = 75.0
 # Tmax = 0.1554/75.0*gear_ratio
 # wMax = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
 # =============================================================================
 
-debugging = 1
+debugging = 0
 
 ####VARIOUS DESIGN CONSTANTS#####
 #gear_ratio = Constant(75.0, 'gear_ratio',system)
@@ -46,11 +49,11 @@ wMax = Constant(400.0/60.0*2.0*3.14159*75.0/gear_ratio, 'wMax', system)
 #define length constants
 # top, then each leg segment
 lO = Constant(top_length,'lO',system)
-lA = Constant((leg_length-top_length/2.0)/2.0,'lA',system)
-lA2 = Constant((leg_length-top_length/2.0)/2.0,'lA2',system)
+lA = Constant((leg_length-top_length/2.0),'lA',system)
+lA2 = Constant((leg_length-top_length/2.0),'lA2',system)
 lB = Constant(leg_length,'lB',system)
-lC = Constant((leg_length-top_length/2.0)/2.0,'lC',system)
-lC2 = Constant((leg_length-top_length/2.0)/2.0,'lC2',system)
+lC = Constant((leg_length-top_length/2.0),'lC',system)
+lC2 = Constant((leg_length-top_length/2.0),'lC2',system)
 lD = Constant(leg_length,'lD',system)
 
 #define mass cnstants for each segment
@@ -71,6 +74,8 @@ I_zz2 = Constant(0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_thicknes
 g = Constant(9.81,'g',system)
 b = Constant(1e-1,'b',system)
 k = Constant(1e-1,'k',system)
+
+spring_constant = Constant(1e1, 'spring_constant',system)
 
 ###INTEGRATION INTERVAL####
 # =============================================================================
@@ -102,19 +107,19 @@ qD,qD_d,qD_dd = Differentiable('qD',system)
 initialvalues = {}
 initialvalues[x]=0
 initialvalues[x_d]=0
-initialvalues[y]=0.20
+initialvalues[y]=0.60
 initialvalues[y_d]=0
 initialvalues[qO]=0*pi/180
 initialvalues[qO_d]=0*pi/180
 initialvalues[qA]=-10*pi/180
 initialvalues[qA_d]=0*pi/180
-initialvalues[qA2]=-10*pi/180
+initialvalues[qA2]=-5*pi/180
 initialvalues[qA2_d]=0*pi/180
 initialvalues[qB]=-170*pi/180
 initialvalues[qB_d]=0*pi/180
 initialvalues[qC]=-170*pi/180
 initialvalues[qC_d]=0*pi/180
-initialvalues[qC2]=-170*pi/180
+initialvalues[qC2]=-175*pi/180
 initialvalues[qC2_d]=0*pi/180
 initialvalues[qD]=-10*pi/180
 initialvalues[qD_d]=0*pi/180
@@ -151,9 +156,10 @@ D.rotate_fixed_axis_directed(N,[0,0,1],qD,system)
 ####WRITE KINEMATIC EQUATIONS#####
 pOcm=x*N.x+y*N.y #position of top
 vOcm = pOcm.time_derivative(N, system)
-pOA = pOcm+lO/2*O.x #right edge of top
-pOC = pOcm-lO/2*O.x #left edge of top
+pOA = pOcm+lO/2.0*O.x #right edge of top
+pOC = pOcm-lO/2.0*O.x #left edge of top
 pAA2 = pOA+lA*A.x #position of right joint
+vAA2 = pAA2.time_derivative(N,system)
 pAB = pAA2+lA2*A2.x
 vAB = pAB.time_derivative(N,system) #velocity of right joint
 
@@ -162,18 +168,19 @@ pBtip = pAB + lB*B.x #position of bottom from right side
 vBtip = pBtip.time_derivative(N,system) #velocity of bottom
 
 pCC2 = pOC + lC*C.x
+vCC2 = pCC2.time_derivative(N,system)
 pCD = pCC2 + lC2*C2.x #positon of left joint
 vCD = pCD.time_derivative(N,system) # velocity of left joint
 pDtip = pCD + lD*D.x #position of bottom from left side
 vDtip = pDtip.time_derivative(N,system) #velocity of bottom from left side
 
 #positions of centers of mass of members
-pAcm=pOA+lA/2*A.x
-pA2cm = pAA2 + lA2/2*A2.x
-pBcm=pAB+lB/2*B.x
-pCcm=pOC+lC/2*C.x
-pC2cm = pCC2 + lC2/2*C2.x
-pDcm=pCD+lD/2*D.x
+pAcm=pOA+lA/2.0*A.x
+pA2cm = pAA2 + lA2/2.0*A2.x
+pBcm=pAB+lB/2.0*B.x
+pCcm=pOC+lC/2.0*C.x
+pC2cm = pCC2 + lC2/2.0*C2.x
+pDcm=pCD+lD/2.0*D.x
 
 #get relative angular velocities
 wOA = O.getw_(A)
@@ -192,11 +199,11 @@ IC = Dyadic.build(C,I_xx,I_yy2,I_zz2)
 ID = Dyadic.build(D,I_xx,I_yy,I_zz)
 
 BodyO = Body('BodyO',O,pOcm,mO,IO,system)
-BodyA = Body('BodyA',A,pAcm,mA/2.0,IA,system) #right thigh
-BodyA2 = Body('BodyA2',A2,pA2cm,mA/2.0,IA,system)
+BodyA = Body('BodyA',A,pAcm,mA,IA,system) #right thigh
+BodyA2 = Body('BodyA2',A2,pA2cm,mA,IA,system)
 BodyB = Body('BodyB',B,pBcm,mB,IB,system) #right calf
-BodyC = Body('BodyC',C,pCcm,mC/2.0,IC,system) #left thigh
-BodyC2 = Body('BodyC2',C2,pC2cm,mC/2.0,IC,system)
+BodyC = Body('BodyC',C,pCcm,mC,IC,system) #left thigh
+BodyC2 = Body('BodyC2',C2,pC2cm,mC,IC,system)
 BodyD = Body('BodyD',D,pDcm,mD,ID,system) #left calf
 
 #ParticleO = Particle(pOcm,mO,'ParticleO',system)
@@ -220,21 +227,21 @@ l = (v.dot(v))**.5
 n = 1/l*v
 bottomSpring1, _ = system.add_spring_force1(1e7,l*n,vBtip)
 bottomSpring2, _ = system.add_spring_force1(1e7,-l*n,vDtip)
-bottomDamper1 = system.addforce(-b*(vBtip-vDtip),vBtip)
-bottomDamper2 = system.addforce(b*(vBtip-vDtip),vDtip)
+bottomDamper1 = system.addforce(-b*100*(vBtip-vDtip),vBtip)
+bottomDamper2 = system.addforce(b*100*(vBtip-vDtip),vDtip)
 
 #add spring forces to each joint
-spring1, _ = system.add_spring_force1(k,(qA-qO-preload1)*N.z,wOA)
-spring2, _ = system.add_spring_force1(k,(qB-qA-preload2)*N.z,wAB)
-spring3, _ = system.add_spring_force1(k,(qC-qO-preload3)*N.z,wOC)
-spring4, _ = system.add_spring_force1(k,(qD-qC-preload4)*N.z,wCD)
-spring5, _ = system.add_spring_force1(k,(qD-qB-preload5)*N.z,wBD)
+spring1, _ = system.add_spring_force1(k*10**-2,(qA-qO-preload1)*N.z,wOA)
+spring2, _ = system.add_spring_force1(k*10**-2,(qB-qA2-preload2)*N.z,wAB)
+spring3, _ = system.add_spring_force1(k*10**-2,(qC-qO-preload3)*N.z,wOC)
+spring4, _ = system.add_spring_force1(k*10**-2,(qD-qC2-preload4)*N.z,wCD)
+spring5, _ = system.add_spring_force1(k*10**-2,(qD-qB-preload5)*N.z,wBD)
 
-#leftFlexSpring, _ = system.add_spring_force1(k,-(qA2-qA)*N.z, wAA2)
-#rightFlexSpring, _ = system.add_spring_force1(k,-(qC2-qC)*N.z, wCC2)
+leftFlexSpring, _ = system.add_spring_force1(spring_constant,(qA2-qA)*N.z, wAA2)
+rightFlexSpring, _ = system.add_spring_force1(spring_constant,(qC2-qC)*N.z, wCC2)
 
-leftFlexDamper = system.addforce(-b*wAA2,wAA2)
-rightFlexDamper = system.addforce(-b*wCC2,wCC2)
+leftFlexDamper = system.addforce(-b*10**-1*wAA2,wAA2)
+rightFlexDamper = system.addforce(-b*10**-1*wCC2,wCC2)
 
 system.addforcegravity(-g*N.y)
 
@@ -244,6 +251,8 @@ eq = []
 eq.append(pOcm.dot(N.y)-initialvalues[y])
 eq.append(pOcm.dot(N.x)-initialvalues[x])
 eq.append(qO-initialvalues[qO])
+#eq.append(qA-qA2)
+#eq.append(qC-qC2)
 
 eq_d= [system.derivative(item) for item in eq]
 eq_dd= [system.derivative(item) for item in eq_d]
@@ -301,6 +310,8 @@ eq2.append((pBtip-pDtip).dot(N.x))
 eq2.append((pBtip-pDtip).dot(N.y))
 eq2.append(pOcm.dot(N.x)-initialvalues[x])
 eq2.append(qO-initialvalues[qO])
+#eq2.append(qA-qA2)
+#eq2.append(qC-qC2)
 
 eq2_d= [system.derivative(item) for item in eq2]
 eq2_dd= [system.derivative(item) for item in eq2_d]
@@ -372,6 +383,8 @@ eq3.append((pBtip-pDtip).dot(N.y))
 eq3.append(pOcm.dot(N.x)-initialvalues[x])
 eq3.append(qO-initialvalues[qO])
 eq3.append(pBtip.dot(N.y))
+#eq3.append(qA-qA2)
+#eq3.append(qC-qC2)
 
 eq3_d= [system.derivative(item) for item in eq3]
 eq3_dd= [system.derivative(item) for item in eq3_d]
@@ -445,6 +458,13 @@ legColcS, legColaS, _ = system.add_spring_force2(1e1,stretch_s*N.x,vCD, -vAB)
 legColcD = system.addforce(-1e2*wCD*on,wCD)
 legColaD = system.addforce(-1e2*wAB*on,wAB)
 
+stretch = pCC2.dot(N.x) - pAA2.dot(N.x)
+stretch_s = (stretch+abs(stretch))
+on = stretch_s/(2*stretch+1e-8)
+legColc2S, legCola2S, _ = system.add_spring_force2(1e1,stretch_s*N.x,vCC2, -vAA2)
+legColc2D = system.addforce(-1e2*wOC*on,wOC)
+legCola2D = system.addforce(-1e2*wOA*on,wOA)
+
 #ground normal force
 stretch = -pBtip.dot(N.y)
 stretchDot = vBtip.dot(N.y)
@@ -459,6 +479,8 @@ groundD = system.addforce(-1e4*vBtip*onDot*on,vBtip)
 eq4 = []
 eq4.append((pBtip-pDtip).dot(N.x))
 eq4.append((pBtip-pDtip).dot(N.y))
+#eq4.append(qA-qA2)
+#eq4.append(qC-qC2)
 
 eq4_d= [system.derivative(item) for item in eq4]
 eq4_dd= [system.derivative(item) for item in eq4_d]
@@ -480,12 +502,13 @@ eq4_dd= [system.derivative(item) for item in eq4_d]
 f,ma = system.getdynamics()
 func4 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = {})
 #states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
+
 print("!!!!!!finished 4!!!!!!!!!!!!!")
 
 if debugging:
-    lengthSet = numpy.arange(.10,.12,.2)
+    lengthSet = numpy.arange(.12,.14,.2)
 else:
-    lengthSet = numpy.arange(.04,.16,.02)
+    lengthSet = numpy.arange(.04,.16,.01)
     
 for length in lengthSet:
     leg_length = length
@@ -493,9 +516,11 @@ for length in lengthSet:
     
     leg_mass = 0.095*(10**-3)*leg_length*100.0
 
-    system.constant_values[lA] = leg_length-top_length/2.0
+    system.constant_values[lA] = (leg_length-top_length/2.0)/2.0
+    system.constant_values[lA2] = (leg_length-top_length/2.0)/2.0
     system.constant_values[lB] = leg_length
-    system.constant_values[lC] = leg_length-top_length/2.0
+    system.constant_values[lC] = (leg_length-top_length/2.0)/2.0
+    system.constant_values[lC2] = (leg_length-top_length/2.0)/2.0
     system.constant_values[lD] = leg_length
     
     #define mass cnstants for each segment
@@ -508,40 +533,50 @@ for length in lengthSet:
     system.constant_values[I_xx] = leg_mass/12.0*(leg_thickness*leg_thickness + leg_width*leg_width)
     system.constant_values[I_yy] = leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width)
     system.constant_values[I_zz] = leg_mass/12.0*(leg_length*leg_length + leg_thickness*leg_thickness)
-
+    I_yy2 = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width)
+    I_zz2 = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness)
+    
+    momentPerTheta = areaI * E / (leg_length)
+    system.constant_values[spring_constant] = momentPerTheta#*180.0/3.14159;
+    
+    
     
     #1
     print('****Integrating 1*******')
     tinitial = 0
     tfinal = 2
-    tstep = .01 ##0.01!!!
+    tstep = .1 ##0.01!!!
     t = numpy.r_[tinitial:tfinal:tstep]
     
-    states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e2,'beta':1e1},))
+    statevariables = system.get_state_variables()
+    ini = [initialvalues[item] for item in statevariables]
+    
+    states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
     
     #leg constraint check
-    points = [pDtip,pCD,pOC,pOA,pAB,pBtip]
+    points = [pDtip,pCD,pCC2,pOC,pOA,pAA2,pAB,pBtip]
     points = [item2 for item in points for item2 in [item.dot(N.x),item.dot(N.y)]]
     points = Output(points)
     if(debugging):
         y = points.calc(states)
-        y = y.reshape((-1,6,2))
+        y = y.reshape((-1,8,2))
         plt.figure()
         plt.title('leg constraint solving')
-        for item in y[::60]:
+        for item in y[::5]:
             plt.plot(*(item.T))
+    plt.show()
     
     #2
     print('****Integrating 2*******')
     ini = states[-1]
-    ini[2] = 0
-    ini[7:] = 0
+    #ini[2] = 0
+    #ini[7:] = 0
     #ini[7] = 10
     ini = list(ini)
     
     tinitial = 0
     tfinal = 2
-    tstep = 0.01 ## was 1/30
+    tstep = 0.1 ## was 1/30
     t = numpy.r_[tinitial:tfinal:tstep]
     
     states2=pynamics.integration.integrate_odeint(func2,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e2,'beta':1e1},))
@@ -549,23 +584,25 @@ for length in lengthSet:
     
     if(debugging):
         y = points.calc(states2)
-        y = y.reshape((-1,6,2))
+        y = y.reshape((-1,8,2))
         plt.figure()
-        for item in y[::25]:
+        for item in y[::1]:
             plt.plot(*(item.T))
         plt.axis('equal')
+    plt.show()
+    
     
     #3
     print('****Integrating 3*******')
     ini = states2[-1]
-    ini[2] = 0
-    ini[7:] = 0
+    #ini[2] = 0
+    #ini[7:] = 0
     #ini[7] = 10
     ini = list(ini)
     
     tinitial = 0
     tfinal = 2
-    tstep = 0.01 ## was 1/30!!!!
+    tstep = 0.1 ## was 1/30!!!!
     t = numpy.r_[tinitial:tfinal:tstep]
     
     states3=pynamics.integration.integrate_odeint(func3,ini,t,rtol=1e-3,atol=1e-3,
@@ -573,21 +610,21 @@ for length in lengthSet:
     
     if(debugging):
         y = points.calc(states3)
-        y = y.reshape((-1,6,2))
+        y = y.reshape((-1,8,2))
         plt.figure()
-        for item in y[::25]:
+        for item in y[::2]:
             plt.plot(*(item.T))
         plt.axis('equal')
         plt.title('show pre? compressed')
     
     
-    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/leg modelling'
+    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/leg modelling flex'
     lenDir = root + '/01_' + "%02d"%(leg_length*100)
     
     if debugging:
         gearSet = numpy.arange(75,100,25)
     else:
-        gearSet = numpy.arange(25,175,25)
+        gearSet = numpy.arange(25,175,12.5)
     
     for g in gearSet:
         gearDir = lenDir + '_' + str(g)
@@ -602,13 +639,13 @@ for length in lengthSet:
         #4
         print('*****Integrating 4*******')
         ini = states3[-1]
-        ini[2] = 0
-        ini[7:] = 0
+        #ini[2] = 0
+        #ini[7:] = 0
         #ini[7] = 10
         ini = list(ini)
         
         tinitial = 0
-        tfinal = 1.2
+        tfinal = 0.8
         tstep = 0.01 ## was 1/30
         t=numpy.r_[tinitial:tfinal:tstep]
         states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
@@ -616,9 +653,9 @@ for length in lengthSet:
         
         
         y = points.calc(states4)
-        y = y.reshape((-1,6,2))
+        y = y.reshape((-1,8,2))
         plt.figure()
-        for item in y[::25]:
+        for item in y[::10]:
             plt.plot(*(item.T))
         plt.axis('equal')
         plt.title('Jumping Visualization')

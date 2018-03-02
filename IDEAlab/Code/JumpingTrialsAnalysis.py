@@ -141,15 +141,19 @@ def iterateThroughTrials(p=0):
     
 def plotJumpHeights(data):
     print(data)
+    scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
+    colors = plt.cm.coolwarm(scaled_z)
+    #plt.scatter(x, y, marker='+', edgecolors=colors, s=150, linewidths=4)
+    plt.show()
     plt.figure()
     plt.subplot(221)
     plt.ylabel('jump height (m)')
     plt.title("length")
-    plt.plot(data[:,1], data[:,3], 'o')
+    plt.scatter(data[:,1], data[:,3], marker='o',color=colors)
     plt.xlabel('(cm)')
     plt.subplot(222)
     plt.title("gear ratio")
-    plt.plot(data[:,2], data[:,3], 'o')  
+    plt.scatter(data[:,2], data[:,3], marker='o',color=colors)  
     plt.xlabel('(reduction)')
     plt.tight_layout()
     plt.savefig('height results.png', dpi = 600)
@@ -175,8 +179,8 @@ def plotEfficiencies(eff):
 
 import os
 
-data, massAve = iterateThroughTrials(0)
-#plotJumpHeights(data)
+data, massAve = iterateThroughTrials(1)
+plotJumpHeights(data)
 #plotEfficiencies(eff)
 
 print(massAve)

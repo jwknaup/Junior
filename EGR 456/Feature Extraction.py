@@ -10,7 +10,7 @@ import cv2
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-cap=cv2.VideoCapture(1)
+cap=cv2.VideoCapture(0)
 fig = plt.figure()
 ax = fig.add_subplot(111,projection='3d')
 for j in np.arange(1,3,1):
@@ -66,8 +66,10 @@ for j in np.arange(1,3,1):
     avgRed=[]
     avgGreen=[]
     avgBlue=[]
+    avgSize=[]
+    width=[]
 
-    for i in np.arange(1,np.amax(labels),1):
+    for i in np.arange(1,np.amax(labels)+1,1):
         obj=b==i
         redValues=np.array(obj)*np.array(red)
         greenValues=np.array(obj)*np.array(green)
@@ -75,6 +77,20 @@ for j in np.arange(1,3,1):
 
         size=np.sum(obj)
         avgSize=size/255.0
+
+        pixels = np.array(obj)*np.array(opening)
+        columnSums=np.matrix(np.sum(pixels,0))
+        print(columnSums)
+        columnTrue = (columnSums > 0)
+        print(columnTrue)
+        width = np.sum(columnTrue)
+        print(width)
+
+##        column_numbers=np.matrix(np.arange(640))
+##        columnMult = np.multiply(columnSums,column_numbers)
+##        total = np.sum(columnMult)
+##        totalTotal = np.sum(np.sum(redOnly))
+##        columnLocation = total/totalTotal
         
         avgRed=np.append(avgRed,np.sum(redValues)/size)
         avgGreen=np.append(avgGreen,np.sum(greenValues)/size)
@@ -83,9 +99,9 @@ for j in np.arange(1,3,1):
         if i > 10:
             break
     if(j==1):
-        ax.scatter(avgRed,avgSize,avgBlue)
+        ax.scatter(avgRed,avgSize,width)
     if j==2:
-        ax.scatter(avgRed,avgSize,avgBlue,c='r')
+        ax.scatter(avgRed,avgSize,width,c='r')
 
         
 ax.set_xlabel('red')
