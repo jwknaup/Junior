@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/dynamics/leg modelling stiff/'
+root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/dynamics/leg modelling flex/'
 # =============================================================================
 # width  ='01'
 # length = '12'
@@ -88,7 +88,7 @@ def addMass(array):
     
     
 def iterateThroughTrials(p=0):
-    data = np.zeros([100,4])
+    data = np.zeros([150,4])
     efficiency = np.zeros([100,3])
     i=0
     for entry in os.scandir(root):
@@ -97,7 +97,7 @@ def iterateThroughTrials(p=0):
            words = designFolder.split('_')
            width = int(words[0])
            length = int(words[1])
-           gear_ratio = int(words[2])
+           gear_ratio = float(words[2])
            directory = root + '/' + designFolder + '/'
            file = 'top height.csv'
            try:

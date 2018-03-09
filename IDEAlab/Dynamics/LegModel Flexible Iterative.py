@@ -225,8 +225,8 @@ damper5 = system.addforce(-b*wBD,wBD)
 v = pBtip-pDtip
 l = (v.dot(v))**.5
 n = 1/l*v
-bottomSpring1, _ = system.add_spring_force1(1e7,l*n,vBtip)
-bottomSpring2, _ = system.add_spring_force1(1e7,-l*n,vDtip)
+bottomSpring1, _ = system.add_spring_force1(1e5,l*n,vBtip)
+bottomSpring2, _ = system.add_spring_force1(1e5,-l*n,vDtip)
 bottomDamper1 = system.addforce(-b*100*(vBtip-vDtip),vBtip)
 bottomDamper2 = system.addforce(b*100*(vBtip-vDtip),vDtip)
 
@@ -506,9 +506,9 @@ func4 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = {})
 print("!!!!!!finished 4!!!!!!!!!!!!!")
 
 if debugging:
-    lengthSet = numpy.arange(.12,.14,.2)
-else:
-    lengthSet = numpy.arange(.04,.16,.01)
+    lengthSet = numpy.arange(.14,.16,.2)
+else:#.04
+    lengthSet = numpy.arange(.14,.16,.01)
     
 for length in lengthSet:
     leg_length = length
