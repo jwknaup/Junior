@@ -63,7 +63,7 @@ constants[L] = 530*10**-6#.0166
 constants[V] = 5.7
 constants[R] = 4.3586
 constants[G] = 30.0
-#constants[Im] = 0.00000013
+constants[Im] = 0.00000013
 constants[Il] = 0.000000
 constants[b] = 2.2*10**-8
 constants[f0] = .00016
@@ -174,7 +174,7 @@ p1 = ax1.plot(t,y_experiment_interp,'r-',label = 'experimental')
 inertia_test_range = numpy.r_[1.3e-7-0.2e-7:1.3e-7+0.2e-7:5j]
 
 for inertia1 in inertia_test_range:
-    Im = inertia1
+    constants[Im] = inertia1
     states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-10,atol=1e-10,args=({'constants':constants,'alpha':1e2,'beta':1e1},))
     positions.calc(states)
     y_simulation = positions.y

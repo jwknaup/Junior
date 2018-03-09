@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/dynamics/leg modelling flex/'
+root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/dynamics/leg modelling motor/'
 # =============================================================================
 # width  ='01'
 # length = '12'
@@ -37,6 +37,7 @@ def maxHeightGet(arrayT, arrayB, l, ax=0):
     if ax is not 0:
         ax.plot(arrayT[:,0], arrayT[:,index])
         ax.set_ylabel('h (m)',color='b' )
+        plt.tight_layout()
     #plt.show()
     #plt.figure()
     #plt.plot(position[:,0], position[:,2])
@@ -69,7 +70,7 @@ def electricalProfile(array, axA, axB):
 
     
 def encoderProfile(array, ax):
-    ax.plot(array[:,0], array[:,1]*180.0/3.14159, 'y')
+    ax.plot(array[:,0], array[:,1], 'y')
     ax.set_ylim([0,360])
     
 def energyProfile(electrical, potential, force, l):
@@ -129,13 +130,16 @@ def iterateThroughTrials(p=0):
                ax3 = ax1.twinx()
                ax3.spines["right"].set_position(("axes", -0.2))
                encoderProfile(enc, ax3)
-               ax4 = ax1.twinx()
-               ax4.spines["right"].set_position(("axes", 1.1))
-               ax5 = ax1.twinx()
-               ax5.spines["right"].set_position(("axes", 1.2))
+# =============================================================================
+#                ax4 = ax1.twinx()
+#                ax4.spines["right"].set_position(("axes", 1.1))
+#                ax5 = ax1.twinx()
+#                ax5.spines["right"].set_position(("axes", 1.2))
+# =============================================================================
                #electricalProfile(arduino, ax4, ax5)
-               #plt.figure()
-               #plt.show()
+               plt.figure()
+               plt.tight_layout()
+               plt.show()
                data[i,:] = [width, length, gear_ratio, jH]
            print(designFolder)
            massTotal = addMass(force)
@@ -145,7 +149,7 @@ def iterateThroughTrials(p=0):
            i += 1
     return data, massTotal/i
     
-def plotJumpHeights(data):
+def plotJumpHeights2(data):
     print(data)
     scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
     colors = plt.cm.coolwarm(scaled_z)
@@ -163,6 +167,22 @@ def plotJumpHeights(data):
     plt.xlabel('(reduction)')
     plt.tight_layout()
     plt.savefig('height results.png', dpi = 600)
+
+def plotJumpHeights1(data):
+    print(data)
+    scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
+    colors = plt.cm.coolwarm(scaled_z)
+    #plt.scatter(x, y, marker='+', edgecolors=colors, s=150, linewidths=4)
+    plt.figure()
+    plt.ylabel('jump height (m)')
+    plt.title("Jump Height vs. Length and Gear Ratio")
+    plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
+    plt.xlabel('leg length (cm)')
+    cbar = plt.colorbar()
+    cbar.set_label('gear ratio')
+    plt.tight_layout()
+    plt.savefig('height results.png', dpi = 600)
+    plt.show()
     
 def plotEfficiencies(eff):
     plt.subplot(211)
@@ -186,7 +206,7 @@ def plotEfficiencies(eff):
 import os
 
 data, massAve = iterateThroughTrials(1)
-plotJumpHeights(data)
+plotJumpHeights1(data)
 #plotEfficiencies(eff)
 
 print(massAve)

@@ -45,7 +45,7 @@ m = Constant(name='m',system=system)
 g = Constant(name='g',system=system)
 
 tinitial = 0
-tfinal = 2.0
+tfinal = 0.25
 tstep = .01
 t = numpy.r_[tinitial:tfinal:tstep]
 
@@ -103,7 +103,7 @@ I_motor = Dyadic.build(B,Im,Im,Im)
 I_load = Dyadic.build(B,Il,Il,Il)
 
 #Motor = Body('Motor',A,pO,0,I_motor,system)
-Motor = Body('Motor',B,pO,0,I_motor,system)
+Motor = Body('Motor',B,pO,0,I_motor,system,wNBody = wNA,alNBody = aNA)
 Inductor = Particle(0*M.x,L,name='Inductor',vCM = i*M.x,aCM = i_d*M.x)
 
 #Load = Body('Load',B,pO,0,I_load,system,wNBody = wNB,alNBody = aNB)

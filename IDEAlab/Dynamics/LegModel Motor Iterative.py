@@ -230,11 +230,11 @@ kv = Constant(name='kv',system=system)
 kt = Constant(name='kt',system=system)
 Tl = Constant(name='Tl',system=system)
 system.constant_values[L] = 530*10**-6#.0166
-system.constant_values[V] = 5.7
+system.constant_values[V] = 6.0
 system.constant_values[R] = 4.3586
-system.constant_values[G] = 30.0
+system.constant_values[G] = 75.0
 system.constant_values[Im] = 1.27534182e-07
-system.constant_values[Il] = 0.000000
+system.constant_values[Il] = 1.000000
 system.constant_values[mb] = 2.2*10**-8
 system.constant_values[f0] = .00016
 system.constant_values[kv] = .0016
@@ -242,16 +242,16 @@ system.constant_values[kt] = .0016
 system.constant_values[Tl] = 0
 
 # =============================================================================
-qML,qML_d,qML_dd = Differentiable('qML',system)
-qMR,qMR_d,qMR_dd = Differentiable('qMR',system)
+#qML,qML_d,qML_dd = Differentiable('qML',system)
+#qMR,qMR_d,qMR_dd = Differentiable('qMR',system)
 qiL, iL,iL_d = Differentiable('qiL',system)
 qiR, iR,iR_d = Differentiable('qiR',system)
 # 
-initialvalues[qML]=0*pi/180
-initialvalues[qML_d]=0*pi/180
+#initialvalues[qML]=0*pi/180
+#initialvalues[qML_d]=0*pi/180
 # initialvalues[qML_dd]=0
-initialvalues[qMR]=0*pi/180
-initialvalues[qMR_d]=0*pi/180
+#initialvalues[qMR]=0*pi/180
+#initialvalues[qMR_d]=0*pi/180
 # initialvalues[qMR_dd]=0
 initialvalues[qiL]=0.0
 initialvalues[iL]=0.0
@@ -262,42 +262,42 @@ initialvalues[iR]=0.0
 # =============================================================================
 
 
-ML = Frame('ML')
+#ML = Frame('ML')
 MR = Frame('MR')
 
 LL = Frame('LL')
 LR = Frame('LR')
 
-ML.rotate_fixed_axis_directed(O,[0,0,1],qML,system)#+qML
-MR.rotate_fixed_axis_directed(O,[0,0,1],qMR,system)#+qMR
+#ML.rotate_fixed_axis_directed(N,[0,0,1],qML,system)#+qML
+#MR.rotate_fixed_axis_directed(O,[0,0,1],qMR,system)#+qMR
 
 # =============================================================================
-LL.rotate_fixed_axis_directed(N,[0,0,1],qO,system)
+#LL.rotate_fixed_axis_directed(N,[0,0,1],qO,system)
 # LR.rotate_fixed_axis_directed(N,[0,0,1],qO,system)
 # =============================================================================
 
-wOML = G*O.getw_(C)#wNC
+wNC = N.getw_(C)
+wOML = G*wNC
 aOML = wOML.time_derivative()
-wOMR = -G*O.getw_(A)
+wOMR = -G*N.getw_(A)
 aOMR = wOMR.time_derivative()
 
 #wOML = O.getw_(ML)
 #wOMR = O.getw_(MR)
 
-I_motorL = Dyadic.build(ML,Im,Im,Im)
-I_motorR = Dyadic.build(MR,Im,Im,Im)
+I_motorL = Dyadic.build(C,Im,Im,Im)
+I_motorR = Dyadic.build(A,Im,Im,Im)
 
 I_LL = Dyadic.build(LL,0,0,0)
 
-MotorL = Body('MotorL',ML,pOC,0,I_motorL,system)#,wNBody = wNML,alNBody = aNML
+MotorL = Body('MotorL',C,0*N.x,0,I_motorL,system,wNBody = wOML,alNBody = aOML)
 InductorL = Particle(qiL*N.x,L,name='InductorL',vCM = iL*N.x,aCM = iL_d*N.x)
-MotorR = Body('MotorR',MR,pOA,0,I_motorR,system)#,wNBody = wNMR,alNBody = aNMR
+MotorR = Body('MotorR',A,pOA,0,I_motorR,system,wNBody = wOMR,alNBody = aOMR)
 InductorR = Particle(qiR*N.x,L,name='InductorR',vCM = iR*N.x,aCM = iR_d*N.x)
 
 #########FORCES#FORCES#FORCES###################
 
 # =============================================================================
-
 
 # =============================================================================
 
@@ -535,17 +535,18 @@ system.forces.remove(damper5)
 
 #add torque
 # =============================================================================
+
 T = kt*iL
 system.addforce(T*N.z,wOML)
 system.addforce(-mb*wOML,wOML)
 system.addforce(-f0*N.z,wOML)
-system.addforce((V-iL*R - kv*G*qML_d)*N.x,iL*N.x)
+system.addforce((V-iL*R - kv*wOMR.dot(N.z))*N.x,iL*N.x)
 
 T = kt*iR
 system.addforce(T*N.z,wOMR)
 system.addforce(-mb*wOMR,wOMR)
 system.addforce(-f0*N.z,wOMR)
-system.addforce((V-iR*R - kv*G*qMR_d)*N.x,iR*N.x)
+system.addforce((V-iR*R - kv*wOMR.dot(N.z))*N.x,iR*N.x)
 # =============================================================================
 
 #leg collision force
@@ -572,23 +573,6 @@ on = stretch_s/(2*stretch+1e-10)
 onDot = stretchDot_s/(2*stretchDot+1e-10)
 groundS, _ = system.add_spring_force1(1e3,-stretch_s*N.y,vBtip)
 groundD = system.addforce(-1e4*vBtip*onDot*on,vBtip)
-
-#left motor
-# =============================================================================
-# T = kt*iL
-# system.addforce(T*N.z,wOML)
-# system.addforce(-b*wOML,wOML)
-# #system.addforce(-Tl*B.z,wNB)
-# system.addforce(-f0*N.z,wOML)
-# system.addforce((V-iL*R - kv*G*qML_d)*ML.x,iL*ML.x)
-# 
-# #right motor
-# T = kt*iR
-# system.addforce(T*N.z,wOMR)
-# system.addforce(-b*wOMR,wOMR)
-# system.addforce(-f0*N.z,wOMR)
-# system.addforce((V-iR*R - kv*G*qMR_d)*MR.x,iR*MR.x)
-# =============================================================================
 
 #only constrain tip
 eq4 = []
@@ -623,7 +607,7 @@ print("!!!!!!finished 4!!!!!!!!!!!!!")
 if debugging:
     lengthSet = numpy.arange(.14,.16,.2)
 else:#.04
-    lengthSet = numpy.arange(.14,.16,.01)
+    lengthSet = numpy.arange(.14,.16,.02)
     
 for length in lengthSet:
     leg_length = length
@@ -680,7 +664,7 @@ for length in lengthSet:
         for item in y[::5]:
             plt.plot(*(item.T))
             
-        motor = Output([wOMR.dot(ML.z)])
+        motor = Output([wOMR.dot(N.z)])
         motorarray = motor.calc(states)
         motor.plot_time(t)
         plt.title('omega')
@@ -688,6 +672,13 @@ for length in lengthSet:
         currentarray = current.calc(states)
         current.plot_time(t)
         plt.title('current')
+        torque = Output([iR*kt])
+        torquearray = torque.calc(states)
+        torque.plot_time(t)
+        plt.title('torque')
+        plt.figure()
+        plt.plot(motorarray,torquearray)
+        plt.title('w-T')
     plt.show()
     
     #2
@@ -742,11 +733,11 @@ for length in lengthSet:
         plt.title('show pre? compressed')
     
     
-    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/leg modelling flex'
+    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/leg modelling junk'
     lenDir = root + '/01_' + "%02d"%(leg_length*100)
     
     if debugging:
-        gearSet = numpy.arange(75,100,25)
+        gearSet = numpy.arange(75,125,25)
     else:
         gearSet = numpy.arange(25,175,12.5)
     
@@ -757,8 +748,7 @@ for length in lengthSet:
         os.chdir(gearDir)
         print(g)
         gear_ratio = g
-        system.constant_values[Tmax] = 0.1554/75.0*gear_ratio
-        system.constant_values[wMax] = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
+        system.constant_values[G] = gear_ratio
              
         
         #4
@@ -770,10 +760,10 @@ for length in lengthSet:
         ini = list(ini)
        
         tinitial = 0
-        tfinal = 0.8
+        tfinal = 1.2
         tstep = 0.01 ## was 1/30
         t=numpy.r_[tinitial:tfinal:tstep]
-        states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
+        states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-4,atol=1e-4,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
         
         
         
@@ -781,6 +771,7 @@ for length in lengthSet:
         y = y.reshape((-1,8,2))
         plt.figure()
         for item in y[::10]:
+            plt.figure()
             plt.plot(*(item.T))
         plt.axis('equal')
         plt.title('Jumping Visualization')

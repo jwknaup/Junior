@@ -40,7 +40,7 @@ gear_ratio = 75.0
 # wMax = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
 # =============================================================================
 
-debugging = 0
+debugging = 1
 
 ####VARIOUS DESIGN CONSTANTS#####
 #gear_ratio = Constant(75.0, 'gear_ratio',system)

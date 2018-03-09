@@ -46,6 +46,8 @@ def maxHeightGet(array, l, ax=0):
     legLength = (2*float(l) - 1.43)/100.0
     deltaHeight = np.linalg.norm(displacement)
     jumpHeight = deltaHeight - legLength
+    if jumpHeight < 0:
+        jumpHeight = 0
     #print(maxTime)
     print(jumpHeight)
     return jumpHeight, deltaHeight
@@ -117,7 +119,7 @@ def iterateThroughTrials(p=0):
                        pass
                    if p is not 0:
                        fig, ax1 = plt.subplots()
-                       jH, _ = maxHeightGet(position,length, ax1)
+                       jH, _ = maxHeightGet(position,length, ax1)#change to ax1
                        ax2 = ax1.twinx()
                        forceProfile(force, ax2)
                        ax3 = ax1.twinx()
@@ -129,6 +131,7 @@ def iterateThroughTrials(p=0):
                        ax5.spines["right"].set_position(("axes", 1.2))
                        electricalProfile(arduino, ax4, ax5)
                        plt.figure()
+                       plt.tight_layout()
                        plt.show()
                        data[i,:] = [width, length, gear_ratio, jH]
                    print(designFolder + '/' + trialFolder)
@@ -139,7 +142,7 @@ def iterateThroughTrials(p=0):
                    i += 1
     return data, massTotal/i
     
-def plotJumpHeights(data):
+def plotJumpHeights2(data):
     print(data)
     scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
     colors = plt.cm.coolwarm(scaled_z)
@@ -157,6 +160,62 @@ def plotJumpHeights(data):
     plt.xlabel('(reduction)')
     plt.tight_layout()
     plt.savefig('height results.png', dpi = 600)
+    
+def plotJumpHeights1(data):
+    print(data)
+    scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
+    colors = plt.cm.coolwarm(scaled_z)
+    #plt.scatter(x, y, marker='+', edgecolors=colors, s=150, linewidths=4)
+    plt.figure()
+    plt.ylabel('jump height (m)')
+    plt.title("Jump Height vs. Length and Gear Ratio")
+    plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
+    plt.xlabel('leg length (cm)')
+    cbar = plt.colorbar()
+    cbar.set_label('gear ratio')
+    #plt.tight_layout()
+    plt.savefig('height results.png', dpi = 600)
+    plt.show()
+    
+def plotJumpHeightsA(data):
+    print(data)
+    scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
+    colors = plt.cm.coolwarm(scaled_z)
+    plt.figure()
+    length = data[:,1]
+    ratio = data[:,2]
+    height = data[:,3]
+    ratios = set(ratio)
+    for r in ratios:
+        area = np.array([[0,0,0]])
+        if r == 0:
+            continue
+        print(r)
+        indecesr = np.where(data[:,2] == r)
+        #print(indeces)
+        lengths = set(length[indecesr])
+        for l in lengths:
+            indeces = np.where(((data[:,1:3] == (l,r)).all(axis=1)))
+            print('indeces', indeces)
+            heights = height[indeces]
+            maxHeight = heights.max()
+            minHeight = heights.min()
+            area = np.append(area,[[l,minHeight,maxHeight]], axis=0)
+        area = area[area[:,0].argsort()]
+        print(area)
+        print(r)
+        plt.fill_between(area[:,0],area[:,1],area[:,2], color = plt.cm.coolwarm(r/120.0))
+            
+            
+    plt.ylabel('jump height (m)')
+    plt.title("Jump Height vs. Length and Gear Ratio")
+    plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
+    plt.xlabel('leg length (cm)')
+    cbar = plt.colorbar()
+    cbar.set_label('gear ratio')
+    plt.tight_layout()
+    plt.savefig('height results.png', dpi = 600)
+    plt.show()
     
 def plotEfficiencies(eff):
     plt.subplot(211)
@@ -180,7 +239,7 @@ def plotEfficiencies(eff):
 import os
 
 data, massAve = iterateThroughTrials(1)
-plotJumpHeights(data)
+plotJumpHeightsA(data)
 #plotEfficiencies(eff)
 
 print(massAve)
