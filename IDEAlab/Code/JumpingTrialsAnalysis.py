@@ -136,11 +136,11 @@ def iterateThroughTrials(p=0):
                        data[i,:] = [width, length, gear_ratio, jH]
                    print(designFolder + '/' + trialFolder)
                    massTotal = addMass(force)
-                   #Ein, Eout = energyProfile(arduino, position, force, length)
-                   #efficiency[i,:] = [length, gear_ratio, Eout/Ein]
+                   Ein, Eout = energyProfile(arduino, position, force, length)
+                   efficiency[i,:] = [length, gear_ratio, Eout/Ein]
                    print('\n')
                    i += 1
-    return data, massTotal/i
+    return data, massTotal/i, efficiency
     
 def plotJumpHeights2(data):
     print(data)
@@ -217,7 +217,7 @@ def plotJumpHeightsA(data):
     plt.savefig('height results.png', dpi = 600)
     plt.show()
     
-def plotEfficiencies(eff):
+def plotEfficiencies2(eff):
     plt.subplot(211)
     plt.plot(eff[:,0], eff[:,2], 'o')
     plt.title("Efficiency vs Length")
@@ -231,16 +231,24 @@ def plotEfficiencies(eff):
     plt.tight_layout()
     plt.savefig('efficiency results.png', dpi = 600)
                
-
+def plotEfficiencies1(eff):
+    plt.scatter(eff[:,0], eff[:,2], marker='o', c=eff[:,1], cmap='coolwarm')
+    plt.title("Efficiency vs Length")
+    plt.xlabel('leg length (cm)')
+    plt.ylabel('efficiency')
+    cbar = plt.colorbar()
+    cbar.set_label('gear ratio')
+    plt.tight_layout()
+    
 #maxHeightGet(position)
 #forceProfile(force)
 
 
 import os
 
-data, massAve = iterateThroughTrials(1)
+data, massAve, eff = iterateThroughTrials(1)
 plotJumpHeightsA(data)
-#plotEfficiencies(eff)
+plotEfficiencies1(eff)
 
 print(massAve)
 
