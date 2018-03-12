@@ -176,12 +176,12 @@ def plotJumpHeights1(data):
     plt.figure()
     plt.ylabel('jump height (m)')
     plt.title("Jump Height vs. Length and Gear Ratio")
-    plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
+    plt.plot(data[:,1], data[:,3], '-o',color = plt.cm.coolwarm(data[:,2]/120.0))
     plt.xlabel('leg length (cm)')
-    cbar = plt.colorbar()
-    cbar.set_label('gear ratio')
+    #cbar = plt.colorbar()
+    #cbar.set_label('gear ratio')
     plt.tight_layout()
-    plt.savefig('height results.png', dpi = 600)
+    #plt.savefig('height results.png', dpi = 600)
     plt.show()
     
 def plotEfficiencies(eff):
@@ -209,7 +209,7 @@ data, massAve = iterateThroughTrials(1)
 plotJumpHeights1(data)
 #plotEfficiencies(eff)
 
-print(massAve)
+#print(massAve)
 
 # =============================================================================
 # data = np.zeros([100,4])

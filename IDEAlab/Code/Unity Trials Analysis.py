@@ -171,6 +171,7 @@ def plotJumpHeights1(data):
     #plt.scatter(x, y, marker='+', edgecolors=colors, s=150, linewidths=4)
     plt.figure()
     plt.ylabel('jump height (m)')
+    plt.suptitle('Unity Simulation')
     plt.title("Jump Height vs. Length and Gear Ratio")
     plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
     plt.xlabel('leg length (cm)')
@@ -208,6 +209,8 @@ unity = np.genfromtxt(root + file, delimiter=',')
 data =[[0,0,0,0]]
 for i in np.arange(1, np.shape(unity)[0]):
     data = np.append(data,[[unity[i,0].transpose(), unity[i,2]*100, 30000.0/unity[i,4], unity[i,6]]], axis=0)
+    if(data[i,1] > 16):
+        data[i,:] = [0,0,0,0]
     if(data[i,-1] < 0):
         data[i,-1]= 0
 data = np.delete(data, np.where(data[:,2] == 300), axis=0)

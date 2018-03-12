@@ -1,6 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Mar 11 09:08:52 2018
+
+@author: Jacob
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
-
 
 root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/datas/Jumping Results/'
 width  ='01'
@@ -26,11 +32,14 @@ def maxHeightGet(array, l, ax=0):
     else:
         index = 5
         
+    index=2
     array[array[:,index] > 0.54, index] = 0.25
     
     if ax is not 0:
-        ax.plot(array[:,0], array[:,index])
-        ax.set_ylabel('h (m)',color='b' )
+        p, =ax.plot(array[:,0], array[:,index], color='k')
+        ax.tick_params(axis='y',colors='k')
+        ax.set_ylabel('h (m)',color='k' )
+        #ax.spines['left'].set_edgecolor(p.get_color())
     #plt.show()
     #plt.figure()
     #plt.plot(position[:,0], position[:,2])
@@ -50,40 +59,35 @@ def maxHeightGet(array, l, ax=0):
         jumpHeight = 0
     #print(maxTime)
     print(jumpHeight)
-    return jumpHeight, deltaHeight
+    return jumpHeight, p
 
 def forceProfile(array, ax):
-    ax.plot(array[:,0], array[:,1], 'r')
+    p, = ax.plot(array[:,0], array[:,1], 'r')
     ax.set_ylim([0,1.0])
-    ax.set_ylabel('F (N)', color='r')
+    ax.set_ylabel('F (N)', color='r', labelpad = -1)
+    ax.tick_params(axis='y',colors='r')
+    ax.spines['right'].set_edgecolor('r')
+    return p
     
 def electricalProfile(array, axA, axB):
-    axA.plot(array[:,0], array[:,1], 'g')
-    axB.plot(array[:,0], array[:,2], 'k')
+    pA, = axA.plot(array[:,0], array[:,1], 'g')
+    pB, = axB.plot(array[:,0], array[:,2], 'b')
     axA.set_ylim([0,8.0])
     axB.set_ylim([0,2.0])
     axA.set_ylabel('V (V)', color='g')
-    axB.set_ylabel('I (A)', color='k')
+    axB.set_ylabel('I (A)', color='b')
+    axA.tick_params(axis='y',colors='g')
+    axB.tick_params(axis='y',colors='b')
+    axA.spines['right'].set_edgecolor('g')
+    axB.spines['right'].set_edgecolor('b')
+    return pA, pB
 
     
 def encoderProfile(array, ax):
     ax.plot(array[:,0], array[:,3], 'y')
+    ax.set_ylabel('Theta (deg)', color='y')
     ax.set_ylim([0,360])
-    
-def energyProfile(electrical, potential, force, l):
-    power = electrical[:,1]*electrical[:,2]
-    energyIn = np.trapz(power, x=electrical[:,0])
-    
-    jH, mH = maxHeightGet(potential, l)
-    energyOut = mH*force[0,1]
-    return energyIn, energyOut
-
-massTotal=0
-def addMass(array):
-    global massTotal
-    massTotal+=array[0,1]
-    return massTotal
-    
+   
     
 def iterateThroughTrials(p=0):
     data = np.zeros([100,4])
@@ -97,7 +101,7 @@ def iterateThroughTrials(p=0):
            length = int(words[1])
            gear_ratio = int(words[2])
            for entry in os.scandir(root + '/' + designFolder):
-               if entry.name.startswith('t') and not entry.is_file():
+               if entry.name.startswith('at') and not entry.is_file():
                    trialFolder = entry.name
                    words = trialFolder.split('l')
                    trial = words[1]
@@ -119,25 +123,25 @@ def iterateThroughTrials(p=0):
                        pass
                    if p is not 0:
                        fig, ax1 = plt.subplots()
-                       jH, _ = maxHeightGet(position,length, ax1)#change to ax1
+                       jH, p1 = maxHeightGet(position,length, ax1)#change to ax1
                        ax2 = ax1.twinx()
-                       forceProfile(force, ax2)
-                       ax3 = ax1.twinx()
-                       ax3.spines["right"].set_position(("axes", -0.2))
-                       encoderProfile(arduino, ax3)
+                       p2 = forceProfile(force, ax2)
+                       #ax3 = ax1.twinx()
+                       #ax3.spines["right"].set_position(("axes", -0.2))
+                       #encoderProfile(arduino, ax3)
                        ax4 = ax1.twinx()
                        ax4.spines["right"].set_position(("axes", 1.1))
                        ax5 = ax1.twinx()
                        ax5.spines["right"].set_position(("axes", 1.2))
-                       electricalProfile(arduino, ax4, ax5)
-                       plt.figure()
-                       plt.tight_layout()
+                       p4, p5 = electricalProfile(arduino, ax4, ax5)
+                       ax1.legend([p1, p2, p4, p5],['height','force','voltage','current'], loc='right')
+                       #plt.tight_layout()
                        plt.show()
                        data[i,:] = [width, length, gear_ratio, jH]
                    print(designFolder + '/' + trialFolder)
-                   massTotal = addMass(force)
-                   Ein, Eout = energyProfile(arduino, position, force, length)
-                   efficiency[i,:] = [length, gear_ratio, Eout/Ein]
+                   massTotal = 0#addMass(force)
+                   #Ein, Eout = energyProfile(arduino, position, force, length)
+                   #efficiency[i,:] = [length, gear_ratio, Eout/Ein]
                    print('\n')
                    i += 1
     return data, massTotal/i, efficiency
@@ -176,114 +180,7 @@ def plotJumpHeights1(data):
     #plt.tight_layout()
     plt.savefig('height results.png', dpi = 600)
     plt.show()
-    
-def plotJumpHeightsA(data):
-    print(data)
-    scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
-    colors = plt.cm.coolwarm(scaled_z)
-    plt.figure()
-    length = data[:,1]
-    ratio = data[:,2]
-    height = data[:,3]
-    ratios = set(ratio)
-    ratioNames = []
-    for r in ratios:
-        if r == 0:
-            continue
-        ratioNames.append(str(r))
-        area = np.array([[0,0,0]])
-        print(r)
-        indecesr = np.where(data[:,2] == r)
-        #print(indeces)
-        lengths = set(length[indecesr])
-        for l in lengths:
-            indeces = np.where(((data[:,1:3] == (l,r)).all(axis=1)))
-            print('indeces', indeces)
-            heights = height[indeces]
-            maxHeight = heights.max()
-            minHeight = heights.min()
-            area = np.append(area,[[l,minHeight,maxHeight]], axis=0)
-        area = area[area[:,0].argsort()]
-        print(area)
-        print(r)
-        plt.fill_between(area[:,0],area[:,1],area[:,2], color = plt.cm.coolwarm(r/120.0), alpha=0.5)
-    
-    plt.legend(ratioNames, title = 'gear ratio')
-    plt.ylabel('jump height (m)')
-    plt.suptitle('Experimental Results')
-    plt.title("Jump Height vs. Length and Gear Ratio")
-    #plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
-    plt.xlabel('leg length (cm)')
-    #cbar = plt.colorbar()
-    #cbar.set_label('gear ratio')
-    #plt.tight_layout()
-    plt.savefig('height results.png', dpi = 600)
-    plt.show()
-    
-def plotEfficiencies2(eff):
-    plt.subplot(211)
-    plt.plot(eff[:,0], eff[:,2], 'o')
-    plt.title("Efficiency vs Length")
-    plt.xlabel('(cm)')
-    plt.ylabel('efficiency')
-    
-    plt.subplot(212)
-    plt.plot(eff[:,1], eff[:,2], 'o')
-    plt.title("Efficiency vs Gear Ratio")
-    plt.xlabel('(reduction)')
-    plt.tight_layout()
-    plt.savefig('efficiency results.png', dpi = 600)
-               
-def plotEfficiencies1(eff):
-    plt.scatter(eff[:,0], eff[:,2], marker='o', c=eff[:,1], cmap='coolwarm')
-    plt.title("Efficiency vs Length")
-    plt.xlabel('leg length (cm)')
-    plt.ylabel('efficiency')
-    #cbar = plt.colorbar()
-    #cbar.set_label('gear ratio')
-    plt.legend()
-    plt.tight_layout()
-    
-#maxHeightGet(position)
-#forceProfile(force)
-
 
 import os
 
 data, massAve, eff = iterateThroughTrials(1)
-plotJumpHeightsA(data)
-plotEfficiencies1(eff)
-
-#print(massAve)
-
-# =============================================================================
-# data = np.zeros([100,4])
-# i=0
-# 
-# for entry in os.scandir(root):
-#    if not entry.name.startswith('s') and not entry.is_file():
-#        designFolder = entry.name
-#        words = designFolder.split('_')
-#        width = int(words[0])
-#        length = int(words[1])
-#        gear_ratio = int(words[2])
-#        for entry in os.scandir(root + '/' + designFolder):
-#            if entry.name.startswith('t') and not entry.is_file():
-#                trialFolder = entry.name
-#                words = trialFolder.split('l')
-#                trial = words[1]
-#                directory = root + '/' + designFolder + '/' + trialFolder + '/'
-#                file = 'loadcell.csv'
-#                try:
-#                    force = np.genfromtxt(directory + file, delimiter=',')
-#                except:
-#                    pass
-#                print(designFolder + '/' + trialFolder)
-#                forceProfile(force)
-#                #data[i,:] = [width, length, gear_ratio, jH]
-#                print('\n')
-#                i += 1
-# =============================================================================
-               
-
-
