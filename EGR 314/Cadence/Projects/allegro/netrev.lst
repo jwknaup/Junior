@@ -2,9 +2,9 @@
 (                                                                     )
 (    Allegro Netrev Import Logic                                      )
 (                                                                     )
-(    Drawing          : sensorsubsystem1.brd                          )
+(    Drawing          : GAMEBOARD2.brd                                )
 (    Software Version : 16.6-2015S062                                 )
-(    Date/Time        : Thu Feb 22 22:03:36 2018                      )
+(    Date/Time        : Tue Mar 13 23:22:00 2018                      )
 (                                                                     )
 (---------------------------------------------------------------------)
 
@@ -17,24 +17,34 @@ Ripup retain bondwire:       No
 Ripup symbols:               Always
 Missing symbol has error:    No
 DRC update:                  Yes
-Schematic directory:         'C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\PROJECTS\ALLEGRO'
-Design Directory:            'C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects'
-Old design name:             'C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects/sensorsubsystem1.brd'
-New design name:             'C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects/sensorsubsystem2.brd'
+Schematic directory:         'C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\PROJECTS\allegro'
+Design Directory:            '.'
+Old design name:             'C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects/GAMEBOARD2.brd'
+New design name:             'GAME BOARD3.brd'
 
-CmdLine: netrev.exe -y 1 -u -i C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\PROJECTS\ALLEGRO C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\Projects\sensorsubsystem1.brd C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\Projects\sensorsubsystem2.brd
+CmdLine: netrev.exe -y 1 -u -i C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\PROJECTS\allegro C:\Users\Jacob\Documents\Junior\EGR 314\Cadence\Projects\GAMEBOARD2.brd C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\PROJECTS\allegro\GAME BOARD3.brd
 
 ------ Preparing to read pst files ------
 
-Starting to read C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/ALLEGRO/pstchip.dat 
-   Finished reading C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/ALLEGRO/pstchip.dat (00:00:00.03)
-Starting to read C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/ALLEGRO/pstxprt.dat 
-   Finished reading C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/ALLEGRO/pstxprt.dat (00:00:00.00)
-Starting to read C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/ALLEGRO/pstxnet.dat 
-   Finished reading C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/ALLEGRO/pstxnet.dat (00:00:00.01)
+Starting to read C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/allegro/pstchip.dat 
+   Finished reading C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/allegro/pstchip.dat (00:00:00.03)
+Starting to read C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/allegro/pstxprt.dat 
+   Finished reading C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/allegro/pstxprt.dat (00:00:00.00)
+Starting to read C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/allegro/pstxnet.dat 
+   Finished reading C:/USERS/JACOB/DOCUMENTS/JUNIOR/EGR 314/CADENCE/PROJECTS/allegro/pstxnet.dat (00:00:00.00)
 
 ------ Oversights/Warnings/Errors ------
 
+
+#1   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
+
+ERROR(SPMHNI-196): Symbol 'SMDSWITCH' for device 'SW KEY-SPST_SMDSWITCH_SW KEY-SP' has extra pin '3'.
+
+ERROR(SPMHNI-196): Symbol 'SMDSWITCH' for device 'SW KEY-SPST_SMDSWITCH_SW KEY-SP' has extra pin '4'.
+
+ERROR(SPMHNI-196): Symbol 'SMDSWITCH' for device 'SW KEY-SPST_SMDSWITCH_SW KEY-SP' has extra pin 'GND1'.
+
+ERROR(SPMHNI-196): Symbol 'SMDSWITCH' for device 'SW KEY-SPST_SMDSWITCH_SW KEY-SP' has extra pin 'GND2'.
 
 ------ Library Paths ------
 MODULEPATH =  . 
@@ -64,8 +74,8 @@ PADPATH =  .
 ------ Summary Statistics ------
 
 
-netrev run on Feb 22 22:03:36 2018
-   DESIGN NAME : 'SENSORSUBSYSTEM'
+netrev run on Mar 13 23:22:00 2018
+   DESIGN NAME : 'GAME BOARD'
    PACKAGING ON Aug  3 2015 18:16:55
 
    COMPILE 'logic'
@@ -87,7 +97,7 @@ netrev run on Feb 22 22:03:36 2018
 
  No error detected
  No oversight detected
- No warning detected
+  1 warnings detected
 
 cpu time      0:00:26
 elapsed time  0:00:00

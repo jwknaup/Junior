@@ -175,7 +175,63 @@ rule PCB (turn_under_pad off)
 rule layer TOP (restricted_layer_length_factor 1)
 rule layer BOTTOM (restricted_layer_length_factor 1)
 write colormap _notify.std
-# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaad09584.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaan13916.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via 100
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+smart_route (min_wire_grid 1.000000) (auto_fanout off) (auto_testpoint off) (auto_miter off)
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaao13916.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaap13916.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via 100
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+smart_route (min_wire_grid 10.000000) (auto_fanout off) (auto_testpoint off) (auto_miter off)
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaaq13916.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaat13916.tmp
 unselect all routing
 set route_diagonal 4
 grid wire 0.010000 (direction x) (offset 0.000000)
@@ -202,199 +258,14 @@ rule pcb (trombone_run_length -1)
 rule pcb (trombone_gap -1)
 unprotect selected
 smart_route (auto_fanout off) (auto_testpoint off) (auto_miter off)
-write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaae09584.tmp
-# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaaf09584.tmp
-unselect all routing
-set route_diagonal 4
-grid wire 0.010000 (direction x) (offset 0.000000)
-grid wire 0.010000 (direction y) (offset 0.000000)
-grid via 0.010000 (direction x) (offset 0.000000)
-grid via 0.010000 (direction y) (offset 0.000000)
-protect all wires
-direction TOP horizontal
-select layer TOP
-unprotect layer_wires TOP
-direction BOTTOM vertical
-select layer BOTTOM
-unprotect layer_wires BOTTOM
-cost via 100
-set turbo_stagger off
-limit outside 20.000000
-rule pcb (patterns_allowed  trombone accordion)
-set pattern_stacking on
-rule pcb (sawtooth_amplitude -1 -1)
-rule pcb (sawtooth_gap -1)
-rule pcb (accordion_amplitude -1 -1)
-rule pcb (accordion_gap -1)
-rule pcb (trombone_run_length -1)
-rule pcb (trombone_gap -1)
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaau13916.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaaw13916.tmp
+unselect all objects
+select net N15206
 unprotect selected
-smart_route (auto_fanout off) (auto_testpoint off) (auto_miter off)
-write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaag09584.tmp
-# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaah09584.tmp
-unselect all routing
-set route_diagonal 4
-grid wire 0.010000 (direction x) (offset 0.000000)
-grid wire 0.010000 (direction y) (offset 0.000000)
-grid via 0.010000 (direction x) (offset 0.000000)
-grid via 0.010000 (direction y) (offset 0.000000)
-protect all wires
-direction TOP horizontal
-select layer TOP
-unprotect layer_wires TOP
-direction BOTTOM vertical
-select layer BOTTOM
-unprotect layer_wires BOTTOM
-cost via 100
-set turbo_stagger off
-limit outside 20.000000
-rule pcb (patterns_allowed  trombone accordion)
-set pattern_stacking on
-rule pcb (sawtooth_amplitude -1 -1)
-rule pcb (sawtooth_gap -1)
-rule pcb (accordion_amplitude -1 -1)
-rule pcb (accordion_gap -1)
-rule pcb (trombone_run_length -1)
-rule pcb (trombone_gap -1)
-unprotect selected
-smart_route (auto_fanout off) (auto_testpoint off) (auto_miter off)
-write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaai09584.tmp
-# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaaj09584.tmp
-unselect all routing
-set route_diagonal 4
-grid wire 0.010000 (direction x) (offset 0.000000)
-grid wire 0.010000 (direction y) (offset 0.000000)
-grid via 0.010000 (direction x) (offset 0.000000)
-grid via 0.010000 (direction y) (offset 0.000000)
-protect all wires
-direction TOP horizontal
-select layer TOP
-unprotect layer_wires TOP
-direction BOTTOM vertical
-select layer BOTTOM
-unprotect layer_wires BOTTOM
-cost via 100
-set turbo_stagger off
-limit outside 20.000000
-rule pcb (patterns_allowed  trombone accordion)
-set pattern_stacking on
-rule pcb (sawtooth_amplitude -1 -1)
-rule pcb (sawtooth_gap -1)
-rule pcb (accordion_amplitude -1 -1)
-rule pcb (accordion_gap -1)
-rule pcb (trombone_run_length -1)
-rule pcb (trombone_gap -1)
-unprotect selected
-smart_route (auto_fanout off) (auto_testpoint off) (auto_miter off)
-write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaak09584.tmp
-# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaal09584.tmp
-unselect all routing
-set route_diagonal 4
-grid wire 0.010000 (direction x) (offset 0.000000)
-grid wire 0.010000 (direction y) (offset 0.000000)
-grid via 0.010000 (direction x) (offset 0.000000)
-grid via 0.010000 (direction y) (offset 0.000000)
-protect all wires
-direction TOP horizontal
-select layer TOP
-unprotect layer_wires TOP
-direction BOTTOM vertical
-select layer BOTTOM
-unprotect layer_wires BOTTOM
-cost via 100
-set turbo_stagger off
-limit outside 20.000000
-rule pcb (patterns_allowed  trombone accordion)
-set pattern_stacking on
-rule pcb (sawtooth_amplitude -1 -1)
-rule pcb (sawtooth_gap -1)
-rule pcb (accordion_amplitude -1 -1)
-rule pcb (accordion_gap -1)
-rule pcb (trombone_run_length -1)
-rule pcb (trombone_gap -1)
-unprotect selected
-smart_route (auto_fanout off) (auto_testpoint off) (auto_miter off)
-write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaam09584.tmp
-# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaan09584.tmp
-unselect all routing
-set route_diagonal 4
-grid wire 0.010000 (direction x) (offset 0.000000)
-grid wire 0.010000 (direction y) (offset 0.000000)
-grid via 0.010000 (direction x) (offset 0.000000)
-grid via 0.010000 (direction y) (offset 0.000000)
-protect all wires
-direction TOP horizontal
-select layer TOP
-unprotect layer_wires TOP
-direction BOTTOM vertical
-select layer BOTTOM
-unprotect layer_wires BOTTOM
-cost via -1
-set turbo_stagger off
-limit outside 20.000000
-rule pcb (patterns_allowed  trombone accordion)
-set pattern_stacking on
-rule pcb (sawtooth_amplitude -1 -1)
-rule pcb (sawtooth_gap -1)
-rule pcb (accordion_amplitude -1 -1)
-rule pcb (accordion_gap -1)
-rule pcb (trombone_run_length -1)
-rule pcb (trombone_gap -1)
-smart_route (auto_fanout off) (auto_testpoint off) (auto_miter off)
-write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaao09584.tmp
-# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaap09584.tmp
-unselect all routing
-set route_diagonal 4
-grid wire 0.010000 (direction x) (offset 0.000000)
-grid wire 0.010000 (direction y) (offset 0.000000)
-grid via 0.010000 (direction x) (offset 0.000000)
-grid via 0.010000 (direction y) (offset 0.000000)
-protect all wires
-direction TOP horizontal
-select layer TOP
-unprotect layer_wires TOP
-direction BOTTOM vertical
-select layer BOTTOM
-unprotect layer_wires BOTTOM
-cost via -1
-set turbo_stagger off
-limit outside -1
-rule pcb (patterns_allowed  trombone accordion)
-set pattern_stacking on
-rule pcb (sawtooth_amplitude -1 -1)
-rule pcb (sawtooth_gap -1)
-rule pcb (accordion_amplitude -1 -1)
-rule pcb (accordion_gap -1)
-rule pcb (trombone_run_length -1)
-rule pcb (trombone_gap -1)
-smart_route (auto_fanout off) (auto_testpoint off) (auto_miter off)
-write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaaq09584.tmp
-# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaar09584.tmp
-unselect all routing
-set route_diagonal 4
-grid wire 0.010000 (direction x) (offset 0.000000)
-grid wire 0.010000 (direction y) (offset 0.000000)
-grid via 0.010000 (direction x) (offset 0.000000)
-grid via 0.010000 (direction y) (offset 0.000000)
-protect all wires
-direction TOP horizontal
-select layer TOP
-unprotect layer_wires TOP
-direction BOTTOM vertical
-select layer BOTTOM
-unprotect layer_wires BOTTOM
-cost via -1
-set turbo_stagger off
-limit outside -1
-rule pcb (patterns_allowed  trombone accordion)
-set pattern_stacking on
-rule pcb (sawtooth_amplitude -1 -1)
-rule pcb (sawtooth_gap -1)
-rule pcb (accordion_amplitude -1 -1)
-rule pcb (accordion_gap -1)
-rule pcb (trombone_run_length -1)
-rule pcb (trombone_gap -1)
-unprotect selected
-smart_route (auto_fanout off) (auto_testpoint off) (auto_miter off)
-write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaas09584.tmp
+delete selected
+unprotect selected polygon
+delete selected polygon
+unselect all objects
+read route C:/Users/Jacob/AppData/Local/Temp/#Taaaaav13916.tmp
 quit -c

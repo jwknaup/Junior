@@ -5,7 +5,7 @@
 # 
 #            Command Line Parameters
 #            -----------------------
-# Design File Name : C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects\sensorsubsystem3.dsn
+# Design File Name : C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects\GAMEBOARD5a.dsn
 # Initialization options:
 #   -do pasde.do
 # Status File Name : C:/Users/Jacob/Documents/Junior/EGR 314/Cadence/Projects\monitor.sts
@@ -15,7 +15,7 @@
 #
 #
 #
-# do $/sensorsubsystem3_rules.do
+# do $/GAMEBOARD5a_rules.do
 rule PCB (width 5)
 rule PCB (clearance 5 (type buried_via_gap))
 rule PCB (clearance 5 (type wire_wire))
@@ -175,4 +175,604 @@ rule PCB (turn_under_pad off)
 rule layer TOP (restricted_layer_length_factor 1)
 rule layer BOTTOM (restricted_layer_length_factor 1)
 write colormap _notify.std
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaai18652.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via 100
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+route 25 1
+clean 2
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaaj18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaak18652.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via -1
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+route 25 1
+clean 2
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaal18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaam18652.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via 100
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+route 25 1
+clean 2
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaan18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaap18652.tmp
+unselect all objects
+select net N43936
+select net N43900
+select net N41734
+select net N42896
+select net N42308
+select net N40644
+select net N41450
+select net N41446
+select net N41326
+select net N43924
+select net N43852
+select net N43864
+select net SCK
+select net SDA
+select net N41032
+select net N42904
+select net N40652
+select net ICSPDAT
+select net N42752
+select net N43224
+select net N42784
+select net N41362
+select net N41350
+select net N41338
+select net ICSPCLK
+select net N42912
+select net N41290
+select net N41462
+select net N42740
+select net N42508
+select net N41466
+select net N42268
+select net N42246
+select net N41454
+select net N40612
+select net N42276
+select net N41374
+select net N41442
+select net N118227
+select net SS4
+select net N43912
+select net N42908
+select net N43888
+select net N43624
+select net N41314
+select net N42916
+select net N42808
+select net N43876
+select net N41000
+select net N40620
+select net N41020
+select net GND
+select net N42820
+select net CD4
+select net N40628
+select net N42796
+select net N42884
+select net CD2
+select net CD3
+select net CD1
+select net N128561
+select net SS3
+select net SS2
+select net N118686
+select net N118690
+select net N118167
+select net N118238
+select net N118679
+select net N118234
+select net SS1
+select net N118163
+select net N118192
+select net N118203
+select net N118215
+select net N118196
+select net N118185
+select net N118143
+select net N118150
+select net N111889
+select net N111887
+select net N43192
+select net N104053
+select net SCK1
+select net SDO1
+select net SDI1
+select net '5 V'
+select net N41458
+select net N42772
+select net N40578
+select net N41302
+select net N40604
+select net N42242
+select net N42712
+select net N40636
+select net N42900
+select net MCLR/VPP
+unprotect selected
+delete selected
+unprotect selected polygon
+delete selected polygon
+unselect all objects
+read route C:/Users/Jacob/AppData/Local/Temp/#Taaaaao18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaar18652.tmp
+unselect all objects
+select net N43936
+select net N43900
+select net N41734
+select net N42896
+select net N42308
+select net N40644
+select net N41450
+select net N41446
+select net N41326
+select net N43924
+select net N43852
+select net N43864
+select net SCK
+select net SDA
+select net N41032
+select net N42904
+select net N40652
+select net ICSPDAT
+select net N42752
+select net N43224
+select net N42784
+select net N41362
+select net N41350
+select net N41338
+select net ICSPCLK
+select net N42912
+select net N41290
+select net N41462
+select net N42740
+select net N42508
+select net N41466
+select net N42268
+select net N42246
+select net N41454
+select net N40612
+select net N42276
+select net N41374
+select net N41442
+select net N118227
+select net SS4
+select net N43912
+select net N42908
+select net N43888
+select net N43624
+select net N41314
+select net N42916
+select net N42808
+select net N43876
+select net N41000
+select net N40620
+select net N41020
+select net GND
+select net N42820
+select net CD4
+select net N40628
+select net N42796
+select net N42884
+select net CD2
+select net CD3
+select net CD1
+select net N128561
+select net SS3
+select net SS2
+select net N118686
+select net N118690
+select net N118167
+select net N118238
+select net N118679
+select net N118234
+select net SS1
+select net N118163
+select net N118192
+select net N118203
+select net N118215
+select net N118196
+select net N118185
+select net N118143
+select net N118150
+select net N111889
+select net N111887
+select net N43192
+select net N104053
+select net SCK1
+select net SDO1
+select net SDI1
+select net '5 V'
+select net N41458
+select net N42772
+select net N40578
+select net N41302
+select net N40604
+select net N42242
+select net N42712
+select net N40636
+select net N42900
+select net MCLR/VPP
+unprotect selected
+delete selected
+unprotect selected polygon
+delete selected polygon
+unselect all objects
+read route C:/Users/Jacob/AppData/Local/Temp/#Taaaaaq18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaat18652.tmp
+unselect all objects
+select net N43912
+select net N42752
+select net SCK
+select net N43852
+select net N41450
+select net N42896
+select net N42308
+select net N40644
+select net N41446
+select net N41734
+select net N41326
+select net N43924
+select net N43864
+select net SDA
+select net N41032
+select net N43224
+select net N43900
+select net N42904
+select net N40652
+select net ICSPDAT
+select net N42784
+select net N41362
+select net N41350
+select net N41338
+select net N42912
+select net ICSPCLK
+select net N41462
+select net N42268
+select net N42740
+select net N42508
+select net N41466
+select net N42246
+select net N41454
+select net N40612
+select net N43936
+select net N42276
+select net N41374
+select net N41442
+select net N42908
+select net N43888
+select net N43624
+select net N41314
+select net N118215
+select net SS2
+select net N42916
+select net N42808
+select net N43876
+select net N41000
+select net N40620
+select net N41020
+select net GND
+select net N42820
+select net N42884
+select net N42796
+select net N40628
+select net CD3
+select net CD4
+select net CD1
+select net CD2
+select net SS4
+select net N118690
+select net N128561
+select net N118167
+select net N118234
+select net N118679
+select net N118686
+select net N118238
+select net N118227
+select net SDO1
+select net N118150
+select net N118185
+select net N118196
+select net N118203
+select net N118192
+select net N118163
+select net N111889
+select net N118143
+select net SS1
+select net N111887
+select net N43192
+select net N104053
+select net SDI1
+select net SCK1
+select net '5 V'
+select net N41458
+select net N42772
+select net N40578
+select net N41302
+select net N40604
+select net N42242
+select net N42712
+select net N40636
+select net N42900
+select net MCLR/VPP
+unprotect selected
+delete selected
+unprotect selected polygon
+delete selected polygon
+unselect all objects
+read route C:/Users/Jacob/AppData/Local/Temp/#Taaaaas18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaaw18652.tmp
+unselect all routing
+set route_diagonal 0
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via -1
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+route 25 1
+clean 2
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaax18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaay18652.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via 100
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+route 25 1
+clean 2
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaaaz18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaaba18652.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via -1
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+route 25 1
+clean 2
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaabb18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaabc18652.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via -1
+set turbo_stagger on
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+route 25 1
+clean 2
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaabd18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaabe18652.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via -1
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+route 25 1
+clean 2
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaabf18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaabg18652.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via -1
+set turbo_stagger off
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+fanout 5 (direction In_out) (location Anywhere) (pin_type power) (pin_type signal)
+route 25 1
+clean 10
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaabh18652.tmp
+# do C:/Users/Jacob/AppData/Local/Temp/#Taaaabi18652.tmp
+unselect all routing
+set route_diagonal 4
+grid wire 0.010000 (direction x) (offset 0.000000)
+grid wire 0.010000 (direction y) (offset 0.000000)
+grid via 0.010000 (direction x) (offset 0.000000)
+grid via 0.010000 (direction y) (offset 0.000000)
+protect all wires
+direction TOP horizontal
+select layer TOP
+unprotect layer_wires TOP
+direction BOTTOM vertical
+select layer BOTTOM
+unprotect layer_wires BOTTOM
+cost via -1
+set turbo_stagger on
+limit outside 20.000000
+rule pcb (patterns_allowed  trombone accordion)
+set pattern_stacking on
+rule pcb (sawtooth_amplitude -1 -1)
+rule pcb (sawtooth_gap -1)
+rule pcb (accordion_amplitude -1 -1)
+rule pcb (accordion_gap -1)
+rule pcb (trombone_run_length -1)
+rule pcb (trombone_gap -1)
+unprotect selected
+smart_route (auto_fanout off) (auto_testpoint off) (auto_miter off)
+write routes (changed_only) (reset_changed) C:/Users/Jacob/AppData/Local/Temp/#Taaaabj18652.tmp
 quit -c
