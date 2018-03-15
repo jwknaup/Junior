@@ -45,6 +45,11 @@ constantI = [.099, 0.107, .109, .111, .111, .119, .124, .132];
 
 hold on
 plot(constantW, K.*constantI, 'ro')
+title('Motor Friction Characterization')
+xlabel('steady-state angular velocity (rad/s)')
+ylabel('frictional torque (Nm)')
+lege = legend('1:30', '1:300');
+title(lege,'gear ratio')
 
 B = (K.*constantI./constantW - TfAve);
 
@@ -61,6 +66,6 @@ constantI = [.115,.122, .127, .125, .126, .130,.128,.129];
 constantFreq = [223,369,480,620,720,914,1280,1570];
 constantW = constantFreq/3.0*2.0*pi;
 
-plot(constantW, K.*constantI, 'go')
+%plot(constantW, K.*constantI, 'go')
 
 lsline
