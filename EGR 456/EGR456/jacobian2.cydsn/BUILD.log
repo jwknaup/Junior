@@ -1,21 +1,5 @@
---------------- Build Started: 01/23/2018 16:55:21 Project: jacobian2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 03/15/2018 16:06:46 Project: jacobian2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Im -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
-main.c: In function 'main':
-main.c:19:51: warning: unused variable 'a5' [-Wunused-variable]
-     float a1 = 4.9, a2 = 6.0, a3 = 5.5, a4 = 7.2, a5 = 8.9;
-                                                   ^
-main.c:19:31: warning: unused variable 'a3' [-Wunused-variable]
-     float a1 = 4.9, a2 = 6.0, a3 = 5.5, a4 = 7.2, a5 = 8.9;
-                               ^
-main.c:19:11: warning: unused variable 'a1' [-Wunused-variable]
-     float a1 = 4.9, a2 = 6.0, a3 = 5.5, a4 = 7.2, a5 = 8.9;
-           ^
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\jacobian2.a .\CortexM3\ARM_GCC_541\Debug\Servos.o .\CortexM3\ARM_GCC_541\Debug\Servos_PM.o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o .\CortexM3\ARM_GCC_541\Debug\Servo1.o .\CortexM3\ARM_GCC_541\Debug\Servo2.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
-arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\jacobian2.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\Jacob\Documents\Junior\EGR 456\EGR456\jacobian2.cydsn\CortexM3\ARM_GCC_541\Debug\jacobian2.elf" .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\servocommands.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\jacobian2.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -l m -L Generated_Source\PSoC5 -L m -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/jacobian2.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
-cyelftool.exe -C "C:\Users\Jacob\Documents\Junior\EGR 456\EGR456\jacobian2.cydsn\CortexM3\ARM_GCC_541\Debug\jacobian2.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
-cyelftool.exe -S "C:\Users\Jacob\Documents\Junior\EGR 456\EGR456\jacobian2.cydsn\CortexM3\ARM_GCC_541\Debug\jacobian2.elf"
-Flash used: 16110 of 262144 bytes (6.1%).
-SRAM used: 2609 of 65536 bytes (4.0%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 01/23/2018 16:55:23 ---------------
+The compile step is up to date, no work needs to be done.
+The link step is up to date, no work needs to be done.
+--------------- Build Succeeded: 03/15/2018 16:06:46 ---------------
