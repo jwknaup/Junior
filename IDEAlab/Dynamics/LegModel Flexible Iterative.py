@@ -27,8 +27,9 @@ system = System()
 
 top_length = 0.01333
 leg_length = 0.10
-top_mass = 0.0365
+top_mass = 0.03022
 leg_mass = 0.095*(10**-3)*leg_length*100.0
+clamp_mass = 2.1*10**-3
 leg_width = 0.01
 leg_thickness = .0007
 E = 5122768405
@@ -58,17 +59,23 @@ lD = Constant(leg_length,'lD',system)
 
 #define mass cnstants for each segment
 mO = Constant(top_mass,'mO',system)
-mA = Constant(leg_mass,'mA',system)
+mA = Constant(leg_mass/2.0+clamp_mass,'mA',system)
+mA2 = Constant(leg_mass/2.0,'mA2',system)
 mB = Constant(leg_mass,'mB',system)
-mC = Constant(leg_mass,'mC',system)
+mC = Constant(leg_mass/2.0+clamp_mass,'mC',system)
+mC2 = Constant(leg_mass/2.0,'mC2',system)
 mD = Constant(leg_mass,'mD',system)
 
 #define inertia constants
 I_xx = Constant(leg_mass/12.0*(leg_thickness*leg_thickness + leg_width*leg_width),'I_xx',system)
 I_yy = Constant(leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width),'I_yy',system)
 I_zz = Constant(leg_mass/12.0*(leg_length*leg_length + leg_thickness*leg_thickness),'I_zz',system)
+I_xx2 = Constant(0.5 * leg_mass/12.0*(leg_thickness**2 + leg_width**2),'I_xx2',system)
 I_yy2 = Constant(0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width),'I_yy2',system)
 I_zz2 = Constant(0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness),'I_zz2',system)
+I_xxT = Constant((0.5*leg_mass + clamp_mass)/12.0*(leg_thickness**2 + leg_width**2),'I_xxT',system)
+I_yyT = Constant((0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width),'I_yyT',system)
+I_zzT = Constant((0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness),'I_zzT',system)
 
 #define misc constants
 g = Constant(9.81,'g',system)
@@ -193,17 +200,19 @@ wBD = B.getw_(D)
 
 #####DEFINE BODIES#######
 IO = Dyadic.build(O,top_mass/12.0*.06**2,top_mass/12.0*.06**2,top_mass/12.0*.06**2)
-IA = Dyadic.build(A,I_xx,I_yy2,I_zz2)
+IA = Dyadic.build(A,I_xxT,I_yyT,I_zzT)
+IA2 = Dyadic.build(A2,I_xx2,I_yy2,I_zz2)
 IB = Dyadic.build(B,I_xx,I_yy,I_zz)
-IC = Dyadic.build(C,I_xx,I_yy2,I_zz2)
+IC = Dyadic.build(C,I_xxT,I_yyT,I_zzT)
+IC2 = Dyadic.build(C2,I_xx2,I_yy2,I_zz2)
 ID = Dyadic.build(D,I_xx,I_yy,I_zz)
 
 BodyO = Body('BodyO',O,pOcm,mO,IO,system)
 BodyA = Body('BodyA',A,pAcm,mA,IA,system) #right thigh
-BodyA2 = Body('BodyA2',A2,pA2cm,mA,IA,system)
+BodyA2 = Body('BodyA2',A2,pA2cm,mA,IA2,system)
 BodyB = Body('BodyB',B,pBcm,mB,IB,system) #right calf
 BodyC = Body('BodyC',C,pCcm,mC,IC,system) #left thigh
-BodyC2 = Body('BodyC2',C2,pC2cm,mC,IC,system)
+BodyC2 = Body('BodyC2',C2,pC2cm,mC,IC2,system)
 BodyD = Body('BodyD',D,pDcm,mD,ID,system) #left calf
 
 #ParticleO = Particle(pOcm,mO,'ParticleO',system)
@@ -515,7 +524,7 @@ for length in lengthSet:
     print(leg_length)
     
     leg_mass = 0.095*(10**-3)*leg_length*100.0
-
+    
     system.constant_values[lA] = (leg_length-top_length/2.0)/2.0
     system.constant_values[lA2] = (leg_length-top_length/2.0)/2.0
     system.constant_values[lB] = leg_length
@@ -524,18 +533,25 @@ for length in lengthSet:
     system.constant_values[lD] = leg_length
     
     #define mass cnstants for each segment
-    system.constant_values[mA] = leg_mass
+
+    system.constant_values[mA] = leg_mass/2.0+clamp_mass
+    system.constant_values[mA2] = leg_mass/2.0
     system.constant_values[mB] = leg_mass
-    system.constant_values[mC] = leg_mass
+    system.constant_values[mC] = leg_mass/2.0+clamp_mass
+    system.constant_values[mC2] = leg_mass/2.0
     system.constant_values[mD] = leg_mass
     
     #define inertia constants
     system.constant_values[I_xx] = leg_mass/12.0*(leg_thickness*leg_thickness + leg_width*leg_width)
     system.constant_values[I_yy] = leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width)
     system.constant_values[I_zz] = leg_mass/12.0*(leg_length*leg_length + leg_thickness*leg_thickness)
-    I_yy2 = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width)
-    I_zz2 = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness)
-    
+    system.constant_values[I_xx2] = 0.5*leg_mass/12.0*(leg_thickness**2 + leg_width**2)
+    system.constant_values[I_yy2] = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width)
+    system.constant_values[I_zz2] = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness)
+    system.constant_values[I_xxT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_thickness**2 + leg_width**2)
+    system.constant_values[I_yyT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width)
+    system.constant_values[I_zzT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness)
+   
     momentPerTheta = areaI * E / (leg_length)
     system.constant_values[spring_constant] = momentPerTheta#*180.0/3.14159;
     

@@ -369,7 +369,7 @@ def plotJumpHeights1(data):
     #print(data)
     scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
     colors = plt.cm.coolwarm(scaled_z)
-    plt.figure()
+    #plt.figure()
     length = data[:,1]
     ratio = data[:,2]
     height = data[:,3]
@@ -411,20 +411,22 @@ def plotJumpHeights1(data):
     #plt.tight_layout()
     plt.savefig('height results.png', dpi = 600)
     plt.show()
-    
-def plotEfficiencies(eff):
-    plt.subplot(211)
-    plt.plot(eff[:,0], eff[:,2], 'o')
-    plt.title("Efficiency vs Length")
-    plt.xlabel('(cm)')
-    plt.ylabel('efficiency')
-    
-    plt.subplot(212)
-    plt.plot(eff[:,1], eff[:,2], 'o')
-    plt.title("Efficiency vs Gear Ratio")
-    plt.xlabel('(reduction)')
-    plt.tight_layout()
-    plt.savefig('efficiency results.png', dpi = 600)
+  
+
+def plotJumpHeightsU():
+    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/datas/'
+    file = 'Unity Data For Paper.csv'
+    unity = np.genfromtxt(root + file, delimiter=',')
+    data =[[0,0,0,0]]
+    for i in np.arange(1, np.shape(unity)[0]):
+        data = np.append(data,[[unity[i,0].transpose(), unity[i,2]*100, 30000.0/unity[i,4], unity[i,6]]], axis=0)
+        if(data[i,1] > 16):
+            data[i,:] = [0,0,0,0]
+        if(data[i,-1] < 0):
+            data[i,-1]= 0
+    data = np.delete(data, np.where(data[:,2] == 300), axis=0)
+    #print(data)
+    plotJumpHeights1(data)
                
 
 #maxHeightGet(position)
@@ -437,5 +439,10 @@ data2, massAve = iterateThroughTrials(1)
 
 
 plotJumpHeightsA(data1)
+#plotJumpHeights1(data2)
+plotJumpHeightsU()
+
+plotJumpHeightsA(data1)
 plotJumpHeights1(data2)
+#plotJumpHeightsU()
 

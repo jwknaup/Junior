@@ -28,7 +28,8 @@ system = System()
 top_length = 0.01333
 leg_length = 0.12
 top_mass = 0.0365
-leg_mass = 0.095*(10**-3)*leg_length*100.0
+leg_massT = 0.095*(10**-3)*leg_length*100.0 + 2.1*10**-3
+leg_massB = 0.095*(10**-3)*leg_length*100.0
 leg_width = 0.01
 leg_thickness = .0007
 # =============================================================================
@@ -37,7 +38,7 @@ gear_ratio = 75.0
 # wMax = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
 # =============================================================================
 
-debugging = 0
+debugging = 1
 
 ####VARIOUS DESIGN CONSTANTS#####
 #gear_ratio = Constant(75.0, 'gear_ratio',system)
@@ -53,10 +54,12 @@ lD = Constant(leg_length,'lD',system)
 
 #define mass cnstants for each segment
 mO = Constant(top_mass,'mO',system)
-mA = Constant(leg_mass,'mA',system)
-mB = Constant(leg_mass,'mB',system)
-mC = Constant(leg_mass,'mC',system)
-mD = Constant(leg_mass,'mD',system)
+mA = Constant(leg_massT,'mA',system)
+mA2 = Constant(leg_massB,'mA',system)
+mB = Constant(leg_massB,'mB',system)
+mC = Constant(leg_massT,'mC',system)
+mC2 = Constant(leg_massB,'mC',system)
+mD = Constant(leg_massB,'mD',system)
 
 #define inertia constants
 I_xx = Constant(leg_mass/12.0*(leg_thickness*leg_thickness + leg_width*leg_width),'I_xx',system)
@@ -454,11 +457,17 @@ func4 = system.state_space_post_invert2(f,ma,eq4_dd,eq4_d,eq4,constants = {})
 #states4=pynamics.integration.integrate_odeint(func4,ini,t,hmax = .01,rtol=1e-3,atol=1e-3,args=({'constants':{},'alpha':1e3,'beta':1e1},))
 print("!!!!!!finished 4!!!!!!!!!!!!!")
 
-for length in numpy.arange(.04,.16,.02):
+if debugging:
+    lengthSet = numpy.arange(.14,.16,.2)
+else:#.04
+    lengthSet = numpy.arange(.14,.16,.02)
+    
+for length in lengthSet:
     leg_length = length
     print(leg_length)
     
-    leg_mass = 0.095*(10**-3)*leg_length*100.0
+    leg_massT = 0.095*(10**-3)*leg_length*100.0 + 2.1*10**-3
+    leg_massB = 0.095*(10**-3)*leg_length*100.0
 
     system.constant_values[lA] = leg_length-top_length/2.0
     system.constant_values[lB] = leg_length
@@ -548,10 +557,15 @@ for length in numpy.arange(.04,.16,.02):
         plt.title('show pre? compressed')
     
     
-    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/leg modelling stiff'
+    root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/new results/leg modelling stiff'
     lenDir = root + '/01_' + "%02d"%(leg_length*100)
     
-    for g in numpy.arange(25,175,25):
+    if debugging:
+        gearSet = numpy.arange(75,100,25)
+    else:
+        gearSet = numpy.arange(25,175,12.5)
+    
+    for g in gearSet:
         gearDir = lenDir + '_' + str(g)
         if not os.path.exists(gearDir):
             os.makedirs(gearDir)
