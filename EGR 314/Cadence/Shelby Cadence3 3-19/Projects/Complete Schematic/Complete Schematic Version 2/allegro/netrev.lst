@@ -1,0 +1,95 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Allegro Netrev Import Logic                                      )
+(                                                                     )
+(    Drawing          : COMPLETE SCHEMATIC V6.brd                     )
+(    Software Version : 16.6-2015S062                                 )
+(    Date/Time        : Thu Nov 16 17:08:22 2017                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+------ Directives ------------
+
+Ripup etch:                  No
+Ripup delete first segment:  No
+Ripup retain bondwire:       No
+Ripup symbols:               Always
+Missing symbol has error:    No
+DRC update:                  Yes
+Schematic directory:         'D:\COLLEGE\JUNIOR YEAR\FALL SEMESTER\EGR 304\CADENCE\PROJECTS\COMPLETE SCHEMATIC\COMPLETE SCHEMATIC VERSION 2\ALLEGRO'
+Design Directory:            'D:/College/Junior Year/Fall Semester/EGR 304/Cadence/Projects/Complete Schematic/Complete Schematic Version 2/allegro'
+Old design name:             'D:/College/Junior Year/Fall Semester/EGR 304/Cadence/Projects/Complete Schematic/Complete Schematic Version 2/allegro/COMPLETE SCHEMATIC V6.brd'
+New design name:             'D:/College/Junior Year/Fall Semester/EGR 304/Cadence/Projects/Complete Schematic/Complete Schematic Version 2/allegro/COMPLETE SCHEMATIC V6.brd'
+
+CmdLine: netrev.exe -y 1 -n -u -i D:\COLLEGE\JUNIOR YEAR\FALL SEMESTER\EGR 304\CADENCE\PROJECTS\COMPLETE SCHEMATIC\COMPLETE SCHEMATIC VERSION 2\ALLEGRO D:\College\Junior Year\Fall Semester\EGR 304\Cadence\Projects\Complete Schematic\Complete Schematic Version 2\allegro\COMPLETE SCHEMATIC V6.brd D:\College\Junior Year\Fall Semester\EGR 304\Cadence\Projects\Complete Schematic\Complete Schematic Version 2\allegro\COMPLETE SCHEMATIC V6.brd
+
+------ Preparing to read pst files ------
+
+Starting to read D:/COLLEGE/JUNIOR YEAR/FALL SEMESTER/EGR 304/CADENCE/PROJECTS/COMPLETE SCHEMATIC/COMPLETE SCHEMATIC VERSION 2/ALLEGRO/pstchip.dat 
+   Finished reading D:/COLLEGE/JUNIOR YEAR/FALL SEMESTER/EGR 304/CADENCE/PROJECTS/COMPLETE SCHEMATIC/COMPLETE SCHEMATIC VERSION 2/ALLEGRO/pstchip.dat (00:00:00.02)
+Starting to read D:/COLLEGE/JUNIOR YEAR/FALL SEMESTER/EGR 304/CADENCE/PROJECTS/COMPLETE SCHEMATIC/COMPLETE SCHEMATIC VERSION 2/ALLEGRO/pstxprt.dat 
+   Finished reading D:/COLLEGE/JUNIOR YEAR/FALL SEMESTER/EGR 304/CADENCE/PROJECTS/COMPLETE SCHEMATIC/COMPLETE SCHEMATIC VERSION 2/ALLEGRO/pstxprt.dat (00:00:00.00)
+Starting to read D:/COLLEGE/JUNIOR YEAR/FALL SEMESTER/EGR 304/CADENCE/PROJECTS/COMPLETE SCHEMATIC/COMPLETE SCHEMATIC VERSION 2/ALLEGRO/pstxnet.dat 
+   Finished reading D:/COLLEGE/JUNIOR YEAR/FALL SEMESTER/EGR 304/CADENCE/PROJECTS/COMPLETE SCHEMATIC/COMPLETE SCHEMATIC VERSION 2/ALLEGRO/pstxnet.dat (00:00:00.00)
+
+------ Oversights/Warnings/Errors ------
+
+
+
+Note: SECTION property definition created
+
+------ Library Paths ------
+MODULEPATH =  . 
+           C:/Cadence/SPB_16.6/share/local/pcb/modules 
+
+PSMPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_16.6/share/local/pcb/symbols 
+           C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_16.6/share/pcb/allegrolib/symbols 
+           D:/COLLEGE/JUNIOR YEAR/FALL SEMESTER/EGR 304/CADENCE/Symbols/ 
+
+PADPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_16.6/share/local/pcb/padstacks 
+           C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_16.6/share/pcb/allegrolib/symbols 
+           D:/COLLEGE/JUNIOR YEAR/FALL SEMESTER/EGR 304/CADENCE/Symbols/ 
+
+
+------ Summary Statistics ------
+
+
+netrev run on Nov 16 17:08:22 2017
+   DESIGN NAME : 'COMPLETE SCHEMATIC V1'
+   PACKAGING ON Aug  3 2015 18:16:55
+
+   COMPILE 'logic'
+   CHECK_PIN_NAMES OFF
+   CROSS_REFERENCE OFF
+   FEEDBACK OFF
+   INCREMENTAL OFF
+   INTERFACE_TYPE PHYSICAL
+   MAX_ERRORS 500
+   MERGE_MINIMUM 5
+   NET_NAME_CHARS '#%&()*+-./:=>?@[]^_`|'
+   NET_NAME_LENGTH 24
+   OVERSIGHTS ON
+   REPLACE_CHECK OFF
+   SINGLE_NODE_NETS ON
+   SPLIT_MINIMUM 0
+   SUPPRESS   20
+   WARNINGS ON
+
+ No error detected
+ No oversight detected
+ No warning detected
+
+cpu time      0:00:28
+elapsed time  0:00:00
+

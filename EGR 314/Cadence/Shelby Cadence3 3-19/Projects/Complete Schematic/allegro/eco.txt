@@ -1,0 +1,129 @@
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   1  |
+|------------------------------------------------------------------------------|
+|  D:.../Projects/Complete Schematic/allegro/COMPLETE SCHEMATIC V2.brd         |
+|                                                    Wed Oct 25 19:42:24 2017  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |    pin_id     |   x   |   y   |   to  net    |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  +5 V         pins ADDED TO this existing net (pins not previously on any net)
+                                 C7.2                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  GND          pins ADDED TO this existing net (pins not previously on any net)
+                                 C7.1                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N56194       pins ADDED TO this existing net (pins not previously on any net)
+                                 U4.1                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N56202       pins ADDED TO this existing net (pins not previously on any net)
+                                 U4.2                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N56210       pins ADDED TO this existing net (pins not previously on any net)
+                                 U4.14                          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N56218       pins ADDED TO this existing net (pins not previously on any net)
+                                 U4.13                          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N56234       pins ADDED TO this existing net (pins not previously on any net)
+                                 U4.7                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N56238       pins ADDED TO this existing net (pins not previously on any net)
+                                 U4.5                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N56242       pins ADDED TO this existing net (pins not previously on any net)
+                                 U4.9                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N56246       pins ADDED TO this existing net (pins not previously on any net)
+                                 U4.4                           
+                                 U4.6                           
+                                 U4.8                           
+                                 U4.10                          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N56362       pins ADDED TO this existing net (pins not previously on any net)
+                                 U4.11                          
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   2  |
+|------------------------------------------------------------------------------|
+|  D:.../Projects/Complete Schematic/allegro/COMPLETE SCHEMATIC V2.brd         |
+|                                                    Wed Oct 25 19:42:24 2017  |
+|------------------------------------------------------------------------------|
+| COMPONENT DEFINITION added to design                                         |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    device type                                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ LINEAR REGULATOR_TO220AB_LM7805
+ LM339_15_DIP14_3_VCC=+5 V_LM339
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   3  |
+|------------------------------------------------------------------------------|
+|  D:.../Projects/Complete Schematic/allegro/COMPLETE SCHEMATIC V2.brd         |
+|                                                    Wed Oct 25 19:42:24 2017  |
+|------------------------------------------------------------------------------|
+| COMPONENTS DELETED from design                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type      |   x   |   y                        |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ U2                  LM339_1_DIP14_3_VCC=+5 V_LM339  100.00  300.00
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   4  |
+|------------------------------------------------------------------------------|
+|  D:.../Projects/Complete Schematic/allegro/COMPLETE SCHEMATIC V2.brd         |
+|                                                    Wed Oct 25 19:42:24 2017  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ C7                  CAP NP_CAP1_0.1UF 50V 
+ U4                  LM339_15_DIP14_3_VCC=+5 V_LM339 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   5  |
+|------------------------------------------------------------------------------|
+|  D:.../Projects/Complete Schematic/allegro/COMPLETE SCHEMATIC V2.brd         |
+|                                                    Wed Oct 25 19:42:24 2017  |
+|------------------------------------------------------------------------------|
+| COMPONENTS CHANGED from one device type to another in design                 |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        | new device type     |   x   |   y   |  old  device type  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ U1                  LINEAR REGULATOR_TO220AB_LM7805  330.00 -980.00 LINEAR REGULATOR_TO220AB_LM7895
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   6  |
+|------------------------------------------------------------------------------|
+|  D:.../Projects/Complete Schematic/allegro/COMPLETE SCHEMATIC V2.brd         |
+|                                                    Wed Oct 25 19:42:24 2017  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ C7.2                           PRIM_FILE      .\pstchip.dat
+ C7.2                           SECTION        
+ U1.3            330.00 -980.00 PRIM_FILE      .\pstchip.dat
+ U1.3            330.00 -980.00 SECTION        
+ U4.1                           PRIM_FILE      .\pstchip.dat
+ U4.1                           SECTION        A
+ U4.2                           PRIM_FILE      .\pstchip.dat
+ U4.2                           SECTION        B
+ U4.13                          PRIM_FILE      .\pstchip.dat
+ U4.13                          SECTION        D
+ U4.14                          PRIM_FILE      .\pstchip.dat
+ U4.14                          SECTION        C
+|------------------------------------------------------------------------------|
+|       Nets changed          :      14                                        |
+|       Comp definitions added:       2                                        |
+|       Components added      :       2                                        |
+|       Components deleted    :       1                                        |
+|       Components changed    :       1                                        |
+|       Slot property added   :      12                                        |
+|                                                                              |
+|   Total ECO changes reported:      32                                        |
+|------------------------------------------------------------------------------|

@@ -1,0 +1,184 @@
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   1  |
+|------------------------------------------------------------------------------|
+|  EGR314.brd                                                                  |
+|                                                    Thu Feb 22 20:39:21 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  3.3V         pins ADDED TO this new net
+                                 C2.1           C3.2           C5.2           
+                                 J2.2           R1.1           U1.3           
+                                 U2.7           U2.28          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  GND          pins ADDED TO this new net
+                                 BT1.2          C1.2           C2.2           
+                                 C3.1           C4.2           C5.1           
+                                 J2.3           SW1.3          U1.2           
+                                 U2.6           U2.30          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  ICSPCLK      pins ADDED TO this new net
+                                 R3.1           U2.16          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  ICSPDAT      pins ADDED TO this new net
+                                 R4.1           U2.17          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  MCLR/VPP     pins ADDED TO this new net
+                                 J2.1           R2.1           U2.18          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N103726      pins ADDED TO this new net
+                                 BT1.1          C1.1           U1.1           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N112049      pins ADDED TO this new net
+                                 J2.4           R4.2           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N112053      pins ADDED TO this new net
+                                 J2.5           R3.2           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N112388      pins ADDED TO this new net
+                                 J1.2           R1.2           R2.2           
+                                 SW1.1          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N112486      pins ADDED TO this new net
+                                 C4.1           J1.1           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N115043      pins ADDED TO this new net
+                                 J3.1           U2.23          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N115055      pins ADDED TO this new net
+                                 J3.2           U2.24          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N115065      pins ADDED TO this new net
+                                 J3.3           U2.25          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   2  |
+|------------------------------------------------------------------------------|
+|  EGR314.brd                                                                  |
+|                                                    Thu Feb 22 20:39:21 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  N115078      pins ADDED TO this new net
+                                 J3.4           U2.26          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N115090      pins ADDED TO this new net
+                                 J3.5           U2.27          
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   3  |
+|------------------------------------------------------------------------------|
+|  EGR314.brd                                                                  |
+|                                                    Thu Feb 22 20:39:21 2018  |
+|------------------------------------------------------------------------------|
+| COMPONENT DEFINITION added to design                                         |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    device type                                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ BATTERY_HEADER2_7.2V
+ CAP NP_SMC1206_0.1 UF, 15V
+ CAP NP_SMC1206_0.1UF, 15V
+ CON6_HEADER6_CON6
+ HEADER 5_JUMPER5_HEADER 5
+ JUMPER_JUMPER2_JUMPER
+ LD29150DT33R_TO252AA_LD29150DT3
+ PIC18F47K40-I/PT_2_TQFPPIC18F4
+ R_SMR1206_10 KOHM, 1/4W
+ R_SMR1206_22 OHM, 1/4W
+ R_SMR1206_220 OHM, 1/4W
+ SW PUSHBUTTON-SPST-2_SMDSWITCH_
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   4  |
+|------------------------------------------------------------------------------|
+|  EGR314.brd                                                                  |
+|                                                    Thu Feb 22 20:39:21 2018  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ BT1                 BATTERY_HEADER2_7.2V  
+ C1                  CAP NP_SMC1206_0.1UF, 15V 
+ C2                  CAP NP_SMC1206_0.1UF, 15V 
+ C3                  CAP NP_SMC1206_0.1UF, 15V 
+ C4                  CAP NP_SMC1206_0.1 UF, 15V 
+ C5                  CAP NP_SMC1206_0.1UF, 15V 
+ J1                  JUMPER_JUMPER2_JUMPER 
+ J2                  CON6_HEADER6_CON6     
+ J3                  HEADER 5_JUMPER5_HEADER 5 
+ R1                  R_SMR1206_10 KOHM, 1/4W 
+ R2                  R_SMR1206_220 OHM, 1/4W 
+ R3                  R_SMR1206_22 OHM, 1/4W 
+ R4                  R_SMR1206_22 OHM, 1/4W 
+ SW1                 SW PUSHBUTTON-SPST-2_SMDSWITCH_ 
+ U1                  LD29150DT33R_TO252AA_LD29150DT3 
+ U2                  PIC18F47K40-I/PT_2_TQFPPIC18F4 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   5  |
+|------------------------------------------------------------------------------|
+|  EGR314.brd                                                                  |
+|                                                    Thu Feb 22 20:39:21 2018  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ BT1.2                          PRIM_FILE      .\pstchip.dat
+ BT1.2                          SECTION        
+ C1.2                           PRIM_FILE      .\pstchip.dat
+ C1.2                           SECTION        
+ C2.2                           PRIM_FILE      .\pstchip.dat
+ C2.2                           SECTION        
+ C3.2                           PRIM_FILE      .\pstchip.dat
+ C3.2                           SECTION        
+ C4.2                           PRIM_FILE      .\pstchip.dat
+ C4.2                           SECTION        
+ C5.2                           PRIM_FILE      .\pstchip.dat
+ C5.2                           SECTION        
+ J1.2                           PRIM_FILE      .\pstchip.dat
+ J1.2                           SECTION        
+ J2.6                           PRIM_FILE      .\pstchip.dat
+ J2.6                           SECTION        
+ J3.5                           PRIM_FILE      .\pstchip.dat
+ J3.5                           SECTION        
+ R1.2                           PRIM_FILE      .\pstchip.dat
+ R1.2                           SECTION        
+ R2.2                           PRIM_FILE      .\pstchip.dat
+ R2.2                           SECTION        
+ R3.2                           PRIM_FILE      .\pstchip.dat
+ R3.2                           SECTION        
+ R4.2                           PRIM_FILE      .\pstchip.dat
+ R4.2                           SECTION        
+ SW1.4                          PRIM_FILE      .\pstchip.dat
+ SW1.4                          SECTION        
+ U1.3                           PRIM_FILE      .\pstchip.dat
+ U1.3                           SECTION        
+ U2.30                          PRIM_FILE      .\pstchip.dat
+ U2.30                          SECTION        
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   6  |
+|------------------------------------------------------------------------------|
+|  EGR314.brd                                                                  |
+|                                                    Thu Feb 22 20:39:21 2018  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|------------------------------------------------------------------------------|
+|       Nets changed          :      49                                        |
+|       Comp definitions added:      12                                        |
+|       Components added      :      16                                        |
+|       Slot property added   :      32                                        |
+|                                                                              |
+|   Total ECO changes reported:     109                                        |
+|------------------------------------------------------------------------------|

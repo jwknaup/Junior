@@ -1,0 +1,66 @@
+FILE_TYPE=LIBRARY_PARTS;
+{ Using PSTWRITER 16.6.0 d001Oct-06-2017 at 12:54:22}
+primitive 'CAP NP_H2_0.33UF';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='CAP NP';
+    JEDEC_TYPE='H2';
+    VALUE='0.33uF';
+  end_body;
+end_primitive;
+primitive 'CAP NP_H2_0.1UF';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='CAP NP';
+    JEDEC_TYPE='H2';
+    VALUE='0.1uF';
+  end_body;
+end_primitive;
+primitive 'CON2_CAP_CON2';
+  pin
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='CON2';
+    JEDEC_TYPE='CAP';
+    VALUE='CON2';
+  end_body;
+end_primitive;
+primitive 'LINEAR REGULATOR_3_LM7895';
+  pin
+    'INPUT':
+      PIN_NUMBER='(1)';
+      INPUT_LOAD='(*)';
+    'GEOUND':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+    'OUTPUT':
+      PIN_NUMBER='(3)';
+      OUTPUT_LOAD='(*)';
+  end_pin;
+  body
+    PART_NAME='Linear regulator';
+    JEDEC_TYPE='3';
+    VALUE='LM7895';
+  end_body;
+end_primitive;
+END.

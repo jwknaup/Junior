@@ -1,0 +1,166 @@
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   1  |
+|------------------------------------------------------------------------------|
+|  D:.../Complete Schematic Version 2/allegro/COMPLETE SCHEMATIC V6.brd        |
+|                                                    Thu Nov 16 17:08:22 2017  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  +5 V         pins ADDED TO this new net
+                                 C2.1           C4.1           C5.1           
+                                 C7.2           C8.1           J1.6           
+                                 R14.1          R15.1          R16.1          
+                                 R17.1          U1.3           U3.2           
+                                 U3.22          U5.2           U5.4           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  +VBAT        pins ADDED TO this new net
+                                 BT1.1          C1.1           U1.1           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  GND          pins ADDED TO this new net
+                                 BT1.2          C1.2           C2.2           
+                                 C4.2           C5.2           C6.2           
+                                 C7.1           C8.2           J1.5           
+                                 LS1.2          U1.2           U3.4           
+                                 U3.21          U3.44          U5.5           
+                                 U5.6           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N57082       pins ADDED TO this new net
+                                 C6.1           U3.43          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N86841       pins ADDED TO this new net
+                                 R16.2          U5.3           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N86845       pins ADDED TO this new net
+                                 R17.2          U5.1           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N89522       pins ADDED TO this new net
+                                 LS1.1          U3.30          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  RXD          pins ADDED TO this new net
+                                 J1.2           U3.16          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SCL          pins ADDED TO this new net
+                                 R14.2          U3.5           U5.8           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SDA          pins ADDED TO this new net
+                                 R15.2          U3.9           U5.7           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  TXD          pins ADDED TO this new net
+                                 J1.3           U3.15          
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   2  |
+|------------------------------------------------------------------------------|
+|  D:.../Complete Schematic Version 2/allegro/COMPLETE SCHEMATIC V6.brd        |
+|                                                    Thu Nov 16 17:08:22 2017  |
+|------------------------------------------------------------------------------|
+| COMPONENT DEFINITION added to design                                         |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    device type                                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ BATTERY_2POS5MMCON_BATTERY
+ BUZZER_BUZZER_BUZZER
+ CAP NP_CAP1_0.1 UF 50V
+ CAP NP_CAP1_0.1UF 50V
+ CAP NP_CAP1_0.33UF 50V
+ CAP NP_CAP1_CAP NP
+ DS3231_0_SOIC8_DS3231
+ HEADER 6_0_SIP6_HEADER 6
+ LINEAR REGULATOR_TO220AB_LM7805
+ PSOC4BLE_0_PSOC4BLE_PSOC4BLE
+ R_AXRC07_R
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   3  |
+|------------------------------------------------------------------------------|
+|  D:.../Complete Schematic Version 2/allegro/COMPLETE SCHEMATIC V6.brd        |
+|                                                    Thu Nov 16 17:08:22 2017  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ BT1                 BATTERY_2POS5MMCON_BATTERY 
+ C1                  CAP NP_CAP1_0.33UF 50V 
+ C2                  CAP NP_CAP1_0.1UF 50V 
+ C4                  CAP NP_CAP1_0.1UF 50V 
+ C5                  CAP NP_CAP1_0.1 UF 50V 
+ C6                  CAP NP_CAP1_0.1UF 50V 
+ C7                  CAP NP_CAP1_0.1UF 50V 
+ C8                  CAP NP_CAP1_CAP NP    
+ J1                  HEADER 6_0_SIP6_HEADER 6 
+ LS1                 BUZZER_BUZZER_BUZZER  
+ R14                 R_AXRC07_R            
+ R15                 R_AXRC07_R            
+ R16                 R_AXRC07_R            
+ R17                 R_AXRC07_R            
+ U1                  LINEAR REGULATOR_TO220AB_LM7805 
+ U3                  PSOC4BLE_0_PSOC4BLE_PSOC4BLE 
+ U5                  DS3231_0_SOIC8_DS3231 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   4  |
+|------------------------------------------------------------------------------|
+|  D:.../Complete Schematic Version 2/allegro/COMPLETE SCHEMATIC V6.brd        |
+|                                                    Thu Nov 16 17:08:22 2017  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ BT1.2                          PRIM_FILE      .\pstchip.dat
+ BT1.2                          SECTION        
+ C1.2                           PRIM_FILE      .\pstchip.dat
+ C1.2                           SECTION        
+ C2.2                           PRIM_FILE      .\pstchip.dat
+ C2.2                           SECTION        
+ C4.2                           PRIM_FILE      .\pstchip.dat
+ C4.2                           SECTION        
+ C5.2                           PRIM_FILE      .\pstchip.dat
+ C5.2                           SECTION        
+ C6.2                           PRIM_FILE      .\pstchip.dat
+ C6.2                           SECTION        
+ C7.2                           PRIM_FILE      .\pstchip.dat
+ C7.2                           SECTION        
+ C8.2                           PRIM_FILE      .\pstchip.dat
+ C8.2                           SECTION        
+ J1.6                           PRIM_FILE      .\pstchip.dat
+ J1.6                           SECTION        
+ LS1.2                          PRIM_FILE      .\pstchip.dat
+ LS1.2                          SECTION        
+ R14.2                          PRIM_FILE      .\pstchip.dat
+ R14.2                          SECTION        
+ R15.2                          PRIM_FILE      .\pstchip.dat
+ R15.2                          SECTION        
+ R16.2                          PRIM_FILE      .\pstchip.dat
+ R16.2                          SECTION        
+ R17.2                          PRIM_FILE      .\pstchip.dat
+ R17.2                          SECTION        
+ U1.3                           PRIM_FILE      .\pstchip.dat
+ U1.3                           SECTION        
+ U3.6                           PRIM_FILE      .\pstchip.dat
+ U3.6                           SECTION        
+ U5.2                           PRIM_FILE      .\pstchip.dat
+ U5.2                           SECTION        
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   5  |
+|------------------------------------------------------------------------------|
+|  D:.../Complete Schematic Version 2/allegro/COMPLETE SCHEMATIC V6.brd        |
+|                                                    Thu Nov 16 17:08:22 2017  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|------------------------------------------------------------------------------|
+|       Nets changed          :      52                                        |
+|       Comp definitions added:      11                                        |
+|       Components added      :      17                                        |
+|       Slot property added   :      34                                        |
+|                                                                              |
+|   Total ECO changes reported:     114                                        |
+|------------------------------------------------------------------------------|

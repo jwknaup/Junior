@@ -1,0 +1,204 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    ARTWORK LOG                                                      )
+(                                                                     )
+(    Drawing          : COMPLETE SCHEMATIC V4.brd                     )
+(    Software Version : 16.6-2015S062                                 )
+(    Date/Time        : Sat Oct 28 13:29:36 2017                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+ ---- Photoplot outline rectangle not found; using drawing extents.
+
+
+
+Results from parameter file ...
+    DEVICE-TYPE           GERBER_RS274X
+    OUTPUT-UNITS          INCHES
+    FILM-SIZE             2400000 1600000
+    FORMAT                2.5
+    ABORT-ON-ERROR        NO
+    SCALE                 1
+    SUPPRESS-LEAD-ZEROES  YES
+    SUPPRESS-TRAIL-ZEROES NO
+    SUPPRESS-EQUAL        YES
+    UNDEF-APT-CONT        NO
+
+
+
+================================================================
+     PROCESSING FILM < BOTTOM >
+     TO FILE < C:/Users/gschwesk/Downloads/Complete Schematic Version 2/Complete Schematic/allegro/BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  YES
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.01500                                  DARK 
+  CIRCLE     0.03500                                  DARK 
+  CIRCLE     0.05500                                  DARK 
+  CIRCLE     0.06000                                  DARK 
+  CIRCLE     0.06500                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+  CIRCLE     0.08000                                  DARK 
+  CIRCLE     0.11811                                  DARK 
+  SQUARE     0.06000                     0.000 NO     DARK 
+
+     BOTTOM created.
+
+
+================================================================
+     PROCESSING FILM < TOP >
+     TO FILE < C:/Users/gschwesk/Downloads/Complete Schematic Version 2/Complete Schematic/allegro/TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  YES
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.01000                                  DARK 
+  CIRCLE     0.01500                                  DARK 
+  CIRCLE     0.03500                                  DARK 
+  CIRCLE     0.05500                                  DARK 
+  CIRCLE     0.06000                                  DARK 
+  CIRCLE     0.06500                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+  CIRCLE     0.08000                                  DARK 
+  CIRCLE     0.11811                                  DARK 
+  SQUARE     0.06000                     0.000 NO     DARK 
+  RECTANGLE  0.05000     x 0.02500      90.000 NO     DARK 
+
+     TOP created.
+
+
+================================================================
+     PROCESSING FILM < SOLDERMASK_TOP >
+     TO FILE < C:/Users/gschwesk/Downloads/Complete Schematic Version 2/Complete Schematic/allegro/SOLDERMASK_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.01
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.05500                                  DARK 
+  CIRCLE     0.07500                                  DARK 
+  CIRCLE     0.08000                                  DARK 
+  CIRCLE     0.09000                                  DARK 
+  CIRCLE     0.09500                                  DARK 
+  CIRCLE     0.13780                                  DARK 
+  SQUARE     0.07500                     0.000 NO     DARK 
+  RECTANGLE  0.05500     x 0.03000      90.000 NO     DARK 
+
+     SOLDERMASK_TOP created.
+
+
+================================================================
+     PROCESSING FILM < SOLDERMASK_BOTTOM >
+     TO FILE < C:/Users/gschwesk/Downloads/Complete Schematic Version 2/Complete Schematic/allegro/SOLDERMASK_BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.01
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.05500                                  DARK 
+  CIRCLE     0.07500                                  DARK 
+  CIRCLE     0.08000                                  DARK 
+  CIRCLE     0.09000                                  DARK 
+  CIRCLE     0.09500                                  DARK 
+  CIRCLE     0.13780                                  DARK 
+  SQUARE     0.07500                     0.000 NO     DARK 
+
+     SOLDERMASK_BOTTOM created.
+
+
+================================================================
+     PROCESSING FILM < OUTLINE >
+     TO FILE < C:/Users/gschwesk/Downloads/Complete Schematic Version 2/Complete Schematic/allegro/OUTLINE.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.10
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00010                                  DARK 
+
+     OUTLINE created.
+
+
+------------------------------------------------------
+ SUMMARY:
+        BOTTOM created.
+        TOP created.
+        SOLDERMASK_TOP created.
+        SOLDERMASK_BOTTOM created.
+        OUTLINE created.
+
+ ARTWORK finished

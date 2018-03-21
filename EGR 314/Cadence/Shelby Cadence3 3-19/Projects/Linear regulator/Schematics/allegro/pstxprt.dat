@@ -1,0 +1,60 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 16.6.0 d001Oct-06-2017 at 12:54:22 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='LINEAR';
+ POST_TIME='Aug  3 2015 18:16:55';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ CI 'CAP NP_H2_0.33UF':;
+
+SECTION_NUMBER 1
+ '@LINEAR.SCHEMATIC1(SCH_1):INS236@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@linear.schematic1(sch_1):ins236@discrete.\cap np.normal\(chips)',
+ P_PATH='@linear.schematic1(sch_1):page1_ins236@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ CO 'CAP NP_H2_0.1UF':;
+
+SECTION_NUMBER 1
+ '@LINEAR.SCHEMATIC1(SCH_1):INS252@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@linear.schematic1(sch_1):ins252@discrete.\cap np.normal\(chips)',
+ P_PATH='@linear.schematic1(sch_1):page1_ins252@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J1 'CON2_CAP_CON2':;
+
+SECTION_NUMBER 1
+ '@LINEAR.SCHEMATIC1(SCH_1):INS55@CONNECTOR.CON2.NORMAL(CHIPS)':
+ C_PATH='@linear.schematic1(sch_1):ins55@connector.\con2.normal\(chips)',
+ P_PATH='@linear.schematic1(sch_1):page1_ins55@connector.\con2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J2 'CON2_CAP_CON2':;
+
+SECTION_NUMBER 1
+ '@LINEAR.SCHEMATIC1(SCH_1):INS71@CONNECTOR.CON2.NORMAL(CHIPS)':
+ C_PATH='@linear.schematic1(sch_1):ins71@connector.\con2.normal\(chips)',
+ P_PATH='@linear.schematic1(sch_1):page1_ins71@connector.\con2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U1 'LINEAR REGULATOR_3_LM7895':;
+
+SECTION_NUMBER 1
+ '@LINEAR.SCHEMATIC1(SCH_1):INS28@LIBRARY1.LINEAR REGULATOR.NORMAL(CHIPS)':
+ C_PATH='@linear.schematic1(sch_1):ins28@library1.\linear regulator.normal\(chips)',
+ P_PATH='@linear.schematic1(sch_1):page1_ins28@library1.\linear regulator.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+END.

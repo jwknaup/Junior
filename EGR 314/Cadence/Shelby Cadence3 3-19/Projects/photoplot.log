@@ -1,0 +1,195 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    ARTWORK LOG                                                      )
+(                                                                     )
+(    Drawing          : GAMEBOARD9.brd                                )
+(    Software Version : 16.6-2015S062                                 )
+(    Date/Time        : Fri Mar 16 22:37:22 2018                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+ ---- Photoplot outline rectangle not found; using drawing extents.
+
+
+
+Results from parameter file ...
+    DEVICE-TYPE           GERBER_RS274X
+    OUTPUT-UNITS          INCHES
+    FILM-SIZE             2400000 1600000
+    FORMAT                2.5
+    ABORT-ON-ERROR        NO
+    SCALE                 1
+    SUPPRESS-LEAD-ZEROES  YES
+    SUPPRESS-TRAIL-ZEROES NO
+    SUPPRESS-EQUAL        YES
+    UNDEF-APT-CONT        NO
+
+
+
+================================================================
+     PROCESSING FILM < TOP >
+     TO FILE < C:/Users/cole/Documents/Cadence/Projects/Shelby Cadence2 3-16/Shelby Cadence2 3-16/Projects/TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.02500                                  DARK 
+  CIRCLE     0.03000                                  DARK 
+  CIRCLE     0.06000                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+  SQUARE     0.06000                     0.000 NO     DARK 
+  RECTANGLE  0.01654     x 0.01181       0.000 NO     DARK 
+  RECTANGLE  0.05906     x 0.02165       0.000 NO     DARK 
+  RECTANGLE  0.05906     x 0.02165      90.000 NO     DARK 
+  RECTANGLE  0.07000     x 0.23000       0.000 NO     DARK 
+  RECTANGLE  0.07874     x 0.02362       0.000 NO     DARK 
+  RECTANGLE  0.23500     x 0.24000       0.000 NO     DARK 
+
+     TOP created.
+
+
+================================================================
+     PROCESSING FILM < BOTTOM >
+     TO FILE < C:/Users/cole/Documents/Cadence/Projects/Shelby Cadence2 3-16/Shelby Cadence2 3-16/Projects/BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.02500                                  DARK 
+  CIRCLE     0.03000                                  DARK 
+  CIRCLE     0.06000                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+
+     BOTTOM created.
+
+
+================================================================
+     PROCESSING FILM < SoldermaskTop >
+     TO FILE < C:/Users/cole/Documents/Cadence/Projects/Shelby Cadence2 3-16/Shelby Cadence2 3-16/Projects/SoldermaskTop.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.08000                                  DARK 
+  CIRCLE     0.09000                                  DARK 
+  SQUARE     0.06000                     0.000 NO     DARK 
+  RECTANGLE  0.01969     x 0.01575       0.000 NO     DARK 
+  RECTANGLE  0.06693     x 0.02756       0.000 NO     DARK 
+  RECTANGLE  0.06693     x 0.02756      90.000 NO     DARK 
+  RECTANGLE  0.08661     x 0.02756       0.000 NO     DARK 
+  RECTANGLE  0.09000     x 0.26000       0.000 NO     DARK 
+  RECTANGLE  0.25500     x 0.26000       0.000 NO     DARK 
+
+     SoldermaskTop created.
+
+
+================================================================
+     PROCESSING FILM < SoldermaskBottom >
+     TO FILE < C:/Users/cole/Documents/Cadence/Projects/Shelby Cadence2 3-16/Shelby Cadence2 3-16/Projects/SoldermaskBottom.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.08000                                  DARK 
+  CIRCLE     0.09000                                  DARK 
+
+     SoldermaskBottom created.
+
+
+================================================================
+     PROCESSING FILM < Outline >
+     TO FILE < C:/Users/cole/Documents/Cadence/Projects/Shelby Cadence2 3-16/Shelby Cadence2 3-16/Projects/Outline.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+    WARNING: rectangle or unfilled shape composed 0 width line found at (11000.00 0.00)
+           ... ignored.
+
+
+
+  APERTURES USED:  NONE
+     Outline created with warnings
+
+
+------------------------------------------------------
+ SUMMARY:
+        TOP created.
+        BOTTOM created.
+        SoldermaskTop created.
+        SoldermaskBottom created.
+        Outline created with warnings
+
+ ARTWORK had warnings

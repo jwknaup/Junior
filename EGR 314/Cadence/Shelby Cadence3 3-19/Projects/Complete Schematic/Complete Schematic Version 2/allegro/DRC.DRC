@@ -1,0 +1,18 @@
+Date and Time : 10/28/17 12:01:39
+
+--------------------------------------------------
+Checking Schematic:  SCHEMATIC1
+--------------------------------------------------
+Checking Electrical Rules 
+ERROR(ORCAP-1628): Possible pin type conflict U3,VDDR  Power Connected to Output
+                    SCHEMATIC1, SizeB  (5.40, 7.60) 
+ERROR(ORCAP-1628): Possible pin type conflict U1,Output  Output Connected to Power
+                    SCHEMATIC1, SizeB  (2.40, 1.50) 
+ERROR(ORCAP-1628): Possible pin type conflict U3,VDDD  Power Connected to Output
+                    SCHEMATIC1, SizeB  (3.40, 5.60) 
+ERROR(ORCAP-1628): Possible pin type conflict U3,VDDA  Power Connected to Output
+                    SCHEMATIC1, SizeB  (5.40, 5.50) 
+
+Checking For Single Node Nets
+
+Checking For Unconnected Bus Nets

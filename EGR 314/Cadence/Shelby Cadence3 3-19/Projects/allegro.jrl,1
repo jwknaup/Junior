@@ -1,0 +1,93 @@
+\t (00:00:54) allegro 16.6-2015 S062 (v16-6-112FA) Windows 32
+\t (00:00:54)     Journal start - Fri Mar 16 22:34:16 2018
+\t (00:00:54)         Host=DESKTOP-174DHO8 User=cole Pid=3628 CPUs=8
+\t (00:00:54) CmdLine= allegro.exe
+\t (00:00:54) 
+\d (00:00:54) Design opened: C:/Users/cole/Documents/Cadence/Projects/Shelby Cadence2 3-16/Shelby Cadence2 3-16/Projects/GAMEBOARD9.brd
+\i (00:00:54) generaledit 
+\i (00:00:55) zoom out 1 
+\i (00:00:55) setwindow pcb
+\i (00:00:55) zoom out 3032.70 8158.64
+\i (00:00:55) trapsize 2646
+\i (00:00:55) zoom out 1 
+\i (00:00:55) setwindow pcb
+\i (00:00:55) zoom out 4556.98 8158.64
+\i (00:00:55) trapsize 5293
+\i (00:00:55) zoom out 1 
+\i (00:00:55) setwindow pcb
+\i (00:00:55) zoom out 9113.96 8158.65
+\i (00:00:55) trapsize 10585
+\i (00:00:55) zoom out 1 
+\i (00:00:55) setwindow pcb
+\i (00:00:55) zoom out 18227.90 11347.45
+\i (00:00:55) trapsize 10585
+\i (00:00:59) artwork 
+\i (00:01:09) setwindow form.film_control
+\i (00:01:09) FORM film_control filmtree 'MULTISEL YES' BOTTOM 
+\i (00:01:09) FORM film_control filmtree 'MULTISEL YES' TOP 
+\i (00:01:09) FORM film_control filmtree  TOP 
+\i (00:01:11) FORM film_control load  
+\i (00:01:12) fillin "menu_cancel"
+\i (00:01:16) FORM film_control filmtree popup 'Add Manual' TOP 
+\i (00:01:35) FORM film_control filmtree  BOTTOM 
+\i (00:01:35) fillin "SoldermaskTop"
+\i (00:02:41) setwindow form.scl_browser
+\i (00:02:41) FORM scl_browser treelist  ANALYSIS 
+\i (00:02:43) FORM scl_browser treelist 'MULTISEL YES' SOLDERMASK_TOP 'DRC ERROR CLASS' 
+\i (00:02:43) FORM scl_browser treelist  SOLDERMASK_TOP 'DRC ERROR CLASS' 
+\i (00:02:48) FORM scl_browser treelist 'MULTISEL YES' SOLDERMASK_TOP PIN 
+\i (00:02:48) FORM scl_browser treelist  SOLDERMASK_TOP PIN 
+\i (00:02:57) FORM scl_browser treelist 'MULTISEL YES' SOLDERMASK_TOP 'VIA CLASS' 
+\i (00:02:57) FORM scl_browser treelist  SOLDERMASK_TOP 'VIA CLASS' 
+\i (00:02:59) FORM scl_browser done  
+\i (00:03:02) setwindow form.film_control
+\i (00:03:02) FORM film_control filmtree 'MULTISEL YES' SoldermaskTop 
+\i (00:03:02) FORM film_control filmtree  SoldermaskTop 
+\i (00:03:05) FORM film_control filmtree popup 'Add Manual' SoldermaskTop 
+\i (00:03:10) fillin "SoldermaskBottom"
+\i (00:03:14) setwindow form.scl_browser
+\i (00:03:14) FORM scl_browser treelist 'MULTISEL YES' SOLDERMASK_BOTTOM 'DRC ERROR CLASS' 
+\i (00:03:14) FORM scl_browser treelist  SOLDERMASK_BOTTOM 'DRC ERROR CLASS' 
+\i (00:03:18) FORM scl_browser treelist 'MULTISEL YES' SOLDERMASK_BOTTOM PIN 
+\i (00:03:18) FORM scl_browser treelist  SOLDERMASK_BOTTOM PIN 
+\i (00:03:21) FORM scl_browser treelist 'MULTISEL YES' SOLDERMASK_BOTTOM 'VIA CLASS' 
+\i (00:03:22) FORM scl_browser treelist  SOLDERMASK_BOTTOM 'VIA CLASS' 
+\i (00:03:22) FORM scl_browser done  
+\i (00:03:25) setwindow form.film_control
+\i (00:03:25) FORM film_control filmtree 'MULTISEL YES' SoldermaskBottom 
+\i (00:03:25) FORM film_control filmtree  SoldermaskBottom 
+\i (00:03:32) FORM film_control load  
+\i (00:03:34) fillin "menu_cancel"
+\i (00:03:36) FORM film_control filmtree popup 'Add Manual' SoldermaskBottom 
+\i (00:03:40) fillin "Outline"
+\i (00:03:49) setwindow form.scl_browser
+\i (00:03:49) FORM scl_browser treelist  ANALYSIS 
+\i (00:03:53) FORM scl_browser treelist 'MULTISEL YES' OUTLINE 'BOARD GEOMETRY' 
+\i (00:03:53) FORM scl_browser treelist  OUTLINE 'BOARD GEOMETRY' 
+\i (00:03:54) FORM scl_browser done  
+\i (00:03:57) setwindow form.film_control
+\i (00:03:57) FORM film_control filmtree 'MULTISEL YES' Outline 
+\i (00:03:57) FORM film_control filmtree  Outline 
+\i (00:03:59) FORM film_control select_all  
+\i (00:04:00) FORM film_control create  
+\t (00:04:00) Checking db records
+\t (00:04:00)     checking for orphans...
+\t (00:04:00)     Checked  65 percent
+\t (00:04:00)     Checked 100 percent
+\t (00:04:00) Done dbdoctor.
+\t (00:04:00) Starting Create artwork films...
+\w (00:04:00) WARNING(SPMHGE-269): artwork had warnings, use Viewlog to review the log file.
+\w (00:04:01) Artwork generated with warnings.
+\i (00:05:40) setwindow text
+\i (00:05:40) close 
+\i (00:05:42) setwindow form.film_control
+\i (00:05:42) FORM film_control ok  
+\i (00:05:42) setwindow pcb
+\i (00:05:42) generaledit 
+\i (00:05:43) roam start
+\i (00:05:44) roam end
+\i (00:05:45) save 
+\i (00:05:46) fillin yes 
+\i (00:05:46) generaledit 
+\i (00:05:50) exit 
+\t (00:05:51)     Journal end - Fri Mar 16 22:39:13 2018

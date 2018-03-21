@@ -1,0 +1,898 @@
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   1  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  5 V          pins ADDED TO this new net
+                                 C1.2           C2.2           C3.2           
+                                 C4.1           C5.1           C6.1           
+                                 C8.1           J6.2           J8.1           
+                                 R3.1           R4.1           R5.1           
+                                 R6.1           R8.1           R9.1           
+                                 R10.1          R11.1          R12.1          
+                                 R13.1          R17.1          R18.1          
+                                 R19.1          R23.1          R24.1          
+                                 R25.1          U1.1           U2.1           
+                                 U3.1           U4.1           U5.1           
+                                 U6.1           U7.1           U8.1           
+                                 U9.1           U10.1          U11.1          
+                                 U12.1          U13.7          U13.28         
+                                 U14.1          U15.1          U16.1          
+                                 U17.1          U18.1          U19.1          
+                                 U20.1          U21.1          U22.1          
+                                 U23.1          U24.1          U25.1          
+                                 U26.1          U27.1          U28.1          
+                                 U29.1          U30.1          U31.1          
+                                 U32.1          U33.1          U34.1          
+                                 U35.1          U36.1          U37.1          
+                                 U38.1          U39.1          U40.1          
+                                 U41.1          U42.1          U43.1          
+                                 U45.1          U46.1          U47.1          
+                                 U48.1          U49.1          U50.1          
+                                 U51.9          U52.9          U53.9          
+                                 U54.3          U57.12         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  CD1          pins ADDED TO this new net
+                                 J9.5           U13.39         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  CD2          pins ADDED TO this new net
+                                 J10.5          U13.38         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  CD3          pins ADDED TO this new net
+                                 J11.5          U13.33         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  CD4          pins ADDED TO this new net
+                                 J12.5          U13.32         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  GND          pins ADDED TO this new net
+                                 BT1.2          C1.1           C2.1           
+                                 C3.1           C4.2           C5.2           
+                                 C6.2           C7.2           C8.2           
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   2  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+                                 C9.2           J6.3           J8.2           
+                                 J9.6           J10.6          J11.6          
+                                 J12.6          R14.2          R15.2          
+                                 R16.2          R20.2          R21.2          
+                                 R22.2          R26.2          R27.2          
+                                 R28.2          SW1.1          U1.3           
+                                 U2.3           U3.3           U4.3           
+                                 U5.3           U6.3           U7.3           
+                                 U8.3           U9.3           U10.3          
+                                 U11.3          U12.3          U13.6          
+                                 U13.30         U14.3          U15.3          
+                                 U16.3          U17.3          U18.3          
+                                 U19.3          U20.3          U21.3          
+                                 U22.3          U23.3          U24.3          
+                                 U25.3          U26.3          U27.3          
+                                 U28.3          U29.3          U30.3          
+                                 U31.3          U32.3          U33.3          
+                                 U34.3          U35.3          U36.3          
+                                 U37.3          U38.3          U39.3          
+                                 U40.3          U41.3          U42.3          
+                                 U43.3          U45.3          U46.3          
+                                 U47.3          U48.3          U49.3          
+                                 U50.3          U51.10         U51.18         
+                                 U51.19         U51.20         U52.10         
+                                 U52.18         U52.19         U52.20         
+                                 U53.10         U53.18         U53.19         
+                                 U53.20         U54.2          U57.11         
+                                 U57.21         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  ICSPCLK      pins ADDED TO this new net
+                                 R1.1           U13.16         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  ICSPDAT      pins ADDED TO this new net
+                                 R2.1           U13.17         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  MCLR/VPP     pins ADDED TO this new net
+                                 J6.1           R7.1           U13.18         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N40578       pins ADDED TO this new net
+                                 U6.2           U53.21         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N40604       pins ADDED TO this new net
+                                 U12.2          U53.22         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N40612       pins ADDED TO this new net
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   3  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+                                 U19.2          U53.23         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N40620       pins ADDED TO this new net
+                                 U25.2          U53.24         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N40628       pins ADDED TO this new net
+                                 U31.2          U53.25         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N40636       pins ADDED TO this new net
+                                 U37.2          U53.26         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N40644       pins ADDED TO this new net
+                                 U43.2          U53.27         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N40652       pins ADDED TO this new net
+                                 U50.2          U53.28         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41000       pins ADDED TO this new net
+                                 R19.2          R22.1          U53.16         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41020       pins ADDED TO this new net
+                                 R25.2          R28.1          U53.15         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41032       pins ADDED TO this new net
+                                 R13.2          R16.1          U53.17         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41290       pins ADDED TO this new net
+                                 U1.2           U51.8          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41302       pins ADDED TO this new net
+                                 U7.2           U51.7          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41314       pins ADDED TO this new net
+                                 U14.2          U51.6          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41326       pins ADDED TO this new net
+                                 U20.2          U51.5          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41338       pins ADDED TO this new net
+                                 U26.2          U51.4          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41350       pins ADDED TO this new net
+                                 U32.2          U51.3          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41362       pins ADDED TO this new net
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   4  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+                                 U38.2          U51.2          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41374       pins ADDED TO this new net
+                                 U45.2          U51.1          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41442       pins ADDED TO this new net
+                                 U2.2           U51.21         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41446       pins ADDED TO this new net
+                                 U8.2           U51.22         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41450       pins ADDED TO this new net
+                                 U15.2          U51.23         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41454       pins ADDED TO this new net
+                                 U21.2          U51.24         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41458       pins ADDED TO this new net
+                                 U27.2          U51.25         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41462       pins ADDED TO this new net
+                                 U33.2          U51.26         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41466       pins ADDED TO this new net
+                                 U39.2          U51.27         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N41734       pins ADDED TO this new net
+                                 U46.2          U51.28         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42242       pins ADDED TO this new net
+                                 R17.2          R20.1          U51.16         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42246       pins ADDED TO this new net
+                                 R23.2          R26.1          U51.15         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42268       pins ADDED TO this new net
+                                 R11.2          R14.1          U51.17         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42276       pins ADDED TO this new net
+                                 R24.2          R27.1          U52.15         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42308       pins ADDED TO this new net
+                                 R18.2          R21.1          U52.16         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42508       pins ADDED TO this new net
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   5  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+                                 J7.2           R3.2           R7.2           
+                                 SW1.2          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42712       pins ADDED TO this new net
+                                 U3.2           U52.8          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42740       pins ADDED TO this new net
+                                 U9.2           U52.7          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42752       pins ADDED TO this new net
+                                 U16.2          U52.6          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42772       pins ADDED TO this new net
+                                 U22.2          U52.5          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42784       pins ADDED TO this new net
+                                 U28.2          U52.4          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42796       pins ADDED TO this new net
+                                 U34.2          U52.3          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42808       pins ADDED TO this new net
+                                 U40.2          U52.2          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42820       pins ADDED TO this new net
+                                 U47.2          U52.1          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42884       pins ADDED TO this new net
+                                 U4.2           U52.21         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42896       pins ADDED TO this new net
+                                 U10.2          U52.22         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42900       pins ADDED TO this new net
+                                 U17.2          U52.23         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42904       pins ADDED TO this new net
+                                 U23.2          U52.24         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42908       pins ADDED TO this new net
+                                 U29.2          U52.25         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N42912       pins ADDED TO this new net
+                                 U35.2          U52.26         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   6  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  N42916       pins ADDED TO this new net
+                                 U41.2          U52.27         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43192       pins ADDED TO this new net
+                                 U48.2          U52.28         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43224       pins ADDED TO this new net
+                                 C9.1           J7.1           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43624       pins ADDED TO this new net
+                                 R12.2          R15.1          U52.17         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43852       pins ADDED TO this new net
+                                 U5.2           U53.8          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43864       pins ADDED TO this new net
+                                 U11.2          U53.7          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43876       pins ADDED TO this new net
+                                 U18.2          U53.6          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43888       pins ADDED TO this new net
+                                 U24.2          U53.5          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43900       pins ADDED TO this new net
+                                 U30.2          U53.4          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43912       pins ADDED TO this new net
+                                 U36.2          U53.3          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43924       pins ADDED TO this new net
+                                 U42.2          U53.2          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N43936       pins ADDED TO this new net
+                                 U49.2          U53.1          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N104053      pins ADDED TO this new net
+                                 BT1.1          C7.1           U54.1          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N111887      pins ADDED TO this new net
+                                 J6.4           R2.2           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N111889      pins ADDED TO this new net
+                                 J6.5           R1.2           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   7  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  N118143      pins ADDED TO this new net
+                                 J3.1           U13.27         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118150      pins ADDED TO this new net
+                                 J3.2           U13.26         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118163      pins ADDED TO this new net
+                                 J3.3           U13.25         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118167      pins ADDED TO this new net
+                                 J5.1           U13.22         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118185      pins ADDED TO this new net
+                                 J5.4           U13.19         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118192      pins ADDED TO this new net
+                                 J2.4           U13.2          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118196      pins ADDED TO this new net
+                                 J2.3           U13.3          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118203      pins ADDED TO this new net
+                                 J2.2           U13.4          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118215      pins ADDED TO this new net
+                                 J2.1           U13.5          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118227      pins ADDED TO this new net
+                                 J4.3           U13.9          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118234      pins ADDED TO this new net
+                                 J4.2           U13.10         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118238      pins ADDED TO this new net
+                                 J4.1           U13.11         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118679      pins ADDED TO this new net
+                                 J1.1           U13.36         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118686      pins ADDED TO this new net
+                                 J1.2           U13.35         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N118690      pins ADDED TO this new net
+                                 J1.3           U13.34         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   8  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  N128561      pins ADDED TO this new net
+                                 J5.2           U13.21         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N128579      pins ADDED TO this new net
+                                 J5.3           U13.20         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SCK1         pins ADDED TO this new net
+                                 J9.1           J10.1          J11.1          
+                                 J12.1          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SCK          pins ADDED TO this new net
+                                 R4.2           R5.2           R6.2           
+                                 U13.37         U51.12         U52.12         
+                                 U53.12         U57.14         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SDA          pins ADDED TO this new net
+                                 R8.2           R9.2           R10.2          
+                                 U13.42         U51.13         U52.13         
+                                 U53.13         U57.13         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SDI1         pins ADDED TO this new net
+                                 J9.2           J10.2          J11.2          
+                                 J12.2          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SDO1         pins ADDED TO this new net
+                                 J9.3           J10.3          J11.3          
+                                 J12.3          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SS1          pins ADDED TO this new net
+                                 J9.4           U13.44         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SS2          pins ADDED TO this new net
+                                 J10.4          U13.43         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SS3          pins ADDED TO this new net
+                                 J11.4          U13.41         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SS4          pins ADDED TO this new net
+                                 J12.4          U13.40         
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   9  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| COMPONENT DEFINITION added to design                                         |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    device type                                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ BATTERY_HEADER1X2_7.2V
+ BOARD CONNECTOR_HEADER1X6_BOARD
+ CAP NP_CAPACITOR_0.1 UF, 15V
+ CAP NP_CAPACITOR_0.1UF
+ CAP NP_CAPACITOR_0.1UF, 15V
+ CAP NP_CAPICITOR_0.1 UF, 15V
+ CON2_HEADER1X2_CON2
+ CON3_HEADER1X3_CON3
+ CON4_HEADER1X4_CON4
+ CON6_HEADER1X6_CON6
+ JUMPER_HEADER1X2_JUMPER
+ MCP23017T_MCP23017_MCP23017T
+ MIC29310-5.0WU_TO252AA_MIC29310
+ PHOTON_PHOTONFOOTPRINT_PHOTON
+ PIC18F47K40-I/PT_0_TQFPPIC18F4
+ R_RESISTOR_0 OHM, 1/4W
+ R_RESISTOR_1 KOHM, 1/4W
+ R_RESISTOR_10 KOHM, 1/4W
+ R_RESISTOR_100 KOHM, 1/4W
+ R_RESISTOR_22 OHM, 1/4W
+ R_RESISTOR_220 OHM, 1/4W
+ SW KEY-SPST_SMDSWITCH_SW KEY-SP
+ TCS40DPR_TCS40DPR_TCS40DPR
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page  10  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ BT1                 BATTERY_HEADER1X2_7.2V 
+ C1                  CAP NP_CAPACITOR_0.1 UF, 15V 
+ C2                  CAP NP_CAPICITOR_0.1 UF, 15V 
+ C3                  CAP NP_CAPACITOR_0.1UF 
+ C4                  CAP NP_CAPACITOR_0.1 UF, 15V 
+ C5                  CAP NP_CAPACITOR_0.1 UF, 15V 
+ C6                  CAP NP_CAPACITOR_0.1 UF, 15V 
+ C7                  CAP NP_CAPACITOR_0.1UF, 15V 
+ C8                  CAP NP_CAPACITOR_0.1UF, 15V 
+ C9                  CAP NP_CAPACITOR_0.1 UF, 15V 
+ J1                  CON3_HEADER1X3_CON3   
+ J2                  CON4_HEADER1X4_CON4   
+ J3                  CON3_HEADER1X3_CON3   
+ J4                  CON3_HEADER1X3_CON3   
+ J5                  CON4_HEADER1X4_CON4   
+ J6                  CON6_HEADER1X6_CON6   
+ J7                  JUMPER_HEADER1X2_JUMPER 
+ J8                  CON2_HEADER1X2_CON2   
+ J9                  BOARD CONNECTOR_HEADER1X6_BOARD 
+ J10                 BOARD CONNECTOR_HEADER1X6_BOARD 
+ J11                 BOARD CONNECTOR_HEADER1X6_BOARD 
+ J12                 BOARD CONNECTOR_HEADER1X6_BOARD 
+ R1                  R_RESISTOR_22 OHM, 1/4W 
+ R2                  R_RESISTOR_22 OHM, 1/4W 
+ R3                  R_RESISTOR_10 KOHM, 1/4W 
+ R4                  R_RESISTOR_1 KOHM, 1/4W 
+ R5                  R_RESISTOR_1 KOHM, 1/4W 
+ R6                  R_RESISTOR_1 KOHM, 1/4W 
+ R7                  R_RESISTOR_220 OHM, 1/4W 
+ R8                  R_RESISTOR_1 KOHM, 1/4W 
+ R9                  R_RESISTOR_1 KOHM, 1/4W 
+ R10                 R_RESISTOR_1 KOHM, 1/4W 
+ R11                 R_RESISTOR_1 KOHM, 1/4W 
+ R12                 R_RESISTOR_1 KOHM, 1/4W 
+ R13                 R_RESISTOR_1 KOHM, 1/4W 
+ R14                 R_RESISTOR_0 OHM, 1/4W 
+ R15                 R_RESISTOR_0 OHM, 1/4W 
+ R16                 R_RESISTOR_0 OHM, 1/4W 
+ R17                 R_RESISTOR_1 KOHM, 1/4W 
+ R18                 R_RESISTOR_1 KOHM, 1/4W 
+ R19                 R_RESISTOR_1 KOHM, 1/4W 
+ R20                 R_RESISTOR_0 OHM, 1/4W 
+ R21                 R_RESISTOR_0 OHM, 1/4W 
+ R22                 R_RESISTOR_100 KOHM, 1/4W 
+ R23                 R_RESISTOR_1 KOHM, 1/4W 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page  11  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ R24                 R_RESISTOR_1 KOHM, 1/4W 
+ R25                 R_RESISTOR_1 KOHM, 1/4W 
+ R26                 R_RESISTOR_0 OHM, 1/4W 
+ R27                 R_RESISTOR_100 KOHM, 1/4W 
+ R28                 R_RESISTOR_0 OHM, 1/4W 
+ SW1                 SW KEY-SPST_SMDSWITCH_SW KEY-SP 
+ U1                  TCS40DPR_TCS40DPR_TCS40DPR 
+ U2                  TCS40DPR_TCS40DPR_TCS40DPR 
+ U3                  TCS40DPR_TCS40DPR_TCS40DPR 
+ U4                  TCS40DPR_TCS40DPR_TCS40DPR 
+ U5                  TCS40DPR_TCS40DPR_TCS40DPR 
+ U6                  TCS40DPR_TCS40DPR_TCS40DPR 
+ U7                  TCS40DPR_TCS40DPR_TCS40DPR 
+ U8                  TCS40DPR_TCS40DPR_TCS40DPR 
+ U9                  TCS40DPR_TCS40DPR_TCS40DPR 
+ U10                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U11                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U12                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U13                 PIC18F47K40-I/PT_0_TQFPPIC18F4 
+ U14                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U15                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U16                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U17                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U18                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U19                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U20                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U21                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U22                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U23                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U24                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U25                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U26                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U27                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U28                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U29                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U30                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U31                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U32                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U33                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U34                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U35                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U36                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U37                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U38                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U39                 TCS40DPR_TCS40DPR_TCS40DPR 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page  12  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ U40                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U41                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U42                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U43                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U45                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U46                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U47                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U48                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U49                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U50                 TCS40DPR_TCS40DPR_TCS40DPR 
+ U51                 MCP23017T_MCP23017_MCP23017T 
+ U52                 MCP23017T_MCP23017_MCP23017T 
+ U53                 MCP23017T_MCP23017_MCP23017T 
+ U54                 MIC29310-5.0WU_TO252AA_MIC29310 
+ U57                 PHOTON_PHOTONFOOTPRINT_PHOTON 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page  13  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ BT1.2                          PRIM_FILE      .\pstchip.dat
+ BT1.2                          SECTION        
+ C1.2                           PRIM_FILE      .\pstchip.dat
+ C1.2                           SECTION        
+ C2.2                           PRIM_FILE      .\pstchip.dat
+ C2.2                           SECTION        
+ C3.2                           PRIM_FILE      .\pstchip.dat
+ C3.2                           SECTION        
+ C4.2                           PRIM_FILE      .\pstchip.dat
+ C4.2                           SECTION        
+ C5.2                           PRIM_FILE      .\pstchip.dat
+ C5.2                           SECTION        
+ C6.2                           PRIM_FILE      .\pstchip.dat
+ C6.2                           SECTION        
+ C7.2                           PRIM_FILE      .\pstchip.dat
+ C7.2                           SECTION        
+ C8.2                           PRIM_FILE      .\pstchip.dat
+ C8.2                           SECTION        
+ C9.2                           PRIM_FILE      .\pstchip.dat
+ C9.2                           SECTION        
+ J1.3                           PRIM_FILE      .\pstchip.dat
+ J1.3                           SECTION        
+ J2.4                           PRIM_FILE      .\pstchip.dat
+ J2.4                           SECTION        
+ J3.3                           PRIM_FILE      .\pstchip.dat
+ J3.3                           SECTION        
+ J4.3                           PRIM_FILE      .\pstchip.dat
+ J4.3                           SECTION        
+ J5.4                           PRIM_FILE      .\pstchip.dat
+ J5.4                           SECTION        
+ J6.6                           PRIM_FILE      .\pstchip.dat
+ J6.6                           SECTION        
+ J7.2                           PRIM_FILE      .\pstchip.dat
+ J7.2                           SECTION        
+ J8.2                           PRIM_FILE      .\pstchip.dat
+ J8.2                           SECTION        
+ J9.4                           PRIM_FILE      .\pstchip.dat
+ J9.4                           SECTION        
+ J10.4                          PRIM_FILE      .\pstchip.dat
+ J10.4                          SECTION        
+ J11.4                          PRIM_FILE      .\pstchip.dat
+ J11.4                          SECTION        
+ J12.4                          PRIM_FILE      .\pstchip.dat
+ J12.4                          SECTION        
+ R1.2                           PRIM_FILE      .\pstchip.dat
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page  14  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ R1.2                           SECTION        
+ R2.2                           PRIM_FILE      .\pstchip.dat
+ R2.2                           SECTION        
+ R3.2                           PRIM_FILE      .\pstchip.dat
+ R3.2                           SECTION        
+ R4.2                           PRIM_FILE      .\pstchip.dat
+ R4.2                           SECTION        
+ R5.2                           PRIM_FILE      .\pstchip.dat
+ R5.2                           SECTION        
+ R6.2                           PRIM_FILE      .\pstchip.dat
+ R6.2                           SECTION        
+ R7.2                           PRIM_FILE      .\pstchip.dat
+ R7.2                           SECTION        
+ R8.2                           PRIM_FILE      .\pstchip.dat
+ R8.2                           SECTION        
+ R9.2                           PRIM_FILE      .\pstchip.dat
+ R9.2                           SECTION        
+ R10.2                          PRIM_FILE      .\pstchip.dat
+ R10.2                          SECTION        
+ R11.2                          PRIM_FILE      .\pstchip.dat
+ R11.2                          SECTION        
+ R12.2                          PRIM_FILE      .\pstchip.dat
+ R12.2                          SECTION        
+ R13.2                          PRIM_FILE      .\pstchip.dat
+ R13.2                          SECTION        
+ R14.2                          PRIM_FILE      .\pstchip.dat
+ R14.2                          SECTION        
+ R15.2                          PRIM_FILE      .\pstchip.dat
+ R15.2                          SECTION        
+ R16.2                          PRIM_FILE      .\pstchip.dat
+ R16.2                          SECTION        
+ R17.2                          PRIM_FILE      .\pstchip.dat
+ R17.2                          SECTION        
+ R18.2                          PRIM_FILE      .\pstchip.dat
+ R18.2                          SECTION        
+ R19.2                          PRIM_FILE      .\pstchip.dat
+ R19.2                          SECTION        
+ R20.2                          PRIM_FILE      .\pstchip.dat
+ R20.2                          SECTION        
+ R21.2                          PRIM_FILE      .\pstchip.dat
+ R21.2                          SECTION        
+ R22.2                          PRIM_FILE      .\pstchip.dat
+ R22.2                          SECTION        
+ R23.2                          PRIM_FILE      .\pstchip.dat
+ R23.2                          SECTION        
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page  15  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ R24.2                          PRIM_FILE      .\pstchip.dat
+ R24.2                          SECTION        
+ R25.2                          PRIM_FILE      .\pstchip.dat
+ R25.2                          SECTION        
+ R26.2                          PRIM_FILE      .\pstchip.dat
+ R26.2                          SECTION        
+ R27.2                          PRIM_FILE      .\pstchip.dat
+ R27.2                          SECTION        
+ R28.2                          PRIM_FILE      .\pstchip.dat
+ R28.2                          SECTION        
+ SW1.2                          PRIM_FILE      .\pstchip.dat
+ SW1.2                          SECTION        
+ U1.2                           PRIM_FILE      .\pstchip.dat
+ U1.2                           SECTION        
+ U2.2                           PRIM_FILE      .\pstchip.dat
+ U2.2                           SECTION        
+ U3.2                           PRIM_FILE      .\pstchip.dat
+ U3.2                           SECTION        
+ U4.2                           PRIM_FILE      .\pstchip.dat
+ U4.2                           SECTION        
+ U5.2                           PRIM_FILE      .\pstchip.dat
+ U5.2                           SECTION        
+ U6.2                           PRIM_FILE      .\pstchip.dat
+ U6.2                           SECTION        
+ U7.2                           PRIM_FILE      .\pstchip.dat
+ U7.2                           SECTION        
+ U8.2                           PRIM_FILE      .\pstchip.dat
+ U8.2                           SECTION        
+ U9.2                           PRIM_FILE      .\pstchip.dat
+ U9.2                           SECTION        
+ U10.2                          PRIM_FILE      .\pstchip.dat
+ U10.2                          SECTION        
+ U11.2                          PRIM_FILE      .\pstchip.dat
+ U11.2                          SECTION        
+ U12.2                          PRIM_FILE      .\pstchip.dat
+ U12.2                          SECTION        
+ U13.30                         PRIM_FILE      .\pstchip.dat
+ U13.30                         SECTION        
+ U14.2                          PRIM_FILE      .\pstchip.dat
+ U14.2                          SECTION        
+ U15.2                          PRIM_FILE      .\pstchip.dat
+ U15.2                          SECTION        
+ U16.2                          PRIM_FILE      .\pstchip.dat
+ U16.2                          SECTION        
+ U17.2                          PRIM_FILE      .\pstchip.dat
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page  16  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ U17.2                          SECTION        
+ U18.2                          PRIM_FILE      .\pstchip.dat
+ U18.2                          SECTION        
+ U19.2                          PRIM_FILE      .\pstchip.dat
+ U19.2                          SECTION        
+ U20.2                          PRIM_FILE      .\pstchip.dat
+ U20.2                          SECTION        
+ U21.2                          PRIM_FILE      .\pstchip.dat
+ U21.2                          SECTION        
+ U22.2                          PRIM_FILE      .\pstchip.dat
+ U22.2                          SECTION        
+ U23.2                          PRIM_FILE      .\pstchip.dat
+ U23.2                          SECTION        
+ U24.2                          PRIM_FILE      .\pstchip.dat
+ U24.2                          SECTION        
+ U25.2                          PRIM_FILE      .\pstchip.dat
+ U25.2                          SECTION        
+ U26.2                          PRIM_FILE      .\pstchip.dat
+ U26.2                          SECTION        
+ U27.2                          PRIM_FILE      .\pstchip.dat
+ U27.2                          SECTION        
+ U28.2                          PRIM_FILE      .\pstchip.dat
+ U28.2                          SECTION        
+ U29.2                          PRIM_FILE      .\pstchip.dat
+ U29.2                          SECTION        
+ U30.2                          PRIM_FILE      .\pstchip.dat
+ U30.2                          SECTION        
+ U31.2                          PRIM_FILE      .\pstchip.dat
+ U31.2                          SECTION        
+ U32.2                          PRIM_FILE      .\pstchip.dat
+ U32.2                          SECTION        
+ U33.2                          PRIM_FILE      .\pstchip.dat
+ U33.2                          SECTION        
+ U34.2                          PRIM_FILE      .\pstchip.dat
+ U34.2                          SECTION        
+ U35.2                          PRIM_FILE      .\pstchip.dat
+ U35.2                          SECTION        
+ U36.2                          PRIM_FILE      .\pstchip.dat
+ U36.2                          SECTION        
+ U37.2                          PRIM_FILE      .\pstchip.dat
+ U37.2                          SECTION        
+ U38.2                          PRIM_FILE      .\pstchip.dat
+ U38.2                          SECTION        
+ U39.2                          PRIM_FILE      .\pstchip.dat
+ U39.2                          SECTION        
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page  17  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ U40.2                          PRIM_FILE      .\pstchip.dat
+ U40.2                          SECTION        
+ U41.2                          PRIM_FILE      .\pstchip.dat
+ U41.2                          SECTION        
+ U42.2                          PRIM_FILE      .\pstchip.dat
+ U42.2                          SECTION        
+ U43.2                          PRIM_FILE      .\pstchip.dat
+ U43.2                          SECTION        
+ U45.2                          PRIM_FILE      .\pstchip.dat
+ U45.2                          SECTION        
+ U46.2                          PRIM_FILE      .\pstchip.dat
+ U46.2                          SECTION        
+ U47.2                          PRIM_FILE      .\pstchip.dat
+ U47.2                          SECTION        
+ U48.2                          PRIM_FILE      .\pstchip.dat
+ U48.2                          SECTION        
+ U49.2                          PRIM_FILE      .\pstchip.dat
+ U49.2                          SECTION        
+ U50.2                          PRIM_FILE      .\pstchip.dat
+ U50.2                          SECTION        
+ U51.10                         PRIM_FILE      .\pstchip.dat
+ U51.10                         SECTION        
+ U52.10                         PRIM_FILE      .\pstchip.dat
+ U52.10                         SECTION        
+ U53.10                         PRIM_FILE      .\pstchip.dat
+ U53.10                         SECTION        
+ U54.3                          PRIM_FILE      .\pstchip.dat
+ U54.3                          SECTION        
+ U57.9                          PRIM_FILE      .\pstchip.dat
+ U57.9                          SECTION        
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page  18  |
+|------------------------------------------------------------------------------|
+|  GAME BOARD.brd                                                              |
+|                                                    Tue Mar 13 22:30:19 2018  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|------------------------------------------------------------------------------|
+|       Nets changed          :     392                                        |
+|       Comp definitions added:      23                                        |
+|       Components added      :     105                                        |
+|       Slot property added   :     210                                        |
+|                                                                              |
+|   Total ECO changes reported:     730                                        |
+|------------------------------------------------------------------------------|

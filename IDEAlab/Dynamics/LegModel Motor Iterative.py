@@ -540,7 +540,7 @@ T = kt*iL
 system.addforce(T*N.z,wOML)
 system.addforce(-mb*wOML,wOML)
 system.addforce(-f0*N.z,wOML)
-system.addforce((V-iL*R - kv*wOMR.dot(N.z))*N.x,iL*N.x)
+system.addforce((V-iL*R - kv*wOML.dot(N.z))*N.x,iL*N.x)
 
 T = kt*iR
 system.addforce(T*N.z,wOMR)
@@ -737,7 +737,7 @@ for length in lengthSet:
     lenDir = root + '/01_' + "%02d"%(leg_length*100)
     
     if debugging:
-        gearSet = numpy.arange(75,125,25)
+        gearSet = numpy.arange(75,100,25)
     else:
         gearSet = numpy.arange(25,175,12.5)
     

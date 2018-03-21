@@ -1,19 +1,32 @@
 \t (00:00:00) pad_designer 16.6-2015 S062 (v16-6-112EZ) Windows 32
-\t (00:00:00)     Journal start - Wed Feb 14 10:26:34 2018
-\t (00:00:00)         Host=JACOB-Y50 User=Jacob Pid=12952 CPUs=8
+\t (00:00:00)     Journal start - Mon Feb 19 09:32:17 2018
+\t (00:00:00)         Host=JACOB-Y50 User=Jacob Pid=16208 CPUs=8
 \t (00:00:00) CmdLine= C:\Cadence\SPB_16.6\tools\pcb\bin\pad_designer.exe
 \t (00:00:00) 
-\i (00:00:06) setwindow form.padedit
-\i (00:00:06) pse_open 'C:/Users/Jacob/Documents/Junior/EGR 304/Cadence/symbols/padMCP23017SOIC.pad' 
-\i (00:00:10) FORM padedit layers  
-\i (00:00:17) FORM padedit width 2.0 
-\i (00:00:19) FORM padedit height 0.6 
-\i (00:00:21) FORM padedit grid row soldermask_top 
-\i (00:00:30) FORM padedit width 2.2 
-\i (00:00:31) FORM padedit height 0.7 
-\i (00:00:35) FORM padedit parameters  
-\i (00:00:36) FORM padedit layers  
-\i (00:00:39) pse_save 
-\i (00:00:41) fillin yes 
-\i (00:00:43) pse_exit
-\t (00:00:43)     Journal end - Wed Feb 14 10:27:17 2018
+\i (00:00:21) setwindow form.padedit
+\i (00:00:21) FORM padedit units Millimeter 
+\i (00:01:08) fillin no 
+\i (00:01:11) FORM padedit units Millimeter 
+\i (00:01:14) fillin yes 
+\w (00:01:14) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\i (00:01:32) FORM padedit layers  
+\i (00:03:18) FORM padedit grid row begin_layer 
+\i (00:03:51) FORM padedit geometry Rectangle 
+\i (00:05:05) FORM padedit width .42 
+\i (00:05:21) FORM padedit height 0.3 
+\i (00:06:14) FORM padedit parameters  
+\i (00:06:19) FORM padedit layers  
+\i (00:06:20) FORM padedit parameters  
+\i (00:06:25) FORM padedit layers  
+\i (00:06:30) FORM padedit grid row soldermask_top 
+\i (00:06:36) FORM padedit geometry Rectangle 
+\i (00:06:55) FORM padedit width 0.5 
+\i (00:06:59) FORM padedit height 0.4 
+\i (00:10:40) FORM padedit parameters  
+\i (00:10:45) pse_save_as 
+\i (00:11:41) fillin "padtcs40dprlfct.pad"
+\i (00:11:46) pse_save 
+\i (00:11:48) fillin yes 
+\i (01:30:47) pse_new 
+\i (01:31:46) fillin "padpdippic18f47k40.pad"
+\t (01:31:46)     Journal end - Mon Feb 19 11:04:03 2018

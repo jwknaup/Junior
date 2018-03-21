@@ -1,0 +1,169 @@
+(ExpressProject "PSoC_Schematic"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Amplifier.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Arithmetic.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\ATOD.OLB"
+        (Type "Schematic Library"))
+      (File
+         "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\BusDriverTransceiver.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\capsym.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Connector.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Counter.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Discrete.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\DRAM.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\ElectroMechanical.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\FIFO.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Filter.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\FPGA.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Gate.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Latch.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\LineDriverReceiver.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Mechanical.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MicroController.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MicroProcessor.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Misc.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Misc2.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Misc3.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MiscLinear.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MiscMemory.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MiscPower.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\MuxDecoder.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\OPAmp.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\PassiveFilter.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\PLD.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\PROM.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Regulator.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\ShiftRegister.olb"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\SRAM.OLB"
+        (Type "Schematic Library"))
+      (File "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\Transistor.olb"
+        (Type "Schematic Library"))
+      (File ".\egr304_custom_parts.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\psoc_schematic.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (DRC_Scope "0")
+    (DRC_Action "0")
+    (DRC_Create_Warnings "TRUE")
+    (DRC_View_Output "FALSE")
+    (DRC_Preserved_Waived "FALSE")
+    (DRC_Run_Electrical_Rules "TRUE")
+    (DRC_Run_Physical_Rules "FALSE")
+    (DRC_Report_File "E:\Cadence\Projects\PSoC_Assigment\PSOC_SCHEMATIC.DRC")
+    (DRC_Check_Ports "FALSE")
+    (DRC_Check_Off-Page_Connectors "FALSE")
+    (DRC_Report_Ports_and_Off-page_Connectors "FALSE")
+    (DRC_SDT_Compatibility "FALSE")
+    (DRC_Report_Off-grid_Objects "FALSE")
+    (DRC_Check_Unconnected_Nets "TRUE")
+    (DRC_Check_for_Misleading_TAP "FALSE")
+    (DRC_Report_Netnames "FALSE")
+    (DRC_Check_Single_Node_Nets "TRUE")
+    (DRC_Run_Electrical_Custom_DRC "FALSE")
+    (DRC_Check_No_Driving_Source "TRUE")
+    (DRC_Check_Duplicate_NetNames "TRUE")
+    (DRC_Check_Floating_Pins "TRUE")
+    (DRC_Check_Physical_Power_Pins_Visibility "TRUE")
+    (DRC_Check_PCB_Footprint_Property "TRUE")
+    (DRC_Check_Normal_Convert_View_Sync "TRUE")
+    (DRC_Check_Incorrect_PinGroup_Assignment "TRUE")
+    (DRC_Check_High_Speed_Props_Syntax "TRUE")
+    (DRC_Check_Missing_Pin_Numbers "TRUE")
+    (DRC_Check_Device_With_No_Pins "TRUE")
+    (DRC_Check_Power_Ground_Short "TRUE")
+    (DRC_Identical_References "TRUE")
+    (DRC_Type_Mismatch "TRUE")
+    (DRC_Visible_Power_pins "FALSE")
+    (DRC_Report_Unused_Part_Packages "TRUE")
+    (DRC_Check_Name_Prop_For_HierBlocks "TRUE")
+    (DRC_Run_Physical_Custom_DRC "FALSE"))
+  (Folder "Outputs"
+    (File ".\psoc_schematic.drc"
+      (Type "Report")))
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    ("HEADER 18"
+      (FullPartName "HEADER 18.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (GND
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    ("CAP NP"
+      (FullPartName "CAP NP.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (VCC
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (CON2
+      (FullPartName "CON2.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (PSoC4BLE
+      (FullPartName "PSoC4BLE.Normal")
+      (LibraryName "F:\CADENCE\PROJECTS\PSOC_ASSIGMENT\EGR304_CUSTOM_PARTS.OLB")
+      (DeviceIndex "0")))
+  (LastUsedLibraryBrowseDirectory "C:\Cadence\SPB_16.6\tools\capture\library")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" "Library")
+      (Path "Outputs")
+      (Select "Design Resources" "Library"
+         "C:\Cadence\SPB_16.6\tools\capture\LIBRARY\LineDriverReceiver.olb"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 412"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 26 1113 26 468")
+        (Scroll "-229 20")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "D:\COLLEGE\JUNIOR YEAR\FALL SEMESTER\EGR 304\CADENCE\PROJECTS\PSOC_ASSIGMENT\PSOC_SCHEMATIC.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (MPSSessionName "Shelby"))

@@ -1,0 +1,189 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    ARTWORK LOG                                                      )
+(                                                                     )
+(    Drawing          : ReedPSoC2.brd                                 )
+(    Software Version : 16.6P004                                      )
+(    Date/Time        : Fri Oct 06 13:19:43 2017                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+ ---- Photoplot outline rectangle not found ... using drawing extents
+
+
+
+Results from parameter file ...
+    DEVICE-TYPE           GERBER_RS274X
+    OUTPUT-UNITS          INCHES
+    FILM-SIZE             2400000 1600000
+    FORMAT                2.5
+    ABORT-ON-ERROR        NO
+    SCALE                 1
+    SUPPRESS-LEAD-ZEROES  YES
+    SUPPRESS-TRAIL-ZEROES NO
+    SUPPRESS-EQUAL        YES
+    UNDEF-APT-CONT        NO
+
+
+================================================================
+     PROCESSING FILM < BOTTOM >
+     TO FILE < E:/Cadence/Projects/PSoC_Assigment/BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  YES
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.01500                                  DARK 
+  CIRCLE     0.02500                                  DARK 
+  CIRCLE     0.04500                                  DARK 
+  CIRCLE     0.06000                                  DARK 
+  CIRCLE     0.06500                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+
+     BOTTOM created.
+
+
+================================================================
+     PROCESSING FILM < TOP >
+     TO FILE < E:/Cadence/Projects/PSoC_Assigment/TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.00
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  YES
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.01000                                  DARK 
+  CIRCLE     0.01500                                  DARK 
+  CIRCLE     0.02500                                  DARK 
+  CIRCLE     0.04500                                  DARK 
+  CIRCLE     0.06000                                  DARK 
+  CIRCLE     0.06500                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+
+     TOP created.
+
+
+================================================================
+     PROCESSING FILM < SOLDERMASK_TOP >
+     TO FILE < E:/Cadence/Projects/PSoC_Assigment/SOLDERMASK_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.01
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.06500                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+  CIRCLE     0.08000                                  DARK 
+  CIRCLE     0.09000                                  DARK 
+
+     SOLDERMASK_TOP created.
+
+
+================================================================
+     PROCESSING FILM < SOLDERMASK_BOTTOM >
+     TO FILE < E:/Cadence/Projects/PSoC_Assigment/SOLDERMASK_BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.01
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.06500                                  DARK 
+  CIRCLE     0.07000                                  DARK 
+  CIRCLE     0.08000                                  DARK 
+  CIRCLE     0.09000                                  DARK 
+
+     SOLDERMASK_BOTTOM created.
+
+
+================================================================
+     PROCESSING FILM < OUTLINE >
+     TO FILE < E:/Cadence/Projects/PSoC_Assigment/OUTLINE.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.10
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.00
+  Offset y:                           0.00
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED:
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00010                                  DARK 
+
+     OUTLINE created.
+
+
+------------------------------------------------------
+ SUMMARY:
+        BOTTOM created.
+        TOP created.
+        SOLDERMASK_TOP created.
+        SOLDERMASK_BOTTOM created.
+        OUTLINE created.
+
+ ARTWORK finished
