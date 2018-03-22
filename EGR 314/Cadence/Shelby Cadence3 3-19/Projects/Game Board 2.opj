@@ -15,12 +15,24 @@
       (Path "Design Resources")
       (Path "Design Resources" ".\game board 2.dsn")
       (Path "Design Resources" ".\game board 2.dsn" "SCHEMATIC1")
+      (Path "Design Resources" ".\game board 2.dsn" "Design Cache")
       (Select "Design Resources" ".\game board 2.dsn" "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
         (Placement "44 2 3 -1 -1 -8 -31 0 200 0 861"))
-      (Tab 0)))
-  (MPSSessionName "cole")
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 52 1655 52 512")
+        (Scroll "-292 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\JACOB\DOCUMENTS\JUNIOR\EGR 314\CADENCE\SHELBY CADENCE3 3-19\PROJECTS\GAME BOARD 2.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (MPSSessionName "Jacob")
   (PartMRUSelector))

@@ -20,6 +20,7 @@ import numpy
 #import scipy.integrate
 import matplotlib.pyplot as plt
 plt.ion()
+from sympy import sin
 from sympy import pi
 import os    
 
@@ -246,8 +247,8 @@ spring3, _ = system.add_spring_force1(k*10**-2,(qC-qO-preload3)*N.z,wOC)
 spring4, _ = system.add_spring_force1(k*10**-2,(qD-qC2-preload4)*N.z,wCD)
 spring5, _ = system.add_spring_force1(k*10**-2,(qD-qB-preload5)*N.z,wBD)
 
-leftFlexSpring, _ = system.add_spring_force1(spring_constant,(qA2-qA)*N.z, wAA2)
-rightFlexSpring, _ = system.add_spring_force1(spring_constant,(qC2-qC)*N.z, wCC2)
+leftFlexSpring, _ = system.add_spring_force1(spring_constant,lA2/2.0*sin(qA2-qA)*A2.y, vAB)
+rightFlexSpring, _ = system.add_spring_force1(spring_constant,lC2/2.0*sin(qC2-qC)*C2.y, vCD)
 
 leftFlexDamper = system.addforce(-b*10**-1*wAA2,wAA2)
 rightFlexDamper = system.addforce(-b*10**-1*wCC2,wCC2)
@@ -551,9 +552,9 @@ for length in lengthSet:
     system.constant_values[I_xxT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_thickness**2 + leg_width**2)
     system.constant_values[I_yyT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width)
     system.constant_values[I_zzT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness)
-   
-    momentPerTheta = areaI * E / (leg_length)
-    system.constant_values[spring_constant] = momentPerTheta#*180.0/3.14159;
+
+    forcePerTheta = 3* areaI * E / (leg_length)**3
+    system.constant_values[spring_constant] = forcePerTheta#*180.0/3.14159;
     
     
     

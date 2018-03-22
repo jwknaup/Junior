@@ -94,16 +94,11 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources"
-         "c:\users\jacob\documents\junior\egr 314\cadence\projects\game board.dsn")
-      (Path "Design Resources"
-         "c:\users\jacob\documents\junior\egr 314\cadence\projects\game board.dsn"
-         "SCHEMATIC1")
+      (Path "Design Resources" ".\game board.dsn")
+      (Path "Design Resources" ".\game board.dsn" "SCHEMATIC1")
       (Path "Design Resources" "Library")
       (Path "Outputs")
-      (Select "Design Resources"
-         "c:\users\jacob\documents\junior\egr 314\cadence\projects\game board.dsn"
-         "SCHEMATIC1" "PAGE1"))
+      (Select "Design Resources"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -114,7 +109,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 2 3 -1 -1 -8 -31 78 1681 78 538")
-        (Scroll "-41 68")
+        (Scroll "0 384")
         (Zoom "84")
         (Occurrence "/"))
       (Path
