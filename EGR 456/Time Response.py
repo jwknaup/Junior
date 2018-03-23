@@ -45,8 +45,8 @@ while (1):
 
     error = columnLocation - 320
     dError = (error - errorLast)/0.1
-    kP = 0.7
-    kD = 0.01
+    kP = 0.6
+    kD = 0.00
     speed = kP*error + kD*dError
     errorLast = error
 
@@ -72,11 +72,13 @@ while (1):
     cv2.imshow('red', redOnly)
 
     k = cv2.waitKey(5)
-    if k == 27:
+    if k != -1:
         break
 
 cv2.destroyAllWindows()
 ser.close()
 
+plt.figure()
 plt.plot(errorPlot)
+plt.show()
 
