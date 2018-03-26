@@ -41,6 +41,25 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+#include "main.h"
+
+uint8_t digitalRead(uint8_t pin) {
+    uint8_t i2caddr = 0;
+    uint8_t data = 0xff;
+    I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+    
+	uint8_t bity=pin%8;
+	uint8_t regAddr;
+    if(pin < 8)
+        regAddr = MCP23017_GPIOA;
+    else 
+        regAddr = MCP23017_GPIOB;
+    
+    I2C1_MasterWrite(&regAddr, 1, MCP23017_ADDRESS | i2caddr, &status);
+    uint8_t result;
+    I2C1_MasterRead(&result, 1, MCP23017_ADDRESS | i2caddr, &status);
+	return (result >> bity) & 0x1;
+}
 
 /*
                          Main application
@@ -65,14 +84,27 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
+    
 
-    //TRISCbits.RC6 = 0;
+    I2C1_Initialize();
+    
+    uint8_t i2caddr = 0;
+    
+    uint8_t data = 0xff;
+    
+    I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+    
+    I2C1_MasterWrite(&data, 1, MCP23017_IODIRA, &status);
+    I2C1_MasterWrite(&data, 1, MCP23017_IODIRB, &status);
+
     
     while (1)
     {
-       LED_Toggle();
+        if(digitalRead(1)){
+            LED_Toggle();
+        }
         
-        __delay_ms(500);
+        __delay_ms(50);
         
         // Add your application code
     }

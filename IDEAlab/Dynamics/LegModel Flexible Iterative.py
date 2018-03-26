@@ -42,7 +42,7 @@ gear_ratio = 75.0
 # wMax = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
 # =============================================================================
 
-debugging = 1
+debugging = 0
 
 ####VARIOUS DESIGN CONSTANTS#####
 #gear_ratio = Constant(75.0, 'gear_ratio',system)
@@ -518,7 +518,7 @@ print("!!!!!!finished 4!!!!!!!!!!!!!")
 if debugging:
     lengthSet = numpy.arange(.14,.16,.2)
 else:#.04
-    lengthSet = numpy.arange(.14,.16,.01)
+    lengthSet = numpy.arange(.04,.14,.01)
     
 for length in lengthSet:
     leg_length = length

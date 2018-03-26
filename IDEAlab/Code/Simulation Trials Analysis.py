@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/dynamics/leg modelling motor/'
+root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/dynamics/leg modelling flex/'
 # =============================================================================
 # width  ='01'
 # length = '12'
