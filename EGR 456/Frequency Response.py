@@ -34,9 +34,9 @@ while (1):
     redOnly[redOnly > 75] = 255
     redOnly = np.uint8(redOnly)
     
-    blueOnly = np.int16(blue) - 0.75*np.int16(green) - 0.75*np.int16(red)
-    blueOnly[blueOnly < 75] = 0
-    blueOnly[blueOnly > 75] = 255
+    blueOnly = np.int16(blue) - 0.6*np.int16(green) - 0.75*np.int16(red)
+    blueOnly[blueOnly < 60] = 0
+    blueOnly[blueOnly > 60] = 255
     blueOnly = np.uint8(blueOnly)
 
     columnSums = np.matrix(np.sum(redOnly, 0))
