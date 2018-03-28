@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/dynamics/leg modelling flex/'
+root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/dynamics/old results/leg modelling flex/'
 # =============================================================================
 # width  ='01'
 # length = '12'
@@ -121,15 +121,17 @@ def iterateThroughTrials(p=0):
            except:
                pass
            if p is not 0:
-               fig, ax1 = plt.subplots()
-               jH, _ = maxHeightGet(positionT,positionB,length, ax1)
+               #fig, ax1 = plt.subplots()
+               jH, _ = maxHeightGet(positionT,positionB,length, 0)
                if jH > 1:
                    jH=0
-               ax2 = ax1.twinx()
-               forceProfile(force, ax2)
-               ax3 = ax1.twinx()
-               ax3.spines["right"].set_position(("axes", -0.2))
-               encoderProfile(enc, ax3)
+# =============================================================================
+#                ax2 = ax1.twinx()
+#                forceProfile(force, ax2)
+#                ax3 = ax1.twinx()
+#                ax3.spines["right"].set_position(("axes", -0.2))
+#                encoderProfile(enc, ax3)
+# =============================================================================
 # =============================================================================
 #                ax4 = ax1.twinx()
 #                ax4.spines["right"].set_position(("axes", 1.1))
@@ -137,9 +139,9 @@ def iterateThroughTrials(p=0):
 #                ax5.spines["right"].set_position(("axes", 1.2))
 # =============================================================================
                #electricalProfile(arduino, ax4, ax5)
-               plt.figure()
-               plt.tight_layout()
-               plt.show()
+               #plt.figure()
+               #plt.tight_layout()
+               # plt.show()
                data[i,:] = [width, length, gear_ratio, jH]
            print(designFolder)
            massTotal = addMass(force)
@@ -169,19 +171,50 @@ def plotJumpHeights2(data):
     plt.savefig('height results.png', dpi = 600)
 
 def plotJumpHeights1(data):
-    print(data)
+    #print(data)
     scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
     colors = plt.cm.coolwarm(scaled_z)
-    #plt.scatter(x, y, marker='+', edgecolors=colors, s=150, linewidths=4)
-    plt.figure()
+    #plt.figure()
+    length = data[:,1]
+    ratio = data[:,2]
+    height = data[:,3]
+    ratios = set(ratio)
+    ratios = sorted(ratios)
+    ratioNames = []
+    for r in ratios:
+        dataSet = np.array([[0,0]])
+        if r == 0:
+            continue
+        ratioNames.append(str(r))
+        indecesr = np.where(data[:,2] == r)
+        #print(indeces)
+        lengths = set(length[indecesr])
+        for l in lengths:
+            indeces = np.where(((data[:,1:3] == (l,r)).all(axis=1)))
+            if l < 1:
+                continue
+            heights = height[indeces]
+            print(heights)
+            if heights[0] == 0:
+                continue
+            maxHeight = heights[0]
+            dataSet = np.append(dataSet,[[l,maxHeight]], axis=0)
+        dataSet = np.delete(dataSet,0,axis=0)
+        dataSet = dataSet[dataSet[:,0].argsort()]
+        #print(area)
+        #print(r)
+        plt.plot(dataSet[:,0],dataSet[:,1], marker = '.', color = plt.cm.coolwarm(r/120.0), alpha=0.95)
+
+    plt.legend(ratioNames, title = 'gear ratio')
     plt.ylabel('jump height (m)')
+    plt.suptitle('Simulation Results')
     plt.title("Jump Height vs. Length and Gear Ratio")
-    plt.plot(data[:,1], data[:,3], '-o',color = plt.cm.coolwarm(data[:,2]/120.0))
+    #plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
     plt.xlabel('leg length (cm)')
-    #cbar = plt.colorbar()
+    #cbar = ax.colorbar()
     #cbar.set_label('gear ratio')
-    plt.tight_layout()
-    #plt.savefig('height results.png', dpi = 600)
+    #plt.tight_layout()
+    plt.savefig('height results.png', dpi = 600)
     plt.show()
     
 def plotEfficiencies(eff):

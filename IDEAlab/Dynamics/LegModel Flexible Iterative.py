@@ -27,7 +27,7 @@ import os
 system = System()
 
 top_length = 0.01333
-leg_length = 0.10
+leg_length = 0.01
 top_mass = 0.03022
 leg_mass = 0.095*(10**-3)*leg_length*100.0
 clamp_mass = 2.1*10**-3
@@ -543,15 +543,17 @@ for length in lengthSet:
     system.constant_values[mD] = leg_mass
     
     #define inertia constants
-    system.constant_values[I_xx] = leg_mass/12.0*(leg_thickness*leg_thickness + leg_width*leg_width)
-    system.constant_values[I_yy] = leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width)
-    system.constant_values[I_zz] = leg_mass/12.0*(leg_length*leg_length + leg_thickness*leg_thickness)
-    system.constant_values[I_xx2] = 0.5*leg_mass/12.0*(leg_thickness**2 + leg_width**2)
-    system.constant_values[I_yy2] = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width)
-    system.constant_values[I_zz2] = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness)
-    system.constant_values[I_xxT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_thickness**2 + leg_width**2)
-    system.constant_values[I_yyT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width)
-    system.constant_values[I_zzT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness)
+# =============================================================================
+#     system.constant_values[I_xx] = leg_mass/12.0*(leg_thickness*leg_thickness + leg_width*leg_width)
+#     system.constant_values[I_yy] = leg_mass/12.0*(leg_length*leg_length + leg_width*leg_width)
+#     system.constant_values[I_zz] = leg_mass/12.0*(leg_length*leg_length + leg_thickness*leg_thickness)
+#     system.constant_values[I_xx2] = 0.5*leg_mass/12.0*(leg_thickness**2 + leg_width**2)
+#     system.constant_values[I_yy2] = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width)
+#     system.constant_values[I_zz2] = 0.5*leg_mass/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness)
+#     system.constant_values[I_xxT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_thickness**2 + leg_width**2)
+#     system.constant_values[I_yyT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_width*leg_width)
+#     system.constant_values[I_zzT] = (0.5*leg_mass + clamp_mass)/12.0*(leg_length/2.0*leg_length/2.0 + leg_thickness*leg_thickness)
+# =============================================================================
 
     forcePerTheta = 3* areaI * E / (leg_length)**3
     system.constant_values[spring_constant] = forcePerTheta#*180.0/3.14159;
