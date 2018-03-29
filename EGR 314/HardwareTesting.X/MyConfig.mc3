@@ -2871,7 +2871,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="CONFIG4H" settingAlias="LVP"/>
-         <value>OFF</value>
+         <value>ON</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG5L" settingAlias="CP" alias="OFF"/>
@@ -7223,7 +7223,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="CONFIG4H"/>
-         <value>23</value>
+         <value>55</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG2H" settingAlias="ZCD" alias="ON"/>
@@ -7752,12 +7752,12 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>1b400cf447a770dc0b57f227cbd0f70c6ec4c48a157a1666be0fdee8427b8fb7</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\mcc.h</file>
          <hash>1e6d154d3522810490a74dd17d77b742ca578b5db54629b42d8d60a8eb6c2f4d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\interrupt_manager.h</file>
+         <hash>1b400cf447a770dc0b57f227cbd0f70c6ec4c48a157a1666be0fdee8427b8fb7</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\i2c1.c</file>
@@ -7772,12 +7772,12 @@
          <hash>9c37e72b7ad6081df1a5d0fb56c5c126d622e5f1f0d5a8587a268d8bea90a94b</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>30aa9ec040f50e9b2b93c71322bf2ff24d0710aeabfc9bcb4da2a579222354e2</hash>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>90ac5b115b8c0fb40bfca4410f154f6df9fba15c0b1956a487eb0563218dfd09</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>478ea0b34e891e85c6bdd1d45dbd3fa6ac2dc7a5b2f79322cc9e161c0cfaa11b</hash>
+         <file>mcc_generated_files\interrupt_manager.c</file>
+         <hash>30aa9ec040f50e9b2b93c71322bf2ff24d0710aeabfc9bcb4da2a579222354e2</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>

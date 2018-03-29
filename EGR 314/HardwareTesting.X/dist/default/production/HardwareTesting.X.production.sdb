@@ -3,16 +3,6 @@
 [d edition pro ]
 [d chip 18F47K40 ]
 [d frameptr 4065 ]
-"49 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
-[e E11615 . `uc
-I2C1_MESSAGE_COMPLETE 0
-I2C1_MESSAGE_FAIL 1
-I2C1_MESSAGE_PENDING 2
-I2C1_STUCK_START 3
-I2C1_MESSAGE_ADDRESS_NO_ACK 4
-I2C1_DATA_NO_ACK 5
-I2C1_LOST_STATE 6
-]
 "183 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\mcc_generated_files/i2c1.c
 [e E11606 . `uc
 I2C1_MESSAGE_COMPLETE 0
@@ -38,6 +28,16 @@ S_MASTER_NOACK_STOP 9
 S_MASTER_SEND_ADDR_10BIT_LSB 10
 S_MASTER_10BIT_RESTART 11
 ]
+"48 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
+[e E11615 . `uc
+I2C1_MESSAGE_COMPLETE 0
+I2C1_MESSAGE_FAIL 1
+I2C1_MESSAGE_PENDING 2
+I2C1_STUCK_START 3
+I2C1_MESSAGE_ADDRESS_NO_ACK 4
+I2C1_DATA_NO_ACK 5
+I2C1_LOST_STATE 6
+]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -60,7 +60,7 @@ S_MASTER_10BIT_RESTART 11
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "46 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
 [v _digitalRead digitalRead `(uc  1 e 1 0 ]
-"67
+"66
 [v _main main `(v  1 e 1 0 ]
 "196 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\mcc_generated_files/i2c1.c
 [v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
@@ -104,7 +104,7 @@ S_MASTER_10BIT_RESTART 11
 "3381
 [u S57 . 1 `S55 1 . 1 0 ]
 [v _SSP1DATPPSbits SSP1DATPPSbits `VES57  1 e 1 @3768 ]
-[s S274 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[s S176 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -114,20 +114,20 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 RC2IE 1 0 :1:7 
 ]
 "3978
-[s S283 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[s S185 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
 `uc 1 TXB2IE 1 0 :1:4 
 ]
-[s S289 . 1 `uc 1 . 1 0 :1:0 
+[s S191 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIE 1 0 :1:4 
 ]
-[u S294 . 1 `S274 1 . 1 0 `S283 1 . 1 0 `S289 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES294  1 e 1 @3781 ]
-[s S242 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[u S196 . 1 `S176 1 . 1 0 `S185 1 . 1 0 `S191 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES196  1 e 1 @3781 ]
+[s S144 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 SSP2IF 1 0 :1:2 
 `uc 1 BCL2IF 1 0 :1:3 
@@ -137,13 +137,13 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 RC2IF 1 0 :1:7 
 ]
 "4377
-[s S251 . 1 `uc 1 . 1 0 :1:0 
+[s S153 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIF 1 0 :1:4 
 ]
-[u S256 . 1 `S242 1 . 1 0 `S251 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES256  1 e 1 @3789 ]
+[u S158 . 1 `S144 1 . 1 0 `S153 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES158  1 e 1 @3789 ]
 "5165
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @3800 ]
 "5305
@@ -206,7 +206,7 @@ S_MASTER_10BIT_RESTART 11
 [v _LATB LATB `VEuc  1 e 1 @3972 ]
 "16152
 [v _LATC LATC `VEuc  1 e 1 @3973 ]
-[s S124 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S608 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -216,7 +216,7 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 LATC7 1 0 :1:7 
 ]
 "16179
-[s S133 . 1 `uc 1 LC0 1 0 :1:0 
+[s S617 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -225,8 +225,8 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S142 . 1 `S124 1 . 1 0 `S133 1 . 1 0 ]
-[v _LATCbits LATCbits `VES142  1 e 1 @3973 ]
+[u S626 . 1 `S608 1 . 1 0 `S617 1 . 1 0 ]
+[v _LATCbits LATCbits `VES626  1 e 1 @3973 ]
 "16264
 [v _LATD LATD `VEuc  1 e 1 @3974 ]
 "16376
@@ -249,19 +249,19 @@ S_MASTER_10BIT_RESTART 11
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @3989 ]
 "18206
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @3990 ]
-[s S319 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S221 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "18236
-[s S325 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S227 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S330 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S232 . 1 `uc 1 SSPM01 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 `uc 1 SSPM21 1 0 :1:2 
 `uc 1 SSPM31 1 0 :1:3 
@@ -270,9 +270,9 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 SSPOV1 1 0 :1:6 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S339 . 1 `S319 1 . 1 0 `S325 1 . 1 0 `S330 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES339  1 e 1 @3990 ]
-[s S364 . 1 `uc 1 SEN 1 0 :1:0 
+[u S241 . 1 `S221 1 . 1 0 `S227 1 . 1 0 `S232 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES241  1 e 1 @3990 ]
+[s S266 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -282,17 +282,17 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 GCEN 1 0 :1:7 
 ]
 "18373
-[s S373 . 1 `uc 1 . 1 0 :1:0 
+[s S275 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK 1 0 :5:1 
 ]
-[s S376 . 1 `uc 1 . 1 0 :1:0 
+[s S278 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S383 . 1 `uc 1 SEN1 1 0 :1:0 
+[s S285 . 1 `uc 1 SEN1 1 0 :1:0 
 `uc 1 ADMSK11 1 0 :1:1 
 `uc 1 ADMSK21 1 0 :1:2 
 `uc 1 ADMSK31 1 0 :1:3 
@@ -301,18 +301,18 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 ACKSTAT1 1 0 :1:6 
 `uc 1 GCEN1 1 0 :1:7 
 ]
-[s S392 . 1 `uc 1 . 1 0 :1:0 
+[s S294 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN1 1 0 :1:1 
 `uc 1 PEN1 1 0 :1:2 
 `uc 1 RCEN1 1 0 :1:3 
 `uc 1 ADMSK41 1 0 :1:4 
 `uc 1 ADMSK51 1 0 :1:5 
 ]
-[u S399 . 1 `S364 1 . 1 0 `S373 1 . 1 0 `S376 1 . 1 0 `S383 1 . 1 0 `S392 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES399  1 e 1 @3991 ]
+[u S301 . 1 `S266 1 . 1 0 `S275 1 . 1 0 `S278 1 . 1 0 `S285 1 . 1 0 `S294 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES301  1 e 1 @3991 ]
 "18513
 [v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @3992 ]
-[s S593 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[s S495 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -321,67 +321,65 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "26495
-[s S601 . 1 `uc 1 . 1 0 :6:0 
+[s S503 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S605 . 1 `uc 1 . 1 0 :6:0 
+[s S507 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S609 . 1 `S593 1 . 1 0 `S601 1 . 1 0 `S605 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES609  1 e 1 @4082 ]
-[s S196 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[u S511 . 1 `S495 1 . 1 0 `S503 1 . 1 0 `S507 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES511  1 e 1 @4082 ]
+[s S98 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "183 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\mcc_generated_files/i2c1.c
-[s S208 . 5 `uc 1 count 1 0 `*.39S196 1 ptrb_list 2 1 `*.39E11606 1 pTrFlag 2 3 ]
-[v _i2c1_tr_queue i2c1_tr_queue `[1]S208  1 s 5 i2c1_tr_queue ]
+[s S110 . 5 `uc 1 count 1 0 `*.39S98 1 ptrb_list 2 1 `*.39E11606 1 pTrFlag 2 3 ]
+[v _i2c1_tr_queue i2c1_tr_queue `[1]S110  1 s 5 i2c1_tr_queue ]
 "184
-[s S212 . 1 `uc 1 full 1 0 :1:0 
+[s S114 . 1 `uc 1 full 1 0 :1:0 
 `uc 1 empty 1 0 :1:1 
 `uc 1 reserved 1 0 :6:2 
 ]
-[u S216 . 1 `S212 1 s 1 0 `uc 1 status 1 0 ]
-[s S219 . 7 `*.39S208 1 pTrTail 2 0 `*.39S208 1 pTrHead 2 2 `S216 1 trStatus 1 4 `uc 1 i2cDoneFlag 1 5 `uc 1 i2cErrors 1 6 ]
-[v _i2c1_object i2c1_object `S219  1 s 7 i2c1_object ]
+[u S118 . 1 `S114 1 s 1 0 `uc 1 status 1 0 ]
+[s S121 . 7 `*.39S110 1 pTrTail 2 0 `*.39S110 1 pTrHead 2 2 `S118 1 trStatus 1 4 `uc 1 i2cDoneFlag 1 5 `uc 1 i2cErrors 1 6 ]
+[v _i2c1_object i2c1_object `S121  1 s 7 i2c1_object ]
 "185
 [v _i2c1_state i2c1_state `E11674  1 s 1 i2c1_state ]
 "186
 [v _i2c1_trb_count i2c1_trb_count `uc  1 s 1 i2c1_trb_count ]
 "188
-[v _p_i2c1_trb_current p_i2c1_trb_current `*.39S196  1 s 2 p_i2c1_trb_current ]
+[v _p_i2c1_trb_current p_i2c1_trb_current `*.39S98  1 s 2 p_i2c1_trb_current ]
 "189
-[v _p_i2c1_current p_i2c1_current `*.39S208  1 s 2 p_i2c1_current ]
-"67 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
+[v _p_i2c1_current p_i2c1_current `*.39S110  1 s 2 p_i2c1_current ]
+"66 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"95
-[v main@status status `E11615  1 a 1 16 ]
-"93
-[v main@data data `uc  1 a 1 15 ]
-"91
-[v main@i2caddr i2caddr `uc  1 a 1 14 ]
-"111
+"94
+[v main@status status `E11615  1 a 1 15 ]
+"92
+[v main@data data `uc  1 a 1 14 ]
+"90
+[v main@i2caddr i2caddr `uc  1 a 1 13 ]
+"119
 } 0
 "46
 [v _digitalRead digitalRead `(uc  1 e 1 0 ]
 {
 [v digitalRead@pin pin `uc  1 a 1 wreg ]
-"49
-[v digitalRead@status status `E11615  1 a 1 13 ]
-"59
-[v digitalRead@result result `uc  1 a 1 12 ]
-"52
-[v digitalRead@regAddr regAddr `uc  1 a 1 11 ]
-"47
-[v digitalRead@i2caddr i2caddr `uc  1 a 1 10 ]
-"51
-[v digitalRead@bity bity `uc  1 a 1 8 ]
 "48
-[v digitalRead@data data `uc  1 a 1 7 ]
+[v digitalRead@status status `E11615  1 a 1 12 ]
+"58
+[v digitalRead@result result `uc  1 a 1 11 ]
+"51
+[v digitalRead@regAddr regAddr `uc  1 a 1 10 ]
+"47
+[v digitalRead@i2caddr i2caddr `uc  1 a 1 9 ]
+"50
+[v digitalRead@bity bity `uc  1 a 1 7 ]
 "46
 [v digitalRead@pin pin `uc  1 a 1 wreg ]
-[v digitalRead@pin pin `uc  1 a 1 9 ]
-"62
+[v digitalRead@pin pin `uc  1 a 1 8 ]
+"61
 } 0
 "598 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\mcc_generated_files/i2c1.c
 [v _I2C1_MasterWrite I2C1_MasterWrite `(v  1 e 1 0 ]
@@ -394,17 +392,17 @@ S_MASTER_10BIT_RESTART 11
 [v I2C1_MasterWrite@address address `ui  1 p 2 3 ]
 "602
 [v I2C1_MasterWrite@pflag pflag `*.39E11606  1 p 2 5 ]
-[s S196 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[s S98 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "604
-[v I2C1_MasterWrite@trBlock trBlock `S196  1 s 5 trBlock ]
+[v I2C1_MasterWrite@trBlock trBlock `S98  1 s 5 trBlock ]
 "617
 } 0
 "707
 [v _I2C1_MasterWriteTRBBuild I2C1_MasterWriteTRBBuild `(v  1 e 1 0 ]
 {
-[s S196 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[s S98 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "708
-[v I2C1_MasterWriteTRBBuild@ptrb ptrb `*.39S196  1 p 2 23 ]
+[v I2C1_MasterWriteTRBBuild@ptrb ptrb `*.39S98  1 p 2 23 ]
 "709
 [v I2C1_MasterWriteTRBBuild@pdata pdata `*.39uc  1 p 2 25 ]
 "710
@@ -424,9 +422,9 @@ S_MASTER_10BIT_RESTART 11
 [v I2C1_MasterRead@address address `ui  1 p 2 3 ]
 "623
 [v I2C1_MasterRead@pflag pflag `*.39E11606  1 p 2 5 ]
-[s S196 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[s S98 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "625
-[v I2C1_MasterRead@trBlock trBlock `S196  1 s 5 trBlock ]
+[v I2C1_MasterRead@trBlock trBlock `S98  1 s 5 trBlock ]
 "639
 } 0
 "641
@@ -435,9 +433,9 @@ S_MASTER_10BIT_RESTART 11
 "642
 [v I2C1_MasterTRBInsert@count count `uc  1 a 1 wreg ]
 [v I2C1_MasterTRBInsert@count count `uc  1 a 1 wreg ]
-[s S196 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[s S98 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "643
-[v I2C1_MasterTRBInsert@ptrb_list ptrb_list `*.39S196  1 p 2 23 ]
+[v I2C1_MasterTRBInsert@ptrb_list ptrb_list `*.39S98  1 p 2 23 ]
 "644
 [v I2C1_MasterTRBInsert@pflag pflag `*.39E11606  1 p 2 25 ]
 "648
@@ -447,9 +445,9 @@ S_MASTER_10BIT_RESTART 11
 "694
 [v _I2C1_MasterReadTRBBuild I2C1_MasterReadTRBBuild `(v  1 e 1 0 ]
 {
-[s S196 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
+[s S98 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "695
-[v I2C1_MasterReadTRBBuild@ptrb ptrb `*.39S196  1 p 2 23 ]
+[v I2C1_MasterReadTRBBuild@ptrb ptrb `*.39S98  1 p 2 23 ]
 "696
 [v I2C1_MasterReadTRBBuild@pdata pdata `*.39uc  1 p 2 25 ]
 "697

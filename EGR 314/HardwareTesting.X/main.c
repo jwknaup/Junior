@@ -44,8 +44,7 @@
 #include "main.h"
 
 uint8_t digitalRead(uint8_t pin) {
-    uint8_t i2caddr = 0;
-    uint8_t data = 0xff;
+    uint8_t i2caddr = 0x1;
     I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
     
 	uint8_t bity=pin%8;
@@ -88,19 +87,43 @@ void main(void)
 
     I2C1_Initialize();
     
-    uint8_t i2caddr = 0;
+    uint8_t i2caddr = 0x1;
     
-    uint8_t data = 0xff;
+    uint8_t data;
     
     I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
     
-    I2C1_MasterWrite(&data, 1, MCP23017_IODIRA, &status);
-    I2C1_MasterWrite(&data, 1, MCP23017_IODIRB, &status);
+    data = MCP23017_IODIRB;
+    I2C1_MasterWrite(&data, 1, MCP23017_ADDRESS | i2caddr, &status);
+    // Write the register
+	//Wire.beginTransmission(MCP23017_ADDRESS | i2caddr);
+	//wiresend(regAddr);
+    data = 0xff;
+    I2C1_MasterWrite(&data, 1, MCP23017_ADDRESS | i2caddr, &status);
+	//wiresend(regValue);
+    //Wire.endTransmission();
+    //writeRegister(MCP23017_IODIRA,0xff);
+    //I2C1_MasterWrite(&data, 1, MCP23017_IODIRB, &status);
+    
+    //updateRegisterBit(p,(d==INPUT),MCP23017_IODIRA,MCP23017_IODIRB);
+    uint8_t regValue;
+	uint8_t regAddr;//=regForPin(pin,portAaddr,portBaddr);
+    if(pin < 8)
+        regAddr = MCP23017_IODIRA;
+    else
+        regAddr = MCP23017_IODIRB;
+    
+	uint8_t bity=pin%8;//bitForPin(pin);
+	regValue = readRegister(regAddr);
 
+	// set the value for the particular bit
+	bitWrite(regValue,bit,pValue);
+
+writeRegister(regAddr,regValue);
     
     while (1)
     {
-        if(digitalRead(1)){
+        if(digitalRead(8)){
             LED_Toggle();
         }
         

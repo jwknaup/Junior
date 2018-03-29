@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"49 main.c
+"48 main.c
 [c E11615 0 1 2 3 4 5 6 .. ]
 [n E11615 . I2C1_MESSAGE_COMPLETE I2C1_MESSAGE_FAIL I2C1_MESSAGE_PENDING I2C1_STUCK_START I2C1_MESSAGE_ADDRESS_NO_ACK I2C1_DATA_NO_ACK I2C1_LOST_STATE  ]
 "259 mcc_generated_files/i2c1.h
@@ -10845,119 +10845,120 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "47
 [v _i2caddr `uc ~T0 @X0 1 a ]
-[; ;main.c: 47: uint8_t i2caddr = 0;
-[e = _i2caddr -> -> 0 `i `uc ]
+[; ;main.c: 47: uint8_t i2caddr = 1;
+[e = _i2caddr -> -> 1 `i `uc ]
 "48
-[v _data `uc ~T0 @X0 1 a ]
-[; ;main.c: 48: uint8_t data = 0xff;
-[e = _data -> -> 255 `i `uc ]
-"49
 [v _status `E11615 ~T0 @X0 1 a ]
-[; ;main.c: 49: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+[; ;main.c: 48: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
 [e = _status . `E11615 2 ]
-"51
+"50
 [v _bity `uc ~T0 @X0 1 a ]
-[; ;main.c: 51: uint8_t bity=pin%8;
+[; ;main.c: 50: uint8_t bity=pin%8;
 [e = _bity -> % -> _pin `i -> 8 `i `uc ]
-"52
+"51
 [v _regAddr `uc ~T0 @X0 1 a ]
-[; ;main.c: 52: uint8_t regAddr;
-[; ;main.c: 53: if(pin < 8)
-"53
+[; ;main.c: 51: uint8_t regAddr;
+[; ;main.c: 52: if(pin < 8)
+"52
 [e $ ! < -> _pin `i -> 8 `i 1370  ]
-[; ;main.c: 54: regAddr = 0x12;
-"54
+[; ;main.c: 53: regAddr = 0x12;
+"53
 [e = _regAddr -> -> 18 `i `uc ]
 [e $U 1371  ]
-"55
+"54
 [e :U 1370 ]
-[; ;main.c: 55: else
-[; ;main.c: 56: regAddr = 0x13;
-"56
+[; ;main.c: 54: else
+[; ;main.c: 55: regAddr = 0x13;
+"55
 [e = _regAddr -> -> 19 `i `uc ]
 [e :U 1371 ]
-[; ;main.c: 58: I2C1_MasterWrite(&regAddr, 1, 0x20 | i2caddr, &status);
-"58
+[; ;main.c: 57: I2C1_MasterWrite(&regAddr, 1, 0x20 | i2caddr, &status);
+"57
 [e ( _I2C1_MasterWrite (4 , , , &U _regAddr -> -> 1 `i `uc -> | -> 32 `i -> _i2caddr `i `ui &U _status ]
-"59
+"58
 [v _result `uc ~T0 @X0 1 a ]
-[; ;main.c: 59: uint8_t result;
-[; ;main.c: 60: I2C1_MasterRead(&result, 1, 0x20 | i2caddr, &status);
-"60
+[; ;main.c: 58: uint8_t result;
+[; ;main.c: 59: I2C1_MasterRead(&result, 1, 0x20 | i2caddr, &status);
+"59
 [e ( _I2C1_MasterRead (4 , , , &U _result -> -> 1 `i `uc -> | -> 32 `i -> _i2caddr `i `ui &U _status ]
-[; ;main.c: 61: return (result >> bity) & 0x1;
-"61
+[; ;main.c: 60: return (result >> bity) & 0x1;
+"60
 [e ) -> & >> -> _result `i _bity -> 1 `i `uc ]
 [e $UE 1369  ]
-[; ;main.c: 62: }
-"62
+[; ;main.c: 61: }
+"61
 [e :UE 1369 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"67
+"66
 [v _main `(v ~T0 @X0 1 ef ]
-"68
+"67
 {
-[; ;main.c: 67: void main(void)
-[; ;main.c: 68: {
+[; ;main.c: 66: void main(void)
+[; ;main.c: 67: {
 [e :U _main ]
 [f ]
-[; ;main.c: 70: SYSTEM_Initialize();
-"70
+[; ;main.c: 69: SYSTEM_Initialize();
+"69
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 89: I2C1_Initialize();
-"89
+[; ;main.c: 88: I2C1_Initialize();
+"88
 [e ( _I2C1_Initialize ..  ]
-"91
+"90
 [v _i2caddr `uc ~T0 @X0 1 a ]
-[; ;main.c: 91: uint8_t i2caddr = 0;
-[e = _i2caddr -> -> 0 `i `uc ]
-"93
+[; ;main.c: 90: uint8_t i2caddr = 0x1;
+[e = _i2caddr -> -> 1 `i `uc ]
+"92
 [v _data `uc ~T0 @X0 1 a ]
-[; ;main.c: 93: uint8_t data = 0xff;
-[e = _data -> -> 255 `i `uc ]
-"95
+"94
 [v _status `E11615 ~T0 @X0 1 a ]
-[; ;main.c: 95: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+[; ;main.c: 92: uint8_t data;
+[; ;main.c: 94: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
 [e = _status . `E11615 2 ]
-[; ;main.c: 97: I2C1_MasterWrite(&data, 1, 0x00, &status);
+[; ;main.c: 96: data = 0x01;
+"96
+[e = _data -> -> 1 `i `uc ]
+[; ;main.c: 97: I2C1_MasterWrite(&data, 1, 0x20 | i2caddr, &status);
 "97
-[e ( _I2C1_MasterWrite (4 , , , &U _data -> -> 1 `i `uc -> -> 0 `i `ui &U _status ]
-[; ;main.c: 98: I2C1_MasterWrite(&data, 1, 0x01, &status);
-"98
-[e ( _I2C1_MasterWrite (4 , , , &U _data -> -> 1 `i `uc -> -> 1 `i `ui &U _status ]
-[; ;main.c: 101: while (1)
+[e ( _I2C1_MasterWrite (4 , , , &U _data -> -> 1 `i `uc -> | -> 32 `i -> _i2caddr `i `ui &U _status ]
+[; ;main.c: 101: data = 0xff;
 "101
-[e :U 1374 ]
-[; ;main.c: 102: {
+[e = _data -> -> 255 `i `uc ]
+[; ;main.c: 102: I2C1_MasterWrite(&data, 1, 0x20 | i2caddr, &status);
 "102
+[e ( _I2C1_MasterWrite (4 , , , &U _data -> -> 1 `i `uc -> | -> 32 `i -> _i2caddr `i `ui &U _status ]
+[; ;main.c: 109: while (1)
+"109
+[e :U 1374 ]
+[; ;main.c: 110: {
+"110
 {
-[; ;main.c: 103: if(digitalRead(1)){
-"103
-[e $ ! != -> ( _digitalRead (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1376  ]
+[; ;main.c: 111: if(digitalRead(8)){
+"111
+[e $ ! != -> ( _digitalRead (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1376  ]
 {
-[; ;main.c: 104: do { LATCbits.LATC6 = ~LATCbits.LATC6; } while(0);
-"104
+[; ;main.c: 112: do { LATCbits.LATC6 = ~LATCbits.LATC6; } while(0);
+"112
 [e :U 1379 ]
 {
 [e = . . _LATCbits 0 6 -> ~ -> . . _LATCbits 0 6 `i `uc ]
 }
 [e :U 1378 ]
-"105
+"113
 }
 [e :U 1376 ]
-[; ;main.c: 105: }
-[; ;main.c: 107: _delay((unsigned long)((50)*(4000000/4000.0)));
-"107
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"110
+[; ;main.c: 113: }
+[; ;main.c: 115: _delay((unsigned long)((100)*(4000000/4000.0)));
+"115
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"118
 }
 [e :U 1373 ]
-"101
+"109
 [e $U 1374  ]
 [e :U 1375 ]
-[; ;main.c: 110: }
-[; ;main.c: 111: }
-"111
+[; ;main.c: 118: }
+[; ;main.c: 119: }
+"119
 [e :UE 1372 ]
 }
