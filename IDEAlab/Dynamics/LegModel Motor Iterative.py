@@ -20,6 +20,7 @@ import numpy
 #import scipy.integrate
 import matplotlib.pyplot as plt
 plt.ion()
+from sympy import sin
 from sympy import pi
 import os    
 
@@ -42,7 +43,7 @@ gear_ratio = 75.0
 # wMax = 400.0/60.0*2.0*3.14159*75.0/gear_ratio
 # =============================================================================
 
-debugging = 1
+debugging = 0
 
 ####VARIOUS DESIGN CONSTANTS#####
 #gear_ratio = Constant(75.0, 'gear_ratio',system)

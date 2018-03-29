@@ -36,7 +36,7 @@ def maxHeightGet(array, l, ax=0):
     array[array[:,index] > 0.54, index] = 0.25
     
     if ax is not 0:
-        p, =ax.plot(array[:,0], array[:,index], color='k')
+        p, =ax.plot(array[:,0], array[:,index]-(array[2, index] - 0.01), color='k')
         ax.tick_params(axis='y',colors='k')
         ax.set_ylabel('h (m)',color='k' )
         #ax.spines['left'].set_edgecolor(p.get_color())
@@ -184,3 +184,129 @@ def plotJumpHeights1(data):
 import os
 
 data, massAve, eff = iterateThroughTrials(1)
+
+root = 'C:/Users/Jacob/Documents/Junior/IDEAlab/Dynamics/Leg Modelling Motor/'
+width  ='01'
+length = '12'
+gear_ratio = '150.0'
+directory = root + width +'_' + length + '_' + gear_ratio + '/'
+file = directory + '/top height.csv'
+position = np.genfromtxt(file, delimiter=',')
+file=directory + '/force.csv'
+force = np.genfromtxt(file, delimiter=',')
+file=directory + '/enc.csv'
+arduino = np.genfromtxt(file, delimiter=',')
+
+def maxHeightGet(arrayT, arrayB, l, ax=0):    
+# =============================================================================
+#     if(np.min(array[:,2]) < 0.05):
+#         index = 5
+#     elif( np.min(array[:,5]) < 0.05):
+#         index = 2
+#     elif(np.ptp(array[:,2]) > np.ptp(array[:,5])):
+#         index = 2
+#     else:
+# =============================================================================
+    index = 1
+        
+    #array[array[:,index] > 5.0, index] = 0.25
+    
+    if ax is not 0:
+        ax.plot(arrayT[:,0], arrayT[:,index])
+        ax.set_ylabel('h (m)',color='k' )
+        ax.tick_params(axis='y',colors='k')
+        ax.set_ylabel('h (m)',color='k' )
+        plt.tight_layout()
+    #plt.show()
+    #plt.figure()
+    #plt.plot(position[:,0], position[:,2])
+    #plt.plot(position[:,0], position[:,6])
+    
+    maxIndeces = arrayT.argmax(axis=0)
+    maxTime = arrayT[maxIndeces[index],0]
+    maxHeight = arrayT[maxIndeces[index], index]
+    deltaHeight = maxHeight - arrayT[0,index]
+    
+    maxIndeces = arrayB.argmax(axis=0)
+    
+    jumpHeight = arrayB[maxIndeces[index], index] - arrayB[0,index]
+    #print(maxTime)
+    print(jumpHeight)
+    return jumpHeight, deltaHeight
+
+def forceProfile(array, ax):
+    ax.plot(array[:,0], array[:,1], 'r')
+    ax.set_ylim([0,1.0])
+    ax.set_ylabel('F (N)', color='r', labelpad = -1)
+    ax.tick_params(axis='y',colors='r')
+    ax.spines['right'].set_edgecolor('r')
+    
+def electricalProfile(array, axA, axB):
+    axA.plot(array[:,0], array[:,1], 'g')
+    axB.plot(array[:,0], array[:,2], 'k')
+    axA.set_ylim([0,8.0])
+    axB.set_ylim([0,2.0])
+    axA.set_ylabel('V (V)', color='g')
+    axB.set_ylabel('I (A)', color='k')
+
+    
+def encoderProfile(array, ax):
+    ax.plot(array[:,0], array[:,1], 'y')
+    ax.set_ylabel('Theta (deg)', color='y')
+    ax.set_ylim([0,360])
+
+def iterateThroughTrials(p=0):
+           data = np.zeros([150,4])
+           efficiency = np.zeros([100,3])
+           i=0
+           file = 'top height.csv'
+           try:
+               positionT = np.genfromtxt(directory + file, delimiter=',')
+           except:
+               pass
+           file = 'bottom height.csv'
+           try:
+               positionB = np.genfromtxt(directory + file, delimiter=',')
+           except:
+               pass
+           file = 'force.csv'
+           try:
+               force = np.genfromtxt(directory + file, delimiter=',')
+           except:
+               pass
+           file = 'enc.csv'
+           try:
+               enc = np.genfromtxt(directory + file, delimiter=',')
+           except:
+               pass
+           if p is not 0:
+               fig, ax1 = plt.subplots()
+               jH, _ = maxHeightGet(positionT,positionB,length, ax1)
+               if jH > 1:
+                   jH=0
+               ax2 = ax1.twinx()
+               forceProfile(force, ax2)
+# =============================================================================
+#                ax3 = ax1.twinx()
+#                ax3.spines["right"].set_position(("axes", -0.2))
+#                encoderProfile(enc, ax3)
+# =============================================================================
+               ax4 = ax1.twinx()
+               ax4.spines["right"].set_position(("axes", 1.1))
+               ax5 = ax1.twinx()
+               ax5.spines["right"].set_position(("axes", 1.2))
+               #electricalProfile(arduino, ax4, ax5)
+               #plt.figure()
+               #plt.tight_layout()
+               # plt.show()
+               data[i,:] = [width, length, gear_ratio, jH]
+           #print(designFolder)
+           #massTotal = addMass(force)
+           #Ein, Eout = energyProfile(arduino, position, force, length)
+           #efficiency[i,:] = [length, gear_ratio, Eout/Ein]
+           print('\n')
+           i += 1
+           return data
+
+
+iterateThroughTrials(1)

@@ -377,6 +377,8 @@ def plotJumpHeights1(data):
     ratios = sorted(ratios)
     ratioNames = []
     for r in ratios:
+        if r != 50 and r != 75 and r != 100 and r != 150:
+            continue
         dataSet = np.array([[0,0]])
         if r == 0:
             continue
@@ -385,6 +387,8 @@ def plotJumpHeights1(data):
         #print(indeces)
         lengths = set(length[indecesr])
         for l in lengths:
+            if l > 12:
+                continue
             indeces = np.where(((data[:,1:3] == (l,r)).all(axis=1)))
             if l < 1:
                 continue
@@ -402,7 +406,6 @@ def plotJumpHeights1(data):
 
     plt.legend(ratioNames, title = 'gear ratio')
     plt.ylabel('jump height (m)')
-    plt.suptitle('Simulation Results')
     plt.title("Jump Height vs. Length and Gear Ratio")
     #plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
     plt.xlabel('leg length (cm)')
@@ -425,6 +428,15 @@ def plotJumpHeightsU():
         if(data[i,-1] < 0):
             data[i,-1]= 0
     data = np.delete(data, np.where(data[:,2] == 300), axis=0)
+    data = np.delete(data, np.where(data[:,1] > 12), axis=0)
+    data = np.delete(data, np.where(data[:,1] < 4), axis=0)
+    for i in np.arange(1,np.shape(data)[0]):
+        try:
+            if data[i,2] != 50 and data[i,2] != 75 and data[i,2] != 100 and data[i,2] != 150:
+                print('deleting ', data[i,2])
+                data = np.delete(data, i, axis=0)
+        except:
+            break
     #print(data)
     plotJumpHeights1(data)
                
@@ -440,9 +452,11 @@ data2, massAve = iterateThroughTrials(1)
 
 plotJumpHeightsA(data1)
 #plotJumpHeights1(data2)
+plt.suptitle('Unity Results')
 plotJumpHeightsU()
 
 plotJumpHeightsA(data1)
+plt.suptitle('Pynamics Results')
 plotJumpHeights1(data2)
 #plotJumpHeightsU()
 

@@ -165,18 +165,48 @@ def plotJumpHeights2(data):
     plt.savefig('height results.png', dpi = 600)
 
 def plotJumpHeights1(data):
-    print(data)
+    #print(data)
     scaled_z = (data[:,2] - data[:,2].min()) / data[:,2].ptp()
     colors = plt.cm.coolwarm(scaled_z)
-    #plt.scatter(x, y, marker='+', edgecolors=colors, s=150, linewidths=4)
-    plt.figure()
+    #plt.figure()
+    length = data[:,1]
+    ratio = data[:,2]
+    height = data[:,3]
+    ratios = set(ratio)
+    ratios = sorted(ratios)
+    ratioNames = []
+    for r in ratios:
+        dataSet = np.array([[0,0]])
+        if r == 0:
+            continue
+        ratioNames.append(str(r))
+        indecesr = np.where(data[:,2] == r)
+        #print(indeces)
+        lengths = set(length[indecesr])
+        for l in lengths:
+            indeces = np.where(((data[:,1:3] == (l,r)).all(axis=1)))
+            if l < 1:
+                continue
+            heights = height[indeces]
+            print(heights)
+            if heights[0] == 0:
+                continue
+            maxHeight = heights[0]
+            dataSet = np.append(dataSet,[[l,maxHeight]], axis=0)
+        dataSet = np.delete(dataSet,0,axis=0)
+        dataSet = dataSet[dataSet[:,0].argsort()]
+        #print(area)
+        #print(r)
+        plt.plot(dataSet[:,0],dataSet[:,1], marker = '.', color = plt.cm.coolwarm(r/120.0), alpha=0.95)
+
+    plt.legend(ratioNames, title = 'gear ratio')
     plt.ylabel('jump height (m)')
-    plt.suptitle('Unity Simulation')
+    plt.suptitle('Simulation Results')
     plt.title("Jump Height vs. Length and Gear Ratio")
-    plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
+    #plt.scatter(data[:,1], data[:,3], marker='o',c=data[:,2], cmap='coolwarm')
     plt.xlabel('leg length (cm)')
-    cbar = plt.colorbar()
-    cbar.set_label('gear ratio')
+    #cbar = ax.colorbar()
+    #cbar.set_label('gear ratio')
     #plt.tight_layout()
     plt.savefig('height results.png', dpi = 600)
     plt.show()
