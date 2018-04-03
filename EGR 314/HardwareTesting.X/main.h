@@ -33,7 +33,7 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-#define MCP23017_ADDRESS 0x20
+#define MCP23017_ADDRESS 0x21
 
 // registers
 #define MCP23017_IODIRA 0x00

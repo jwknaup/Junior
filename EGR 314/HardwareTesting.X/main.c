@@ -43,21 +43,74 @@
 #include "mcc_generated_files/mcc.h"
 #include "main.h"
 
-uint8_t digitalRead(uint8_t pin) {
-    uint8_t i2caddr = 0x1;
-    I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
-    
-	uint8_t bity=pin%8;
-	uint8_t regAddr;
-    if(pin < 8)
-        regAddr = MCP23017_GPIOA;
-    else 
-        regAddr = MCP23017_GPIOB;
-    
-    I2C1_MasterWrite(&regAddr, 1, MCP23017_ADDRESS | i2caddr, &status);
+uint8_t i2caddr;
+I2C1_MESSAGE_STATUS status;
+
+void writeRegister(uint8_t regAddr, uint8_t regValue){
+    uint8_t data = regAddr;
+    I2C1_MasterWrite(&data, 1, MCP23017_ADDRESS | i2caddr, &status);
+    data = regValue;
+    I2C1_MasterWrite(&data, 1, MCP23017_ADDRESS | i2caddr, &status);
+}
+
+uint8_t readRegister(uint8_t addr){
+    uint8_t data=addr;
+    I2C1_MasterWrite(&data,1,MCP23017_ADDRESS | i2caddr, &status);
     uint8_t result;
     I2C1_MasterRead(&result, 1, MCP23017_ADDRESS | i2caddr, &status);
-	return (result >> bity) & 0x1;
+    return result;
+}
+
+void mcpBegin(uint8_t addr){
+    if (addr > 7) {
+		addr = 7;
+	}
+	i2caddr = addr;
+
+	I2C1_Initialize();
+
+	// set defaults!
+	// all inputs on port A and B
+	writeRegister(MCP23017_IODIRA,0xff);
+    writeRegister(MCP23017_IODIRB,0xff);
+}
+
+uint8_t regForPin(uint8_t pin, uint8_t portAaddr, uint8_t portBaddr){
+    return(pin<8) ?portAaddr:portBaddr;
+}
+uint8_t bitForPin(uint8_t pin){
+    return pin%8;
+}
+uint8_t bitWrite(uint8_t x, unsigned int n, bool b) {
+    if (n <= 7 && n >= 0) {
+        if (b) {
+            x |= (1u << n);
+        } else {
+            x &= ~(1u << n);
+        }
+    } 
+    return x;
+}
+
+void updateRegisterBit(uint8_t pin, uint8_t pValue, uint8_t portAaddr, uint8_t portBaddr){
+    uint8_t regValue;
+    uint8_t regAddr = regForPin(pin, portAaddr, portBaddr);
+    uint8_t bitty = bitForPin(pin);
+    regValue = readRegister(regAddr);
+    
+    regValue = bitWrite(regValue, bitty, pValue);
+    
+    writeRegister(regAddr, regValue);
+}
+
+void mcpPinMode(uint8_t p, uint8_t d){
+    updateRegisterBit(p,(d==INPUT),MCP23017_IODIRA, MCP23017_IODIRB);
+}
+
+uint8_t digitalRead(uint8_t pin) {
+    uint8_t bitty = bitForPin(pin);
+    uint8_t regAddr=regForPin(pin,MCP23017_GPIOA,MCP23017_GPIOB);
+    return (readRegister(regAddr) >> bitty) & 0x1;
 }
 
 /*
@@ -85,41 +138,8 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
     
 
-    I2C1_Initialize();
-    
-    uint8_t i2caddr = 0x1;
-    
-    uint8_t data;
-    
-    I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
-    
-    data = MCP23017_IODIRB;
-    I2C1_MasterWrite(&data, 1, MCP23017_ADDRESS | i2caddr, &status);
-    // Write the register
-	//Wire.beginTransmission(MCP23017_ADDRESS | i2caddr);
-	//wiresend(regAddr);
-    data = 0xff;
-    I2C1_MasterWrite(&data, 1, MCP23017_ADDRESS | i2caddr, &status);
-	//wiresend(regValue);
-    //Wire.endTransmission();
-    //writeRegister(MCP23017_IODIRA,0xff);
-    //I2C1_MasterWrite(&data, 1, MCP23017_IODIRB, &status);
-    
-    //updateRegisterBit(p,(d==INPUT),MCP23017_IODIRA,MCP23017_IODIRB);
-    uint8_t regValue;
-	uint8_t regAddr;//=regForPin(pin,portAaddr,portBaddr);
-    if(pin < 8)
-        regAddr = MCP23017_IODIRA;
-    else
-        regAddr = MCP23017_IODIRB;
-    
-	uint8_t bity=pin%8;//bitForPin(pin);
-	regValue = readRegister(regAddr);
-
-	// set the value for the particular bit
-	bitWrite(regValue,bit,pValue);
-
-writeRegister(regAddr,regValue);
+    mcpBegin(0);
+    mcpPinMode(8,INPUT);
     
     while (1)
     {

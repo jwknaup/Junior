@@ -28,7 +28,7 @@ S_MASTER_NOACK_STOP 9
 S_MASTER_SEND_ADDR_10BIT_LSB 10
 S_MASTER_10BIT_RESTART 11
 ]
-"48 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
+"47 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
 [e E11615 . `uc
 I2C1_MESSAGE_COMPLETE 0
 I2C1_MESSAGE_FAIL 1
@@ -58,9 +58,25 @@ I2C1_LOST_STATE 6
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"46 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
+"49 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
+[v _writeRegister writeRegister `(v  1 e 1 0 ]
+"56
+[v _readRegister readRegister `(uc  1 e 1 0 ]
+"64
+[v _mcpBegin mcpBegin `(v  1 e 1 0 ]
+"78
+[v _regForPin regForPin `(uc  1 e 1 0 ]
+"81
+[v _bitForPin bitForPin `(uc  1 e 1 0 ]
+"84
+[v _bitWrite bitWrite `(uc  1 e 1 0 ]
+"95
+[v _updateRegisterBit updateRegisterBit `(v  1 e 1 0 ]
+"106
+[v _mcpPinMode mcpPinMode `(v  1 e 1 0 ]
+"110
 [v _digitalRead digitalRead `(uc  1 e 1 0 ]
-"66
+"119
 [v _main main `(v  1 e 1 0 ]
 "196 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\mcc_generated_files/i2c1.c
 [v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
@@ -331,6 +347,10 @@ I2C1_LOST_STATE 6
 ]
 [u S511 . 1 `S495 1 . 1 0 `S503 1 . 1 0 `S507 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES511  1 e 1 @4082 ]
+"46 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
+[v _i2caddr i2caddr `uc  1 e 1 0 ]
+"47
+[v _status status `E11615  1 e 1 0 ]
 [s S98 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "183 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\mcc_generated_files/i2c1.c
 [s S110 . 5 `uc 1 count 1 0 `*.39S98 1 ptrb_list 2 1 `*.39E11606 1 pTrFlag 2 3 ]
@@ -351,35 +371,104 @@ I2C1_LOST_STATE 6
 [v _p_i2c1_trb_current p_i2c1_trb_current `*.39S98  1 s 2 p_i2c1_trb_current ]
 "189
 [v _p_i2c1_current p_i2c1_current `*.39S110  1 s 2 p_i2c1_current ]
-"66 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
+"119 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"94
-[v main@status status `E11615  1 a 1 15 ]
-"92
-[v main@data data `uc  1 a 1 14 ]
-"90
-[v main@i2caddr i2caddr `uc  1 a 1 13 ]
-"119
+"154
 } 0
-"46
+"106
+[v _mcpPinMode mcpPinMode `(v  1 e 1 0 ]
+{
+[v mcpPinMode@p p `uc  1 a 1 wreg ]
+[v mcpPinMode@p p `uc  1 a 1 wreg ]
+[v mcpPinMode@d d `uc  1 p 1 17 ]
+[v mcpPinMode@p p `uc  1 a 1 18 ]
+"108
+} 0
+"95
+[v _updateRegisterBit updateRegisterBit `(v  1 e 1 0 ]
+{
+[v updateRegisterBit@pin pin `uc  1 a 1 wreg ]
+"96
+[v updateRegisterBit@regValue regValue `uc  1 a 1 16 ]
+"97
+[v updateRegisterBit@regAddr regAddr `uc  1 a 1 15 ]
+"98
+[v updateRegisterBit@bitty bitty `uc  1 a 1 13 ]
+"95
+[v updateRegisterBit@pin pin `uc  1 a 1 wreg ]
+[v updateRegisterBit@pValue pValue `uc  1 p 1 10 ]
+[v updateRegisterBit@portAaddr portAaddr `uc  1 p 1 11 ]
+[v updateRegisterBit@portBaddr portBaddr `uc  1 p 1 12 ]
+"97
+[v updateRegisterBit@pin pin `uc  1 a 1 14 ]
+"104
+} 0
+"84
+[v _bitWrite bitWrite `(uc  1 e 1 0 ]
+{
+[v bitWrite@x x `uc  1 a 1 wreg ]
+[v bitWrite@x x `uc  1 a 1 wreg ]
+[v bitWrite@n n `ui  1 p 2 23 ]
+[v bitWrite@b b `uc  1 p 1 25 ]
+[v bitWrite@x x `uc  1 a 1 28 ]
+"93
+} 0
+"64
+[v _mcpBegin mcpBegin `(v  1 e 1 0 ]
+{
+[v mcpBegin@addr addr `uc  1 a 1 wreg ]
+[v mcpBegin@addr addr `uc  1 a 1 wreg ]
+[v mcpBegin@addr addr `uc  1 a 1 9 ]
+"76
+} 0
+"49
+[v _writeRegister writeRegister `(v  1 e 1 0 ]
+{
+[v writeRegister@regAddr regAddr `uc  1 a 1 wreg ]
+"50
+[v writeRegister@data data `uc  1 a 1 8 ]
+"49
+[v writeRegister@regAddr regAddr `uc  1 a 1 wreg ]
+[v writeRegister@regValue regValue `uc  1 p 1 32 ]
+[v writeRegister@regAddr regAddr `uc  1 a 1 7 ]
+"54
+} 0
+"110
 [v _digitalRead digitalRead `(uc  1 e 1 0 ]
 {
 [v digitalRead@pin pin `uc  1 a 1 wreg ]
-"48
-[v digitalRead@status status `E11615  1 a 1 12 ]
-"58
-[v digitalRead@result result `uc  1 a 1 11 ]
-"51
-[v digitalRead@regAddr regAddr `uc  1 a 1 10 ]
-"47
-[v digitalRead@i2caddr i2caddr `uc  1 a 1 9 ]
-"50
-[v digitalRead@bity bity `uc  1 a 1 7 ]
-"46
+"112
+[v digitalRead@regAddr regAddr `uc  1 a 1 13 ]
+"111
+[v digitalRead@bitty bitty `uc  1 a 1 12 ]
+"110
 [v digitalRead@pin pin `uc  1 a 1 wreg ]
-[v digitalRead@pin pin `uc  1 a 1 8 ]
-"61
+[v digitalRead@pin pin `uc  1 a 1 14 ]
+"114
+} 0
+"78
+[v _regForPin regForPin `(uc  1 e 1 0 ]
+{
+[v regForPin@pin pin `uc  1 a 1 wreg ]
+[v regForPin@pin pin `uc  1 a 1 wreg ]
+[v regForPin@portAaddr portAaddr `uc  1 p 1 23 ]
+[v regForPin@portBaddr portBaddr `uc  1 p 1 24 ]
+[v regForPin@pin pin `uc  1 a 1 25 ]
+"80
+} 0
+"56
+[v _readRegister readRegister `(uc  1 e 1 0 ]
+{
+[v readRegister@addr addr `uc  1 a 1 wreg ]
+"59
+[v readRegister@result result `uc  1 a 1 9 ]
+"57
+[v readRegister@data data `uc  1 a 1 8 ]
+"56
+[v readRegister@addr addr `uc  1 a 1 wreg ]
+[v readRegister@addr addr `uc  1 a 1 7 ]
+"62
 } 0
 "598 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\mcc_generated_files/i2c1.c
 [v _I2C1_MasterWrite I2C1_MasterWrite `(v  1 e 1 0 ]
@@ -455,6 +544,14 @@ I2C1_LOST_STATE 6
 "698
 [v I2C1_MasterReadTRBBuild@address address `ui  1 p 2 28 ]
 "705
+} 0
+"81 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\main.c
+[v _bitForPin bitForPin `(uc  1 e 1 0 ]
+{
+[v bitForPin@pin pin `uc  1 a 1 wreg ]
+[v bitForPin@pin pin `uc  1 a 1 wreg ]
+[v bitForPin@pin pin `uc  1 a 1 23 ]
+"83
 } 0
 "116 C:\Users\Jacob\Documents\Junior\EGR 314\HardwareTesting.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]

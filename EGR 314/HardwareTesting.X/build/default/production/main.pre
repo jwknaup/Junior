@@ -14457,54 +14457,93 @@ void OSCILLATOR_Initialize(void);
 void PMD_Initialize(void);
 
 # 46 "main.c"
-uint8_t digitalRead(uint8_t pin) {
-uint8_t i2caddr = 1;
-I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+uint8_t i2caddr;
+I2C1_MESSAGE_STATUS status;
 
-uint8_t bity=pin%8;
-uint8_t regAddr;
-if(pin < 8)
-regAddr = 0x12;
-else
-regAddr = 0x13;
-
-I2C1_MasterWrite(&regAddr, 1, 0x20 | i2caddr, &status);
-uint8_t result;
-I2C1_MasterRead(&result, 1, 0x20 | i2caddr, &status);
-return (result >> bity) & 0x1;
+void writeRegister(uint8_t regAddr, uint8_t regValue){
+uint8_t data = regAddr;
+I2C1_MasterWrite(&data, 1, 0x21 | i2caddr, &status);
+data = regValue;
+I2C1_MasterWrite(&data, 1, 0x21 | i2caddr, &status);
 }
 
-# 66
+uint8_t readRegister(uint8_t addr){
+uint8_t data=addr;
+I2C1_MasterWrite(&data,1,0x21 | i2caddr, &status);
+uint8_t result;
+I2C1_MasterRead(&result, 1, 0x21 | i2caddr, &status);
+return result;
+}
+
+void mcpBegin(uint8_t addr){
+if (addr > 7) {
+addr = 7;
+}
+i2caddr = addr;
+
+I2C1_Initialize();
+
+
+
+writeRegister(0x00,0xff);
+writeRegister(0x01,0xff);
+}
+
+uint8_t regForPin(uint8_t pin, uint8_t portAaddr, uint8_t portBaddr){
+return(pin<8) ?portAaddr:portBaddr;
+}
+uint8_t bitForPin(uint8_t pin){
+return pin%8;
+}
+uint8_t bitWrite(uint8_t x, unsigned int n, bool b) {
+if (n <= 7 && n >= 0) {
+if (b) {
+x |= (1u << n);
+} else {
+x &= ~(1u << n);
+}
+}
+return x;
+}
+
+void updateRegisterBit(uint8_t pin, uint8_t pValue, uint8_t portAaddr, uint8_t portBaddr){
+uint8_t regValue;
+uint8_t regAddr = regForPin(pin, portAaddr, portBaddr);
+uint8_t bitty = bitForPin(pin);
+regValue = readRegister(regAddr);
+
+regValue = bitWrite(regValue, bitty, pValue);
+
+writeRegister(regAddr, regValue);
+}
+
+void mcpPinMode(uint8_t p, uint8_t d){
+updateRegisterBit(p,(d==1),0x00, 0x01);
+}
+
+uint8_t digitalRead(uint8_t pin) {
+uint8_t bitty = bitForPin(pin);
+uint8_t regAddr=regForPin(pin,0x12,0x13);
+return (readRegister(regAddr) >> bitty) & 0x1;
+}
+
+# 119
 void main(void)
 {
 
 SYSTEM_Initialize();
 
-# 88
-I2C1_Initialize();
+# 141
+mcpBegin(0);
+mcpPinMode(8,1);
 
-uint8_t i2caddr = 0x1;
-
-uint8_t data;
-
-I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
-
-data = 0x01;
-I2C1_MasterWrite(&data, 1, 0x20 | i2caddr, &status);
-
-
-
-data = 0xff;
-I2C1_MasterWrite(&data, 1, 0x20 | i2caddr, &status);
-
-# 109
 while (1)
 {
 if(digitalRead(8)){
 do { LATCbits.LATC6 = ~LATCbits.LATC6; } while(0);
 }
 
-_delay((unsigned long)((100)*(4000000/4000.0)));
+_delay((unsigned long)((50)*(4000000/4000.0)));
 
 
 }

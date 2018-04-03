@@ -119,7 +119,6 @@ void SYSTEM_Initialize(void)
     PMD_Initialize();
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
-    I2C1_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)

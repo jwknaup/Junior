@@ -1,16 +1,16 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"48 main.c
+"47 main.c
 [c E11615 0 1 2 3 4 5 6 .. ]
 [n E11615 . I2C1_MESSAGE_COMPLETE I2C1_MESSAGE_FAIL I2C1_MESSAGE_PENDING I2C1_STUCK_START I2C1_MESSAGE_ADDRESS_NO_ACK I2C1_DATA_NO_ACK I2C1_LOST_STATE  ]
 "259 mcc_generated_files/i2c1.h
 [v _I2C1_MasterWrite `(v ~T0 @X0 0 ef4`*uc`uc`ui`*E11615 ]
 "406
 [v _I2C1_MasterRead `(v ~T0 @X0 0 ef4`*uc`uc`ui`*E11615 ]
+"220
+[v _I2C1_Initialize `(v ~T0 @X0 0 ef ]
 [p mainexit ]
 "69 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"220 mcc_generated_files/i2c1.h
-[v _I2C1_Initialize `(v ~T0 @X0 0 ef ]
 "16158 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
 [s S785 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S785 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
@@ -10837,128 +10837,297 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.h: 82: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 95: void PMD_Initialize(void);
 "46 main.c
+[v _i2caddr `uc ~T0 @X0 1 e ]
+[; ;main.c: 46: uint8_t i2caddr;
+"47
+[v _status `E11615 ~T0 @X0 1 e ]
+[; ;main.c: 47: I2C1_MESSAGE_STATUS status;
+"49
+[v _writeRegister `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[; ;main.c: 49: void writeRegister(uint8_t regAddr, uint8_t regValue){
+[e :U _writeRegister ]
+[v _regAddr `uc ~T0 @X0 1 r1 ]
+[v _regValue `uc ~T0 @X0 1 r2 ]
+[f ]
+"50
+[v _data `uc ~T0 @X0 1 a ]
+[; ;main.c: 50: uint8_t data = regAddr;
+[e = _data _regAddr ]
+[; ;main.c: 51: I2C1_MasterWrite(&data, 1, 0x21 | i2caddr, &status);
+"51
+[e ( _I2C1_MasterWrite (4 , , , &U _data -> -> 1 `i `uc -> | -> 33 `i -> _i2caddr `i `ui &U _status ]
+[; ;main.c: 52: data = regValue;
+"52
+[e = _data _regValue ]
+[; ;main.c: 53: I2C1_MasterWrite(&data, 1, 0x21 | i2caddr, &status);
+"53
+[e ( _I2C1_MasterWrite (4 , , , &U _data -> -> 1 `i `uc -> | -> 33 `i -> _i2caddr `i `ui &U _status ]
+[; ;main.c: 54: }
+"54
+[e :UE 1369 ]
+}
+"56
+[v _readRegister `(uc ~T0 @X0 1 ef1`uc ]
+{
+[; ;main.c: 56: uint8_t readRegister(uint8_t addr){
+[e :U _readRegister ]
+[v _addr `uc ~T0 @X0 1 r1 ]
+[f ]
+"57
+[v _data `uc ~T0 @X0 1 a ]
+[; ;main.c: 57: uint8_t data=addr;
+[e = _data _addr ]
+[; ;main.c: 58: I2C1_MasterWrite(&data,1,0x21 | i2caddr, &status);
+"58
+[e ( _I2C1_MasterWrite (4 , , , &U _data -> -> 1 `i `uc -> | -> 33 `i -> _i2caddr `i `ui &U _status ]
+"59
+[v _result `uc ~T0 @X0 1 a ]
+[; ;main.c: 59: uint8_t result;
+[; ;main.c: 60: I2C1_MasterRead(&result, 1, 0x21 | i2caddr, &status);
+"60
+[e ( _I2C1_MasterRead (4 , , , &U _result -> -> 1 `i `uc -> | -> 33 `i -> _i2caddr `i `ui &U _status ]
+[; ;main.c: 61: return result;
+"61
+[e ) _result ]
+[e $UE 1370  ]
+[; ;main.c: 62: }
+"62
+[e :UE 1370 ]
+}
+"64
+[v _mcpBegin `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;main.c: 64: void mcpBegin(uint8_t addr){
+[e :U _mcpBegin ]
+[v _addr `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 65: if (addr > 7) {
+"65
+[e $ ! > -> _addr `i -> 7 `i 1372  ]
+{
+[; ;main.c: 66: addr = 7;
+"66
+[e = _addr -> -> 7 `i `uc ]
+"67
+}
+[e :U 1372 ]
+[; ;main.c: 67: }
+[; ;main.c: 68: i2caddr = addr;
+"68
+[e = _i2caddr _addr ]
+[; ;main.c: 70: I2C1_Initialize();
+"70
+[e ( _I2C1_Initialize ..  ]
+[; ;main.c: 74: writeRegister(0x00,0xff);
+"74
+[e ( _writeRegister (2 , -> -> 0 `i `uc -> -> 255 `i `uc ]
+[; ;main.c: 75: writeRegister(0x01,0xff);
+"75
+[e ( _writeRegister (2 , -> -> 1 `i `uc -> -> 255 `i `uc ]
+[; ;main.c: 76: }
+"76
+[e :UE 1371 ]
+}
+"78
+[v _regForPin `(uc ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[; ;main.c: 78: uint8_t regForPin(uint8_t pin, uint8_t portAaddr, uint8_t portBaddr){
+[e :U _regForPin ]
+[v _pin `uc ~T0 @X0 1 r1 ]
+[v _portAaddr `uc ~T0 @X0 1 r2 ]
+[v _portBaddr `uc ~T0 @X0 1 r3 ]
+[f ]
+[; ;main.c: 79: return(pin<8) ?portAaddr:portBaddr;
+"79
+[e ) -> ? < -> _pin `i -> 8 `i : -> _portAaddr `i -> _portBaddr `i `uc ]
+[e $UE 1373  ]
+[; ;main.c: 80: }
+"80
+[e :UE 1373 ]
+}
+"81
+[v _bitForPin `(uc ~T0 @X0 1 ef1`uc ]
+{
+[; ;main.c: 81: uint8_t bitForPin(uint8_t pin){
+[e :U _bitForPin ]
+[v _pin `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 82: return pin%8;
+"82
+[e ) -> % -> _pin `i -> 8 `i `uc ]
+[e $UE 1374  ]
+[; ;main.c: 83: }
+"83
+[e :UE 1374 ]
+}
+"84
+[v _bitWrite `(uc ~T0 @X0 1 ef3`uc`ui`uc ]
+{
+[; ;main.c: 84: uint8_t bitWrite(uint8_t x, unsigned int n, bool b) {
+[e :U _bitWrite ]
+[v _x `uc ~T0 @X0 1 r1 ]
+[v _n `ui ~T0 @X0 1 r2 ]
+[v _b `uc ~T0 @X0 1 r3 ]
+[f ]
+[; ;main.c: 85: if (n <= 7 && n >= 0) {
+"85
+[e $ ! && <= _n -> -> 7 `i `ui >= _n -> -> 0 `i `ui 1376  ]
+{
+[; ;main.c: 86: if (b) {
+"86
+[e $ ! != -> _b `i -> -> -> 0 `i `uc `i 1377  ]
+{
+[; ;main.c: 87: x |= (1u << n);
+"87
+[e =| _x -> << -> 1 `ui _n `uc ]
+"88
+}
+[; ;main.c: 88: } else {
+[e $U 1378  ]
+[e :U 1377 ]
+{
+[; ;main.c: 89: x &= ~(1u << n);
+"89
+[e =& _x -> ~ << -> 1 `ui _n `uc ]
+"90
+}
+[e :U 1378 ]
+"91
+}
+[e :U 1376 ]
+[; ;main.c: 90: }
+[; ;main.c: 91: }
+[; ;main.c: 92: return x;
+"92
+[e ) _x ]
+[e $UE 1375  ]
+[; ;main.c: 93: }
+"93
+[e :UE 1375 ]
+}
+"95
+[v _updateRegisterBit `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
+{
+[; ;main.c: 95: void updateRegisterBit(uint8_t pin, uint8_t pValue, uint8_t portAaddr, uint8_t portBaddr){
+[e :U _updateRegisterBit ]
+[v _pin `uc ~T0 @X0 1 r1 ]
+[v _pValue `uc ~T0 @X0 1 r2 ]
+[v _portAaddr `uc ~T0 @X0 1 r3 ]
+[v _portBaddr `uc ~T0 @X0 1 r4 ]
+[f ]
+"96
+[v _regValue `uc ~T0 @X0 1 a ]
+"97
+[v _regAddr `uc ~T0 @X0 1 a ]
+[; ;main.c: 96: uint8_t regValue;
+[; ;main.c: 97: uint8_t regAddr = regForPin(pin, portAaddr, portBaddr);
+[e = _regAddr ( _regForPin (3 , , _pin _portAaddr _portBaddr ]
+"98
+[v _bitty `uc ~T0 @X0 1 a ]
+[; ;main.c: 98: uint8_t bitty = bitForPin(pin);
+[e = _bitty ( _bitForPin (1 _pin ]
+[; ;main.c: 99: regValue = readRegister(regAddr);
+"99
+[e = _regValue ( _readRegister (1 _regAddr ]
+[; ;main.c: 101: regValue = bitWrite(regValue, bitty, pValue);
+"101
+[e = _regValue ( _bitWrite (3 , , _regValue -> _bitty `ui _pValue ]
+[; ;main.c: 103: writeRegister(regAddr, regValue);
+"103
+[e ( _writeRegister (2 , _regAddr _regValue ]
+[; ;main.c: 104: }
+"104
+[e :UE 1379 ]
+}
+"106
+[v _mcpPinMode `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[; ;main.c: 106: void mcpPinMode(uint8_t p, uint8_t d){
+[e :U _mcpPinMode ]
+[v _p `uc ~T0 @X0 1 r1 ]
+[v _d `uc ~T0 @X0 1 r2 ]
+[f ]
+[; ;main.c: 107: updateRegisterBit(p,(d==1),0x00, 0x01);
+"107
+[e ( _updateRegisterBit (4 , , , _p -> -> == -> _d `i -> 1 `i `i `uc -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 108: }
+"108
+[e :UE 1380 ]
+}
+"110
 [v _digitalRead `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;main.c: 46: uint8_t digitalRead(uint8_t pin) {
+[; ;main.c: 110: uint8_t digitalRead(uint8_t pin) {
 [e :U _digitalRead ]
 [v _pin `uc ~T0 @X0 1 r1 ]
 [f ]
-"47
-[v _i2caddr `uc ~T0 @X0 1 a ]
-[; ;main.c: 47: uint8_t i2caddr = 1;
-[e = _i2caddr -> -> 1 `i `uc ]
-"48
-[v _status `E11615 ~T0 @X0 1 a ]
-[; ;main.c: 48: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
-[e = _status . `E11615 2 ]
-"50
-[v _bity `uc ~T0 @X0 1 a ]
-[; ;main.c: 50: uint8_t bity=pin%8;
-[e = _bity -> % -> _pin `i -> 8 `i `uc ]
-"51
+"111
+[v _bitty `uc ~T0 @X0 1 a ]
+[; ;main.c: 111: uint8_t bitty = bitForPin(pin);
+[e = _bitty ( _bitForPin (1 _pin ]
+"112
 [v _regAddr `uc ~T0 @X0 1 a ]
-[; ;main.c: 51: uint8_t regAddr;
-[; ;main.c: 52: if(pin < 8)
-"52
-[e $ ! < -> _pin `i -> 8 `i 1370  ]
-[; ;main.c: 53: regAddr = 0x12;
-"53
-[e = _regAddr -> -> 18 `i `uc ]
-[e $U 1371  ]
-"54
-[e :U 1370 ]
-[; ;main.c: 54: else
-[; ;main.c: 55: regAddr = 0x13;
-"55
-[e = _regAddr -> -> 19 `i `uc ]
-[e :U 1371 ]
-[; ;main.c: 57: I2C1_MasterWrite(&regAddr, 1, 0x20 | i2caddr, &status);
-"57
-[e ( _I2C1_MasterWrite (4 , , , &U _regAddr -> -> 1 `i `uc -> | -> 32 `i -> _i2caddr `i `ui &U _status ]
-"58
-[v _result `uc ~T0 @X0 1 a ]
-[; ;main.c: 58: uint8_t result;
-[; ;main.c: 59: I2C1_MasterRead(&result, 1, 0x20 | i2caddr, &status);
-"59
-[e ( _I2C1_MasterRead (4 , , , &U _result -> -> 1 `i `uc -> | -> 32 `i -> _i2caddr `i `ui &U _status ]
-[; ;main.c: 60: return (result >> bity) & 0x1;
-"60
-[e ) -> & >> -> _result `i _bity -> 1 `i `uc ]
-[e $UE 1369  ]
-[; ;main.c: 61: }
-"61
-[e :UE 1369 ]
+[; ;main.c: 112: uint8_t regAddr=regForPin(pin,0x12,0x13);
+[e = _regAddr ( _regForPin (3 , , _pin -> -> 18 `i `uc -> -> 19 `i `uc ]
+[; ;main.c: 113: return (readRegister(regAddr) >> bitty) & 0x1;
+"113
+[e ) -> & >> -> ( _readRegister (1 _regAddr `i _bitty -> 1 `i `uc ]
+[e $UE 1381  ]
+[; ;main.c: 114: }
+"114
+[e :UE 1381 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"66
+"119
 [v _main `(v ~T0 @X0 1 ef ]
-"67
+"120
 {
-[; ;main.c: 66: void main(void)
-[; ;main.c: 67: {
+[; ;main.c: 119: void main(void)
+[; ;main.c: 120: {
 [e :U _main ]
 [f ]
-[; ;main.c: 69: SYSTEM_Initialize();
-"69
+[; ;main.c: 122: SYSTEM_Initialize();
+"122
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 88: I2C1_Initialize();
-"88
-[e ( _I2C1_Initialize ..  ]
-"90
-[v _i2caddr `uc ~T0 @X0 1 a ]
-[; ;main.c: 90: uint8_t i2caddr = 0x1;
-[e = _i2caddr -> -> 1 `i `uc ]
-"92
-[v _data `uc ~T0 @X0 1 a ]
-"94
-[v _status `E11615 ~T0 @X0 1 a ]
-[; ;main.c: 92: uint8_t data;
-[; ;main.c: 94: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
-[e = _status . `E11615 2 ]
-[; ;main.c: 96: data = 0x01;
-"96
-[e = _data -> -> 1 `i `uc ]
-[; ;main.c: 97: I2C1_MasterWrite(&data, 1, 0x20 | i2caddr, &status);
-"97
-[e ( _I2C1_MasterWrite (4 , , , &U _data -> -> 1 `i `uc -> | -> 32 `i -> _i2caddr `i `ui &U _status ]
-[; ;main.c: 101: data = 0xff;
-"101
-[e = _data -> -> 255 `i `uc ]
-[; ;main.c: 102: I2C1_MasterWrite(&data, 1, 0x20 | i2caddr, &status);
-"102
-[e ( _I2C1_MasterWrite (4 , , , &U _data -> -> 1 `i `uc -> | -> 32 `i -> _i2caddr `i `ui &U _status ]
-[; ;main.c: 109: while (1)
-"109
-[e :U 1374 ]
-[; ;main.c: 110: {
-"110
+[; ;main.c: 141: mcpBegin(0);
+"141
+[e ( _mcpBegin (1 -> -> 0 `i `uc ]
+[; ;main.c: 142: mcpPinMode(8,1);
+"142
+[e ( _mcpPinMode (2 , -> -> 8 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 144: while (1)
+"144
+[e :U 1384 ]
+[; ;main.c: 145: {
+"145
 {
-[; ;main.c: 111: if(digitalRead(8)){
-"111
-[e $ ! != -> ( _digitalRead (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1376  ]
+[; ;main.c: 146: if(digitalRead(8)){
+"146
+[e $ ! != -> ( _digitalRead (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1386  ]
 {
-[; ;main.c: 112: do { LATCbits.LATC6 = ~LATCbits.LATC6; } while(0);
-"112
-[e :U 1379 ]
+[; ;main.c: 147: do { LATCbits.LATC6 = ~LATCbits.LATC6; } while(0);
+"147
+[e :U 1389 ]
 {
 [e = . . _LATCbits 0 6 -> ~ -> . . _LATCbits 0 6 `i `uc ]
 }
-[e :U 1378 ]
-"113
+[e :U 1388 ]
+"148
 }
-[e :U 1376 ]
-[; ;main.c: 113: }
-[; ;main.c: 115: _delay((unsigned long)((100)*(4000000/4000.0)));
-"115
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"118
+[e :U 1386 ]
+[; ;main.c: 148: }
+[; ;main.c: 150: _delay((unsigned long)((50)*(4000000/4000.0)));
+"150
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"153
 }
-[e :U 1373 ]
-"109
-[e $U 1374  ]
-[e :U 1375 ]
-[; ;main.c: 118: }
-[; ;main.c: 119: }
-"119
-[e :UE 1372 ]
+[e :U 1383 ]
+"144
+[e $U 1384  ]
+[e :U 1385 ]
+[; ;main.c: 153: }
+[; ;main.c: 154: }
+"154
+[e :UE 1382 ]
 }
