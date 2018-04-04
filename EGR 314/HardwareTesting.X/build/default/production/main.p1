@@ -11,7 +11,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "69 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"16158 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
+"26475 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
+[s S1338 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1338 . INT0EDG INT1EDG INT2EDG . IPEN PEIE_GIEL GIE_GIEH ]
+"26484
+[s S1339 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1339 . . PEIE GIE ]
+"26489
+[s S1340 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1340 . . GIEL GIEH ]
+"26474
+[u S1337 `S1338 1 `S1339 1 `S1340 1 ]
+[n S1337 . . . . ]
+"26495
+[v _INTCONbits `VS1337 ~T0 @X0 0 e@4082 ]
+"16158
 [s S785 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S785 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
 "16168
@@ -11090,6 +11104,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 122: SYSTEM_Initialize();
 "122
 [e ( _SYSTEM_Initialize ..  ]
+[; ;main.c: 129: (INTCONbits.GIE = 1);
+"129
+[e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
+[; ;main.c: 135: (INTCONbits.PEIE = 1);
+"135
+[e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
 [; ;main.c: 141: mcpBegin(0);
 "141
 [e ( _mcpBegin (1 -> -> 0 `i `uc ]
@@ -11102,21 +11122,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 145: {
 "145
 {
-[; ;main.c: 146: if(digitalRead(8)){
-"146
-[e $ ! != -> ( _digitalRead (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1386  ]
-{
 [; ;main.c: 147: do { LATCbits.LATC6 = ~LATCbits.LATC6; } while(0);
 "147
-[e :U 1389 ]
+[e :U 1388 ]
 {
 [e = . . _LATCbits 0 6 -> ~ -> . . _LATCbits 0 6 `i `uc ]
 }
-[e :U 1388 ]
-"148
-}
-[e :U 1386 ]
-[; ;main.c: 148: }
+[e :U 1387 ]
 [; ;main.c: 150: _delay((unsigned long)((50)*(4000000/4000.0)));
 "150
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]

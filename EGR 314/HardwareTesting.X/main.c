@@ -126,13 +126,13 @@ void main(void)
     // Use the following macros to:
 
     // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
 
     // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
@@ -143,9 +143,9 @@ void main(void)
     
     while (1)
     {
-        if(digitalRead(8)){
+        //if(digitalRead(8)){
             LED_Toggle();
-        }
+        //}
         
         __delay_ms(50);
         

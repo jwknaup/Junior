@@ -14533,15 +14533,21 @@ void main(void)
 
 SYSTEM_Initialize();
 
+# 129
+(INTCONbits.GIE = 1);
+
+# 135
+(INTCONbits.PEIE = 1);
+
 # 141
 mcpBegin(0);
 mcpPinMode(8,1);
 
 while (1)
 {
-if(digitalRead(8)){
+
 do { LATCbits.LATC6 = ~LATCbits.LATC6; } while(0);
-}
+
 
 _delay((unsigned long)((50)*(4000000/4000.0)));
 
