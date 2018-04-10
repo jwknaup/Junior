@@ -25,17 +25,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1337 . . . . ]
 "26495
 [v _INTCONbits `VS1337 ~T0 @X0 0 e@4082 ]
-"16158
-[s S785 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S785 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"16168
-[s S786 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S786 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"16157
-[u S784 `S785 1 `S786 1 ]
-[n S784 . . . ]
-"16179
-[v _LATCbits `VS784 ~T0 @X0 0 e@3973 ]
+"15934
+[s S779 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S779 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"15944
+[s S780 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S780 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"15933
+[u S778 `S779 1 `S780 1 ]
+[n S778 . . . ]
+"15955
+[v _LATAbits `VS778 ~T0 @X0 0 e@3971 ]
 [v F11568 `(v ~T0 @X0 1 tf1`ul ]
 "164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF11568 ~T0 @X0 0 e ]
@@ -10767,8 +10767,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 152: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 164: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 132: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 144: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -11122,13 +11122,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 145: {
 "145
 {
-[; ;main.c: 147: do { LATCbits.LATC6 = ~LATCbits.LATC6; } while(0);
-"147
-[e :U 1388 ]
+[; ;main.c: 146: if(digitalRead(8)){
+"146
+[e $ ! != -> ( _digitalRead (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1386  ]
 {
-[e = . . _LATCbits 0 6 -> ~ -> . . _LATCbits 0 6 `i `uc ]
+[; ;main.c: 147: do { LATAbits.LATA4 = ~LATAbits.LATA4; } while(0);
+"147
+[e :U 1389 ]
+{
+[e = . . _LATAbits 0 4 -> ~ -> . . _LATAbits 0 4 `i `uc ]
 }
-[e :U 1387 ]
+[e :U 1388 ]
+"148
+}
+[e :U 1386 ]
+[; ;main.c: 148: }
 [; ;main.c: 150: _delay((unsigned long)((50)*(4000000/4000.0)));
 "150
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]

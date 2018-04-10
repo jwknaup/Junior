@@ -143,9 +143,9 @@ void main(void)
     
     while (1)
     {
-        //if(digitalRead(8)){
+        if(digitalRead(8)){
             LED_Toggle();
-        //}
+        }
         
         __delay_ms(50);
         
