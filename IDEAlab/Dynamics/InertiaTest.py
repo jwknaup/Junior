@@ -31,8 +31,8 @@ system.set_newtonian(N)
 
 
 g = Constant(9.81,'g',system)
-b = Constant(1e-1,'b',system)
-k = Constant(1e-1,'k',system)
+#b = Constant(1e-1,'b',system)
+#k = Constant(1e-1,'k',system)
 
 def createBlock(name, pos, rot, scale, mass):
     dx = scale[0]
@@ -45,9 +45,9 @@ def createBlock(name, pos, rot, scale, mass):
     
     m = Constant(mass, name+'m', system)
     
-    I_xx = Constant(m/12.0*(dy*dy + dz*dz), name+'I_xx',system)
-    I_yy = Constant(m/12.0*(dx*dx + dz*dz), name+'I_yy',system)
-    I_zz = Constant(m/12.0*(dx*dx + dy*dy), name+'I_zz',system)
+    I_xx = Constant(mass/12.0*(dy*dy + dz*dz), name+'I_xx',system)
+    I_yy = Constant(mass/12.0*(dx*dx + dz*dz), name+'I_yy',system)
+    I_zz = Constant(mass/12.0*(dx*dx + dy*dy), name+'I_zz',system)
     
     x,x_d,x_dd = Differentiable(name+'x',system)
     y,y_d,y_dd = Differentiable(name+'y',system)
@@ -62,6 +62,9 @@ def createBlock(name, pos, rot, scale, mass):
     initialvalues[q_d]=0*pi/180
     
     pcm = x*N.x+y*N.y
+    vcm=pcm.time_derivative(N,system)
+    theta=q*N.z
+    theta_d=theta.time_derivative(N,system)
     
     frame = Frame(name)
     
@@ -71,24 +74,35 @@ def createBlock(name, pos, rot, scale, mass):
     
     body = Body(name+'body', frame, pcm, m, I, system)
     
-    dictionary = {'q_d':q_d, 'ini':initialvalues}
+    dictionary = {'y':y,'q':q, 'q_d':q_d, 'ini':initialvalues}
     
     return dictionary
     
-variables = createBlock('A', [0,0,0], 0, [0.01,0.001,0.05], 0.01)
-
-#tau = system.addforce(1.0, variables['q_d']*N.z)
-
-f,ma = system.getdynamics()
-func1 = system.state_space_post_invert(f,ma,constants = {})
-
-tinitial = 0
-tfinal = 10
-tstep = .01
-t = numpy.r_[tinitial:tfinal:tstep]
+variables = createBlock('A', [0,0,0], 0, [0.01,0.001,0.10], 0.01)
 
 statevariables = system.get_state_variables()
 ini = [variables['ini'][item] for item in statevariables]
 
-states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
+tau = system.addforce(0.00001*N.z, variables['q_d']*N.z)
+system.addforcegravity(-g*N.y)
+
+f,ma = system.getdynamics()
+func1 = system.state_space_post_invert(f,ma)
+
+tinitial = 0
+tfinal = 0.1
+tstep = .01
+t = numpy.r_[tinitial:tfinal:tstep]
+
+
+
+states=pynamics.integration.integrate_odeint(func1,ini,t,rtol=1e-3,atol=1e-3,hmin=1e-14,args=({'constants':system.constant_values,'alpha':1e3,'beta':1e1},))
+
+path="C:/Users/Jacob/Documents/Junior/IDEAlab/datas/Pynamics Results/"
+rotation = Output([variables['q']*180/3.14159],system)
+rotarray=rotation.calc(states)
+rotation.plot_time(t)
+height = Output([-variables['y']],system)
+heightarray=rotation.calc(states)
+numpy.savetxt(path+'data.csv', numpy.transpose([t,rotarray,heightarray]), delimiter=',')
 

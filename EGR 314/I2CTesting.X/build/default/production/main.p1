@@ -22,6 +22,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _i2c_writeNBytes `(v ~T0 @X0 0 ef3`uc`*v`ui ]
 "36
 [v _i2c_readNBytes `(v ~T0 @X0 0 ef3`uc`*v`ui ]
+"15934 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
+[s S779 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S779 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"15944
+[s S780 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S780 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"15933
+[u S778 `S779 1 `S780 1 ]
+[n S778 . . . ]
+"15955
+[v _LATAbits `VS778 ~T0 @X0 0 e@3971 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10749,8 +10760,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 132: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 144: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 152: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 164: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -10944,29 +10955,64 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 84: i2c_readNBytes(addr, &rec, 1);
 "84
 [e ( _i2c_readNBytes (3 , , _addr -> &U _rec `*v -> -> 1 `i `ui ]
-[; ;main.c: 88: data[0]=0x12;
-"88
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 18 `i `uc ]
-[; ;main.c: 89: data[1]=rec;
-"89
-[e = *U + &U _data * -> -> -> 1 `i `ui `ux -> -> # *U &U _data `ui `ux _rec ]
-[; ;main.c: 90: i2c_writeNBytes(addr, data, 2);
-"90
-[e ( _i2c_writeNBytes (3 , , _addr -> &U _data `*v -> -> 2 `i `ui ]
-[; ;main.c: 92: while (1)
-"92
-[e :U 1371 ]
-[; ;main.c: 93: {
-"93
+[; ;main.c: 86: if(rec != 0b11111110)
+"86
+[e $ ! != -> _rec `i -> 254 `i 1370  ]
+[; ;main.c: 87: do { LATAbits.LATA2 = 0; } while(0);
+"87
+[e :U 1373 ]
 {
-"101
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 1370 ]
-"92
-[e $U 1371  ]
 [e :U 1372 ]
-[; ;main.c: 101: }
-[; ;main.c: 102: }
-"102
+[e :U 1370 ]
+[; ;main.c: 95: while (1)
+"95
+[e :U 1375 ]
+[; ;main.c: 96: {
+"96
+{
+[; ;main.c: 98: data[0]=0x13;
+"98
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 19 `i `uc ]
+[; ;main.c: 99: i2c_writeNBytes(addr, &data[0], 1);
+"99
+[e ( _i2c_writeNBytes (3 , , _addr -> &U *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `*v -> -> 1 `i `ui ]
+[v _rec `uc ~T0 @X0 1 a ]
+[; ;main.c: 100: uint8_t rec;
+[; ;main.c: 101: i2c_readNBytes(addr, &rec, 1);
+"101
+[e ( _i2c_readNBytes (3 , , _addr -> &U _rec `*v -> -> 1 `i `ui ]
+[; ;main.c: 103: if(rec != 0b11111110)
+"103
+[e $ ! != -> _rec `i -> 254 `i 1377  ]
+[; ;main.c: 104: do { LATAbits.LATA2 = 0; } while(0);
+"104
+[e :U 1380 ]
+{
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+}
+[e :U 1379 ]
+[e $U 1381  ]
+"105
+[e :U 1377 ]
+[; ;main.c: 105: else
+[; ;main.c: 106: do { LATAbits.LATA2 = 1; } while(0);
+"106
+[e :U 1384 ]
+{
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+}
+[e :U 1383 ]
+[e :U 1381 ]
+"113
+}
+[e :U 1374 ]
+"95
+[e $U 1375  ]
+[e :U 1376 ]
+[; ;main.c: 113: }
+[; ;main.c: 114: }
+"114
 [e :UE 1369 ]
 }

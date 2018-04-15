@@ -10942,8 +10942,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 132: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 144: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 152: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 164: void PIN_MANAGER_IOC(void);
 [; ;interrupt_manager.h: 108: void interrupt INTERRUPT_InterruptManager(void);
 [; ;interrupt_manager.h: 120: void INTERRUPT_Initialize (void);
 [; ;i2c1_driver.h: 34: inline void i2c1_driver_close(void);

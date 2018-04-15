@@ -78,25 +78,30 @@ void main(void)
 //    data[0]=0x01
 //    i2c_writeNBytes(addr, data, 2);
     
+    //read B
     data[0]=0x13;
     i2c_writeNBytes(addr, &data[0], 1);
     uint8_t rec;
     i2c_readNBytes(addr, &rec, 1);
-    
-    
-    //set pins;
-    data[0]=0x12;
-    data[1]=rec;
-    i2c_writeNBytes(addr, data, 2);
+
+    //set A;
+//    data[0]=0x12;
+//    data[1]=8;
+//    i2c_writeNBytes(addr, data, 2);
 
     while (1)
     {
-        // Add your application code
+        // Read B
+        data[0]=0x13;
+        i2c_writeNBytes(addr, &data[0], 1);
+        uint8_t rec;
+        i2c_readNBytes(addr, &rec, 1);
 
-        
-        
-
-        //i2c_write1ByteRegister(0x01,0x11,0x00);
+        //set LED
+        if(rec != 0b11111110)
+            IO_RA2_SetLow();
+        else
+            IO_RA2_SetHigh();
 
     }
 }
