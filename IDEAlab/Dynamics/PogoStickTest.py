@@ -74,12 +74,12 @@ def createBlock(name, pos, rot, scale, mass):
     
     body = Body(name+'body', frame, pcm, m, I, system)
     
-    dictionary = {'pcm':pcm, 'vcm':vcm, 'y':y,'q':q, 'q_d':q_d, 'ini':initialvalues}
+    dictionary = {'pcm':pcm, 'vcm':vcm, 'y':y,'q':q, 'q_d':q_d, 'ini':initialvalues, 'dy':dy}
     
     return dictionary
     
-A = createBlock('A', [0,1.0,0], 0, [0.05,0.05,0.05], 0.01)
-B = createBlock('B', [0,0.9,0], 0, [0.05,0.05,0.05], 0.01)
+A = createBlock('A', [0,0.5,0], 0, [0.05,0.05,0.05], 0.01)
+B = createBlock('B', [0,0.4,0], 0, [0.05,0.05,0.05], 0.01)
 
 statevariables = system.get_state_variables()
 ini = system.get_ini()
@@ -87,11 +87,21 @@ ini = system.get_ini()
 spring = system.add_spring_force2(k, A['pcm']-B['pcm']-0.2*N.y, A['vcm'], -B['vcm'])
 system.addforcegravity(-g*N.y)
 
+stretch = -(B['pcm'].dot(N.y)-0.5*B['dy'])
+stretchDot = B['vcm'].dot(N.y)
+stretch_s = (stretch+abs(stretch))
+stretchDot_s = (stretchDot-abs(stretchDot))
+on = stretch_s/(2*stretch+1e-10)
+onDot = stretchDot_s/(2*stretchDot+1e-10)
+groundS, _ = system.add_spring_force1(1e4,-stretch_s*N.y,B['vcm'])
+groundD = system.addforce(-1e2*B['vcm']*onDot*on,B['vcm'])
+
+
 f,ma = system.getdynamics()
 func1 = system.state_space_post_invert(f,ma)
 
 tinitial = 0
-tfinal = 0.1
+tfinal = 1.0
 tstep = .001
 t = numpy.r_[tinitial:tfinal:tstep]
 
