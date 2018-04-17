@@ -69,11 +69,13 @@ void main(void)
     //i2c_writeNBytes(i2c_address_t address, void* data, size_t len); 
     uint8_t data[2];
     uint8_t addr = 0x20;
+    uint8_t gamerScore = 0x17;  //gammer score = 23
+    uint8_t photonAddress = 0x30;  //I2C address for Particle 
     
     //set A to out
-    data[0] = 0x00;
-    data[1] = 0x00;
-    i2c_writeNBytes(addr, data, 2);
+//    data[0] = 0x00;
+//    data[1] = 0x00;
+//    i2c_writeNBytes(addr, data, 2);
     //set B to out
 //    data[0]=0x01
 //    i2c_writeNBytes(addr, data, 2);
@@ -88,6 +90,9 @@ void main(void)
 //    data[0]=0x12;
 //    data[1]=8;
 //    i2c_writeNBytes(addr, data, 2);
+    
+    i2c_writeNBytes(photonAddress, &gamerScore, 1); //sends gamer score to the Photon
+
 
     while (1)
     {
@@ -98,7 +103,7 @@ void main(void)
         i2c_readNBytes(addr, &rec, 1);
 
         //set LED
-        if(rec != 0b11111110)
+        if(rec != 0b11111111)
             IO_RA2_SetLow();
         else
             IO_RA2_SetHigh();

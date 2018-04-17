@@ -10934,85 +10934,65 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 70: uint8_t data[2];
 [; ;main.c: 71: uint8_t addr = 0x20;
 [e = _addr -> -> 32 `i `uc ]
-[; ;main.c: 74: data[0] = 0x00;
-"74
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 0 `i `uc ]
-[; ;main.c: 75: data[1] = 0x00;
-"75
-[e = *U + &U _data * -> -> -> 1 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 0 `i `uc ]
-[; ;main.c: 76: i2c_writeNBytes(addr, data, 2);
-"76
-[e ( _i2c_writeNBytes (3 , , _addr -> &U _data `*v -> -> 2 `i `ui ]
-[; ;main.c: 81: data[0]=0x13;
-"81
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 19 `i `uc ]
-[; ;main.c: 82: i2c_writeNBytes(addr, &data[0], 1);
+[; ;main.c: 82: data[0]=0x13;
 "82
-[e ( _i2c_writeNBytes (3 , , _addr -> &U *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `*v -> -> 1 `i `ui ]
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 19 `i `uc ]
+[; ;main.c: 83: i2c_writeNBytes(addr, &data[0], 1);
 "83
-[v _rec `uc ~T0 @X0 1 a ]
-[; ;main.c: 83: uint8_t rec;
-[; ;main.c: 84: i2c_readNBytes(addr, &rec, 1);
+[e ( _i2c_writeNBytes (3 , , _addr -> &U *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `*v -> -> 1 `i `ui ]
 "84
+[v _rec `uc ~T0 @X0 1 a ]
+[; ;main.c: 84: uint8_t rec;
+[; ;main.c: 85: i2c_readNBytes(addr, &rec, 1);
+"85
 [e ( _i2c_readNBytes (3 , , _addr -> &U _rec `*v -> -> 1 `i `ui ]
-[; ;main.c: 86: if(rec != 0b11111110)
-"86
-[e $ ! != -> _rec `i -> 254 `i 1370  ]
-[; ;main.c: 87: do { LATAbits.LATA2 = 0; } while(0);
-"87
-[e :U 1373 ]
+[; ;main.c: 92: while (1)
+"92
+[e :U 1371 ]
+[; ;main.c: 93: {
+"93
+{
+[; ;main.c: 95: data[0]=0x13;
+"95
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 19 `i `uc ]
+[; ;main.c: 96: i2c_writeNBytes(addr, &data[0], 1);
+"96
+[e ( _i2c_writeNBytes (3 , , _addr -> &U *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `*v -> -> 1 `i `ui ]
+[v _rec `uc ~T0 @X0 1 a ]
+[; ;main.c: 97: uint8_t rec;
+[; ;main.c: 98: i2c_readNBytes(addr, &rec, 1);
+"98
+[e ( _i2c_readNBytes (3 , , _addr -> &U _rec `*v -> -> 1 `i `ui ]
+[; ;main.c: 101: if(rec != 0b11111111)
+"101
+[e $ ! != -> _rec `i -> 255 `i 1373  ]
+[; ;main.c: 102: do { LATAbits.LATA2 = 0; } while(0);
+"102
+[e :U 1376 ]
 {
 [e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 1372 ]
-[e :U 1370 ]
-[; ;main.c: 95: while (1)
-"95
 [e :U 1375 ]
-[; ;main.c: 96: {
-"96
-{
-[; ;main.c: 98: data[0]=0x13;
-"98
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 19 `i `uc ]
-[; ;main.c: 99: i2c_writeNBytes(addr, &data[0], 1);
-"99
-[e ( _i2c_writeNBytes (3 , , _addr -> &U *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `*v -> -> 1 `i `ui ]
-[v _rec `uc ~T0 @X0 1 a ]
-[; ;main.c: 100: uint8_t rec;
-[; ;main.c: 101: i2c_readNBytes(addr, &rec, 1);
-"101
-[e ( _i2c_readNBytes (3 , , _addr -> &U _rec `*v -> -> 1 `i `ui ]
-[; ;main.c: 103: if(rec != 0b11111110)
+[e $U 1377  ]
 "103
-[e $ ! != -> _rec `i -> 254 `i 1377  ]
-[; ;main.c: 104: do { LATAbits.LATA2 = 0; } while(0);
+[e :U 1373 ]
+[; ;main.c: 103: else
+[; ;main.c: 104: do { LATAbits.LATA2 = 1; } while(0);
 "104
 [e :U 1380 ]
 {
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 1379 ]
-[e $U 1381  ]
-"105
-[e :U 1377 ]
-[; ;main.c: 105: else
-[; ;main.c: 106: do { LATAbits.LATA2 = 1; } while(0);
-"106
-[e :U 1384 ]
-{
 [e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
 }
-[e :U 1383 ]
-[e :U 1381 ]
-"113
+[e :U 1379 ]
+[e :U 1377 ]
+"106
 }
-[e :U 1374 ]
-"95
-[e $U 1375  ]
-[e :U 1376 ]
-[; ;main.c: 113: }
-[; ;main.c: 114: }
-"114
+[e :U 1370 ]
+"92
+[e $U 1371  ]
+[e :U 1372 ]
+[; ;main.c: 106: }
+[; ;main.c: 107: }
+"107
 [e :UE 1369 ]
 }

@@ -35,9 +35,9 @@ g = Constant(9.81,'g',system)
 #k = Constant(1e-1,'k',system)
 
 def createBlock(name, pos, rot, scale, mass):
-    dx = scale[0]
+    dx = scale[2]
     dy = scale[1]
-    dz = scale[2]
+    dz = scale[0]
     
     lx = Constant(dx, name+'lx', system)
     ly = Constant(dy, name+'ly', system)
@@ -74,7 +74,7 @@ def createBlock(name, pos, rot, scale, mass):
     
     body = Body(name+'body', frame, pcm, m, I, system)
     
-    dictionary = {'y':y,'q':q, 'q_d':q_d, 'ini':initialvalues}
+    dictionary = {'vcm':vcm, 'y':y,'q':q, 'q_d':q_d, 'ini':initialvalues}
     
     return dictionary
     
@@ -84,14 +84,14 @@ statevariables = system.get_state_variables()
 ini = [variables['ini'][item] for item in statevariables]
 
 tau = system.addforce(0.00001*N.z, variables['q_d']*N.z)
-system.addforcegravity(-g*N.y)
+system.addforcegravity(g*N.y)
 
 f,ma = system.getdynamics()
 func1 = system.state_space_post_invert(f,ma)
 
 tinitial = 0
 tfinal = 0.1
-tstep = .01
+tstep = .001
 t = numpy.r_[tinitial:tfinal:tstep]
 
 
@@ -103,6 +103,7 @@ rotation = Output([variables['q']*180/3.14159],system)
 rotarray=rotation.calc(states)
 rotation.plot_time(t)
 height = Output([-variables['y']],system)
-heightarray=rotation.calc(states)
+heightarray=height.calc(states)
+height.plot_time(t)
 numpy.savetxt(path+'data.csv', numpy.transpose([t,rotarray,heightarray]), delimiter=',')
 

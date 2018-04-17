@@ -14570,23 +14570,13 @@ SYSTEM_Initialize();
 uint8_t data[2];
 uint8_t addr = 0x20;
 
-
-data[0] = 0x00;
-data[1] = 0x00;
-i2c_writeNBytes(addr, data, 2);
-
-
-
-
+# 82
 data[0]=0x13;
 i2c_writeNBytes(addr, &data[0], 1);
 uint8_t rec;
 i2c_readNBytes(addr, &rec, 1);
 
-if(rec != 0b11111110)
-do { LATAbits.LATA2 = 0; } while(0);
-
-# 95
+# 92
 while (1)
 {
 
@@ -14595,12 +14585,12 @@ i2c_writeNBytes(addr, &data[0], 1);
 uint8_t rec;
 i2c_readNBytes(addr, &rec, 1);
 
-if(rec != 0b11111110)
+
+if(rec != 0b11111111)
 do { LATAbits.LATA2 = 0; } while(0);
 else
 do { LATAbits.LATA2 = 1; } while(0);
 
-# 113
 }
 }
 
