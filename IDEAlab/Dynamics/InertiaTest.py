@@ -105,5 +105,5 @@ rotation.plot_time(t)
 height = Output([-variables['y']],system)
 heightarray=height.calc(states)
 height.plot_time(t)
-numpy.savetxt(path+'data.csv', numpy.transpose([t,rotarray,heightarray]), delimiter=',')
+numpy.savetxt(path+'inertia.csv', numpy.transpose([t,rotarray,heightarray]), delimiter=',')
 
