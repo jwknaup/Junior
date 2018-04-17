@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 directory = "C:/Users/Jacob/Documents/Junior/IDEAlab/datas/"
 
-file='pogo.csv'
+file='bouncyFourbar.csv'
 U = np.genfromtxt(directory+'Unity Results/'+file, delimiter=',')
 P = np.genfromtxt(directory+'Pynamics Results/'+file, delimiter=',')
 
