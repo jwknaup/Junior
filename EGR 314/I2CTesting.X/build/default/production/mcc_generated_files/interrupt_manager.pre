@@ -14274,10 +14274,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 152 "mcc_generated_files/pin_manager.h"
+# 212 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 164
+# 224
 void PIN_MANAGER_IOC(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
@@ -14436,6 +14436,23 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
+# 28 "mcc_generated_files/spi2_types.h"
+typedef enum {
+CUSTOM1
+} spi2_modes;
+
+# 35 "mcc_generated_files/spi2_driver.h"
+inline void spi2_close(void);
+
+bit spi2_master_open(spi2_modes spiUniqueConfiguration);
+bit spi2_slave_open(spi2_modes spiUniqueConfiguration);
+
+uint8_t spi2_exchangeByte(uint8_t b);
+
+void spi2_exchangeBlock(void *block, size_t blockSize);
+void spi2_writeBlock(void *block, size_t blockSize);
+void spi2_readBlock(void *block, size_t blockSize);
+
 # 34 "mcc_generated_files/i2c1_driver.h"
 inline void i2c1_driver_close(void);
 
@@ -14545,13 +14562,13 @@ void i2c_setTimeOutCallback(i2c_callback cb, void *p);
 void i2c_ISR(void);
 void i2c_busCollisionISR(void);
 
-# 71 "mcc_generated_files/mcc.h"
+# 72 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 84
+# 85
 void OSCILLATOR_Initialize(void);
 
-# 97
+# 98
 void PMD_Initialize(void);
 
 # 51 "mcc_generated_files/interrupt_manager.c"

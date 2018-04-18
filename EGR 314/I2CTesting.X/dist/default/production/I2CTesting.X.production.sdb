@@ -65,6 +65,14 @@ I2C_NOERR 0
 I2C_BUSY 1
 I2C_FAIL 2
 ]
+"82 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
+[e E11675 . `uc
+CUSTOM1 0
+]
+"45 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/spi2_driver.c
+[e E11675 . `uc
+CUSTOM1 0
+]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -89,7 +97,6 @@ I2C_FAIL 2
 [v _main main `(v  1 e 1 0 ]
 "89 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
 [v _i2c_setDataCompleteCallback i2c_setDataCompleteCallback `(v  1 e 1 0 ]
-[v i2_i2c_setDataCompleteCallback i2c_setDataCompleteCallback `(v  1 e 1 0 ]
 "99
 [v _i2c_setAddressNACKCallback i2c_setAddressNACKCallback `(v  1 e 1 0 ]
 "116
@@ -98,7 +105,6 @@ I2C_FAIL 2
 [v _i2c_close i2c_close `(E11785  1 e 1 0 ]
 "184
 [v _i2c_setBuffer i2c_setBuffer `(v  1 e 1 0 ]
-[v i2_i2c_setBuffer i2c_setBuffer `(v  1 e 1 0 ]
 "193
 [v _i2c_masterOperation i2c_masterOperation `(E11785  1 e 1 0 ]
 "217
@@ -109,88 +115,58 @@ I2C_FAIL 2
 [v _i2c_poller i2c_poller `T(v  1 e 1 0 ]
 "239
 [v _do_I2C_RESET do_I2C_RESET `(E11956  1 s 1 do_I2C_RESET ]
-[v i2_do_I2C_RESET do_I2C_RESET `(E11956  1 s 1 i2_do_I2C_RESET ]
 "247
 [v _do_I2C_IDLE do_I2C_IDLE `(E11956  1 s 1 do_I2C_IDLE ]
-[v i2_do_I2C_IDLE do_I2C_IDLE `(E11956  1 s 1 i2_do_I2C_IDLE ]
 "254
 [v _do_I2C_SEND_RESTART_READ do_I2C_SEND_RESTART_READ `(E11956  1 s 1 do_I2C_SEND_RESTART_READ ]
-[v i2_do_I2C_SEND_RESTART_READ do_I2C_SEND_RESTART_READ `(E11956  1 s 1 i2_do_I2C_SEND_RESTART_READ ]
 "260
 [v _do_I2C_SEND_RESTART_WRITE do_I2C_SEND_RESTART_WRITE `(E11956  1 s 1 do_I2C_SEND_RESTART_WRITE ]
-[v i2_do_I2C_SEND_RESTART_WRITE do_I2C_SEND_RESTART_WRITE `(E11956  1 s 1 i2_do_I2C_SEND_RESTART_WRITE ]
 "266
 [v _do_I2C_SEND_RESTART do_I2C_SEND_RESTART `(E11956  1 s 1 do_I2C_SEND_RESTART ]
-[v i2_do_I2C_SEND_RESTART do_I2C_SEND_RESTART `(E11956  1 s 1 i2_do_I2C_SEND_RESTART ]
 "272
 [v _do_I2C_SEND_STOP do_I2C_SEND_STOP `(E11956  1 s 1 do_I2C_SEND_STOP ]
-[v i2_do_I2C_SEND_STOP do_I2C_SEND_STOP `(E11956  1 s 1 i2_do_I2C_SEND_STOP ]
 "278
 [v _do_I2C_SEND_ADR_READ do_I2C_SEND_ADR_READ `(E11956  1 s 1 do_I2C_SEND_ADR_READ ]
-[v i2_do_I2C_SEND_ADR_READ do_I2C_SEND_ADR_READ `(E11956  1 s 1 i2_do_I2C_SEND_ADR_READ ]
 "285
 [v _do_I2C_SEND_ADR_WRITE do_I2C_SEND_ADR_WRITE `(E11956  1 s 1 do_I2C_SEND_ADR_WRITE ]
-[v i2_do_I2C_SEND_ADR_WRITE do_I2C_SEND_ADR_WRITE `(E11956  1 s 1 i2_do_I2C_SEND_ADR_WRITE ]
 "292
 [v _do_I2C_RCEN do_I2C_RCEN `(E11956  1 s 1 do_I2C_RCEN ]
-[v i2_do_I2C_RCEN do_I2C_RCEN `(E11956  1 s 1 i2_do_I2C_RCEN ]
 "299
 [v _do_I2C_DO_ACK do_I2C_DO_ACK `(E11956  1 s 1 do_I2C_DO_ACK ]
-[v i2_do_I2C_DO_ACK do_I2C_DO_ACK `(E11956  1 s 1 i2_do_I2C_DO_ACK ]
 "305
 [v _do_I2C_DO_NACK_STOP do_I2C_DO_NACK_STOP `(E11956  1 s 1 do_I2C_DO_NACK_STOP ]
-[v i2_do_I2C_DO_NACK_STOP do_I2C_DO_NACK_STOP `(E11956  1 s 1 i2_do_I2C_DO_NACK_STOP ]
 "311
 [v _do_I2C_DO_NACK_RESTART do_I2C_DO_NACK_RESTART `(E11956  1 s 1 do_I2C_DO_NACK_RESTART ]
-[v i2_do_I2C_DO_NACK_RESTART do_I2C_DO_NACK_RESTART `(E11956  1 s 1 i2_do_I2C_DO_NACK_RESTART ]
 "319
 [v _do_I2C_DO_ADDRESS_NACK do_I2C_DO_ADDRESS_NACK `(E11956  1 s 1 do_I2C_DO_ADDRESS_NACK ]
-[v i2_do_I2C_DO_ADDRESS_NACK do_I2C_DO_ADDRESS_NACK `(E11956  1 s 1 i2_do_I2C_DO_ADDRESS_NACK ]
 "333
 [v _do_I2C_TX do_I2C_TX `(E11956  1 s 1 do_I2C_TX ]
-[v i2_do_I2C_TX do_I2C_TX `(E11956  1 s 1 i2_do_I2C_TX ]
 "357
 [v _do_I2C_RX do_I2C_RX `(E11956  1 s 1 do_I2C_RX ]
-[v i2_do_I2C_RX do_I2C_RX `(E11956  1 s 1 i2_do_I2C_RX ]
 "382
 [v _do_I2C_TX_EMPTY do_I2C_TX_EMPTY `(E11956  1 s 1 do_I2C_TX_EMPTY ]
-[v i2_do_I2C_TX_EMPTY do_I2C_TX_EMPTY `(E11956  1 s 1 i2_do_I2C_TX_EMPTY ]
 "419
 [v _i2c_ISR i2c_ISR `(v  1 e 1 0 ]
-[v i2_i2c_ISR i2c_ISR `(v  1 e 1 0 ]
 "435
 [v _i2c_busCollisionISR i2c_busCollisionISR `(v  1 e 1 0 ]
 "443
 [v _returnStop returnStop `(E11790  1 s 1 returnStop ]
-[v i2_returnStop returnStop `(E11790  1 s 1 i2_returnStop ]
 "448
 [v _returnReset returnReset `(E11790  1 s 1 returnReset ]
-[v i2_returnReset returnReset `(E11790  1 s 1 i2_returnReset ]
 "453
 [v _setCallBack setCallBack `(v  1 s 1 setCallBack ]
-[v i2_setCallBack setCallBack `(v  1 s 1 i2_setCallBack ]
 "31 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
 [v _wr1RegCompleteHandler wr1RegCompleteHandler `(E97  1 s 1 wr1RegCompleteHandler ]
-[v i2_wr1RegCompleteHandler wr1RegCompleteHandler `(E97  1 s 1 i2_wr1RegCompleteHandler ]
-"48
-[v _i2c_writeNBytes i2c_writeNBytes `(v  1 e 1 0 ]
 "58
 [v _rd1RegCompleteHandler rd1RegCompleteHandler `(E97  1 s 1 rd1RegCompleteHandler ]
-[v i2_rd1RegCompleteHandler rd1RegCompleteHandler `(E97  1 s 1 i2_rd1RegCompleteHandler ]
 "87
 [v _rd2RegCompleteHandler rd2RegCompleteHandler `(E97  1 s 1 rd2RegCompleteHandler ]
-[v i2_rd2RegCompleteHandler rd2RegCompleteHandler `(E97  1 s 1 i2_rd2RegCompleteHandler ]
 "110
 [v _wr2RegCompleteHandler wr2RegCompleteHandler `(E97  1 s 1 wr2RegCompleteHandler ]
-[v i2_wr2RegCompleteHandler wr2RegCompleteHandler `(E97  1 s 1 i2_wr2RegCompleteHandler ]
 "134
 [v _rdBlkRegCompleteHandler rdBlkRegCompleteHandler `(E97  1 s 1 rdBlkRegCompleteHandler ]
-[v i2_rdBlkRegCompleteHandler rdBlkRegCompleteHandler `(E97  1 s 1 i2_rdBlkRegCompleteHandler ]
-"156
-[v _i2c_readNBytes i2c_readNBytes `(v  1 e 1 0 ]
 "35 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_types.c
 [v _i2c_restartWrite i2c_restartWrite `(E96  1 e 1 0 ]
-[v i2_i2c_restartWrite i2c_restartWrite `(E96  1 e 1 0 ]
 "38 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
 [v _mssp1_enableIRQ mssp1_enableIRQ `T(v  1 e 1 0 ]
 "43
@@ -199,43 +175,32 @@ I2C_FAIL 2
 [v _mssp1_disableIRQ mssp1_disableIRQ `T(v  1 e 1 0 ]
 "53
 [v _mssp1_clearIRQ mssp1_clearIRQ `T(v  1 e 1 0 ]
-[v i2_mssp1_clearIRQ mssp1_clearIRQ `T(v  1 e 1 0 ]
 "58
 [v _mssp1_setIRQ mssp1_setIRQ `T(v  1 e 1 0 ]
-[v i2_mssp1_setIRQ mssp1_setIRQ `T(v  1 e 1 0 ]
 "68
 [v _mssp1_waitForEvent mssp1_waitForEvent `T(v  1 e 1 0 ]
 "83
 [v _i2c1_driver_open i2c1_driver_open `(b  1 e 0 0 ]
 "141
 [v _i2c1_driver_resetBus i2c1_driver_resetBus `T(v  1 e 1 0 ]
-[v i2_i2c1_driver_resetBus i2c1_driver_resetBus `T(v  1 e 1 0 ]
 "146
 [v _i2c1_driver_start i2c1_driver_start `T(v  1 e 1 0 ]
 "151
 [v _i2c1_driver_restart i2c1_driver_restart `T(v  1 e 1 0 ]
-[v i2_i2c1_driver_restart i2c1_driver_restart `T(v  1 e 1 0 ]
 "156
 [v _i2c1_driver_stop i2c1_driver_stop `T(v  1 e 1 0 ]
-[v i2_i2c1_driver_stop i2c1_driver_stop `T(v  1 e 1 0 ]
 "161
 [v _i2c1_driver_isNACK i2c1_driver_isNACK `T(b  1 e 0 0 ]
-[v i2_i2c1_driver_isNACK i2c1_driver_isNACK `T(b  1 e 0 0 ]
 "166
 [v _i2c1_driver_startRX i2c1_driver_startRX `T(v  1 e 1 0 ]
-[v i2_i2c1_driver_startRX i2c1_driver_startRX `T(v  1 e 1 0 ]
 "171
 [v _i2c1_driver_getRXData i2c1_driver_getRXData `T(uc  1 e 1 0 ]
-[v i2_i2c1_driver_getRXData i2c1_driver_getRXData `T(uc  1 e 1 0 ]
 "186
 [v _i2c1_driver_TXData i2c1_driver_TXData `T(v  1 e 1 0 ]
-[v i2_i2c1_driver_TXData i2c1_driver_TXData `T(v  1 e 1 0 ]
 "196
 [v _i2c1_driver_sendACK i2c1_driver_sendACK `T(v  1 e 1 0 ]
-[v i2_i2c1_driver_sendACK i2c1_driver_sendACK `T(v  1 e 1 0 ]
 "202
 [v _i2c1_driver_sendNACK i2c1_driver_sendNACK `T(v  1 e 1 0 ]
-[v i2_i2c1_driver_sendNACK i2c1_driver_sendNACK `T(v  1 e 1 0 ]
 "253
 [v _i2c1_driver_clearBusCollision i2c1_driver_clearBusCollision `T(v  1 e 1 0 ]
 "258
@@ -254,15 +219,56 @@ I2C_FAIL 2
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 "52 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-[s S667 . 1 `uc 1 SSPCLKPPS 1 0 :5:0 
+"44 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/spi2_driver.c
+[v _spi2_master_open spi2_master_open `(b  1 e 0 0 ]
+"76
+[v _spi2_exchangeByte spi2_exchangeByte `(uc  1 e 1 0 ]
+[s S669 . 1 `uc 1 SSPCLKPPS 1 0 :5:0 
 ]
-"3361 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
-[u S669 . 1 `S667 1 . 1 0 ]
-[v _SSP1CLKPPSbits SSP1CLKPPSbits `VES669  1 e 1 @3767 ]
+"118 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
+[u S671 . 1 `S669 1 . 1 0 ]
+[v _SSP2CLKPPSbits SSP2CLKPPSbits `VES671  1 e 1 @3727 ]
 [s S676 . 1 `uc 1 SSPDATPPS 1 0 :5:0 
 ]
-"3381
+"138
 [u S678 . 1 `S676 1 . 1 0 ]
+[v _SSP2DATPPSbits SSP2DATPPSbits `VES678  1 e 1 @3728 ]
+"168
+[v _SSP2BUF SSP2BUF `VEuc  1 e 1 @3730 ]
+"188
+[v _SSP2ADD SSP2ADD `VEuc  1 e 1 @3731 ]
+"378
+[v _SSP2STAT SSP2STAT `VEuc  1 e 1 @3733 ]
+"832
+[v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @3734 ]
+[s S57 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"862
+[s S63 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[s S1221 . 1 `uc 1 SSPM02 1 0 :1:0 
+`uc 1 SSPM12 1 0 :1:1 
+`uc 1 SSPM22 1 0 :1:2 
+`uc 1 SSPM32 1 0 :1:3 
+`uc 1 CKP2 1 0 :1:4 
+`uc 1 SSPEN2 1 0 :1:5 
+`uc 1 SSPOV2 1 0 :1:6 
+`uc 1 WCOL2 1 0 :1:7 
+]
+[u S1230 . 1 `S57 1 . 1 0 `S63 1 . 1 0 `S1221 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES1230  1 e 1 @3734 ]
+"952
+[v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3735 ]
+"3361
+[v _SSP1CLKPPSbits SSP1CLKPPSbits `VES671  1 e 1 @3767 ]
+"3381
 [v _SSP1DATPPSbits SSP1DATPPSbits `VES678  1 e 1 @3768 ]
 [s S102 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
@@ -326,10 +332,14 @@ I2C_FAIL 2
 [v _PMD4 PMD4 `VEuc  1 e 1 @3813 ]
 "5950
 [v _PMD5 PMD5 `VEuc  1 e 1 @3814 ]
+"6366
+[v _RB1PPS RB1PPS `VEuc  1 e 1 @3824 ]
 "6806
 [v _RC3PPS RC3PPS `VEuc  1 e 1 @3834 ]
 "6850
 [v _RC4PPS RC4PPS `VEuc  1 e 1 @3835 ]
+"7158
+[v _RD3PPS RD3PPS `VEuc  1 e 1 @3842 ]
 "7820
 [v _ODCONA ODCONA `VEuc  1 e 1 @3855 ]
 "7882
@@ -362,27 +372,6 @@ I2C_FAIL 2
 [v _ANSELE ANSELE `VEuc  1 e 1 @3886 ]
 "15928
 [v _LATA LATA `VEuc  1 e 1 @3971 ]
-[s S1168 . 1 `uc 1 LATA0 1 0 :1:0 
-`uc 1 LATA1 1 0 :1:1 
-`uc 1 LATA2 1 0 :1:2 
-`uc 1 LATA3 1 0 :1:3 
-`uc 1 LATA4 1 0 :1:4 
-`uc 1 LATA5 1 0 :1:5 
-`uc 1 LATA6 1 0 :1:6 
-`uc 1 LATA7 1 0 :1:7 
-]
-"15955
-[s S1177 . 1 `uc 1 LA0 1 0 :1:0 
-`uc 1 LA1 1 0 :1:1 
-`uc 1 LA2 1 0 :1:2 
-`uc 1 LA3 1 0 :1:3 
-`uc 1 LA4 1 0 :1:4 
-`uc 1 LA5 1 0 :1:5 
-`uc 1 LA6 1 0 :1:6 
-`uc 1 LA7 1 0 :1:7 
-]
-[u S1186 . 1 `S1168 1 . 1 0 `S1177 1 . 1 0 ]
-[v _LATAbits LATAbits `VES1186  1 e 1 @3971 ]
 "16040
 [v _LATB LATB `VEuc  1 e 1 @3972 ]
 "16152
@@ -395,6 +384,18 @@ I2C_FAIL 2
 [v _TRISA TRISA `VEuc  1 e 1 @3976 ]
 "16595
 [v _TRISB TRISB `VEuc  1 e 1 @3977 ]
+[s S1265 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"16617
+[u S1274 . 1 `S1265 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES1274  1 e 1 @3977 ]
 "16717
 [v _TRISC TRISC `VEuc  1 e 1 @3978 ]
 "16839
@@ -531,18 +532,7 @@ I2C_FAIL 2
 [v _SSP1STATbits SSP1STATbits `VES385  1 e 1 @3989 ]
 "18206
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @3990 ]
-[s S57 . 1 `uc 1 SSPM 1 0 :4:0 
-`uc 1 CKP 1 0 :1:4 
-`uc 1 SSPEN 1 0 :1:5 
-`uc 1 SSPOV 1 0 :1:6 
-`uc 1 WCOL 1 0 :1:7 
-]
 "18236
-[s S63 . 1 `uc 1 SSPM0 1 0 :1:0 
-`uc 1 SSPM1 1 0 :1:1 
-`uc 1 SSPM2 1 0 :1:2 
-`uc 1 SSPM3 1 0 :1:3 
-]
 [s S68 . 1 `uc 1 SSPM01 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 `uc 1 SSPM21 1 0 :1:2 
@@ -594,7 +584,7 @@ I2C_FAIL 2
 ]
 [u S224 . 1 `S189 1 . 1 0 `S198 1 . 1 0 `S201 1 . 1 0 `S208 1 . 1 0 `S217 1 . 1 0 ]
 [v _SSP1CON2bits SSP1CON2bits `VES224  1 e 1 @3991 ]
-[s S689 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[s S707 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -603,142 +593,112 @@ I2C_FAIL 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "26495
-[s S697 . 1 `uc 1 . 1 0 :6:0 
+[s S715 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S701 . 1 `uc 1 . 1 0 :6:0 
+[s S719 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S705 . 1 `S689 1 . 1 0 `S697 1 . 1 0 `S701 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES705  1 e 1 @4082 ]
-[s S820 . 42 `uc 1 busy 1 0 :1:0 
+[u S723 . 1 `S707 1 . 1 0 `S715 1 . 1 0 `S719 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES723  1 e 1 @4082 ]
+[s S838 . 42 `uc 1 busy 1 0 :1:0 
 `uc 1 inUse 1 0 :1:1 
 `uc 1 bufferFree 1 0 :1:2 
 `uc 1 addressNACKCheck 1 0 :1:3 
 `uc 1 address 1 1 `*.39uc 1 data_ptr 2 2 `ui 1 data_length 2 4 `ui 1 time_out 2 6 `ui 1 time_out_value 2 8 `E11956 1 state 1 10 `E11785 1 error 1 11 `[6]*.38(E11790 1 callbackTable 18 12 `[6]*.39v 1 callbackPayload 12 30 ]
 "80 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v _i2c_status i2c_status `S820  1 e 42 0 ]
+[v _i2c_status i2c_status `S838  1 e 42 0 ]
 "400
 [v _fsmStateTable fsmStateTable `[16]*.38C(E11956  1 e 48 0 ]
 "75 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.h
 [v _i2c1_driver_busCollisionISR i2c1_driver_busCollisionISR `*.38(v  1 e 3 0 ]
 "76
 [v _i2c1_driver_i2cISR i2c1_driver_i2cISR `*.38(v  1 e 3 0 ]
+[s S1255 . 3 `uc 1 con1 1 0 `uc 1 stat 1 1 `uc 1 add 1 2 ]
+"39 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/spi2_driver.c
+[v _spi2_configuration spi2_configuration `C[1]S1255  1 s 3 spi2_configuration ]
 "48 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"96
-[v main@rec_1221 rec `uc  1 a 1 18 ]
-"70
-[v main@data data `[2]uc  1 a 2 15 ]
+"73
+[v main@photonAddress photonAddress `uc  1 a 1 24 ]
+"72
+[v main@gamerScore gamerScore `uc  1 a 1 23 ]
 "71
-[v main@addr addr `uc  1 a 1 19 ]
-"84
-[v main@rec rec `uc  1 a 1 17 ]
-"107
+[v main@addr addr `uc  1 a 1 22 ]
+"120
 } 0
-"48 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
-[v _i2c_writeNBytes i2c_writeNBytes `(v  1 e 1 0 ]
+"44 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/spi2_driver.c
+[v _spi2_master_open spi2_master_open `(b  1 e 0 0 ]
 {
-[v i2c_writeNBytes@address address `uc  1 a 1 wreg ]
-[v i2c_writeNBytes@address address `uc  1 a 1 wreg ]
-[v i2c_writeNBytes@data data `*.39v  1 p 2 10 ]
-[v i2c_writeNBytes@len len `ui  1 p 2 12 ]
-[v i2c_writeNBytes@address address `uc  1 a 1 14 ]
+[v spi2_master_open@spiUniqueConfiguration spiUniqueConfiguration `E11675  1 a 1 wreg ]
+[v spi2_master_open@spiUniqueConfiguration spiUniqueConfiguration `E11675  1 a 1 wreg ]
+"46
+[v spi2_master_open@spiUniqueConfiguration spiUniqueConfiguration `E11675  1 a 1 21 ]
+"57
+} 0
+"76
+[v _spi2_exchangeByte spi2_exchangeByte `(uc  1 e 1 0 ]
+{
+[v spi2_exchangeByte@b b `uc  1 a 1 wreg ]
+[v spi2_exchangeByte@b b `uc  1 a 1 wreg ]
+"78
+[v spi2_exchangeByte@b b `uc  1 a 1 21 ]
+"82
+} 0
+"116 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"122
+} 0
+"138
+[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
+{
+"152
+} 0
+"52 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"113
+} 0
+"124 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"136
+} 0
+"51 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+{
 "55
 } 0
-"99 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v _i2c_setAddressNACKCallback i2c_setAddressNACKCallback `(v  1 e 1 0 ]
+"57
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-[v i2c_setAddressNACKCallback@cb cb `*.38(E11790  1 p 3 5 ]
-[v i2c_setAddressNACKCallback@p p `*.2v  1 p 2 8 ]
-"102
+"79
 } 0
-"222
-[v _i2c_masterWrite i2c_masterWrite `(E11785  1 e 1 0 ]
+"435 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
+[v _i2c_busCollisionISR i2c_busCollisionISR `(v  1 e 1 0 ]
 {
-"225
+"438
 } 0
-"156 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
-[v _i2c_readNBytes i2c_readNBytes `(v  1 e 1 0 ]
+"253 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
+[v _i2c1_driver_clearBusCollision i2c1_driver_clearBusCollision `T(v  1 e 1 0 ]
 {
-[v i2c_readNBytes@address address `uc  1 a 1 wreg ]
-[v i2c_readNBytes@address address `uc  1 a 1 wreg ]
-[v i2c_readNBytes@data data `*.39v  1 p 2 2 ]
-[v i2c_readNBytes@len len `ui  1 p 2 4 ]
-[v i2c_readNBytes@address address `uc  1 a 1 6 ]
-"162
-} 0
-"116 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v _i2c_open i2c_open `(E11785  1 e 1 0 ]
-{
-[v i2c_open@address address `uc  1 a 1 wreg ]
-"118
-[v i2c_open@ret ret `E11785  1 a 1 1 ]
-"116
-[v i2c_open@address address `uc  1 a 1 wreg ]
-"118
-[v i2c_open@address address `uc  1 a 1 0 ]
-"154
-} 0
-"262 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
-[v _i2c1_driver_setI2cISR i2c1_driver_setI2cISR `T(v  1 e 1 0 ]
-{
-[v i2c1_driver_setI2cISR@f f `*.3v  1 p 3 21 ]
-"264
-} 0
-"258
-[v _i2c1_driver_setBusCollisionISR i2c1_driver_setBusCollisionISR `T(v  1 e 1 0 ]
-{
-[v i2c1_driver_setBusCollisionISR@f f `*.3v  1 p 3 21 ]
-"260
-} 0
-"83
-[v _i2c1_driver_open i2c1_driver_open `(b  1 e 0 0 ]
-{
-"95
-} 0
-"217 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v _i2c_masterRead i2c_masterRead `(E11785  1 e 1 0 ]
-{
-"220
-} 0
-"193
-[v _i2c_masterOperation i2c_masterOperation `(E11785  1 e 1 0 ]
-{
-[v i2c_masterOperation@read read `uc  1 a 1 wreg ]
-"195
-[v i2c_masterOperation@ret ret `E11785  1 a 1 1 ]
-"193
-[v i2c_masterOperation@read read `uc  1 a 1 wreg ]
-"195
-[v i2c_masterOperation@read read `uc  1 a 1 0 ]
-"215
-} 0
-"43 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
-[v _mssp1_IRQisEnabled mssp1_IRQisEnabled `T(b  1 e 0 0 ]
-{
-"46
-} 0
-"230 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v _i2c_poller i2c_poller `T(v  1 e 1 0 ]
-{
-"237
-} 0
-"68 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
-[v _mssp1_waitForEvent mssp1_waitForEvent `T(v  1 e 1 0 ]
-{
-[v mssp1_waitForEvent@timeout timeout `*.2ui  1 p 2 21 ]
-"81
+"256
 } 0
 "419 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
 [v _i2c_ISR i2c_ISR `(v  1 e 1 0 ]
 {
 "433
 } 0
-"357
+"53 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
+[v _mssp1_clearIRQ mssp1_clearIRQ `T(v  1 e 1 0 ]
+{
+"56
+} 0
+"357 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
 [v _do_I2C_RX do_I2C_RX `(E11956  1 s 1 do_I2C_RX ]
 {
 "380
@@ -834,7 +794,7 @@ I2C_FAIL 2
 [v i2c1_driver_TXData@d d `uc  1 a 1 wreg ]
 [v i2c1_driver_TXData@d d `uc  1 a 1 wreg ]
 "188
-[v i2c1_driver_TXData@d d `uc  1 a 1 21 ]
+[v i2c1_driver_TXData@d d `uc  1 a 1 0 ]
 "189
 } 0
 "171
@@ -860,25 +820,25 @@ I2C_FAIL 2
 "134 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
 [v _rdBlkRegCompleteHandler rdBlkRegCompleteHandler `(E97  1 s 1 rdBlkRegCompleteHandler ]
 {
-[v rdBlkRegCompleteHandler@p p `*.39v  1 p 2 10 ]
+[v rdBlkRegCompleteHandler@p p `*.39v  1 p 2 11 ]
 "139
 } 0
 "87
 [v _rd2RegCompleteHandler rd2RegCompleteHandler `(E97  1 s 1 rd2RegCompleteHandler ]
 {
-[v rd2RegCompleteHandler@p p `*.39v  1 p 2 10 ]
+[v rd2RegCompleteHandler@p p `*.39v  1 p 2 11 ]
 "92
 } 0
 "58
 [v _rd1RegCompleteHandler rd1RegCompleteHandler `(E97  1 s 1 rd1RegCompleteHandler ]
 {
-[v rd1RegCompleteHandler@p p `*.39v  1 p 2 10 ]
+[v rd1RegCompleteHandler@p p `*.39v  1 p 2 11 ]
 "63
 } 0
 "31
 [v _wr1RegCompleteHandler wr1RegCompleteHandler `(E97  1 s 1 wr1RegCompleteHandler ]
 {
-[v wr1RegCompleteHandler@p p `*.39v  1 p 2 10 ]
+[v wr1RegCompleteHandler@p p `*.39v  1 p 2 11 ]
 "36
 } 0
 "35 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_types.c
@@ -894,20 +854,19 @@ I2C_FAIL 2
 "443
 [v _returnStop returnStop `(E11790  1 s 1 returnStop ]
 {
-[v returnStop@p p `*.39v  1 p 2 10 ]
 "446
 } 0
 "110 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
 [v _wr2RegCompleteHandler wr2RegCompleteHandler `(E97  1 s 1 wr2RegCompleteHandler ]
 {
-[v wr2RegCompleteHandler@p p `*.39v  1 p 2 10 ]
+[v wr2RegCompleteHandler@p p `*.39v  1 p 2 11 ]
 "115
 } 0
 "89 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
 [v _i2c_setDataCompleteCallback i2c_setDataCompleteCallback `(v  1 e 1 0 ]
 {
-[v i2c_setDataCompleteCallback@cb cb `*.38(E11790  1 p 3 5 ]
-[v i2c_setDataCompleteCallback@p p `*.39v  1 p 2 8 ]
+[v i2c_setDataCompleteCallback@cb cb `*.38(E11790  1 p 3 6 ]
+[v i2c_setDataCompleteCallback@p p `*.39v  1 p 2 9 ]
 "92
 } 0
 "453
@@ -918,14 +877,14 @@ I2C_FAIL 2
 [v setCallBack@cb cb `*.38(E11790  1 p 3 0 ]
 [v setCallBack@p p `*.39v  1 p 2 3 ]
 "455
-[v setCallBack@idx idx `E11974  1 a 1 21 ]
+[v setCallBack@idx idx `E11974  1 a 1 5 ]
 "465
 } 0
 "184
 [v _i2c_setBuffer i2c_setBuffer `(v  1 e 1 0 ]
 {
-[v i2c_setBuffer@buffer buffer `*.39v  1 p 2 21 ]
-[v i2c_setBuffer@bufferSize bufferSize `ui  1 p 2 23 ]
+[v i2c_setBuffer@buffer buffer `*.39v  1 p 2 0 ]
+[v i2c_setBuffer@bufferSize bufferSize `ui  1 p 2 2 ]
 "192
 } 0
 "156 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
@@ -942,281 +901,4 @@ I2C_FAIL 2
 [v _i2c1_driver_sendACK i2c1_driver_sendACK `T(v  1 e 1 0 ]
 {
 "200
-} 0
-"146
-[v _i2c1_driver_start i2c1_driver_start `T(v  1 e 1 0 ]
-{
-"149
-} 0
-"162 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v _i2c_close i2c_close `(E11785  1 e 1 0 ]
-{
-"164
-[v i2c_close@ret ret `E11785  1 a 1 21 ]
-"175
-} 0
-"48 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
-[v _mssp1_disableIRQ mssp1_disableIRQ `T(v  1 e 1 0 ]
-{
-"51
-} 0
-"53
-[v _mssp1_clearIRQ mssp1_clearIRQ `T(v  1 e 1 0 ]
-{
-"56
-} 0
-"116 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/mcc.c
-[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-{
-"122
-} 0
-"138
-[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
-{
-"152
-} 0
-"52 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/pin_manager.c
-[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-{
-"109
-} 0
-"124 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/mcc.c
-[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-{
-"136
-} 0
-"51 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/interrupt_manager.c
-[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
-{
-"55
-} 0
-"57
-[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
-{
-"79
-} 0
-"419 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v i2_i2c_ISR i2c_ISR `(v  1 e 1 0 ]
-{
-"433
-} 0
-"53 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
-[v i2_mssp1_clearIRQ mssp1_clearIRQ `T(v  1 e 1 0 ]
-{
-"56
-} 0
-"357 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v i2_do_I2C_RX do_I2C_RX `(E11956  1 s 1 i2_do_I2C_RX ]
-{
-"380
-} 0
-"333
-[v i2_do_I2C_TX do_I2C_TX `(E11956  1 s 1 i2_do_I2C_TX ]
-{
-"355
-} 0
-"319
-[v i2_do_I2C_DO_ADDRESS_NACK do_I2C_DO_ADDRESS_NACK `(E11956  1 s 1 i2_do_I2C_DO_ADDRESS_NACK ]
-{
-"331
-} 0
-"311
-[v i2_do_I2C_DO_NACK_RESTART do_I2C_DO_NACK_RESTART `(E11956  1 s 1 i2_do_I2C_DO_NACK_RESTART ]
-{
-"315
-} 0
-"305
-[v i2_do_I2C_DO_NACK_STOP do_I2C_DO_NACK_STOP `(E11956  1 s 1 i2_do_I2C_DO_NACK_STOP ]
-{
-"309
-} 0
-"299
-[v i2_do_I2C_DO_ACK do_I2C_DO_ACK `(E11956  1 s 1 i2_do_I2C_DO_ACK ]
-{
-"303
-} 0
-"292
-[v i2_do_I2C_RCEN do_I2C_RCEN `(E11956  1 s 1 i2_do_I2C_RCEN ]
-{
-"297
-} 0
-"285
-[v i2_do_I2C_SEND_ADR_WRITE do_I2C_SEND_ADR_WRITE `(E11956  1 s 1 i2_do_I2C_SEND_ADR_WRITE ]
-{
-"290
-} 0
-"278
-[v i2_do_I2C_SEND_ADR_READ do_I2C_SEND_ADR_READ `(E11956  1 s 1 i2_do_I2C_SEND_ADR_READ ]
-{
-"283
-} 0
-"272
-[v i2_do_I2C_SEND_STOP do_I2C_SEND_STOP `(E11956  1 s 1 i2_do_I2C_SEND_STOP ]
-{
-"276
-} 0
-"266
-[v i2_do_I2C_SEND_RESTART do_I2C_SEND_RESTART `(E11956  1 s 1 i2_do_I2C_SEND_RESTART ]
-{
-"270
-} 0
-"260
-[v i2_do_I2C_SEND_RESTART_WRITE do_I2C_SEND_RESTART_WRITE `(E11956  1 s 1 i2_do_I2C_SEND_RESTART_WRITE ]
-{
-"264
-} 0
-"254
-[v i2_do_I2C_SEND_RESTART_READ do_I2C_SEND_RESTART_READ `(E11956  1 s 1 i2_do_I2C_SEND_RESTART_READ ]
-{
-"258
-} 0
-"247
-[v i2_do_I2C_IDLE do_I2C_IDLE `(E11956  1 s 1 i2_do_I2C_IDLE ]
-{
-"252
-} 0
-"239
-[v i2_do_I2C_RESET do_I2C_RESET `(E11956  1 s 1 i2_do_I2C_RESET ]
-{
-"245
-} 0
-"382
-[v i2_do_I2C_TX_EMPTY do_I2C_TX_EMPTY `(E11956  1 s 1 i2_do_I2C_TX_EMPTY ]
-{
-"397
-} 0
-"58 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
-[v i2_mssp1_setIRQ mssp1_setIRQ `T(v  1 e 1 0 ]
-{
-"61
-} 0
-"161
-[v i2_i2c1_driver_isNACK i2c1_driver_isNACK `T(b  1 e 0 0 ]
-{
-"164
-} 0
-"186
-[v i2_i2c1_driver_TXData i2c1_driver_TXData `T(v  1 e 1 0 ]
-{
-[v i2i2c1_driver_TXData@d d `uc  1 a 1 wreg ]
-[v i2i2c1_driver_TXData@d d `uc  1 a 1 wreg ]
-"188
-[v i2i2c1_driver_TXData@d d `uc  1 a 1 0 ]
-"189
-} 0
-"171
-[v i2_i2c1_driver_getRXData i2c1_driver_getRXData `T(uc  1 e 1 0 ]
-{
-"174
-} 0
-"202
-[v i2_i2c1_driver_sendNACK i2c1_driver_sendNACK `T(v  1 e 1 0 ]
-{
-"206
-} 0
-"141
-[v i2_i2c1_driver_resetBus i2c1_driver_resetBus `T(v  1 e 1 0 ]
-{
-"144
-} 0
-"166
-[v i2_i2c1_driver_startRX i2c1_driver_startRX `T(v  1 e 1 0 ]
-{
-"169
-} 0
-"134 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
-[v i2_rdBlkRegCompleteHandler rdBlkRegCompleteHandler `(E97  1 s 1 i2_rdBlkRegCompleteHandler ]
-{
-[v i2rdBlkRegCompleteHandler@p p `*.39v  1 p 2 11 ]
-"139
-} 0
-"87
-[v i2_rd2RegCompleteHandler rd2RegCompleteHandler `(E97  1 s 1 i2_rd2RegCompleteHandler ]
-{
-[v i2rd2RegCompleteHandler@p p `*.39v  1 p 2 11 ]
-"92
-} 0
-"58
-[v i2_rd1RegCompleteHandler rd1RegCompleteHandler `(E97  1 s 1 i2_rd1RegCompleteHandler ]
-{
-[v i2rd1RegCompleteHandler@p p `*.39v  1 p 2 11 ]
-"63
-} 0
-"31
-[v i2_wr1RegCompleteHandler wr1RegCompleteHandler `(E97  1 s 1 i2_wr1RegCompleteHandler ]
-{
-[v i2wr1RegCompleteHandler@p p `*.39v  1 p 2 11 ]
-"36
-} 0
-"35 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_types.c
-[v i2_i2c_restartWrite i2c_restartWrite `(E96  1 e 1 0 ]
-{
-"38
-} 0
-"448 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v i2_returnReset returnReset `(E11790  1 s 1 i2_returnReset ]
-{
-"451
-} 0
-"443
-[v i2_returnStop returnStop `(E11790  1 s 1 i2_returnStop ]
-{
-[v i2returnStop@p p `*.39v  1 p 2 11 ]
-"446
-} 0
-"110 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
-[v i2_wr2RegCompleteHandler wr2RegCompleteHandler `(E97  1 s 1 i2_wr2RegCompleteHandler ]
-{
-[v i2wr2RegCompleteHandler@p p `*.39v  1 p 2 11 ]
-"115
-} 0
-"89 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v i2_i2c_setDataCompleteCallback i2c_setDataCompleteCallback `(v  1 e 1 0 ]
-{
-[v i2i2c_setDataCompleteCallback@cb cb `*.38(E11790  1 p 3 6 ]
-[v i2i2c_setDataCompleteCallback@p p `*.39v  1 p 2 9 ]
-"92
-} 0
-"453
-[v i2_setCallBack setCallBack `(v  1 s 1 i2_setCallBack ]
-{
-[v i2setCallBack@idx idx `E11974  1 a 1 wreg ]
-[v i2setCallBack@idx idx `E11974  1 a 1 wreg ]
-[v i2setCallBack@cb cb `*.38(E11790  1 p 3 0 ]
-[v i2setCallBack@p p `*.39v  1 p 2 3 ]
-"455
-[v i2setCallBack@idx idx `E11974  1 a 1 5 ]
-"465
-} 0
-"184
-[v i2_i2c_setBuffer i2c_setBuffer `(v  1 e 1 0 ]
-{
-[v i2i2c_setBuffer@buffer buffer `*.39v  1 p 2 0 ]
-[v i2i2c_setBuffer@bufferSize bufferSize `ui  1 p 2 2 ]
-"192
-} 0
-"156 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
-[v i2_i2c1_driver_stop i2c1_driver_stop `T(v  1 e 1 0 ]
-{
-"159
-} 0
-"151
-[v i2_i2c1_driver_restart i2c1_driver_restart `T(v  1 e 1 0 ]
-{
-"154
-} 0
-"196
-[v i2_i2c1_driver_sendACK i2c1_driver_sendACK `T(v  1 e 1 0 ]
-{
-"200
-} 0
-"435 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v _i2c_busCollisionISR i2c_busCollisionISR `(v  1 e 1 0 ]
-{
-"438
-} 0
-"253 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
-[v _i2c1_driver_clearBusCollision i2c1_driver_clearBusCollision `T(v  1 e 1 0 ]
-{
-"256
 } 0

@@ -68,7 +68,7 @@ void main(void)
     
     //i2c_writeNBytes(i2c_address_t address, void* data, size_t len); 
     uint8_t data[2];
-    uint8_t addr = 0x20;
+    uint8_t addr = 0x22;
     uint8_t gamerScore = 0x17;  //gammer score = 23
     uint8_t photonAddress = 0x30;  //I2C address for Particle 
     
@@ -79,34 +79,42 @@ void main(void)
     //set B to out
 //    data[0]=0x01
 //    i2c_writeNBytes(addr, data, 2);
+    spi2_master_open(CUSTOM1);
+    
+    
     
     //read B
-    data[0]=0x13;
-    i2c_writeNBytes(addr, &data[0], 1);
-    uint8_t rec;
-    i2c_readNBytes(addr, &rec, 1);
+//    data[0]=0x13;
+//    i2c_writeNBytes(addr, &data[0], 1);
+//    uint8_t rec;
+//    i2c_readNBytes(addr, &rec, 1);
 
     //set A;
 //    data[0]=0x12;
 //    data[1]=8;
 //    i2c_writeNBytes(addr, data, 2);
     
-    i2c_writeNBytes(photonAddress, &gamerScore, 1); //sends gamer score to the Photon
+    //i2c_writeNBytes(photonAddress, &gamerScore, 1); //sends gamer score to the Photon
 
 
     while (1)
     {
-        // Read B
-        data[0]=0x13;
-        i2c_writeNBytes(addr, &data[0], 1);
-        uint8_t rec;
-        i2c_readNBytes(addr, &rec, 1);
-
-        //set LED
-        if(rec != 0b11111111)
-            IO_RA2_SetLow();
-        else
-            IO_RA2_SetHigh();
+//        // Read B
+//        data[0]=0x12;
+//        i2c_writeNBytes(addr, &data[0], 1);
+//        uint8_t rec;
+//        i2c_readNBytes(addr, &rec, 1);
+//
+//        //set LED
+//        if(rec != 0b11111111)
+//            IO_RA2_SetLow();
+//        else
+//            IO_RA2_SetHigh();
+//        
+//        for(int i=0; i<20; i++)
+//            __delay_ms(50);        
+        
+        spi2_exchangeByte(126);
 
     }
 }

@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F11779 `(v ~T0 @X0 0 tf ]
-[v F11782 `(v ~T0 @X0 0 tf ]
+[v F11800 `(v ~T0 @X0 0 tf ]
+[v F11803 `(v ~T0 @X0 0 tf ]
 "18212 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
 [s S885 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S885 . SSPM CKP SSPEN SSPOV WCOL ]
@@ -10942,10 +10942,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 152: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 164: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 212: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 224: void PIN_MANAGER_IOC(void);
 [; ;interrupt_manager.h: 108: void interrupt INTERRUPT_InterruptManager(void);
 [; ;interrupt_manager.h: 120: void INTERRUPT_Initialize (void);
+[; ;spi2_types.h: 28: typedef enum {
+[; ;spi2_types.h: 29: CUSTOM1
+[; ;spi2_types.h: 30: } spi2_modes;
+[; ;spi2_driver.h: 35: inline void spi2_close(void);
+[; ;spi2_driver.h: 37: bit spi2_master_open(spi2_modes spiUniqueConfiguration);
+[; ;spi2_driver.h: 38: bit spi2_slave_open(spi2_modes spiUniqueConfiguration);
+[; ;spi2_driver.h: 40: uint8_t spi2_exchangeByte(uint8_t b);
+[; ;spi2_driver.h: 42: void spi2_exchangeBlock(void *block, size_t blockSize);
+[; ;spi2_driver.h: 43: void spi2_writeBlock(void *block, size_t blockSize);
+[; ;spi2_driver.h: 44: void spi2_readBlock(void *block, size_t blockSize);
 [; ;i2c1_driver.h: 34: inline void i2c1_driver_close(void);
 [; ;i2c1_driver.h: 37: inline void mssp1_enableIRQ(void);
 [; ;i2c1_driver.h: 38: inline bit mssp1_IRQisEnabled(void);
@@ -10982,10 +10992,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c1_driver.h: 73: inline void i2c1_driver_setBusCollisionISR(void *f);
 [; ;i2c1_driver.h: 74: inline void i2c1_driver_setI2cISR(void *f);
 "75 mcc_generated_files/i2c1_driver.h
-[v _i2c1_driver_busCollisionISR `*F11779 ~T0 @X0 1 e ]
+[v _i2c1_driver_busCollisionISR `*F11800 ~T0 @X0 1 e ]
 [; ;i2c1_driver.h: 75: void (*i2c1_driver_busCollisionISR)(void);
 "76
-[v _i2c1_driver_i2cISR `*F11782 ~T0 @X0 1 e ]
+[v _i2c1_driver_i2cISR `*F11803 ~T0 @X0 1 e ]
 [; ;i2c1_driver.h: 76: void (*i2c1_driver_i2cISR)(void);
 [; ;i2c_types.h: 29: typedef enum {
 [; ;i2c_types.h: 30: I2C_NOERR,
@@ -11029,14 +11039,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c_master.h: 50: void i2c_setTimeOutCallback(i2c_callback cb, void *p);
 [; ;i2c_master.h: 53: void i2c_ISR(void);
 [; ;i2c_master.h: 54: void i2c_busCollisionISR(void);
-[; ;mcc.h: 71: void SYSTEM_Initialize(void);
-[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 97: void PMD_Initialize(void);
+[; ;mcc.h: 72: void SYSTEM_Initialize(void);
+[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 98: void PMD_Initialize(void);
 "30 mcc_generated_files/i2c1_driver.c
 [p n 520 ]
-[v F11677 `(v ~T0 @X0 1 tf ]
+[v F11698 `(v ~T0 @X0 1 tf ]
 "32
-[v _i2c1_driver_close `TF11677 ~T0 @X0 1 e ]
+[v _i2c1_driver_close `TF11698 ~T0 @X0 1 e ]
 "33
 {
 [; ;i2c1_driver.c: 32: inline void i2c1_driver_close(void)
@@ -11050,9 +11060,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "35
 [e :UE 1369 ]
 }
-[v F11680 `(v ~T0 @X0 1 tf ]
+[v F11701 `(v ~T0 @X0 1 tf ]
 "38
-[v _mssp1_enableIRQ `TF11680 ~T0 @X0 1 e ]
+[v _mssp1_enableIRQ `TF11701 ~T0 @X0 1 e ]
 "39
 {
 [; ;i2c1_driver.c: 38: inline void mssp1_enableIRQ(void)
@@ -11066,9 +11076,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "41
 [e :UE 1370 ]
 }
-[v F11683 `(b ~T0 @X0 1 tf ]
+[v F11704 `(b ~T0 @X0 1 tf ]
 "43
-[v _mssp1_IRQisEnabled `TF11683 ~T0 @X0 1 e ]
+[v _mssp1_IRQisEnabled `TF11704 ~T0 @X0 1 e ]
 "44
 {
 [; ;i2c1_driver.c: 43: inline bit mssp1_IRQisEnabled(void)
@@ -11083,9 +11093,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "46
 [e :UE 1371 ]
 }
-[v F11686 `(v ~T0 @X0 1 tf ]
+[v F11707 `(v ~T0 @X0 1 tf ]
 "48
-[v _mssp1_disableIRQ `TF11686 ~T0 @X0 1 e ]
+[v _mssp1_disableIRQ `TF11707 ~T0 @X0 1 e ]
 "49
 {
 [; ;i2c1_driver.c: 48: inline void mssp1_disableIRQ(void)
@@ -11099,9 +11109,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "51
 [e :UE 1372 ]
 }
-[v F11689 `(v ~T0 @X0 1 tf ]
+[v F11710 `(v ~T0 @X0 1 tf ]
 "53
-[v _mssp1_clearIRQ `TF11689 ~T0 @X0 1 e ]
+[v _mssp1_clearIRQ `TF11710 ~T0 @X0 1 e ]
 "54
 {
 [; ;i2c1_driver.c: 53: inline void mssp1_clearIRQ(void)
@@ -11115,9 +11125,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "56
 [e :UE 1373 ]
 }
-[v F11692 `(v ~T0 @X0 1 tf ]
+[v F11713 `(v ~T0 @X0 1 tf ]
 "58
-[v _mssp1_setIRQ `TF11692 ~T0 @X0 1 e ]
+[v _mssp1_setIRQ `TF11713 ~T0 @X0 1 e ]
 "59
 {
 [; ;i2c1_driver.c: 58: inline void mssp1_setIRQ(void)
@@ -11131,9 +11141,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "61
 [e :UE 1374 ]
 }
-[v F11695 `(b ~T0 @X0 1 tf ]
+[v F11716 `(b ~T0 @X0 1 tf ]
 "63
-[v _mssp1_IRQisSet `TF11695 ~T0 @X0 1 e ]
+[v _mssp1_IRQisSet `TF11716 ~T0 @X0 1 e ]
 "64
 {
 [; ;i2c1_driver.c: 63: inline bit mssp1_IRQisSet(void)
@@ -11148,9 +11158,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "66
 [e :UE 1375 ]
 }
-[v F11698 `(v ~T0 @X0 1 tf1`*ui ]
+[v F11719 `(v ~T0 @X0 1 tf1`*ui ]
 "68
-[v _mssp1_waitForEvent `TF11698 ~T0 @X0 1 e ]
+[v _mssp1_waitForEvent `TF11719 ~T0 @X0 1 e ]
 "69
 {
 [; ;i2c1_driver.c: 68: inline void mssp1_waitForEvent(uint16_t *timeout)
@@ -11283,9 +11293,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "139
 [e :UE 1385 ]
 }
-[v F11718 `(v ~T0 @X0 1 tf ]
+[v F11739 `(v ~T0 @X0 1 tf ]
 "141
-[v _i2c1_driver_resetBus `TF11718 ~T0 @X0 1 e ]
+[v _i2c1_driver_resetBus `TF11739 ~T0 @X0 1 e ]
 "142
 {
 [; ;i2c1_driver.c: 141: inline void i2c1_driver_resetBus(void)
@@ -11296,9 +11306,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "144
 [e :UE 1387 ]
 }
-[v F11721 `(v ~T0 @X0 1 tf ]
+[v F11742 `(v ~T0 @X0 1 tf ]
 "146
-[v _i2c1_driver_start `TF11721 ~T0 @X0 1 e ]
+[v _i2c1_driver_start `TF11742 ~T0 @X0 1 e ]
 "147
 {
 [; ;i2c1_driver.c: 146: inline void i2c1_driver_start(void)
@@ -11312,9 +11322,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "149
 [e :UE 1388 ]
 }
-[v F11724 `(v ~T0 @X0 1 tf ]
+[v F11745 `(v ~T0 @X0 1 tf ]
 "151
-[v _i2c1_driver_restart `TF11724 ~T0 @X0 1 e ]
+[v _i2c1_driver_restart `TF11745 ~T0 @X0 1 e ]
 "152
 {
 [; ;i2c1_driver.c: 151: inline void i2c1_driver_restart(void)
@@ -11328,9 +11338,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "154
 [e :UE 1389 ]
 }
-[v F11727 `(v ~T0 @X0 1 tf ]
+[v F11748 `(v ~T0 @X0 1 tf ]
 "156
-[v _i2c1_driver_stop `TF11727 ~T0 @X0 1 e ]
+[v _i2c1_driver_stop `TF11748 ~T0 @X0 1 e ]
 "157
 {
 [; ;i2c1_driver.c: 156: inline void i2c1_driver_stop(void)
@@ -11344,9 +11354,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "159
 [e :UE 1390 ]
 }
-[v F11730 `(b ~T0 @X0 1 tf ]
+[v F11751 `(b ~T0 @X0 1 tf ]
 "161
-[v _i2c1_driver_isNACK `TF11730 ~T0 @X0 1 e ]
+[v _i2c1_driver_isNACK `TF11751 ~T0 @X0 1 e ]
 "162
 {
 [; ;i2c1_driver.c: 161: inline bit i2c1_driver_isNACK(void)
@@ -11361,9 +11371,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "164
 [e :UE 1391 ]
 }
-[v F11733 `(v ~T0 @X0 1 tf ]
+[v F11754 `(v ~T0 @X0 1 tf ]
 "166
-[v _i2c1_driver_startRX `TF11733 ~T0 @X0 1 e ]
+[v _i2c1_driver_startRX `TF11754 ~T0 @X0 1 e ]
 "167
 {
 [; ;i2c1_driver.c: 166: inline void i2c1_driver_startRX(void)
@@ -11377,9 +11387,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "169
 [e :UE 1392 ]
 }
-[v F11703 `(uc ~T0 @X0 1 tf ]
+[v F11724 `(uc ~T0 @X0 1 tf ]
 "171
-[v _i2c1_driver_getRXData `TF11703 ~T0 @X0 1 e ]
+[v _i2c1_driver_getRXData `TF11724 ~T0 @X0 1 e ]
 "172
 {
 [; ;i2c1_driver.c: 171: inline char i2c1_driver_getRXData(void)
@@ -11394,9 +11404,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "174
 [e :UE 1393 ]
 }
-[v F11709 `(v ~T0 @X0 1 tf1`uc ]
+[v F11730 `(v ~T0 @X0 1 tf1`uc ]
 "176
-[v _i2c1_driver_setAddr `TF11709 ~T0 @X0 1 e ]
+[v _i2c1_driver_setAddr `TF11730 ~T0 @X0 1 e ]
 "177
 {
 [; ;i2c1_driver.c: 176: inline void i2c1_driver_setAddr(char addr)
@@ -11413,9 +11423,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "179
 [e :UE 1394 ]
 }
-[v F11712 `(v ~T0 @X0 1 tf1`uc ]
+[v F11733 `(v ~T0 @X0 1 tf1`uc ]
 "181
-[v _i2c1_driver_setMask `TF11712 ~T0 @X0 1 e ]
+[v _i2c1_driver_setMask `TF11733 ~T0 @X0 1 e ]
 "182
 {
 [; ;i2c1_driver.c: 181: inline void i2c1_driver_setMask(char mask)
@@ -11432,9 +11442,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "184
 [e :UE 1395 ]
 }
-[v F11715 `(v ~T0 @X0 1 tf1`uc ]
+[v F11736 `(v ~T0 @X0 1 tf1`uc ]
 "186
-[v _i2c1_driver_TXData `TF11715 ~T0 @X0 1 e ]
+[v _i2c1_driver_TXData `TF11736 ~T0 @X0 1 e ]
 "187
 {
 [; ;i2c1_driver.c: 186: inline void i2c1_driver_TXData(char d)
@@ -11451,9 +11461,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "189
 [e :UE 1396 ]
 }
-[v F11706 `(uc ~T0 @X0 1 tf ]
+[v F11727 `(uc ~T0 @X0 1 tf ]
 "191
-[v _i2c1_driver_getAddr `TF11706 ~T0 @X0 1 e ]
+[v _i2c1_driver_getAddr `TF11727 ~T0 @X0 1 e ]
 "192
 {
 [; ;i2c1_driver.c: 191: inline char i2c1_driver_getAddr(void)
@@ -11468,9 +11478,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "194
 [e :UE 1397 ]
 }
-[v F11736 `(v ~T0 @X0 1 tf ]
+[v F11757 `(v ~T0 @X0 1 tf ]
 "196
-[v _i2c1_driver_sendACK `TF11736 ~T0 @X0 1 e ]
+[v _i2c1_driver_sendACK `TF11757 ~T0 @X0 1 e ]
 "197
 {
 [; ;i2c1_driver.c: 196: inline void i2c1_driver_sendACK(void)
@@ -11487,9 +11497,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "200
 [e :UE 1398 ]
 }
-[v F11739 `(v ~T0 @X0 1 tf ]
+[v F11760 `(v ~T0 @X0 1 tf ]
 "202
-[v _i2c1_driver_sendNACK `TF11739 ~T0 @X0 1 e ]
+[v _i2c1_driver_sendNACK `TF11760 ~T0 @X0 1 e ]
 "203
 {
 [; ;i2c1_driver.c: 202: inline void i2c1_driver_sendNACK(void)
@@ -11506,9 +11516,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "206
 [e :UE 1399 ]
 }
-[v F11747 `(v ~T0 @X0 1 tf ]
+[v F11768 `(v ~T0 @X0 1 tf ]
 "208
-[v _i2c1_driver_releaseClock `TF11747 ~T0 @X0 1 e ]
+[v _i2c1_driver_releaseClock `TF11768 ~T0 @X0 1 e ]
 "209
 {
 [; ;i2c1_driver.c: 208: inline void i2c1_driver_releaseClock(void)
@@ -11522,9 +11532,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "211
 [e :UE 1400 ]
 }
-[v F11750 `(b ~T0 @X0 1 tf ]
+[v F11771 `(b ~T0 @X0 1 tf ]
 "213
-[v _i2c1_driver_isBufferFull `TF11750 ~T0 @X0 1 e ]
+[v _i2c1_driver_isBufferFull `TF11771 ~T0 @X0 1 e ]
 "214
 {
 [; ;i2c1_driver.c: 213: inline bit i2c1_driver_isBufferFull(void)
@@ -11539,9 +11549,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "216
 [e :UE 1401 ]
 }
-[v F11753 `(b ~T0 @X0 1 tf ]
+[v F11774 `(b ~T0 @X0 1 tf ]
 "218
-[v _i2c1_driver_isStart `TF11753 ~T0 @X0 1 e ]
+[v _i2c1_driver_isStart `TF11774 ~T0 @X0 1 e ]
 "219
 {
 [; ;i2c1_driver.c: 218: inline bit i2c1_driver_isStart(void)
@@ -11556,9 +11566,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "221
 [e :UE 1402 ]
 }
-[v F11759 `(b ~T0 @X0 1 tf ]
+[v F11780 `(b ~T0 @X0 1 tf ]
 "223
-[v _i2c1_driver_isAddress `TF11759 ~T0 @X0 1 e ]
+[v _i2c1_driver_isAddress `TF11780 ~T0 @X0 1 e ]
 "224
 {
 [; ;i2c1_driver.c: 223: inline bit i2c1_driver_isAddress(void)
@@ -11573,9 +11583,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "226
 [e :UE 1403 ]
 }
-[v F11756 `(b ~T0 @X0 1 tf ]
+[v F11777 `(b ~T0 @X0 1 tf ]
 "228
-[v _i2c1_driver_isStop `TF11756 ~T0 @X0 1 e ]
+[v _i2c1_driver_isStop `TF11777 ~T0 @X0 1 e ]
 "229
 {
 [; ;i2c1_driver.c: 228: inline bit i2c1_driver_isStop(void)
@@ -11590,9 +11600,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "231
 [e :UE 1404 ]
 }
-[v F11762 `(b ~T0 @X0 1 tf ]
+[v F11783 `(b ~T0 @X0 1 tf ]
 "233
-[v _i2c1_driver_isData `TF11762 ~T0 @X0 1 e ]
+[v _i2c1_driver_isData `TF11783 ~T0 @X0 1 e ]
 "234
 {
 [; ;i2c1_driver.c: 233: inline bit i2c1_driver_isData(void)
@@ -11607,9 +11617,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "236
 [e :UE 1405 ]
 }
-[v F11765 `(b ~T0 @X0 1 tf ]
+[v F11786 `(b ~T0 @X0 1 tf ]
 "238
-[v _i2c1_driver_isRead `TF11765 ~T0 @X0 1 e ]
+[v _i2c1_driver_isRead `TF11786 ~T0 @X0 1 e ]
 "239
 {
 [; ;i2c1_driver.c: 238: inline bit i2c1_driver_isRead(void)
@@ -11624,9 +11634,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "241
 [e :UE 1406 ]
 }
-[v F11768 `(b ~T0 @X0 1 tf ]
+[v F11789 `(b ~T0 @X0 1 tf ]
 "243
-[v _i2c1_driver_isWriteCollision `TF11768 ~T0 @X0 1 e ]
+[v _i2c1_driver_isWriteCollision `TF11789 ~T0 @X0 1 e ]
 "244
 {
 [; ;i2c1_driver.c: 243: inline bit i2c1_driver_isWriteCollision(void)
@@ -11641,9 +11651,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "246
 [e :UE 1407 ]
 }
-[v F11771 `(b ~T0 @X0 1 tf ]
+[v F11792 `(b ~T0 @X0 1 tf ]
 "248
-[v _i2c1_driver_isReceiveOverflow `TF11771 ~T0 @X0 1 e ]
+[v _i2c1_driver_isReceiveOverflow `TF11792 ~T0 @X0 1 e ]
 "249
 {
 [; ;i2c1_driver.c: 248: inline bit i2c1_driver_isReceiveOverflow(void)
@@ -11658,9 +11668,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "251
 [e :UE 1408 ]
 }
-[v F11742 `(v ~T0 @X0 1 tf ]
+[v F11763 `(v ~T0 @X0 1 tf ]
 "253
-[v _i2c1_driver_clearBusCollision `TF11742 ~T0 @X0 1 e ]
+[v _i2c1_driver_clearBusCollision `TF11763 ~T0 @X0 1 e ]
 "254
 {
 [; ;i2c1_driver.c: 253: inline void i2c1_driver_clearBusCollision(void)
@@ -11674,9 +11684,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "256
 [e :UE 1409 ]
 }
-[v F11774 `(v ~T0 @X0 1 tf1`*v ]
+[v F11795 `(v ~T0 @X0 1 tf1`*v ]
 "258
-[v _i2c1_driver_setBusCollisionISR `TF11774 ~T0 @X0 1 e ]
+[v _i2c1_driver_setBusCollisionISR `TF11795 ~T0 @X0 1 e ]
 {
 [; ;i2c1_driver.c: 258: inline void i2c1_driver_setBusCollisionISR(void *f){
 [e :U _i2c1_driver_setBusCollisionISR ]
@@ -11684,14 +11694,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;i2c1_driver.c: 259: i2c1_driver_busCollisionISR = f;
 "259
-[e = _i2c1_driver_busCollisionISR -> _f `*F11779 ]
+[e = _i2c1_driver_busCollisionISR -> _f `*F11800 ]
 [; ;i2c1_driver.c: 260: }
 "260
 [e :UE 1410 ]
 }
-[v F11777 `(v ~T0 @X0 1 tf1`*v ]
+[v F11798 `(v ~T0 @X0 1 tf1`*v ]
 "262
-[v _i2c1_driver_setI2cISR `TF11777 ~T0 @X0 1 e ]
+[v _i2c1_driver_setI2cISR `TF11798 ~T0 @X0 1 e ]
 {
 [; ;i2c1_driver.c: 262: inline void i2c1_driver_setI2cISR(void *f){
 [e :U _i2c1_driver_setI2cISR ]
@@ -11699,7 +11709,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;i2c1_driver.c: 263: i2c1_driver_i2cISR = f;
 "263
-[e = _i2c1_driver_i2cISR -> _f `*F11782 ]
+[e = _i2c1_driver_i2cISR -> _f `*F11803 ]
 [; ;i2c1_driver.c: 264: }
 "264
 [e :UE 1411 ]

@@ -1,30 +1,114 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F11800 `(v ~T0 @X0 0 tf ]
 [v F11803 `(v ~T0 @X0 0 tf ]
-[p mainexit ]
-"72 mcc_generated_files/mcc.h
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"26475 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
-[s S1338 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1338 . INT0EDG INT1EDG INT2EDG . IPEN PEIE_GIEL GIE_GIEH ]
-"26484
-[s S1339 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1339 . . PEIE GIE ]
-"26489
-[s S1340 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1340 . . GIEL GIEH ]
-"26474
-[u S1337 `S1338 1 `S1339 1 `S1340 1 ]
-[n S1337 . . . . ]
-"26495
-[v _INTCONbits `VS1337 ~T0 @X0 0 e@4082 ]
-"82 main.c
+"838 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
+[s S50 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . SSPM CKP SSPEN SSPOV WCOL ]
+"845
+[s S51 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S51 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"851
+[s S52 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S52 . SSPM02 SSPM12 SSPM22 SSPM32 CKP2 SSPEN2 SSPOV2 WCOL2 ]
+"837
+[u S49 `S50 1 `S51 1 `S52 1 ]
+[n S49 . . . . ]
+"862
+[v _SSP2CON1bits `VS49 ~T0 @X0 0 e@3734 ]
+"38 mcc_generated_files/spi2_driver.c
+[s S1370 `uc 1 `uc 1 `uc 1 ]
+[n S1370 . con1 stat add ]
+"45
 [c E11675 0 .. ]
 [n E11675 . CUSTOM1  ]
-"37 mcc_generated_files/spi2_driver.h
-[v _spi2_master_open `(b ~T0 @X0 0 ef1`E11675 ]
-"40
-[v _spi2_exchangeByte `(uc ~T0 @X0 0 ef1`uc ]
+"378 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
+[v _SSP2STAT `Vuc ~T0 @X0 0 e@3733 ]
+"832
+[v _SSP2CON1 `Vuc ~T0 @X0 0 e@3734 ]
+"952
+[v _SSP2CON2 `Vuc ~T0 @X0 0 e@3735 ]
+"188
+[v _SSP2ADD `Vuc ~T0 @X0 0 e@3731 ]
+"16606
+[s S804 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S804 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"16605
+[u S803 `S804 1 ]
+[n S803 . . ]
+"16617
+[v _TRISBbits `VS803 ~T0 @X0 0 e@3977 ]
+"168
+[v _SSP2BUF `Vuc ~T0 @X0 0 e@3730 ]
+"4360
+[s S264 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S264 . SSP1IF BCL1IF SSP2IF BCL2IF TX1IF RC1IF TX2IF RC2IF ]
+"4370
+[s S265 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S265 . . RXBNIF . TXBNIF ]
+"4359
+[u S263 `S264 1 `S265 1 ]
+[n S263 . . . ]
+"4377
+[v _PIR3bits `VS263 ~T0 @X0 0 e@3789 ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10754,67 +10838,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
 [; ;pin_manager.h: 212: void PIN_MANAGER_Initialize (void);
 [; ;pin_manager.h: 224: void PIN_MANAGER_IOC(void);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 108: void interrupt INTERRUPT_InterruptManager(void);
 [; ;interrupt_manager.h: 120: void INTERRUPT_Initialize (void);
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;spi2_types.h: 28: typedef enum {
 [; ;spi2_types.h: 29: CUSTOM1
 [; ;spi2_types.h: 30: } spi2_modes;
@@ -10911,59 +10936,287 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.h: 72: void SYSTEM_Initialize(void);
 [; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 98: void PMD_Initialize(void);
-[v $root$_main `(v ~T0 @X0 0 e ]
-"48 main.c
-[v _main `(v ~T0 @X0 1 ef ]
-"49
+"30 mcc_generated_files/spi2_driver.c
+[p n 520 ]
+[v F11680 `(v ~T0 @X0 1 tf ]
+"32
+[v _spi2_close `TF11680 ~T0 @X0 1 e ]
+"33
 {
-[; ;main.c: 48: void main(void)
-[; ;main.c: 49: {
-[e :U _main ]
+[; ;spi2_driver.c: 32: inline void spi2_close(void)
+[; ;spi2_driver.c: 33: {
+[e :U _spi2_close ]
 [f ]
-[; ;main.c: 51: SYSTEM_Initialize();
-"51
-[e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 58: (INTCONbits.GIE = 1);
-"58
-[e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
-[; ;main.c: 64: (INTCONbits.PEIE = 1);
-"64
-[e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
-"70
-[v _data `uc ~T0 @X0 -> 2 `i a ]
-"71
-[v _addr `uc ~T0 @X0 1 a ]
-[; ;main.c: 70: uint8_t data[2];
-[; ;main.c: 71: uint8_t addr = 0x22;
-[e = _addr -> -> 34 `i `uc ]
-"72
-[v _gamerScore `uc ~T0 @X0 1 a ]
-[; ;main.c: 72: uint8_t gamerScore = 0x17;
-[e = _gamerScore -> -> 23 `i `uc ]
-"73
-[v _photonAddress `uc ~T0 @X0 1 a ]
-[; ;main.c: 73: uint8_t photonAddress = 0x30;
-[e = _photonAddress -> -> 48 `i `uc ]
-[; ;main.c: 82: spi2_master_open(CUSTOM1);
-"82
-[e ( _spi2_master_open (1 . `E11675 0 ]
-[; ;main.c: 100: while (1)
-"100
-[e :U 1371 ]
-[; ;main.c: 101: {
-"101
-{
-[; ;main.c: 117: spi2_exchangeByte(126);
-"117
-[e ( _spi2_exchangeByte (1 -> -> 126 `i `uc ]
-"119
-}
-[e :U 1370 ]
-"100
-[e $U 1371  ]
-[e :U 1372 ]
-[; ;main.c: 119: }
-[; ;main.c: 120: }
-"120
+[; ;spi2_driver.c: 34: SSP2CON1bits.SSPEN = 0;
+"34
+[e = . . _SSP2CON1bits 0 2 -> -> 0 `i `uc ]
+[; ;spi2_driver.c: 35: }
+"35
 [e :UE 1369 ]
+}
+[; ;spi2_driver.c: 38: typedef struct { uint8_t con1; uint8_t stat; uint8_t add; } spi2_configuration_t;
+"39
+[v _spi2_configuration `CS1370 ~T0 @X0 -> 0 `x s ]
+[i _spi2_configuration
+:U ..
+:U ..
+"40
+-> -> 0 `i `uc
+-> -> 64 `i `uc
+-> -> 4 `i `uc
+..
+..
+]
+[; ;spi2_driver.c: 39: static const spi2_configuration_t spi2_configuration[] = {
+[; ;spi2_driver.c: 40: {0x0, 0x40, 0x4 }
+[; ;spi2_driver.c: 41: };
+"44
+[v _spi2_master_open `(b ~T0 @X0 1 ef1`E11675 ]
+"45
+{
+[; ;spi2_driver.c: 44: bit spi2_master_open(spi2_modes spiUniqueConfiguration)
+[; ;spi2_driver.c: 45: {
+[e :U _spi2_master_open ]
+"44
+[v _spiUniqueConfiguration `E11675 ~T0 @X0 1 r1 ]
+"45
+[f ]
+[; ;spi2_driver.c: 46: if(!SSP2CON1bits.SSPEN)
+"46
+[e $ ! ! != -> . . _SSP2CON1bits 0 2 `i -> -> -> 0 `i `Vuc `i 1372  ]
+[; ;spi2_driver.c: 47: {
+"47
+{
+[; ;spi2_driver.c: 48: SSP2STAT = spi2_configuration[spiUniqueConfiguration].stat;
+"48
+[e = _SSP2STAT . *U + &U _spi2_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi2_configuration `ui `ux 1 ]
+[; ;spi2_driver.c: 49: SSP2CON1 |= spi2_configuration[spiUniqueConfiguration].con1 | 0x2A;
+"49
+[e =| _SSP2CON1 -> | -> . *U + &U _spi2_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi2_configuration `ui `ux 0 `i -> 42 `i `uc ]
+[; ;spi2_driver.c: 50: SSP2CON2 = 0x00;
+"50
+[e = _SSP2CON2 -> -> 0 `i `uc ]
+[; ;spi2_driver.c: 51: SSP2ADD = spi2_configuration[spiUniqueConfiguration].add | 0;
+"51
+[e = _SSP2ADD -> | -> . *U + &U _spi2_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi2_configuration `ui `ux 2 `i -> 0 `i `uc ]
+[; ;spi2_driver.c: 53: do { TRISBbits.TRISB1 = 0; } while(0);
+"53
+[e :U 1375 ]
+{
+[e = . . _TRISBbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 1374 ]
+[; ;spi2_driver.c: 54: return 1;
+"54
+[e ) -> -> 1 `i `b ]
+[e $UE 1371  ]
+"55
+}
+[e :U 1372 ]
+[; ;spi2_driver.c: 55: }
+[; ;spi2_driver.c: 56: return 0;
+"56
+[e ) -> -> 0 `i `b ]
+[e $UE 1371  ]
+[; ;spi2_driver.c: 57: }
+"57
+[e :UE 1371 ]
+}
+"60
+[v _spi2_slave_open `(b ~T0 @X0 1 ef1`E11675 ]
+"61
+{
+[; ;spi2_driver.c: 60: bit spi2_slave_open(spi2_modes spiUniqueConfiguration)
+[; ;spi2_driver.c: 61: {
+[e :U _spi2_slave_open ]
+"60
+[v _spiUniqueConfiguration `E11675 ~T0 @X0 1 r1 ]
+"61
+[f ]
+[; ;spi2_driver.c: 62: if(!SSP2CON1bits.SSPEN)
+"62
+[e $ ! ! != -> . . _SSP2CON1bits 0 2 `i -> -> -> 0 `i `Vuc `i 1377  ]
+[; ;spi2_driver.c: 63: {
+"63
+{
+[; ;spi2_driver.c: 64: SSP2STAT = spi2_configuration[spiUniqueConfiguration].stat;
+"64
+[e = _SSP2STAT . *U + &U _spi2_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi2_configuration `ui `ux 1 ]
+[; ;spi2_driver.c: 65: SSP2CON1 |= spi2_configuration[spiUniqueConfiguration].con1 | 0x25;
+"65
+[e =| _SSP2CON1 -> | -> . *U + &U _spi2_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi2_configuration `ui `ux 0 `i -> 37 `i `uc ]
+[; ;spi2_driver.c: 66: SSP2CON2 = 0x00;
+"66
+[e = _SSP2CON2 -> -> 0 `i `uc ]
+[; ;spi2_driver.c: 67: SSP2ADD = spi2_configuration[spiUniqueConfiguration].add | 0;
+"67
+[e = _SSP2ADD -> | -> . *U + &U _spi2_configuration * -> _spiUniqueConfiguration `ux -> -> # *U &U _spi2_configuration `ui `ux 2 `i -> 0 `i `uc ]
+[; ;spi2_driver.c: 69: do { TRISBbits.TRISB1 = 1; } while(0);
+"69
+[e :U 1380 ]
+{
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+}
+[e :U 1379 ]
+[; ;spi2_driver.c: 70: return 1;
+"70
+[e ) -> -> 1 `i `b ]
+[e $UE 1376  ]
+"71
+}
+[e :U 1377 ]
+[; ;spi2_driver.c: 71: }
+[; ;spi2_driver.c: 72: return 0;
+"72
+[e ) -> -> 0 `i `b ]
+[e $UE 1376  ]
+[; ;spi2_driver.c: 73: }
+"73
+[e :UE 1376 ]
+}
+"76
+[v _spi2_exchangeByte `(uc ~T0 @X0 1 ef1`uc ]
+"77
+{
+[; ;spi2_driver.c: 76: uint8_t spi2_exchangeByte(uint8_t b)
+[; ;spi2_driver.c: 77: {
+[e :U _spi2_exchangeByte ]
+"76
+[v _b `uc ~T0 @X0 1 r1 ]
+"77
+[f ]
+[; ;spi2_driver.c: 78: SSP2BUF = b;
+"78
+[e = _SSP2BUF _b ]
+[; ;spi2_driver.c: 79: while(!PIR3bits.SSP2IF);
+"79
+[e $U 1382  ]
+[e :U 1383 ]
+[e :U 1382 ]
+[e $ ! != -> . . _PIR3bits 0 2 `i -> -> -> 0 `i `Vuc `i 1383  ]
+[e :U 1384 ]
+[; ;spi2_driver.c: 80: PIR3bits.SSP2IF = 0;
+"80
+[e = . . _PIR3bits 0 2 -> -> 0 `i `uc ]
+[; ;spi2_driver.c: 81: return SSP2BUF;
+"81
+[e ) _SSP2BUF ]
+[e $UE 1381  ]
+[; ;spi2_driver.c: 82: }
+"82
+[e :UE 1381 ]
+}
+"84
+[v _spi2_exchangeBlock `(v ~T0 @X0 1 ef2`*v`ui ]
+"85
+{
+[; ;spi2_driver.c: 84: void spi2_exchangeBlock(void *block, size_t blockSize)
+[; ;spi2_driver.c: 85: {
+[e :U _spi2_exchangeBlock ]
+"84
+[v _block `*v ~T0 @X0 1 r1 ]
+[v _blockSize `ui ~T0 @X0 1 r2 ]
+"85
+[f ]
+"86
+[v _data `*uc ~T0 @X0 1 a ]
+[; ;spi2_driver.c: 86: uint8_t *data = block;
+[e = _data -> _block `*uc ]
+[; ;spi2_driver.c: 87: while(blockSize--)
+"87
+[e $U 1386  ]
+[e :U 1387 ]
+[; ;spi2_driver.c: 88: {
+"88
+{
+[; ;spi2_driver.c: 89: *data = spi2_exchangeByte(*data );
+"89
+[e = *U _data ( _spi2_exchangeByte (1 *U _data ]
+[; ;spi2_driver.c: 90: data++;
+"90
+[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+"91
+}
+[e :U 1386 ]
+"87
+[e $ != -- _blockSize -> -> 1 `i `ui -> -> 0 `i `ui 1387  ]
+[e :U 1388 ]
+[; ;spi2_driver.c: 91: }
+[; ;spi2_driver.c: 92: }
+"92
+[e :UE 1385 ]
+}
+"95
+[v _spi2_writeBlock `(v ~T0 @X0 1 ef2`*v`ui ]
+"96
+{
+[; ;spi2_driver.c: 95: void spi2_writeBlock(void *block, size_t blockSize)
+[; ;spi2_driver.c: 96: {
+[e :U _spi2_writeBlock ]
+"95
+[v _block `*v ~T0 @X0 1 r1 ]
+[v _blockSize `ui ~T0 @X0 1 r2 ]
+"96
+[f ]
+"97
+[v _data `*uc ~T0 @X0 1 a ]
+[; ;spi2_driver.c: 97: uint8_t *data = block;
+[e = _data -> _block `*uc ]
+[; ;spi2_driver.c: 98: while(blockSize--)
+"98
+[e $U 1390  ]
+[e :U 1391 ]
+[; ;spi2_driver.c: 99: {
+"99
+{
+[; ;spi2_driver.c: 100: spi2_exchangeByte(*data++);
+"100
+[e ( _spi2_exchangeByte (1 *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+"101
+}
+[e :U 1390 ]
+"98
+[e $ != -- _blockSize -> -> 1 `i `ui -> -> 0 `i `ui 1391  ]
+[e :U 1392 ]
+[; ;spi2_driver.c: 101: }
+[; ;spi2_driver.c: 102: }
+"102
+[e :UE 1389 ]
+}
+"104
+[v _spi2_readBlock `(v ~T0 @X0 1 ef2`*v`ui ]
+"105
+{
+[; ;spi2_driver.c: 104: void spi2_readBlock(void *block, size_t blockSize)
+[; ;spi2_driver.c: 105: {
+[e :U _spi2_readBlock ]
+"104
+[v _block `*v ~T0 @X0 1 r1 ]
+[v _blockSize `ui ~T0 @X0 1 r2 ]
+"105
+[f ]
+"106
+[v _data `*uc ~T0 @X0 1 a ]
+[; ;spi2_driver.c: 106: uint8_t *data = block;
+[e = _data -> _block `*uc ]
+[; ;spi2_driver.c: 107: while(blockSize--)
+"107
+[e $U 1394  ]
+[e :U 1395 ]
+[; ;spi2_driver.c: 108: {
+"108
+{
+[; ;spi2_driver.c: 109: *data++ = spi2_exchangeByte(0);
+"109
+[e = *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ( _spi2_exchangeByte (1 -> -> 0 `i `uc ]
+"110
+}
+[e :U 1394 ]
+"107
+[e $ != -- _blockSize -> -> 1 `i `ui -> -> 0 `i `ui 1395  ]
+[e :U 1396 ]
+[; ;spi2_driver.c: 110: }
+[; ;spi2_driver.c: 111: }
+"111
+[e :UE 1393 ]
 }

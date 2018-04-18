@@ -14,6 +14,8 @@
         <itemPath>mcc_generated_files/drivers/i2c_master.h</itemPath>
         <itemPath>mcc_generated_files/drivers/i2c_types.h</itemPath>
         <itemPath>mcc_generated_files/drivers/i2c_simple_master.h</itemPath>
+        <itemPath>mcc_generated_files/spi2_driver.h</itemPath>
+        <itemPath>mcc_generated_files/spi2_types.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -33,6 +35,7 @@
         <itemPath>mcc_generated_files/drivers/i2c_master.c</itemPath>
         <itemPath>mcc_generated_files/drivers/i2c_types.c</itemPath>
         <itemPath>mcc_generated_files/drivers/i2c_simple_master.c</itemPath>
+        <itemPath>mcc_generated_files/spi2_driver.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -156,6 +159,7 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>
@@ -170,7 +174,7 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-1ffff"/>
-        <property key="poweroptions.powerenable" value="false"/>
+        <property key="poweroptions.powerenable" value="true"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
