@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Wed Apr 18 11:52:24 2018
+                                                                                               Thu Apr 19 16:42:12 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F47K40
@@ -70,8 +70,8 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
     56  000F00  00                 	db	0
     57  000F01                     _spi2_configuration:
     58                           	opt stack 0
-    59  000F01  00                 	db	0
-    60  000F02  40                 	db	64
+    59  000F01  10                 	db	16
+    60  000F02  00                 	db	0
     61  000F03  04                 	db	4
     62  000F04                     __end_of_spi2_configuration:
     63                           	opt stack 0
@@ -112,729 +112,787 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
     98  0000                     _ANSELD	set	3878
     99  0000                     _ANSELB	set	3865
    100  0000                     _ANSELC	set	3873
-   101  0000                     _TRISDbits	set	3979
-   102  0000                     _TRISD	set	3979
-   103  0000                     _TRISC	set	3978
-   104  0000                     _TRISB	set	3977
-   105  0000                     _TRISA	set	3976
-   106  0000                     _TRISE	set	3980
-   107  0000                     _LATC	set	3973
-   108  0000                     _LATB	set	3972
-   109  0000                     _LATA	set	3971
-   110  0000                     _LATD	set	3974
-   111  0000                     _LATE	set	3975
-   112                           
-   113                           ; #config settings
-   114  000F04  00                 	db	0	; dummy byte at the end
-   115  0000                     
-   116                           	psect	cinit
-   117  00103E                     __pcinit:
-   118                           	opt stack 0
-   119  00103E                     start_initialization:
+   101  0000                     _LATAbits	set	3971
+   102  0000                     _PORTCbits	set	3983
+   103  0000                     _TRISDbits	set	3979
+   104  0000                     _TRISD	set	3979
+   105  0000                     _TRISC	set	3978
+   106  0000                     _TRISB	set	3977
+   107  0000                     _TRISA	set	3976
+   108  0000                     _TRISE	set	3980
+   109  0000                     _LATC	set	3973
+   110  0000                     _LATB	set	3972
+   111  0000                     _LATA	set	3971
+   112  0000                     _LATD	set	3974
+   113  0000                     _LATE	set	3975
+   114                           
+   115                           ; #config settings
+   116  000F04  00                 	db	0	; dummy byte at the end
+   117  0000                     
+   118                           	psect	cinit
+   119  00106E                     __pcinit:
    120                           	opt stack 0
-   121  00103E                     __initialization:
+   121  00106E                     start_initialization:
    122                           	opt stack 0
-   123  00103E                     end_of_initialization:
+   123  00106E                     __initialization:
    124                           	opt stack 0
-   125  00103E                     __end_of__initialization:
+   125  00106E                     end_of_initialization:
    126                           	opt stack 0
-   127  00103E  0E00               	movlw	low (__Lsmallconst shr (0+16))
-   128  001040  6EF8               	movwf	tblptru,c
-   129  001042  0E0F               	movlw	high __Lsmallconst
-   130  001044  6EF7               	movwf	tblptrh,c
-   131  001046  0100               	movlb	0
-   132  001048  EF0D  F008         	goto	_main	;jump to C main() function
-   133                           tblptru	equ	0xFF8
-   134                           tblptrh	equ	0xFF7
-   135                           
-   136                           	psect	cstackCOMRAM
-   137  000001                     __pcstackCOMRAM:
-   138                           	opt stack 0
-   139  000001                     spi2_slave_open@spiUniqueConfiguration:
+   127  00106E                     __end_of__initialization:
+   128                           	opt stack 0
+   129  00106E  0E00               	movlw	low (__Lsmallconst shr (0+16))
+   130  001070  6EF8               	movwf	tblptru,c
+   131  001072  0E0F               	movlw	high __Lsmallconst
+   132  001074  6EF7               	movwf	tblptrh,c
+   133  001076  0100               	movlb	0
+   134  001078  EFF5  F007         	goto	_main	;jump to C main() function
+   135                           tblptru	equ	0xFF8
+   136                           tblptrh	equ	0xFF7
+   137                           
+   138                           	psect	cstackCOMRAM
+   139  000001                     __pcstackCOMRAM:
    140                           	opt stack 0
-   141  000001                     spi2_exchangeByte@b:
+   141  000001                     spi2_slave_open@spiUniqueConfiguration:
    142                           	opt stack 0
-   143                           
-   144                           ; 1 bytes @ 0x0
-   145  000001                     	ds	1
-   146  000002                     tblptru	equ	0xFF8
-   147                           tblptrh	equ	0xFF7
-   148                           
-   149                           ; 1 bytes @ 0x1
-   150 ;;
-   151 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   152 ;;
-   153 ;; *************** function _main *****************
-   154 ;; Defined at:
-   155 ;;		line 48 in file "main.c"
-   156 ;; Parameters:    Size  Location     Type
-   157 ;;		None
-   158 ;; Auto vars:     Size  Location     Type
-   159 ;;		None
-   160 ;; Return value:  Size  Location     Type
-   161 ;;                  1    wreg      void 
-   162 ;; Registers used:
-   163 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
-   164 ;; Tracked objects:
-   165 ;;		On entry : 0/0
-   166 ;;		On exit  : 0/0
-   167 ;;		Unchanged: 0/0
-   168 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   143  000001                     spi2_exchangeByte@b:
+   144                           	opt stack 0
+   145                           
+   146                           ; 1 bytes @ 0x0
+   147  000001                     	ds	1
+   148  000002                     ??_main:
+   149                           
+   150                           ; 1 bytes @ 0x1
+   151  000002                     	ds	1
+   152  000003                     main@res:
+   153                           	opt stack 0
+   154                           
+   155                           ; 1 bytes @ 0x2
+   156  000003                     	ds	1
+   157                           tblptru	equ	0xFF8
+   158                           tblptrh	equ	0xFF7
+   159                           
+   160 ;;
+   161 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   162 ;;
+   163 ;; *************** function _main *****************
+   164 ;; Defined at:
+   165 ;;		line 48 in file "main.c"
+   166 ;; Parameters:    Size  Location     Type
+   167 ;;		None
+   168 ;; Auto vars:     Size  Location     Type
+   169 ;;  res             1    2[COMRAM] unsigned char 
+   170 ;; Return value:  Size  Location     Type
+   171 ;;                  1    wreg      void 
+   172 ;; Registers used:
+   173 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   174 ;; Tracked objects:
+   175 ;;		On entry : 0/0
+   176 ;;		On exit  : 0/0
+   177 ;;		Unchanged: 0/0
+   178 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   169 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   179 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   170 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   180 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   171 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   181 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   172 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   182 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   173 ;;Total ram usage:        0 bytes
-   174 ;; Hardware stack levels required when called:    2
-   175 ;; This function calls:
-   176 ;;		_SYSTEM_Initialize
-   177 ;;		_spi2_exchangeByte
-   178 ;;		_spi2_slave_open
-   179 ;; This function is called by:
-   180 ;;		Startup code after reset
-   181 ;; This function uses a non-reentrant model
-   182 ;;
-   183                           
-   184                           	psect	text0
-   185  00101A                     __ptext0:
-   186                           	opt stack 0
-   187  00101A                     _main:
-   188                           	opt stack 29
-   189                           
-   190                           ;main.c: 51: SYSTEM_Initialize();
-   191                           
-   192                           ;incstack = 0
-   193  00101A  EC26  F008         	call	_SYSTEM_Initialize	;wreg free
-   194                           
-   195                           ;main.c: 69: spi2_slave_open(CUSTOM0);
-   196  00101E  0E00               	movlw	0
-   197  001020  ECC1  F007         	call	_spi2_slave_open
-   198  001024                     
-   199                           ;main.c: 72: {
-   200                           ;main.c: 74: spi2_exchangeByte(126);
-   201  001024  0E7E               	movlw	126
-   202  001026  EC16  F008         	call	_spi2_exchangeByte
-   203  00102A  D7FC               	goto	l169
-   204  00102C                     __end_of_main:
-   205                           	opt stack 0
-   206                           tblptru	equ	0xFF8
-   207                           tblptrh	equ	0xFF7
+   183 ;;Total ram usage:        2 bytes
+   184 ;; Hardware stack levels required when called:    2
+   185 ;; This function calls:
+   186 ;;		_SYSTEM_Initialize
+   187 ;;		_spi2_exchangeByte
+   188 ;;		_spi2_slave_open
+   189 ;; This function is called by:
+   190 ;;		Startup code after reset
+   191 ;; This function uses a non-reentrant model
+   192 ;;
+   193                           
+   194                           	psect	text0
+   195  000FEA                     __ptext0:
+   196                           	opt stack 0
+   197  000FEA                     _main:
+   198                           	opt stack 29
+   199                           
+   200                           ;main.c: 51: SYSTEM_Initialize();
+   201                           
+   202                           ;incstack = 0
+   203  000FEA  EC3E  F008         	call	_SYSTEM_Initialize	;wreg free
+   204                           
+   205                           ;main.c: 69: spi2_slave_open(CUSTOM0);
+   206  000FEE  0E00               	movlw	0
+   207  000FF0  ECC3  F007         	call	_spi2_slave_open
    208                           
-   209 ;; *************** function _spi2_slave_open *****************
-   210 ;; Defined at:
-   211 ;;		line 60 in file "mcc_generated_files/spi2_driver.c"
-   212 ;; Parameters:    Size  Location     Type
-   213 ;;  spiUniqueCon    1    wreg     enum E11670
-   214 ;; Auto vars:     Size  Location     Type
-   215 ;;  spiUniqueCon    1    0[COMRAM] enum E11670
-   216 ;; Return value:  Size  Location     Type
-   217 ;;		None               void
-   218 ;; Registers used:
-   219 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh
-   220 ;; Tracked objects:
-   221 ;;		On entry : 0/0
-   222 ;;		On exit  : 0/0
-   223 ;;		Unchanged: 0/0
-   224 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   209                           ;main.c: 70: while(PORTCbits.RC6 == 0)
+   210  000FF4  D008               	goto	l175
+   211  000FF6                     
+   212                           ;main.c: 71: _delay((unsigned long)((50)*(2000000/4000.0)));
+   213  000FF6  0E21               	movlw	33
+   214  000FF8  6E02               	movwf	??_main& (0+255),c
+   215  000FFA  0E76               	movlw	118
+   216  000FFC                     u87:
+   217  000FFC  2EE8               	decfsz	wreg,f,c
+   218  000FFE  D7FE               	bra	u87
+   219  001000  2E02               	decfsz	??_main& (0+255),f,c
+   220  001002  D7FC               	bra	u87
+   221  001004  D000               	nop2	
+   222  001006                     l175:
+   223  001006  AC8F               	btfss	3983,6,c	;volatile
+   224  001008  D7F6               	goto	l176
+   225                           
+   226                           ;main.c: 72: do { LATAbits.LATA4 = 0; } while(0);
+   227  00100A  9883               	bcf	3971,4,c	;volatile
+   228                           
+   229                           ;main.c: 73: uint8_t res = spi2_exchangeByte(1);
+   230  00100C  0E01               	movlw	1
+   231  00100E  EC2E  F008         	call	_spi2_exchangeByte
+   232  001012  6E03               	movwf	main@res,c
+   233                           
+   234                           ;main.c: 75: do { LATAbits.LATA4 = 1; } while(0);
+   235  001014  8883               	bsf	3971,4,c	;volatile
+   236  001016                     
+   237                           ;main.c: 79: {
+   238                           ;main.c: 81: _delay((unsigned long)((50)*(2000000/4000.0)));
+   239                           
+   240                           ;main.c: 78: while (1)
+   241  001016  0E21               	movlw	33
+   242  001018  6E02               	movwf	??_main& (0+255),c
+   243  00101A  0E76               	movlw	118
+   244  00101C                     u97:
+   245  00101C  2EE8               	decfsz	wreg,f,c
+   246  00101E  D7FE               	bra	u97
+   247  001020  2E02               	decfsz	??_main& (0+255),f,c
+   248  001022  D7FC               	bra	u97
+   249  001024  D000               	nop2	
+   250  001026  D7F7               	goto	l181
+   251  001028                     __end_of_main:
+   252                           	opt stack 0
+   253                           tblptru	equ	0xFF8
+   254                           tblptrh	equ	0xFF7
+   255                           wreg	equ	0xFE8
+   256                           
+   257 ;; *************** function _spi2_slave_open *****************
+   258 ;; Defined at:
+   259 ;;		line 60 in file "mcc_generated_files/spi2_driver.c"
+   260 ;; Parameters:    Size  Location     Type
+   261 ;;  spiUniqueCon    1    wreg     enum E11670
+   262 ;; Auto vars:     Size  Location     Type
+   263 ;;  spiUniqueCon    1    0[COMRAM] enum E11670
+   264 ;; Return value:  Size  Location     Type
+   265 ;;		None               void
+   266 ;; Registers used:
+   267 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh
+   268 ;; Tracked objects:
+   269 ;;		On entry : 0/0
+   270 ;;		On exit  : 0/0
+   271 ;;		Unchanged: 0/0
+   272 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   225 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   273 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   226 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+   274 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   227 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   275 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   228 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+   276 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   229 ;;Total ram usage:        1 bytes
-   230 ;; Hardware stack levels used:    1
-   231 ;; This function calls:
-   232 ;;		Nothing
-   233 ;; This function is called by:
-   234 ;;		_main
-   235 ;; This function uses a non-reentrant model
-   236 ;;
-   237                           
-   238                           	psect	text1
-   239  000F82                     __ptext1:
-   240                           	opt stack 0
-   241  000F82                     _spi2_slave_open:
-   242                           	opt stack 30
-   243                           
-   244                           ;incstack = 0
-   245                           ;spi2_slave_open@spiUniqueConfiguration stored from wreg
-   246  000F82  6E01               	movwf	spi2_slave_open@spiUniqueConfiguration,c
-   247                           
-   248                           ;spi2_driver.c: 62: if(!SSP2CON1bits.SSPEN)
-   249  000F84  010E               	movlb	14	; () banked
-   250  000F86  BB96               	btfsc	150,5,b	;volatile
-   251  000F88  0012               	return	
-   252                           
-   253                           ; BSR set to: 14
-   254                           ;spi2_driver.c: 63: {
-   255                           ;spi2_driver.c: 64: SSP2STAT = spi2_configuration[spiUniqueConfiguration].stat;
-   256  000F8A  5001               	movf	spi2_slave_open@spiUniqueConfiguration,w,c
-   257  000F8C  0D03               	mullw	3
-   258  000F8E  0E01               	movlw	1
-   259  000F90  26F3               	addwf	prodl,f,c
-   260  000F92  0E00               	movlw	0
-   261  000F94  22F4               	addwfc	prodh,f,c
-   262  000F96  0E01               	movlw	low _spi2_configuration
-   263  000F98  24F3               	addwf	prodl,w,c
-   264  000F9A  6EF6               	movwf	tblptrl,c
-   265  000F9C  0E0F               	movlw	high _spi2_configuration
-   266  000F9E  20F4               	addwfc	prodh,w,c
-   267  000FA0  6EF7               	movwf	tblptrh,c
-   268  000FA2                     	if	0	;There are less than 3 active tblptr bytes
-   269  000FA2                     	endif
-   270  000FA2  0008               	tblrd		*
-   271  000FA4  CFF5 FE95          	movff	tablat,3733	;volatile
-   272                           
-   273                           ;spi2_driver.c: 65: SSP2CON1 |= spi2_configuration[spiUniqueConfiguration].con1 | 0x25;
-   274  000FA8  5001               	movf	spi2_slave_open@spiUniqueConfiguration,w,c
-   275  000FAA  0D03               	mullw	3
-   276  000FAC  0E01               	movlw	low _spi2_configuration
-   277  000FAE  24F3               	addwf	prodl,w,c
-   278  000FB0  6EF6               	movwf	tblptrl,c
-   279  000FB2  0E0F               	movlw	high _spi2_configuration
-   280  000FB4  20F4               	addwfc	prodh,w,c
-   281  000FB6  6EF7               	movwf	tblptrh,c
-   282  000FB8                     	if	0	;There are less than 3 active tblptr bytes
-   283  000FB8                     	endif
-   284  000FB8  0008               	tblrd		*
-   285  000FBA  50F5               	movf	tablat,w,c
-   286  000FBC  0925               	iorlw	37
-   287  000FBE  1396               	iorwf	150,f,b	;volatile
-   288                           
-   289                           ; BSR set to: 14
-   290                           ;spi2_driver.c: 66: SSP2CON2 = 0x00;
-   291  000FC0  0E00               	movlw	0
-   292  000FC2  6F97               	movwf	151,b	;volatile
-   293                           
-   294                           ; BSR set to: 14
-   295                           ;spi2_driver.c: 67: SSP2ADD = spi2_configuration[spiUniqueConfiguration].add | 0;
-   296  000FC4  5001               	movf	spi2_slave_open@spiUniqueConfiguration,w,c
-   297  000FC6  0D03               	mullw	3
-   298  000FC8  0E02               	movlw	2
-   299  000FCA  26F3               	addwf	prodl,f,c
-   300  000FCC  0E00               	movlw	0
-   301  000FCE  22F4               	addwfc	prodh,f,c
-   302  000FD0  0E01               	movlw	low _spi2_configuration
-   303  000FD2  24F3               	addwf	prodl,w,c
-   304  000FD4  6EF6               	movwf	tblptrl,c
-   305  000FD6  0E0F               	movlw	high _spi2_configuration
-   306  000FD8  20F4               	addwfc	prodh,w,c
-   307  000FDA  6EF7               	movwf	tblptrh,c
-   308  000FDC                     	if	0	;There are less than 3 active tblptr bytes
-   309  000FDC                     	endif
-   310  000FDC  0008               	tblrd		*
-   311  000FDE  CFF5 FE93          	movff	tablat,3731	;volatile
-   312                           
-   313                           ; BSR set to: 14
-   314                           
-   315                           ; BSR set to: 14
-   316                           
-   317                           ;spi2_driver.c: 69: do { TRISDbits.TRISD1 = 1; } while(0);
-   318  000FE2  828B               	bsf	3979,1,c	;volatile
-   319                           
-   320                           ; BSR set to: 14
-   321                           ;spi2_driver.c: 70: return 1;
-   322                           ;	Return value of _spi2_slave_open is never used
-   323                           
-   324                           ; BSR set to: 14
-   325  000FE4  0012               	return	
-   326  000FE6                     __end_of_spi2_slave_open:
-   327                           	opt stack 0
-   328                           tblptru	equ	0xFF8
-   329                           tblptrh	equ	0xFF7
-   330                           tblptrl	equ	0xFF6
-   331                           tablat	equ	0xFF5
-   332                           prodh	equ	0xFF4
-   333                           prodl	equ	0xFF3
-   334                           
-   335 ;; *************** function _spi2_exchangeByte *****************
-   336 ;; Defined at:
-   337 ;;		line 76 in file "mcc_generated_files/spi2_driver.c"
-   338 ;; Parameters:    Size  Location     Type
-   339 ;;  b               1    wreg     unsigned char 
-   340 ;; Auto vars:     Size  Location     Type
-   341 ;;  b               1    0[COMRAM] unsigned char 
-   342 ;; Return value:  Size  Location     Type
-   343 ;;                  1    wreg      unsigned char 
-   344 ;; Registers used:
-   345 ;;		wreg, status,2
-   346 ;; Tracked objects:
-   347 ;;		On entry : 0/0
-   348 ;;		On exit  : 0/0
-   349 ;;		Unchanged: 0/0
-   350 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14
-   351 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0
-   352 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0
-   353 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0
-   354 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0
-   355 ;;Total ram usage:        1 bytes
-   356 ;; Hardware stack levels used:    1
-   357 ;; This function calls:
-   358 ;;		Nothing
-   359 ;; This function is called by:
-   360 ;;		_main
-   361 ;;		_spi2_exchangeBlock
-   362 ;;		_spi2_writeBlock
-   363 ;;		_spi2_readBlock
-   364 ;; This function uses a non-reentrant model
-   365 ;;
-   366                           
-   367                           	psect	text2
-   368  00102C                     __ptext2:
-   369                           	opt stack 0
-   370  00102C                     _spi2_exchangeByte:
-   371                           	opt stack 30
-   372                           
-   373                           ; BSR set to: 14
-   374                           ;incstack = 0
-   375                           ;spi2_exchangeByte@b stored from wreg
-   376  00102C  6E01               	movwf	spi2_exchangeByte@b,c
-   377                           
-   378                           ;spi2_driver.c: 78: SSP2BUF = b;
-   379  00102E  C001  FE92         	movff	spi2_exchangeByte@b,3730	;volatile
-   380  001032  010E               	movlb	14	; () banked
-   381  001034  A5CD               	btfss	205,2,b	;volatile
-   382  001036  D7FD               	goto	l138
+   277 ;;Total ram usage:        1 bytes
+   278 ;; Hardware stack levels used:    1
+   279 ;; This function calls:
+   280 ;;		Nothing
+   281 ;; This function is called by:
+   282 ;;		_main
+   283 ;; This function uses a non-reentrant model
+   284 ;;
+   285                           
+   286                           	psect	text1
+   287  000F86                     __ptext1:
+   288                           	opt stack 0
+   289  000F86                     _spi2_slave_open:
+   290                           	opt stack 30
+   291                           
+   292                           ;incstack = 0
+   293                           ;spi2_slave_open@spiUniqueConfiguration stored from wreg
+   294  000F86  6E01               	movwf	spi2_slave_open@spiUniqueConfiguration,c
+   295                           
+   296                           ;spi2_driver.c: 62: if(!SSP2CON1bits.SSPEN)
+   297  000F88  010E               	movlb	14	; () banked
+   298  000F8A  BB96               	btfsc	150,5,b	;volatile
+   299  000F8C  0012               	return	
+   300                           
+   301                           ; BSR set to: 14
+   302                           ;spi2_driver.c: 63: {
+   303                           ;spi2_driver.c: 64: SSP2STAT = spi2_configuration[spiUniqueConfiguration].stat;
+   304  000F8E  5001               	movf	spi2_slave_open@spiUniqueConfiguration,w,c
+   305  000F90  0D03               	mullw	3
+   306  000F92  0E01               	movlw	1
+   307  000F94  26F3               	addwf	prodl,f,c
+   308  000F96  0E00               	movlw	0
+   309  000F98  22F4               	addwfc	prodh,f,c
+   310  000F9A  0E01               	movlw	low _spi2_configuration
+   311  000F9C  24F3               	addwf	prodl,w,c
+   312  000F9E  6EF6               	movwf	tblptrl,c
+   313  000FA0  0E0F               	movlw	high _spi2_configuration
+   314  000FA2  20F4               	addwfc	prodh,w,c
+   315  000FA4  6EF7               	movwf	tblptrh,c
+   316  000FA6                     	if	0	;There are less than 3 active tblptr bytes
+   317  000FA6                     	endif
+   318  000FA6  0008               	tblrd		*
+   319  000FA8  CFF5 FE95          	movff	tablat,3733	;volatile
+   320                           
+   321                           ;spi2_driver.c: 65: SSP2CON1 |= spi2_configuration[spiUniqueConfiguration].con1 | 0x25;
+   322  000FAC  5001               	movf	spi2_slave_open@spiUniqueConfiguration,w,c
+   323  000FAE  0D03               	mullw	3
+   324  000FB0  0E01               	movlw	low _spi2_configuration
+   325  000FB2  24F3               	addwf	prodl,w,c
+   326  000FB4  6EF6               	movwf	tblptrl,c
+   327  000FB6  0E0F               	movlw	high _spi2_configuration
+   328  000FB8  20F4               	addwfc	prodh,w,c
+   329  000FBA  6EF7               	movwf	tblptrh,c
+   330  000FBC                     	if	0	;There are less than 3 active tblptr bytes
+   331  000FBC                     	endif
+   332  000FBC  0008               	tblrd		*
+   333  000FBE  50F5               	movf	tablat,w,c
+   334  000FC0  0925               	iorlw	37
+   335  000FC2  1396               	iorwf	150,f,b	;volatile
+   336                           
+   337                           ; BSR set to: 14
+   338                           ;spi2_driver.c: 66: SSP2CON2 = 0x00;
+   339  000FC4  0E00               	movlw	0
+   340  000FC6  6F97               	movwf	151,b	;volatile
+   341                           
+   342                           ; BSR set to: 14
+   343                           ;spi2_driver.c: 67: SSP2ADD = spi2_configuration[spiUniqueConfiguration].add | 0;
+   344  000FC8  5001               	movf	spi2_slave_open@spiUniqueConfiguration,w,c
+   345  000FCA  0D03               	mullw	3
+   346  000FCC  0E02               	movlw	2
+   347  000FCE  26F3               	addwf	prodl,f,c
+   348  000FD0  0E00               	movlw	0
+   349  000FD2  22F4               	addwfc	prodh,f,c
+   350  000FD4  0E01               	movlw	low _spi2_configuration
+   351  000FD6  24F3               	addwf	prodl,w,c
+   352  000FD8  6EF6               	movwf	tblptrl,c
+   353  000FDA  0E0F               	movlw	high _spi2_configuration
+   354  000FDC  20F4               	addwfc	prodh,w,c
+   355  000FDE  6EF7               	movwf	tblptrh,c
+   356  000FE0                     	if	0	;There are less than 3 active tblptr bytes
+   357  000FE0                     	endif
+   358  000FE0  0008               	tblrd		*
+   359  000FE2  CFF5 FE93          	movff	tablat,3731	;volatile
+   360                           
+   361                           ; BSR set to: 14
+   362                           
+   363                           ; BSR set to: 14
+   364                           
+   365                           ;spi2_driver.c: 69: do { TRISDbits.TRISD1 = 1; } while(0);
+   366  000FE6  828B               	bsf	3979,1,c	;volatile
+   367                           
+   368                           ; BSR set to: 14
+   369                           ;spi2_driver.c: 70: return 1;
+   370                           ;	Return value of _spi2_slave_open is never used
+   371                           
+   372                           ; BSR set to: 14
+   373  000FE8  0012               	return	
+   374  000FEA                     __end_of_spi2_slave_open:
+   375                           	opt stack 0
+   376                           tblptru	equ	0xFF8
+   377                           tblptrh	equ	0xFF7
+   378                           tblptrl	equ	0xFF6
+   379                           tablat	equ	0xFF5
+   380                           prodh	equ	0xFF4
+   381                           prodl	equ	0xFF3
+   382                           wreg	equ	0xFE8
    383                           
-   384                           ; BSR set to: 14
-   385                           ;spi2_driver.c: 80: PIR3bits.SSP2IF = 0;
-   386  001038  95CD               	bcf	205,2,b	;volatile
-   387                           
-   388                           ;spi2_driver.c: 81: return SSP2BUF;
-   389  00103A  5192               	movf	146,w,b	;volatile
-   390                           
-   391                           ; BSR set to: 14
-   392  00103C  0012               	return		;funcret
-   393  00103E                     __end_of_spi2_exchangeByte:
-   394                           	opt stack 0
-   395                           tblptru	equ	0xFF8
-   396                           tblptrh	equ	0xFF7
-   397                           tblptrl	equ	0xFF6
-   398                           tablat	equ	0xFF5
-   399                           prodh	equ	0xFF4
-   400                           prodl	equ	0xFF3
-   401                           
-   402 ;; *************** function _SYSTEM_Initialize *****************
-   403 ;; Defined at:
-   404 ;;		line 116 in file "mcc_generated_files/mcc.c"
-   405 ;; Parameters:    Size  Location     Type
-   406 ;;		None
-   407 ;; Auto vars:     Size  Location     Type
-   408 ;;		None
-   409 ;; Return value:  Size  Location     Type
-   410 ;;                  1    wreg      void 
-   411 ;; Registers used:
-   412 ;;		wreg, status,2, cstack
-   413 ;; Tracked objects:
-   414 ;;		On entry : 0/0
-   415 ;;		On exit  : 0/0
-   416 ;;		Unchanged: 0/0
-   417 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   384 ;; *************** function _spi2_exchangeByte *****************
+   385 ;; Defined at:
+   386 ;;		line 76 in file "mcc_generated_files/spi2_driver.c"
+   387 ;; Parameters:    Size  Location     Type
+   388 ;;  b               1    wreg     unsigned char 
+   389 ;; Auto vars:     Size  Location     Type
+   390 ;;  b               1    0[COMRAM] unsigned char 
+   391 ;; Return value:  Size  Location     Type
+   392 ;;                  1    wreg      unsigned char 
+   393 ;; Registers used:
+   394 ;;		wreg, status,2
+   395 ;; Tracked objects:
+   396 ;;		On entry : 0/0
+   397 ;;		On exit  : 0/0
+   398 ;;		Unchanged: 0/0
+   399 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   418 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   400 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   419 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   401 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   420 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   402 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   421 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   403 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   422 ;;Total ram usage:        0 bytes
-   423 ;; Hardware stack levels used:    1
-   424 ;; Hardware stack levels required when called:    1
-   425 ;; This function calls:
-   426 ;;		_OSCILLATOR_Initialize
-   427 ;;		_PIN_MANAGER_Initialize
-   428 ;;		_PMD_Initialize
-   429 ;; This function is called by:
-   430 ;;		_main
-   431 ;; This function uses a non-reentrant model
-   432 ;;
-   433                           
-   434                           	psect	text3
-   435  00104C                     __ptext3:
-   436                           	opt stack 0
-   437  00104C                     _SYSTEM_Initialize:
-   438                           	opt stack 29
+   404 ;;Total ram usage:        1 bytes
+   405 ;; Hardware stack levels used:    1
+   406 ;; This function calls:
+   407 ;;		Nothing
+   408 ;; This function is called by:
+   409 ;;		_main
+   410 ;;		_spi2_exchangeBlock
+   411 ;;		_spi2_writeBlock
+   412 ;;		_spi2_readBlock
+   413 ;; This function uses a non-reentrant model
+   414 ;;
+   415                           
+   416                           	psect	text2
+   417  00105C                     __ptext2:
+   418                           	opt stack 0
+   419  00105C                     _spi2_exchangeByte:
+   420                           	opt stack 30
+   421                           
+   422                           ; BSR set to: 14
+   423                           ;incstack = 0
+   424                           ;spi2_exchangeByte@b stored from wreg
+   425  00105C  6E01               	movwf	spi2_exchangeByte@b,c
+   426                           
+   427                           ;spi2_driver.c: 78: SSP2BUF = b;
+   428  00105E  C001  FE92         	movff	spi2_exchangeByte@b,3730	;volatile
+   429  001062  010E               	movlb	14	; () banked
+   430  001064  A5CD               	btfss	205,2,b	;volatile
+   431  001066  D7FD               	goto	l138
+   432                           
+   433                           ; BSR set to: 14
+   434                           ;spi2_driver.c: 80: PIR3bits.SSP2IF = 0;
+   435  001068  95CD               	bcf	205,2,b	;volatile
+   436                           
+   437                           ;spi2_driver.c: 81: return SSP2BUF;
+   438  00106A  5192               	movf	146,w,b	;volatile
    439                           
-   440                           ;mcc.c: 118: PMD_Initialize();
-   441                           
-   442                           ; BSR set to: 14
-   443                           ;incstack = 0
-   444  00104C  ECF3  F007         	call	_PMD_Initialize	;wreg free
-   445                           
-   446                           ;mcc.c: 119: PIN_MANAGER_Initialize();
-   447  001050  EC83  F007         	call	_PIN_MANAGER_Initialize	;wreg free
-   448                           
-   449                           ;mcc.c: 120: OSCILLATOR_Initialize();
-   450  001054  EC01  F008         	call	_OSCILLATOR_Initialize	;wreg free
-   451  001058  0012               	return		;funcret
-   452  00105A                     __end_of_SYSTEM_Initialize:
-   453                           	opt stack 0
-   454                           tblptru	equ	0xFF8
-   455                           tblptrh	equ	0xFF7
-   456                           tblptrl	equ	0xFF6
-   457                           tablat	equ	0xFF5
-   458                           prodh	equ	0xFF4
-   459                           prodl	equ	0xFF3
-   460                           
-   461 ;; *************** function _PMD_Initialize *****************
-   462 ;; Defined at:
-   463 ;;		line 137 in file "mcc_generated_files/mcc.c"
-   464 ;; Parameters:    Size  Location     Type
-   465 ;;		None
-   466 ;; Auto vars:     Size  Location     Type
-   467 ;;		None
-   468 ;; Return value:  Size  Location     Type
-   469 ;;                  1    wreg      void 
-   470 ;; Registers used:
-   471 ;;		wreg, status,2
-   472 ;; Tracked objects:
-   473 ;;		On entry : 0/0
-   474 ;;		On exit  : 0/0
-   475 ;;		Unchanged: 0/0
-   476 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   440                           ; BSR set to: 14
+   441  00106C  0012               	return		;funcret
+   442  00106E                     __end_of_spi2_exchangeByte:
+   443                           	opt stack 0
+   444                           tblptru	equ	0xFF8
+   445                           tblptrh	equ	0xFF7
+   446                           tblptrl	equ	0xFF6
+   447                           tablat	equ	0xFF5
+   448                           prodh	equ	0xFF4
+   449                           prodl	equ	0xFF3
+   450                           wreg	equ	0xFE8
+   451                           
+   452 ;; *************** function _SYSTEM_Initialize *****************
+   453 ;; Defined at:
+   454 ;;		line 116 in file "mcc_generated_files/mcc.c"
+   455 ;; Parameters:    Size  Location     Type
+   456 ;;		None
+   457 ;; Auto vars:     Size  Location     Type
+   458 ;;		None
+   459 ;; Return value:  Size  Location     Type
+   460 ;;                  1    wreg      void 
+   461 ;; Registers used:
+   462 ;;		wreg, status,2, cstack
+   463 ;; Tracked objects:
+   464 ;;		On entry : 0/0
+   465 ;;		On exit  : 0/0
+   466 ;;		Unchanged: 0/0
+   467 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   477 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   468 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   478 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   469 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   479 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   470 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   480 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   471 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   481 ;;Total ram usage:        0 bytes
-   482 ;; Hardware stack levels used:    1
-   483 ;; This function calls:
-   484 ;;		Nothing
-   485 ;; This function is called by:
-   486 ;;		_SYSTEM_Initialize
-   487 ;; This function uses a non-reentrant model
-   488 ;;
+   472 ;;Total ram usage:        0 bytes
+   473 ;; Hardware stack levels used:    1
+   474 ;; Hardware stack levels required when called:    1
+   475 ;; This function calls:
+   476 ;;		_OSCILLATOR_Initialize
+   477 ;;		_PIN_MANAGER_Initialize
+   478 ;;		_PMD_Initialize
+   479 ;; This function is called by:
+   480 ;;		_main
+   481 ;; This function uses a non-reentrant model
+   482 ;;
+   483                           
+   484                           	psect	text3
+   485  00107C                     __ptext3:
+   486                           	opt stack 0
+   487  00107C                     _SYSTEM_Initialize:
+   488                           	opt stack 29
    489                           
-   490                           	psect	text4
-   491  000FE6                     __ptext4:
-   492                           	opt stack 0
-   493  000FE6                     _PMD_Initialize:
-   494                           	opt stack 29
+   490                           ;mcc.c: 118: PMD_Initialize();
+   491                           
+   492                           ; BSR set to: 14
+   493                           ;incstack = 0
+   494  00107C  EC14  F008         	call	_PMD_Initialize	;wreg free
    495                           
-   496                           ;mcc.c: 140: PMD0 = 0x00;
-   497                           
-   498                           ;incstack = 0
-   499  000FE6  0E00               	movlw	0
-   500  000FE8  010E               	movlb	14	; () banked
-   501  000FEA  6FE1               	movwf	225,b	;volatile
-   502                           
-   503                           ;mcc.c: 142: PMD1 = 0x00;
-   504  000FEC  0E00               	movlw	0
-   505  000FEE  6FE2               	movwf	226,b	;volatile
-   506                           
-   507                           ;mcc.c: 144: PMD2 = 0x00;
-   508  000FF0  0E00               	movlw	0
-   509  000FF2  6FE3               	movwf	227,b	;volatile
-   510                           
-   511                           ;mcc.c: 146: PMD3 = 0x00;
-   512  000FF4  0E00               	movlw	0
-   513  000FF6  6FE4               	movwf	228,b	;volatile
-   514                           
-   515                           ;mcc.c: 148: PMD4 = 0x00;
-   516  000FF8  0E00               	movlw	0
-   517  000FFA  6FE5               	movwf	229,b	;volatile
-   518                           
-   519                           ;mcc.c: 150: PMD5 = 0x00;
-   520  000FFC  0E00               	movlw	0
-   521  000FFE  6FE6               	movwf	230,b	;volatile
-   522                           
-   523                           ; BSR set to: 14
-   524  001000  0012               	return		;funcret
-   525  001002                     __end_of_PMD_Initialize:
-   526                           	opt stack 0
-   527                           tblptru	equ	0xFF8
-   528                           tblptrh	equ	0xFF7
-   529                           tblptrl	equ	0xFF6
-   530                           tablat	equ	0xFF5
-   531                           prodh	equ	0xFF4
-   532                           prodl	equ	0xFF3
-   533                           
-   534 ;; *************** function _PIN_MANAGER_Initialize *****************
-   535 ;; Defined at:
-   536 ;;		line 52 in file "mcc_generated_files/pin_manager.c"
-   537 ;; Parameters:    Size  Location     Type
-   538 ;;		None
-   539 ;; Auto vars:     Size  Location     Type
-   540 ;;		None
-   541 ;; Return value:  Size  Location     Type
-   542 ;;                  1    wreg      void 
-   543 ;; Registers used:
-   544 ;;		wreg, status,2
-   545 ;; Tracked objects:
-   546 ;;		On entry : 0/0
-   547 ;;		On exit  : 0/0
-   548 ;;		Unchanged: 0/0
-   549 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   496                           ;mcc.c: 119: PIN_MANAGER_Initialize();
+   497  001080  EC83  F007         	call	_PIN_MANAGER_Initialize	;wreg free
+   498                           
+   499                           ;mcc.c: 120: OSCILLATOR_Initialize();
+   500  001084  EC22  F008         	call	_OSCILLATOR_Initialize	;wreg free
+   501  001088  0012               	return		;funcret
+   502  00108A                     __end_of_SYSTEM_Initialize:
+   503                           	opt stack 0
+   504                           tblptru	equ	0xFF8
+   505                           tblptrh	equ	0xFF7
+   506                           tblptrl	equ	0xFF6
+   507                           tablat	equ	0xFF5
+   508                           prodh	equ	0xFF4
+   509                           prodl	equ	0xFF3
+   510                           wreg	equ	0xFE8
+   511                           
+   512 ;; *************** function _PMD_Initialize *****************
+   513 ;; Defined at:
+   514 ;;		line 137 in file "mcc_generated_files/mcc.c"
+   515 ;; Parameters:    Size  Location     Type
+   516 ;;		None
+   517 ;; Auto vars:     Size  Location     Type
+   518 ;;		None
+   519 ;; Return value:  Size  Location     Type
+   520 ;;                  1    wreg      void 
+   521 ;; Registers used:
+   522 ;;		wreg, status,2
+   523 ;; Tracked objects:
+   524 ;;		On entry : 0/0
+   525 ;;		On exit  : 0/0
+   526 ;;		Unchanged: 0/0
+   527 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   550 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   528 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   551 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   529 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   552 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   530 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   553 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   531 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   554 ;;Total ram usage:        0 bytes
-   555 ;; Hardware stack levels used:    1
-   556 ;; This function calls:
-   557 ;;		Nothing
-   558 ;; This function is called by:
-   559 ;;		_SYSTEM_Initialize
-   560 ;; This function uses a non-reentrant model
-   561 ;;
-   562                           
-   563                           	psect	text5
-   564  000F06                     __ptext5:
-   565                           	opt stack 0
-   566  000F06                     _PIN_MANAGER_Initialize:
-   567                           	opt stack 29
-   568                           
-   569                           ;pin_manager.c: 57: LATE = 0x00;
-   570                           
-   571                           ; BSR set to: 14
-   572                           ;incstack = 0
-   573  000F06  0E00               	movlw	0
-   574  000F08  6E87               	movwf	3975,c	;volatile
-   575                           
-   576                           ;pin_manager.c: 58: LATD = 0x00;
-   577  000F0A  0E00               	movlw	0
-   578  000F0C  6E86               	movwf	3974,c	;volatile
-   579                           
-   580                           ;pin_manager.c: 59: LATA = 0x00;
-   581  000F0E  0E00               	movlw	0
-   582  000F10  6E83               	movwf	3971,c	;volatile
-   583                           
-   584                           ;pin_manager.c: 60: LATB = 0x00;
-   585  000F12  0E00               	movlw	0
-   586  000F14  6E84               	movwf	3972,c	;volatile
-   587                           
-   588                           ;pin_manager.c: 61: LATC = 0x00;
-   589  000F16  0E00               	movlw	0
-   590  000F18  6E85               	movwf	3973,c	;volatile
-   591                           
-   592                           ;pin_manager.c: 66: TRISE = 0x07;
-   593  000F1A  0E07               	movlw	7
-   594  000F1C  6E8C               	movwf	3980,c	;volatile
-   595                           
-   596                           ;pin_manager.c: 67: TRISA = 0xFF;
-   597  000F1E  6888               	setf	3976,c	;volatile
-   598                           
-   599                           ;pin_manager.c: 68: TRISB = 0xFF;
-   600  000F20  6889               	setf	3977,c	;volatile
-   601                           
-   602                           ;pin_manager.c: 69: TRISC = 0xFF;
-   603  000F22  688A               	setf	3978,c	;volatile
-   604                           
-   605                           ;pin_manager.c: 70: TRISD = 0xF5;
-   606  000F24  0EF5               	movlw	245
-   607  000F26  6E8B               	movwf	3979,c	;volatile
-   608                           
-   609                           ;pin_manager.c: 75: ANSELC = 0xFF;
-   610  000F28  010F               	movlb	15	; () banked
-   611  000F2A  6921               	setf	33,b	;volatile
-   612                           
-   613                           ; BSR set to: 15
-   614                           ;pin_manager.c: 76: ANSELB = 0xFF;
-   615  000F2C  6919               	setf	25,b	;volatile
-   616                           
-   617                           ;pin_manager.c: 77: ANSELD = 0xF9;
-   618  000F2E  0EF9               	movlw	249
-   619  000F30  6F26               	movwf	38,b	;volatile
+   532 ;;Total ram usage:        0 bytes
+   533 ;; Hardware stack levels used:    1
+   534 ;; This function calls:
+   535 ;;		Nothing
+   536 ;; This function is called by:
+   537 ;;		_SYSTEM_Initialize
+   538 ;; This function uses a non-reentrant model
+   539 ;;
+   540                           
+   541                           	psect	text4
+   542  001028                     __ptext4:
+   543                           	opt stack 0
+   544  001028                     _PMD_Initialize:
+   545                           	opt stack 29
+   546                           
+   547                           ;mcc.c: 140: PMD0 = 0x00;
+   548                           
+   549                           ;incstack = 0
+   550  001028  0E00               	movlw	0
+   551  00102A  010E               	movlb	14	; () banked
+   552  00102C  6FE1               	movwf	225,b	;volatile
+   553                           
+   554                           ;mcc.c: 142: PMD1 = 0x00;
+   555  00102E  0E00               	movlw	0
+   556  001030  6FE2               	movwf	226,b	;volatile
+   557                           
+   558                           ;mcc.c: 144: PMD2 = 0x00;
+   559  001032  0E00               	movlw	0
+   560  001034  6FE3               	movwf	227,b	;volatile
+   561                           
+   562                           ;mcc.c: 146: PMD3 = 0x00;
+   563  001036  0E00               	movlw	0
+   564  001038  6FE4               	movwf	228,b	;volatile
+   565                           
+   566                           ;mcc.c: 148: PMD4 = 0x00;
+   567  00103A  0E00               	movlw	0
+   568  00103C  6FE5               	movwf	229,b	;volatile
+   569                           
+   570                           ;mcc.c: 150: PMD5 = 0x00;
+   571  00103E  0E00               	movlw	0
+   572  001040  6FE6               	movwf	230,b	;volatile
+   573                           
+   574                           ; BSR set to: 14
+   575  001042  0012               	return		;funcret
+   576  001044                     __end_of_PMD_Initialize:
+   577                           	opt stack 0
+   578                           tblptru	equ	0xFF8
+   579                           tblptrh	equ	0xFF7
+   580                           tblptrl	equ	0xFF6
+   581                           tablat	equ	0xFF5
+   582                           prodh	equ	0xFF4
+   583                           prodl	equ	0xFF3
+   584                           wreg	equ	0xFE8
+   585                           
+   586 ;; *************** function _PIN_MANAGER_Initialize *****************
+   587 ;; Defined at:
+   588 ;;		line 52 in file "mcc_generated_files/pin_manager.c"
+   589 ;; Parameters:    Size  Location     Type
+   590 ;;		None
+   591 ;; Auto vars:     Size  Location     Type
+   592 ;;		None
+   593 ;; Return value:  Size  Location     Type
+   594 ;;                  1    wreg      void 
+   595 ;; Registers used:
+   596 ;;		wreg, status,2
+   597 ;; Tracked objects:
+   598 ;;		On entry : 0/0
+   599 ;;		On exit  : 0/0
+   600 ;;		Unchanged: 0/0
+   601 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   602 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   603 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   604 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   605 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   606 ;;Total ram usage:        0 bytes
+   607 ;; Hardware stack levels used:    1
+   608 ;; This function calls:
+   609 ;;		Nothing
+   610 ;; This function is called by:
+   611 ;;		_SYSTEM_Initialize
+   612 ;; This function uses a non-reentrant model
+   613 ;;
+   614                           
+   615                           	psect	text5
+   616  000F06                     __ptext5:
+   617                           	opt stack 0
+   618  000F06                     _PIN_MANAGER_Initialize:
+   619                           	opt stack 29
    620                           
-   621                           ;pin_manager.c: 78: ANSELE = 0x07;
-   622  000F32  0E07               	movlw	7
-   623  000F34  6F2E               	movwf	46,b	;volatile
-   624                           
-   625                           ; BSR set to: 15
-   626                           ;pin_manager.c: 79: ANSELA = 0xFF;
-   627  000F36  6911               	setf	17,b	;volatile
-   628                           
-   629                           ;pin_manager.c: 84: WPUD = 0x0E;
-   630  000F38  0E0E               	movlw	14
-   631  000F3A  6F25               	movwf	37,b	;volatile
-   632                           
-   633                           ;pin_manager.c: 85: WPUE = 0x00;
-   634  000F3C  0E00               	movlw	0
-   635  000F3E  6F2D               	movwf	45,b	;volatile
-   636                           
-   637                           ;pin_manager.c: 86: WPUB = 0x00;
-   638  000F40  0E00               	movlw	0
-   639  000F42  6F18               	movwf	24,b	;volatile
-   640                           
-   641                           ;pin_manager.c: 87: WPUA = 0x00;
-   642  000F44  0E00               	movlw	0
-   643  000F46  6F10               	movwf	16,b	;volatile
-   644                           
-   645                           ;pin_manager.c: 88: WPUC = 0x38;
-   646  000F48  0E38               	movlw	56
-   647  000F4A  6F20               	movwf	32,b	;volatile
-   648                           
-   649                           ;pin_manager.c: 93: ODCONE = 0x00;
-   650  000F4C  0E00               	movlw	0
-   651  000F4E  6F2C               	movwf	44,b	;volatile
-   652                           
-   653                           ;pin_manager.c: 94: ODCONA = 0x00;
-   654  000F50  0E00               	movlw	0
-   655  000F52  6F0F               	movwf	15,b	;volatile
-   656                           
-   657                           ;pin_manager.c: 95: ODCONB = 0x00;
-   658  000F54  0E00               	movlw	0
-   659  000F56  6F17               	movwf	23,b	;volatile
-   660                           
-   661                           ;pin_manager.c: 96: ODCONC = 0x00;
-   662  000F58  0E00               	movlw	0
-   663  000F5A  6F1F               	movwf	31,b	;volatile
-   664                           
-   665                           ;pin_manager.c: 97: ODCOND = 0x00;
-   666  000F5C  0E00               	movlw	0
-   667  000F5E  6F24               	movwf	36,b	;volatile
-   668                           
-   669                           ; BSR set to: 15
-   670                           ;pin_manager.c: 104: SSP2CLKPPSbits.SSPCLKPPS = 0x19;
-   671  000F60  010E               	movlb	14	; () banked
-   672  000F62  818F               	bsf	143,0,b	;volatile
-   673  000F64  938F               	bcf	143,1,b	;volatile
-   674  000F66  958F               	bcf	143,2,b	;volatile
-   675  000F68  878F               	bsf	143,3,b	;volatile
-   676  000F6A  898F               	bsf	143,4,b	;volatile
-   677                           
-   678                           ; BSR set to: 14
-   679                           ;pin_manager.c: 105: SSP2DATPPSbits.SSPDATPPS = 0x1A;
-   680  000F6C  9190               	bcf	144,0,b	;volatile
-   681  000F6E  8390               	bsf	144,1,b	;volatile
-   682  000F70  9590               	bcf	144,2,b	;volatile
-   683  000F72  8790               	bsf	144,3,b	;volatile
-   684  000F74  8990               	bsf	144,4,b	;volatile
-   685                           
-   686                           ;pin_manager.c: 106: RD3PPS = 0x12;
-   687  000F76  0E12               	movlw	18
-   688  000F78  010F               	movlb	15	; () banked
-   689  000F7A  6F02               	movwf	2,b	;volatile
+   621                           ;pin_manager.c: 57: LATE = 0x00;
+   622                           
+   623                           ; BSR set to: 14
+   624                           ;incstack = 0
+   625  000F06  0E00               	movlw	0
+   626  000F08  6E87               	movwf	3975,c	;volatile
+   627                           
+   628                           ;pin_manager.c: 58: LATD = 0x00;
+   629  000F0A  0E00               	movlw	0
+   630  000F0C  6E86               	movwf	3974,c	;volatile
+   631                           
+   632                           ;pin_manager.c: 59: LATA = 0x10;
+   633  000F0E  0E10               	movlw	16
+   634  000F10  6E83               	movwf	3971,c	;volatile
+   635                           
+   636                           ;pin_manager.c: 60: LATB = 0x00;
+   637  000F12  0E00               	movlw	0
+   638  000F14  6E84               	movwf	3972,c	;volatile
+   639                           
+   640                           ;pin_manager.c: 61: LATC = 0x00;
+   641  000F16  0E00               	movlw	0
+   642  000F18  6E85               	movwf	3973,c	;volatile
+   643                           
+   644                           ;pin_manager.c: 66: TRISE = 0x07;
+   645  000F1A  0E07               	movlw	7
+   646  000F1C  6E8C               	movwf	3980,c	;volatile
+   647                           
+   648                           ;pin_manager.c: 67: TRISA = 0xEF;
+   649  000F1E  0EEF               	movlw	239
+   650  000F20  6E88               	movwf	3976,c	;volatile
+   651                           
+   652                           ;pin_manager.c: 68: TRISB = 0xFF;
+   653  000F22  6889               	setf	3977,c	;volatile
+   654                           
+   655                           ;pin_manager.c: 69: TRISC = 0xFF;
+   656  000F24  688A               	setf	3978,c	;volatile
+   657                           
+   658                           ;pin_manager.c: 70: TRISD = 0xF5;
+   659  000F26  0EF5               	movlw	245
+   660  000F28  6E8B               	movwf	3979,c	;volatile
+   661                           
+   662                           ;pin_manager.c: 75: ANSELC = 0xBF;
+   663  000F2A  0EBF               	movlw	191
+   664  000F2C  010F               	movlb	15	; () banked
+   665  000F2E  6F21               	movwf	33,b	;volatile
+   666                           
+   667                           ; BSR set to: 15
+   668                           ;pin_manager.c: 76: ANSELB = 0xFF;
+   669  000F30  6919               	setf	25,b	;volatile
+   670                           
+   671                           ;pin_manager.c: 77: ANSELD = 0xF9;
+   672  000F32  0EF9               	movlw	249
+   673  000F34  6F26               	movwf	38,b	;volatile
+   674                           
+   675                           ;pin_manager.c: 78: ANSELE = 0x07;
+   676  000F36  0E07               	movlw	7
+   677  000F38  6F2E               	movwf	46,b	;volatile
+   678                           
+   679                           ; BSR set to: 15
+   680                           ;pin_manager.c: 79: ANSELA = 0xFF;
+   681  000F3A  6911               	setf	17,b	;volatile
+   682                           
+   683                           ;pin_manager.c: 84: WPUD = 0x00;
+   684  000F3C  0E00               	movlw	0
+   685  000F3E  6F25               	movwf	37,b	;volatile
+   686                           
+   687                           ;pin_manager.c: 85: WPUE = 0x00;
+   688  000F40  0E00               	movlw	0
+   689  000F42  6F2D               	movwf	45,b	;volatile
    690                           
-   691                           ;pin_manager.c: 107: RD1PPS = 0x11;
-   692  000F7C  0E11               	movlw	17
-   693  000F7E  6F00               	movwf	0,b	;volatile
+   691                           ;pin_manager.c: 86: WPUB = 0x00;
+   692  000F44  0E00               	movlw	0
+   693  000F46  6F18               	movwf	24,b	;volatile
    694                           
-   695                           ; BSR set to: 15
-   696  000F80  0012               	return		;funcret
-   697  000F82                     __end_of_PIN_MANAGER_Initialize:
-   698                           	opt stack 0
-   699                           tblptru	equ	0xFF8
-   700                           tblptrh	equ	0xFF7
-   701                           tblptrl	equ	0xFF6
-   702                           tablat	equ	0xFF5
-   703                           prodh	equ	0xFF4
-   704                           prodl	equ	0xFF3
-   705                           
-   706 ;; *************** function _OSCILLATOR_Initialize *****************
-   707 ;; Defined at:
-   708 ;;		line 123 in file "mcc_generated_files/mcc.c"
-   709 ;; Parameters:    Size  Location     Type
-   710 ;;		None
-   711 ;; Auto vars:     Size  Location     Type
-   712 ;;		None
-   713 ;; Return value:  Size  Location     Type
-   714 ;;                  1    wreg      void 
-   715 ;; Registers used:
-   716 ;;		wreg, status,2
-   717 ;; Tracked objects:
-   718 ;;		On entry : 0/0
-   719 ;;		On exit  : 0/0
-   720 ;;		Unchanged: 0/0
-   721 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14
-   722 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0
-   723 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0
-   724 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0
-   725 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0
-   726 ;;Total ram usage:        0 bytes
-   727 ;; Hardware stack levels used:    1
-   728 ;; This function calls:
-   729 ;;		Nothing
-   730 ;; This function is called by:
-   731 ;;		_SYSTEM_Initialize
-   732 ;; This function uses a non-reentrant model
-   733 ;;
-   734                           
-   735                           	psect	text6
-   736  001002                     __ptext6:
-   737                           	opt stack 0
-   738  001002                     _OSCILLATOR_Initialize:
-   739                           	opt stack 29
-   740                           
-   741                           ;mcc.c: 126: OSCCON1 = 0x62;
-   742                           
-   743                           ; BSR set to: 15
-   744                           ;incstack = 0
-   745  001002  0E62               	movlw	98
-   746  001004  010E               	movlb	14	; () banked
-   747  001006  6FD8               	movwf	216,b	;volatile
+   695                           ;pin_manager.c: 87: WPUA = 0x00;
+   696  000F48  0E00               	movlw	0
+   697  000F4A  6F10               	movwf	16,b	;volatile
+   698                           
+   699                           ;pin_manager.c: 88: WPUC = 0x38;
+   700  000F4C  0E38               	movlw	56
+   701  000F4E  6F20               	movwf	32,b	;volatile
+   702                           
+   703                           ;pin_manager.c: 93: ODCONE = 0x00;
+   704  000F50  0E00               	movlw	0
+   705  000F52  6F2C               	movwf	44,b	;volatile
+   706                           
+   707                           ;pin_manager.c: 94: ODCONA = 0x00;
+   708  000F54  0E00               	movlw	0
+   709  000F56  6F0F               	movwf	15,b	;volatile
+   710                           
+   711                           ;pin_manager.c: 95: ODCONB = 0x00;
+   712  000F58  0E00               	movlw	0
+   713  000F5A  6F17               	movwf	23,b	;volatile
+   714                           
+   715                           ;pin_manager.c: 96: ODCONC = 0x00;
+   716  000F5C  0E00               	movlw	0
+   717  000F5E  6F1F               	movwf	31,b	;volatile
+   718                           
+   719                           ;pin_manager.c: 97: ODCOND = 0x00;
+   720  000F60  0E00               	movlw	0
+   721  000F62  6F24               	movwf	36,b	;volatile
+   722                           
+   723                           ; BSR set to: 15
+   724                           ;pin_manager.c: 104: SSP2CLKPPSbits.SSPCLKPPS = 0x19;
+   725  000F64  010E               	movlb	14	; () banked
+   726  000F66  818F               	bsf	143,0,b	;volatile
+   727  000F68  938F               	bcf	143,1,b	;volatile
+   728  000F6A  958F               	bcf	143,2,b	;volatile
+   729  000F6C  878F               	bsf	143,3,b	;volatile
+   730  000F6E  898F               	bsf	143,4,b	;volatile
+   731                           
+   732                           ; BSR set to: 14
+   733                           ;pin_manager.c: 105: SSP2DATPPSbits.SSPDATPPS = 0x1A;
+   734  000F70  9190               	bcf	144,0,b	;volatile
+   735  000F72  8390               	bsf	144,1,b	;volatile
+   736  000F74  9590               	bcf	144,2,b	;volatile
+   737  000F76  8790               	bsf	144,3,b	;volatile
+   738  000F78  8990               	bsf	144,4,b	;volatile
+   739                           
+   740                           ;pin_manager.c: 106: RD3PPS = 0x12;
+   741  000F7A  0E12               	movlw	18
+   742  000F7C  010F               	movlb	15	; () banked
+   743  000F7E  6F02               	movwf	2,b	;volatile
+   744                           
+   745                           ;pin_manager.c: 107: RD1PPS = 0x11;
+   746  000F80  0E11               	movlw	17
+   747  000F82  6F00               	movwf	0,b	;volatile
    748                           
-   749                           ;mcc.c: 128: OSCCON3 = 0x00;
-   750  001008  0E00               	movlw	0
-   751  00100A  6FDA               	movwf	218,b	;volatile
-   752                           
-   753                           ;mcc.c: 130: OSCEN = 0x00;
-   754  00100C  0E00               	movlw	0
-   755  00100E  6FDC               	movwf	220,b	;volatile
-   756                           
-   757                           ;mcc.c: 132: OSCFRQ = 0x03;
-   758  001010  0E03               	movlw	3
-   759  001012  6FDE               	movwf	222,b	;volatile
+   749                           ; BSR set to: 15
+   750  000F84  0012               	return		;funcret
+   751  000F86                     __end_of_PIN_MANAGER_Initialize:
+   752                           	opt stack 0
+   753                           tblptru	equ	0xFF8
+   754                           tblptrh	equ	0xFF7
+   755                           tblptrl	equ	0xFF6
+   756                           tablat	equ	0xFF5
+   757                           prodh	equ	0xFF4
+   758                           prodl	equ	0xFF3
+   759                           wreg	equ	0xFE8
    760                           
-   761                           ;mcc.c: 134: OSCTUNE = 0x20;
-   762  001014  0E20               	movlw	32
-   763  001016  6FDD               	movwf	221,b	;volatile
-   764                           
-   765                           ; BSR set to: 14
-   766  001018  0012               	return		;funcret
-   767  00101A                     __end_of_OSCILLATOR_Initialize:
-   768                           	opt stack 0
-   769                           tblptru	equ	0xFF8
-   770                           tblptrh	equ	0xFF7
-   771                           tblptrl	equ	0xFF6
-   772                           tablat	equ	0xFF5
-   773                           prodh	equ	0xFF4
-   774                           prodl	equ	0xFF3
-   775                           tblptru	equ	0xFF8
-   776                           tblptrh	equ	0xFF7
-   777                           tblptrl	equ	0xFF6
-   778                           tablat	equ	0xFF5
-   779                           prodh	equ	0xFF4
-   780                           prodl	equ	0xFF3
-   781                           
-   782                           	psect	rparam
-   783  0000                     tblptru	equ	0xFF8
-   784                           tblptrh	equ	0xFF7
-   785                           tblptrl	equ	0xFF6
-   786                           tablat	equ	0xFF5
-   787                           prodh	equ	0xFF4
-   788                           prodl	equ	0xFF3
+   761 ;; *************** function _OSCILLATOR_Initialize *****************
+   762 ;; Defined at:
+   763 ;;		line 123 in file "mcc_generated_files/mcc.c"
+   764 ;; Parameters:    Size  Location     Type
+   765 ;;		None
+   766 ;; Auto vars:     Size  Location     Type
+   767 ;;		None
+   768 ;; Return value:  Size  Location     Type
+   769 ;;                  1    wreg      void 
+   770 ;; Registers used:
+   771 ;;		wreg, status,2
+   772 ;; Tracked objects:
+   773 ;;		On entry : 0/0
+   774 ;;		On exit  : 0/0
+   775 ;;		Unchanged: 0/0
+   776 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   777 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   778 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   779 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   780 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   781 ;;Total ram usage:        0 bytes
+   782 ;; Hardware stack levels used:    1
+   783 ;; This function calls:
+   784 ;;		Nothing
+   785 ;; This function is called by:
+   786 ;;		_SYSTEM_Initialize
+   787 ;; This function uses a non-reentrant model
+   788 ;;
+   789                           
+   790                           	psect	text6
+   791  001044                     __ptext6:
+   792                           	opt stack 0
+   793  001044                     _OSCILLATOR_Initialize:
+   794                           	opt stack 29
+   795                           
+   796                           ;mcc.c: 126: OSCCON1 = 0x62;
+   797                           
+   798                           ; BSR set to: 15
+   799                           ;incstack = 0
+   800  001044  0E62               	movlw	98
+   801  001046  010E               	movlb	14	; () banked
+   802  001048  6FD8               	movwf	216,b	;volatile
+   803                           
+   804                           ;mcc.c: 128: OSCCON3 = 0x00;
+   805  00104A  0E00               	movlw	0
+   806  00104C  6FDA               	movwf	218,b	;volatile
+   807                           
+   808                           ;mcc.c: 130: OSCEN = 0x00;
+   809  00104E  0E00               	movlw	0
+   810  001050  6FDC               	movwf	220,b	;volatile
+   811                           
+   812                           ;mcc.c: 132: OSCFRQ = 0x03;
+   813  001052  0E03               	movlw	3
+   814  001054  6FDE               	movwf	222,b	;volatile
+   815                           
+   816                           ;mcc.c: 134: OSCTUNE = 0x20;
+   817  001056  0E20               	movlw	32
+   818  001058  6FDD               	movwf	221,b	;volatile
+   819                           
+   820                           ; BSR set to: 14
+   821  00105A  0012               	return		;funcret
+   822  00105C                     __end_of_OSCILLATOR_Initialize:
+   823                           	opt stack 0
+   824                           tblptru	equ	0xFF8
+   825                           tblptrh	equ	0xFF7
+   826                           tblptrl	equ	0xFF6
+   827                           tablat	equ	0xFF5
+   828                           prodh	equ	0xFF4
+   829                           prodl	equ	0xFF3
+   830                           wreg	equ	0xFE8
+   831                           tblptru	equ	0xFF8
+   832                           tblptrh	equ	0xFF7
+   833                           tblptrl	equ	0xFF6
+   834                           tablat	equ	0xFF5
+   835                           prodh	equ	0xFF4
+   836                           prodl	equ	0xFF3
+   837                           wreg	equ	0xFE8
+   838                           
+   839                           	psect	rparam
+   840  0000                     tblptru	equ	0xFF8
+   841                           tblptrh	equ	0xFF7
+   842                           tblptrl	equ	0xFF6
+   843                           tablat	equ	0xFF5
+   844                           prodh	equ	0xFF4
+   845                           prodl	equ	0xFF3
+   846                           wreg	equ	0xFE8
 
 
 Data Sizes:
@@ -847,7 +905,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           95      1       1
+    COMRAM           95      3       3
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -938,7 +996,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 0     0      0      60
+ (0) _main                                                 2     2      0      60
+                                              1 COMRAM     2     2      0
                   _SYSTEM_Initialize
                   _spi2_exchangeByte
                     _spi2_slave_open
@@ -979,7 +1038,7 @@ BITCOMRAM           5F      0       0       0        0.0%
 EEDATA             400      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMRAM              5F      1       1       1        1.1%
+COMRAM              5F      3       3       1        3.2%
 STACK                0      0       0       2        0.0%
 DATA                 0      0       0       3        0.0%
 BITBANK0            A0      0       0       4        0.0%
@@ -1023,88 +1082,92 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Wed Apr 18 11:52:24 2018
+Symbol Table                                                                                   Thu Apr 19 16:42:12 2018
 
-                          __CFG_CP$OFF 000000                            __CFG_LVP$ON 000000  
-                                  l138 1032                                    l169 1024  
+                          __CFG_CP$OFF 000000                                     u87 0FFC  
+                                   u97 101C                            __CFG_LVP$ON 000000  
+                                  l138 1062                                    l181 1016  
+                                  l175 1006                                    l176 0FF6  
                          __CFG_CPD$OFF 000000                __size_of_PMD_Initialize 001C  
-                         __CFG_ZCD$OFF 000000                                   _LATA 000F83  
-                                 _LATB 000F84                                   _LATC 000F85  
-                                 _LATD 000F86                                   _LATE 000F87  
-                                 _PMD0 000EE1                                   _PMD1 000EE2  
-                                 _PMD2 000EE3                                   _PMD3 000EE4  
-                                 _PMD4 000EE5                                   _PMD5 000EE6  
-                                 _WPUA 000F10                                   _WPUB 000F18  
-                                 _WPUC 000F20                                   _WPUD 000F25  
-                                 _WPUE 000F2D                          __CFG_FCMEN$ON 000000  
-                      _spi2_slave_open 0F82                                   _main 101A  
-                                 prodh 000FF4                                   prodl 000FF3  
-                                 start 0000                          __CFG_CSWEN$ON 000000  
-                         ___param_bank 000000                          __CFG_SCANE$ON 000000  
-       __size_of_OSCILLATOR_Initialize 0018          __end_of_OSCILLATOR_Initialize 101A  
-           __size_of_spi2_exchangeByte 0012                                  ?_main 0001  
-                        __CFG_WDTE$OFF 000000                         __CFG_DEBUG$OFF 000000  
-                                _OSCEN 000EDC                                  _TRISA 000F88  
-                                _TRISB 000F89                                  _TRISC 000F8A  
-                                _TRISD 000F8B                                  _TRISE 000F8C  
-                        __CFG_WRT0$OFF 000000                          __CFG_WRT1$OFF 000000  
-                        __CFG_WRT2$OFF 000000                          __CFG_WRT3$OFF 000000  
-                        __CFG_WRT4$OFF 000000                          __CFG_WRT5$OFF 000000  
-                        __CFG_WRT6$OFF 000000                          __CFG_WRT7$OFF 000000  
-                       __CFG_EBTR0$OFF 000000                         __CFG_EBTR1$OFF 000000  
-                       __CFG_EBTR2$OFF 000000                         __CFG_EBTR3$OFF 000000  
-                       __CFG_EBTR4$OFF 000000                         __CFG_EBTR5$OFF 000000  
-                       __CFG_EBTR6$OFF 000000                         __CFG_EBTR7$OFF 000000  
-                        __CFG_WRTB$OFF 000000                          __CFG_WRTC$OFF 000000  
-                        __CFG_WRTD$OFF 000000                         __CFG_EBTRB$OFF 000000  
-                   __CFG_MCLRE$EXTMCLR 000000                                  tablat 000FF5  
-                      __initialization 103E                           __end_of_main 102C  
-                               ??_main 0002                          __activetblptr 000001  
-              __end_of_spi2_slave_open 0FE6                                 _ANSELA 000F11  
-                               _ANSELB 000F19                                 _ANSELC 000F21  
-                               _ANSELD 000F26                                 _ANSELE 000F2E  
-                               _RD1PPS 000F00                                 _RD3PPS 000F02  
-                               _ODCONA 000F0F                                 _ODCONB 000F17  
-                               _ODCONC 000F1F                                 _ODCOND 000F24  
-                               _ODCONE 000F2C                         __CFG_WDTCCS$SC 000000  
-                               _OSCFRQ 000EDE                         __CFG_PWRTE$OFF 000000  
-                       __CFG_XINST$OFF 000000              __CFG_RSTOSC$HFINTOSC_1MHZ 000000  
-                       __CFG_STVREN$ON 000000                     spi2_exchangeByte@b 0001  
-                       _PMD_Initialize 0FE6                           __mediumconst 0000  
-                               tblptrh 000FF7                                 tblptrl 000FF6  
-                               tblptru 000FF8                      _SYSTEM_Initialize 104C  
-                           __accesstop 0060                __end_of__initialization 103E  
-                   ?_SYSTEM_Initialize 0001                          ___rparam_used 000001  
-           __end_of_spi2_configuration 0F04                         __pcstackCOMRAM 0001  
-                  ??_SYSTEM_Initialize 0001                 __end_of_PMD_Initialize 1002  
-spi2_slave_open@spiUniqueConfiguration 0001                       ?_spi2_slave_open 0001  
-            __end_of_SYSTEM_Initialize 105A                        __CFG_PPS1WAY$ON 000000  
-                       _SSP2DATPPSbits 000E90                        ?_PMD_Initialize 0001  
-                              _OSCCON1 000ED8                                _OSCCON3 000EDA  
-                       _SSP2CLKPPSbits 000E8F                                _OSCTUNE 000EDD  
-                              _SSP2ADD 000E93                                _SSP2BUF 000E92  
-                              __Hparam 0000                                __Lparam 0000  
-                         __psmallconst 0F00                                __pcinit 103E  
-                              __ramtop 0F00                                __ptext0 101A  
-                              __ptext1 0F82                                __ptext2 102C  
-                              __ptext3 104C                                __ptext4 0FE6  
-                              __ptext5 0F06                                __ptext6 1002  
-                _OSCILLATOR_Initialize 1002               ??_PIN_MANAGER_Initialize 0001  
-           __size_of_SYSTEM_Initialize 000E                   end_of_initialization 103E  
-                __CFG_WDTCPS$WDTCPS_31 000000                              _TRISDbits 000F8B  
-                     __CFG_FEXTOSC$OFF 000000                 ?_OSCILLATOR_Initialize 0001  
-                   _spi2_configuration 0F01                    start_initialization 103E  
-      __size_of_PIN_MANAGER_Initialize 007C                       __CFG_LPBOREN$OFF 000000  
-                     ??_PMD_Initialize 0001               __size_of_spi2_slave_open 0064  
-               _PIN_MANAGER_Initialize 0F06                            __smallconst 0F00  
+                                  wreg 000FE8                           __CFG_ZCD$OFF 000000  
+                                 _LATA 000F83                                   _LATB 000F84  
+                                 _LATC 000F85                                   _LATD 000F86  
+                                 _LATE 000F87                                   _PMD0 000EE1  
+                                 _PMD1 000EE2                                   _PMD2 000EE3  
+                                 _PMD3 000EE4                                   _PMD4 000EE5  
+                                 _PMD5 000EE6                                   _WPUA 000F10  
+                                 _WPUB 000F18                                   _WPUC 000F20  
+                                 _WPUD 000F25                                   _WPUE 000F2D  
+                        __CFG_FCMEN$ON 000000                        _spi2_slave_open 0F86  
+                                 _main 0FEA                                   prodh 000FF4  
+                                 prodl 000FF3                                   start 0000  
+                        __CFG_CSWEN$ON 000000                           ___param_bank 000000  
+                        __CFG_SCANE$ON 000000         __size_of_OSCILLATOR_Initialize 0018  
+        __end_of_OSCILLATOR_Initialize 105C             __size_of_spi2_exchangeByte 0012  
+                                ?_main 0001                          __CFG_WDTE$OFF 000000  
+                       __CFG_DEBUG$OFF 000000                                  _OSCEN 000EDC  
+                                _TRISA 000F88                                  _TRISB 000F89  
+                                _TRISC 000F8A                                  _TRISD 000F8B  
+                                _TRISE 000F8C                          __CFG_WRT0$OFF 000000  
+                        __CFG_WRT1$OFF 000000                          __CFG_WRT2$OFF 000000  
+                        __CFG_WRT3$OFF 000000                          __CFG_WRT4$OFF 000000  
+                        __CFG_WRT5$OFF 000000                          __CFG_WRT6$OFF 000000  
+                        __CFG_WRT7$OFF 000000                         __CFG_EBTR0$OFF 000000  
+                       __CFG_EBTR1$OFF 000000                         __CFG_EBTR2$OFF 000000  
+                       __CFG_EBTR3$OFF 000000                         __CFG_EBTR4$OFF 000000  
+                       __CFG_EBTR5$OFF 000000                         __CFG_EBTR6$OFF 000000  
+                       __CFG_EBTR7$OFF 000000                          __CFG_WRTB$OFF 000000  
+                        __CFG_WRTC$OFF 000000                          __CFG_WRTD$OFF 000000  
+                       __CFG_EBTRB$OFF 000000                     __CFG_MCLRE$EXTMCLR 000000  
+                                tablat 000FF5                        __initialization 106E  
+                         __end_of_main 1028                                 ??_main 0002  
+                        __activetblptr 000001                __end_of_spi2_slave_open 0FEA  
+                               _ANSELA 000F11                                 _ANSELB 000F19  
+                               _ANSELC 000F21                                 _ANSELD 000F26  
+                               _ANSELE 000F2E                                 _RD1PPS 000F00  
+                               _RD3PPS 000F02                                 _ODCONA 000F0F  
+                               _ODCONB 000F17                                 _ODCONC 000F1F  
+                               _ODCOND 000F24                                 _ODCONE 000F2C  
+                       __CFG_WDTCCS$SC 000000                                 _OSCFRQ 000EDE  
+                       __CFG_PWRTE$OFF 000000                         __CFG_XINST$OFF 000000  
+            __CFG_RSTOSC$HFINTOSC_1MHZ 000000                         __CFG_STVREN$ON 000000  
+                   spi2_exchangeByte@b 0001                         _PMD_Initialize 1028  
+                         __mediumconst 0000                                 tblptrh 000FF7  
+                               tblptrl 000FF6                                 tblptru 000FF8  
+                    _SYSTEM_Initialize 107C                             __accesstop 0060  
+              __end_of__initialization 106E                     ?_SYSTEM_Initialize 0001  
+                        ___rparam_used 000001             __end_of_spi2_configuration 0F04  
+                       __pcstackCOMRAM 0001                    ??_SYSTEM_Initialize 0001  
+               __end_of_PMD_Initialize 1044  spi2_slave_open@spiUniqueConfiguration 0001  
+                     ?_spi2_slave_open 0001              __end_of_SYSTEM_Initialize 108A  
+                      __CFG_PPS1WAY$ON 000000                         _SSP2DATPPSbits 000E90  
+                      ?_PMD_Initialize 0001                                _OSCCON1 000ED8  
+                              _OSCCON3 000EDA                         _SSP2CLKPPSbits 000E8F  
+                              _OSCTUNE 000EDD                                _SSP2ADD 000E93  
+                              _SSP2BUF 000E92                                __Hparam 0000  
+                              __Lparam 0000                           __psmallconst 0F00  
+                              __pcinit 106E                                __ramtop 0F00  
+                              __ptext0 0FEA                                __ptext1 0F86  
+                              __ptext2 105C                                __ptext3 107C  
+                              __ptext4 1028                                __ptext5 0F06  
+                              __ptext6 1044                  _OSCILLATOR_Initialize 1044  
+             ??_PIN_MANAGER_Initialize 0001             __size_of_SYSTEM_Initialize 000E  
+                              main@res 0003                   end_of_initialization 106E  
+                __CFG_WDTCPS$WDTCPS_31 000000                              _PORTCbits 000F8F  
+                            _TRISDbits 000F8B                       __CFG_FEXTOSC$OFF 000000  
+               ?_OSCILLATOR_Initialize 0001                     _spi2_configuration 0F01  
+                  start_initialization 106E        __size_of_PIN_MANAGER_Initialize 0080  
+                     __CFG_LPBOREN$OFF 000000                       ??_PMD_Initialize 0001  
+             __size_of_spi2_slave_open 0064                 _PIN_MANAGER_Initialize 0F06  
+                          __smallconst 0F00                               _LATAbits 000F83  
                   __CFG_BORV$VBOR_2P45 000000                               _PIR3bits 000ECD  
                              _SSP2CON1 000E96                               _SSP2CON2 000E97  
                              _SSP2STAT 000E95                               __Hrparam 0000  
                              __Lrparam 0000                           __Lsmallconst 0F00  
                    __CFG_BOREN$SBORDIS 000000                      ??_spi2_slave_open 0001  
               ??_OSCILLATOR_Initialize 0001                           _SSP2CON1bits 000E96  
-                        __size_of_main 0012                   __CFG_WDTCWS$WDTCWS_7 000000  
-                    _spi2_exchangeByte 102C                     ?_spi2_exchangeByte 0001  
+                        __size_of_main 003E                   __CFG_WDTCWS$WDTCWS_7 000000  
+                    _spi2_exchangeByte 105C                     ?_spi2_exchangeByte 0001  
                   ??_spi2_exchangeByte 0001                ?_PIN_MANAGER_Initialize 0001  
-                    __CFG_CLKOUTEN$OFF 000000              __end_of_spi2_exchangeByte 103E  
-       __end_of_PIN_MANAGER_Initialize 0F82  
+                    __CFG_CLKOUTEN$OFF 000000              __end_of_spi2_exchangeByte 106E  
+       __end_of_PIN_MANAGER_Initialize 0F86  

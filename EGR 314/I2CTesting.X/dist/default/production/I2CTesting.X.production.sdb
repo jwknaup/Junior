@@ -65,11 +65,11 @@ I2C_NOERR 0
 I2C_BUSY 1
 I2C_FAIL 2
 ]
-"82 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
+"45 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/spi2_driver.c
 [e E11675 . `uc
 CUSTOM1 0
 ]
-"45 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/spi2_driver.c
+"82 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
 [e E11675 . `uc
 CUSTOM1 0
 ]
@@ -253,7 +253,7 @@ CUSTOM1 0
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S1221 . 1 `uc 1 SSPM02 1 0 :1:0 
+[s S1173 . 1 `uc 1 SSPM02 1 0 :1:0 
 `uc 1 SSPM12 1 0 :1:1 
 `uc 1 SSPM22 1 0 :1:2 
 `uc 1 SSPM32 1 0 :1:3 
@@ -262,8 +262,8 @@ CUSTOM1 0
 `uc 1 SSPOV2 1 0 :1:6 
 `uc 1 WCOL2 1 0 :1:7 
 ]
-[u S1230 . 1 `S57 1 . 1 0 `S63 1 . 1 0 `S1221 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES1230  1 e 1 @3734 ]
+[u S1182 . 1 `S57 1 . 1 0 `S63 1 . 1 0 `S1173 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES1182  1 e 1 @3734 ]
 "952
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3735 ]
 "3361
@@ -372,10 +372,52 @@ CUSTOM1 0
 [v _ANSELE ANSELE `VEuc  1 e 1 @3886 ]
 "15928
 [v _LATA LATA `VEuc  1 e 1 @3971 ]
+[s S1367 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"15955
+[s S1376 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+`uc 1 LA7 1 0 :1:7 
+]
+[u S1385 . 1 `S1367 1 . 1 0 `S1376 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1385  1 e 1 @3971 ]
 "16040
 [v _LATB LATB `VEuc  1 e 1 @3972 ]
 "16152
 [v _LATC LATC `VEuc  1 e 1 @3973 ]
+[s S1324 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"16179
+[s S1333 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S1342 . 1 `S1324 1 . 1 0 `S1333 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1342  1 e 1 @3973 ]
 "16264
 [v _LATD LATD `VEuc  1 e 1 @3974 ]
 "16376
@@ -384,7 +426,7 @@ CUSTOM1 0
 [v _TRISA TRISA `VEuc  1 e 1 @3976 ]
 "16595
 [v _TRISB TRISB `VEuc  1 e 1 @3977 ]
-[s S1265 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S1217 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -394,8 +436,8 @@ CUSTOM1 0
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "16617
-[u S1274 . 1 `S1265 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES1274  1 e 1 @3977 ]
+[u S1226 . 1 `S1217 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES1226  1 e 1 @3977 ]
 "16717
 [v _TRISC TRISC `VEuc  1 e 1 @3978 ]
 "16839
@@ -616,19 +658,25 @@ CUSTOM1 0
 [v _i2c1_driver_busCollisionISR i2c1_driver_busCollisionISR `*.38(v  1 e 3 0 ]
 "76
 [v _i2c1_driver_i2cISR i2c1_driver_i2cISR `*.38(v  1 e 3 0 ]
-[s S1255 . 3 `uc 1 con1 1 0 `uc 1 stat 1 1 `uc 1 add 1 2 ]
+[s S1207 . 3 `uc 1 con1 1 0 `uc 1 stat 1 1 `uc 1 add 1 2 ]
 "39 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/spi2_driver.c
-[v _spi2_configuration spi2_configuration `C[1]S1255  1 s 3 spi2_configuration ]
+[v _spi2_configuration spi2_configuration `C[1]S1207  1 s 3 spi2_configuration ]
 "48 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
+"128
+[v main@i_1438 i `i  1 a 2 6 ]
+"100
+[v main@i i `i  1 a 2 4 ]
+"105
+[v main@res res `uc  1 a 1 3 ]
 "73
-[v main@photonAddress photonAddress `uc  1 a 1 24 ]
+[v main@photonAddress photonAddress `uc  1 a 1 2 ]
 "72
-[v main@gamerScore gamerScore `uc  1 a 1 23 ]
+[v main@gamerScore gamerScore `uc  1 a 1 1 ]
 "71
-[v main@addr addr `uc  1 a 1 22 ]
-"120
+[v main@addr addr `uc  1 a 1 0 ]
+"132
 } 0
 "44 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/spi2_driver.c
 [v _spi2_master_open spi2_master_open `(b  1 e 0 0 ]

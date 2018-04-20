@@ -10834,8 +10834,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 132: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 144: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 172: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 184: void PIN_MANAGER_IOC(void);
 [; ;spi2_types.h: 28: typedef enum {
 [; ;spi2_types.h: 29: CUSTOM0
 [; ;spi2_types.h: 30: } spi2_modes;
@@ -10874,14 +10874,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 "40
+-> -> 16 `i `uc
 -> -> 0 `i `uc
--> -> 64 `i `uc
 -> -> 4 `i `uc
 ..
 ..
 ]
 [; ;spi2_driver.c: 39: static const spi2_configuration_t spi2_configuration[] = {
-[; ;spi2_driver.c: 40: {0x0, 0x40, 0x4 }
+[; ;spi2_driver.c: 40: {0x10, 0x0, 0x4 }
 [; ;spi2_driver.c: 41: };
 "44
 [v _spi2_master_open `(b ~T0 @X0 1 ef1`E11670 ]

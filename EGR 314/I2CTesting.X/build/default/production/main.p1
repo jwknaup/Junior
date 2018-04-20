@@ -23,8 +23,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n E11675 . CUSTOM1  ]
 "37 mcc_generated_files/spi2_driver.h
 [v _spi2_master_open `(b ~T0 @X0 0 ef1`E11675 ]
-"40
+"16158 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
+[s S785 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S785 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"16168
+[s S786 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S786 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"16157
+[u S784 `S785 1 `S786 1 ]
+[n S784 . . . ]
+"16179
+[v _LATCbits `VS784 ~T0 @X0 0 e@3973 ]
+[v F11568 `(v ~T0 @X0 1 tf1`ul ]
+"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+[v __delay `JF11568 ~T0 @X0 0 e ]
+[p i __delay ]
+"40 mcc_generated_files/spi2_driver.h
 [v _spi2_exchangeByte `(uc ~T0 @X0 0 ef1`uc ]
+"15934 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
+[s S779 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S779 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"15944
+[s S780 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S780 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"15933
+[u S778 `S779 1 `S780 1 ]
+[n S778 . . . ]
+"15955
+[v _LATAbits `VS778 ~T0 @X0 0 e@3971 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10752,8 +10778,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 212: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 224: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 232: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 244: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -10885,13 +10911,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c_types.h: 52: i2c_operations_t i2c_returnReset(void *p);
 [; ;i2c_types.h: 53: i2c_operations_t i2c_restartWrite(void *p);
 [; ;i2c_types.h: 54: i2c_operations_t i2c_restartRead(void *p);
-[; ;i2c_simple_master.h: 29: uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
-[; ;i2c_simple_master.h: 30: uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
-[; ;i2c_simple_master.h: 31: void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
-[; ;i2c_simple_master.h: 32: void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
-[; ;i2c_simple_master.h: 34: void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
-[; ;i2c_simple_master.h: 35: void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
-[; ;i2c_simple_master.h: 36: void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
 [; ;i2c_master.h: 31: typedef i2c_operations_t (*i2c_callback)(void *p);
 [; ;i2c_master.h: 35: i2c_error_t i2c_open(i2c_address_t address);
 [; ;i2c_master.h: 36: void i2c_setAddress(i2c_address_t address);
@@ -10908,6 +10927,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c_master.h: 50: void i2c_setTimeOutCallback(i2c_callback cb, void *p);
 [; ;i2c_master.h: 53: void i2c_ISR(void);
 [; ;i2c_master.h: 54: void i2c_busCollisionISR(void);
+[; ;i2c_simple_master.h: 29: uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
+[; ;i2c_simple_master.h: 30: uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
+[; ;i2c_simple_master.h: 31: void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
+[; ;i2c_simple_master.h: 32: void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
+[; ;i2c_simple_master.h: 34: void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
+[; ;i2c_simple_master.h: 35: void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
+[; ;i2c_simple_master.h: 36: void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
 [; ;mcc.h: 72: void SYSTEM_Initialize(void);
 [; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 98: void PMD_Initialize(void);
@@ -10947,23 +10973,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 82: spi2_master_open(CUSTOM1);
 "82
 [e ( _spi2_master_open (1 . `E11675 0 ]
-[; ;main.c: 100: while (1)
-"100
-[e :U 1371 ]
-[; ;main.c: 101: {
-"101
-{
-[; ;main.c: 117: spi2_exchangeByte(126);
-"117
-[e ( _spi2_exchangeByte (1 -> -> 126 `i `uc ]
-"119
-}
-[e :U 1370 ]
-"100
-[e $U 1371  ]
+[; ;main.c: 99: do { LATCbits.LATC5 = 0; } while(0);
+"99
 [e :U 1372 ]
-[; ;main.c: 119: }
-[; ;main.c: 120: }
-"120
+{
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+}
+[e :U 1371 ]
+[; ;main.c: 100: for(int i=0; i<80; i++)
+"100
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 80 `i 1373  ]
+[e $U 1374  ]
+"101
+[e :U 1373 ]
+[; ;main.c: 101: _delay((unsigned long)((50)*(2000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"100
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 80 `i 1373  ]
+[e :U 1374 ]
+"101
+}
+[; ;main.c: 103: do { LATCbits.LATC5 = 1; } while(0);
+"103
+[e :U 1378 ]
+{
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+}
+[e :U 1377 ]
+"105
+[v _res `uc ~T0 @X0 1 a ]
+[; ;main.c: 105: uint8_t res = spi2_exchangeByte(1);
+[e = _res ( _spi2_exchangeByte (1 -> -> 1 `i `uc ]
+[; ;main.c: 107: while (1)
+"107
+[e :U 1380 ]
+[; ;main.c: 108: {
+"108
+{
+[; ;main.c: 125: if( res == 1 ){
+"125
+[e $ ! == -> _res `i -> 1 `i 1382  ]
+{
+[; ;main.c: 126: do { LATAbits.LATA2 = 0; } while(0);
+"126
+[e :U 1385 ]
+{
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+}
+[e :U 1384 ]
+"127
+}
+[e :U 1382 ]
+[; ;main.c: 127: }
+[; ;main.c: 128: for(int i=0; i<20; i++)
+"128
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 20 `i 1386  ]
+[e $U 1387  ]
+"129
+[e :U 1386 ]
+[; ;main.c: 129: _delay((unsigned long)((50)*(2000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"128
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 20 `i 1386  ]
+[e :U 1387 ]
+"129
+}
+"131
+}
+[e :U 1379 ]
+"107
+[e $U 1380  ]
+[e :U 1381 ]
+[; ;main.c: 131: }
+[; ;main.c: 132: }
+"132
 [e :UE 1369 ]
 }

@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/default/production\SPIslave.X.production.sym \
   --cmf=dist/default/production\SPIslave.X.production.cmf -z -Q18F47K40 \
-  -oC:\Users\Jacob\AppData\Local\Temp\s4eo.2 \
+  -oC:\Users\Jacob\AppData\Local\Temp\sc8g.2 \
   -Mdist/default/production/SPIslave.X.production.map -E1 -ver=XC8 \
   -ASTACK=060h-0e87h -pstack=STACK -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0F00h-0FFFhx497 -AMEDIUMCONST=0F00h-0FFFFh,010F00h-01FFFFh \
@@ -26,7 +26,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Jacob\AppData\Local\Temp\s4eo.obj \
+  C:\Users\Jacob\AppData\Local\Temp\sc8g.obj \
   dist/default/production\SPIslave.X.production.obj 
 
 Object code version is 3.11
@@ -39,35 +39,35 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Jacob\AppData\Local\Temp\s4eo.obj
+C:\Users\Jacob\AppData\Local\Temp\sc8g.obj
                 init                                  0        0        4        0       0
                 idloc                            200000   200000       10   200000       0
                 config                           300000   300000        C   300000       0
 dist/default/production\SPIslave.X.production.obj
                 smallconst                          F00      F00        6      780       0
-                text6                              1002     1002       18      783       0
-                text5                               F06      F06       7C      783       0
-                text4                               FE6      FE6       1C      783       0
-                text3                              104C     104C        E      783       0
-                text2                              102C     102C       12      783       0
-                text1                               F82      F82       64      783       0
-                text0                              101A     101A       12      783       0
-                cstackCOMRAM                          1        1        1        1       1
-                cinit                              103E     103E        E      783       0
+                text6                              1044     1044       18      783       0
+                text5                               F06      F06       80      783       0
+                text4                              1028     1028       1C      783       0
+                text3                              107C     107C        E      783       0
+                text2                              105C     105C       12      783       0
+                text1                               F86      F86       64      783       0
+                text0                               FEA      FEA       3E      783       0
+                cstackCOMRAM                          1        1        3        1       1
+                cinit                              106E     106E        E      783       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 init                                  0        0        4         0
-                text6                              1002     1002       18         0
-                text5                               F06      F06       7C         0
-                text4                               FE6      FE6       1C         0
-                text3                              104C     104C        E         0
-                text2                              102C     102C       12         0
-                text1                               F82      F82       64         0
-                text0                              101A     101A       12         0
-                cinit                              103E     103E        E         0
+                text6                              1044     1044       18         0
+                text5                               F06      F06       80         0
+                text4                              1028     1028       1C         0
+                text3                              107C     107C        E         0
+                text2                              105C     105C       12         0
+                text1                               F86      F86       64         0
+                text0                               FEA      FEA       3E         0
+                cinit                              106E     106E        E         0
 
         CLASS   CONST          
 
@@ -77,7 +77,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                          1        1        1         1
+                cstackCOMRAM                          1        1        3         1
 
         CLASS   ABS1           
 
@@ -132,9 +132,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                cstackCOMRAM                   000001  000001  000002         1       1  COMRAM  
+                cstackCOMRAM                   000001  000003  000004         1       1  COMRAM  
                 smallconst                     000F00  000006  000F06       780       0  SMALLCON
-                text5                          000F06  000154  00105A       783       0  CODE    
+                text5                          000F06  000184  00108A       783       0  CODE    
                 idloc                          200000  000010  200010    200000       0  IDLOC   
                 config                         300000  00000C  30000C    300000       0  CONFIG  
 
@@ -157,18 +157,18 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           000002-000E87              E86
+        BIGRAM           000004-000E87              E84
         CODE             000004-000EFF              EFC
-                         00105A-01FFFF            1EFA6
-        COMRAM           000002-00005F               5E
+                         00108A-01FFFF            1EF76
+        COMRAM           000004-00005F               5C
         CONST            000004-000EFF              EFC
-                         00105A-01FFFF            1EFA6
+                         00108A-01FFFF            1EF76
         EEDATA           310000-3103FF              400
-        MEDIUMCONST      00105A-00FFFF             EFA6
+        MEDIUMCONST      00108A-00FFFF             EF76
                          010F00-01FFFF             F100
         RAM              000060-000E87              100
         SFR              000E8D-000FFF               73
-        SMALLCONST       00105A-01FFFF              100
+        SMALLCONST       00108A-01FFFF              100
         STACK            000060-000E87              E28
 
                                   Symbol Table
@@ -179,6 +179,7 @@ _ANSELC                                (abs)        000F21
 _ANSELD                                (abs)        000F26
 _ANSELE                                (abs)        000F2E
 _LATA                                  (abs)        000F83
+_LATAbits                              (abs)        000F83
 _LATB                                  (abs)        000F84
 _LATC                                  (abs)        000F85
 _LATD                                  (abs)        000F86
@@ -192,7 +193,7 @@ _OSCCON1                               (abs)        000ED8
 _OSCCON3                               (abs)        000EDA
 _OSCEN                                 (abs)        000EDC
 _OSCFRQ                                (abs)        000EDE
-_OSCILLATOR_Initialize                 text6        001002
+_OSCILLATOR_Initialize                 text6        001044
 _OSCTUNE                               (abs)        000EDD
 _PIN_MANAGER_Initialize                text5        000F06
 _PIR3bits                              (abs)        000ECD
@@ -202,7 +203,8 @@ _PMD2                                  (abs)        000EE3
 _PMD3                                  (abs)        000EE4
 _PMD4                                  (abs)        000EE5
 _PMD5                                  (abs)        000EE6
-_PMD_Initialize                        text4        000FE6
+_PMD_Initialize                        text4        001028
+_PORTCbits                             (abs)        000F8F
 _RD1PPS                                (abs)        000F00
 _RD3PPS                                (abs)        000F02
 _SSP2ADD                               (abs)        000E93
@@ -213,7 +215,7 @@ _SSP2CON1bits                          (abs)        000E96
 _SSP2CON2                              (abs)        000E97
 _SSP2DATPPSbits                        (abs)        000E90
 _SSP2STAT                              (abs)        000E95
-_SYSTEM_Initialize                     text3        00104C
+_SYSTEM_Initialize                     text3        00107C
 _TRISA                                 (abs)        000F88
 _TRISB                                 (abs)        000F89
 _TRISC                                 (abs)        000F8A
@@ -327,7 +329,7 @@ __Hrparam                              rparam       000000
 __Hsfr                                 sfr          000000
 __Hsmallconst                          smallconst   000F06
 __Hspace_0                             (abs)        30000C
-__Hspace_1                             (abs)        000002
+__Hspace_1                             (abs)        000004
 __Hspace_2                             (abs)        000000
 __Hstack                               stack        000000
 __Hstruct                              struct       000000
@@ -413,7 +415,7 @@ __Ltext4                               text4        000000
 __Ltext5                               text5        000000
 __Ltext6                               text6        000000
 __S0                                   (abs)        30000C
-__S1                                   (abs)        000002
+__S1                                   (abs)        000004
 __S2                                   (abs)        000000
 ___inthi_sp                            stack        000000
 ___intlo_sp                            stack        000000
@@ -422,27 +424,27 @@ ___rparam_used                         (abs)        000001
 ___sp                                  stack        000000
 __accesstop                            (abs)        000060
 __activetblptr                         (abs)        000001
-__end_of_OSCILLATOR_Initialize         text6        00101A
-__end_of_PIN_MANAGER_Initialize        text5        000F82
-__end_of_PMD_Initialize                text4        001002
-__end_of_SYSTEM_Initialize             text3        00105A
-__end_of__initialization               cinit        00103E
-__end_of_main                          text0        00102C
+__end_of_OSCILLATOR_Initialize         text6        00105C
+__end_of_PIN_MANAGER_Initialize        text5        000F86
+__end_of_PMD_Initialize                text4        001044
+__end_of_SYSTEM_Initialize             text3        00108A
+__end_of__initialization               cinit        00106E
+__end_of_main                          text0        001028
 __end_of_spi2_configuration            smallconst   000F04
-__end_of_spi2_exchangeByte             text2        00103E
-__end_of_spi2_slave_open               text1        000FE6
-__initialization                       cinit        00103E
+__end_of_spi2_exchangeByte             text2        00106E
+__end_of_spi2_slave_open               text1        000FEA
+__initialization                       cinit        00106E
 __mediumconst                          mediumconst  000000
-__pcinit                               cinit        00103E
+__pcinit                               cinit        00106E
 __pcstackCOMRAM                        cstackCOMRAM 000001
 __psmallconst                          smallconst   000F00
-__ptext0                               text0        00101A
-__ptext1                               text1        000F82
-__ptext2                               text2        00102C
-__ptext3                               text3        00104C
-__ptext4                               text4        000FE6
+__ptext0                               text0        000FEA
+__ptext1                               text1        000F86
+__ptext2                               text2        00105C
+__ptext3                               text3        00107C
+__ptext4                               text4        001028
 __ptext5                               text5        000F06
-__ptext6                               text6        001002
+__ptext6                               text6        001044
 __ramtop                               ramtop       000F00
 __size_of_OSCILLATOR_Initialize        (abs)        000000
 __size_of_PIN_MANAGER_Initialize       (abs)        000000
@@ -452,21 +454,22 @@ __size_of_main                         (abs)        000000
 __size_of_spi2_exchangeByte            (abs)        000000
 __size_of_spi2_slave_open              (abs)        000000
 __smallconst                           smallconst   000F00
-_main                                  text0        00101A
+_main                                  text0        000FEA
 _spi2_configuration                    smallconst   000F01
-_spi2_exchangeByte                     text2        00102C
-_spi2_slave_open                       text1        000F82
-end_of_initialization                  cinit        00103E
+_spi2_exchangeByte                     text2        00105C
+_spi2_slave_open                       text1        000F86
+end_of_initialization                  cinit        00106E
 intlevel0                              text         000000
 intlevel1                              text         000000
 intlevel2                              text         000000
 intlevel3                              text         000000
+main@res                               cstackCOMRAM 000003
 spi2_exchangeByte@b                    cstackCOMRAM 000001
 spi2_slave_open@spiUniqueConfiguration cstackCOMRAM 000001
 stackhi                                (abs)        000E87
 stacklo                                (abs)        000060
 start                                  init         000000
-start_initialization                   cinit        00103E
+start_initialization                   cinit        00106E
 
 
 FUNCTION INFORMATION:
@@ -477,7 +480,7 @@ FUNCTION INFORMATION:
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-		None
+  res             1    2[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -488,10 +491,10 @@ FUNCTION INFORMATION:
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14
       Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
+      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
  Hardware stack levels required when called:    2
  This function calls:
 		_SYSTEM_Initialize
@@ -687,31 +690,31 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 mcc_generated_files/pin_manager.c
-		_PIN_MANAGER_Initialize		CODE           	0F06	0000	125
+		_PIN_MANAGER_Initialize		CODE           	0F06	0000	129
 
-mcc_generated_files/pin_manager.c estimated size: 125
+mcc_generated_files/pin_manager.c estimated size: 129
 
 shared
-		__initialization		CODE           	103E	0000	1
+		__initialization		CODE           	106E	0000	1
 		_spi2_configuration		SMALLCONST     	0F01	0000	4
 
 shared estimated size: 5
 
 mcc_generated_files/mcc.c
-		_PMD_Initialize		CODE           	0FE6	0000	29
-		_OSCILLATOR_Initialize		CODE           	1002	0000	25
-		_SYSTEM_Initialize		CODE           	104C	0000	15
+		_PMD_Initialize		CODE           	1028	0000	29
+		_OSCILLATOR_Initialize		CODE           	1044	0000	25
+		_SYSTEM_Initialize		CODE           	107C	0000	15
 
 mcc_generated_files/mcc.c estimated size: 69
 
 mcc_generated_files/spi2_driver.c
-		_spi2_slave_open		CODE           	0F82	0000	101
-		_spi2_exchangeByte		CODE           	102C	0000	19
+		_spi2_slave_open		CODE           	0F86	0000	101
+		_spi2_exchangeByte		CODE           	105C	0000	19
 
 mcc_generated_files/spi2_driver.c estimated size: 120
 
 main.c
-		_main          		CODE           	101A	0000	19
+		_main          		CODE           	0FEA	0000	63
 
-main.c estimated size: 19
+main.c estimated size: 63
 

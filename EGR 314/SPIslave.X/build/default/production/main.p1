@@ -7,7 +7,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n E11670 . CUSTOM0  ]
 "38 mcc_generated_files/spi2_driver.h
 [v _spi2_slave_open `(b ~T0 @X0 0 ef1`E11670 ]
-"40
+[v F11568 `(v ~T0 @X0 1 tf1`ul ]
+"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+[v __delay `JF11568 ~T0 @X0 0 e ]
+[p i __delay ]
+"17184 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
+[s S825 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S825 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"17194
+[s S826 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S826 . . CCP2 PA1 ]
+"17199
+[s S827 :1 `uc 1 :1 `uc 1 ]
+[n S827 . . PA2 ]
+"17183
+[u S824 `S825 1 `S826 1 `S827 1 ]
+[n S824 . . . . ]
+"17204
+[v _PORTCbits `VS824 ~T0 @X0 0 e@3983 ]
+"15934
+[s S779 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S779 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"15944
+[s S780 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S780 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"15933
+[u S778 `S779 1 `S780 1 ]
+[n S778 . . . ]
+"15955
+[v _LATAbits `VS778 ~T0 @X0 0 e@3971 ]
+"40 mcc_generated_files/spi2_driver.h
 [v _spi2_exchangeByte `(uc ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -10736,8 +10765,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 132: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 144: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 172: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 184: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -10825,23 +10854,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 69: spi2_slave_open(CUSTOM0);
 "69
 [e ( _spi2_slave_open (1 . `E11670 0 ]
-[; ;main.c: 71: while (1)
-"71
+[; ;main.c: 70: while(PORTCbits.RC6 == 0)
+"70
+[e $U 1370  ]
 [e :U 1371 ]
-[; ;main.c: 72: {
-"72
-{
-[; ;main.c: 74: spi2_exchangeByte(126);
-"74
-[e ( _spi2_exchangeByte (1 -> -> 126 `i `uc ]
-"75
-}
-[e :U 1370 ]
+[; ;main.c: 71: _delay((unsigned long)((50)*(2000000/4000.0)));
 "71
-[e $U 1371  ]
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+[e :U 1370 ]
+"70
+[e $ == -> . . _PORTCbits 0 6 `i -> 0 `i 1371  ]
 [e :U 1372 ]
-[; ;main.c: 75: }
-[; ;main.c: 76: }
-"76
+[; ;main.c: 72: do { LATAbits.LATA4 = 0; } while(0);
+"72
+[e :U 1375 ]
+{
+[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
+}
+[e :U 1374 ]
+"73
+[v _res `uc ~T0 @X0 1 a ]
+[; ;main.c: 73: uint8_t res = spi2_exchangeByte(1);
+[e = _res ( _spi2_exchangeByte (1 -> -> 1 `i `uc ]
+[; ;main.c: 75: do { LATAbits.LATA4 = 1; } while(0);
+"75
+[e :U 1378 ]
+{
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+}
+[e :U 1377 ]
+[; ;main.c: 78: while (1)
+"78
+[e :U 1380 ]
+[; ;main.c: 79: {
+"79
+{
+[; ;main.c: 81: _delay((unsigned long)((50)*(2000000/4000.0)));
+"81
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"82
+}
+[e :U 1379 ]
+"78
+[e $U 1380  ]
+[e :U 1381 ]
+[; ;main.c: 82: }
+[; ;main.c: 83: }
+"83
 [e :UE 1369 ]
 }

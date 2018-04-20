@@ -59,6 +59,46 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set MOTOR aliases
+#define MOTOR_TRIS               TRISAbits.TRISA4
+#define MOTOR_LAT                LATAbits.LATA4
+#define MOTOR_PORT               PORTAbits.RA4
+#define MOTOR_WPU                WPUAbits.WPUA4
+#define MOTOR_OD                ODCONAbits.ODCA4
+#define MOTOR_ANS                ANSELAbits.ANSELA4
+#define MOTOR_SetHigh()            do { LATAbits.LATA4 = 1; } while(0)
+#define MOTOR_SetLow()             do { LATAbits.LATA4 = 0; } while(0)
+#define MOTOR_Toggle()             do { LATAbits.LATA4 = ~LATAbits.LATA4; } while(0)
+#define MOTOR_GetValue()           PORTAbits.RA4
+#define MOTOR_SetDigitalInput()    do { TRISAbits.TRISA4 = 1; } while(0)
+#define MOTOR_SetDigitalOutput()   do { TRISAbits.TRISA4 = 0; } while(0)
+#define MOTOR_SetPullup()      do { WPUAbits.WPUA4 = 1; } while(0)
+#define MOTOR_ResetPullup()    do { WPUAbits.WPUA4 = 0; } while(0)
+#define MOTOR_SetPushPull()    do { ODCONAbits.ODCA4 = 0; } while(0)
+#define MOTOR_SetOpenDrain()   do { ODCONAbits.ODCA4 = 1; } while(0)
+#define MOTOR_SetAnalogMode()  do { ANSELAbits.ANSELA4 = 1; } while(0)
+#define MOTOR_SetDigitalMode() do { ANSELAbits.ANSELA4 = 0; } while(0)
+
+// get/set SS aliases
+#define SS_TRIS               TRISCbits.TRISC6
+#define SS_LAT                LATCbits.LATC6
+#define SS_PORT               PORTCbits.RC6
+#define SS_WPU                WPUCbits.WPUC6
+#define SS_OD                ODCONCbits.ODCC6
+#define SS_ANS                ANSELCbits.ANSELC6
+#define SS_SetHigh()            do { LATCbits.LATC6 = 1; } while(0)
+#define SS_SetLow()             do { LATCbits.LATC6 = 0; } while(0)
+#define SS_Toggle()             do { LATCbits.LATC6 = ~LATCbits.LATC6; } while(0)
+#define SS_GetValue()           PORTCbits.RC6
+#define SS_SetDigitalInput()    do { TRISCbits.TRISC6 = 1; } while(0)
+#define SS_SetDigitalOutput()   do { TRISCbits.TRISC6 = 0; } while(0)
+#define SS_SetPullup()      do { WPUCbits.WPUC6 = 1; } while(0)
+#define SS_ResetPullup()    do { WPUCbits.WPUC6 = 0; } while(0)
+#define SS_SetPushPull()    do { ODCONCbits.ODCC6 = 0; } while(0)
+#define SS_SetOpenDrain()   do { ODCONCbits.ODCC6 = 1; } while(0)
+#define SS_SetAnalogMode()  do { ANSELCbits.ANSELC6 = 1; } while(0)
+#define SS_SetDigitalMode() do { ANSELCbits.ANSELC6 = 0; } while(0)
+
 // get/set SCK2 aliases
 #define SCK2_TRIS               TRISDbits.TRISD1
 #define SCK2_LAT                LATDbits.LATD1

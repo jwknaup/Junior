@@ -52,8 +52,8 @@
 #include "interrupt_manager.h"
 #include "spi2_driver.h"
 #include "i2c1_driver.h"
-#include "drivers/i2c_simple_master.h"
 #include "drivers/i2c_master.h"
+#include "drivers/i2c_simple_master.h"
 
 #define _XTAL_FREQ  2000000
 

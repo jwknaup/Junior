@@ -67,11 +67,18 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
     
     spi2_slave_open(CUSTOM0);
+    while(SS_GetValue() == 0)
+        __delay_ms(50);
+    MOTOR_SetLow();
+    uint8_t res = spi2_exchangeByte(1);
+   // if(res > 0)
+        MOTOR_SetHigh();
+    
 
     while (1)
     {
         // Add your application code
-        spi2_exchangeByte(126);
+        __delay_ms(50);
     }
 }
 /**

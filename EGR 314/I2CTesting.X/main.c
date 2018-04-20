@@ -95,7 +95,14 @@ void main(void)
 //    i2c_writeNBytes(addr, data, 2);
     
     //i2c_writeNBytes(photonAddress, &gamerScore, 1); //sends gamer score to the Photon
+    
+    SS_SetLow();
+    for(int i=0; i<80; i++)
+        __delay_ms(50);
 
+    SS_SetHigh();
+
+    uint8_t res = spi2_exchangeByte(1);
 
     while (1)
     {
@@ -112,9 +119,14 @@ void main(void)
 //            IO_RA2_SetHigh();
 //        
 //        for(int i=0; i<20; i++)
-//            __delay_ms(50);        
+//            __delay_ms(50);       
         
-        spi2_exchangeByte(126);
+        
+        if( res == 1 ){
+            IO_RA2_SetLow();
+        }
+        for(int i=0; i<20; i++)
+            __delay_ms(50);
 
     }
 }
