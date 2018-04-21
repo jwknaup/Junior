@@ -77,7 +77,7 @@ void main(void)
     
     //__delay_ms(1000);
     
-    if(rec == 128)
+    if(rec == 1)
         MOTOR_SetHigh();
     
     

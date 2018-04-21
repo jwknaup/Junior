@@ -10826,9 +10826,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 74: }
 [; ;main.c: 76: uint8_t rec = EUSART2_Read();
 [e = _rec ( _EUSART2_Read ..  ]
-[; ;main.c: 80: if(rec == 128)
+[; ;main.c: 80: if(rec == 1)
 "80
-[e $ ! == -> _rec `i -> 128 `i 1372  ]
+[e $ ! == -> _rec `i -> 1 `i 1372  ]
 [; ;main.c: 81: do { LATAbits.LATA4 = 1; } while(0);
 "81
 [e :U 1375 ]

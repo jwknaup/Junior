@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Fri Apr 20 11:11:52 2018
+                                                                                               Fri Apr 20 11:31:33 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F47K40
@@ -117,18 +117,18 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    103                           ; #config settings
    104  0000                     
    105                           	psect	cinit
-   106  01FEB6                     __pcinit:
+   106  01FEB8                     __pcinit:
    107                           	opt stack 0
-   108  01FEB6                     start_initialization:
+   108  01FEB8                     start_initialization:
    109                           	opt stack 0
-   110  01FEB6                     __initialization:
+   110  01FEB8                     __initialization:
    111                           	opt stack 0
-   112  01FEB6                     end_of_initialization:
+   112  01FEB8                     end_of_initialization:
    113                           	opt stack 0
-   114  01FEB6                     __end_of__initialization:
+   114  01FEB8                     __end_of__initialization:
    115                           	opt stack 0
-   116  01FEB6  0100               	movlb	0
-   117  01FEB8  EFA4  F0FF         	goto	_main	;jump to C main() function
+   116  01FEB8  0100               	movlb	0
+   117  01FEBA  EFA5  F0FF         	goto	_main	;jump to C main() function
    118                           
    119                           	psect	cstackCOMRAM
    120  000001                     __pcstackCOMRAM:
@@ -190,720 +190,719 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
    171 ;;
    172                           
    173                           	psect	text0
-   174  01FF48                     __ptext0:
+   174  01FF4A                     __ptext0:
    175                           	opt stack 0
-   176  01FF48                     _main:
+   176  01FF4A                     _main:
    177                           	opt stack 29
    178                           
    179                           ;main.c: 51: SYSTEM_Initialize();
    180                           
    181                           ;incstack = 0
-   182  01FF48  EC75  F0FF         	call	_SYSTEM_Initialize	;wreg free
+   182  01FF4A  EC76  F0FF         	call	_SYSTEM_Initialize	;wreg free
    183                           
    184                           ;main.c: 69: EUSART2_Initialize();
-   185  01FF4C  EC7E  F0FF         	call	_EUSART2_Initialize	;wreg free
+   185  01FF4E  EC7F  F0FF         	call	_EUSART2_Initialize	;wreg free
    186                           
    187                           ;main.c: 71: while(!EUSART2_is_rx_ready()){
-   188  01FF50  D008               	goto	l165
-   189  01FF52                     
+   188  01FF52  D008               	goto	l165
+   189  01FF54                     
    190                           ;main.c: 73: _delay((unsigned long)((50)*(2000000/4000.0)));
-   191  01FF52  0E21               	movlw	33
-   192  01FF54  6E02               	movwf	??_main& (0+255),c
-   193  01FF56  0E76               	movlw	118
-   194  01FF58                     u97:
-   195  01FF58  2EE8               	decfsz	wreg,f,c
-   196  01FF5A  D7FE               	bra	u97
-   197  01FF5C  2E02               	decfsz	??_main& (0+255),f,c
-   198  01FF5E  D7FC               	bra	u97
-   199  01FF60  D000               	nop2	
-   200  01FF62                     l165:
-   201  01FF62  EC65  F0FF         	call	_EUSART2_is_rx_ready	;wreg free
-   202  01FF66  0900               	iorlw	0
-   203  01FF68  B4D8               	btfsc	status,2,c
-   204  01FF6A  D7F3               	goto	l166
+   191  01FF54  0E21               	movlw	33
+   192  01FF56  6E02               	movwf	??_main& (0+255),c
+   193  01FF58  0E76               	movlw	118
+   194  01FF5A                     u97:
+   195  01FF5A  2EE8               	decfsz	wreg,f,c
+   196  01FF5C  D7FE               	bra	u97
+   197  01FF5E  2E02               	decfsz	??_main& (0+255),f,c
+   198  01FF60  D7FC               	bra	u97
+   199  01FF62  D000               	nop2	
+   200  01FF64                     l165:
+   201  01FF64  EC66  F0FF         	call	_EUSART2_is_rx_ready	;wreg free
+   202  01FF68  0900               	iorlw	0
+   203  01FF6A  B4D8               	btfsc	status,2,c
+   204  01FF6C  D7F3               	goto	l166
    205                           
    206                           ;main.c: 74: }
    207                           ;main.c: 76: uint8_t rec = EUSART2_Read();
-   208  01FF6C  EC6C  F0FF         	call	_EUSART2_Read	;wreg free
-   209  01FF70  6E03               	movwf	main@rec,c
+   208  01FF6E  EC6D  F0FF         	call	_EUSART2_Read	;wreg free
+   209  01FF72  6E03               	movwf	main@rec,c
    210                           
-   211                           ;main.c: 80: if(rec == 128)
-   212  01FF72  0E80               	movlw	128
-   213  01FF74  1803               	xorwf	main@rec,w,c
-   214  01FF76  B4D8               	btfsc	status,2,c
-   215                           
-   216                           ;main.c: 81: do { LATAbits.LATA4 = 1; } while(0);
-   217  01FF78  8883               	bsf	3971,4,c	;volatile
-   218  01FF7A                     
-   219                           ;main.c: 86: {
-   220                           ;main.c: 88: EUSART2_Write(64);
-   221                           
-   222                           ;main.c: 85: while (1)
-   223  01FF7A  0E40               	movlw	64
-   224  01FF7C  EC5E  F0FF         	call	_EUSART2_Write
-   225                           
-   226                           ;main.c: 90: _delay((unsigned long)((50)*(2000000/4000.0)));
-   227  01FF80  0E21               	movlw	33
-   228  01FF82  6E02               	movwf	??_main& (0+255),c
-   229  01FF84  0E76               	movlw	118
-   230  01FF86                     u107:
-   231  01FF86  2EE8               	decfsz	wreg,f,c
-   232  01FF88  D7FE               	bra	u107
-   233  01FF8A  2E02               	decfsz	??_main& (0+255),f,c
-   234  01FF8C  D7FC               	bra	u107
-   235  01FF8E  D000               	nop2	
-   236  01FF90  D7F4               	goto	l170
-   237  01FF92                     __end_of_main:
-   238                           	opt stack 0
-   239                           wreg	equ	0xFE8
-   240                           status	equ	0xFD8
-   241                           
-   242 ;; *************** function _SYSTEM_Initialize *****************
-   243 ;; Defined at:
-   244 ;;		line 116 in file "mcc_generated_files/mcc.c"
-   245 ;; Parameters:    Size  Location     Type
-   246 ;;		None
-   247 ;; Auto vars:     Size  Location     Type
-   248 ;;		None
-   249 ;; Return value:  Size  Location     Type
-   250 ;;                  1    wreg      void 
-   251 ;; Registers used:
-   252 ;;		wreg, status,2, cstack
-   253 ;; Tracked objects:
-   254 ;;		On entry : 0/0
-   255 ;;		On exit  : 0/0
-   256 ;;		Unchanged: 0/0
-   257 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   211                           ;main.c: 80: if(rec == 1)
+   212  01FF74  0403               	decf	main@rec,w,c
+   213  01FF76  B4D8               	btfsc	status,2,c
+   214                           
+   215                           ;main.c: 81: do { LATAbits.LATA4 = 1; } while(0);
+   216  01FF78  8883               	bsf	3971,4,c	;volatile
+   217  01FF7A                     
+   218                           ;main.c: 86: {
+   219                           ;main.c: 88: EUSART2_Write(64);
+   220                           
+   221                           ;main.c: 85: while (1)
+   222  01FF7A  0E40               	movlw	64
+   223  01FF7C  EC5F  F0FF         	call	_EUSART2_Write
+   224                           
+   225                           ;main.c: 90: _delay((unsigned long)((50)*(2000000/4000.0)));
+   226  01FF80  0E21               	movlw	33
+   227  01FF82  6E02               	movwf	??_main& (0+255),c
+   228  01FF84  0E76               	movlw	118
+   229  01FF86                     u107:
+   230  01FF86  2EE8               	decfsz	wreg,f,c
+   231  01FF88  D7FE               	bra	u107
+   232  01FF8A  2E02               	decfsz	??_main& (0+255),f,c
+   233  01FF8C  D7FC               	bra	u107
+   234  01FF8E  D000               	nop2	
+   235  01FF90  D7F4               	goto	l170
+   236  01FF92                     __end_of_main:
+   237                           	opt stack 0
+   238                           wreg	equ	0xFE8
+   239                           status	equ	0xFD8
+   240                           
+   241 ;; *************** function _SYSTEM_Initialize *****************
+   242 ;; Defined at:
+   243 ;;		line 116 in file "mcc_generated_files/mcc.c"
+   244 ;; Parameters:    Size  Location     Type
+   245 ;;		None
+   246 ;; Auto vars:     Size  Location     Type
+   247 ;;		None
+   248 ;; Return value:  Size  Location     Type
+   249 ;;                  1    wreg      void 
+   250 ;; Registers used:
+   251 ;;		wreg, status,2, cstack
+   252 ;; Tracked objects:
+   253 ;;		On entry : 0/0
+   254 ;;		On exit  : 0/0
+   255 ;;		Unchanged: 0/0
+   256 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   258 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   257 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   259 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   258 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   260 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   259 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   261 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   260 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   262 ;;Total ram usage:        0 bytes
-   263 ;; Hardware stack levels used:    1
-   264 ;; Hardware stack levels required when called:    1
-   265 ;; This function calls:
-   266 ;;		_EUSART2_Initialize
-   267 ;;		_OSCILLATOR_Initialize
-   268 ;;		_PIN_MANAGER_Initialize
-   269 ;;		_PMD_Initialize
-   270 ;; This function is called by:
-   271 ;;		_main
-   272 ;; This function uses a non-reentrant model
-   273 ;;
-   274                           
-   275                           	psect	text1
-   276  01FEEA                     __ptext1:
-   277                           	opt stack 0
-   278  01FEEA                     _SYSTEM_Initialize:
-   279                           	opt stack 29
-   280                           
-   281                           ;mcc.c: 118: PMD_Initialize();
-   282                           
-   283                           ;incstack = 0
-   284  01FEEA  EC96  F0FF         	call	_PMD_Initialize	;wreg free
-   285                           
-   286                           ;mcc.c: 119: PIN_MANAGER_Initialize();
-   287  01FEEE  ECC9  F0FF         	call	_PIN_MANAGER_Initialize	;wreg free
-   288                           
-   289                           ;mcc.c: 120: OSCILLATOR_Initialize();
-   290  01FEF2  EC8A  F0FF         	call	_OSCILLATOR_Initialize	;wreg free
-   291                           
-   292                           ;mcc.c: 121: EUSART2_Initialize();
-   293  01FEF6  EC7E  F0FF         	call	_EUSART2_Initialize	;wreg free
-   294  01FEFA  0012               	return		;funcret
-   295  01FEFC                     __end_of_SYSTEM_Initialize:
-   296                           	opt stack 0
-   297                           wreg	equ	0xFE8
-   298                           status	equ	0xFD8
-   299                           
-   300 ;; *************** function _PMD_Initialize *****************
-   301 ;; Defined at:
-   302 ;;		line 138 in file "mcc_generated_files/mcc.c"
-   303 ;; Parameters:    Size  Location     Type
-   304 ;;		None
-   305 ;; Auto vars:     Size  Location     Type
-   306 ;;		None
-   307 ;; Return value:  Size  Location     Type
-   308 ;;                  1    wreg      void 
-   309 ;; Registers used:
-   310 ;;		wreg, status,2
-   311 ;; Tracked objects:
-   312 ;;		On entry : 0/0
-   313 ;;		On exit  : 0/0
-   314 ;;		Unchanged: 0/0
-   315 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   261 ;;Total ram usage:        0 bytes
+   262 ;; Hardware stack levels used:    1
+   263 ;; Hardware stack levels required when called:    1
+   264 ;; This function calls:
+   265 ;;		_EUSART2_Initialize
+   266 ;;		_OSCILLATOR_Initialize
+   267 ;;		_PIN_MANAGER_Initialize
+   268 ;;		_PMD_Initialize
+   269 ;; This function is called by:
+   270 ;;		_main
+   271 ;; This function uses a non-reentrant model
+   272 ;;
+   273                           
+   274                           	psect	text1
+   275  01FEEC                     __ptext1:
+   276                           	opt stack 0
+   277  01FEEC                     _SYSTEM_Initialize:
+   278                           	opt stack 29
+   279                           
+   280                           ;mcc.c: 118: PMD_Initialize();
+   281                           
+   282                           ;incstack = 0
+   283  01FEEC  EC97  F0FF         	call	_PMD_Initialize	;wreg free
+   284                           
+   285                           ;mcc.c: 119: PIN_MANAGER_Initialize();
+   286  01FEF0  ECC9  F0FF         	call	_PIN_MANAGER_Initialize	;wreg free
+   287                           
+   288                           ;mcc.c: 120: OSCILLATOR_Initialize();
+   289  01FEF4  EC8B  F0FF         	call	_OSCILLATOR_Initialize	;wreg free
+   290                           
+   291                           ;mcc.c: 121: EUSART2_Initialize();
+   292  01FEF8  EC7F  F0FF         	call	_EUSART2_Initialize	;wreg free
+   293  01FEFC  0012               	return		;funcret
+   294  01FEFE                     __end_of_SYSTEM_Initialize:
+   295                           	opt stack 0
+   296                           wreg	equ	0xFE8
+   297                           status	equ	0xFD8
+   298                           
+   299 ;; *************** function _PMD_Initialize *****************
+   300 ;; Defined at:
+   301 ;;		line 138 in file "mcc_generated_files/mcc.c"
+   302 ;; Parameters:    Size  Location     Type
+   303 ;;		None
+   304 ;; Auto vars:     Size  Location     Type
+   305 ;;		None
+   306 ;; Return value:  Size  Location     Type
+   307 ;;                  1    wreg      void 
+   308 ;; Registers used:
+   309 ;;		wreg, status,2
+   310 ;; Tracked objects:
+   311 ;;		On entry : 0/0
+   312 ;;		On exit  : 0/0
+   313 ;;		Unchanged: 0/0
+   314 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   316 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   315 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   317 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   316 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   318 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   317 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   319 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   318 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   320 ;;Total ram usage:        0 bytes
-   321 ;; Hardware stack levels used:    1
-   322 ;; This function calls:
-   323 ;;		Nothing
-   324 ;; This function is called by:
-   325 ;;		_SYSTEM_Initialize
-   326 ;; This function uses a non-reentrant model
-   327 ;;
-   328                           
-   329                           	psect	text2
-   330  01FF2C                     __ptext2:
-   331                           	opt stack 0
-   332  01FF2C                     _PMD_Initialize:
-   333                           	opt stack 29
-   334                           
-   335                           ;mcc.c: 141: PMD0 = 0x00;
-   336                           
-   337                           ;incstack = 0
-   338  01FF2C  0E00               	movlw	0
-   339  01FF2E  010E               	movlb	14	; () banked
-   340  01FF30  6FE1               	movwf	225,b	;volatile
-   341                           
-   342                           ;mcc.c: 143: PMD1 = 0x00;
-   343  01FF32  0E00               	movlw	0
-   344  01FF34  6FE2               	movwf	226,b	;volatile
-   345                           
-   346                           ;mcc.c: 145: PMD2 = 0x00;
-   347  01FF36  0E00               	movlw	0
-   348  01FF38  6FE3               	movwf	227,b	;volatile
-   349                           
-   350                           ;mcc.c: 147: PMD3 = 0x00;
-   351  01FF3A  0E00               	movlw	0
-   352  01FF3C  6FE4               	movwf	228,b	;volatile
-   353                           
-   354                           ;mcc.c: 149: PMD4 = 0x00;
-   355  01FF3E  0E00               	movlw	0
-   356  01FF40  6FE5               	movwf	229,b	;volatile
-   357                           
-   358                           ;mcc.c: 151: PMD5 = 0x00;
-   359  01FF42  0E00               	movlw	0
-   360  01FF44  6FE6               	movwf	230,b	;volatile
-   361                           
-   362                           ; BSR set to: 14
-   363  01FF46  0012               	return		;funcret
-   364  01FF48                     __end_of_PMD_Initialize:
-   365                           	opt stack 0
-   366                           wreg	equ	0xFE8
-   367                           status	equ	0xFD8
-   368                           
-   369 ;; *************** function _PIN_MANAGER_Initialize *****************
-   370 ;; Defined at:
-   371 ;;		line 52 in file "mcc_generated_files/pin_manager.c"
-   372 ;; Parameters:    Size  Location     Type
-   373 ;;		None
-   374 ;; Auto vars:     Size  Location     Type
-   375 ;;		None
-   376 ;; Return value:  Size  Location     Type
-   377 ;;                  1    wreg      void 
-   378 ;; Registers used:
-   379 ;;		wreg, status,2
-   380 ;; Tracked objects:
-   381 ;;		On entry : 0/0
-   382 ;;		On exit  : 0/0
-   383 ;;		Unchanged: 0/0
-   384 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   319 ;;Total ram usage:        0 bytes
+   320 ;; Hardware stack levels used:    1
+   321 ;; This function calls:
+   322 ;;		Nothing
+   323 ;; This function is called by:
+   324 ;;		_SYSTEM_Initialize
+   325 ;; This function uses a non-reentrant model
+   326 ;;
+   327                           
+   328                           	psect	text2
+   329  01FF2E                     __ptext2:
+   330                           	opt stack 0
+   331  01FF2E                     _PMD_Initialize:
+   332                           	opt stack 29
+   333                           
+   334                           ;mcc.c: 141: PMD0 = 0x00;
+   335                           
+   336                           ;incstack = 0
+   337  01FF2E  0E00               	movlw	0
+   338  01FF30  010E               	movlb	14	; () banked
+   339  01FF32  6FE1               	movwf	225,b	;volatile
+   340                           
+   341                           ;mcc.c: 143: PMD1 = 0x00;
+   342  01FF34  0E00               	movlw	0
+   343  01FF36  6FE2               	movwf	226,b	;volatile
+   344                           
+   345                           ;mcc.c: 145: PMD2 = 0x00;
+   346  01FF38  0E00               	movlw	0
+   347  01FF3A  6FE3               	movwf	227,b	;volatile
+   348                           
+   349                           ;mcc.c: 147: PMD3 = 0x00;
+   350  01FF3C  0E00               	movlw	0
+   351  01FF3E  6FE4               	movwf	228,b	;volatile
+   352                           
+   353                           ;mcc.c: 149: PMD4 = 0x00;
+   354  01FF40  0E00               	movlw	0
+   355  01FF42  6FE5               	movwf	229,b	;volatile
+   356                           
+   357                           ;mcc.c: 151: PMD5 = 0x00;
+   358  01FF44  0E00               	movlw	0
+   359  01FF46  6FE6               	movwf	230,b	;volatile
+   360                           
+   361                           ; BSR set to: 14
+   362  01FF48  0012               	return		;funcret
+   363  01FF4A                     __end_of_PMD_Initialize:
+   364                           	opt stack 0
+   365                           wreg	equ	0xFE8
+   366                           status	equ	0xFD8
+   367                           
+   368 ;; *************** function _PIN_MANAGER_Initialize *****************
+   369 ;; Defined at:
+   370 ;;		line 52 in file "mcc_generated_files/pin_manager.c"
+   371 ;; Parameters:    Size  Location     Type
+   372 ;;		None
+   373 ;; Auto vars:     Size  Location     Type
+   374 ;;		None
+   375 ;; Return value:  Size  Location     Type
+   376 ;;                  1    wreg      void 
+   377 ;; Registers used:
+   378 ;;		wreg, status,2
+   379 ;; Tracked objects:
+   380 ;;		On entry : 0/0
+   381 ;;		On exit  : 0/0
+   382 ;;		Unchanged: 0/0
+   383 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   385 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   384 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   386 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   385 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   387 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   386 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   388 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   387 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   389 ;;Total ram usage:        0 bytes
-   390 ;; Hardware stack levels used:    1
-   391 ;; This function calls:
-   392 ;;		Nothing
-   393 ;; This function is called by:
-   394 ;;		_SYSTEM_Initialize
-   395 ;; This function uses a non-reentrant model
-   396 ;;
-   397                           
-   398                           	psect	text3
-   399  01FF92                     __ptext3:
-   400                           	opt stack 0
-   401  01FF92                     _PIN_MANAGER_Initialize:
-   402                           	opt stack 29
-   403                           
-   404                           ;pin_manager.c: 57: LATE = 0x00;
-   405                           
-   406                           ; BSR set to: 14
-   407                           ;incstack = 0
-   408  01FF92  0E00               	movlw	0
-   409  01FF94  6E87               	movwf	3975,c	;volatile
-   410                           
-   411                           ;pin_manager.c: 58: LATD = 0x00;
-   412  01FF96  0E00               	movlw	0
-   413  01FF98  6E86               	movwf	3974,c	;volatile
-   414                           
-   415                           ;pin_manager.c: 59: LATA = 0x00;
-   416  01FF9A  0E00               	movlw	0
-   417  01FF9C  6E83               	movwf	3971,c	;volatile
-   418                           
-   419                           ;pin_manager.c: 60: LATB = 0x00;
-   420  01FF9E  0E00               	movlw	0
-   421  01FFA0  6E84               	movwf	3972,c	;volatile
-   422                           
-   423                           ;pin_manager.c: 61: LATC = 0x00;
-   424  01FFA2  0E00               	movlw	0
-   425  01FFA4  6E85               	movwf	3973,c	;volatile
-   426                           
-   427                           ;pin_manager.c: 66: TRISE = 0x07;
-   428  01FFA6  0E07               	movlw	7
-   429  01FFA8  6E8C               	movwf	3980,c	;volatile
-   430                           
-   431                           ;pin_manager.c: 67: TRISA = 0xEF;
-   432  01FFAA  0EEF               	movlw	239
-   433  01FFAC  6E88               	movwf	3976,c	;volatile
-   434                           
-   435                           ;pin_manager.c: 68: TRISB = 0xFF;
-   436  01FFAE  6889               	setf	3977,c	;volatile
-   437                           
-   438                           ;pin_manager.c: 69: TRISC = 0xFF;
-   439  01FFB0  688A               	setf	3978,c	;volatile
-   440                           
-   441                           ;pin_manager.c: 70: TRISD = 0xF7;
-   442  01FFB2  0EF7               	movlw	247
-   443  01FFB4  6E8B               	movwf	3979,c	;volatile
-   444                           
-   445                           ;pin_manager.c: 75: ANSELC = 0xFF;
-   446  01FFB6  010F               	movlb	15	; () banked
-   447  01FFB8  6921               	setf	33,b	;volatile
-   448                           
-   449                           ; BSR set to: 15
-   450                           ;pin_manager.c: 76: ANSELB = 0xFF;
-   451  01FFBA  6919               	setf	25,b	;volatile
-   452                           
-   453                           ;pin_manager.c: 77: ANSELD = 0xFB;
-   454  01FFBC  0EFB               	movlw	251
-   455  01FFBE  6F26               	movwf	38,b	;volatile
-   456                           
-   457                           ;pin_manager.c: 78: ANSELE = 0x07;
-   458  01FFC0  0E07               	movlw	7
-   459  01FFC2  6F2E               	movwf	46,b	;volatile
-   460                           
-   461                           ; BSR set to: 15
-   462                           ;pin_manager.c: 79: ANSELA = 0xFF;
-   463  01FFC4  6911               	setf	17,b	;volatile
-   464                           
-   465                           ;pin_manager.c: 84: WPUD = 0x00;
-   466  01FFC6  0E00               	movlw	0
-   467  01FFC8  6F25               	movwf	37,b	;volatile
-   468                           
-   469                           ;pin_manager.c: 85: WPUE = 0x00;
-   470  01FFCA  0E00               	movlw	0
-   471  01FFCC  6F2D               	movwf	45,b	;volatile
-   472                           
-   473                           ;pin_manager.c: 86: WPUB = 0x00;
-   474  01FFCE  0E00               	movlw	0
-   475  01FFD0  6F18               	movwf	24,b	;volatile
-   476                           
-   477                           ;pin_manager.c: 87: WPUA = 0x00;
-   478  01FFD2  0E00               	movlw	0
-   479  01FFD4  6F10               	movwf	16,b	;volatile
-   480                           
-   481                           ;pin_manager.c: 88: WPUC = 0x00;
-   482  01FFD6  0E00               	movlw	0
-   483  01FFD8  6F20               	movwf	32,b	;volatile
-   484                           
-   485                           ;pin_manager.c: 93: ODCONE = 0x00;
-   486  01FFDA  0E00               	movlw	0
-   487  01FFDC  6F2C               	movwf	44,b	;volatile
-   488                           
-   489                           ;pin_manager.c: 94: ODCONA = 0x00;
-   490  01FFDE  0E00               	movlw	0
-   491  01FFE0  6F0F               	movwf	15,b	;volatile
-   492                           
-   493                           ;pin_manager.c: 95: ODCONB = 0x00;
-   494  01FFE2  0E00               	movlw	0
-   495  01FFE4  6F17               	movwf	23,b	;volatile
-   496                           
-   497                           ;pin_manager.c: 96: ODCONC = 0x00;
-   498  01FFE6  0E00               	movlw	0
-   499  01FFE8  6F1F               	movwf	31,b	;volatile
-   500                           
-   501                           ;pin_manager.c: 97: ODCOND = 0x00;
-   502  01FFEA  0E00               	movlw	0
-   503  01FFEC  6F24               	movwf	36,b	;volatile
-   504                           
-   505                           ;pin_manager.c: 104: RD3PPS = 0x0B;
-   506  01FFEE  0E0B               	movlw	11
-   507  01FFF0  6F02               	movwf	2,b	;volatile
-   508                           
-   509                           ; BSR set to: 15
-   510                           ;pin_manager.c: 105: RX2PPSbits.RXPPS = 0x1A;
-   511  01FFF2  010E               	movlb	14	; () banked
-   512  01FFF4  918D               	bcf	141,0,b	;volatile
-   513  01FFF6  838D               	bsf	141,1,b	;volatile
-   514  01FFF8  958D               	bcf	141,2,b	;volatile
-   515  01FFFA  878D               	bsf	141,3,b	;volatile
-   516  01FFFC  898D               	bsf	141,4,b	;volatile
-   517                           
-   518                           ; BSR set to: 14
-   519  01FFFE  0012               	return		;funcret
-   520  020000                     __end_of_PIN_MANAGER_Initialize:
-   521                           	opt stack 0
-   522                           wreg	equ	0xFE8
-   523                           status	equ	0xFD8
-   524                           
-   525 ;; *************** function _OSCILLATOR_Initialize *****************
-   526 ;; Defined at:
-   527 ;;		line 124 in file "mcc_generated_files/mcc.c"
-   528 ;; Parameters:    Size  Location     Type
-   529 ;;		None
-   530 ;; Auto vars:     Size  Location     Type
-   531 ;;		None
-   532 ;; Return value:  Size  Location     Type
-   533 ;;                  1    wreg      void 
-   534 ;; Registers used:
-   535 ;;		wreg, status,2
-   536 ;; Tracked objects:
-   537 ;;		On entry : 0/0
-   538 ;;		On exit  : 0/0
-   539 ;;		Unchanged: 0/0
-   540 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   388 ;;Total ram usage:        0 bytes
+   389 ;; Hardware stack levels used:    1
+   390 ;; This function calls:
+   391 ;;		Nothing
+   392 ;; This function is called by:
+   393 ;;		_SYSTEM_Initialize
+   394 ;; This function uses a non-reentrant model
+   395 ;;
+   396                           
+   397                           	psect	text3
+   398  01FF92                     __ptext3:
+   399                           	opt stack 0
+   400  01FF92                     _PIN_MANAGER_Initialize:
+   401                           	opt stack 29
+   402                           
+   403                           ;pin_manager.c: 57: LATE = 0x00;
+   404                           
+   405                           ; BSR set to: 14
+   406                           ;incstack = 0
+   407  01FF92  0E00               	movlw	0
+   408  01FF94  6E87               	movwf	3975,c	;volatile
+   409                           
+   410                           ;pin_manager.c: 58: LATD = 0x00;
+   411  01FF96  0E00               	movlw	0
+   412  01FF98  6E86               	movwf	3974,c	;volatile
+   413                           
+   414                           ;pin_manager.c: 59: LATA = 0x00;
+   415  01FF9A  0E00               	movlw	0
+   416  01FF9C  6E83               	movwf	3971,c	;volatile
+   417                           
+   418                           ;pin_manager.c: 60: LATB = 0x00;
+   419  01FF9E  0E00               	movlw	0
+   420  01FFA0  6E84               	movwf	3972,c	;volatile
+   421                           
+   422                           ;pin_manager.c: 61: LATC = 0x00;
+   423  01FFA2  0E00               	movlw	0
+   424  01FFA4  6E85               	movwf	3973,c	;volatile
+   425                           
+   426                           ;pin_manager.c: 66: TRISE = 0x07;
+   427  01FFA6  0E07               	movlw	7
+   428  01FFA8  6E8C               	movwf	3980,c	;volatile
+   429                           
+   430                           ;pin_manager.c: 67: TRISA = 0xEF;
+   431  01FFAA  0EEF               	movlw	239
+   432  01FFAC  6E88               	movwf	3976,c	;volatile
+   433                           
+   434                           ;pin_manager.c: 68: TRISB = 0xFF;
+   435  01FFAE  6889               	setf	3977,c	;volatile
+   436                           
+   437                           ;pin_manager.c: 69: TRISC = 0xFF;
+   438  01FFB0  688A               	setf	3978,c	;volatile
+   439                           
+   440                           ;pin_manager.c: 70: TRISD = 0xF7;
+   441  01FFB2  0EF7               	movlw	247
+   442  01FFB4  6E8B               	movwf	3979,c	;volatile
+   443                           
+   444                           ;pin_manager.c: 75: ANSELC = 0xFF;
+   445  01FFB6  010F               	movlb	15	; () banked
+   446  01FFB8  6921               	setf	33,b	;volatile
+   447                           
+   448                           ; BSR set to: 15
+   449                           ;pin_manager.c: 76: ANSELB = 0xFF;
+   450  01FFBA  6919               	setf	25,b	;volatile
+   451                           
+   452                           ;pin_manager.c: 77: ANSELD = 0xFB;
+   453  01FFBC  0EFB               	movlw	251
+   454  01FFBE  6F26               	movwf	38,b	;volatile
+   455                           
+   456                           ;pin_manager.c: 78: ANSELE = 0x07;
+   457  01FFC0  0E07               	movlw	7
+   458  01FFC2  6F2E               	movwf	46,b	;volatile
+   459                           
+   460                           ; BSR set to: 15
+   461                           ;pin_manager.c: 79: ANSELA = 0xFF;
+   462  01FFC4  6911               	setf	17,b	;volatile
+   463                           
+   464                           ;pin_manager.c: 84: WPUD = 0x00;
+   465  01FFC6  0E00               	movlw	0
+   466  01FFC8  6F25               	movwf	37,b	;volatile
+   467                           
+   468                           ;pin_manager.c: 85: WPUE = 0x00;
+   469  01FFCA  0E00               	movlw	0
+   470  01FFCC  6F2D               	movwf	45,b	;volatile
+   471                           
+   472                           ;pin_manager.c: 86: WPUB = 0x00;
+   473  01FFCE  0E00               	movlw	0
+   474  01FFD0  6F18               	movwf	24,b	;volatile
+   475                           
+   476                           ;pin_manager.c: 87: WPUA = 0x00;
+   477  01FFD2  0E00               	movlw	0
+   478  01FFD4  6F10               	movwf	16,b	;volatile
+   479                           
+   480                           ;pin_manager.c: 88: WPUC = 0x00;
+   481  01FFD6  0E00               	movlw	0
+   482  01FFD8  6F20               	movwf	32,b	;volatile
+   483                           
+   484                           ;pin_manager.c: 93: ODCONE = 0x00;
+   485  01FFDA  0E00               	movlw	0
+   486  01FFDC  6F2C               	movwf	44,b	;volatile
+   487                           
+   488                           ;pin_manager.c: 94: ODCONA = 0x00;
+   489  01FFDE  0E00               	movlw	0
+   490  01FFE0  6F0F               	movwf	15,b	;volatile
+   491                           
+   492                           ;pin_manager.c: 95: ODCONB = 0x00;
+   493  01FFE2  0E00               	movlw	0
+   494  01FFE4  6F17               	movwf	23,b	;volatile
+   495                           
+   496                           ;pin_manager.c: 96: ODCONC = 0x00;
+   497  01FFE6  0E00               	movlw	0
+   498  01FFE8  6F1F               	movwf	31,b	;volatile
+   499                           
+   500                           ;pin_manager.c: 97: ODCOND = 0x00;
+   501  01FFEA  0E00               	movlw	0
+   502  01FFEC  6F24               	movwf	36,b	;volatile
+   503                           
+   504                           ;pin_manager.c: 104: RD3PPS = 0x0B;
+   505  01FFEE  0E0B               	movlw	11
+   506  01FFF0  6F02               	movwf	2,b	;volatile
+   507                           
+   508                           ; BSR set to: 15
+   509                           ;pin_manager.c: 105: RX2PPSbits.RXPPS = 0x1A;
+   510  01FFF2  010E               	movlb	14	; () banked
+   511  01FFF4  918D               	bcf	141,0,b	;volatile
+   512  01FFF6  838D               	bsf	141,1,b	;volatile
+   513  01FFF8  958D               	bcf	141,2,b	;volatile
+   514  01FFFA  878D               	bsf	141,3,b	;volatile
+   515  01FFFC  898D               	bsf	141,4,b	;volatile
+   516                           
+   517                           ; BSR set to: 14
+   518  01FFFE  0012               	return		;funcret
+   519  020000                     __end_of_PIN_MANAGER_Initialize:
+   520                           	opt stack 0
+   521                           wreg	equ	0xFE8
+   522                           status	equ	0xFD8
+   523                           
+   524 ;; *************** function _OSCILLATOR_Initialize *****************
+   525 ;; Defined at:
+   526 ;;		line 124 in file "mcc_generated_files/mcc.c"
+   527 ;; Parameters:    Size  Location     Type
+   528 ;;		None
+   529 ;; Auto vars:     Size  Location     Type
+   530 ;;		None
+   531 ;; Return value:  Size  Location     Type
+   532 ;;                  1    wreg      void 
+   533 ;; Registers used:
+   534 ;;		wreg, status,2
+   535 ;; Tracked objects:
+   536 ;;		On entry : 0/0
+   537 ;;		On exit  : 0/0
+   538 ;;		Unchanged: 0/0
+   539 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   541 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   540 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   542 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   541 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   543 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   542 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   544 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   543 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   545 ;;Total ram usage:        0 bytes
-   546 ;; Hardware stack levels used:    1
-   547 ;; This function calls:
-   548 ;;		Nothing
-   549 ;; This function is called by:
-   550 ;;		_SYSTEM_Initialize
-   551 ;; This function uses a non-reentrant model
-   552 ;;
-   553                           
-   554                           	psect	text4
-   555  01FF14                     __ptext4:
-   556                           	opt stack 0
-   557  01FF14                     _OSCILLATOR_Initialize:
-   558                           	opt stack 29
-   559                           
-   560                           ;mcc.c: 127: OSCCON1 = 0x62;
-   561                           
-   562                           ; BSR set to: 14
-   563                           ;incstack = 0
-   564  01FF14  0E62               	movlw	98
-   565  01FF16  010E               	movlb	14	; () banked
-   566  01FF18  6FD8               	movwf	216,b	;volatile
-   567                           
-   568                           ;mcc.c: 129: OSCCON3 = 0x00;
-   569  01FF1A  0E00               	movlw	0
-   570  01FF1C  6FDA               	movwf	218,b	;volatile
-   571                           
-   572                           ;mcc.c: 131: OSCEN = 0x00;
-   573  01FF1E  0E00               	movlw	0
-   574  01FF20  6FDC               	movwf	220,b	;volatile
-   575                           
-   576                           ;mcc.c: 133: OSCFRQ = 0x03;
-   577  01FF22  0E03               	movlw	3
-   578  01FF24  6FDE               	movwf	222,b	;volatile
-   579                           
-   580                           ;mcc.c: 135: OSCTUNE = 0x20;
-   581  01FF26  0E20               	movlw	32
-   582  01FF28  6FDD               	movwf	221,b	;volatile
-   583                           
-   584                           ; BSR set to: 14
-   585  01FF2A  0012               	return		;funcret
-   586  01FF2C                     __end_of_OSCILLATOR_Initialize:
-   587                           	opt stack 0
-   588                           wreg	equ	0xFE8
-   589                           status	equ	0xFD8
-   590                           
-   591 ;; *************** function _EUSART2_Initialize *****************
-   592 ;; Defined at:
-   593 ;;		line 55 in file "mcc_generated_files/eusart2.c"
-   594 ;; Parameters:    Size  Location     Type
-   595 ;;		None
-   596 ;; Auto vars:     Size  Location     Type
-   597 ;;		None
-   598 ;; Return value:  Size  Location     Type
-   599 ;;                  1    wreg      void 
-   600 ;; Registers used:
-   601 ;;		wreg, status,2
-   602 ;; Tracked objects:
-   603 ;;		On entry : 0/0
-   604 ;;		On exit  : 0/0
-   605 ;;		Unchanged: 0/0
-   606 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   544 ;;Total ram usage:        0 bytes
+   545 ;; Hardware stack levels used:    1
+   546 ;; This function calls:
+   547 ;;		Nothing
+   548 ;; This function is called by:
+   549 ;;		_SYSTEM_Initialize
+   550 ;; This function uses a non-reentrant model
+   551 ;;
+   552                           
+   553                           	psect	text4
+   554  01FF16                     __ptext4:
+   555                           	opt stack 0
+   556  01FF16                     _OSCILLATOR_Initialize:
+   557                           	opt stack 29
+   558                           
+   559                           ;mcc.c: 127: OSCCON1 = 0x62;
+   560                           
+   561                           ; BSR set to: 14
+   562                           ;incstack = 0
+   563  01FF16  0E62               	movlw	98
+   564  01FF18  010E               	movlb	14	; () banked
+   565  01FF1A  6FD8               	movwf	216,b	;volatile
+   566                           
+   567                           ;mcc.c: 129: OSCCON3 = 0x00;
+   568  01FF1C  0E00               	movlw	0
+   569  01FF1E  6FDA               	movwf	218,b	;volatile
+   570                           
+   571                           ;mcc.c: 131: OSCEN = 0x00;
+   572  01FF20  0E00               	movlw	0
+   573  01FF22  6FDC               	movwf	220,b	;volatile
+   574                           
+   575                           ;mcc.c: 133: OSCFRQ = 0x03;
+   576  01FF24  0E03               	movlw	3
+   577  01FF26  6FDE               	movwf	222,b	;volatile
+   578                           
+   579                           ;mcc.c: 135: OSCTUNE = 0x20;
+   580  01FF28  0E20               	movlw	32
+   581  01FF2A  6FDD               	movwf	221,b	;volatile
+   582                           
+   583                           ; BSR set to: 14
+   584  01FF2C  0012               	return		;funcret
+   585  01FF2E                     __end_of_OSCILLATOR_Initialize:
+   586                           	opt stack 0
+   587                           wreg	equ	0xFE8
+   588                           status	equ	0xFD8
+   589                           
+   590 ;; *************** function _EUSART2_Initialize *****************
+   591 ;; Defined at:
+   592 ;;		line 55 in file "mcc_generated_files/eusart2.c"
+   593 ;; Parameters:    Size  Location     Type
+   594 ;;		None
+   595 ;; Auto vars:     Size  Location     Type
+   596 ;;		None
+   597 ;; Return value:  Size  Location     Type
+   598 ;;                  1    wreg      void 
+   599 ;; Registers used:
+   600 ;;		wreg, status,2
+   601 ;; Tracked objects:
+   602 ;;		On entry : 0/0
+   603 ;;		On exit  : 0/0
+   604 ;;		Unchanged: 0/0
+   605 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   607 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   606 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   608 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   607 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   609 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   608 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   610 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   609 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   611 ;;Total ram usage:        0 bytes
-   612 ;; Hardware stack levels used:    1
-   613 ;; This function calls:
-   614 ;;		Nothing
-   615 ;; This function is called by:
-   616 ;;		_SYSTEM_Initialize
-   617 ;;		_main
-   618 ;; This function uses a non-reentrant model
-   619 ;;
-   620                           
-   621                           	psect	text5
-   622  01FEFC                     __ptext5:
-   623                           	opt stack 0
-   624  01FEFC                     _EUSART2_Initialize:
-   625                           	opt stack 29
-   626                           
-   627                           ;eusart2.c: 60: BAUD2CON = 0x08;
-   628                           
-   629                           ; BSR set to: 14
-   630                           ;incstack = 0
-   631  01FEFC  0E08               	movlw	8
-   632  01FEFE  010E               	movlb	14	; () banked
-   633  01FF00  6F9F               	movwf	159,b	;volatile
-   634                           
-   635                           ;eusart2.c: 63: RC2STA = 0x90;
-   636  01FF02  0E90               	movlw	144
-   637  01FF04  6F9D               	movwf	157,b	;volatile
-   638                           
-   639                           ;eusart2.c: 66: TX2STA = 0x24;
-   640  01FF06  0E24               	movlw	36
-   641  01FF08  6F9E               	movwf	158,b	;volatile
-   642                           
-   643                           ;eusart2.c: 69: SP2BRGL = 0x33;
-   644  01FF0A  0E33               	movlw	51
-   645  01FF0C  6F9B               	movwf	155,b	;volatile
-   646                           
-   647                           ;eusart2.c: 72: SP2BRGH = 0x00;
-   648  01FF0E  0E00               	movlw	0
-   649  01FF10  6F9C               	movwf	156,b	;volatile
-   650                           
-   651                           ; BSR set to: 14
-   652  01FF12  0012               	return		;funcret
-   653  01FF14                     __end_of_EUSART2_Initialize:
-   654                           	opt stack 0
-   655                           wreg	equ	0xFE8
-   656                           status	equ	0xFD8
-   657                           
-   658 ;; *************** function _EUSART2_is_rx_ready *****************
-   659 ;; Defined at:
-   660 ;;		line 82 in file "mcc_generated_files/eusart2.c"
-   661 ;; Parameters:    Size  Location     Type
-   662 ;;		None
-   663 ;; Auto vars:     Size  Location     Type
-   664 ;;		None
-   665 ;; Return value:  Size  Location     Type
-   666 ;;                  1    wreg      unsigned char 
-   667 ;; Registers used:
-   668 ;;		wreg
-   669 ;; Tracked objects:
-   670 ;;		On entry : 0/0
-   671 ;;		On exit  : 0/0
-   672 ;;		Unchanged: 0/0
-   673 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   610 ;;Total ram usage:        0 bytes
+   611 ;; Hardware stack levels used:    1
+   612 ;; This function calls:
+   613 ;;		Nothing
+   614 ;; This function is called by:
+   615 ;;		_SYSTEM_Initialize
+   616 ;;		_main
+   617 ;; This function uses a non-reentrant model
+   618 ;;
+   619                           
+   620                           	psect	text5
+   621  01FEFE                     __ptext5:
+   622                           	opt stack 0
+   623  01FEFE                     _EUSART2_Initialize:
+   624                           	opt stack 29
+   625                           
+   626                           ;eusart2.c: 60: BAUD2CON = 0x08;
+   627                           
+   628                           ; BSR set to: 14
+   629                           ;incstack = 0
+   630  01FEFE  0E08               	movlw	8
+   631  01FF00  010E               	movlb	14	; () banked
+   632  01FF02  6F9F               	movwf	159,b	;volatile
+   633                           
+   634                           ;eusart2.c: 63: RC2STA = 0x90;
+   635  01FF04  0E90               	movlw	144
+   636  01FF06  6F9D               	movwf	157,b	;volatile
+   637                           
+   638                           ;eusart2.c: 66: TX2STA = 0x24;
+   639  01FF08  0E24               	movlw	36
+   640  01FF0A  6F9E               	movwf	158,b	;volatile
+   641                           
+   642                           ;eusart2.c: 69: SP2BRGL = 0x33;
+   643  01FF0C  0E33               	movlw	51
+   644  01FF0E  6F9B               	movwf	155,b	;volatile
+   645                           
+   646                           ;eusart2.c: 72: SP2BRGH = 0x00;
+   647  01FF10  0E00               	movlw	0
+   648  01FF12  6F9C               	movwf	156,b	;volatile
+   649                           
+   650                           ; BSR set to: 14
+   651  01FF14  0012               	return		;funcret
+   652  01FF16                     __end_of_EUSART2_Initialize:
+   653                           	opt stack 0
+   654                           wreg	equ	0xFE8
+   655                           status	equ	0xFD8
+   656                           
+   657 ;; *************** function _EUSART2_is_rx_ready *****************
+   658 ;; Defined at:
+   659 ;;		line 82 in file "mcc_generated_files/eusart2.c"
+   660 ;; Parameters:    Size  Location     Type
+   661 ;;		None
+   662 ;; Auto vars:     Size  Location     Type
+   663 ;;		None
+   664 ;; Return value:  Size  Location     Type
+   665 ;;                  1    wreg      unsigned char 
+   666 ;; Registers used:
+   667 ;;		wreg
+   668 ;; Tracked objects:
+   669 ;;		On entry : 0/0
+   670 ;;		On exit  : 0/0
+   671 ;;		Unchanged: 0/0
+   672 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   674 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   673 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   675 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   674 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   676 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   675 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   677 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   676 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   678 ;;Total ram usage:        0 bytes
-   679 ;; Hardware stack levels used:    1
-   680 ;; This function calls:
-   681 ;;		Nothing
-   682 ;; This function is called by:
-   683 ;;		_main
-   684 ;; This function uses a non-reentrant model
-   685 ;;
-   686                           
-   687                           	psect	text6
-   688  01FECA                     __ptext6:
-   689                           	opt stack 0
-   690  01FECA                     _EUSART2_is_rx_ready:
-   691                           	opt stack 30
-   692                           
-   693                           ;eusart2.c: 84: return PIR3bits.RC2IF;
-   694                           
-   695                           ; BSR set to: 14
-   696                           ;incstack = 0
-   697  01FECA  010E               	movlb	14	; () banked
-   698  01FECC  AFCD               	btfss	205,7,b	;volatile
-   699  01FECE  D002               	goto	u10
-   700  01FED0  0E01               	movlw	1
-   701  01FED2  0012               	return	
-   702  01FED4                     u10:
-   703  01FED4  0E00               	movlw	0
-   704  01FED6  0012               	return	
-   705  01FED8                     __end_of_EUSART2_is_rx_ready:
-   706                           	opt stack 0
-   707                           wreg	equ	0xFE8
-   708                           status	equ	0xFD8
-   709                           
-   710 ;; *************** function _EUSART2_Write *****************
-   711 ;; Defined at:
-   712 ;;		line 111 in file "mcc_generated_files/eusart2.c"
-   713 ;; Parameters:    Size  Location     Type
-   714 ;;  txData          1    wreg     unsigned char 
-   715 ;; Auto vars:     Size  Location     Type
-   716 ;;  txData          1    0[COMRAM] unsigned char 
-   717 ;; Return value:  Size  Location     Type
-   718 ;;                  1    wreg      void 
-   719 ;; Registers used:
-   720 ;;		wreg
-   721 ;; Tracked objects:
-   722 ;;		On entry : 0/0
-   723 ;;		On exit  : 0/0
-   724 ;;		Unchanged: 0/0
-   725 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   677 ;;Total ram usage:        0 bytes
+   678 ;; Hardware stack levels used:    1
+   679 ;; This function calls:
+   680 ;;		Nothing
+   681 ;; This function is called by:
+   682 ;;		_main
+   683 ;; This function uses a non-reentrant model
+   684 ;;
+   685                           
+   686                           	psect	text6
+   687  01FECC                     __ptext6:
+   688                           	opt stack 0
+   689  01FECC                     _EUSART2_is_rx_ready:
+   690                           	opt stack 30
+   691                           
+   692                           ;eusart2.c: 84: return PIR3bits.RC2IF;
+   693                           
+   694                           ; BSR set to: 14
+   695                           ;incstack = 0
+   696  01FECC  010E               	movlb	14	; () banked
+   697  01FECE  AFCD               	btfss	205,7,b	;volatile
+   698  01FED0  D002               	goto	u10
+   699  01FED2  0E01               	movlw	1
+   700  01FED4  0012               	return	
+   701  01FED6                     u10:
+   702  01FED6  0E00               	movlw	0
+   703  01FED8  0012               	return	
+   704  01FEDA                     __end_of_EUSART2_is_rx_ready:
+   705                           	opt stack 0
+   706                           wreg	equ	0xFE8
+   707                           status	equ	0xFD8
+   708                           
+   709 ;; *************** function _EUSART2_Write *****************
+   710 ;; Defined at:
+   711 ;;		line 111 in file "mcc_generated_files/eusart2.c"
+   712 ;; Parameters:    Size  Location     Type
+   713 ;;  txData          1    wreg     unsigned char 
+   714 ;; Auto vars:     Size  Location     Type
+   715 ;;  txData          1    0[COMRAM] unsigned char 
+   716 ;; Return value:  Size  Location     Type
+   717 ;;                  1    wreg      void 
+   718 ;; Registers used:
+   719 ;;		wreg
+   720 ;; Tracked objects:
+   721 ;;		On entry : 0/0
+   722 ;;		On exit  : 0/0
+   723 ;;		Unchanged: 0/0
+   724 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   726 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   725 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   727 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+   726 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   728 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   727 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   729 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+   728 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   730 ;;Total ram usage:        1 bytes
-   731 ;; Hardware stack levels used:    1
-   732 ;; This function calls:
-   733 ;;		Nothing
-   734 ;; This function is called by:
-   735 ;;		_main
-   736 ;; This function uses a non-reentrant model
-   737 ;;
-   738                           
-   739                           	psect	text7
-   740  01FEBC                     __ptext7:
-   741                           	opt stack 0
-   742  01FEBC                     _EUSART2_Write:
-   743                           	opt stack 30
-   744                           
-   745                           ; BSR set to: 14
-   746                           ;incstack = 0
-   747                           ;EUSART2_Write@txData stored from wreg
-   748  01FEBC  6E01               	movwf	EUSART2_Write@txData,c
-   749  01FEBE                     
-   750                           ;eusart2.c: 114: {
-   751                           
-   752                           ;eusart2.c: 113: while(0 == PIR3bits.TX2IF)
-   753  01FEBE  010E               	movlb	14	; () banked
-   754  01FEC0  ADCD               	btfss	205,6,b	;volatile
-   755  01FEC2  D7FD               	goto	l830
-   756                           
-   757                           ; BSR set to: 14
-   758                           ;eusart2.c: 115: }
-   759                           ;eusart2.c: 117: TX2REG = txData;
-   760                           
-   761                           ; BSR set to: 14
-   762  01FEC4  C001  FE9A         	movff	EUSART2_Write@txData,3738	;volatile
-   763                           
-   764                           ; BSR set to: 14
-   765  01FEC8  0012               	return		;funcret
-   766  01FECA                     __end_of_EUSART2_Write:
-   767                           	opt stack 0
-   768                           wreg	equ	0xFE8
-   769                           status	equ	0xFD8
-   770                           
-   771 ;; *************** function _EUSART2_Read *****************
-   772 ;; Defined at:
-   773 ;;		line 92 in file "mcc_generated_files/eusart2.c"
-   774 ;; Parameters:    Size  Location     Type
-   775 ;;		None
-   776 ;; Auto vars:     Size  Location     Type
-   777 ;;		None
-   778 ;; Return value:  Size  Location     Type
-   779 ;;                  1    wreg      unsigned char 
-   780 ;; Registers used:
-   781 ;;		wreg, status,2
-   782 ;; Tracked objects:
-   783 ;;		On entry : 0/0
-   784 ;;		On exit  : 0/0
-   785 ;;		Unchanged: 0/0
-   786 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   729 ;;Total ram usage:        1 bytes
+   730 ;; Hardware stack levels used:    1
+   731 ;; This function calls:
+   732 ;;		Nothing
+   733 ;; This function is called by:
+   734 ;;		_main
+   735 ;; This function uses a non-reentrant model
+   736 ;;
+   737                           
+   738                           	psect	text7
+   739  01FEBE                     __ptext7:
+   740                           	opt stack 0
+   741  01FEBE                     _EUSART2_Write:
+   742                           	opt stack 30
+   743                           
+   744                           ; BSR set to: 14
+   745                           ;incstack = 0
+   746                           ;EUSART2_Write@txData stored from wreg
+   747  01FEBE  6E01               	movwf	EUSART2_Write@txData,c
+   748  01FEC0                     
+   749                           ;eusart2.c: 114: {
+   750                           
+   751                           ;eusart2.c: 113: while(0 == PIR3bits.TX2IF)
+   752  01FEC0  010E               	movlb	14	; () banked
+   753  01FEC2  ADCD               	btfss	205,6,b	;volatile
+   754  01FEC4  D7FD               	goto	l830
+   755                           
+   756                           ; BSR set to: 14
+   757                           ;eusart2.c: 115: }
+   758                           ;eusart2.c: 117: TX2REG = txData;
+   759                           
+   760                           ; BSR set to: 14
+   761  01FEC6  C001  FE9A         	movff	EUSART2_Write@txData,3738	;volatile
+   762                           
+   763                           ; BSR set to: 14
+   764  01FECA  0012               	return		;funcret
+   765  01FECC                     __end_of_EUSART2_Write:
+   766                           	opt stack 0
+   767                           wreg	equ	0xFE8
+   768                           status	equ	0xFD8
+   769                           
+   770 ;; *************** function _EUSART2_Read *****************
+   771 ;; Defined at:
+   772 ;;		line 92 in file "mcc_generated_files/eusart2.c"
+   773 ;; Parameters:    Size  Location     Type
+   774 ;;		None
+   775 ;; Auto vars:     Size  Location     Type
+   776 ;;		None
+   777 ;; Return value:  Size  Location     Type
+   778 ;;                  1    wreg      unsigned char 
+   779 ;; Registers used:
+   780 ;;		wreg, status,2
+   781 ;; Tracked objects:
+   782 ;;		On entry : 0/0
+   783 ;;		On exit  : 0/0
+   784 ;;		Unchanged: 0/0
+   785 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   787 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   786 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   788 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   787 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   789 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   788 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   790 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   789 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   791 ;;Total ram usage:        0 bytes
-   792 ;; Hardware stack levels used:    1
-   793 ;; This function calls:
-   794 ;;		Nothing
-   795 ;; This function is called by:
-   796 ;;		_main
-   797 ;; This function uses a non-reentrant model
-   798 ;;
-   799                           
-   800                           	psect	text8
-   801  01FED8                     __ptext8:
-   802                           	opt stack 0
-   803  01FED8                     _EUSART2_Read:
-   804                           	opt stack 30
-   805                           
-   806                           ;eusart2.c: 96: {
-   807                           
-   808                           ;eusart2.c: 95: while(!PIR3bits.RC2IF)
-   809                           
-   810                           ; BSR set to: 14
-   811                           ;incstack = 0
-   812  01FED8  010E               	movlb	14	; () banked
-   813  01FEDA  AFCD               	btfss	205,7,b	;volatile
-   814  01FEDC  D7FD               	goto	_EUSART2_Read
-   815                           
-   816                           ; BSR set to: 14
-   817                           ;eusart2.c: 97: }
-   818                           ;eusart2.c: 100: if(1 == RC2STAbits.OERR)
-   819  01FEDE  A39D               	btfss	157,1,b	;volatile
-   820  01FEE0  D002               	goto	l139
-   821                           
-   822                           ; BSR set to: 14
-   823                           ;eusart2.c: 101: {
-   824                           ;eusart2.c: 104: RC2STAbits.SPEN = 0;
-   825  01FEE2  9F9D               	bcf	157,7,b	;volatile
-   826                           
-   827                           ;eusart2.c: 105: RC2STAbits.SPEN = 1;
-   828  01FEE4  8F9D               	bsf	157,7,b	;volatile
-   829  01FEE6                     l139:
-   830                           
-   831                           ; BSR set to: 14
-   832                           ;eusart2.c: 106: }
-   833                           ;eusart2.c: 108: return RC2REG;
-   834                           
-   835                           ; BSR set to: 14
-   836  01FEE6  5199               	movf	153,w,b	;volatile
-   837  01FEE8  0012               	return	
-   838  01FEEA                     __end_of_EUSART2_Read:
-   839                           	opt stack 0
-   840  0000                     wreg	equ	0xFE8
-   841                           status	equ	0xFD8
-   842                           wreg	equ	0xFE8
-   843                           status	equ	0xFD8
-   844                           
-   845                           	psect	rparam
-   846  0000                     wreg	equ	0xFE8
-   847                           status	equ	0xFD8
+   790 ;;Total ram usage:        0 bytes
+   791 ;; Hardware stack levels used:    1
+   792 ;; This function calls:
+   793 ;;		Nothing
+   794 ;; This function is called by:
+   795 ;;		_main
+   796 ;; This function uses a non-reentrant model
+   797 ;;
+   798                           
+   799                           	psect	text8
+   800  01FEDA                     __ptext8:
+   801                           	opt stack 0
+   802  01FEDA                     _EUSART2_Read:
+   803                           	opt stack 30
+   804                           
+   805                           ;eusart2.c: 96: {
+   806                           
+   807                           ;eusart2.c: 95: while(!PIR3bits.RC2IF)
+   808                           
+   809                           ; BSR set to: 14
+   810                           ;incstack = 0
+   811  01FEDA  010E               	movlb	14	; () banked
+   812  01FEDC  AFCD               	btfss	205,7,b	;volatile
+   813  01FEDE  D7FD               	goto	_EUSART2_Read
+   814                           
+   815                           ; BSR set to: 14
+   816                           ;eusart2.c: 97: }
+   817                           ;eusart2.c: 100: if(1 == RC2STAbits.OERR)
+   818  01FEE0  A39D               	btfss	157,1,b	;volatile
+   819  01FEE2  D002               	goto	l139
+   820                           
+   821                           ; BSR set to: 14
+   822                           ;eusart2.c: 101: {
+   823                           ;eusart2.c: 104: RC2STAbits.SPEN = 0;
+   824  01FEE4  9F9D               	bcf	157,7,b	;volatile
+   825                           
+   826                           ;eusart2.c: 105: RC2STAbits.SPEN = 1;
+   827  01FEE6  8F9D               	bsf	157,7,b	;volatile
+   828  01FEE8                     l139:
+   829                           
+   830                           ; BSR set to: 14
+   831                           ;eusart2.c: 106: }
+   832                           ;eusart2.c: 108: return RC2REG;
+   833                           
+   834                           ; BSR set to: 14
+   835  01FEE8  5199               	movf	153,w,b	;volatile
+   836  01FEEA  0012               	return	
+   837  01FEEC                     __end_of_EUSART2_Read:
+   838                           	opt stack 0
+   839  0000                     wreg	equ	0xFE8
+   840                           status	equ	0xFD8
+   841                           wreg	equ	0xFE8
+   842                           status	equ	0xFD8
+   843                           
+   844                           	psect	rparam
+   845  0000                     wreg	equ	0xFE8
+   846                           status	equ	0xFD8
 
 
 Data Sizes:
@@ -1101,13 +1100,13 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Fri Apr 20 11:11:52 2018
+Symbol Table                                                                                   Fri Apr 20 11:31:33 2018
 
-                    __CFG_CP$OFF 000000                               u10 FED4  
-                             u97 FF58                      __CFG_LVP$ON 000000  
-                            l170 FF7A                              l139 FEE6  
-                            l165 FF62                              l166 FF52  
-                            l830 FEBE                              u107 FF86  
+                    __CFG_CP$OFF 000000                               u10 FED6  
+                             u97 FF5A                      __CFG_LVP$ON 000000  
+                            l170 FF7A                              l139 FEE8  
+                            l165 FF64                              l166 FF54  
+                            l830 FEC0                              u107 FF86  
                    __CFG_CPD$OFF 000000          __size_of_PMD_Initialize 001C  
                             wreg 000FE8                     __CFG_ZCD$OFF 000000  
                            _LATA 000F83                             _LATB 000F84  
@@ -1118,11 +1117,11 @@ Symbol Table                                                                    
                            _PMD5 000EE6                             _WPUA 000F10  
                            _WPUB 000F18                             _WPUC 000F20  
                            _WPUD 000F25                             _WPUE 000F2D  
-                  __CFG_FCMEN$ON 000000                    _EUSART2_Write FEBC  
-                           _main FF48                    ?_EUSART2_Read 0001  
+                  __CFG_FCMEN$ON 000000                    _EUSART2_Write FEBE  
+                           _main FF4A                    ?_EUSART2_Read 0001  
                            start 0000                    __CFG_CSWEN$ON 000000  
                    ___param_bank 000000                    __CFG_SCANE$ON 000000  
- __size_of_OSCILLATOR_Initialize 0018    __end_of_OSCILLATOR_Initialize FF2C  
+ __size_of_OSCILLATOR_Initialize 0018    __end_of_OSCILLATOR_Initialize FF2E  
                           ?_main 0001                    __CFG_WDTE$OFF 000000  
                  __CFG_DEBUG$OFF 000000                            _OSCEN 000EDC  
                           _TRISA 000F88                            _TRISB 000F89  
@@ -1139,9 +1138,9 @@ Symbol Table                                                                    
                   __CFG_WRTC$OFF 000000                    __CFG_WRTD$OFF 000000  
                  __CFG_EBTRB$OFF 000000               __CFG_MCLRE$EXTMCLR 000000  
                  ?_EUSART2_Write 0001                   ??_EUSART2_Read 0001  
-                          status 000FD8                  __initialization FEB6  
+                          status 000FD8                  __initialization FEB8  
                    __end_of_main FF92                           ??_main 0002  
-                  __activetblptr 000000       __end_of_EUSART2_Initialize FF14  
+                  __activetblptr 000000       __end_of_EUSART2_Initialize FF16  
                          _ANSELA 000F11                           _ANSELB 000F19  
                          _ANSELC 000F21                           _ANSELD 000F26  
                          _ANSELE 000F2E                           _RC2REG 000E99  
@@ -1152,41 +1151,41 @@ Symbol Table                                                                    
                          _OSCFRQ 000EDE                           _TX2REG 000E9A  
                          _TX2STA 000E9E                   __CFG_PWRTE$OFF 000000  
                  __CFG_XINST$OFF 000000        __CFG_RSTOSC$HFINTOSC_1MHZ 000000  
-                 __CFG_STVREN$ON 000000                   _PMD_Initialize FF2C  
+                 __CFG_STVREN$ON 000000                   _PMD_Initialize FF2E  
                 ??_EUSART2_Write 0001     __size_of_EUSART2_is_rx_ready 000E  
-              _SYSTEM_Initialize FEEA                       __accesstop 0060  
-        __end_of__initialization FEB6               ?_SYSTEM_Initialize 0001  
+              _SYSTEM_Initialize FEEC                       __accesstop 0060  
+        __end_of__initialization FEB8               ?_SYSTEM_Initialize 0001  
                   ___rparam_used 000001                   __pcstackCOMRAM 0001  
-            ??_SYSTEM_Initialize 0001           __end_of_PMD_Initialize FF48  
-           __end_of_EUSART2_Read FEEA        __end_of_SYSTEM_Initialize FEFC  
+            ??_SYSTEM_Initialize 0001           __end_of_PMD_Initialize FF4A  
+           __end_of_EUSART2_Read FEEC        __end_of_SYSTEM_Initialize FEFE  
                 __CFG_PPS1WAY$ON 000000                  ?_PMD_Initialize 0001  
                         _SP2BRGH 000E9C                          _SP2BRGL 000E9B  
                         _OSCCON1 000ED8                          _OSCCON3 000EDA  
                         _OSCTUNE 000EDD                          __Hparam 0000  
-                        __Lparam 0000                          __pcinit FEB6  
-                        __ramtop 0F00                          __ptext0 FF48  
-                        __ptext1 FEEA                          __ptext2 FF2C  
-                        __ptext3 FF92                          __ptext4 FF14  
-                        __ptext5 FEFC                          __ptext6 FECA  
-                        __ptext7 FEBC                          __ptext8 FED8  
-          _OSCILLATOR_Initialize FF14         ??_PIN_MANAGER_Initialize 0001  
+                        __Lparam 0000                          __pcinit FEB8  
+                        __ramtop 0F00                          __ptext0 FF4A  
+                        __ptext1 FEEC                          __ptext2 FF2E  
+                        __ptext3 FF92                          __ptext4 FF16  
+                        __ptext5 FEFE                          __ptext6 FECC  
+                        __ptext7 FEBE                          __ptext8 FEDA  
+          _OSCILLATOR_Initialize FF16         ??_PIN_MANAGER_Initialize 0001  
      __size_of_SYSTEM_Initialize 0012                          main@rec 0003  
-           end_of_initialization FEB6               _EUSART2_Initialize FEFC  
+           end_of_initialization FEB8               _EUSART2_Initialize FEFE  
           __size_of_EUSART2_Read 0012            __CFG_WDTCPS$WDTCPS_31 000000  
-            ?_EUSART2_Initialize 0001              _EUSART2_is_rx_ready FECA  
+            ?_EUSART2_Initialize 0001              _EUSART2_is_rx_ready FECC  
                __CFG_FEXTOSC$OFF 000000             ??_EUSART2_Initialize 0001  
-           ?_EUSART2_is_rx_ready 0001                     _EUSART2_Read FED8  
-         ?_OSCILLATOR_Initialize 0001              start_initialization FEB6  
+           ?_EUSART2_is_rx_ready 0001                     _EUSART2_Read FEDA  
+         ?_OSCILLATOR_Initialize 0001              start_initialization FEB8  
 __size_of_PIN_MANAGER_Initialize 006E            ??_EUSART2_is_rx_ready 0001  
-          __end_of_EUSART2_Write FECA                 __CFG_LPBOREN$OFF 000000  
+          __end_of_EUSART2_Write FECC                 __CFG_LPBOREN$OFF 000000  
                ??_PMD_Initialize 0001              EUSART2_Write@txData 0001  
          _PIN_MANAGER_Initialize FF92                         _BAUD2CON 000E9F  
                        _LATAbits 000F83              __CFG_BORV$VBOR_2P45 000000  
                        _PIR3bits 000ECD                         __Hrparam 0000  
                        __Lrparam 0000               __CFG_BOREN$SBORDIS 000000  
         ??_OSCILLATOR_Initialize 0001      __size_of_EUSART2_Initialize 0018  
-                  __size_of_main 004A             __CFG_WDTCWS$WDTCWS_7 000000  
-                     _RC2STAbits 000E9D      __end_of_EUSART2_is_rx_ready FED8  
+                  __size_of_main 0048             __CFG_WDTCWS$WDTCWS_7 000000  
+                     _RC2STAbits 000E9D      __end_of_EUSART2_is_rx_ready FEDA  
         ?_PIN_MANAGER_Initialize 0001                __CFG_CLKOUTEN$OFF 000000  
          __size_of_EUSART2_Write 000E                       _RX2PPSbits 000E8D  
                      _TX2STAbits 000E9E   __end_of_PIN_MANAGER_Initialize 0000  

@@ -14412,7 +14412,7 @@ uint8_t rec = EUSART2_Read();
 
 
 
-if(rec == 128)
+if(rec == 1)
 do { LATAbits.LATA4 = 1; } while(0);
 
 

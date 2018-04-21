@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F11800 `(v ~T0 @X0 0 tf ]
-[v F11803 `(v ~T0 @X0 0 tf ]
+[v F11779 `(v ~T0 @X0 0 tf ]
+[v F11782 `(v ~T0 @X0 0 tf ]
 [p mainexit ]
 "72 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
@@ -18,28 +18,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1337 . . . . ]
 "26495
 [v _INTCONbits `VS1337 ~T0 @X0 0 e@4082 ]
-"82 main.c
-[c E11675 0 .. ]
-[n E11675 . CUSTOM1  ]
-"37 mcc_generated_files/spi2_driver.h
-[v _spi2_master_open `(b ~T0 @X0 0 ef1`E11675 ]
-"16158 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
-[s S785 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S785 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"16168
-[s S786 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S786 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"16157
-[u S784 `S785 1 `S786 1 ]
-[n S784 . . . ]
-"16179
-[v _LATCbits `VS784 ~T0 @X0 0 e@3973 ]
+"34 mcc_generated_files/drivers/i2c_simple_master.h
+[v _i2c_writeNBytes `(v ~T0 @X0 0 ef3`uc`*v`ui ]
+"36
+[v _i2c_readNBytes `(v ~T0 @X0 0 ef3`uc`*v`ui ]
 [v F11568 `(v ~T0 @X0 1 tf1`ul ]
 "164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF11568 ~T0 @X0 0 e ]
 [p i __delay ]
-"40 mcc_generated_files/spi2_driver.h
-[v _spi2_exchangeByte `(uc ~T0 @X0 0 ef1`uc ]
+"76 mcc_generated_files/eusart2.h
+[v _EUSART2_Initialize `(v ~T0 @X0 0 ef ]
+"119
+[v _EUSART2_Write `(v ~T0 @X0 0 ef1`uc ]
+"94
+[v _EUSART2_is_rx_ready `(uc ~T0 @X0 0 ef ]
+"110
+[v _EUSART2_Read `(uc ~T0 @X0 0 ef ]
 "15934 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
 [s S779 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S779 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
@@ -10778,8 +10772,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 232: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 244: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 196: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 208: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -10841,16 +10835,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;spi2_types.h: 28: typedef enum {
-[; ;spi2_types.h: 29: CUSTOM1
-[; ;spi2_types.h: 30: } spi2_modes;
-[; ;spi2_driver.h: 35: inline void spi2_close(void);
-[; ;spi2_driver.h: 37: bit spi2_master_open(spi2_modes spiUniqueConfiguration);
-[; ;spi2_driver.h: 38: bit spi2_slave_open(spi2_modes spiUniqueConfiguration);
-[; ;spi2_driver.h: 40: uint8_t spi2_exchangeByte(uint8_t b);
-[; ;spi2_driver.h: 42: void spi2_exchangeBlock(void *block, size_t blockSize);
-[; ;spi2_driver.h: 43: void spi2_writeBlock(void *block, size_t blockSize);
-[; ;spi2_driver.h: 44: void spi2_readBlock(void *block, size_t blockSize);
 [; ;i2c1_driver.h: 34: inline void i2c1_driver_close(void);
 [; ;i2c1_driver.h: 37: inline void mssp1_enableIRQ(void);
 [; ;i2c1_driver.h: 38: inline bit mssp1_IRQisEnabled(void);
@@ -10887,11 +10871,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c1_driver.h: 73: inline void i2c1_driver_setBusCollisionISR(void *f);
 [; ;i2c1_driver.h: 74: inline void i2c1_driver_setI2cISR(void *f);
 "75 mcc_generated_files/i2c1_driver.h
-[v _i2c1_driver_busCollisionISR `*F11800 ~T0 @X0 1 e ]
+[v _i2c1_driver_busCollisionISR `*F11779 ~T0 @X0 1 e ]
 [; ;i2c1_driver.h: 75: void (*i2c1_driver_busCollisionISR)(void);
 "76
-[v _i2c1_driver_i2cISR `*F11803 ~T0 @X0 1 e ]
+[v _i2c1_driver_i2cISR `*F11782 ~T0 @X0 1 e ]
 [; ;i2c1_driver.h: 76: void (*i2c1_driver_i2cISR)(void);
+[; ;eusart2.h: 76: void EUSART2_Initialize(void);
+[; ;eusart2.h: 85: bool EUSART2_is_tx_ready(void);
+[; ;eusart2.h: 94: bool EUSART2_is_rx_ready(void);
+[; ;eusart2.h: 103: bool EUSART2_is_tx_done(void);
+[; ;eusart2.h: 110: uint8_t EUSART2_Read(void);
+[; ;eusart2.h: 119: void EUSART2_Write(uint8_t txData);
 [; ;i2c_types.h: 29: typedef enum {
 [; ;i2c_types.h: 30: I2C_NOERR,
 [; ;i2c_types.h: 31: I2C_BUSY,
@@ -10911,6 +10901,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c_types.h: 52: i2c_operations_t i2c_returnReset(void *p);
 [; ;i2c_types.h: 53: i2c_operations_t i2c_restartWrite(void *p);
 [; ;i2c_types.h: 54: i2c_operations_t i2c_restartRead(void *p);
+[; ;i2c_simple_master.h: 29: uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
+[; ;i2c_simple_master.h: 30: uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
+[; ;i2c_simple_master.h: 31: void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
+[; ;i2c_simple_master.h: 32: void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
+[; ;i2c_simple_master.h: 34: void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
+[; ;i2c_simple_master.h: 35: void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
+[; ;i2c_simple_master.h: 36: void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
 [; ;i2c_master.h: 31: typedef i2c_operations_t (*i2c_callback)(void *p);
 [; ;i2c_master.h: 35: i2c_error_t i2c_open(i2c_address_t address);
 [; ;i2c_master.h: 36: void i2c_setAddress(i2c_address_t address);
@@ -10927,13 +10924,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c_master.h: 50: void i2c_setTimeOutCallback(i2c_callback cb, void *p);
 [; ;i2c_master.h: 53: void i2c_ISR(void);
 [; ;i2c_master.h: 54: void i2c_busCollisionISR(void);
-[; ;i2c_simple_master.h: 29: uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
-[; ;i2c_simple_master.h: 30: uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
-[; ;i2c_simple_master.h: 31: void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
-[; ;i2c_simple_master.h: 32: void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
-[; ;i2c_simple_master.h: 34: void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
-[; ;i2c_simple_master.h: 35: void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
-[; ;i2c_simple_master.h: 36: void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
 [; ;mcc.h: 72: void SYSTEM_Initialize(void);
 [; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 98: void PMD_Initialize(void);
@@ -10955,105 +10945,105 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 64: (INTCONbits.PEIE = 1);
 "64
 [e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
-"70
+"77
 [v _data `uc ~T0 @X0 -> 2 `i a ]
-"71
+"78
 [v _addr `uc ~T0 @X0 1 a ]
-[; ;main.c: 70: uint8_t data[2];
-[; ;main.c: 71: uint8_t addr = 0x22;
-[e = _addr -> -> 34 `i `uc ]
-"72
+[; ;main.c: 77: uint8_t data[2];
+[; ;main.c: 78: uint8_t addr = 0x20;
+[e = _addr -> -> 32 `i `uc ]
+"79
 [v _gamerScore `uc ~T0 @X0 1 a ]
-[; ;main.c: 72: uint8_t gamerScore = 0x17;
+[; ;main.c: 79: uint8_t gamerScore = 0x17;
 [e = _gamerScore -> -> 23 `i `uc ]
-"73
+"80
 [v _photonAddress `uc ~T0 @X0 1 a ]
-[; ;main.c: 73: uint8_t photonAddress = 0x30;
+[; ;main.c: 80: uint8_t photonAddress = 0x30;
 [e = _photonAddress -> -> 48 `i `uc ]
-[; ;main.c: 82: spi2_master_open(CUSTOM1);
-"82
-[e ( _spi2_master_open (1 . `E11675 0 ]
-[; ;main.c: 99: do { LATCbits.LATC5 = 0; } while(0);
-"99
-[e :U 1372 ]
-{
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 1371 ]
-[; ;main.c: 100: for(int i=0; i<80; i++)
-"100
+[; ;main.c: 92: data[0]=0x13;
+"92
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 19 `i `uc ]
+[; ;main.c: 93: i2c_writeNBytes(addr, &data[0], 1);
+"93
+[e ( _i2c_writeNBytes (3 , , _addr -> &U *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `*v -> -> 1 `i `ui ]
+"94
+[v _rec `uc ~T0 @X0 1 a ]
+[; ;main.c: 94: uint8_t rec;
+[; ;main.c: 95: i2c_readNBytes(addr, &rec, 1);
+"95
+[e ( _i2c_readNBytes (3 , , _addr -> &U _rec `*v -> -> 1 `i `ui ]
+[; ;main.c: 104: for(int i=0; i<80; i++)
+"104
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 80 `i 1373  ]
-[e $U 1374  ]
-"101
-[e :U 1373 ]
-[; ;main.c: 101: _delay((unsigned long)((50)*(2000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
-"100
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 80 `i 1373  ]
-[e :U 1374 ]
-"101
-}
-[; ;main.c: 103: do { LATCbits.LATC5 = 1; } while(0);
-"103
-[e :U 1378 ]
-{
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 1377 ]
+[e $ < _i -> 80 `i 1370  ]
+[e $U 1371  ]
 "105
-[v _res `uc ~T0 @X0 1 a ]
-[; ;main.c: 105: uint8_t res = spi2_exchangeByte(1);
-[e = _res ( _spi2_exchangeByte (1 -> -> 1 `i `uc ]
-[; ;main.c: 107: while (1)
+[e :U 1370 ]
+[; ;main.c: 105: _delay((unsigned long)((50)*(2000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"104
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 80 `i 1370  ]
+[e :U 1371 ]
+"105
+}
+[; ;main.c: 107: EUSART2_Initialize();
 "107
+[e ( _EUSART2_Initialize ..  ]
+[; ;main.c: 111: while (1)
+"111
+[e :U 1374 ]
+[; ;main.c: 112: {
+"112
+{
+[; ;main.c: 128: EUSART2_Write(~rec);
+"128
+[e ( _EUSART2_Write (1 -> ~ -> _rec `i `uc ]
+[; ;main.c: 130: if(EUSART2_is_rx_ready())
+"130
+[e $ ! != -> ( _EUSART2_is_rx_ready ..  `i -> -> -> 0 `i `uc `i 1376  ]
+[; ;main.c: 131: rec = EUSART2_Read();
+"131
+[e = _rec ( _EUSART2_Read ..  ]
+[e :U 1376 ]
+[; ;main.c: 132: if(rec == 64)
+"132
+[e $ ! == -> _rec `i -> 64 `i 1377  ]
+[; ;main.c: 133: do { LATAbits.LATA2 = 0; } while(0);
+"133
 [e :U 1380 ]
-[; ;main.c: 108: {
-"108
-{
-[; ;main.c: 125: if( res == 1 ){
-"125
-[e $ ! == -> _res `i -> 1 `i 1382  ]
-{
-[; ;main.c: 126: do { LATAbits.LATA2 = 0; } while(0);
-"126
-[e :U 1385 ]
 {
 [e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 1384 ]
-"127
-}
-[e :U 1382 ]
-[; ;main.c: 127: }
-[; ;main.c: 128: for(int i=0; i<20; i++)
-"128
+[e :U 1379 ]
+[e :U 1377 ]
+[; ;main.c: 135: for(int i=0; i<20; i++)
+"135
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 20 `i 1386  ]
-[e $U 1387  ]
-"129
-[e :U 1386 ]
-[; ;main.c: 129: _delay((unsigned long)((50)*(2000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
-"128
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 20 `i 1386  ]
-[e :U 1387 ]
-"129
-}
-"131
-}
-[e :U 1379 ]
-"107
-[e $U 1380  ]
+[e $ < _i -> 20 `i 1381  ]
+[e $U 1382  ]
+"136
 [e :U 1381 ]
-[; ;main.c: 131: }
-[; ;main.c: 132: }
-"132
+[; ;main.c: 136: _delay((unsigned long)((50)*(2000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"135
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 20 `i 1381  ]
+[e :U 1382 ]
+"136
+}
+"138
+}
+[e :U 1373 ]
+"111
+[e $U 1374  ]
+[e :U 1375 ]
+[; ;main.c: 138: }
+[; ;main.c: 139: }
+"139
 [e :UE 1369 ]
 }

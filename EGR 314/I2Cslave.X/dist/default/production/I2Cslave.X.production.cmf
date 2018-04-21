@@ -11,22 +11,22 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production\I2Cslave.X.production.obj
-cinit CODE 0 1FEB6 1FEB6 6 1
-text0 CODE 0 1FF48 1FF48 4A 1
-text1 CODE 0 1FEEA 1FEEA 12 1
-text2 CODE 0 1FF2C 1FF2C 1C 1
-text3 CODE 0 1FF92 1FF92 6E 1
-text4 CODE 0 1FF14 1FF14 18 1
-text5 CODE 0 1FEFC 1FEFC 18 1
-text6 CODE 0 1FECA 1FECA E 1
-text7 CODE 0 1FEBC 1FEBC E 1
-text8 CODE 0 1FED8 1FED8 12 1
-cstackCOMRAM COMRAM 1 1 1 3 1
-$C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
+$C:\Users\Jacob\AppData\Local\Temp\s9us.obj
 idloc IDLOC 0 200000 200000 10 1
 init CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 C 1
+$dist/default/production\I2Cslave.X.production.obj
+cinit CODE 0 1FEB8 1FEB8 6 1
+text0 CODE 0 1FF4A 1FF4A 48 1
+text1 CODE 0 1FEEC 1FEEC 12 1
+text2 CODE 0 1FF2E 1FF2E 1C 1
+text3 CODE 0 1FF92 1FF92 6E 1
+text4 CODE 0 1FF16 1FF16 18 1
+text5 CODE 0 1FEFE 1FEFE 18 1
+text6 CODE 0 1FECC 1FECC E 1
+text7 CODE 0 1FEBE 1FEBE E 1
+text8 CODE 0 1FEDA 1FEDA 12 1
+cstackCOMRAM COMRAM 1 1 1 3 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -45,10 +45,10 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 4-1FEB5 1
+CONST 4-1FEB7 1
 STACK 60-E87 1
-SMALLCONST F00-1FEB5 1
-CODE 4-1FEB5 1
+SMALLCONST F00-1FEB7 1
+CODE 4-1FEB7 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
@@ -58,7 +58,7 @@ BIGRAM 4-E87 1
 COMRAM 4-5F 1
 EEDATA 310000-3103FF 1
 MEDIUMCONST F00-FFFF 1
-MEDIUMCONST 10F00-1FEB5 1
+MEDIUMCONST 10F00-1FEB7 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -73,33 +73,33 @@ MEDIUMCONST 10F00-1FEB5 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\I2Cslave.X.production.obj
-1FED8 text8 CODE >92:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FED8 text8 CODE >95:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEDE text8 CODE >100:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEE2 text8 CODE >104:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEE4 text8 CODE >105:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEE6 text8 CODE >106:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEE6 text8 CODE >108:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEBC text7 CODE >111:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEBE text7 CODE >113:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEC4 text7 CODE >117:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEC8 text7 CODE >118:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FECA text6 CODE >82:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FECA text6 CODE >84:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEFC text5 CODE >55:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FEFC text5 CODE >60:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FF02 text5 CODE >63:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FF06 text5 CODE >66:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FF0A text5 CODE >69:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FF0E text5 CODE >72:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FF12 text5 CODE >74:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
-1FF14 text4 CODE >124:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF14 text4 CODE >127:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF1A text4 CODE >129:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF1E text4 CODE >131:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF22 text4 CODE >133:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF26 text4 CODE >135:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF2A text4 CODE >136:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FEDA text8 CODE >92:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEDA text8 CODE >95:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEE0 text8 CODE >100:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEE4 text8 CODE >104:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEE6 text8 CODE >105:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEE8 text8 CODE >106:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEE8 text8 CODE >108:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEBE text7 CODE >111:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEC0 text7 CODE >113:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEC6 text7 CODE >117:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FECA text7 CODE >118:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FECC text6 CODE >82:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FECC text6 CODE >84:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEFE text5 CODE >55:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FEFE text5 CODE >60:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FF04 text5 CODE >63:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FF08 text5 CODE >66:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FF0C text5 CODE >69:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FF10 text5 CODE >72:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FF14 text5 CODE >74:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/eusart2.c
+1FF16 text4 CODE >124:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF16 text4 CODE >127:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF1C text4 CODE >129:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF20 text4 CODE >131:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF24 text4 CODE >133:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF28 text4 CODE >135:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF2C text4 CODE >136:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
 1FF92 text3 CODE >52:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/pin_manager.c
 1FF92 text3 CODE >57:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/pin_manager.c
 1FF96 text3 CODE >58:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/pin_manager.c
@@ -129,39 +129,39 @@ $dist/default/production\I2Cslave.X.production.obj
 1FFEE text3 CODE >104:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/pin_manager.c
 1FFF2 text3 CODE >105:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/pin_manager.c
 1FFFE text3 CODE >107:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/pin_manager.c
-1FF2C text2 CODE >138:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF2C text2 CODE >141:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF32 text2 CODE >143:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF36 text2 CODE >145:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF3A text2 CODE >147:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF3E text2 CODE >149:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF42 text2 CODE >151:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF46 text2 CODE >152:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FEEA text1 CODE >116:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FEEA text1 CODE >118:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FEEE text1 CODE >119:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FEF2 text1 CODE >120:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FEF6 text1 CODE >121:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FEFA text1 CODE >122:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
-1FF48 text0 CODE >48:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
-1FF48 text0 CODE >51:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
-1FF4C text0 CODE >69:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
-1FF50 text0 CODE >71:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
-1FF52 text0 CODE >73:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
-1FF62 text0 CODE >71:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
-1FF62 text0 CODE >74:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
-1FF6C text0 CODE >76:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
-1FF72 text0 CODE >80:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
+1FF2E text2 CODE >138:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF2E text2 CODE >141:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF34 text2 CODE >143:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF38 text2 CODE >145:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF3C text2 CODE >147:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF40 text2 CODE >149:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF44 text2 CODE >151:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF48 text2 CODE >152:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FEEC text1 CODE >116:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FEEC text1 CODE >118:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FEF0 text1 CODE >119:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FEF4 text1 CODE >120:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FEF8 text1 CODE >121:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FEFC text1 CODE >122:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\mcc_generated_files/mcc.c
+1FF4A text0 CODE >48:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
+1FF4A text0 CODE >51:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
+1FF4E text0 CODE >69:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
+1FF52 text0 CODE >71:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
+1FF54 text0 CODE >73:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
+1FF64 text0 CODE >71:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
+1FF64 text0 CODE >74:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
+1FF6E text0 CODE >76:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
+1FF74 text0 CODE >80:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
 1FF78 text0 CODE >81:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
 1FF7A text0 CODE >88:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
 1FF80 text0 CODE >90:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
 1FF90 text0 CODE >85:C:\Users\Jacob\Documents\Junior\EGR 314\I2Cslave.X\main.c
-1FEB6 cinit CODE >3828:C:\Users\Jacob\AppData\Local\Temp\sbs0.
-1FEB6 cinit CODE >3830:C:\Users\Jacob\AppData\Local\Temp\sbs0.
-1FEB6 cinit CODE >3833:C:\Users\Jacob\AppData\Local\Temp\sbs0.
-1FEB6 cinit CODE >3839:C:\Users\Jacob\AppData\Local\Temp\sbs0.
-1FEB6 cinit CODE >3841:C:\Users\Jacob\AppData\Local\Temp\sbs0.
-1FEB8 cinit CODE >3842:C:\Users\Jacob\AppData\Local\Temp\sbs0.
+1FEB8 cinit CODE >3828:C:\Users\Jacob\AppData\Local\Temp\s9us.
+1FEB8 cinit CODE >3830:C:\Users\Jacob\AppData\Local\Temp\s9us.
+1FEB8 cinit CODE >3833:C:\Users\Jacob\AppData\Local\Temp\s9us.
+1FEB8 cinit CODE >3839:C:\Users\Jacob\AppData\Local\Temp\s9us.
+1FEB8 cinit CODE >3841:C:\Users\Jacob\AppData\Local\Temp\s9us.
+1FEBA cinit CODE >3842:C:\Users\Jacob\AppData\Local\Temp\s9us.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -179,9 +179,9 @@ __Hspace_0 30000C 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Hspace_1 4 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\I2Cslave.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Jacob\AppData\Local\Temp\s9us.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\I2Cslave.X.production.obj
-_PMD_Initialize 1FF2C 0 CODE 0 text2 dist/default/production\I2Cslave.X.production.obj
+_PMD_Initialize 1FF2E 0 CODE 0 text2 dist/default/production\I2Cslave.X.production.obj
 __CFG_WDTCCS$SC 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\I2Cslave.X.production.obj
 _LATA F83 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
@@ -200,21 +200,21 @@ _WPUB F18 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _WPUC F20 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _WPUD F25 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _WPUE F2D 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
-_main 1FF48 0 CODE 0 text0 dist/default/production\I2Cslave.X.production.obj
-start 0 0 CODE 0 init C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
+___sp 0 0 STACK 2 stack C:\Users\Jacob\AppData\Local\Temp\s9us.obj
+_main 1FF4A 0 CODE 0 text0 dist/default/production\I2Cslave.X.production.obj
+start 0 0 CODE 0 init C:\Users\Jacob\AppData\Local\Temp\s9us.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __size_of_EUSART2_is_rx_ready 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _RC2STAbits E9D 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_DEBUG$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Hpowerup 0 0 CODE 0 powerup dist/default/production\I2Cslave.X.production.obj
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
-intlevel0 0 0 CODE 0 text C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
-intlevel1 0 0 CODE 0 text C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
-intlevel2 0 0 CODE 0 text C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
-intlevel3 0 0 CODE 0 text C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
-__end_of_EUSART2_Initialize 1FF14 0 CODE 0 text5 dist/default/production\I2Cslave.X.production.obj
+__accesstop 60 0 ABS 0 - C:\Users\Jacob\AppData\Local\Temp\s9us.obj
+intlevel0 0 0 CODE 0 text C:\Users\Jacob\AppData\Local\Temp\s9us.obj
+intlevel1 0 0 CODE 0 text C:\Users\Jacob\AppData\Local\Temp\s9us.obj
+intlevel2 0 0 CODE 0 text C:\Users\Jacob\AppData\Local\Temp\s9us.obj
+intlevel3 0 0 CODE 0 text C:\Users\Jacob\AppData\Local\Temp\s9us.obj
+__end_of_EUSART2_Initialize 1FF16 0 CODE 0 text5 dist/default/production\I2Cslave.X.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\I2Cslave.X.production.obj
 __CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
@@ -226,18 +226,18 @@ __CFG_EBTR6$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_EBTR7$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\I2Cslave.X.production.obj
-__end_of_PMD_Initialize 1FF48 0 CODE 0 text2 dist/default/production\I2Cslave.X.production.obj
+__end_of_PMD_Initialize 1FF4A 0 CODE 0 text2 dist/default/production\I2Cslave.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\I2Cslave.X.production.obj
-_EUSART2_is_rx_ready 1FECA 0 CODE 0 text6 dist/default/production\I2Cslave.X.production.obj
+_EUSART2_is_rx_ready 1FECC 0 CODE 0 text6 dist/default/production\I2Cslave.X.production.obj
 _ANSELA F11 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _ANSELB F19 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _ANSELC F21 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _ANSELD F26 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _ANSELE F2E 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Jacob\AppData\Local\Temp\s9us.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Jacob\AppData\Local\Temp\s9us.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\I2Cslave.X.production.obj
-_EUSART2_Initialize 1FEFC 0 CODE 0 text5 dist/default/production\I2Cslave.X.production.obj
+_EUSART2_Initialize 1FEFE 0 CODE 0 text5 dist/default/production\I2Cslave.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\I2Cslave.X.production.obj
 main@rec 3 0 COMRAM 1 cstackCOMRAM dist/default/production\I2Cslave.X.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\I2Cslave.X.production.obj
@@ -245,7 +245,7 @@ __Hintcodelo 0 0 CODE 0 intcodelo dist/default/production\I2Cslave.X.production.
 __CFG_FEXTOSC$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Lintcodelo 0 0 CODE 0 intcodelo dist/default/production\I2Cslave.X.production.obj
 _PIN_MANAGER_Initialize 1FF92 0 CODE 0 text3 dist/default/production\I2Cslave.X.production.obj
-start_initialization 1FEB6 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
+start_initialization 1FEB8 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
 _ODCONA F0F 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _ODCONB F17 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _ODCONC F1F 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
@@ -259,10 +259,10 @@ ___rparam_used 1 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _RC2REG E99 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _RC2STA E9D 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _RD3PPS F02 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-__end_of_SYSTEM_Initialize 1FEFC 0 CODE 0 text1 dist/default/production\I2Cslave.X.production.obj
+__end_of_SYSTEM_Initialize 1FEFE 0 CODE 0 text1 dist/default/production\I2Cslave.X.production.obj
 _TX2REG E9A 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _TX2STA E9E 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-__end_of_EUSART2_is_rx_ready 1FED8 0 CODE 0 text6 dist/default/production\I2Cslave.X.production.obj
+__end_of_EUSART2_is_rx_ready 1FEDA 0 CODE 0 text6 dist/default/production\I2Cslave.X.production.obj
 EUSART2_Write@txData 1 0 COMRAM 1 cstackCOMRAM dist/default/production\I2Cslave.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\I2Cslave.X.production.obj
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\I2Cslave.X.production.obj
@@ -299,7 +299,7 @@ __Hbank13 0 0 ABS 0 bank13 dist/default/production\I2Cslave.X.production.obj
 __Hbank14 0 0 ABS 0 bank14 dist/default/production\I2Cslave.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\I2Cslave.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\I2Cslave.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Jacob\AppData\Local\Temp\s9us.obj
 _BAUD2CON E9F 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\I2Cslave.X.production.obj
 __Hconfig 30000C 0 CONFIG 0 config dist/default/production\I2Cslave.X.production.obj
@@ -357,7 +357,7 @@ __S1 4 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __S2 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\I2Cslave.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\I2Cslave.X.production.obj
-_SYSTEM_Initialize 1FEEA 0 CODE 0 text1 dist/default/production\I2Cslave.X.production.obj
+_SYSTEM_Initialize 1FEEC 0 CODE 0 text1 dist/default/production\I2Cslave.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production\I2Cslave.X.production.obj
 __Hramtop F00 0 RAM 0 ramtop dist/default/production\I2Cslave.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\I2Cslave.X.production.obj
@@ -380,11 +380,11 @@ __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _LATAbits F83 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\I2Cslave.X.production.obj
-_EUSART2_Read 1FED8 0 CODE 0 text8 dist/default/production\I2Cslave.X.production.obj
+_EUSART2_Read 1FEDA 0 CODE 0 text8 dist/default/production\I2Cslave.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\I2Cslave.X.production.obj
 _TX2STAbits E9E 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-stackhi E87 0 ABS 0 - C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
-stacklo 60 0 ABS 0 - C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
+stackhi E87 0 ABS 0 - C:\Users\Jacob\AppData\Local\Temp\s9us.obj
+stacklo 60 0 ABS 0 - C:\Users\Jacob\AppData\Local\Temp\s9us.obj
 __Lintcode 0 0 CODE 0 intcode dist/default/production\I2Cslave.X.production.obj
 _OSCCON1 ED8 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 _OSCCON3 EDA 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
@@ -396,13 +396,13 @@ __Lspace_0 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Lspace_1 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_LPBOREN$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-_EUSART2_Write 1FEBC 0 CODE 0 text7 dist/default/production\I2Cslave.X.production.obj
+_EUSART2_Write 1FEBE 0 CODE 0 text7 dist/default/production\I2Cslave.X.production.obj
 _PIR3bits ECD 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_LVP$ON 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_CSWEN$ON 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\I2Cslave.X.production.obj
 __CFG_ZCD$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-end_of_initialization 1FEB6 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
+end_of_initialization 1FEB8 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\I2Cslave.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production\I2Cslave.X.production.obj
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
@@ -410,26 +410,26 @@ __Hreset_vec 0 0 CODE 0 reset_vec dist/default/production\I2Cslave.X.production.
 __size_of_EUSART2_Read 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Lramtop F00 0 RAM 0 ramtop dist/default/production\I2Cslave.X.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\I2Cslave.X.production.obj
-__pcinit 1FEB6 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
-__ptext0 1FF48 0 CODE 0 text0 dist/default/production\I2Cslave.X.production.obj
-__ptext1 1FEEA 0 CODE 0 text1 dist/default/production\I2Cslave.X.production.obj
-__ptext2 1FF2C 0 CODE 0 text2 dist/default/production\I2Cslave.X.production.obj
+__pcinit 1FEB8 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
+__ptext0 1FF4A 0 CODE 0 text0 dist/default/production\I2Cslave.X.production.obj
+__ptext1 1FEEC 0 CODE 0 text1 dist/default/production\I2Cslave.X.production.obj
+__ptext2 1FF2E 0 CODE 0 text2 dist/default/production\I2Cslave.X.production.obj
 __ptext3 1FF92 0 CODE 0 text3 dist/default/production\I2Cslave.X.production.obj
-__ptext4 1FF14 0 CODE 0 text4 dist/default/production\I2Cslave.X.production.obj
-__ptext5 1FEFC 0 CODE 0 text5 dist/default/production\I2Cslave.X.production.obj
-__ptext6 1FECA 0 CODE 0 text6 dist/default/production\I2Cslave.X.production.obj
-__ptext7 1FEBC 0 CODE 0 text7 dist/default/production\I2Cslave.X.production.obj
-__ptext8 1FED8 0 CODE 0 text8 dist/default/production\I2Cslave.X.production.obj
+__ptext4 1FF16 0 CODE 0 text4 dist/default/production\I2Cslave.X.production.obj
+__ptext5 1FEFE 0 CODE 0 text5 dist/default/production\I2Cslave.X.production.obj
+__ptext6 1FECC 0 CODE 0 text6 dist/default/production\I2Cslave.X.production.obj
+__ptext7 1FEBE 0 CODE 0 text7 dist/default/production\I2Cslave.X.production.obj
+__ptext8 1FEDA 0 CODE 0 text8 dist/default/production\I2Cslave.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\I2Cslave.X.production.obj
-__ramtop F00 0 RAM 0 ramtop C:\Users\Jacob\AppData\Local\Temp\sbs0.obj
+__ramtop F00 0 RAM 0 ramtop C:\Users\Jacob\AppData\Local\Temp\s9us.obj
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\I2Cslave.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\I2Cslave.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\I2Cslave.X.production.obj
-__end_of_EUSART2_Read 1FEEA 0 CODE 0 text8 dist/default/production\I2Cslave.X.production.obj
+__end_of_EUSART2_Read 1FEEC 0 CODE 0 text8 dist/default/production\I2Cslave.X.production.obj
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 ___param_bank 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\I2Cslave.X.production.obj
-__end_of__initialization 1FEB6 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
+__end_of__initialization 1FEB8 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
 __CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __CFG_WRT2$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
@@ -466,18 +466,18 @@ __Lram 0 0 ABS 0 ram dist/default/production\I2Cslave.X.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/default/production\I2Cslave.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-__end_of_OSCILLATOR_Initialize 1FF2C 0 CODE 0 text4 dist/default/production\I2Cslave.X.production.obj
+__end_of_OSCILLATOR_Initialize 1FF2E 0 CODE 0 text4 dist/default/production\I2Cslave.X.production.obj
 __CFG_PPS1WAY$ON 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
-__initialization 1FEB6 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
+__initialization 1FEB8 0 CODE 0 cinit dist/default/production\I2Cslave.X.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\I2Cslave.X.production.obj
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\I2Cslave.X.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\I2Cslave.X.production.obj
-__end_of_EUSART2_Write 1FECA 0 CODE 0 text7 dist/default/production\I2Cslave.X.production.obj
+__end_of_EUSART2_Write 1FECC 0 CODE 0 text7 dist/default/production\I2Cslave.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\I2Cslave.X.production.obj
 __CFG_MCLRE$EXTMCLR 0 0 ABS 0 - dist/default/production\I2Cslave.X.production.obj
 __Hintcode 0 0 CODE 0 intcode dist/default/production\I2Cslave.X.production.obj
-_OSCILLATOR_Initialize 1FF14 0 CODE 0 text4 dist/default/production\I2Cslave.X.production.obj
+_OSCILLATOR_Initialize 1FF16 0 CODE 0 text4 dist/default/production\I2Cslave.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -502,17 +502,17 @@ _OSCILLATOR_Initialize 1FF14 0 CODE 0 text4 dist/default/production\I2Cslave.X.p
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 1FEB6 1FEB6 6 1
+cinit 0 1FEB8 1FEB8 6 1
 idloc 0 200000 200000 10 1
-text0 0 1FF48 1FF48 4A 1
-text1 0 1FEEA 1FEEA 12 1
-text2 0 1FF2C 1FF2C 1C 1
+text0 0 1FF4A 1FF4A 48 1
+text1 0 1FEEC 1FEEC 12 1
+text2 0 1FF2E 1FF2E 1C 1
 text3 0 1FF92 1FF92 6E 1
-text4 0 1FF14 1FF14 18 1
-text5 0 1FEFC 1FEFC 18 1
-text6 0 1FECA 1FECA E 1
-text7 0 1FEBC 1FEBC E 1
-text8 0 1FED8 1FED8 12 1
+text4 0 1FF16 1FF16 18 1
+text5 0 1FEFE 1FEFE 18 1
+text6 0 1FECC 1FECC E 1
+text7 0 1FEBE 1FEBE E 1
+text8 0 1FEDA 1FEDA 12 1
 cstackCOMRAM 1 1 1 3 1
 reset_vec 0 0 0 4 1
 config 0 300000 300000 C 1
