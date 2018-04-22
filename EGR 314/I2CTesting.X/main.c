@@ -41,8 +41,9 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+#include "stdlib.h"
 
-uint8_t readIoExpander(uint8_t addr, char bank){
+uint8_t readIoExpander(uint8_t addr, char bank, uint8_t index){
     uint8_t data[2];
     if(bank == 'A' || bank == 'a' || bank == 'r' || bank == 'R')
         data[0]=0x12;
@@ -51,25 +52,37 @@ uint8_t readIoExpander(uint8_t addr, char bank){
     i2c_writeNBytes(addr, &data[0], 1);
     uint8_t rec;
     i2c_readNBytes(addr, &rec, 1);
-    return ~rec;
+    rec = ~rec;
+    uint8_t spots[8];
+    uint8_t spaces=0;
+    for(int i=0;i<8;i++){
+        spots[i] = rec & 2<<i;
+        spaces+=(i+index)*spots[i];
+    }
+    return spaces;    
 }
 
-uint8_t updateExpanders(){
+long updateExpanders(){
     uint8_t lL, lR, mL, mR, rL, rR;
-    lL = readIoExpander(0x20, 'l');
-    lR = readIoExpander(0x20, 'r');
-    mL = readIoExpander(0x21, 'l');
-    mR = readIoExpander(0x21, 'r');
-    rL = readIoExpander(0x22, 'l');
-    rR = readIoExpander(0x22, 'r');
+    lL = readIoExpander(0x20, 'l',40);
+    lR = readIoExpander(0x20, 'r',32);
+    mL = readIoExpander(0x21, 'l',24);
+    mR = readIoExpander(0x21, 'r',16);
+    rL = readIoExpander(0x22, 'l',8);
+    rR = readIoExpander(0x22, 'r',0);
     
-    spaces = lL+lR+mL+mR+rL+rR;
+    long spaces = lL+lR+mL+mR+rL+rR;
     return spaces;
 }
 
 uint8_t getSpaces(void){
     uint8_t space = 0;
-    uint8_t spaceLast = updateExpanders();    
+    uint8_t spaceLast = updateExpanders();   
+    space = updateExpanders();
+    while(space == spaceLast){
+        space = updateExpanders();
+        __delay_ms(500);
+    }
     for(int i=0;i<40;i++){
         space = updateExpanders();
         if(space != spaceLast)
@@ -77,6 +90,12 @@ uint8_t getSpaces(void){
         spaceLast = space;
         __delay_ms(50);
     }
+    return space;
+}
+
+uint8_t checkEnd(){
+    uint8_t lL = readIoExpander(0x20, 'l',40);
+    return lL;
 }
 
 
@@ -113,8 +132,8 @@ void main(void)
     //send player1/2 scores to photon
     
     //i2c_writeNBytes(i2c_address_t address, void* data, size_t len); 
-    uint8_t data[2];
-    uint8_t addr = 0x20;
+//    uint8_t data[2];
+//    uint8_t addr = 0x20;
     uint8_t gamerScore = 0x17;  //gammer score = 23
     uint8_t photonAddress = 0x30;  //I2C address for Particle 
     
@@ -140,12 +159,12 @@ void main(void)
     
     //i2c_writeNBytes(photonAddress, &gamerScore, 1); //sends gamer score to the Photon
     
-    for(int i=0; i<80; i++)
-        __delay_ms(50);
-
     EUSART2_Initialize();
     
     //uint8_t rec = 0;
+    
+    int player = 0;
+    long spot[2] = {0,0};
 
     while (1)
     {
@@ -162,14 +181,23 @@ void main(void)
 //            IO_RA2_SetHigh();
 //        
 //        for(int i=0; i<20; i++)
-//            __delay_ms(50);    
+//            __delay_ms(50); 
         
-        EUSART2_Write(~rec);
-        
-        if(EUSART2_is_rx_ready())
-            rec = EUSART2_Read();
-        if(rec == 64)
+        spot[player] = getSpaces() - spot[abs(player-1)];
+        if(spot[player] > 46)
             IO_RA2_SetLow();
+        else
+            IO_RA2_SetHigh();
+        
+        EUSART2_Write(spot[player]);
+        
+        //player = abs(player-1);
+        
+        
+        
+//        if(EUSART2_is_rx_ready())
+//            rec = EUSART2_Read();
+
         
         for(int i=0; i<20; i++)
             __delay_ms(50);

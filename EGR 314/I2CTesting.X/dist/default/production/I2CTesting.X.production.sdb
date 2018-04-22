@@ -65,6 +65,8 @@ I2C_NOERR 0
 I2C_BUSY 1
 I2C_FAIL 2
 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -85,7 +87,13 @@ I2C_FAIL 2
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"48 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
+"46 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
+[v _readIoExpander readIoExpander `(uc  1 e 1 0 ]
+"65
+[v _updateExpanders updateExpanders `(l  1 e 4 0 ]
+"78
+[v _getSpaces getSpaces `(uc  1 e 1 0 ]
+"106
 [v _main main `(v  1 e 1 0 ]
 "89 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
 [v _i2c_setDataCompleteCallback i2c_setDataCompleteCallback `(v  1 e 1 0 ]
@@ -193,12 +201,6 @@ I2C_FAIL 2
 [v i2_i2c_restartWrite i2c_restartWrite `(E96  1 e 1 0 ]
 "55 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/eusart2.c
 [v _EUSART2_Initialize EUSART2_Initialize `(v  1 e 1 0 ]
-"82
-[v _EUSART2_is_rx_ready EUSART2_is_rx_ready `(uc  1 e 1 0 ]
-"92
-[v _EUSART2_Read EUSART2_Read `(uc  1 e 1 0 ]
-"111
-[v _EUSART2_Write EUSART2_Write `(v  1 e 1 0 ]
 "38 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
 [v _mssp1_enableIRQ mssp1_enableIRQ `T(v  1 e 1 0 ]
 "43
@@ -277,7 +279,7 @@ I2C_FAIL 2
 [v _SP2BRGH SP2BRGH `VEuc  1 e 1 @3740 ]
 "1360
 [v _RC2STA RC2STA `VEuc  1 e 1 @3741 ]
-[s S1318 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1335 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -287,19 +289,19 @@ I2C_FAIL 2
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1393
-[s S1327 . 1 `uc 1 . 1 0 :6:0 
+[s S1344 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_92 1 0 :1:6 
 ]
-[s S1330 . 1 `uc 1 . 1 0 :6:0 
+[s S1347 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC92 1 0 :1:6 
 ]
-[s S1333 . 1 `uc 1 RCD82 1 0 :1:0 
+[s S1350 . 1 `uc 1 RCD82 1 0 :1:0 
 ]
-[u S1335 . 1 `S1318 1 . 1 0 `S1327 1 . 1 0 `S1330 1 . 1 0 `S1333 1 . 1 0 ]
-[v _RC2STAbits RC2STAbits `VES1335  1 e 1 @3741 ]
+[u S1352 . 1 `S1335 1 . 1 0 `S1344 1 . 1 0 `S1347 1 . 1 0 `S1350 1 . 1 0 ]
+[v _RC2STAbits RC2STAbits `VES1352  1 e 1 @3741 ]
 "1534
 [v _TX2STA TX2STA `VEuc  1 e 1 @3742 ]
-[s S1285 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S1302 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -309,13 +311,13 @@ I2C_FAIL 2
 `uc 1 CSRC 1 0 :1:7 
 ]
 "1563
-[s S1294 . 1 `uc 1 . 1 0 :6:0 
+[s S1311 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_92 1 0 :1:6 
 ]
-[s S1297 . 1 `uc 1 TXD82 1 0 :1:0 
+[s S1314 . 1 `uc 1 TXD82 1 0 :1:0 
 ]
-[u S1299 . 1 `S1285 1 . 1 0 `S1294 1 . 1 0 `S1297 1 . 1 0 ]
-[v _TX2STAbits TX2STAbits `VES1299  1 e 1 @3742 ]
+[u S1316 . 1 `S1302 1 . 1 0 `S1311 1 . 1 0 `S1314 1 . 1 0 ]
+[v _TX2STAbits TX2STAbits `VES1316  1 e 1 @3742 ]
 "1690
 [v _BAUD2CON BAUD2CON `VEuc  1 e 1 @3743 ]
 [s S673 . 1 `uc 1 SSPCLKPPS 1 0 :5:0 
@@ -428,7 +430,7 @@ I2C_FAIL 2
 [v _ANSELE ANSELE `VEuc  1 e 1 @3886 ]
 "15928
 [v _LATA LATA `VEuc  1 e 1 @3971 ]
-[s S1197 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S1189 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -438,7 +440,7 @@ I2C_FAIL 2
 `uc 1 LATA7 1 0 :1:7 
 ]
 "15955
-[s S1206 . 1 `uc 1 LA0 1 0 :1:0 
+[s S1198 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -447,8 +449,8 @@ I2C_FAIL 2
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S1215 . 1 `S1197 1 . 1 0 `S1206 1 . 1 0 ]
-[v _LATAbits LATAbits `VES1215  1 e 1 @3971 ]
+[u S1207 . 1 `S1189 1 . 1 0 `S1198 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1207  1 e 1 @3971 ]
 "16040
 [v _LATB LATB `VEuc  1 e 1 @3972 ]
 "16152
@@ -692,40 +694,85 @@ I2C_FAIL 2
 [v _i2c1_driver_busCollisionISR i2c1_driver_busCollisionISR `*.38(v  1 e 3 0 ]
 "76
 [v _i2c1_driver_i2cISR i2c1_driver_i2cISR `*.38(v  1 e 3 0 ]
-"48 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
+"106 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"135
-[v main@i_1261 i `i  1 a 2 17 ]
-"104
-[v main@i i `i  1 a 2 15 ]
-"77
-[v main@data data `[2]uc  1 a 2 12 ]
-"94
-[v main@rec rec `uc  1 a 1 19 ]
+"202
+[v main@i i `i  1 a 2 35 ]
+"167
+[v main@spot spot `[2]l  1 a 8 27 ]
+"166
+[v main@player player `i  1 a 2 37 ]
+"138
+[v main@photonAddress photonAddress `uc  1 a 1 26 ]
+"137
+[v main@gamerScore gamerScore `uc  1 a 1 25 ]
+"166
+[v main@F12042 F12042 `[2]l  1 s 8 F12042 ]
+"206
+} 0
 "78
-[v main@addr addr `uc  1 a 1 14 ]
-"80
-[v main@photonAddress photonAddress `uc  1 a 1 11 ]
+[v _getSpaces getSpaces `(uc  1 e 1 0 ]
+{
+"86
+[v getSpaces@i i `i  1 a 2 11 ]
 "79
-[v main@gamerScore gamerScore `uc  1 a 1 10 ]
-"139
+[v getSpaces@space space `uc  1 a 1 13 ]
+"80
+[v getSpaces@spaceLast spaceLast `uc  1 a 1 10 ]
+"94
+} 0
+"65
+[v _updateExpanders updateExpanders `(l  1 e 4 0 ]
+{
+"74
+[v updateExpanders@spaces spaces `l  1 a 4 0 ]
+"66
+[v updateExpanders@rR rR `uc  1 a 1 9 ]
+[v updateExpanders@rL rL `uc  1 a 1 8 ]
+[v updateExpanders@mR mR `uc  1 a 1 7 ]
+[v updateExpanders@mL mL `uc  1 a 1 6 ]
+[v updateExpanders@lR lR `uc  1 a 1 5 ]
+[v updateExpanders@lL lL `uc  1 a 1 4 ]
+"76
+} 0
+"46
+[v _readIoExpander readIoExpander `(uc  1 e 1 0 ]
+{
+[v readIoExpander@addr addr `uc  1 a 1 wreg ]
+"58
+[v readIoExpander@i i `i  1 a 2 54 ]
+"56
+[v readIoExpander@spots spots `[8]uc  1 a 8 41 ]
+"47
+[v readIoExpander@data data `[2]uc  1 a 2 49 ]
+"53
+[v readIoExpander@rec rec `uc  1 a 1 53 ]
+"57
+[v readIoExpander@spaces spaces `uc  1 a 1 51 ]
+"46
+[v readIoExpander@addr addr `uc  1 a 1 wreg ]
+[v readIoExpander@bank bank `uc  1 p 1 37 ]
+[v readIoExpander@index index `uc  1 p 1 38 ]
+"48
+[v readIoExpander@addr addr `uc  1 a 1 52 ]
+"63
 } 0
 "48 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
 [v _i2c_writeNBytes i2c_writeNBytes `(v  1 e 1 0 ]
 {
 [v i2c_writeNBytes@address address `uc  1 a 1 wreg ]
 [v i2c_writeNBytes@address address `uc  1 a 1 wreg ]
-[v i2c_writeNBytes@data data `*.39v  1 p 2 5 ]
-[v i2c_writeNBytes@len len `ui  1 p 2 7 ]
-[v i2c_writeNBytes@address address `uc  1 a 1 27 ]
+[v i2c_writeNBytes@data data `*.39v  1 p 2 32 ]
+[v i2c_writeNBytes@len len `ui  1 p 2 34 ]
+[v i2c_writeNBytes@address address `uc  1 a 1 36 ]
 "55
 } 0
 "99 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
 [v _i2c_setAddressNACKCallback i2c_setAddressNACKCallback `(v  1 e 1 0 ]
 {
-[v i2c_setAddressNACKCallback@cb cb `*.38(E11790  1 p 3 0 ]
-[v i2c_setAddressNACKCallback@p p `*.2v  1 p 2 3 ]
+[v i2c_setAddressNACKCallback@cb cb `*.38(E11790  1 p 3 27 ]
+[v i2c_setAddressNACKCallback@p p `*.2v  1 p 2 30 ]
 "102
 } 0
 "222
@@ -738,9 +785,9 @@ I2C_FAIL 2
 {
 [v i2c_readNBytes@address address `uc  1 a 1 wreg ]
 [v i2c_readNBytes@address address `uc  1 a 1 wreg ]
-[v i2c_readNBytes@data data `*.39v  1 p 2 0 ]
-[v i2c_readNBytes@len len `ui  1 p 2 2 ]
-[v i2c_readNBytes@address address `uc  1 a 1 26 ]
+[v i2c_readNBytes@data data `*.39v  1 p 2 26 ]
+[v i2c_readNBytes@len len `ui  1 p 2 28 ]
+[v i2c_readNBytes@address address `uc  1 a 1 30 ]
 "162
 } 0
 "116 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
@@ -932,25 +979,25 @@ I2C_FAIL 2
 "134 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
 [v _rdBlkRegCompleteHandler rdBlkRegCompleteHandler `(E97  1 s 1 rdBlkRegCompleteHandler ]
 {
-[v rdBlkRegCompleteHandler@p p `*.39v  1 p 2 5 ]
+[v rdBlkRegCompleteHandler@p p `*.39v  1 p 2 32 ]
 "139
 } 0
 "87
 [v _rd2RegCompleteHandler rd2RegCompleteHandler `(E97  1 s 1 rd2RegCompleteHandler ]
 {
-[v rd2RegCompleteHandler@p p `*.39v  1 p 2 5 ]
+[v rd2RegCompleteHandler@p p `*.39v  1 p 2 32 ]
 "92
 } 0
 "58
 [v _rd1RegCompleteHandler rd1RegCompleteHandler `(E97  1 s 1 rd1RegCompleteHandler ]
 {
-[v rd1RegCompleteHandler@p p `*.39v  1 p 2 5 ]
+[v rd1RegCompleteHandler@p p `*.39v  1 p 2 32 ]
 "63
 } 0
 "31
 [v _wr1RegCompleteHandler wr1RegCompleteHandler `(E97  1 s 1 wr1RegCompleteHandler ]
 {
-[v wr1RegCompleteHandler@p p `*.39v  1 p 2 5 ]
+[v wr1RegCompleteHandler@p p `*.39v  1 p 2 32 ]
 "36
 } 0
 "35 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_types.c
@@ -966,20 +1013,20 @@ I2C_FAIL 2
 "443
 [v _returnStop returnStop `(E11790  1 s 1 returnStop ]
 {
-[v returnStop@p p `*.39v  1 p 2 5 ]
+[v returnStop@p p `*.39v  1 p 2 32 ]
 "446
 } 0
 "110 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
 [v _wr2RegCompleteHandler wr2RegCompleteHandler `(E97  1 s 1 wr2RegCompleteHandler ]
 {
-[v wr2RegCompleteHandler@p p `*.39v  1 p 2 5 ]
+[v wr2RegCompleteHandler@p p `*.39v  1 p 2 32 ]
 "115
 } 0
 "89 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
 [v _i2c_setDataCompleteCallback i2c_setDataCompleteCallback `(v  1 e 1 0 ]
 {
-[v i2c_setDataCompleteCallback@cb cb `*.38(E11790  1 p 3 0 ]
-[v i2c_setDataCompleteCallback@p p `*.39v  1 p 2 3 ]
+[v i2c_setDataCompleteCallback@cb cb `*.38(E11790  1 p 3 27 ]
+[v i2c_setDataCompleteCallback@p p `*.39v  1 p 2 30 ]
 "92
 } 0
 "453
@@ -1037,6 +1084,12 @@ I2C_FAIL 2
 {
 "56
 } 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 21 ]
+"9
+} 0
 "116 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
@@ -1066,24 +1119,6 @@ I2C_FAIL 2
 [v _EUSART2_Initialize EUSART2_Initialize `(v  1 e 1 0 ]
 {
 "74
-} 0
-"82
-[v _EUSART2_is_rx_ready EUSART2_is_rx_ready `(uc  1 e 1 0 ]
-{
-"85
-} 0
-"111
-[v _EUSART2_Write EUSART2_Write `(v  1 e 1 0 ]
-{
-[v EUSART2_Write@txData txData `uc  1 a 1 wreg ]
-[v EUSART2_Write@txData txData `uc  1 a 1 wreg ]
-[v EUSART2_Write@txData txData `uc  1 a 1 21 ]
-"118
-} 0
-"92
-[v _EUSART2_Read EUSART2_Read `(uc  1 e 1 0 ]
-{
-"109
 } 0
 "57 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
