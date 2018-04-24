@@ -224,7 +224,7 @@ void main(void)
 //            __delay_ms(50); 
         
         //space debugging uncomment
-        spot[player] = getSpaces()-31- spot[abs(player-1)];
+        spot[player] = getSpaces()-26- spot[abs(player-1)];
         if(spot[player] > 47)
             spot[player] = spot[player]/2;
            
@@ -245,7 +245,7 @@ void main(void)
             receivedScore[0] = EUSART2_Read();
             if(receivedScore[0] == 9)
                 IO_RA2_SetLow();
-            //i2c_writeNBytes(photonAddress, &gamerScore[0], 1); //sends gamer score to the Photon
+            i2c_writeNBytes(photonAddress, &receivedScore[0], 1); //sends gamer score to the Photon
         }
          
         player = abs(player-1);

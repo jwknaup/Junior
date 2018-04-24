@@ -11387,9 +11387,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 209: {
 "209
 {
-[; ;main.c: 227: spot[player] = getSpaces()-31- spot[abs(player-1)];
+[; ;main.c: 227: spot[player] = getSpaces()-26- spot[abs(player-1)];
 "227
-[e = *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux - -> - -> ( _getSpaces ..  `i -> 31 `i `l *U + &U _spot * -> -> ( _abs (1 - _player -> 1 `i `ui `ux -> -> # *U &U _spot `ui `ux ]
+[e = *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux - -> - -> ( _getSpaces ..  `i -> 26 `i `l *U + &U _spot * -> -> ( _abs (1 - _player -> 1 `i `ui `ux -> -> # *U &U _spot `ui `ux ]
 [; ;main.c: 228: if(spot[player] > 47)
 "228
 [e $ ! > *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux -> -> 47 `i `l 1406  ]
@@ -11444,6 +11444,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 1415 ]
 [e :U 1413 ]
+[; ;main.c: 248: i2c_writeNBytes(photonAddress, &receivedScore[0], 1);
+"248
+[e ( _i2c_writeNBytes (3 , , _photonAddress -> &U *U + &U _receivedScore * -> -> -> 0 `i `ui `ux -> -> # *U &U _receivedScore `ui `ux `*v -> -> 1 `i `ui ]
 "249
 }
 [e :U 1409 ]
