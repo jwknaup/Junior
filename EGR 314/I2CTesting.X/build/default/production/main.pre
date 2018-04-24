@@ -14268,10 +14268,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 196 "mcc_generated_files/pin_manager.h"
+# 212 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 208
+# 224
 void PIN_MANAGER_IOC(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
@@ -14499,6 +14499,24 @@ uint8_t EUSART2_Read(void);
 # 119
 void EUSART2_Write(uint8_t txData);
 
+# 76 "mcc_generated_files/eusart1.h"
+void EUSART1_Initialize(void);
+
+# 85
+bool EUSART1_is_tx_ready(void);
+
+# 94
+bool EUSART1_is_rx_ready(void);
+
+# 103
+bool EUSART1_is_tx_done(void);
+
+# 110
+uint8_t EUSART1_Read(void);
+
+# 119
+void EUSART1_Write(uint8_t txData);
+
 # 29 "mcc_generated_files/drivers/i2c_types.h"
 typedef enum {
 I2C_NOERR,
@@ -14527,16 +14545,6 @@ i2c_operations_t i2c_returnReset(void *p);
 i2c_operations_t i2c_restartWrite(void *p);
 i2c_operations_t i2c_restartRead(void *p);
 
-# 29 "mcc_generated_files/drivers/i2c_simple_master.h"
-uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
-uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
-void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
-void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
-
-void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
-void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
-void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
-
 # 31 "mcc_generated_files/drivers/i2c_master.h"
 typedef i2c_operations_t (*i2c_callback)(void *p);
 
@@ -14563,13 +14571,23 @@ void i2c_setTimeOutCallback(i2c_callback cb, void *p);
 void i2c_ISR(void);
 void i2c_busCollisionISR(void);
 
-# 72 "mcc_generated_files/mcc.h"
+# 29 "mcc_generated_files/drivers/i2c_simple_master.h"
+uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
+uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
+void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
+void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
+
+void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
+void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
+void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
+
+# 73 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 85
+# 86
 void OSCILLATOR_Initialize(void);
 
-# 98
+# 99
 void PMD_Initialize(void);
 
 # 7 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h"
@@ -14655,20 +14673,21 @@ rec = ~rec;
 uint8_t spots[8];
 uint8_t spaces=0;
 for(int i=0;i<8;i++){
-spots[i] = rec & 2<<i;
-spaces+=(i+index)*spots[i];
+spots[i] = rec & 1<<i;
+spots[i] = spots[i] >> i;
+spaces+=spots[i]*(i+index);
 }
 return spaces;
 }
 
 long updateExpanders(){
-uint8_t lL, lR, mL, mR, rL, rR;
+uint8_t lL=0, lR=0, mL=0, mR=0, rL=0, rR=0;
 lL = readIoExpander(0x20, 'l',40);
 lR = readIoExpander(0x20, 'r',32);
 mL = readIoExpander(0x21, 'l',24);
 mR = readIoExpander(0x21, 'r',16);
-rL = readIoExpander(0x22, 'l',8);
-rR = readIoExpander(0x22, 'r',0);
+rL = readIoExpander(0x22, 'l',0);
+rR = readIoExpander(0x22, 'r',8);
 
 long spaces = lL+lR+mL+mR+rL+rR;
 return spaces;
@@ -14697,41 +14716,96 @@ uint8_t lL = readIoExpander(0x20, 'l',40);
 return lL;
 }
 
-# 106
+
+
+
+void readAllBytes(uint8_t* store){
+
+while(!EUSART2_is_rx_ready()){
+_delay((unsigned long)((50)*(2000000/4000.0)));
+}
+int i=0;
+while(EUSART2_is_rx_ready()){
+uint8_t received;
+received = EUSART2_Read();
+if(received == ':')
+break;
+else
+store[i] = received;
+i++;
+_delay((unsigned long)((10)*(2000000/4000.0)));
+}
+
+}
+
+uint8_t encodeScore(int score){
+int scaledScore = score/1000;
+if(scaledScore > 255)
+scaledScore = 255;
+else if(scaledScore < 0)
+scaledScore=0;
+uint8_t trans = (uint8_t) scaledScore;
+return trans;
+}
+
+# 141
 void main(void)
 {
 
 SYSTEM_Initialize();
 
-# 116
+# 151
 (INTCONbits.GIE = 1);
 
-# 122
+# 157
 (INTCONbits.PEIE = 1);
 
-# 137
-uint8_t gamerScore = 0x17;
-uint8_t photonAddress = 0x30;
+# 173
+uint8_t gamerScore[] = {0,0};
+uint8_t photonAddress = 2;
 
-# 162
+# 198
+EUSART1_Initialize();
 EUSART2_Initialize();
 
 
 
 int player = 0;
 long spot[2] = {0,0};
+uint8_t receivedScore[7];
+int plainScore;
 
 while (1)
 {
 
-# 186
-spot[player] = getSpaces() - spot[abs(player-1)];
-if(spot[player] > 46)
-do { LATAbits.LATA2 = 0; } while(0);
-else
-do { LATAbits.LATA2 = 1; } while(0);
+# 227
+spot[player] = getSpaces()-31- spot[abs(player-1)];
+if(spot[player] > 47)
+spot[player] = spot[player]/2;
 
-# 202
+
+
+if(player == 0)
+EUSART1_Write(spot[player]);
+else
+EUSART2_Write(spot[player]);
+
+if(spot[player] == 40){
+
+
+
+while(!EUSART2_is_rx_ready()){
+_delay((unsigned long)((50)*(2000000/4000.0)));
+}
+receivedScore[0] = EUSART2_Read();
+if(receivedScore[0] == 9)
+do { LATAbits.LATA2 = 0; } while(0);
+
+}
+
+player = abs(player-1);
+
+# 263
 for(int i=0; i<20; i++)
 _delay((unsigned long)((50)*(2000000/4000.0)));
 

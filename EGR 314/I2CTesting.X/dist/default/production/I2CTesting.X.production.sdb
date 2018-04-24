@@ -67,6 +67,10 @@ I2C_FAIL 2
 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
@@ -89,11 +93,11 @@ I2C_FAIL 2
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "46 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
 [v _readIoExpander readIoExpander `(uc  1 e 1 0 ]
-"65
+"66
 [v _updateExpanders updateExpanders `(l  1 e 4 0 ]
-"78
+"79
 [v _getSpaces getSpaces `(uc  1 e 1 0 ]
-"106
+"141
 [v _main main `(v  1 e 1 0 ]
 "89 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
 [v _i2c_setDataCompleteCallback i2c_setDataCompleteCallback `(v  1 e 1 0 ]
@@ -199,8 +203,18 @@ I2C_FAIL 2
 "35 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_types.c
 [v _i2c_restartWrite i2c_restartWrite `(E96  1 e 1 0 ]
 [v i2_i2c_restartWrite i2c_restartWrite `(E96  1 e 1 0 ]
+"55 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/eusart1.c
+[v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
+"111
+[v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
 "55 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/eusart2.c
 [v _EUSART2_Initialize EUSART2_Initialize `(v  1 e 1 0 ]
+"82
+[v _EUSART2_is_rx_ready EUSART2_is_rx_ready `(uc  1 e 1 0 ]
+"92
+[v _EUSART2_Read EUSART2_Read `(uc  1 e 1 0 ]
+"111
+[v _EUSART2_Write EUSART2_Write `(v  1 e 1 0 ]
 "38 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.c
 [v _mssp1_enableIRQ mssp1_enableIRQ `T(v  1 e 1 0 ]
 "43
@@ -258,17 +272,17 @@ I2C_FAIL 2
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 "116 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"125
+"126
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-"139
+"140
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 "52 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-[s S681 . 1 `uc 1 RXPPS 1 0 :5:0 
+[s S678 . 1 `uc 1 RXPPS 1 0 :5:0 
 ]
 "60 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
-[u S683 . 1 `S681 1 . 1 0 ]
-[v _RX2PPSbits RX2PPSbits `VES683  1 e 1 @3725 ]
+[u S680 . 1 `S678 1 . 1 0 ]
+[v _RX2PPSbits RX2PPSbits `VES680  1 e 1 @3725 ]
 "1201
 [v _RC2REG RC2REG `VEuc  1 e 1 @3737 ]
 "1239
@@ -279,7 +293,7 @@ I2C_FAIL 2
 [v _SP2BRGH SP2BRGH `VEuc  1 e 1 @3740 ]
 "1360
 [v _RC2STA RC2STA `VEuc  1 e 1 @3741 ]
-[s S1335 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1225 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -289,19 +303,19 @@ I2C_FAIL 2
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1393
-[s S1344 . 1 `uc 1 . 1 0 :6:0 
+[s S1234 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_92 1 0 :1:6 
 ]
-[s S1347 . 1 `uc 1 . 1 0 :6:0 
+[s S1237 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC92 1 0 :1:6 
 ]
-[s S1350 . 1 `uc 1 RCD82 1 0 :1:0 
+[s S1240 . 1 `uc 1 RCD82 1 0 :1:0 
 ]
-[u S1352 . 1 `S1335 1 . 1 0 `S1344 1 . 1 0 `S1347 1 . 1 0 `S1350 1 . 1 0 ]
-[v _RC2STAbits RC2STAbits `VES1352  1 e 1 @3741 ]
+[u S1242 . 1 `S1225 1 . 1 0 `S1234 1 . 1 0 `S1237 1 . 1 0 `S1240 1 . 1 0 ]
+[v _RC2STAbits RC2STAbits `VES1242  1 e 1 @3741 ]
 "1534
 [v _TX2STA TX2STA `VEuc  1 e 1 @3742 ]
-[s S1302 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S1192 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -311,26 +325,28 @@ I2C_FAIL 2
 `uc 1 CSRC 1 0 :1:7 
 ]
 "1563
-[s S1311 . 1 `uc 1 . 1 0 :6:0 
+[s S1201 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_92 1 0 :1:6 
 ]
-[s S1314 . 1 `uc 1 TXD82 1 0 :1:0 
+[s S1204 . 1 `uc 1 TXD82 1 0 :1:0 
 ]
-[u S1316 . 1 `S1302 1 . 1 0 `S1311 1 . 1 0 `S1314 1 . 1 0 ]
-[v _TX2STAbits TX2STAbits `VES1316  1 e 1 @3742 ]
+[u S1206 . 1 `S1192 1 . 1 0 `S1201 1 . 1 0 `S1204 1 . 1 0 ]
+[v _TX2STAbits TX2STAbits `VES1206  1 e 1 @3742 ]
 "1690
 [v _BAUD2CON BAUD2CON `VEuc  1 e 1 @3743 ]
-[s S673 . 1 `uc 1 SSPCLKPPS 1 0 :5:0 
+"3258
+[v _RX1PPSbits RX1PPSbits `VES680  1 e 1 @3765 ]
+[s S686 . 1 `uc 1 SSPCLKPPS 1 0 :5:0 
 ]
 "3361
-[u S675 . 1 `S673 1 . 1 0 ]
-[v _SSP1CLKPPSbits SSP1CLKPPSbits `VES675  1 e 1 @3767 ]
-[s S688 . 1 `uc 1 SSPDATPPS 1 0 :5:0 
+[u S688 . 1 `S686 1 . 1 0 ]
+[v _SSP1CLKPPSbits SSP1CLKPPSbits `VES688  1 e 1 @3767 ]
+[s S701 . 1 `uc 1 SSPDATPPS 1 0 :5:0 
 ]
 "3381
-[u S690 . 1 `S688 1 . 1 0 ]
-[v _SSP1DATPPSbits SSP1DATPPSbits `VES690  1 e 1 @3768 ]
-[s S106 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[u S703 . 1 `S701 1 . 1 0 ]
+[v _SSP1DATPPSbits SSP1DATPPSbits `VES703  1 e 1 @3768 ]
+[s S110 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 SSP2IE 1 0 :1:2 
 `uc 1 BCL2IE 1 0 :1:3 
@@ -340,20 +356,20 @@ I2C_FAIL 2
 `uc 1 RC2IE 1 0 :1:7 
 ]
 "3978
-[s S115 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[s S119 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
 `uc 1 TXB2IE 1 0 :1:4 
 ]
-[s S121 . 1 `uc 1 . 1 0 :1:0 
+[s S125 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIE 1 0 :1:4 
 ]
-[u S126 . 1 `S106 1 . 1 0 `S115 1 . 1 0 `S121 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES126  1 e 1 @3781 ]
-[s S151 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[u S130 . 1 `S110 1 . 1 0 `S119 1 . 1 0 `S125 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES130  1 e 1 @3781 ]
+[s S155 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 SSP2IF 1 0 :1:2 
 `uc 1 BCL2IF 1 0 :1:3 
@@ -363,13 +379,13 @@ I2C_FAIL 2
 `uc 1 RC2IF 1 0 :1:7 
 ]
 "4377
-[s S160 . 1 `uc 1 . 1 0 :1:0 
+[s S164 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBNIF 1 0 :1:4 
 ]
-[u S165 . 1 `S151 1 . 1 0 `S160 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES165  1 e 1 @3789 ]
+[u S169 . 1 `S155 1 . 1 0 `S164 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES169  1 e 1 @3789 ]
 "5165
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @3800 ]
 "5305
@@ -396,6 +412,10 @@ I2C_FAIL 2
 [v _RC3PPS RC3PPS `VEuc  1 e 1 @3834 ]
 "6850
 [v _RC4PPS RC4PPS `VEuc  1 e 1 @3835 ]
+"6938
+[v _RC6PPS RC6PPS `VEuc  1 e 1 @3837 ]
+"7026
+[v _RD0PPS RD0PPS `VEuc  1 e 1 @3839 ]
 "7334
 [v _RD7PPS RD7PPS `VEuc  1 e 1 @3846 ]
 "7820
@@ -430,7 +450,7 @@ I2C_FAIL 2
 [v _ANSELE ANSELE `VEuc  1 e 1 @3886 ]
 "15928
 [v _LATA LATA `VEuc  1 e 1 @3971 ]
-[s S1189 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S1334 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -440,7 +460,7 @@ I2C_FAIL 2
 `uc 1 LATA7 1 0 :1:7 
 ]
 "15955
-[s S1198 . 1 `uc 1 LA0 1 0 :1:0 
+[s S1343 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -449,8 +469,8 @@ I2C_FAIL 2
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S1207 . 1 `S1189 1 . 1 0 `S1198 1 . 1 0 ]
-[v _LATAbits LATAbits `VES1207  1 e 1 @3971 ]
+[u S1352 . 1 `S1334 1 . 1 0 `S1343 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1352  1 e 1 @3971 ]
 "16040
 [v _LATB LATB `VEuc  1 e 1 @3972 ]
 "16152
@@ -477,14 +497,14 @@ I2C_FAIL 2
 [v _SSP1MSK SSP1MSK `VEuc  1 e 1 @3988 ]
 "17752
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @3989 ]
-[s S272 . 1 `uc 1 . 1 0 :2:0 
+[s S276 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "17901
-[s S275 . 1 `uc 1 . 1 0 :5:0 
+[s S279 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S278 . 1 `uc 1 BF 1 0 :1:0 
+[s S282 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -493,39 +513,39 @@ I2C_FAIL 2
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S287 . 1 `uc 1 . 1 0 :2:0 
+[s S291 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S292 . 1 `uc 1 . 1 0 :2:0 
+[s S296 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S297 . 1 `uc 1 . 1 0 :2:0 
+[s S301 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S300 . 1 `uc 1 . 1 0 :5:0 
+[s S304 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S303 . 1 `uc 1 . 1 0 :2:0 
+[s S307 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S308 . 1 `uc 1 . 1 0 :2:0 
+[s S312 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S313 . 1 `uc 1 . 1 0 :2:0 
+[s S317 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S319 . 1 `uc 1 BF1 1 0 :1:0 
+[s S323 . 1 `uc 1 BF1 1 0 :1:0 
 `uc 1 UA1 1 0 :1:1 
 `uc 1 R 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
@@ -534,84 +554,84 @@ I2C_FAIL 2
 `uc 1 CKE1 1 0 :1:6 
 `uc 1 SMP1 1 0 :1:7 
 ]
-[s S328 . 1 `uc 1 . 1 0 :2:0 
+[s S332 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START1 1 0 :1:3 
 `uc 1 STOP1 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S334 . 1 `uc 1 . 1 0 :2:0 
+[s S338 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW1 1 0 :1:2 
 `uc 1 I2C_START1 1 0 :1:3 
 `uc 1 I2C_STOP2 1 0 :1:4 
 `uc 1 DA1 1 0 :1:5 
 ]
-[s S340 . 1 `uc 1 . 1 0 :2:0 
+[s S344 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ1 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS1 1 0 :1:5 
 ]
-[s S346 . 1 `uc 1 . 1 0 :2:0 
+[s S350 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A1 1 0 :1:5 
 ]
-[s S351 . 1 `uc 1 . 1 0 :5:0 
+[s S355 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A1 1 0 :1:5 
 ]
-[s S354 . 1 `uc 1 . 1 0 :2:0 
+[s S358 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA1 1 0 :1:5 
 ]
-[s S359 . 1 `uc 1 . 1 0 :2:0 
+[s S363 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W1 1 0 :1:2 
 ]
-[s S362 . 1 `uc 1 . 1 0 :2:0 
+[s S366 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT1 1 0 :1:5 
 ]
-[s S367 . 1 `uc 1 . 1 0 :2:0 
+[s S371 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W2 1 0 :1:2 
 ]
-[s S370 . 1 `uc 1 . 1 0 :5:0 
+[s S374 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A2 1 0 :1:5 
 ]
-[s S373 . 1 `uc 1 . 1 0 :2:0 
+[s S377 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S378 . 1 `uc 1 . 1 0 :2:0 
+[s S382 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE1 1 0 :1:2 
 ]
-[s S381 . 1 `uc 1 . 1 0 :5:0 
+[s S385 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS1 1 0 :1:5 
 ]
-[s S384 . 1 `uc 1 . 1 0 :2:0 
+[s S388 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS1 1 0 :1:5 
 ]
-[u S389 . 1 `S272 1 . 1 0 `S275 1 . 1 0 `S278 1 . 1 0 `S287 1 . 1 0 `S292 1 . 1 0 `S297 1 . 1 0 `S300 1 . 1 0 `S303 1 . 1 0 `S308 1 . 1 0 `S313 1 . 1 0 `S319 1 . 1 0 `S328 1 . 1 0 `S334 1 . 1 0 `S340 1 . 1 0 `S346 1 . 1 0 `S351 1 . 1 0 `S354 1 . 1 0 `S359 1 . 1 0 `S362 1 . 1 0 `S367 1 . 1 0 `S370 1 . 1 0 `S373 1 . 1 0 `S378 1 . 1 0 `S381 1 . 1 0 `S384 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES389  1 e 1 @3989 ]
+[u S393 . 1 `S276 1 . 1 0 `S279 1 . 1 0 `S282 1 . 1 0 `S291 1 . 1 0 `S296 1 . 1 0 `S301 1 . 1 0 `S304 1 . 1 0 `S307 1 . 1 0 `S312 1 . 1 0 `S317 1 . 1 0 `S323 1 . 1 0 `S332 1 . 1 0 `S338 1 . 1 0 `S344 1 . 1 0 `S350 1 . 1 0 `S355 1 . 1 0 `S358 1 . 1 0 `S363 1 . 1 0 `S366 1 . 1 0 `S371 1 . 1 0 `S374 1 . 1 0 `S377 1 . 1 0 `S382 1 . 1 0 `S385 1 . 1 0 `S388 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES393  1 e 1 @3989 ]
 "18206
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @3990 ]
-[s S61 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S65 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "18236
-[s S67 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S71 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S72 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S76 . 1 `uc 1 SSPM01 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 `uc 1 SSPM21 1 0 :1:2 
 `uc 1 SSPM31 1 0 :1:3 
@@ -620,11 +640,11 @@ I2C_FAIL 2
 `uc 1 SSPOV1 1 0 :1:6 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S81 . 1 `S61 1 . 1 0 `S67 1 . 1 0 `S72 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES81  1 e 1 @3990 ]
+[u S85 . 1 `S65 1 . 1 0 `S71 1 . 1 0 `S76 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES85  1 e 1 @3990 ]
 "18326
 [v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @3991 ]
-[s S193 . 1 `uc 1 SEN 1 0 :1:0 
+[s S197 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -634,17 +654,17 @@ I2C_FAIL 2
 `uc 1 GCEN 1 0 :1:7 
 ]
 "18373
-[s S202 . 1 `uc 1 . 1 0 :1:0 
+[s S206 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK 1 0 :5:1 
 ]
-[s S205 . 1 `uc 1 . 1 0 :1:0 
+[s S209 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S212 . 1 `uc 1 SEN1 1 0 :1:0 
+[s S216 . 1 `uc 1 SEN1 1 0 :1:0 
 `uc 1 ADMSK11 1 0 :1:1 
 `uc 1 ADMSK21 1 0 :1:2 
 `uc 1 ADMSK31 1 0 :1:3 
@@ -653,16 +673,49 @@ I2C_FAIL 2
 `uc 1 ACKSTAT1 1 0 :1:6 
 `uc 1 GCEN1 1 0 :1:7 
 ]
-[s S221 . 1 `uc 1 . 1 0 :1:0 
+[s S225 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN1 1 0 :1:1 
 `uc 1 PEN1 1 0 :1:2 
 `uc 1 RCEN1 1 0 :1:3 
 `uc 1 ADMSK41 1 0 :1:4 
 `uc 1 ADMSK51 1 0 :1:5 
 ]
-[u S228 . 1 `S193 1 . 1 0 `S202 1 . 1 0 `S205 1 . 1 0 `S212 1 . 1 0 `S221 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES228  1 e 1 @3991 ]
-[s S702 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[u S232 . 1 `S197 1 . 1 0 `S206 1 . 1 0 `S209 1 . 1 0 `S216 1 . 1 0 `S225 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES232  1 e 1 @3991 ]
+"18575
+[v _RC1REG RC1REG `VEuc  1 e 1 @3993 ]
+"18613
+[v _TX1REG TX1REG `VEuc  1 e 1 @3994 ]
+"18658
+[v _SP1BRGL SP1BRGL `VEuc  1 e 1 @3995 ]
+"18696
+[v _SP1BRGH SP1BRGH `VEuc  1 e 1 @3996 ]
+"18734
+[v _RC1STA RC1STA `VEuc  1 e 1 @3997 ]
+"18767
+[s S1503 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S1506 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S1509 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S1511 . 1 `S1225 1 . 1 0 `S1503 1 . 1 0 `S1506 1 . 1 0 `S1509 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES1511  1 e 1 @3997 ]
+"18908
+[v _TX1STA TX1STA `VEuc  1 e 1 @3998 ]
+"18937
+[s S1470 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S1473 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S1475 . 1 `S1192 1 . 1 0 `S1470 1 . 1 0 `S1473 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES1475  1 e 1 @3998 ]
+"19064
+[v _BAUD1CON BAUD1CON `VEuc  1 e 1 @3999 ]
+[s S716 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -671,70 +724,74 @@ I2C_FAIL 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "26495
-[s S710 . 1 `uc 1 . 1 0 :6:0 
+[s S724 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S714 . 1 `uc 1 . 1 0 :6:0 
+[s S728 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S718 . 1 `S702 1 . 1 0 `S710 1 . 1 0 `S714 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES718  1 e 1 @4082 ]
-[s S833 . 42 `uc 1 busy 1 0 :1:0 
+[u S732 . 1 `S716 1 . 1 0 `S724 1 . 1 0 `S728 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES732  1 e 1 @4082 ]
+[s S847 . 42 `uc 1 busy 1 0 :1:0 
 `uc 1 inUse 1 0 :1:1 
 `uc 1 bufferFree 1 0 :1:2 
 `uc 1 addressNACKCheck 1 0 :1:3 
 `uc 1 address 1 1 `*.39uc 1 data_ptr 2 2 `ui 1 data_length 2 4 `ui 1 time_out 2 6 `ui 1 time_out_value 2 8 `E11956 1 state 1 10 `E11785 1 error 1 11 `[6]*.38(E11790 1 callbackTable 18 12 `[6]*.39v 1 callbackPayload 12 30 ]
 "80 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_master.c
-[v _i2c_status i2c_status `S833  1 e 42 0 ]
+[v _i2c_status i2c_status `S847  1 e 42 0 ]
 "400
 [v _fsmStateTable fsmStateTable `[16]*.38C(E11956  1 e 48 0 ]
 "75 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/i2c1_driver.h
 [v _i2c1_driver_busCollisionISR i2c1_driver_busCollisionISR `*.38(v  1 e 3 0 ]
 "76
 [v _i2c1_driver_i2cISR i2c1_driver_i2cISR `*.38(v  1 e 3 0 ]
-"106 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
+"141 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"202
-[v main@i i `i  1 a 2 35 ]
-"167
-[v main@spot spot `[2]l  1 a 8 27 ]
-"166
-[v main@player player `i  1 a 2 37 ]
-"138
-[v main@photonAddress photonAddress `uc  1 a 1 26 ]
-"137
-[v main@gamerScore gamerScore `uc  1 a 1 25 ]
-"166
-[v main@F12042 F12042 `[2]l  1 s 8 F12042 ]
-"206
+"263
+[v main@i i `i  1 a 2 39 ]
+"204
+[v main@spot spot `[2]l  1 a 8 41 ]
+"205
+[v main@receivedScore receivedScore `[7]uc  1 a 7 29 ]
+"203
+[v main@player player `i  1 a 2 49 ]
+"173
+[v main@gamerScore gamerScore `[2]uc  1 a 2 36 ]
+"174
+[v main@photonAddress photonAddress `uc  1 a 1 38 ]
+"157
+[v main@F12062 F12062 `[2]uc  1 s 2 F12062 ]
+"203
+[v main@F12066 F12066 `[2]l  1 s 8 F12066 ]
+"267
 } 0
-"78
+"79
 [v _getSpaces getSpaces `(uc  1 e 1 0 ]
 {
-"86
+"87
 [v getSpaces@i i `i  1 a 2 11 ]
-"79
-[v getSpaces@space space `uc  1 a 1 13 ]
 "80
+[v getSpaces@space space `uc  1 a 1 13 ]
+"81
 [v getSpaces@spaceLast spaceLast `uc  1 a 1 10 ]
-"94
+"95
 } 0
-"65
+"66
 [v _updateExpanders updateExpanders `(l  1 e 4 0 ]
 {
-"74
+"75
 [v updateExpanders@spaces spaces `l  1 a 4 0 ]
-"66
+"67
 [v updateExpanders@rR rR `uc  1 a 1 9 ]
 [v updateExpanders@rL rL `uc  1 a 1 8 ]
 [v updateExpanders@mR mR `uc  1 a 1 7 ]
 [v updateExpanders@mL mL `uc  1 a 1 6 ]
 [v updateExpanders@lR lR `uc  1 a 1 5 ]
 [v updateExpanders@lL lL `uc  1 a 1 4 ]
-"76
+"77
 } 0
 "46
 [v _readIoExpander readIoExpander `(uc  1 e 1 0 ]
@@ -756,7 +813,7 @@ I2C_FAIL 2
 [v readIoExpander@index index `uc  1 p 1 38 ]
 "48
 [v readIoExpander@addr addr `uc  1 a 1 52 ]
-"63
+"64
 } 0
 "48 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/drivers/i2c_simple_master.c
 [v _i2c_writeNBytes i2c_writeNBytes `(v  1 e 1 0 ]
@@ -1090,25 +1147,38 @@ I2C_FAIL 2
 [v abs@a a `i  1 p 2 21 ]
 "9
 } 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"11
+[v ___aldiv@quotient quotient `l  1 a 4 31 ]
+"12
+[v ___aldiv@sign sign `uc  1 a 1 30 ]
+[v ___aldiv@counter counter `uc  1 a 1 29 ]
+"8
+[v ___aldiv@dividend dividend `l  1 p 4 21 ]
+[v ___aldiv@divisor divisor `l  1 p 4 25 ]
+"42
+} 0
 "116 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"123
+"124
 } 0
-"139
+"140
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 {
-"153
+"154
 } 0
 "52 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
-"111
+"114
 } 0
-"125 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/mcc.c
+"126 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"137
+"138
 } 0
 "51 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
@@ -1119,6 +1189,37 @@ I2C_FAIL 2
 [v _EUSART2_Initialize EUSART2_Initialize `(v  1 e 1 0 ]
 {
 "74
+} 0
+"55 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/eusart1.c
+[v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
+{
+"74
+} 0
+"82 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/eusart2.c
+[v _EUSART2_is_rx_ready EUSART2_is_rx_ready `(uc  1 e 1 0 ]
+{
+"85
+} 0
+"111
+[v _EUSART2_Write EUSART2_Write `(v  1 e 1 0 ]
+{
+[v EUSART2_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART2_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART2_Write@txData txData `uc  1 a 1 21 ]
+"118
+} 0
+"92
+[v _EUSART2_Read EUSART2_Read `(uc  1 e 1 0 ]
+{
+"109
+} 0
+"111 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/eusart1.c
+[v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
+{
+[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART1_Write@txData txData `uc  1 a 1 21 ]
+"118
 } 0
 "57 C:\Users\Jacob\Documents\Junior\EGR 314\I2CTesting.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]

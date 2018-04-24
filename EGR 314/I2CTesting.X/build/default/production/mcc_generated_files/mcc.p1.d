@@ -2,6 +2,7 @@
  build/default/production/mcc_generated_files/mcc.p1:  \
  mcc_generated_files/mcc.c  \
 mcc_generated_files/mcc.h  \
+mcc_generated_files/eusart1.h  \
 mcc_generated_files/eusart2.h  \
 mcc_generated_files/drivers/i2c_types.h  \
 mcc_generated_files/interrupt_manager.h  \

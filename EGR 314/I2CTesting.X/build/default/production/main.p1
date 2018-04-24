@@ -9,8 +9,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
 [v __delay `JF11568 ~T0 @X0 0 e ]
 [p i __delay ]
+"94 mcc_generated_files/eusart2.h
+[v _EUSART2_is_rx_ready `(uc ~T0 @X0 0 ef ]
+"110
+[v _EUSART2_Read `(uc ~T0 @X0 0 ef ]
 [p mainexit ]
-"72 mcc_generated_files/mcc.h
+"73 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "26475 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
 [s S1338 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -26,10 +30,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1337 . . . . ]
 "26495
 [v _INTCONbits `VS1337 ~T0 @X0 0 e@4082 ]
+"76 mcc_generated_files/eusart1.h
+[v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
 "76 mcc_generated_files/eusart2.h
 [v _EUSART2_Initialize `(v ~T0 @X0 0 ef ]
 "92 C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdlib.h
 [v _abs `(i ~T0 @X0 0 ef1`i ]
+"119 mcc_generated_files/eusart1.h
+[v _EUSART1_Write `(v ~T0 @X0 0 ef1`uc ]
+"119 mcc_generated_files/eusart2.h
+[v _EUSART2_Write `(v ~T0 @X0 0 ef1`uc ]
 "15934 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f47k40.h
 [s S779 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S779 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
@@ -10768,8 +10778,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 196: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 208: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 212: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 224: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -10878,6 +10888,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart2.h: 103: bool EUSART2_is_tx_done(void);
 [; ;eusart2.h: 110: uint8_t EUSART2_Read(void);
 [; ;eusart2.h: 119: void EUSART2_Write(uint8_t txData);
+[; ;eusart1.h: 76: void EUSART1_Initialize(void);
+[; ;eusart1.h: 85: bool EUSART1_is_tx_ready(void);
+[; ;eusart1.h: 94: bool EUSART1_is_rx_ready(void);
+[; ;eusart1.h: 103: bool EUSART1_is_tx_done(void);
+[; ;eusart1.h: 110: uint8_t EUSART1_Read(void);
+[; ;eusart1.h: 119: void EUSART1_Write(uint8_t txData);
 [; ;i2c_types.h: 29: typedef enum {
 [; ;i2c_types.h: 30: I2C_NOERR,
 [; ;i2c_types.h: 31: I2C_BUSY,
@@ -10897,13 +10913,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c_types.h: 52: i2c_operations_t i2c_returnReset(void *p);
 [; ;i2c_types.h: 53: i2c_operations_t i2c_restartWrite(void *p);
 [; ;i2c_types.h: 54: i2c_operations_t i2c_restartRead(void *p);
-[; ;i2c_simple_master.h: 29: uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
-[; ;i2c_simple_master.h: 30: uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
-[; ;i2c_simple_master.h: 31: void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
-[; ;i2c_simple_master.h: 32: void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
-[; ;i2c_simple_master.h: 34: void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
-[; ;i2c_simple_master.h: 35: void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
-[; ;i2c_simple_master.h: 36: void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
 [; ;i2c_master.h: 31: typedef i2c_operations_t (*i2c_callback)(void *p);
 [; ;i2c_master.h: 35: i2c_error_t i2c_open(i2c_address_t address);
 [; ;i2c_master.h: 36: void i2c_setAddress(i2c_address_t address);
@@ -10920,9 +10929,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c_master.h: 50: void i2c_setTimeOutCallback(i2c_callback cb, void *p);
 [; ;i2c_master.h: 53: void i2c_ISR(void);
 [; ;i2c_master.h: 54: void i2c_busCollisionISR(void);
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 98: void PMD_Initialize(void);
+[; ;i2c_simple_master.h: 29: uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
+[; ;i2c_simple_master.h: 30: uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
+[; ;i2c_simple_master.h: 31: void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
+[; ;i2c_simple_master.h: 32: void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
+[; ;i2c_simple_master.h: 34: void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
+[; ;i2c_simple_master.h: 35: void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
+[; ;i2c_simple_master.h: 36: void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 99: void PMD_Initialize(void);
 [; ;stdlib.h: 7: typedef unsigned short wchar_t;
 [; ;stdlib.h: 15: typedef struct {
 [; ;stdlib.h: 16: int rem;
@@ -11027,110 +11043,119 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1377  ]
 [e :U 1376 ]
 {
-[; ;main.c: 59: spots[i] = rec & 2<<i;
+[; ;main.c: 59: spots[i] = rec & 1<<i;
 "59
-[e = *U + &U _spots * -> -> _i `ui `ux -> -> # *U &U _spots `ui `ux -> & -> _rec `i << -> 2 `i _i `uc ]
-[; ;main.c: 60: spaces+=(i+index)*spots[i];
+[e = *U + &U _spots * -> -> _i `ui `ux -> -> # *U &U _spots `ui `ux -> & -> _rec `i << -> 1 `i _i `uc ]
+[; ;main.c: 60: spots[i] = spots[i] >> i;
 "60
-[e =+ _spaces -> * + _i -> _index `i -> *U + &U _spots * -> -> _i `ui `ux -> -> # *U &U _spots `ui `ux `i `uc ]
+[e = *U + &U _spots * -> -> _i `ui `ux -> -> # *U &U _spots `ui `ux -> >> -> *U + &U _spots * -> -> _i `ui `ux -> -> # *U &U _spots `ui `ux `i _i `uc ]
+[; ;main.c: 61: spaces+=spots[i]*(i+index);
 "61
+[e =+ _spaces -> * -> *U + &U _spots * -> -> _i `ui `ux -> -> # *U &U _spots `ui `ux `i + _i -> _index `i `uc ]
+"62
 }
 "58
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 8 `i 1376  ]
 [e :U 1377 ]
-"61
-}
-[; ;main.c: 61: }
-[; ;main.c: 62: return spaces;
 "62
+}
+[; ;main.c: 62: }
+[; ;main.c: 63: return spaces;
+"63
 [e ) _spaces ]
 [e $UE 1373  ]
-[; ;main.c: 63: }
-"63
+[; ;main.c: 64: }
+"64
 [e :UE 1373 ]
 }
-"65
+"66
 [v _updateExpanders `(l ~T0 @X0 1 ef ]
 {
-[; ;main.c: 65: long updateExpanders(){
+[; ;main.c: 66: long updateExpanders(){
 [e :U _updateExpanders ]
 [f ]
-"66
-[v _lL `uc ~T0 @X0 1 a ]
-[v _lR `uc ~T0 @X0 1 a ]
-[v _mL `uc ~T0 @X0 1 a ]
-[v _mR `uc ~T0 @X0 1 a ]
-[v _rL `uc ~T0 @X0 1 a ]
-[v _rR `uc ~T0 @X0 1 a ]
-[; ;main.c: 66: uint8_t lL, lR, mL, mR, rL, rR;
-[; ;main.c: 67: lL = readIoExpander(0x20, 'l',40);
 "67
-[e = _lL ( _readIoExpander (3 , , -> -> 32 `i `uc -> -> 108 `ui `uc -> -> 40 `i `uc ]
-[; ;main.c: 68: lR = readIoExpander(0x20, 'r',32);
+[v _lL `uc ~T0 @X0 1 a ]
+[; ;main.c: 67: uint8_t lL=0, lR=0, mL=0, mR=0, rL=0, rR=0;
+[e = _lL -> -> 0 `i `uc ]
+[v _lR `uc ~T0 @X0 1 a ]
+[e = _lR -> -> 0 `i `uc ]
+[v _mL `uc ~T0 @X0 1 a ]
+[e = _mL -> -> 0 `i `uc ]
+[v _mR `uc ~T0 @X0 1 a ]
+[e = _mR -> -> 0 `i `uc ]
+[v _rL `uc ~T0 @X0 1 a ]
+[e = _rL -> -> 0 `i `uc ]
+[v _rR `uc ~T0 @X0 1 a ]
+[e = _rR -> -> 0 `i `uc ]
+[; ;main.c: 68: lL = readIoExpander(0x20, 'l',40);
 "68
-[e = _lR ( _readIoExpander (3 , , -> -> 32 `i `uc -> -> 114 `ui `uc -> -> 32 `i `uc ]
-[; ;main.c: 69: mL = readIoExpander(0x21, 'l',24);
+[e = _lL ( _readIoExpander (3 , , -> -> 32 `i `uc -> -> 108 `ui `uc -> -> 40 `i `uc ]
+[; ;main.c: 69: lR = readIoExpander(0x20, 'r',32);
 "69
-[e = _mL ( _readIoExpander (3 , , -> -> 33 `i `uc -> -> 108 `ui `uc -> -> 24 `i `uc ]
-[; ;main.c: 70: mR = readIoExpander(0x21, 'r',16);
+[e = _lR ( _readIoExpander (3 , , -> -> 32 `i `uc -> -> 114 `ui `uc -> -> 32 `i `uc ]
+[; ;main.c: 70: mL = readIoExpander(0x21, 'l',24);
 "70
-[e = _mR ( _readIoExpander (3 , , -> -> 33 `i `uc -> -> 114 `ui `uc -> -> 16 `i `uc ]
-[; ;main.c: 71: rL = readIoExpander(0x22, 'l',8);
+[e = _mL ( _readIoExpander (3 , , -> -> 33 `i `uc -> -> 108 `ui `uc -> -> 24 `i `uc ]
+[; ;main.c: 71: mR = readIoExpander(0x21, 'r',16);
 "71
-[e = _rL ( _readIoExpander (3 , , -> -> 34 `i `uc -> -> 108 `ui `uc -> -> 8 `i `uc ]
-[; ;main.c: 72: rR = readIoExpander(0x22, 'r',0);
+[e = _mR ( _readIoExpander (3 , , -> -> 33 `i `uc -> -> 114 `ui `uc -> -> 16 `i `uc ]
+[; ;main.c: 72: rL = readIoExpander(0x22, 'l',0);
 "72
-[e = _rR ( _readIoExpander (3 , , -> -> 34 `i `uc -> -> 114 `ui `uc -> -> 0 `i `uc ]
-"74
-[v _spaces `l ~T0 @X0 1 a ]
-[; ;main.c: 74: long spaces = lL+lR+mL+mR+rL+rR;
-[e = _spaces -> + + + + + -> _lL `i -> _lR `i -> _mL `i -> _mR `i -> _rL `i -> _rR `i `l ]
-[; ;main.c: 75: return spaces;
+[e = _rL ( _readIoExpander (3 , , -> -> 34 `i `uc -> -> 108 `ui `uc -> -> 0 `i `uc ]
+[; ;main.c: 73: rR = readIoExpander(0x22, 'r',8);
+"73
+[e = _rR ( _readIoExpander (3 , , -> -> 34 `i `uc -> -> 114 `ui `uc -> -> 8 `i `uc ]
 "75
+[v _spaces `l ~T0 @X0 1 a ]
+[; ;main.c: 75: long spaces = lL+lR+mL+mR+rL+rR;
+[e = _spaces -> + + + + + -> _lL `i -> _lR `i -> _mL `i -> _mR `i -> _rL `i -> _rR `i `l ]
+[; ;main.c: 76: return spaces;
+"76
 [e ) _spaces ]
 [e $UE 1379  ]
-[; ;main.c: 76: }
-"76
+[; ;main.c: 77: }
+"77
 [e :UE 1379 ]
 }
-"78
+"79
 [v _getSpaces `(uc ~T0 @X0 1 ef ]
 {
-[; ;main.c: 78: uint8_t getSpaces(void){
+[; ;main.c: 79: uint8_t getSpaces(void){
 [e :U _getSpaces ]
 [f ]
-"79
-[v _space `uc ~T0 @X0 1 a ]
-[; ;main.c: 79: uint8_t space = 0;
-[e = _space -> -> 0 `i `uc ]
 "80
-[v _spaceLast `uc ~T0 @X0 1 a ]
-[; ;main.c: 80: uint8_t spaceLast = updateExpanders();
-[e = _spaceLast -> ( _updateExpanders ..  `uc ]
-[; ;main.c: 81: space = updateExpanders();
+[v _space `uc ~T0 @X0 1 a ]
+[; ;main.c: 80: uint8_t space = 0;
+[e = _space -> -> 0 `i `uc ]
 "81
-[e = _space -> ( _updateExpanders ..  `uc ]
-[; ;main.c: 82: while(space == spaceLast){
+[v _spaceLast `uc ~T0 @X0 1 a ]
+[; ;main.c: 81: uint8_t spaceLast = updateExpanders();
+[e = _spaceLast -> ( _updateExpanders ..  `uc ]
+[; ;main.c: 82: space = updateExpanders();
 "82
+[e = _space -> ( _updateExpanders ..  `uc ]
+[; ;main.c: 83: while(space == spaceLast){
+"83
 [e $U 1381  ]
 [e :U 1382 ]
 {
-[; ;main.c: 83: space = updateExpanders();
-"83
-[e = _space -> ( _updateExpanders ..  `uc ]
-[; ;main.c: 84: _delay((unsigned long)((500)*(2000000/4000.0)));
+[; ;main.c: 84: space = updateExpanders();
 "84
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+[e = _space -> ( _updateExpanders ..  `uc ]
+[; ;main.c: 85: _delay((unsigned long)((500)*(2000000/4000.0)));
 "85
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"86
 }
 [e :U 1381 ]
-"82
+"83
 [e $ == -> _space `i -> _spaceLast `i 1382  ]
 [e :U 1383 ]
-[; ;main.c: 85: }
-[; ;main.c: 86: for(int i=0;i<40;i++){
-"86
+[; ;main.c: 86: }
+[; ;main.c: 87: for(int i=0;i<40;i++){
+"87
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -11138,157 +11163,319 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1385  ]
 [e :U 1384 ]
 {
-[; ;main.c: 87: space = updateExpanders();
-"87
-[e = _space -> ( _updateExpanders ..  `uc ]
-[; ;main.c: 88: if(space != spaceLast)
+[; ;main.c: 88: space = updateExpanders();
 "88
-[e $ ! != -> _space `i -> _spaceLast `i 1387  ]
-[; ;main.c: 89: i=0;
+[e = _space -> ( _updateExpanders ..  `uc ]
+[; ;main.c: 89: if(space != spaceLast)
 "89
+[e $ ! != -> _space `i -> _spaceLast `i 1387  ]
+[; ;main.c: 90: i=0;
+"90
 [e = _i -> 0 `i ]
 [e :U 1387 ]
-[; ;main.c: 90: spaceLast = space;
-"90
-[e = _spaceLast _space ]
-[; ;main.c: 91: _delay((unsigned long)((50)*(2000000/4000.0)));
+[; ;main.c: 91: spaceLast = space;
 "91
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+[e = _spaceLast _space ]
+[; ;main.c: 92: _delay((unsigned long)((50)*(2000000/4000.0)));
 "92
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"93
 }
-"86
+"87
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 40 `i 1384  ]
 [e :U 1385 ]
-"92
-}
-[; ;main.c: 92: }
-[; ;main.c: 93: return space;
 "93
+}
+[; ;main.c: 93: }
+[; ;main.c: 94: return space;
+"94
 [e ) _space ]
 [e $UE 1380  ]
-[; ;main.c: 94: }
-"94
+[; ;main.c: 95: }
+"95
 [e :UE 1380 ]
 }
-"96
+"97
 [v _checkEnd `(uc ~T0 @X0 1 ef ]
 {
-[; ;main.c: 96: uint8_t checkEnd(){
+[; ;main.c: 97: uint8_t checkEnd(){
 [e :U _checkEnd ]
 [f ]
-"97
-[v _lL `uc ~T0 @X0 1 a ]
-[; ;main.c: 97: uint8_t lL = readIoExpander(0x20, 'l',40);
-[e = _lL ( _readIoExpander (3 , , -> -> 32 `i `uc -> -> 108 `ui `uc -> -> 40 `i `uc ]
-[; ;main.c: 98: return lL;
 "98
+[v _lL `uc ~T0 @X0 1 a ]
+[; ;main.c: 98: uint8_t lL = readIoExpander(0x20, 'l',40);
+[e = _lL ( _readIoExpander (3 , , -> -> 32 `i `uc -> -> 108 `ui `uc -> -> 40 `i `uc ]
+[; ;main.c: 99: return lL;
+"99
 [e ) _lL ]
 [e $UE 1388  ]
-[; ;main.c: 99: }
-"99
+[; ;main.c: 100: }
+"100
 [e :UE 1388 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"106
-[v _main `(v ~T0 @X0 1 ef ]
-"107
+"105
+[v _readAllBytes `(v ~T0 @X0 1 ef1`*uc ]
 {
-[; ;main.c: 106: void main(void)
-[; ;main.c: 107: {
+[; ;main.c: 105: void readAllBytes(uint8_t* store){
+[e :U _readAllBytes ]
+[v _store `*uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 107: while(!EUSART2_is_rx_ready()){
+"107
+[e $U 1390  ]
+[e :U 1391 ]
+{
+[; ;main.c: 108: _delay((unsigned long)((50)*(2000000/4000.0)));
+"108
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"109
+}
+[e :U 1390 ]
+"107
+[e $ ! != -> ( _EUSART2_is_rx_ready ..  `i -> -> -> 0 `i `uc `i 1391  ]
+[e :U 1392 ]
+"110
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 109: }
+[; ;main.c: 110: int i=0;
+[e = _i -> 0 `i ]
+[; ;main.c: 111: while(EUSART2_is_rx_ready()){
+"111
+[e $U 1393  ]
+[e :U 1394 ]
+{
+"112
+[v _received `uc ~T0 @X0 1 a ]
+[; ;main.c: 112: uint8_t received;
+[; ;main.c: 113: received = EUSART2_Read();
+"113
+[e = _received ( _EUSART2_Read ..  ]
+[; ;main.c: 114: if(received == ':')
+"114
+[e $ ! == -> _received `ui -> 58 `ui 1396  ]
+[; ;main.c: 115: break;
+"115
+[e $U 1395  ]
+[e $U 1397  ]
+"116
+[e :U 1396 ]
+[; ;main.c: 116: else
+[; ;main.c: 117: store[i] = received;
+"117
+[e = *U + _store * -> _i `x -> -> # *U _store `i `x _received ]
+[e :U 1397 ]
+[; ;main.c: 118: i++;
+"118
+[e ++ _i -> 1 `i ]
+[; ;main.c: 119: _delay((unsigned long)((10)*(2000000/4000.0)));
+"119
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"120
+}
+[e :U 1393 ]
+"111
+[e $ != -> ( _EUSART2_is_rx_ready ..  `i -> -> -> 0 `i `uc `i 1394  ]
+[e :U 1395 ]
+[; ;main.c: 120: }
+[; ;main.c: 122: }
+"122
+[e :UE 1389 ]
+}
+"124
+[v _encodeScore `(uc ~T0 @X0 1 ef1`i ]
+{
+[; ;main.c: 124: uint8_t encodeScore(int score){
+[e :U _encodeScore ]
+[v _score `i ~T0 @X0 1 r1 ]
+[f ]
+"125
+[v _scaledScore `i ~T0 @X0 1 a ]
+[; ;main.c: 125: int scaledScore = score/1000;
+[e = _scaledScore / _score -> 1000 `i ]
+[; ;main.c: 126: if(scaledScore > 255)
+"126
+[e $ ! > _scaledScore -> 255 `i 1399  ]
+[; ;main.c: 127: scaledScore = 255;
+"127
+[e = _scaledScore -> 255 `i ]
+[e $U 1400  ]
+"128
+[e :U 1399 ]
+[; ;main.c: 128: else if(scaledScore < 0)
+[e $ ! < _scaledScore -> 0 `i 1401  ]
+[; ;main.c: 129: scaledScore=0;
+"129
+[e = _scaledScore -> 0 `i ]
+[e :U 1401 ]
+"130
+[e :U 1400 ]
+[v _trans `uc ~T0 @X0 1 a ]
+[; ;main.c: 130: uint8_t trans = (uint8_t) scaledScore;
+[e = _trans -> _scaledScore `uc ]
+[; ;main.c: 131: return trans;
+"131
+[e ) _trans ]
+[e $UE 1398  ]
+[; ;main.c: 132: }
+"132
+[e :UE 1398 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"141
+[v _main `(v ~T0 @X0 1 ef ]
+"142
+{
+[; ;main.c: 141: void main(void)
+[; ;main.c: 142: {
 [e :U _main ]
 [f ]
-[; ;main.c: 109: SYSTEM_Initialize();
-"109
+[; ;main.c: 144: SYSTEM_Initialize();
+"144
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 116: (INTCONbits.GIE = 1);
-"116
+[; ;main.c: 151: (INTCONbits.GIE = 1);
+"151
 [e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
-[; ;main.c: 122: (INTCONbits.PEIE = 1);
-"122
+[; ;main.c: 157: (INTCONbits.PEIE = 1);
+"157
 [e = . . _INTCONbits 1 1 -> -> 1 `i `uc ]
-"137
-[v _gamerScore `uc ~T0 @X0 1 a ]
-[; ;main.c: 137: uint8_t gamerScore = 0x17;
-[e = _gamerScore -> -> 23 `i `uc ]
-"138
-[v _photonAddress `uc ~T0 @X0 1 a ]
-[; ;main.c: 138: uint8_t photonAddress = 0x30;
-[e = _photonAddress -> -> 48 `i `uc ]
-[; ;main.c: 162: EUSART2_Initialize();
-"162
-[e ( _EUSART2_Initialize ..  ]
-"166
-[v _player `i ~T0 @X0 1 a ]
-[; ;main.c: 166: int player = 0;
-[e = _player -> 0 `i ]
-[v F12042 `l ~T0 @X0 -> 2 `i s ]
-[i F12042
+[v F12062 `uc ~T0 @X0 -> 0 `x s ]
+[i F12062
 :U ..
-"167
+"173
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+[v _gamerScore `uc ~T0 @X0 2  a ]
+[; ;main.c: 173: uint8_t gamerScore[] = {0,0};
+[e = _gamerScore F12062 ]
+"174
+[v _photonAddress `uc ~T0 @X0 1 a ]
+[; ;main.c: 174: uint8_t photonAddress = 2;
+[e = _photonAddress -> -> 2 `i `uc ]
+[; ;main.c: 198: EUSART1_Initialize();
+"198
+[e ( _EUSART1_Initialize ..  ]
+[; ;main.c: 199: EUSART2_Initialize();
+"199
+[e ( _EUSART2_Initialize ..  ]
+"203
+[v _player `i ~T0 @X0 1 a ]
+[; ;main.c: 203: int player = 0;
+[e = _player -> 0 `i ]
+[v F12066 `l ~T0 @X0 -> 2 `i s ]
+[i F12066
+:U ..
+"204
 -> -> 0 `i `l
 -> -> 0 `i `l
 ..
 ]
 [v _spot `l ~T0 @X0 -> 2 `i a ]
-[; ;main.c: 167: long spot[2] = {0,0};
-[e = _spot F12042 ]
-[; ;main.c: 169: while (1)
-"169
-[e :U 1391 ]
-[; ;main.c: 170: {
-"170
+[; ;main.c: 204: long spot[2] = {0,0};
+[e = _spot F12066 ]
+"205
+[v _receivedScore `uc ~T0 @X0 -> 7 `i a ]
+"206
+[v _plainScore `i ~T0 @X0 1 a ]
+[; ;main.c: 205: uint8_t receivedScore[7];
+[; ;main.c: 206: int plainScore;
+[; ;main.c: 208: while (1)
+"208
+[e :U 1404 ]
+[; ;main.c: 209: {
+"209
 {
-[; ;main.c: 186: spot[player] = getSpaces() - spot[abs(player-1)];
-"186
-[e = *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux - -> ( _getSpaces ..  `l *U + &U _spot * -> -> ( _abs (1 - _player -> 1 `i `ui `ux -> -> # *U &U _spot `ui `ux ]
-[; ;main.c: 187: if(spot[player] > 46)
-"187
-[e $ ! > *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux -> -> 46 `i `l 1393  ]
-[; ;main.c: 188: do { LATAbits.LATA2 = 0; } while(0);
-"188
-[e :U 1396 ]
+[; ;main.c: 227: spot[player] = getSpaces()-31- spot[abs(player-1)];
+"227
+[e = *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux - -> - -> ( _getSpaces ..  `i -> 31 `i `l *U + &U _spot * -> -> ( _abs (1 - _player -> 1 `i `ui `ux -> -> # *U &U _spot `ui `ux ]
+[; ;main.c: 228: if(spot[player] > 47)
+"228
+[e $ ! > *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux -> -> 47 `i `l 1406  ]
+[; ;main.c: 229: spot[player] = spot[player]/2;
+"229
+[e = *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux / *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux -> -> 2 `i `l ]
+[e :U 1406 ]
+[; ;main.c: 233: if(player == 0)
+"233
+[e $ ! == _player -> 0 `i 1407  ]
+[; ;main.c: 234: EUSART1_Write(spot[player]);
+"234
+[e ( _EUSART1_Write (1 -> *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux `uc ]
+[e $U 1408  ]
+"235
+[e :U 1407 ]
+[; ;main.c: 235: else
+[; ;main.c: 236: EUSART2_Write(spot[player]);
+"236
+[e ( _EUSART2_Write (1 -> *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux `uc ]
+[e :U 1408 ]
+[; ;main.c: 238: if(spot[player] == 40){
+"238
+[e $ ! == *U + &U _spot * -> -> _player `ui `ux -> -> # *U &U _spot `ui `ux -> -> 40 `i `l 1409  ]
+{
+[; ;main.c: 242: while(!EUSART2_is_rx_ready()){
+"242
+[e $U 1410  ]
+[e :U 1411 ]
+{
+[; ;main.c: 243: _delay((unsigned long)((50)*(2000000/4000.0)));
+"243
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
+"244
+}
+[e :U 1410 ]
+"242
+[e $ ! != -> ( _EUSART2_is_rx_ready ..  `i -> -> -> 0 `i `uc `i 1411  ]
+[e :U 1412 ]
+[; ;main.c: 244: }
+[; ;main.c: 245: receivedScore[0] = EUSART2_Read();
+"245
+[e = *U + &U _receivedScore * -> -> -> 0 `i `ui `ux -> -> # *U &U _receivedScore `ui `ux ( _EUSART2_Read ..  ]
+[; ;main.c: 246: if(receivedScore[0] == 9)
+"246
+[e $ ! == -> *U + &U _receivedScore * -> -> -> 0 `i `ui `ux -> -> # *U &U _receivedScore `ui `ux `i -> 9 `i 1413  ]
+[; ;main.c: 247: do { LATAbits.LATA2 = 0; } while(0);
+"247
+[e :U 1416 ]
 {
 [e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 1395 ]
-[e $U 1397  ]
-"189
-[e :U 1393 ]
-[; ;main.c: 189: else
-[; ;main.c: 190: do { LATAbits.LATA2 = 1; } while(0);
-"190
-[e :U 1400 ]
-{
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[e :U 1415 ]
+[e :U 1413 ]
+"249
 }
-[e :U 1399 ]
-[e :U 1397 ]
-[; ;main.c: 202: for(int i=0; i<20; i++)
-"202
+[e :U 1409 ]
+[; ;main.c: 249: }
+[; ;main.c: 251: player = abs(player-1);
+"251
+[e = _player ( _abs (1 - _player -> 1 `i ]
+[; ;main.c: 263: for(int i=0; i<20; i++)
+"263
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 20 `i 1401  ]
-[e $U 1402  ]
-"203
-[e :U 1401 ]
-[; ;main.c: 203: _delay((unsigned long)((50)*(2000000/4000.0)));
+[e $ < _i -> 20 `i 1417  ]
+[e $U 1418  ]
+"264
+[e :U 1417 ]
+[; ;main.c: 264: _delay((unsigned long)((50)*(2000000/4000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 2000000 `l `d .4000.0 `ul ]
-"202
+"263
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 20 `i 1401  ]
-[e :U 1402 ]
-"203
+[e $ < _i -> 20 `i 1417  ]
+[e :U 1418 ]
+"264
 }
-"205
+"266
 }
-[e :U 1390 ]
-"169
-[e $U 1391  ]
-[e :U 1392 ]
-[; ;main.c: 205: }
-[; ;main.c: 206: }
-"206
-[e :UE 1389 ]
+[e :U 1403 ]
+"208
+[e $U 1404  ]
+[e :U 1405 ]
+[; ;main.c: 266: }
+[; ;main.c: 267: }
+"267
+[e :UE 1402 ]
 }

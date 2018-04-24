@@ -56,20 +56,21 @@ uint8_t readIoExpander(uint8_t addr, char bank, uint8_t index){
     uint8_t spots[8];
     uint8_t spaces=0;
     for(int i=0;i<8;i++){
-        spots[i] = rec & 2<<i;
-        spaces+=(i+index)*spots[i];
+        spots[i] = rec & 1<<i;
+        spots[i] = spots[i] >> i;
+        spaces+=spots[i]*(i+index);
     }
     return spaces;    
 }
 
 long updateExpanders(){
-    uint8_t lL, lR, mL, mR, rL, rR;
+    uint8_t lL=0, lR=0, mL=0, mR=0, rL=0, rR=0;
     lL = readIoExpander(0x20, 'l',40);
     lR = readIoExpander(0x20, 'r',32);
     mL = readIoExpander(0x21, 'l',24);
     mR = readIoExpander(0x21, 'r',16);
-    rL = readIoExpander(0x22, 'l',8);
-    rR = readIoExpander(0x22, 'r',0);
+    rL = readIoExpander(0x22, 'l',0);
+    rR = readIoExpander(0x22, 'r',8);
     
     long spaces = lL+lR+mL+mR+rL+rR;
     return spaces;
@@ -97,6 +98,40 @@ uint8_t checkEnd(){
     uint8_t lL = readIoExpander(0x20, 'l',40);
     return lL;
 }
+
+//read chars until :
+//combine chars into string
+//convert string to int with atoi
+void readAllBytes(uint8_t* store){
+    
+    while(!EUSART2_is_rx_ready()){
+        __delay_ms(50);
+    }
+    int i=0;
+    while(EUSART2_is_rx_ready()){
+        uint8_t received;
+        received = EUSART2_Read();
+        if(received == ':')
+            break;
+        else
+            store[i] = received;
+        i++;
+        __delay_ms(10);
+    }
+        
+}
+
+uint8_t encodeScore(int score){
+    int scaledScore = score/1000;
+    if(scaledScore > 255)
+        scaledScore = 255;
+    else if(scaledScore < 0)
+        scaledScore=0;
+    uint8_t trans = (uint8_t) scaledScore;
+    return trans;
+}
+
+//function to convert int to bytes and send to photon
 
 
 
@@ -134,8 +169,9 @@ void main(void)
     //i2c_writeNBytes(i2c_address_t address, void* data, size_t len); 
 //    uint8_t data[2];
 //    uint8_t addr = 0x20;
-    uint8_t gamerScore = 0x17;  //gammer score = 23
-    uint8_t photonAddress = 0x30;  //I2C address for Particle 
+    //123,400
+    uint8_t gamerScore[] = {0,0};  //gammer score = 23
+    uint8_t photonAddress = 2;  //I2C address for Particle 
     
     //set A to out
 //    data[0] = 0x00;
@@ -157,17 +193,21 @@ void main(void)
 //    data[1]=8;
 //    i2c_writeNBytes(addr, data, 2);
     
-    //i2c_writeNBytes(photonAddress, &gamerScore, 1); //sends gamer score to the Photon
+    //i2c_writeNBytes(photonAddress, &gamerScore[0], 1); //sends gamer score to the Photon
     
+    EUSART1_Initialize();
     EUSART2_Initialize();
     
     //uint8_t rec = 0;
     
     int player = 0;
     long spot[2] = {0,0};
+    uint8_t receivedScore[7];
+    int plainScore;
 
     while (1)
     {
+        //i2c_writeNBytes(photonAddress, &gamerScore, 1); //sends gamer score to the Photon
 //        // Read B
 //        data[0]=0x12;
 //        i2c_writeNBytes(addr, &data[0], 1);
@@ -183,15 +223,36 @@ void main(void)
 //        for(int i=0; i<20; i++)
 //            __delay_ms(50); 
         
-        spot[player] = getSpaces() - spot[abs(player-1)];
-        if(spot[player] > 46)
-            IO_RA2_SetLow();
+        //space debugging uncomment
+        spot[player] = getSpaces()-31- spot[abs(player-1)];
+        if(spot[player] > 47)
+            spot[player] = spot[player]/2;
+           
+        //spot[player] = 40;
+        
+        if(player == 0)
+            EUSART1_Write(spot[player]);
         else
-            IO_RA2_SetHigh();
+            EUSART2_Write(spot[player]);
+         
+        if(spot[player] == 40){
+//            readAllBytes(receivedScore);
+//            plainScore = atoi(receivedScore);
+//            gamerScore[0] = encodeScore(plainScore);
+            while(!EUSART2_is_rx_ready()){
+                __delay_ms(50);
+            }
+            receivedScore[0] = EUSART2_Read();
+            if(receivedScore[0] == 9)
+                IO_RA2_SetLow();
+            //i2c_writeNBytes(photonAddress, &gamerScore[0], 1); //sends gamer score to the Photon
+        }
+         
+        player = abs(player-1);
         
-        EUSART2_Write(spot[player]);
+        //
         
-        //player = abs(player-1);
+        
         
         
         

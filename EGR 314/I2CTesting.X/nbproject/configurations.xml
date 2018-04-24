@@ -15,6 +15,7 @@
         <itemPath>mcc_generated_files/drivers/i2c_types.h</itemPath>
         <itemPath>mcc_generated_files/drivers/i2c_simple_master.h</itemPath>
         <itemPath>mcc_generated_files/eusart2.h</itemPath>
+        <itemPath>mcc_generated_files/eusart1.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -35,6 +36,7 @@
         <itemPath>mcc_generated_files/drivers/i2c_types.c</itemPath>
         <itemPath>mcc_generated_files/drivers/i2c_simple_master.c</itemPath>
         <itemPath>mcc_generated_files/eusart2.c</itemPath>
+        <itemPath>mcc_generated_files/eusart1.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -158,7 +160,6 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>
@@ -188,7 +189,7 @@
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="voltagevalue" value="3.875"/>
+        <property key="voltagevalue" value="4.0"/>
       </ICD3PlatformTool>
       <PICkit3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
